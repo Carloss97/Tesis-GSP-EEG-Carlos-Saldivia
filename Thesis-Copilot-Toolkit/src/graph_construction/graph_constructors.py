@@ -7,6 +7,12 @@ from typing import Any, Dict
 import numpy as np
 
 # Interfaz estándar para construcción de grafo
+
+
+from sklearn.neighbors import kneighbors_graph
+from scipy.spatial.distance import cdist
+import numpy as np
+
 def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, **kwargs) -> Dict[str, Any]:
     """
     Construye un grafo según el método especificado.
@@ -18,4 +24,16 @@ def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, 
       - 'adjacency': matriz de adyacencia (N_electrodos, N_electrodos)
       - 'info': metadatos del grafo
     """
+    if method == "knn":
+      k = kwargs.get("k", 5)
+      adjacency = kneighbors_graph(positions, n_neighbors=k, mode='connectivity', include_self=False)
+      info = {"method": "knn", "k": k}
+      return {"adjacency": adjacency, "info": info}
+    elif method == "gaussian":
+      sigma = kwargs.get("sigma", 1.0)
+      dists = cdist(positions, positions)
+      adjacency = np.exp(-dists**2 / (2 * sigma**2))
+      np.fill_diagonal(adjacency, 0)
+      info = {"method": "gaussian", "sigma": sigma}
+      return {"adjacency": adjacency, "info": info}
     raise NotImplementedError("Implementar construcción para: " + method)
