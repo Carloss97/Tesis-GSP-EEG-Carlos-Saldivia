@@ -1,0 +1,113 @@
+1. Se crea ambiente virtual con conda, se activa ambiente creado.
+2. Conda install pip
+3. Se intenta: pip install -i https://test.pypi.org/simple/ EEGraSP==0.0.2
+-INFO: pip is looking at multiple versions of eegrasp to determine which version is compatible with other requirements. This could take a while.
+ERROR: Could not find a version that satisfies the requirement matplotlib (from eegrasp) (from versions: none)
+ERROR: No matching distribution found for matplotlib
+4. Conda install matplotlib
+5. Se intenta: pip install -i https://test.pypi.org/simple/ EEGraSP==0.0.2 
+-INFO: pip is looking at multiple versions of eegrasp to determine which version is compatible with other requirements. This could take a while.
+ERROR: Could not find a version that satisfies the requirement pygsp>=0.5.1 (from eegrasp) (from versions: 0.1.0, 0.5.0)
+ERROR: No matching distribution found for pygsp>=0.5.1
+6. pip install pygsp
+7. Se intenta nuevamente.
+-Collecting mne (from EEGraSP==0.0.2)
+  Using cached https://test-files.pythonhosted.org/packages/3b/d9/6a9c71dd2381fc79856dc6d23a9402f1be99a98fe926ef7f2fa14687b4bd/mne-1.3.0-py3-none-any.whl.metadata (8.3 kB)
+Requirement already satisfied: numpy in c:\users\sarlo\anaconda3\envs\test-env2\lib\site-packages (from EEGraSP==0.0.2) (1.26.4)
+Requirement already satisfied: pygsp>=0.5.1 in c:\users\sarlo\anaconda3\envs\test-env2\lib\site-packages (from EEGraSP==0.0.2) (0.5.1)
+Requirement already satisfied: scipy in c:\users\sarlo\anaconda3\envs\test-env2\lib\site-packages (from EEGraSP==0.0.2) (1.13.0)
+INFO: pip is looking at multiple versions of eegrasp to determine which version is compatible with other requirements. This could take a while.
+ERROR: Could not find a version that satisfies the requirement tqdm (from eegrasp) (from versions: none)
+ERROR: No matching distribution found for tqdm
+8. conda install tqdm
+9. Se intenta: pip install -i https://test.pypi.org/simple/ EEGraSP==0.0.2, Successfully installed EEGraSP-0.0.2 mne-0.21.99
+10. pip install git+https://github.com/epfl-lts2/pygsp.git
+-Collecting git+https://github.com/epfl-lts2/pygsp.git
+  Cloning https://github.com/epfl-lts2/pygsp.git to c:\users\sarlo\appdata\local\temp\pip-req-build-bcn2mwgr
+  Running command git clone --filter=blob:none --quiet https://github.com/epfl-lts2/pygsp.git 'C:\Users\sarlo\AppData\Local\Temp\pip-req-build-bcn2mwgr'
+  Resolved https://github.com/epfl-lts2/pygsp.git to commit a3412ce7696c02c8a55439e89d0c9ab8ae863269
+  Preparing metadata (setup.py) ... done
+Requirement already satisfied: numpy in c:\users\sarlo\anaconda3\envs\test-env2\lib\site-packages (from PyGSP==0.5.1) (1.26.4)
+Requirement already satisfied: scipy in c:\users\sarlo\anaconda3\envs\test-env2\lib\site-packages (from PyGSP==0.5.1) (1.13.0)
+11. git clone git@gitlab.com:gsp8332409/eegrasp.git
+12. cd eegrasp
+13. cd examples
+14. python .\erp_analysis.py
+-C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\examples\erp_analysis.py", line 8, in <module>
+    subjects = np.arange(1, 10)
+               ^^
+NameError: name 'np' is not defined
+15. python .\electrode_distance.py
+-C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\examples\electrode_distance.py", line 12, in <module>
+    from EEGraSP.eegrasp import EEGraSP
+  File "C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\EEGraSP\eegrasp.py", line 10, in <module>
+    from pygsp import graphs, learning
+ImportError: cannot import name 'learning' from 'pygsp' (C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\pygsp\__init__.py)
+16. python .\ERP_reconstruction.py
+-C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\examples\ERP_reconstruction.py", line 9, in <module>
+    from EEGraSP.eegrasp import EEGraSP
+  File "C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\EEGraSP\eegrasp.py", line 10, in <module>
+    from pygsp import graphs, learning
+ImportError: cannot import name 'learning' from 'pygsp' (C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\pygsp\__init__.py)
+17. python .\interpolate_channel.py
+-C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\examples\interpolate_channel.py", line 7, in <module>
+    from EEGraSP.EEGraSP import EEGraSP
+ModuleNotFoundError: No module named 'EEGraSP.EEGraSP'
+
+18. Se agrega a erp_analysis: import numpy as np
+-C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Downloading https://physionet.org/files/eegmmidb/1.0.0/S001/S001R04.edf (2.5 MB)
+Descargas...
+Traceback (most recent call last):
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\examples\erp_analysis.py", line 21, in <module>
+    raw.annotations.rename(dict(T1="left", T2="right"))
+    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Annotations' object has no attribute 'rename'
+
+19. cd .. ,  cd test.
+20. python .\compare_distance_method.py
+  File "C:\Users\sarlo\Desktop\Tesis\eegrasp\tests\compare_distance_method.py", line 21
+    %%timeit
+    ^
+SyntaxError: invalid syntax
+21. python: >>> from EEGraSP.eegrasp import EEGraSP
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\EEGraSP\eegrasp.py", line 10, in <module>
+    from pygsp import graphs, learning
+ImportError: cannot import name 'learning' from 'pygsp' (C:\Users\sarlo\anaconda3\envs\test-env2\Lib\site-packages\pygsp\__init__.py)
+
+
+
+C:\Users\sarlo\anaconda3\envs\test-env\Lib\site-packages\mne\fixes.py:321: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(scipy.__version__) >= '1.1':
+C:\Users\sarlo\anaconda3\envs\test-env\Lib\site-packages\mne\externals\tempita\__init__.py:35: DeprecationWarning: 'cgi' is deprecated and slated for removal in Python 3.13
+  import cgi
+Traceback (most recent call last):
+  File "c:\Users\sarlo\Desktop\Tesis\EEGraSP\electrode_distance.py", line 18, in <module>
+    EEG_pos = montage.get_positions()['ch_pos']
+              ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DigMontage' object has no attribute 'get_positions'
