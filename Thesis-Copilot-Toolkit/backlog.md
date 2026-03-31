@@ -1,3 +1,70 @@
+## Pipeline experimental y de comparación
+
+### 1. Preparación y carga de datos
+- [ ] Descargar/preparar los 4 datasets seleccionados
+- [ ] Estandarizar formato de señales y posiciones de electrodos
+- [ ] Implementar scripts de carga y preprocesamiento en /src/data/
+
+### 2. Construcción de grafos
+- [ ] Implementar función wrapper para seleccionar método de grafo
+- [ ] Generar y guardar matrices de adyacencia para cada dataset
+- [ ] Validar visualmente y numéricamente los grafos generados
+
+### 3. Simulación de canales faltantes
+- [ ] Definir protocolos de enmascaramiento (aleatorio, sistemático, realista)
+- [ ] Implementar función para simular canales faltantes en señales
+
+### 4. Interpolación/reconstrucción
+- [ ] Implementar función wrapper para seleccionar método de interpolación
+- [ ] Ejecutar reconstrucción para cada combinación de grafo, interpolador y dataset
+- [ ] Guardar señales reconstruidas y parámetros usados
+
+### 5. Evaluación y comparación
+- [ ] Calcular métricas (MAE, DTW, RMSE, SNR) para cada experimento
+- [ ] Generar tablas y figuras comparativas
+- [ ] Automatizar ranking de métodos por métrica
+
+### 6. Análisis y reporte
+- [ ] Analizar resultados y extraer conclusiones
+- [ ] Redactar secciones de resultados y discusión para paper y tesis
+
+## Datasets seleccionados para experimentos
+
+1. **MNE Sample Dataset**
+	- Origen: mne.datasets.sample
+	- Características: EEG/MEG multimodal, eventos auditivos y visuales, formato .fif, montajes 3D.
+2. **PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)**
+	- Origen: PhysioNet, vía mne.datasets.eegbci
+	- Características: 109 sujetos, tareas motoras, 64 electrodos, formato .edf.
+3. **Dataset sintético propio**
+	- Origen: Generado artificialmente para validación controlada de métodos.
+	- Características: Permite definir posiciones, canales faltantes y señales conocidas.
+4. **BCI Competition IV Dataset 2a**
+	- Origen: BCI Competition IV (https://www.bbci.de/competition/iv/)
+	- Características: EEG de 9 sujetos, 22 canales, tareas de imaginación motora, formato .gdf.
+
+---
+
+## Protocolos de entrada/salida para métodos
+
+### Entrada estándar para métodos de construcción de grafo
+- Matriz de posiciones de electrodos: shape (N_electrodos, 3) para coordenadas 3D (o 2D si aplica)
+- (Opcional) Matriz de señales EEG: shape (N_instantes, N_electrodos) para métodos data-driven
+- Parámetros específicos del método (k, sigma, etc.)
+
+### Salida estándar de métodos de construcción de grafo
+- Matriz de adyacencia (N_electrodos, N_electrodos), formato denso o disperso
+- (Opcional) Matriz de pesos o afinidades
+
+### Entrada estándar para métodos de interpolación
+- Señal EEG incompleta: vector (N_electrodos,) o matriz (N_instantes, N_electrodos) con NaN en canales faltantes
+- Grafo (matriz de adyacencia) correspondiente
+- (Opcional) Parámetros del método (regularización, kernel, etc.)
+
+### Salida estándar de métodos de interpolación
+- Señal EEG reconstruida: vector o matriz del mismo shape que la entrada, con valores estimados en los canales faltantes
+- (Opcional) Métricas de error si se compara con señal original
+
 ## Organización general del pipeline experimental y de comparación
 
 ### 1. Preparación de datos
