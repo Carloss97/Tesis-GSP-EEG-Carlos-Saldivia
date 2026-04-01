@@ -28,7 +28,6 @@ INSTANT_METHODS = {
     "mean",
     "random",
     "idw",
-    "nni",
     "spherical_spline",
     "rbfi_tps",
     "rbfi_mq",
@@ -37,7 +36,6 @@ INSTANT_METHODS = {
     "tikhonov",
     "bgsrp",
     "gsmooth",
-    "qiu_batch",
     "puy",
     "sobolev",
 }
@@ -56,14 +54,12 @@ GRAPH_BASED = {
     "graph_time_tikhonov",
     "trss",
     "tv",
-    "qiu_batch",
     "puy",
     "sobolev",
 }
 
 POSITION_BASED = {
     "idw",
-    "nni",
     "spherical_spline",
     "rbfi_tps",
     "rbfi_mq",
@@ -118,7 +114,6 @@ def run_benchmark(include_mne: bool = True, max_time_samples: int = 220) -> pd.D
     method_spaces = {
         "linear": [{}],
         "idw": expand_grid({"power": [1.5, 2.0, 3.0]}),
-        "nni": expand_grid({"k_neighbors": [4, 6, 8]}),
         "rbfi_tps": [{}],
         "rbfi_mq": [{}],
         "spherical_spline": [{}],

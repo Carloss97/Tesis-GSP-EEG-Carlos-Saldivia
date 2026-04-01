@@ -22,14 +22,12 @@ GRAPH_BASED = {
     "graph_time_tikhonov",
     "trss",
     "tv",
-    "qiu_batch",
     "puy",
     "sobolev",
 }
 
 POSITION_BASED = {
     "idw",
-    "nni",
     "spherical_spline",
     "rbfi_tps",
     "rbfi_mq",

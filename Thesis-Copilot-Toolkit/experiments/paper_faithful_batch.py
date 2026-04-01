@@ -40,7 +40,6 @@ def run_batch(include_mne: bool = True) -> pd.DataFrame:
     interpolators = [
         "linear",
         "idw",
-        "nni",
         "rbfi_tps",
         "rbfi_mq",
         "spline_surface",
@@ -52,7 +51,6 @@ def run_batch(include_mne: bool = True) -> pd.DataFrame:
         "graph_time_tikhonov",
         "trss",
         "tv",
-        "qiu_batch",
         "puy",
         "sobolev",
     ]
@@ -65,11 +63,10 @@ def run_batch(include_mne: bool = True) -> pd.DataFrame:
         "graph_time_tikhonov",
         "trss",
         "tv",
-        "qiu_batch",
         "puy",
         "sobolev",
     }
-    position_based = {"idw", "nni", "rbfi_tps", "rbfi_mq", "spline_surface", "spherical_spline"}
+    position_based = {"idw", "rbfi_tps", "rbfi_mq", "spline_surface", "spherical_spline"}
 
     rows = []
     for ds_name, loader in datasets.items():

@@ -1,63 +1,79 @@
-# Tesis: Reconstrucción de EEG usando GSP e Interpolación
+# Tesis: Reconstruccion de EEG usando GSP e Interpolacion
 
-## Hipótesis
-El uso de técnicas de interpolación basadas en grafos (GSP) permite reconstruir señales de EEG de manera más precisa que los métodos clásicos.
+## Hipotesis
+El uso de tecnicas de interpolacion basadas en grafos (GSP) permite reconstruir senales de EEG de manera mas precisa que metodos clasicos.
 
 ## Objetivos
-1. Implementar y comparar distintos métodos de construcción de grafos para EEG.
-2. Implementar y comparar métodos de interpolación (GSP y clásicos).
-3. Evaluar el desempeño usando métricas objetivas (MAE, DTW, etc.).
-4. Redactar paper científico y tesis extendida.
+1. Implementar y comparar metodos de construccion de grafos para EEG.
+2. Implementar y comparar metodos de interpolacion (GSP, baselines clasicos y metodos temporales).
+3. Evaluar desempeno con MAE, RMSE, DTW y SNR.
+4. Consolidar resultados para paper cientifico y tesis.
 
 ## Pipeline general
-1. Input: Señal EEG y localización de electrodos
-2. Construcción de grafo (varios métodos)
-3. Interpolación de electrodos faltantes (varios métodos)
-4. Evaluación cuantitativa (métricas)
-5. Comparación y análisis de resultados
-6. Redacción de resultados y discusión
+1. Carga de senal EEG y posiciones de electrodos
+2. Construccion de grafo
+3. Simulacion de canales faltantes
+4. Reconstruccion/interpolacion
+5. Evaluacion cuantitativa y ranking
+6. Analisis y reporte
 
-## Estructura de carpetas
-- /experiments: scripts y notebooks de experimentos
-- /src: implementación modular de métodos
-- /results: resultados, logs, figuras
-- /paper: borrador del paper
-- /thesis: borrador de la tesis
-- /backlog.md: lista de tareas y métodos
+## Estructura
+- `experiments/`: scripts de experimentacion
+- `src/`: implementacion modular
+- `results/`: salidas (csv, rankings, figuras)
+- `paper/`: borrador de paper
+- `thesis/`: borrador de tesis
+- `backlog.md`: estado de tareas y metodos
+- `REFERENCES.md`: referencias por metodo
+- `VALIDATION_REPORT.md`: estado paper-faithful
 
-## Checklist de validación y documentación mínima
+## Nuevos avances (abril 2026)
 
-- [ ] Todos los métodos principales tienen docstring y ejemplo de uso en el código.
-- [ ] Existen scripts de ejemplo en /experiments para cada etapa del pipeline.
-- [ ] Se puede ejecutar un pipeline completo (de datos a resultados) con un solo script.
-- [ ] Las métricas y resultados generados son reproducibles (semillas fijas donde aplica).
-- [ ] Hay instrucciones claras para instalar dependencias y ejecutar experimentos.
-- [ ] Se han probado casos con datos sintéticos y reales.
-- [ ] Los resultados clave (tablas/figuras) están guardados en /results y referenciados en el paper/tesis.
-- [ ] Se han validado los métodos ante entradas erróneas (NaN, shapes inesperados, etc.).
+- BGSRP actualizado a referencia primaria RKHS (Zhang et al., 2024).
+- Figura principal tipo GraphTRSS reproducida y guardada en `results/graphtrss_main_figure.png`.
+- Benchmark de chequeo BGSRP vs familia Narang generado en `results/bgsrp_vs_narang_check_summary.csv`.
+- Tests paper-faithful agregados en `tests/test_paper_faithful.py`.
 
-### Sugerencia para pruebas automáticas
+## Estado de validacion paper-faithful
 
-Se recomienda agregar un archivo `tests/test_pipeline.py` con pruebas mínimas:
+Se usa una matriz de estado por metodo:
+- `HIGH`: paper + formulacion + implementacion alineadas
+- `MEDIUM`: alineado, pendiente de reproducibilidad numerica completa
+- `N/A`: baseline sin claim paper-faithful
 
-```python
-import numpy as np
-from src.data import data_loader
-from src.graph_construction import graph_constructors
-from src.interpolation import interpolators
-from src.evaluation import evaluation
+Resumen rapido:
+- `trss` / `sobolev_temporal`: HIGH
+- `bgsrp`: MEDIUM (alineado a RKHS, pendiente comparacion numerica 1:1 con MATLAB)
+- Baselines geometricos/classicos: N/A
 
-def test_dummy_mean():
-	x = np.array([[1., np.nan, 3.], [np.nan, 5., 6.]])
-	A = np.eye(3)
-	y = interpolators.interpolate('dummy_mean', x, A)['signals_reconstructed']
-	assert not np.isnan(y).any()
+Detalle completo en `VALIDATION_REPORT.md` y trazabilidad por metodo en `REFERENCES.md`.
 
-def test_eval_1d():
-	y = np.array([1., 2., 3.])
-	p = np.array([1., 2., 2.])
-	res = evaluation.evaluate_signals(y, p, ['mae', 'rmse', 'dtw', 'snr'])
-	assert all(k in res for k in ['mae', 'rmse', 'dtw', 'snr'])
-```
+## Metodos activos
 
-Esto ayuda a detectar errores futuros y mejora la reproducibilidad.
+### Construccion de grafos
+`knn`, `knng`, `vknng`, `gaussian`, `epsilon_ball`, `mst`, `fully_connected_inverse_distance`, `nnk`, `aew`, `kalofolias`
+
+### Interpolacion por instante
+`linear`, `nearest`, `mean`, `random`, `idw`, `spherical_spline`, `rbfi_tps`, `rbfi_mq`, `spline_surface`, `gsp`, `tikhonov`, `gsmooth`, `bgsrp`, `puy`, `sobolev`
+
+### Interpolacion TV/tiempo
+`graph_time_tikhonov`, `trss`, `sobolev_temporal`, `tv`, `temporal_laplacian`, `heat_diffusion_temporal`, `spline_temporal`, `wavelet_temporal`, `directed_tv`, `adaptive_temporal`
+
+## Artefactos de validacion disponibles
+
+- `results/paper_faithful_results.csv`
+- `results/paper_faithful_rank_mae.csv`
+- `results/bgsrp_vs_narang_check.csv`
+- `results/bgsrp_vs_narang_check_summary.csv`
+- `results/graphtrss_main_figure_raw.csv`
+- `results/graphtrss_main_figure_summary.csv`
+- `results/graphtrss_main_figure.png`
+
+## Checklist minimo
+
+- [x] Referencias bibliograficas por metodo
+- [x] Estado paper-faithful documentado
+- [x] Tests paper-faithful iniciales
+- [ ] Reproducibilidad numerica completa para todos los metodos paper-faithful
+- [ ] Corrida final extendida con DTW completo
+- [ ] Tabla final consolidada baseline vs GSP vs TV/tiempo

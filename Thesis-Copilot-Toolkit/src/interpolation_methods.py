@@ -1,14 +1,10 @@
 """Interpolation methods for EEG reconstruction with missing channels."""
 
 from typing import Any, Dict
-import warnings
 
 import numpy as np
-from scipy.interpolate import LinearNDInterpolator, Rbf, SmoothBivariateSpline
+from scipy.interpolate import Rbf, SmoothBivariateSpline
 from scipy.special import lpmv
-
-
-_NNI_FALLBACK_WARNED = False
 
 
 def interpolate_signals(
@@ -58,8 +54,12 @@ def interpolate_signals(
         if adjacency is None:
             raise ValueError("Se requiere 'adjacency' para BGSRP.")
         bandwidth = int(kwargs.get("bandwidth", max(2, min(signals.shape[1] // 4, signals.shape[1] - 1))))
-        reconstructed = interpolate_bgsrp(signals, adjacency=adjacency, bandwidth=bandwidth)
-        return {"reconstructed": reconstructed, "info": {"method": "bgsrp", "bandwidth": bandwidth}}
+        gamma = float(kwargs.get("gamma", 0.1))
+        reconstructed = interpolate_bgsrp(signals, adjacency=adjacency, bandwidth=bandwidth, gamma=gamma)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "bgsrp", "bandwidth": bandwidth, "gamma": gamma},
+        }
 
     if method in {"gsmooth", "graph_regularization"}:
         if adjacency is None:
@@ -112,12 +112,96 @@ def interpolate_signals(
             "info": {"method": "tv", "lam": lam, "n_iter": n_iter},
         }
 
-    if method == "qiu_batch":
+    if method == "sobolev_temporal":
         if adjacency is None:
-            raise ValueError("Se requiere 'adjacency' para Qiu batch.")
-        alpha = float(kwargs.get("alpha", 1.0))
-        reconstructed = interpolate_qiu_batch(signals, adjacency=adjacency, alpha=alpha)
-        return {"reconstructed": reconstructed, "info": {"method": "qiu_batch", "alpha": alpha}}
+            raise ValueError("Se requiere 'adjacency' para sobolev_temporal.")
+        alpha = float(kwargs.get("alpha", 0.5))
+        beta = float(kwargs.get("beta", 0.2))
+        n_iter = int(kwargs.get("n_iter", 100))
+        lr = float(kwargs.get("lr", 0.05))
+        reconstructed = interpolate_sobolev_temporal(
+            signals,
+            adjacency=adjacency,
+            alpha=alpha,
+            beta=beta,
+            n_iter=n_iter,
+            lr=lr,
+        )
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "sobolev_temporal", "alpha": alpha, "beta": beta, "n_iter": n_iter, "lr": lr},
+        }
+
+    if method == "temporal_laplacian":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para temporal_laplacian.")
+        alpha = float(kwargs.get("alpha", 0.7))
+        beta = float(kwargs.get("beta", 0.25))
+        reconstructed = interpolate_temporal_laplacian(signals, adjacency=adjacency, alpha=alpha, beta=beta)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "temporal_laplacian", "alpha": alpha, "beta": beta},
+        }
+
+    if method == "heat_diffusion_temporal":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para heat_diffusion_temporal.")
+        alpha = float(kwargs.get("alpha", 0.5))
+        beta = float(kwargs.get("beta", 0.3))
+        n_iter = int(kwargs.get("n_iter", 80))
+        reconstructed = interpolate_heat_diffusion_temporal(signals, adjacency=adjacency, alpha=alpha, beta=beta, n_iter=n_iter)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "heat_diffusion_temporal", "alpha": alpha, "beta": beta, "n_iter": n_iter},
+        }
+
+    if method == "spline_temporal":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para spline_temporal.")
+        alpha = float(kwargs.get("alpha", 0.6))
+        s_temporal = float(kwargs.get("s_temporal", 0.1))
+        reconstructed = interpolate_spline_temporal(signals, adjacency=adjacency, alpha=alpha, s_temporal=s_temporal)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "spline_temporal", "alpha": alpha, "s_temporal": s_temporal},
+        }
+
+    if method == "wavelet_temporal":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para wavelet_temporal.")
+        alpha = float(kwargs.get("alpha", 0.65))
+        wavelet_level = int(kwargs.get("wavelet_level", 2))
+        reconstructed = interpolate_wavelet_temporal(signals, adjacency=adjacency, alpha=alpha, wavelet_level=wavelet_level)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "wavelet_temporal", "alpha": alpha, "wavelet_level": wavelet_level},
+        }
+
+    if method == "directed_tv":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para directed_tv.")
+        alpha = float(kwargs.get("alpha", 0.5))
+        beta = float(kwargs.get("beta", 0.15))
+        n_iter = int(kwargs.get("n_iter", 50))
+        eps = float(kwargs.get("eps", 1e-5))
+        reconstructed = interpolate_directed_tv(signals, adjacency=adjacency, alpha=alpha, beta=beta, n_iter=n_iter, eps=eps)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "directed_tv", "alpha": alpha, "beta": beta, "n_iter": n_iter},
+        }
+
+    if method == "adaptive_temporal":
+        if adjacency is None:
+            raise ValueError("Se requiere 'adjacency' para adaptive_temporal.")
+        alpha = float(kwargs.get("alpha", 0.55))
+        beta = float(kwargs.get("beta", 0.2))
+        gamma = float(kwargs.get("gamma", 0.05))
+        n_iter = int(kwargs.get("n_iter", 100))
+        reconstructed = interpolate_adaptive_temporal(signals, adjacency=adjacency, alpha=alpha, beta=beta, gamma=gamma, n_iter=n_iter)
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "adaptive_temporal", "alpha": alpha, "beta": beta, "gamma": gamma, "n_iter": n_iter},
+        }
 
     if method == "puy":
         if adjacency is None:
@@ -135,15 +219,6 @@ def interpolate_signals(
         return {
             "reconstructed": reconstructed,
             "info": {"method": "sobolev", "alpha": alpha, "order": order},
-        }
-
-    if method in {"nni", "natural_neighbor"}:
-        positions = kwargs.get("positions")
-        k_neighbors = int(kwargs.get("k_neighbors", 6))
-        reconstructed = interpolate_nni(signals, positions=positions, k_neighbors=k_neighbors)
-        return {
-            "reconstructed": reconstructed,
-            "info": {"method": "nni", "k_neighbors": k_neighbors, "note": "approx"},
         }
 
     if method in {"spherical_spline", "rbfi_tps", "rbfi_mq", "spline_surface"}:
@@ -327,13 +402,25 @@ def interpolate_tikhonov(signals: np.ndarray, adjacency: np.ndarray, alpha: floa
     return reconstructed
 
 
-def interpolate_bgsrp(signals: np.ndarray, adjacency: np.ndarray, bandwidth: int = 8) -> np.ndarray:
+def interpolate_bgsrp(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    bandwidth: int = 8,
+    gamma: float = 0.1,
+    reg: float = 1e-8,
+) -> np.ndarray:
     from scipy.sparse import csgraph
 
     laplacian = csgraph.laplacian(adjacency, normed=False)
     evals, evecs = np.linalg.eigh(laplacian)
-    k = int(np.clip(bandwidth, 1, evecs.shape[1]))
-    u_k = evecs[:, :k]
+
+    # RKHS BGSRP usa base bandlimited excluyendo componente DC.
+    n_nodes = evecs.shape[0]
+    n = int(np.clip(bandwidth, 2, n_nodes - 1))
+    u_n = evecs[:, 1:n]
+    mu_n = evals[1:n]
+    mu_n = np.maximum(mu_n, reg)
+    phi_n = np.diag(1.0 / mu_n)
 
     reconstructed = signals.copy()
     for i in range(signals.shape[0]):
@@ -345,11 +432,25 @@ def interpolate_bgsrp(signals: np.ndarray, adjacency: np.ndarray, bandwidth: int
             reconstructed[i] = np.zeros_like(y)
             continue
 
-        a = u_k[observed, :]
-        b = y[observed]
+        x0 = np.where(observed)[0]
+        y0 = y[x0]
+        ell = x0.size
+
+        b_mat = u_n[x0, :]
+        a_center = np.eye(ell) - np.ones((ell, ell), dtype=float) / float(ell)
+
         try:
-            coeffs, *_ = np.linalg.lstsq(a, b, rcond=None)
-            reconstructed[i] = u_k @ coeffs
+            core = phi_n @ (b_mat.T @ a_center @ b_mat) @ phi_n
+            g_mat = b_mat @ (gamma * phi_n + core) @ b_mat.T
+            d_vec = b_mat @ phi_n @ b_mat.T @ a_center @ y0
+
+            xi = np.linalg.pinv(g_mat + reg * np.eye(ell)) @ d_vec
+            g_vec = u_n @ phi_n @ b_mat.T @ xi
+
+            # Termino constante z de la formulacion original.
+            z = -np.sum(g_vec[x0] - y0) / float(ell)
+            x_rec = g_vec + z
+            reconstructed[i] = x_rec
         except np.linalg.LinAlgError:
             reconstructed[i, ~observed] = np.nanmean(y)
 
@@ -407,7 +508,9 @@ def interpolate_trss(
     lr: float = 0.05,
 ) -> np.ndarray:
     """
-    TRSS (aprox): regularizacion espacio-temporal con restricciones duras en observaciones.
+    GraphTRSS paper-faithful (Giraldo et al. 2022, aproximacion por gradiente):
+    min_X ||M o (X-Y)||_F^2 + alpha * tr(X L_g X^T) + beta * tr((D X) L_g (D X)^T)
+    con restricciones duras en observaciones M.
     """
     from scipy.sparse import csgraph
 
@@ -430,10 +533,11 @@ def interpolate_trss(
         d[idx, idx + 1] = 1.0
     lap_t = d.T @ d
 
-    # Paso adaptativo basado en cota de Lipschitz aproximada.
+    # Paso adaptativo basado en cota de Lipschitz aproximada para
+    # grad(X) = 2 M o (X-Y) + 2 alpha X L_g + 2 beta L_t X L_g.
     norm_lg = np.linalg.norm(lap_g, ord=2)
     norm_lt = np.linalg.norm(lap_t, ord=2)
-    lipschitz = 2.0 * (1.0 + alpha * norm_lg + beta * norm_lt)
+    lipschitz = 2.0 * (1.0 + alpha * norm_lg + beta * norm_lt * norm_lg)
     step = min(lr, 1.0 / max(lipschitz, 1e-8))
 
     scale = np.nanstd(y)
@@ -444,8 +548,9 @@ def interpolate_trss(
     for _ in range(n_iter):
         grad_data = (x - np.nan_to_num(y, nan=0.0)) * mask
         grad_graph = x @ lap_g
-        grad_time = lap_t @ x
-        grad = 2.0 * grad_data + 2.0 * alpha * grad_graph + 2.0 * beta * grad_time
+        # Termino Sobolev temporal en grafo: D^T D X L_g = L_t X L_g.
+        grad_sobolev = (lap_t @ x) @ lap_g
+        grad = 2.0 * grad_data + 2.0 * alpha * grad_graph + 2.0 * beta * grad_sobolev
 
         x = x - step * grad
         x = np.clip(x, -clip_bound, clip_bound)
@@ -507,27 +612,6 @@ def interpolate_graph_tv(
     return x
 
 
-def interpolate_qiu_batch(signals: np.ndarray, adjacency: np.ndarray, alpha: float = 1.0) -> np.ndarray:
-    from scipy.sparse import csgraph
-
-    laplacian = csgraph.laplacian(adjacency, normed=False)
-    n_channels = signals.shape[1]
-    eye = np.eye(n_channels)
-
-    reconstructed = signals.copy()
-    for i in range(signals.shape[0]):
-        y = signals[i]
-        observed = ~np.isnan(y)
-        m = np.diag(observed.astype(float))
-        rhs = np.nan_to_num(y, nan=0.0)
-        a = m + alpha * (eye + laplacian)
-        try:
-            reconstructed[i] = np.linalg.solve(a, m @ rhs)
-        except np.linalg.LinAlgError:
-            reconstructed[i, ~observed] = np.nanmean(y)
-    return reconstructed
-
-
 def interpolate_puy(signals: np.ndarray, adjacency: np.ndarray, alpha: float = 0.5) -> np.ndarray:
     # Aproximacion armonica regularizada sobre el grafo.
     from scipy.sparse import csgraph
@@ -572,70 +656,6 @@ def interpolate_sobolev(
             reconstructed[i] = np.linalg.solve(a, m @ b)
         except np.linalg.LinAlgError:
             reconstructed[i, ~observed] = np.nanmean(y)
-    return reconstructed
-
-
-def interpolate_nni(signals: np.ndarray, positions: np.ndarray = None, k_neighbors: int = 6) -> np.ndarray:
-    if positions is None:
-        raise ValueError("Se requieren 'positions' para NNI.")
-
-    reconstructed = signals.copy()
-    xy = positions[:, :2]
-    dists = np.linalg.norm(positions[:, None, :] - positions[None, :, :], axis=2)
-    np.fill_diagonal(dists, np.inf)
-
-    use_exact_backend = False
-    naturalneighbor_backend = None
-    try:
-        import naturalneighbor as naturalneighbor_backend  # type: ignore
-
-        use_exact_backend = True
-    except Exception:
-        global _NNI_FALLBACK_WARNED
-        if not _NNI_FALLBACK_WARNED:
-            warnings.warn(
-                "Paquete 'naturalneighbor' no disponible. NNI usara fallback lineal local.",
-                RuntimeWarning,
-            )
-            _NNI_FALLBACK_WARNED = True
-
-    for i in range(signals.shape[0]):
-        y = signals[i].copy()
-        observed = ~np.isnan(y)
-        obs_idx = np.where(observed)[0]
-        miss_idx = np.where(~observed)[0]
-        if obs_idx.size == 0 or miss_idx.size == 0:
-            continue
-
-        if use_exact_backend:
-            try:
-                pts = xy[obs_idx]
-                vals = y[obs_idx]
-                xi = xy[miss_idx]
-                pred = naturalneighbor_backend.griddata(pts, vals, xi)  # type: ignore[attr-defined]
-                pred = np.asarray(pred).reshape(-1)
-                y[miss_idx] = pred
-                reconstructed[i] = y
-                continue
-            except Exception:
-                # Si falla backend externo, continuar con fallback local.
-                pass
-
-        # Fallback estable: interpolación lineal en triangulación + IDW local para NaN residuales.
-        interp = LinearNDInterpolator(xy[obs_idx], y[obs_idx], fill_value=np.nan)
-        pred = interp(xy[miss_idx])
-        y[miss_idx] = pred
-
-        # Reemplazo de NaN residuales con IDW local.
-        rem = np.where(np.isnan(y))[0]
-        for m in rem:
-            local = obs_idx[np.argsort(dists[m, obs_idx])[: min(k_neighbors, obs_idx.size)]]
-            local_d = np.maximum(dists[m, local], 1e-12)
-            w = 1.0 / local_d
-            y[m] = np.dot(w, y[local]) / np.sum(w)
-
-        reconstructed[i] = y
-
     return reconstructed
 
 
@@ -738,6 +758,389 @@ def _perrin_g(cos_theta: np.ndarray, m: int = 4, n_terms: int = 50) -> np.ndarra
         p_n = lpmv(0, n, cos_theta)
         g += coeff * p_n
     return g / (4.0 * np.pi)
+
+
+def interpolate_sobolev_temporal(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.5,
+    beta: float = 0.2,
+    n_iter: int = 100,
+    lr: float = 0.05,
+) -> np.ndarray:
+    """
+    Alias de GraphTRSS (misma formulacion que interpolate_trss).
+    """
+    return interpolate_trss(
+        signals,
+        adjacency=adjacency,
+        alpha=alpha,
+        beta=beta,
+        n_iter=n_iter,
+        lr=lr,
+    )
+
+
+def interpolate_temporal_laplacian(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.7,
+    beta: float = 0.25,
+) -> np.ndarray:
+    """
+    Product graph: combined spatial-temporal Laplacian.
+    Interpola resolviendo min ||x - y||_M + alpha * x'Lx + beta * x'L_t x
+    donde L_t es el Laplaciano temporal.
+    """
+    from scipy.sparse import csgraph, eye, kron
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    n_t, n_ch = y.shape
+
+    # Laplacianos espacial y temporal
+    lap_g = csgraph.laplacian(adjacency, normed=False)
+    
+    # Laplaciano temporal simple (primeras diferencias)
+    l_temp = np.zeros((n_t, n_t), dtype=float)
+    for i in range(n_t - 1):
+        l_temp[i, i] += 1.0
+        l_temp[i, i + 1] -= 1.0
+        l_temp[i + 1, i] -= 1.0
+        l_temp[i + 1, i + 1] += 1.0
+
+    # Producto Kronecker: L_space ⊗ I_t + I_space ⊗ L_t
+    eye_t = eye(n_t, dtype=float)
+    eye_g = eye(n_ch, dtype=float)
+    
+    l_spatial = kron(lap_g, eye_t)
+    l_temporal = kron(eye_g, l_temp)
+    l_combined = alpha * l_spatial + beta * l_temporal
+
+    x_flat = y.ravel()
+    mask_flat = mask.ravel()
+    m = np.diag(mask_flat.astype(float))
+    b = np.nan_to_num(x_flat, nan=0.0)
+
+    a = m + l_combined
+    try:
+        x_flat = np.linalg.solve(a, m @ b)
+        return x_flat.reshape(n_t, n_ch)
+    except np.linalg.LinAlgError:
+        reconstructed = y.copy()
+        col_mean = np.nanmean(y, axis=0)
+        col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+        miss = ~mask
+        reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
+        return reconstructed
+
+
+def interpolate_heat_diffusion_temporal(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.5,
+    beta: float = 0.3,
+    n_iter: int = 80,
+) -> np.ndarray:
+    """
+    Heat kernel diffusion: combina difusión espacial y temporal.
+    x(t+1) = x(t) - step*(grad spatial + grad temporal).
+    """
+    from scipy.sparse import csgraph
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    x = y.copy()
+    col_mean = np.nanmean(x, axis=0)
+    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    miss = ~mask
+    x[miss] = np.take(col_mean, np.where(miss)[1])
+
+    lap_g = csgraph.laplacian(adjacency, normed=False)
+    
+    # Operador de difusión temporal: kernel de calor discreto
+    t = x.shape[0]
+    heat_t = np.zeros((t, t), dtype=float)
+    for i in range(t):
+        for j in range(t):
+            heat_t[i, j] = np.exp(-0.1 * (i - j) ** 2)
+    
+    scale = np.nanstd(y)
+    if not np.isfinite(scale) or scale <= 0:
+        scale = 1.0
+
+    step = 0.03
+    
+    for _ in range(n_iter):
+        # Gradiente espacial
+        grad_spatial = x @ lap_g
+        
+        # Gradiente temporal vía kernel de calor
+        grad_temporal = (heat_t @ x - x)
+        
+        # Gradiente de datos
+        grad_data = 2.0 * (x - np.nan_to_num(y, nan=0.0)) * mask
+        
+        grad = grad_data + alpha * grad_spatial + beta * grad_temporal
+        
+        x = x - step * grad
+        x = np.clip(x, -8.0 * scale, 8.0 * scale)
+        x[mask] = y[mask]
+
+    return x
+
+
+def interpolate_spline_temporal(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.6,
+    s_temporal: float = 0.1,
+) -> np.ndarray:
+    """
+    Spline-based temporal smoothing con regularizacion espacial.
+    Para cada canal: ajusta spline temporal con peso de Tikhonov espacial.
+    """
+    from scipy.sparse import csgraph
+    from scipy.interpolate import UnivariateSpline
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    lap_g = csgraph.laplacian(adjacency, normed=False)
+    
+    n_t, n_ch = y.shape
+    x = np.zeros_like(y)
+
+    for ch in range(n_ch):
+        series = y[:, ch]
+        obs = mask[:, ch]
+        
+        if np.sum(obs) < 3:
+            x[obs, ch] = series[obs]
+            x[~obs, ch] = np.nanmean(series)
+            continue
+        
+        t_obs = np.where(obs)[0]
+        t_all = np.arange(n_t)
+        
+        try:
+            # Spline univariado suavizado
+            spl = UnivariateSpline(t_obs, series[obs], k=min(3, np.sum(obs) - 1), s=s_temporal * np.sum(obs))
+            x[:, ch] = spl(t_all)
+        except Exception:
+            x[obs, ch] = series[obs]
+            x[~obs, ch] = np.nanmean(series)
+
+    # Regulariacion espacial post-spline
+    for t_idx in range(n_t):
+        obs = mask[t_idx]
+        m = np.diag(obs.astype(float))
+        b = np.nan_to_num(y[t_idx], nan=0.0)
+        a = m + alpha * lap_g
+        try:
+            x[t_idx] = np.linalg.solve(a, m @ b + alpha * lap_g @ x[t_idx])
+        except np.linalg.LinAlgError:
+            x[t_idx, ~obs] = np.nanmean(y[t_idx])
+
+    return x
+
+
+def interpolate_wavelet_temporal(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.65,
+    wavelet_level: int = 2,
+) -> np.ndarray:
+    """
+    Wavelet filtering en dimension temporal + regulariacion espacial.
+    Usa transformada wavelet discreta (Haar) en cada canal.
+    """
+    from scipy.sparse import csgraph
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    lap_g = csgraph.laplacian(adjacency, normed=False)
+    
+    n_t, n_ch = y.shape
+    x = y.copy()
+    col_mean = np.nanmean(x, axis=0)
+    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    miss = ~mask
+    x[miss] = np.take(col_mean, np.where(miss)[1])
+
+    # Simple Haar wavelet-like filtering: pasa-altos y pasa-bajos
+    for ch in range(n_ch):
+        series = x[:, ch].copy()
+        
+        for level in range(wavelet_level):
+            if len(series) < 2:
+                break
+            # Decomposición Haar simple
+            approx = series.copy()
+            for i in range(0, len(series) - 1, 2):
+                if i + 1 < len(series):
+                    approx[i] = 0.5 * (series[i] + series[i + 1])
+            approx = approx[: len(series) // 2 + len(series) % 2]
+            series = approx
+
+        # Reconstrucción suavizada
+        for i in range(min(len(series), n_t)):
+            x[i, ch] = series[i] if i < len(series) else x[i, ch]
+
+    # Regulariacion espacial
+    for t_idx in range(n_t):
+        obs = mask[t_idx]
+        m = np.diag(obs.astype(float))
+        b = np.nan_to_num(y[t_idx], nan=0.0)
+        a = m + alpha * lap_g
+        try:
+            x[t_idx] = np.linalg.solve(a, m @ b + alpha * lap_g @ x[t_idx])
+        except np.linalg.LinAlgError:
+            x[t_idx, ~obs] = np.nanmean(y[t_idx])
+
+    return x
+
+
+def interpolate_directed_tv(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.5,
+    beta: float = 0.15,
+    n_iter: int = 50,
+    eps: float = 1e-5,
+) -> np.ndarray:
+    """
+    Directed Total Variation (Schultz & Villafane-Delgado 2020):
+    Extiende TV a grafos dirigidos usando variación direccional.
+    """
+    from scipy.sparse import csgraph
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    x = y.copy()
+    col_mean = np.nanmean(x, axis=0)
+    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    miss = ~mask
+    x[miss] = np.take(col_mean, np.where(miss)[1])
+
+    # Versión simétrica del Laplaciano para dirigida
+    a_sym = np.asarray(adjacency, dtype=float)
+    a_asym = a_sym + 0.1 * a_sym.T  # Añade pequeña asimetría
+    
+    lap_g = csgraph.laplacian(a_asym, normed=False)
+    
+    # Laplaciano temporal
+    t = x.shape[0]
+    d = np.zeros((max(t - 1, 1), t), dtype=float)
+    if t > 1:
+        idx = np.arange(t - 1)
+        d[idx, idx] = -1.0
+        d[idx, idx + 1] = 1.0
+    lap_t = d.T @ d
+
+    for _ in range(n_iter):
+        # IRLS para TV dirigida
+        edges = np.argwhere(a_asym > 0)
+        weights = a_asym[edges[:, 0], edges[:, 1]]
+        
+        l_tv = np.zeros_like(lap_g)
+        for (i, j), w in zip(edges, weights):
+            diff = np.linalg.norm(x[:, i] - x[:, j], axis=0)
+            w_ij = w / (np.sqrt(diff**2 + eps) + 1e-12)
+            l_tv[i, i] += w_ij
+            l_tv[j, j] += w_ij
+            l_tv[i, j] -= w_ij
+            l_tv[j, i] -= w_ij
+
+        for t_idx in range(x.shape[0]):
+            obs = mask[t_idx]
+            m = np.diag(obs.astype(float))
+            b = np.nan_to_num(y[t_idx], nan=0.0)
+            a = m + alpha * l_tv + beta * lap_t[t_idx, t_idx]
+            try:
+                x[t_idx] = np.linalg.solve(a + 1e-8 * np.eye(a.shape[0]), m @ b)
+            except np.linalg.LinAlgError:
+                x[t_idx, ~obs] = np.nanmean(y[t_idx])
+
+        x[mask] = y[mask]
+
+    return x
+
+
+def interpolate_adaptive_temporal(
+    signals: np.ndarray,
+    adjacency: np.ndarray,
+    alpha: float = 0.55,
+    beta: float = 0.2,
+    gamma: float = 0.05,
+    n_iter: int = 100,
+) -> np.ndarray:
+    """
+    Adaptive temporal smoothing: combina suavizado temporo-espacial con 
+    adaptacion local basada en coherencia de señal (Bozkurt & Ortega 2022).
+    """
+    from scipy.sparse import csgraph
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    x = y.copy()
+    col_mean = np.nanmean(x, axis=0)
+    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    miss = ~mask
+    x[miss] = np.take(col_mean, np.where(miss)[1])
+
+    lap_g = csgraph.laplacian(adjacency, normed=False)
+    
+    # Matriz de pesos adaptativos basada en coherencia temporal
+    t = x.shape[0]
+    n_ch = x.shape[1]
+    coherence = np.ones((t, t), dtype=float)
+    
+    for i in range(t):
+        for j in range(min(i + 1, t)):
+            if i == j:
+                continue
+            # Correlacion simple entre todos los canales en dos instantes
+            corr_val = 0.0
+            count = 0
+            for ch1 in range(n_ch):
+                for ch2 in range(n_ch):
+                    if not np.isnan(x[i, ch1]) and not np.isnan(x[j, ch2]):
+                        corr_val += x[i, ch1] * x[j, ch2]
+                        count += 1
+            if count > 0:
+                coherence[i, j] = np.clip(corr_val / (count + 1e-12), 0.0, 1.0)
+                coherence[j, i] = coherence[i, j]
+
+    # Laplaciano temporal adaptativo
+    adaptive_temp = coherence.copy()
+    np.fill_diagonal(adaptive_temp, -np.sum(coherence, axis=1) + np.diag(coherence))
+
+    scale = np.nanstd(y)
+    if not np.isfinite(scale) or scale <= 0:
+        scale = 1.0
+
+    step = 0.03
+
+    for iter_no in range(n_iter):
+        step_adaptive = step / (1.0 + 0.005 * iter_no)
+
+        grad_data = (x - np.nan_to_num(y, nan=0.0)) * mask
+        
+        # Gradiente espacial: aplicar por timestep
+        grad_graph = np.zeros_like(x)
+        for t in range(x.shape[0]):  # Para cada timestep
+            grad_graph[t, :] = lap_g @ x[t, :]  # Apply spatial Laplacian to each time point
+        
+        grad_temporal = adaptive_temp @ x  # (t, t) @ (t, n_ch) = (t, n_ch) ✓
+        
+        grad = 2.0 * grad_data + 2.0 * alpha * grad_graph + 2.0 * beta * grad_temporal
+        grad += 2.0 * gamma * (x - np.nan_to_num(y, nan=0.0))  # Término de fidelidad adicional
+
+        x = x - step_adaptive * grad
+        x = np.clip(x, -8.0 * scale, 8.0 * scale)
+        x[mask] = y[mask]
+
+    return x
 
 
 def interpolate_rbfi(signals: np.ndarray, positions: np.ndarray, function: str = "thin_plate") -> np.ndarray:

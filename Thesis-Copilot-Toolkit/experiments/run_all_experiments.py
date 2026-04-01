@@ -38,10 +38,8 @@ INTERPOLATORS = [
     'bgsrp',
     'gsmooth',
     'graph_time_tikhonov',
-    'qiu_batch',
     'puy',
     'sobolev',
-    'nni',
     'spherical_spline',
     'rbfi_tps',
     'rbfi_mq',
@@ -60,14 +58,12 @@ GRAPH_BASED_INTERPOLATORS = {
     'bgsrp',
     'gsmooth',
     'graph_time_tikhonov',
-    'qiu_batch',
     'puy',
     'sobolev',
 }
 
 POSITION_BASED_INTERPOLATORS = {
     'idw',
-    'nni',
     'spherical_spline',
     'rbfi_tps',
     'rbfi_mq',
