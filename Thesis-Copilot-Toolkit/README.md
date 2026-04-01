@@ -24,3 +24,40 @@ El uso de técnicas de interpolación basadas en grafos (GSP) permite reconstrui
 - /paper: borrador del paper
 - /thesis: borrador de la tesis
 - /backlog.md: lista de tareas y métodos
+
+## Checklist de validación y documentación mínima
+
+- [ ] Todos los métodos principales tienen docstring y ejemplo de uso en el código.
+- [ ] Existen scripts de ejemplo en /experiments para cada etapa del pipeline.
+- [ ] Se puede ejecutar un pipeline completo (de datos a resultados) con un solo script.
+- [ ] Las métricas y resultados generados son reproducibles (semillas fijas donde aplica).
+- [ ] Hay instrucciones claras para instalar dependencias y ejecutar experimentos.
+- [ ] Se han probado casos con datos sintéticos y reales.
+- [ ] Los resultados clave (tablas/figuras) están guardados en /results y referenciados en el paper/tesis.
+- [ ] Se han validado los métodos ante entradas erróneas (NaN, shapes inesperados, etc.).
+
+### Sugerencia para pruebas automáticas
+
+Se recomienda agregar un archivo `tests/test_pipeline.py` con pruebas mínimas:
+
+```python
+import numpy as np
+from src.data import data_loader
+from src.graph_construction import graph_constructors
+from src.interpolation import interpolators
+from src.evaluation import evaluation
+
+def test_dummy_mean():
+	x = np.array([[1., np.nan, 3.], [np.nan, 5., 6.]])
+	A = np.eye(3)
+	y = interpolators.interpolate('dummy_mean', x, A)['signals_reconstructed']
+	assert not np.isnan(y).any()
+
+def test_eval_1d():
+	y = np.array([1., 2., 3.])
+	p = np.array([1., 2., 2.])
+	res = evaluation.evaluate_signals(y, p, ['mae', 'rmse', 'dtw', 'snr'])
+	assert all(k in res for k in ['mae', 'rmse', 'dtw', 'snr'])
+```
+
+Esto ayuda a detectar errores futuros y mejora la reproducibilidad.

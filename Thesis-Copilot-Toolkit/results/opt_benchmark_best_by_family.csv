@@ -1,0 +1,5 @@
+dataset,family,graph,graph_params,method,method_params,mae,rmse,snr
+mne_sample,instant,kalofolias,"{'a': 0.8, 'b': 1.2, 'max_iter': 300}",gsp,{},3.517717331248154e-06,1.1380257441934738e-05,1.2043723470753183
+mne_sample,tv_time,nnk,"{'k': 5, 'backend': 'internal', 'reg': 1e-06}",trss,"{'alpha': 0.6, 'beta': 0.2, 'n_iter': 80, 'lr': 0.03}",2.919040833761093e-06,9.333324825286933e-06,3.0602814194978234
+synthetic,instant,kalofolias,"{'a': 1.0, 'b': 0.8, 'max_iter': 300}",gsp,{},0.02741216904638653,0.08727003944474834,19.63742764370763
+synthetic,tv_time,kalofolias,"{'a': 1.0, 'b': 0.8, 'max_iter': 300}",trss,"{'alpha': 0.6, 'beta': 0.2, 'n_iter': 80, 'lr': 0.03}",0.027170666073060602,0.08622108879365287,19.687509728157632

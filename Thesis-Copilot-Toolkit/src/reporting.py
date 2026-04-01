@@ -41,6 +41,11 @@ def summary_report(df: pd.DataFrame, metrics: list = None) -> str:
         metrics = ['mae', 'rmse', 'dtw', 'snr']
     report = "Resumen de resultados:\n"
     for metric in metrics:
-        best_row = df.loc[df[metric].idxmin()]
+        if metric not in df.columns:
+            continue
+        if metric.lower() == 'snr':
+            best_row = df.loc[df[metric].idxmax()]
+        else:
+            best_row = df.loc[df[metric].idxmin()]
         report += f"Mejor {metric}: Método={best_row['method']}, Dataset={best_row['dataset']}, Valor={best_row[metric]:.4f}\n"
     return report
