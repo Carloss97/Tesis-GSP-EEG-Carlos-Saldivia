@@ -36,17 +36,45 @@ El uso de tecnicas de interpolacion basadas en grafos (GSP) permite reconstruir 
 
 ## Estado de validacion paper-faithful
 
-Se usa una matriz de estado por metodo:
-- `HIGH`: paper + formulacion + implementacion alineadas
-- `MEDIUM`: alineado, pendiente de reproducibilidad numerica completa
-- `N/A`: baseline sin claim paper-faithful
+Leyenda visual de tickets:
+- ✓: Implementado y validado en corridas internas
+- ✓✓: Implementado, validado y con evidencia paper-faithful fuerte
+- ⚠: Implementado, pero con validacion paper-faithful parcial o pendiente
 
 Resumen rapido:
-- `trss` / `sobolev_temporal`: HIGH
-- `bgsrp`: MEDIUM (alineado a RKHS, pendiente comparacion numerica 1:1 con MATLAB)
-- Baselines geometricos/classicos: N/A
+- `trss` / `sobolev_temporal`: ✓✓
+- `nnk`: ✓✓
+- `spherical_spline`: ✓✓
+- `bgsrp`: ⚠ (alineado a RKHS, pendiente comparacion numerica 1:1 con MATLAB)
+- Baselines geometricos/classicos: ✓ o ⚠ segun metodo (ver backlog y REFERENCES)
 
 Detalle completo en `VALIDATION_REPORT.md` y trazabilidad por metodo en `REFERENCES.md`.
+
+### Tickets clave por familia
+
+- Grafos: `nnk` (✓✓), `fully_connected_inverse_distance` (⚠), resto principales (✓)
+- Instantaneo: `spherical_spline` (✓✓), `bgsrp` (⚠), resto principales (✓)
+- TV/Tiempo: `trss` y `sobolev_temporal` (✓✓), resto principales (✓)
+
+### Nomenclatura de tickets
+
+- GRA-xx: metodos de construccion de grafos
+- INS-xx: metodos de interpolacion por instante
+- TVT-xx: metodos de interpolacion TV/tiempo
+
+Mapa canonico rapido:
+- GRA-01..GRA-10
+- INS-01..INS-15
+- TVT-01..TVT-10
+
+Ejemplos de trazabilidad:
+- GRA-08: `nnk`
+- INS-06: `spherical_spline`
+- INS-13: `bgsrp`
+- TVT-02: `trss`
+- TVT-03: `sobolev_temporal`
+
+La lista completa de tickets por metodo esta en `backlog.md` y se replica en `REFERENCES.md` y `VALIDATION_REPORT.md`.
 
 ## Metodos activos
 

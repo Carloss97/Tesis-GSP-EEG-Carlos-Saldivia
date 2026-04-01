@@ -50,17 +50,17 @@ Cobertura actual del archivo de tests:
 ## 3) Estado de confianza por metodo clave
 
 Leyenda:
-- `HIGH`: paper + formulacion + implementacion alineadas
-- `MEDIUM`: alineado, pendiente reproduccion numerica completa
-- `N/A`: baseline/derivado sin claim paper-faithful estricto
+- ✓: Implementado y validado en corridas internas
+- ✓✓: Implementado, validado y con evidencia paper-faithful fuerte
+- ⚠: Implementado, pero con validacion paper-faithful parcial o pendiente
 
-| Metodo | Estado | Comentario |
+| Metodo | Estado Validacion | Comentario |
 |---|---|---|
-| `trss` / `sobolev_temporal` | HIGH | Alias consistente y evidencia de reproduccion de figura |
-| `bgsrp` | MEDIUM | Alineado a RKHS, pendiente benchmark 1:1 con referencia MATLAB |
-| `nnk` | HIGH | Implementacion NNLS local alineada al enfoque NNK |
-| `spherical_spline` | HIGH | Implementacion basada en formulacion de Perrin |
-| Baselines clasicos/geometricos | N/A | Utiles para comparacion, no paper-faithful estricto |
+| TVT-02 / TVT-03 (`trss` / `sobolev_temporal`) | ✓✓ | Alias consistente y evidencia de reproduccion de figura |
+| INS-13 (`bgsrp`) | ⚠ | Alineado a RKHS, pendiente benchmark 1:1 con referencia MATLAB |
+| GRA-08 (`nnk`) | ✓✓ | Implementacion NNLS local alineada al enfoque NNK |
+| INS-06 (`spherical_spline`) | ✓✓ | Implementacion basada en formulacion de Perrin |
+| Baselines clasicos/geometricos | ✓ o ⚠ | Utiles para comparacion, no paper-faithful estricto |
 
 ## 4) Archivos y artefactos relevantes verificados
 
@@ -95,3 +95,8 @@ Este reporte se alinea con:
 - `REFERENCES.md`
 
 Cualquier cambio futuro en metodos o estado de validacion debe reflejarse en los 4 archivos anteriores en la misma iteracion.
+
+Nomenclatura canonica de tickets:
+- GRA-01..GRA-10
+- INS-01..INS-15
+- TVT-01..TVT-10

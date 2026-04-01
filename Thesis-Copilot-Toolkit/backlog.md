@@ -51,52 +51,187 @@
 
 ## Metodos implementados
 
+### Leyenda de tickets de validacion
+
+- ✓: Implementado y validado en corridas internas
+- ✓✓: Implementado, validado y con evidencia paper-faithful fuerte
+- ⚠: Implementado, pero con validacion paper-faithful parcial o pendiente
+
+### Nomenclatura de tickets
+
+- GRA-xx: metodos de construccion de grafos
+- INS-xx: metodos de interpolacion por instante
+- TVT-xx: metodos de interpolacion TV/tiempo
+
 ### Grafos (src/graph_construction/graph_constructors.py)
 
-- [x] `knn`  
-  Referencia: Sakiyama et al. (2016)  
-  Estado: paper-aligned (implementacion kNN estandar)
+- [x] `knn`
+  - Ticket: GRA-01
+  - Referencia: Sakiyama et al. (2016)
+  - Descripcion: grafo de conectividad k-nearest neighbors sobre posiciones de electrodos.
+  - Parametros: `k`.
+  - Estado Validacion: ✓
 
-- [x] `knng`  
-  Referencia: Sakiyama et al. (2016)  
-  Estado: paper-aligned (kNN + kernel gaussiano en aristas)
+- [x] `knng`
+  - Ticket: GRA-02
+  - Referencia: Sakiyama et al. (2016)
+  - Descripcion: kNN con ponderacion gaussiana sobre las aristas activas.
+  - Parametros: `k`, `sigma`.
+  - Estado Validacion: ✓
 
-- [x] `vknng`  
-  Referencia: Tamaru et al. (2024)  
-  Estado: adaptacion inspirada en literatura (k variable por nodo)
+- [x] `vknng`
+  - Ticket: GRA-03
+  - Referencia: Tamaru et al. (2024)
+  - Descripcion: version adaptativa de kNN con `k_i` variable por nodo segun densidad local.
+  - Parametros: `k`, `alpha`, `k_min`, `k_max`.
+  - Estado Validacion: ✓
 
-- [x] `gaussian`  
-  Referencia: Karasuyama y Mamitsuka (2017)  
-  Estado: baseline gaussiano denso
+- [x] `gaussian`
+  - Ticket: GRA-04
+  - Referencia: Karasuyama y Mamitsuka (2017)
+  - Descripcion: grafo denso con pesos gausianos para todos los pares de nodos.
+  - Parametros: `sigma`.
+  - Estado Validacion: ✓
 
-- [x] `epsilon_ball`  
-  Referencia: Shuman et al. (2013)  
-  Estado: baseline clasico epsilon-neighborhood
+- [x] `epsilon_ball`
+  - Ticket: GRA-05
+  - Referencia: Shuman et al. (2013)
+  - Descripcion: conecta nodos dentro de radio `epsilon`.
+  - Parametros: `epsilon`.
+  - Estado Validacion: ✓
 
-- [x] `mst`  
-  Referencia: Ortega et al. (2018)  
-  Estado: baseline topologico (minimum spanning tree)
+- [x] `mst`
+  - Ticket: GRA-06
+  - Referencia: Ortega et al. (2018)
+  - Descripcion: minimum spanning tree para garantizar conectividad minima sin ciclos.
+  - Parametros: sin hiperparametros principales.
+  - Estado Validacion: ✓
 
-- [x] `fully_connected_inverse_distance`  
-  Referencia: baseline clasico (sin paper unico)
+- [x] `fully_connected_inverse_distance`
+  - Ticket: GRA-07
+  - Referencia: baseline clasico (sin paper unico)
+  - Descripcion: grafo completamente conectado con pesos `1/d`.
+  - Parametros: regularizacion numerica interna sobre distancia cero.
+  - Estado Validacion: ⚠
 
-- [x] `nnk`  
-  Referencia: Shekkizhar y Ortega (2020/2023)  
-  Estado: paper-aligned (NNLS local + simetrizacion)
+- [x] `nnk`
+  - Ticket: GRA-08
+  - Referencia: Shekkizhar y Ortega (2020/2023)
+  - Descripcion: non-negative kernel regression con solucion NNLS local y simetrizacion.
+  - Parametros: `k`, `sigma`, `reg`, `weight_threshold`, `backend`.
+  - Estado Validacion: ✓✓
 
-- [x] `aew`  
-  Referencia: Karasuyama y Mamitsuka (2017)  
-  Estado: implementacion inspirada en minimizacion local de reconstruccion
+- [x] `aew`
+  - Ticket: GRA-09
+  - Referencia: Karasuyama y Mamitsuka (2017)
+  - Descripcion: ponderacion adaptativa combinando cercania espacial y similitud de senal.
+  - Parametros: `k`, `sigma_dist`, `sigma_corr`.
+  - Estado Validacion: ✓
 
-- [x] `kalofolias`  
-  Referencia: Kalofolias (2016), Kalofolias et al. (2017)  
-  Estado: aproximacion numerica interna (log-degree + norma Frobenius)
+- [x] `kalofolias`
+  - Ticket: GRA-10
+  - Referencia: Kalofolias (2016), Kalofolias et al. (2017)
+  - Descripcion: aprendizaje de pesos con modelo log-degree + regularizacion Frobenius.
+  - Parametros: `distance_scale`, `a`, `b`, `max_iter`, `lr`, `tol`.
+  - Estado Validacion: ✓
 
 ### Interpolacion por instante (src/interpolation_methods.py)
 
-- [x] Baselines clasicos: `linear`, `nearest`, `mean`, `random`
-- [x] Geometricos/RBF: `idw`, `spherical_spline`, `rbfi_tps`, `rbfi_mq`, `spline_surface`
-- [x] GSP: `gsp`, `tikhonov`, `gsmooth`, `bgsrp`, `puy`, `sobolev`
+- [x] `linear`
+  - Ticket: INS-01
+  - Descripcion: interpolacion lineal por indice de canal.
+  - Parametros: sin hiperparametros principales.
+  - Estado Validacion: ✓
+
+- [x] `nearest`
+  - Ticket: INS-02
+  - Descripcion: relleno por vecino mas cercano en indice de canal.
+  - Parametros: sin hiperparametros principales.
+  - Estado Validacion: ✓
+
+- [x] `mean`
+  - Ticket: INS-03
+  - Descripcion: baseline que rellena faltantes con la media de observados por instante.
+  - Parametros: sin hiperparametros principales.
+  - Estado Validacion: ✓
+
+- [x] `random`
+  - Ticket: INS-04
+  - Descripcion: baseline estocastico uniforme en rango observado.
+  - Parametros: `random_state`.
+  - Estado Validacion: ✓
+
+- [x] `idw`
+  - Ticket: INS-05
+  - Descripcion: inverse distance weighting en espacio de electrodos.
+  - Parametros: `positions`, `power`.
+  - Estado Validacion: ✓
+
+- [x] `spherical_spline`
+  - Ticket: INS-06
+  - Referencia: Perrin et al. (1989)
+  - Descripcion: spline esferico EEG con funcion de Green tipo Perrin.
+  - Parametros: `positions` (orden y numero de terminos internos fijos en implementacion).
+  - Estado Validacion: ✓✓
+
+- [x] `rbfi_tps`
+  - Ticket: INS-07
+  - Referencia: Jager et al. (2016)
+  - Descripcion: RBF thin-plate spline.
+  - Parametros: `positions`.
+  - Estado Validacion: ✓
+
+- [x] `rbfi_mq`
+  - Ticket: INS-08
+  - Referencia: Jager et al. (2016)
+  - Descripcion: RBF multiquadric.
+  - Parametros: `positions`.
+  - Estado Validacion: ✓
+
+- [x] `spline_surface`
+  - Ticket: INS-09
+  - Descripcion: smooth bivariate spline sobre coordenadas de electrodos.
+  - Parametros: `positions`, `s` (interno adaptativo).
+  - Estado Validacion: ✓
+
+- [x] `gsp`
+  - Ticket: INS-10
+  - Descripcion: interpolacion laplaciana resolviendo bloques `L_uu` y `L_uk`.
+  - Parametros: `adjacency`.
+  - Estado Validacion: ✓
+
+- [x] `tikhonov`
+  - Ticket: INS-11
+  - Descripcion: solucion regularizada con termino `alpha * L`.
+  - Parametros: `adjacency`, `alpha`.
+  - Estado Validacion: ✓
+
+- [x] `gsmooth`
+  - Ticket: INS-12
+  - Descripcion: suavizado iterativo en grafo con matriz de transicion.
+  - Parametros: `adjacency`, `lam`, `n_iter`.
+  - Estado Validacion: ✓
+
+- [x] `bgsrp`
+  - Ticket: INS-13
+  - Referencia: Zhang et al. (2024)
+  - Descripcion: reconstruccion RKHS bandlimited (sin DC) con regularizacion `gamma`.
+  - Parametros: `adjacency`, `bandwidth`, `gamma`, `reg`.
+  - Estado Validacion: ⚠
+
+- [x] `puy`
+  - Ticket: INS-14
+  - Referencia: Puy et al. (2018)
+  - Descripcion: aproximacion armonica regularizada en grafo.
+  - Parametros: `adjacency`, `alpha`.
+  - Estado Validacion: ✓
+
+- [x] `sobolev`
+  - Ticket: INS-15
+  - Referencia: Giraldo et al. (2022)
+  - Descripcion: regularizacion sobolev espacial con potencia de operador.
+  - Parametros: `adjacency`, `alpha`, `order`.
+  - Estado Validacion: ✓
 
 Notas paper-faithful:
 - `bgsrp`: actualizado a referencia primaria RKHS (Zhang et al., 2024) y estructura de algoritmo alineada a `gsp_BGSRP_recon.m`.
@@ -105,14 +240,67 @@ Notas paper-faithful:
 ### Interpolacion TV/tiempo (src/interpolation_methods.py)
 
 - [x] `graph_time_tikhonov`
-- [x] `trss` (alias funcional: `sobolev_temporal`)
+  - Ticket: TVT-01
+  - Descripcion: Tikhonov por instante + suavizado temporal por canal.
+  - Parametros: `adjacency`, `alpha`, `beta`.
+  - Estado Validacion: ✓
+
+- [x] `trss`
+  - Ticket: TVT-02
+  - Referencia: Giraldo et al. (2022)
+  - Descripcion: optimizacion espaciotemporal con terminos de datos, suavidad espacial y sobolev temporal.
+  - Parametros: `adjacency`, `alpha`, `beta`, `n_iter`, `lr`.
+  - Estado Validacion: ✓✓
+
+- [x] `sobolev_temporal` (alias de `trss`)
+  - Ticket: TVT-03
+  - Descripcion: alias funcional directo de `trss`.
+  - Parametros: `adjacency`, `alpha`, `beta`, `n_iter`, `lr`.
+  - Estado Validacion: ✓✓
+
 - [x] `tv`
+  - Ticket: TVT-04
+  - Descripcion: graph total variation via IRLS.
+  - Parametros: `adjacency`, `lam`, `n_iter`, `eps`.
+  - Estado Validacion: ✓
+
 - [x] `temporal_laplacian`
+  - Ticket: TVT-05
+  - Descripcion: regularizacion en grafo producto espacio-tiempo con Kronecker.
+  - Parametros: `adjacency`, `alpha`, `beta`.
+  - Estado Validacion: ✓
+
 - [x] `heat_diffusion_temporal`
+  - Ticket: TVT-06
+  - Descripcion: difusion temporal tipo kernel de calor + suavidad espacial.
+  - Parametros: `adjacency`, `alpha`, `beta`, `n_iter`.
+  - Estado Validacion: ✓
+
 - [x] `spline_temporal`
+  - Ticket: TVT-07
+  - Descripcion: spline temporal por canal con regularizacion espacial posterior.
+  - Parametros: `adjacency`, `alpha`, `s_temporal`.
+  - Estado Validacion: ✓
+
 - [x] `wavelet_temporal`
+  - Ticket: TVT-08
+  - Descripcion: filtrado temporal tipo Haar + regularizacion espacial.
+  - Parametros: `adjacency`, `alpha`, `wavelet_level`.
+  - Estado Validacion: ✓
+
 - [x] `directed_tv`
+  - Ticket: TVT-09
+  - Referencia: Schultz y Villafane-Delgado (2020)
+  - Descripcion: variacion total dirigida con termino temporal.
+  - Parametros: `adjacency`, `alpha`, `beta`, `n_iter`, `eps`.
+  - Estado Validacion: ✓
+
 - [x] `adaptive_temporal`
+  - Ticket: TVT-10
+  - Referencia: Bozkurt y Ortega (2022)
+  - Descripcion: suavizado temporal adaptativo por coherencia mas suavidad espacial.
+  - Parametros: `adjacency`, `alpha`, `beta`, `gamma`, `n_iter`.
+  - Estado Validacion: ✓
 
 Notas paper-faithful:
 - `trss` y `sobolev_temporal` comparten implementacion (alias directo).

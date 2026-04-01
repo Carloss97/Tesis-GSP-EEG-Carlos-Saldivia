@@ -2,6 +2,12 @@
 
 Este archivo mapea cada metodo activo con su fuente principal y estado de alineacion.
 
+## Leyenda de tickets
+
+- ✓: Implementado y validado en corridas internas
+- ✓✓: Implementado, validado y con evidencia paper-faithful fuerte
+- ⚠: Implementado, pero con validacion paper-faithful parcial o pendiente
+
 ## Actualizacion abril 2026
 
 - BGSRP se normaliza a referencia primaria RKHS:
@@ -13,57 +19,57 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 
 ## 1) Construccion de grafos
 
-| Metodo | Referencia principal | Tipo de alineacion |
-|---|---|---|
-| `knn` | Sakiyama et al., ICASSP 2016 | baseline clasico |
-| `knng` | Sakiyama et al., ICASSP 2016 | baseline clasico |
-| `vknng` | Tamaru et al., arXiv 2024 | adaptacion inspirada |
-| `gaussian` | Karasuyama y Mamitsuka, ML 2017 | baseline clasico |
-| `epsilon_ball` | Shuman et al., IEEE SPM 2013 | baseline clasico |
-| `mst` | Ortega et al., arXiv 2018 (survey) | baseline clasico |
-| `fully_connected_inverse_distance` | metodo geometrico clasico | N/A (sin paper unico) |
-| `nnk` | Shekkizhar y Ortega, ICASSP 2020 / arXiv 2023 | paper-aligned |
-| `aew` | Karasuyama y Mamitsuka, ML 2017 | implementacion inspirada |
-| `kalofolias` | Kalofolias 2016; Kalofolias et al. ICASSP 2017 | aproximacion numerica |
+| Ticket | Metodo | Referencia principal | Tipo de alineacion | Estado Validacion |
+|---|---|---|---|---|
+| GRA-01 | `knn` | Sakiyama et al., ICASSP 2016 | baseline clasico | ✓ |
+| GRA-02 | `knng` | Sakiyama et al., ICASSP 2016 | baseline clasico | ✓ |
+| GRA-03 | `vknng` | Tamaru et al., arXiv 2024 | adaptacion inspirada | ✓ |
+| GRA-04 | `gaussian` | Karasuyama y Mamitsuka, ML 2017 | baseline clasico | ✓ |
+| GRA-05 | `epsilon_ball` | Shuman et al., IEEE SPM 2013 | baseline clasico | ✓ |
+| GRA-06 | `mst` | Ortega et al., arXiv 2018 (survey) | baseline clasico | ✓ |
+| GRA-07 | `fully_connected_inverse_distance` | metodo geometrico clasico | N/A (sin paper unico) | ⚠ |
+| GRA-08 | `nnk` | Shekkizhar y Ortega, ICASSP 2020 / arXiv 2023 | paper-aligned | ✓✓ |
+| GRA-09 | `aew` | Karasuyama y Mamitsuka, ML 2017 | implementacion inspirada | ✓ |
+| GRA-10 | `kalofolias` | Kalofolias 2016; Kalofolias et al. ICASSP 2017 | aproximacion numerica | ✓ |
 
 ---
 
 ## 2) Interpolacion por instante
 
-| Metodo | Referencia principal | Tipo de alineacion |
-|---|---|---|
-| `linear` | SciPy/NumPy (estandar) | baseline |
-| `nearest` | SciPy/NumPy (estandar) | baseline |
-| `mean` | baseline estadistico | baseline |
-| `random` | baseline estocastico | baseline |
-| `idw` | interpolacion IDW clasica | baseline |
-| `spherical_spline` | Perrin et al., Electroencephalogr Clin Neurophysiol 1989 | paper-aligned |
-| `rbfi_tps` | Jager et al., Clin Neurophysiol 2016 | paper-inspired |
-| `rbfi_mq` | Jager et al., Clin Neurophysiol 2016 | paper-inspired |
-| `spline_surface` | spline 2D clasico | baseline |
-| `gsp` | Narang et al., ICASSP 2013 | paper-inspired |
-| `tikhonov` | Narang et al., arXiv 2013 | paper-inspired |
-| `gsmooth` | Narang et al., arXiv 2013 | paper-inspired |
-| `bgsrp` | Zhang et al., DSP 2024 (RKHS) | paper-aligned (pendiente 1:1) |
-| `puy` | Puy et al., ACHA 2018 | paper-inspired |
-| `sobolev` | Giraldo et al., IEEE TSIPN 2022 | paper-inspired |
+| Ticket | Metodo | Referencia principal | Tipo de alineacion | Estado Validacion |
+|---|---|---|---|---|
+| INS-01 | `linear` | SciPy/NumPy (estandar) | baseline | ✓ |
+| INS-02 | `nearest` | SciPy/NumPy (estandar) | baseline | ✓ |
+| INS-03 | `mean` | baseline estadistico | baseline | ✓ |
+| INS-04 | `random` | baseline estocastico | baseline | ✓ |
+| INS-05 | `idw` | interpolacion IDW clasica | baseline | ✓ |
+| INS-06 | `spherical_spline` | Perrin et al., Electroencephalogr Clin Neurophysiol 1989 | paper-aligned | ✓✓ |
+| INS-07 | `rbfi_tps` | Jager et al., Clin Neurophysiol 2016 | paper-inspired | ✓ |
+| INS-08 | `rbfi_mq` | Jager et al., Clin Neurophysiol 2016 | paper-inspired | ✓ |
+| INS-09 | `spline_surface` | spline 2D clasico | baseline | ✓ |
+| INS-10 | `gsp` | Narang et al., ICASSP 2013 | paper-inspired | ✓ |
+| INS-11 | `tikhonov` | Narang et al., arXiv 2013 | paper-inspired | ✓ |
+| INS-12 | `gsmooth` | Narang et al., arXiv 2013 | paper-inspired | ✓ |
+| INS-13 | `bgsrp` | Zhang et al., DSP 2024 (RKHS) | paper-aligned (pendiente 1:1) | ⚠ |
+| INS-14 | `puy` | Puy et al., ACHA 2018 | paper-inspired | ✓ |
+| INS-15 | `sobolev` | Giraldo et al., IEEE TSIPN 2022 | paper-inspired | ✓ |
 
 ---
 
 ## 3) Interpolacion TV/tiempo
 
-| Metodo | Referencia principal | Tipo de alineacion |
-|---|---|---|
-| `graph_time_tikhonov` | extension temporal de Tikhonov en grafo | derivado |
-| `trss` | Giraldo et al., IEEE TSIPN 2022 | paper-aligned |
-| `sobolev_temporal` | alias funcional de `trss` | paper-aligned |
-| `tv` | Mortaheb et al., EMBC 2019 | paper-inspired |
-| `temporal_laplacian` | Jiang et al., IEEE Sensors Journal 2021 | paper-inspired |
-| `heat_diffusion_temporal` | diffusion temporal en grafo | derivado |
-| `spline_temporal` | spline temporal + regularizacion espacial | derivado |
-| `wavelet_temporal` | filtro temporal tipo Haar + regularizacion espacial | derivado |
-| `directed_tv` | Schultz y Villafane-Delgado, arXiv 2020 | paper-inspired |
-| `adaptive_temporal` | Bozkurt y Ortega, EUSIPCO 2022 | paper-inspired |
+| Ticket | Metodo | Referencia principal | Tipo de alineacion | Estado Validacion |
+|---|---|---|---|---|
+| TVT-01 | `graph_time_tikhonov` | extension temporal de Tikhonov en grafo | derivado | ✓ |
+| TVT-02 | `trss` | Giraldo et al., IEEE TSIPN 2022 | paper-aligned | ✓✓ |
+| TVT-03 | `sobolev_temporal` | alias funcional de `trss` | paper-aligned | ✓✓ |
+| TVT-04 | `tv` | Mortaheb et al., EMBC 2019 | paper-inspired | ✓ |
+| TVT-05 | `temporal_laplacian` | Jiang et al., IEEE Sensors Journal 2021 | paper-inspired | ✓ |
+| TVT-06 | `heat_diffusion_temporal` | diffusion temporal en grafo | derivado | ✓ |
+| TVT-07 | `spline_temporal` | spline temporal + regularizacion espacial | derivado | ✓ |
+| TVT-08 | `wavelet_temporal` | filtro temporal tipo Haar + regularizacion espacial | derivado | ✓ |
+| TVT-09 | `directed_tv` | Schultz y Villafane-Delgado, arXiv 2020 | paper-inspired | ✓ |
+| TVT-10 | `adaptive_temporal` | Bozkurt y Ortega, EUSIPCO 2022 | paper-inspired | ✓ |
 
 ---
 
