@@ -1,11 +1,11 @@
 # Validation Report (Paper-Faithful)
 
-Fecha: 2026-04-01  
+Fecha: 2026-04-02  
 Proyecto: Thesis-Copilot-Toolkit
 
 ## 1) Objetivo de esta iteracion
 
-Actualizar el estado paper-faithful en base a avances recientes y dejar consistentes:
+Actualizar el estado paper-faithful en base a avances recientes, cerrar B1 (PRT-01.D/E/F + MET-01) y dejar consistentes:
 - `backlog.md`
 - `README.md`
 - `REFERENCES.md`
@@ -75,17 +75,47 @@ Cobertura actual del archivo de tests:
 
 ### 2.7 Protocolo realista de canales faltantes (PRT-01)
 
-Estado actual: ⚠ parcial.
+Estado actual: ✓ done.
 
-Cubierto actualmente:
+Cubierto en cierre B1:
 - enmascaramiento aleatorio reproducible (`simulate_missing_channels`, `missing_ratio`, `random_state`)
 - enmascaramiento sistematico por indices (`simulate_missing_channels_systematic`, `missing_indices`)
-- integracion en experimentos base (`experiment_mne_pipeline.py`, `experiment_pipeline_demo.py`, `optimize_and_benchmark.py`)
+- integracion en benchmark final (`optimize_and_benchmark.py`) con:
+	- escenarios realistas por region/tipo de electrodo (`frontal_band`, `occipital_band`, `left_lateral_temporal`, `right_lateral_temporal`)
+	- bateria multi-nivel de perdida por dataset (10/20/30/40)
+	- protocolo congelado por dataset en config versionada
 
-Pendiente para cierre de tesis/paper:
-- definir escenarios realistas por region/tipo de electrodo
-- definir bateria multi-nivel de perdida por dataset (p.ej. 10/20/30/40%)
-- congelar protocolo final y documentarlo en la seccion experimental
+Evidencia de artefactos:
+- `results/opt_benchmark_b1_protocol_raw.csv`
+- `results/opt_benchmark_b1_protocol_summary.csv`
+- `results/opt_benchmark_b1_protocol_config.json`
+
+### 2.8 Cierre de metrica final DTW (MET-01)
+
+Estado actual: ✓ done.
+
+Se integra DTW en benchmark final junto con MAE, RMSE y SNR en salidas consolidadas.
+
+Evidencia:
+- columnas `mae`, `rmse`, `dtw`, `snr` en `results/opt_benchmark_b1_protocol_raw.csv`
+- agregacion de metricas en `results/opt_benchmark_b1_protocol_summary.csv`
+- configuracion reproducible en `results/opt_benchmark_b1_protocol_config.json`
+
+Comando reproducible ejecutado para esta validacion:
+
+```powershell
+Push-Location Thesis-Copilot-Toolkit
+$env:PYTHONPATH='.'
+$env:INCLUDE_MNE='0'
+$env:MAX_TIME_SAMPLES='60'
+$env:B1_GRAPH_NAMES='knn'
+$env:B1_METHOD_NAMES='linear,idw,tikhonov,trss'
+$env:B1_MAX_SCENARIOS='4'
+$env:B1_MISSING_LEVELS='0.10,0.20,0.30,0.40'
+$env:B1_RANDOM_SEED='42'
+& .\.venv\Scripts\python.exe -m experiments.optimize_and_benchmark
+Pop-Location
+```
 
 ## 3) Estado de confianza por metodo clave
 
@@ -131,13 +161,13 @@ Leyenda:
 ## 5) Riesgos y brechas actuales
 
 1. BGSRP aun requiere cierre mas cercano a 1:1 MATLAB/GSPBox (entorno y generador de grafo original).
-2. Falta corrida final larga con DTW completo para cierre de reporte final.
-3. PRT-01 aun no esta cerrado como protocolo realista final para reporte de tesis/paper.
+2. La corrida B1 ejecutada usa configuracion reproducible acotada (INCLUDE_MNE=0 y subconjunto de metodos/grafos); falta corrida extendida full para tablas finales de publicacion.
+3. Falta consolidar resultados finales baseline vs GSP vs TV/tiempo con matriz final para manuscrito.
 
 ## 6) Siguiente bloque de cierre recomendado
 
 1. Ejecutar comparacion 1:1 BGSRP vs referencia MATLAB en escenario controlado (incluyendo barrido N completo de exfig4).
-2. Cerrar corrida final de robustez (DTW extendido) y congelar configuraciones por dataset.
+2. Ejecutar corrida full de robustez con todos los metodos/grafos objetivo para cierre B2 y tabla final de paper.
 
 ## 7) Nota de consistencia documental
 

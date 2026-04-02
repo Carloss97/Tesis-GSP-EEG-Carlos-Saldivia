@@ -63,10 +63,12 @@ Idioma esperado para tesis: espanol academico.
 - `experiments/reproduce_narang_2013_frozen.py`
 - `experiments/reproduce_puy_2018_frozen.py`
 - `experiments/replicate_bgsrp_exfig4_frozen.py`
-- Protocolo realista de canales faltantes iniciado (Ticket `PRT-01`) con estado ⚠ parcial.
+- Protocolo realista de canales faltantes cerrado (Ticket `PRT-01`) con bateria multi-nivel 10/20/30/40 y escenarios por region/tipo de electrodo.
+- Cierre de metrica DTW en benchmark final (Ticket `MET-01`) con artefactos `raw/summary/config` reproducibles.
 
 ## Estado de validacion paper-faithful
-- [ ] PRT-01: protocolo realista final de canales faltantes (actual: ⚠ parcial, random+sistematico ya implementados)
+- [x] PRT-01: protocolo realista final de canales faltantes (estado: ✓ done)
+- [x] MET-01: benchmark final integra MAE, RMSE, DTW y SNR en salida consolidada
 Resumen rapido:
 - `trss` / `sobolev_temporal`: ✓✓
 - `nnk`: ✓✓
@@ -101,7 +103,7 @@ Ejemplos de trazabilidad:
 - INS-13: `bgsrp`
 - TVT-02: `trss`
 - TVT-03: `sobolev_temporal`
-- PRT-01: protocolo realista de canales faltantes (estado actual: ⚠ parcial)
+- PRT-01: protocolo realista de canales faltantes (estado actual: ✓ done)
 
 La lista completa de tickets por metodo esta en `backlog.md` y se replica en `REFERENCES.md` y `VALIDATION_REPORT.md`.
 
@@ -135,6 +137,9 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - `results/puy_2018_frozen_summary.csv`
 - `results/puy_2018_frozen_config.json`
 - `results/paper_faithful_closure_active_methods_2026-04-01.md`
+- `results/opt_benchmark_b1_protocol_raw.csv`
+- `results/opt_benchmark_b1_protocol_summary.csv`
+- `results/opt_benchmark_b1_protocol_config.json`
 
 ## Checklist minimo
 
@@ -142,7 +147,7 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - [x] Estado paper-faithful documentado
 - [x] Tests paper-faithful ampliados (incluye TV/tiempo activos y `nnk`/`aew`)
 - [ ] Reproducibilidad numerica completa para todos los metodos paper-faithful (pendiente cierre total)
-- [ ] Corrida final extendida con DTW completo
+- [x] Corrida final extendida con DTW completo (B1 cierre en benchmark final)
 - [ ] Tabla final consolidada baseline vs GSP vs TV/tiempo
 
 Nota de alcance:

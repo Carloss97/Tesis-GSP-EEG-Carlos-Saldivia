@@ -8,15 +8,17 @@ Families:
 from __future__ import annotations
 
 import itertools
+import json
 import os
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Any, Callable, Dict, List
 
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import seaborn as sns
 
-from src.data.data_loader import load_mne_sample_dataset, load_synthetic_eeg, simulate_missing_channels
+from src.data.data_loader import load_mne_sample_dataset, load_synthetic_eeg
 from src.evaluation import evaluate_signals
 from src.graph_construction.graph_constructors import build_graph
 from src.interpolation_methods import interpolate_signals
@@ -89,7 +91,7 @@ def method_family(method: str) -> str:
     return "instant"
 
 
-def build_dataset_registry(include_mne: bool) -> Dict[str, callable]:
+def build_dataset_registry(include_mne: bool) -> Dict[str, Callable[[], Dict[str, Any]]]:
     ds = {
         "synthetic": lambda: load_synthetic_eeg(n_channels=22, n_times=260, random_state=42),
     }
@@ -98,8 +100,118 @@ def build_dataset_registry(include_mne: bool) -> Dict[str, callable]:
     return ds
 
 
-def run_benchmark(include_mne: bool = True, max_time_samples: int = 220) -> pd.DataFrame:
+def parse_csv_env_list(env_name: str, cast=float) -> List:
+    raw = os.environ.get(env_name, "").strip()
+    if not raw:
+        return []
+    return [cast(x.strip()) for x in raw.split(",") if x.strip()]
+
+
+def _safe_index_group(indices: np.ndarray, n_channels: int, target_min: int = 2) -> List[int]:
+    uniq = sorted({int(i) for i in indices if 0 <= int(i) < n_channels})
+    if len(uniq) >= target_min:
+        return uniq
+    if not uniq:
+        return list(range(min(target_min, n_channels)))
+    out = list(uniq)
+    for idx in range(n_channels):
+        if idx not in out:
+            out.append(idx)
+        if len(out) >= target_min:
+            break
+    return out
+
+
+def build_realistic_scenarios(positions: np.ndarray, ch_names: List[str]) -> List[Dict[str, Any]]:
+    n_channels = int(positions.shape[0])
+    x = positions[:, 0]
+    y = positions[:, 1]
+
+    frontal_idx = np.where(y >= np.quantile(y, 0.65))[0]
+    occipital_idx = np.where(y <= np.quantile(y, 0.35))[0]
+    lateral_left_idx = np.where(x <= np.quantile(x, 0.30))[0]
+    lateral_right_idx = np.where(x >= np.quantile(x, 0.70))[0]
+    midline_idx = np.where(np.abs(x) <= np.quantile(np.abs(x), 0.35))[0]
+
+    scenarios = [
+        {
+            "scenario": "frontal_band",
+            "region": "frontal",
+            "electrode_type": "anterior",
+            "base_indices": _safe_index_group(frontal_idx, n_channels),
+        },
+        {
+            "scenario": "occipital_band",
+            "region": "occipital",
+            "electrode_type": "posterior",
+            "base_indices": _safe_index_group(occipital_idx, n_channels),
+        },
+        {
+            "scenario": "left_lateral_temporal",
+            "region": "temporal",
+            "electrode_type": "lateral_left",
+            "base_indices": _safe_index_group(lateral_left_idx, n_channels),
+        },
+        {
+            "scenario": "right_lateral_temporal",
+            "region": "temporal",
+            "electrode_type": "lateral_right",
+            "base_indices": _safe_index_group(lateral_right_idx, n_channels),
+        },
+        {
+            "scenario": "midline_central",
+            "region": "central",
+            "electrode_type": "midline",
+            "base_indices": _safe_index_group(midline_idx, n_channels),
+        },
+    ]
+
+    # Keep channel labels only for frozen protocol traceability.
+    for sc in scenarios:
+        sc["base_channel_names"] = [ch_names[i] if 0 <= i < len(ch_names) else f"Ch{i + 1}" for i in sc["base_indices"]]
+    return scenarios
+
+
+def apply_scenario_mask(
+    signals: np.ndarray,
+    base_indices: List[int],
+    missing_ratio: float,
+    seed: int,
+) -> tuple[np.ndarray, List[int]]:
+    n_channels = int(signals.shape[1])
+    n_missing = max(1, int(round(n_channels * missing_ratio)))
+
+    base = [idx for idx in base_indices if 0 <= idx < n_channels]
+    selected = base[:n_missing]
+
+    if len(selected) < n_missing:
+        rng = np.random.default_rng(seed)
+        candidates = [idx for idx in range(n_channels) if idx not in selected]
+        needed = n_missing - len(selected)
+        if needed > 0 and candidates:
+            extra = rng.choice(candidates, size=min(needed, len(candidates)), replace=False)
+            selected.extend(int(x) for x in extra)
+
+    masked = signals.copy()
+    masked[:, selected] = np.nan
+    return masked, sorted(selected)
+
+
+def stable_seed_from_text(text: str, base_seed: int) -> int:
+    acc = base_seed
+    for i, ch in enumerate(text):
+        acc += (i + 1) * ord(ch)
+    return int(acc)
+
+
+def run_benchmark(
+    include_mne: bool = True,
+    max_time_samples: int = 220,
+    missing_levels: List[float] | None = None,
+    random_seed: int = 42,
+) -> tuple[pd.DataFrame, Dict[str, Any]]:
     datasets = build_dataset_registry(include_mne)
+    missing_levels = missing_levels or [0.10, 0.20, 0.30, 0.40]
 
     graph_spaces = {
         "knn": {"k": [4, 6]},
@@ -126,85 +238,144 @@ def run_benchmark(include_mne: bool = True, max_time_samples: int = 220) -> pd.D
         "tv": expand_grid({"lam": [0.1, 0.2, 0.4], "n_iter": [20], "eps": [1e-5]}),
     }
 
+    graph_filter = set(parse_csv_env_list("B1_GRAPH_NAMES", cast=str))
+    method_filter = set(parse_csv_env_list("B1_METHOD_NAMES", cast=str))
+    max_scenarios = int(os.environ.get("B1_MAX_SCENARIOS", "4"))
+
+    if graph_filter:
+        graph_spaces = {k: v for k, v in graph_spaces.items() if k in graph_filter}
+    if method_filter:
+        method_spaces = {k: v for k, v in method_spaces.items() if k in method_filter}
+
     rows = []
+    protocol_config: Dict[str, Any] = {
+        "seed": random_seed,
+        "missing_levels": [float(x) for x in missing_levels],
+        "datasets": {},
+        "metrics": ["mae", "rmse", "dtw", "snr"],
+        "graph_names": list(graph_spaces.keys()),
+        "method_names": list(method_spaces.keys()),
+    }
 
     for ds_name, loader in datasets.items():
         sample = loader()
         signals = sample["signals"]
         positions = sample["positions"]
+        info = sample.get("info", {})
+        ch_names = list(info.get("ch_names", [f"Ch{i + 1}" for i in range(signals.shape[1])]))
 
         if signals.shape[0] > max_time_samples:
             signals = signals[:max_time_samples]
 
-        masked = simulate_missing_channels(signals, missing_ratio=0.2, random_state=42)
+        scenarios = build_realistic_scenarios(positions, ch_names)[:max_scenarios]
+        protocol_config["datasets"][ds_name] = {
+            "n_channels": int(signals.shape[1]),
+            "n_times": int(signals.shape[0]),
+            "scenario_count": len(scenarios),
+            "scenarios": scenarios,
+        }
 
-        for graph_name, grid in graph_spaces.items():
-            graph_param_list = expand_grid(grid)
-            for gparams in graph_param_list:
-                try:
-                    graph = build_graph(graph_name, positions, signals=signals, **gparams)
-                    adjacency = graph["adjacency"]
-                    if hasattr(adjacency, "toarray"):
-                        adjacency = adjacency.toarray()
-                except Exception as exc:
-                    print(f"[WARN] graph failed {ds_name}/{graph_name}/{gparams}: {exc}")
-                    continue
+        for scenario in scenarios:
+            scenario_name = scenario["scenario"]
+            scenario_seed = stable_seed_from_text(f"{ds_name}:{scenario_name}", random_seed)
 
-                for method, param_list in method_spaces.items():
-                    for mparams in param_list:
+            for missing_ratio in missing_levels:
+                ratio_seed = scenario_seed + int(missing_ratio * 1000)
+                masked, selected_indices = apply_scenario_mask(
+                    signals=signals,
+                    base_indices=scenario["base_indices"],
+                    missing_ratio=float(missing_ratio),
+                    seed=ratio_seed,
+                )
+
+                for graph_name, grid in graph_spaces.items():
+                    graph_param_list = expand_grid(grid)
+                    for gparams in graph_param_list:
                         try:
-                            if method in GRAPH_BASED:
-                                rec = interpolate_signals(method, masked, adjacency=adjacency, **mparams)
-                            elif method in POSITION_BASED:
-                                rec = interpolate_signals(method, masked, positions=positions, **mparams)
-                            else:
-                                rec = interpolate_signals(method, masked, **mparams)
-
-                            met = evaluate_signals(signals, rec["reconstructed"], metrics=["mae", "rmse", "snr"])
-                            rows.append(
-                                {
-                                    "dataset": ds_name,
-                                    "graph": graph_name,
-                                    "graph_params": str(gparams),
-                                    "method": method,
-                                    "method_params": str(mparams),
-                                    "family": method_family(method),
-                                    "mae": met["mae"],
-                                    "rmse": met["rmse"],
-                                    "snr": met["snr"],
-                                }
-                            )
+                            graph = build_graph(graph_name, positions, signals=signals, **gparams)
+                            adjacency = graph["adjacency"]
+                            if hasattr(adjacency, "toarray"):
+                                adjacency = adjacency.toarray()
                         except Exception as exc:
-                            print(f"[WARN] method failed {ds_name}/{graph_name}/{method}/{mparams}: {exc}")
+                            print(f"[WARN] graph failed {ds_name}/{graph_name}/{gparams}: {exc}")
                             continue
 
-    return pd.DataFrame(rows)
+                        for method, param_list in method_spaces.items():
+                            for mparams in param_list:
+                                try:
+                                    if method in GRAPH_BASED:
+                                        rec = interpolate_signals(method, masked, adjacency=adjacency, **mparams)
+                                    elif method in POSITION_BASED:
+                                        rec = interpolate_signals(method, masked, positions=positions, **mparams)
+                                    else:
+                                        rec = interpolate_signals(method, masked, **mparams)
+
+                                    met = evaluate_signals(signals, rec["reconstructed"], metrics=["mae", "rmse", "dtw", "snr"])
+                                    rows.append(
+                                        {
+                                            "dataset": ds_name,
+                                            "scenario": scenario_name,
+                                            "region": scenario["region"],
+                                            "electrode_type": scenario["electrode_type"],
+                                            "missing_ratio": float(missing_ratio),
+                                            "missing_count": int(len(selected_indices)),
+                                            "missing_indices": ",".join(str(i) for i in selected_indices),
+                                            "mask_seed": int(ratio_seed),
+                                            "graph": graph_name,
+                                            "graph_params": str(gparams),
+                                            "method": method,
+                                            "method_params": str(mparams),
+                                            "family": method_family(method),
+                                            "mae": met["mae"],
+                                            "rmse": met["rmse"],
+                                            "dtw": met["dtw"],
+                                            "snr": met["snr"],
+                                        }
+                                    )
+                                except Exception as exc:
+                                    print(
+                                        f"[WARN] method failed {ds_name}/{scenario_name}/{missing_ratio}/{graph_name}/{method}/{mparams}: {exc}"
+                                    )
+                                    continue
+
+    return pd.DataFrame(rows), protocol_config
 
 
-def save_outputs(df: pd.DataFrame, out_dir: Path) -> None:
+def save_outputs(df: pd.DataFrame, out_dir: Path, protocol_config: Dict[str, Any]) -> None:
     full_csv = out_dir / "opt_benchmark_full.csv"
     df.to_csv(full_csv, index=False)
+
+    # Required B1 artifact schema.
+    df.to_csv(out_dir / "opt_benchmark_b1_protocol_raw.csv", index=False)
+    (out_dir / "opt_benchmark_b1_protocol_config.json").write_text(json.dumps(protocol_config, indent=2), encoding="utf-8")
 
     if df.empty:
         print("No results to save.")
         return
 
-    rank_all = df.sort_values(["mae", "rmse"], ascending=[True, True]).reset_index(drop=True)
+    rank_all = df.sort_values(["mae", "rmse", "dtw"], ascending=[True, True, True]).reset_index(drop=True)
     rank_all.to_csv(out_dir / "opt_benchmark_rank_all.csv", index=False)
 
     best_by_family = (
-        df.sort_values(["mae", "rmse"], ascending=[True, True])
-        .groupby(["dataset", "family"], as_index=False)
+        df.sort_values(["mae", "rmse", "dtw"], ascending=[True, True, True])
+        .groupby(["dataset", "scenario", "missing_ratio", "family"], as_index=False)
         .first()
     )
     best_by_family.to_csv(out_dir / "opt_benchmark_best_by_family.csv", index=False)
 
     best_by_method = (
-        df.groupby(["dataset", "graph", "method", "family"], as_index=False)
-        .agg(mae=("mae", "mean"), rmse=("rmse", "mean"), snr=("snr", "mean"))
+        df.groupby(["dataset", "scenario", "missing_ratio", "graph", "method", "family"], as_index=False)
+        .agg(mae=("mae", "mean"), rmse=("rmse", "mean"), dtw=("dtw", "mean"), snr=("snr", "mean"))
         .sort_values("mae")
     )
     best_by_method.to_csv(out_dir / "opt_benchmark_mean_by_method.csv", index=False)
+
+    summary = (
+        df.groupby(["dataset", "scenario", "region", "electrode_type", "missing_ratio", "method", "family"], as_index=False)
+        .agg(mae=("mae", "mean"), rmse=("rmse", "mean"), dtw=("dtw", "mean"), snr=("snr", "mean"))
+        .sort_values(["dataset", "scenario", "missing_ratio", "mae"])
+    )
+    summary.to_csv(out_dir / "opt_benchmark_b1_protocol_summary.csv", index=False)
 
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=df, x="family", y="mae", hue="dataset")
@@ -229,10 +400,17 @@ def save_outputs(df: pd.DataFrame, out_dir: Path) -> None:
 def main() -> None:
     include_mne = os.environ.get("INCLUDE_MNE", "1") == "1"
     max_time_samples = int(os.environ.get("MAX_TIME_SAMPLES", "220"))
+    missing_levels = parse_csv_env_list("B1_MISSING_LEVELS", cast=float) or [0.10, 0.20, 0.30, 0.40]
+    random_seed = int(os.environ.get("B1_RANDOM_SEED", "42"))
 
     out_dir = ensure_results_dir()
-    df = run_benchmark(include_mne=include_mne, max_time_samples=max_time_samples)
-    save_outputs(df, out_dir)
+    df, protocol_config = run_benchmark(
+        include_mne=include_mne,
+        max_time_samples=max_time_samples,
+        missing_levels=missing_levels,
+        random_seed=random_seed,
+    )
+    save_outputs(df, out_dir, protocol_config)
 
     if not df.empty:
         print(df.sort_values("mae").head(25))

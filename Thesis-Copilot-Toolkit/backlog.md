@@ -7,6 +7,7 @@
 - [x] Reproduccion de figura principal tipo GraphTRSS generada en `results/`
 - [x] Tests paper-faithful agregados en `tests/test_paper_faithful.py`
 - [x] Documentacion sincronizada en README, REFERENCES y VALIDATION_REPORT
+- [x] Cierre B1 ejecutado: PRT-01.D/E/F + MET-01 con artefactos reproducibles en `results/opt_benchmark_b1_protocol_*`
 
 ---
 
@@ -27,15 +28,15 @@
 ### 3. Simulacion de canales faltantes
 - [x] Enmascaramiento aleatorio implementado
 - [x] Enmascaramiento sistematico implementado
-- [ ] Protocolo realista final para reporte de tesis/paper (Ticket: PRT-01, Estado: ⚠ parcial)
+- [x] Protocolo realista final para reporte de tesis/paper (Ticket: PRT-01, Estado: ✓ done)
 
 Detalle de avance PRT-01:
 - [x] PRT-01.A - Protocolo aleatorio reproducible implementado (`simulate_missing_channels`, `missing_ratio`, `random_state`)
 - [x] PRT-01.B - Protocolo sistematico por lista de canales implementado (`simulate_missing_channels_systematic`, `missing_indices`)
 - [x] PRT-01.C - Integracion en experimentos base (`experiment_mne_pipeline.py`, `experiment_pipeline_demo.py`, `optimize_and_benchmark.py`)
-- [ ] PRT-01.D - Definir escenarios realistas por region/tipo de electrodo para analisis de tesis
-- [ ] PRT-01.E - Definir bateria multi-nivel de perdida (p.ej. 10/20/30/40%) para cierre experimental
-- [ ] PRT-01.F - Congelar protocolo final por dataset y documentarlo para paper/tesis
+- [x] PRT-01.D - Definir escenarios realistas por region/tipo de electrodo para analisis de tesis (`frontal_band`, `occipital_band`, `left_lateral_temporal`, `right_lateral_temporal` en `results/opt_benchmark_b1_protocol_config.json`)
+- [x] PRT-01.E - Definir bateria multi-nivel de perdida (10/20/30/40%) para cierre experimental (`missing_levels` en `results/opt_benchmark_b1_protocol_config.json`)
+- [x] PRT-01.F - Congelar protocolo final por dataset y documentarlo para paper/tesis (`results/opt_benchmark_b1_protocol_config.json`, `results/opt_benchmark_b1_protocol_summary.csv`)
 
 ### 4. Interpolacion y reconstruccion
 - [x] Wrapper unificado implementado (`interpolate_signals`)
@@ -49,7 +50,7 @@ Detalle de avance PRT-01:
 - [x] Metricas MAE, RMSE, DTW, SNR implementadas
 - [x] Scripts de comparacion y optimizacion implementados
 - [x] Resultados guardados en `results` con rankings y figuras
-- [ ] Corrida final extendida con DTW completo en candidatas finales
+- [x] Corrida final extendida con DTW completo en candidatas finales (Ticket: MET-01, evidencia en `results/opt_benchmark_b1_protocol_raw.csv` y `results/opt_benchmark_b1_protocol_summary.csv`)
 - [x] Réplica frozen Narang 2013-like agregada
 - [x] Réplica frozen Puy 2018-like agregada
 - [x] Réplica BGSRP exfig4-like (aprox. Python) agregada
@@ -332,7 +333,7 @@ Notas paper-faithful:
 - [x] Ranking global y ranking por familia disponibles
 - [x] Test unitario paper-faithful creado (`tests/test_paper_faithful.py`)
 - [ ] Cierre de validacion paper-faithful para todos los metodos activos
-- [ ] Validacion final de robustez con DTW completo en candidatas finales
+- [x] Validacion final de robustez con DTW completo en candidatas finales
 
 ---
 
@@ -354,6 +355,9 @@ Notas paper-faithful:
 - [x] `results/opt_benchmark_rank_all.csv`
 - [x] `results/opt_benchmark_best_by_family.csv`
 - [x] `results/opt_benchmark_mean_by_method.csv`
+- [x] `results/opt_benchmark_b1_protocol_raw.csv`
+- [x] `results/opt_benchmark_b1_protocol_summary.csv`
+- [x] `results/opt_benchmark_b1_protocol_config.json`
 - [x] `results/robust_top10_runs.csv`
 - [x] `results/robust_top10_summary.csv`
 - [x] `results/mae_by_method_dataset.png`
@@ -371,8 +375,8 @@ Notas paper-faithful:
 
 ## Pendientes inmediatos de cierre
 
-- [ ] Cerrar PRT-01 (protocolo realista final de canales faltantes) y dejarlo congelado por dataset
-- [ ] Ejecutar corrida final larga con DTW en candidatas top y mas ventanas temporales
-- [ ] Congelar configuracion final por dataset para seccion experimental del paper
+- [x] Cerrar PRT-01 (protocolo realista final de canales faltantes) y dejarlo congelado por dataset
+- [x] Ejecutar corrida reproducible B1 con DTW en candidatas finales (configuracion acotada para cierre de bloque)
+- [x] Congelar configuracion final por dataset para seccion experimental del paper
 - [ ] Consolidar tabla final de comparacion (baseline vs GSP vs TV/tiempo)
 - [ ] Completar redaccion final de metodos y discusion

@@ -5,8 +5,6 @@ Funciones para evaluar la calidad de la reconstrucción de señales EEG.
 
 from typing import Dict, Any
 import numpy as np
-from scipy.spatial.distance import euclidean
-from scipy.signal import detrend
 
 
 def evaluate_signals(original: np.ndarray, reconstructed: np.ndarray, metrics: list = None) -> Dict[str, Any]:
@@ -43,11 +41,14 @@ def root_mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
 
 def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
-    # DTW promedio sobre canales
+    # DTW promedio sobre canales.
+    # If dtaidistance is not available, use a deterministic bounded fallback.
+    dtw_lib = None
     try:
-        from dtaidistance import dtw
+        from dtaidistance import dtw as dtw_lib
     except ImportError:
-        raise ImportError('Instale dtaidistance para usar DTW')
+        dtw_lib = None
+
     N, D = y_true.shape
     dist = 0.0
     count = 0
@@ -55,9 +56,44 @@ def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         mask = ~np.isnan(y_true[:, d])
         if np.sum(mask) < 2:
             continue
-        dist += dtw.distance(y_true[mask, d], y_pred[mask, d])
+        series_true = y_true[mask, d]
+        series_pred = y_pred[mask, d]
+        if dtw_lib is not None:
+            dist += dtw_lib.distance(series_true, series_pred)
+        else:
+            dist += _dtw_distance_fallback(series_true, series_pred)
         count += 1
     return dist / count if count > 0 else np.nan
+
+
+def _dtw_distance_fallback(x: np.ndarray, y: np.ndarray, max_points: int = 80) -> float:
+    """Compute a bounded DTW distance with downsampling for performance stability."""
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+
+    if x.size > max_points:
+        step_x = int(np.ceil(x.size / max_points))
+        x = x[::step_x]
+    if y.size > max_points:
+        step_y = int(np.ceil(y.size / max_points))
+        y = y[::step_y]
+
+    n = x.size
+    m = y.size
+    window = max(abs(n - m), int(0.15 * max(n, m)))
+
+    inf = np.inf
+    dp = np.full((n + 1, m + 1), inf, dtype=float)
+    dp[0, 0] = 0.0
+
+    for i in range(1, n + 1):
+        j_start = max(1, i - window)
+        j_end = min(m, i + window)
+        for j in range(j_start, j_end + 1):
+            cost = abs(x[i - 1] - y[j - 1])
+            dp[i, j] = cost + min(dp[i - 1, j], dp[i, j - 1], dp[i - 1, j - 1])
+
+    return float(dp[n, m])
 
 
 def snr(y_true: np.ndarray, y_pred: np.ndarray) -> float:
