@@ -1,12 +1,18 @@
 \section{Methods}
 
-We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. Missing channels are reconstructed with multiple interpolation families.
+We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. At this stage, we focus on a practical and reproducible benchmark implementation, not yet on claiming a single theoretically optimal method.
 
 \subsection{Graph Construction}
-We evaluate neighborhood and fully connected schemes, including kNN-style and NNK-inspired constructions.
+We evaluate several graph constructors implemented in our pipeline, including neighborhood and adaptive alternatives. In the B2 stage, we prioritize methods that stayed numerically stable during full-scale execution.
 
 \subsection{Interpolation Families}
-We compare classical baselines, graph smoothness priors, and temporal regularization methods.
+We compare three families:
+\begin{itemize}
+\item Instant methods (e.g., linear, idw, gsp, gsmooth, tikhonov, bgsrp).
+\item TV/time methods (e.g., trss, tv, graph\_time\_tikhonov).
+\item Reference geometric/spline baselines.
+\end{itemize}
+The goal is to compare behavior under the same masking protocol and metrics, instead of tuning each method independently for best-case numbers.
 
 \subsection{Evaluation Metrics}
-Performance is assessed with MAE, RMSE, DTW, and SNR.
+Performance is assessed with MAE, RMSE, DTW, and SNR. We report mean and standard deviation, and for consolidated B2 analysis we also track approximate 95\% confidence intervals from repeated runs.

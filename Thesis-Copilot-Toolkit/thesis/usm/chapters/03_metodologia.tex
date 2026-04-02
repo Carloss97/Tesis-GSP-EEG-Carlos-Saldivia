@@ -1,15 +1,22 @@
 \chapter{Metodologia}
 
-Este capitulo describe el pipeline experimental completo.
+Este capitulo describe el pipeline experimental completo usado en la etapa B2. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso.
 
 \section{Construccion de grafos}
 
-Se detallan los metodos de construccion evaluados y su parametrizacion.
+Se evaluaron constructores de grafo de tipo vecindad, distancia y variantes adaptativas. En B2 se mantuvieron los metodos que mostraron estabilidad numerica en corrida extendida y que permitieron consolidar resultados sin interrupciones.
 
 \section{Simulacion de canales faltantes}
 
-Se documentan protocolos aleatorios, sistematicos y realistas.
+Se trabajaron escenarios por region de electrodos (por ejemplo frontal, occipital y temporal lateral) con niveles de perdida de 10\%, 20\%, 30\% y 40\%. Este diseno intenta aproximar situaciones mas realistas que una mascara completamente aleatoria.
 
 \section{Interpolacion y reconstruccion}
 
-Se describen las familias de metodos comparadas.
+Las comparaciones se organizaron por familias:
+\begin{itemize}
+\item Baselines instantaneos/geometricos.
+\item Metodos de suavidad en grafo (incluyendo variantes tipo GSP/Tikhonov).
+\item Metodos TV/tiempo (incluyendo TRSS y variantes temporales).
+\end{itemize}
+
+Para la evaluacion se usaron MAE, RMSE, DTW y SNR con agregacion estadistica (media, desviacion estandar e intervalo de confianza aproximado) sobre corridas repetidas.

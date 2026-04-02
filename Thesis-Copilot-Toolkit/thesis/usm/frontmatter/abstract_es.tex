@@ -1,4 +1,8 @@
 \chapter*{Resumen}
 \addcontentsline{toc}{chapter}{Resumen}
 
-Esta tesis aborda la reconstruccion de senales EEG con canales faltantes mediante tecnicas de procesamiento de senales sobre grafos (GSP), metodos de interpolacion clasicos y estrategias de regularizacion temporal. Se propone un pipeline reproducible para comparar familias de metodos bajo protocolos de enmascaramiento controlados y realistas. Los resultados se analizan con MAE, RMSE, DTW y SNR para determinar condiciones donde los enfoques basados en grafos entregan ventajas frente a baselines geometricos.
+Esta tesis aborda el problema de reconstruccion de EEG con canales faltantes mediante un enfoque de procesamiento de senales sobre grafos (GSP), complementado con baselines geometricos y metodos de regularizacion temporal. La motivacion principal es que, en escenarios reales, la perdida de canales no sigue siempre un patron aleatorio simple y puede afectar de manera importante la interpretacion clinica y el desempeno de sistemas BCI.
+
+Siguiendo la perspectiva de GSP difundida por Ortega y colaboradores, se modela el EEG como una senal sobre grafo y se construye un pipeline reproducible para comparar metodos bajo condiciones homologas. El estudio considera metricas MAE, RMSE, DTW y SNR, con consolidacion estadistica de corridas repetidas.
+
+Hasta la fase B2, se completaron corridas full-scale por lotes y se generaron artefactos publication-ready (rankings, tablas top-k y resumenes estadisticos). Los resultados muestran que los metodos basados en grafo y los metodos TV/tiempo son competitivos de forma consistente, aunque el ranking depende del escenario espacial y del nivel de perdida. Como limitacion explicitada en esta etapa, la equivalencia estricta 1:1 de BGSRP frente al stack original MATLAB/GSPBox permanece pendiente de cierre final.

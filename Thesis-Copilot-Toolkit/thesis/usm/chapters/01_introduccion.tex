@@ -1,11 +1,45 @@
 \chapter{Introduccion}
 
-Este capitulo presenta el problema de reconstruccion de EEG con canales faltantes, su relevancia y los objetivos de la tesis.
+La electroencefalografia (EEG) es una herramienta central en neurociencia, ingenieria biomedica y aplicaciones de interfaz cerebro-computador. Sin embargo, en la practica experimental y clinica es habitual enfrentar canales faltantes por fallas de contacto, ruido, saturacion o descarte por control de calidad. Cuando esto ocurre, una decision comun es interpolar los canales perdidos para mantener consistencia espacial del registro.
+
+Aunque existen multiples alternativas de interpolacion, no siempre esta claro cual conviene usar bajo condiciones realistas de perdida. En particular, los metodos basados en procesamiento de senales sobre grafos (GSP) han mostrado resultados prometedores, pero su comparacion con baselines clasicos y metodos temporales suele estar fragmentada en protocolos distintos. Esta tesis intenta cerrar parcialmente esa brecha con un pipeline unico, reproducible y trazable.
 
 \section{Motivacion}
 
-Las senales EEG suelen contener ruido, artefactos o perdida de canales. Una reconstruccion confiable es clave para analisis clinico y aplicaciones BCI.
+Siguiendo la linea conceptual de GSP impulsada por Ortega y colaboradores, el EEG puede modelarse como una senal definida sobre un grafo de electrodos. Esta representacion permite incorporar estructura espacial de manera explicita y combinarla con regularizacion temporal. Desde la perspectiva del autor, esta formulacion resulta atractiva porque conecta teoria de grafos, reconstruccion de senales y aplicabilidad experimental en un mismo marco.
+
+La motivacion concreta de este trabajo fue evaluar, de forma sistematica, si ese marco realmente entrega mejoras practicas frente a metodos mas simples en escenarios de canales faltantes que se parecen mas a lo que pasa en datos reales.
 
 \section{Objetivos}
 
-Se busca comparar metodos de reconstruccion basados en grafos con baselines clasicos y modelos temporales.
+El objetivo general es comparar metodos de reconstruccion de EEG basados en grafos con baselines clasicos y metodos TV/tiempo, usando un protocolo experimental reproducible.
+
+Objetivos especificos:
+\begin{itemize}
+\item Implementar y consolidar una coleccion de metodos de construccion de grafos e interpolacion en un pipeline modular.
+\item Definir protocolos de canales faltantes con escenarios por region y niveles de perdida.
+\item Evaluar desempeno con MAE, RMSE, DTW y SNR, incluyendo estadisticos de variabilidad.
+\item Generar artefactos trazables para redaccion de paper y tesis.
+\end{itemize}
+
+Hipotesis de trabajo:
+\begin{quote}
+El uso de tecnicas de interpolacion basadas en grafos permite reconstruir senales EEG de manera mas precisa y robusta que metodos clasicos en escenarios realistas de canales faltantes.
+\end{quote}
+
+Al cierre de la fase B2, esta hipotesis cuenta con evidencia favorable en varios escenarios, aunque todavia con pendientes de cierre en equivalencia estricta BGSRP 1:1 con MATLAB/GSPBox.
+
+\section{Alcance actual (fase B2)}
+
+Hasta esta etapa se completaron corridas full-scale por lotes, consolidacion estadistica publication-ready y ranking final por escenarios. Esto permite redactar una version tecnicamente solida de resultados. Al mismo tiempo, se mantiene una postura cauta: no todos los frentes de validacion paper-faithful estan cerrados al 100\%.
+
+\section{Estructura de la tesis}
+
+El resto del documento se organiza de la siguiente forma:
+\begin{itemize}
+\item Capitulo 2: marco teorico de EEG, grafos y reconstruccion.
+\item Capitulo 3: metodologia y protocolo experimental.
+\item Capitulo 4: experimentos y resultados cuantitativos.
+\item Capitulo 5: discusion critica de hallazgos y limitaciones.
+\item Capitulo 6: conclusiones y trabajo futuro.
+\end{itemize}
