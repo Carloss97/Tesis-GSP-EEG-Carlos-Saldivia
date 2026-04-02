@@ -83,3 +83,11 @@ Estado aplicado en esta iteracion:
 - Reproducibilidad y recursos: `results/b3_b4_reproducibility_guide.md`, `results/b3_b4_compute_resources.md`.
 - Checklist de envio: `results/b3_b4_submission_checklist.md`.
 - INS-13 estricto cross-stack: `results/ins13_strict_status.md` y `results/ins13_strict_matlab_compare_summary.csv`.
+
+## 9. Regla de redaccion para INS-13 (retroactiva)
+
+- Estado canonico a declarar: `proxy_or_partial` con `strict_close=False`.
+- Claim permitido: BGSRP validado en proxy Python controlado con evidencia cross-stack cuantitativa.
+- Claim no permitido: equivalencia estricta 1:1 MATLAB/GSPBox ya cerrada.
+- Fuente numerica oficial para paper/tesis: `results/ins13_strict_status.md`.
+- Decisiones editoriales asociadas: `results/b3_b4_submission_checklist.md` y `results/b3_b4_editorial_traceability.md`.

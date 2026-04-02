@@ -84,6 +84,7 @@ Detalle de avance PRT-01:
 - [x] RPL-02 - Reporte de recursos computacionales (`results/b3_b4_compute_resources.md`)
 - [x] REL-01 - Checklist final de envio y decision (`results/b3_b4_submission_checklist.md`, decision: Go con limitacion INS-13)
 - [x] INS-13 estricta (intento cross-stack) ejecutada con evidencia MATLAB/GSPBox (`results/ins13_strict_matlab_compare_raw.csv`, `results/ins13_strict_matlab_compare_summary.csv`, `results/ins13_strict_status.md`)
+- [x] INS-13 documentada para redaccion como `proxy_or_partial` (Go con limitacion; `strict_close=False` en `results/ins13_strict_status.md`)
 - [x] Trazabilidad editorial paper/tesis a artefactos (`results/b3_b4_editorial_traceability.md`)
 - [x] Politica de hardening de warnings no fatales (`results/b3_b4_warning_hardening.md`)
 
@@ -257,7 +258,7 @@ Detalle de avance PRT-01:
   - Referencia: Zhang et al. (2024)
   - Descripcion: reconstruccion RKHS bandlimited (sin DC) con regularizacion `gamma`.
   - Parametros: `adjacency`, `bandwidth`, `gamma`, `reg`.
-  - Estado Validacion: ⚠
+  - Estado Validacion: ⚠ (cierre operativo en modo proxy Python; equivalencia 1:1 MATLAB/GSPBox pendiente)
 
 - [x] `puy`
   - Ticket: INS-14

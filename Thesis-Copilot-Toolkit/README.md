@@ -202,5 +202,6 @@ $env:B2_RANDOM_SEED='42'
 
 Nota de alcance:
 - Se ejecuto comparacion estricta Python vs MATLAB/GSPBox en escenario controlado (`results/ins13_strict_matlab_compare_*`), con estado `proxy_or_partial` en esta iteracion.
+- Estado tecnico reportable: `strict_close=False`, `mae_gap_mean=1.835239e-04`, `corr_mean=0.989777` (fuente canonica: `results/ins13_strict_status.md`).
 - La equivalencia estricta 1:1 completa con criterio de cierre absoluto sigue pendiente como trabajo adicional, ahora con evidencia cuantitativa directa del gap residual cross-stack.
 - Existen replicas frozen para Narang y Puy en entorno Python, pero el cierre total requiere completar la matriz de replicacion numerica de todos los metodos paper-faithful definidos en `REFERENCES.md` y validar equivalencia/criterios por metodo.

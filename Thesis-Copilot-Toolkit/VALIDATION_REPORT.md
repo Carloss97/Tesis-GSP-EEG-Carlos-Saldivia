@@ -268,11 +268,12 @@ Artefactos:
 Resultado actual:
 - status: `proxy_or_partial`
 - strict_close: `False`
-- mae_gap_mean: `1.835249e-04`
+- mae_gap_mean: `1.835239e-04`
 - corr_mean: `0.989777`
 
 Interpretacion: se avanzo desde "sin intento estricto" a una medicion cross-stack verificable,
-pero aun no cumple criterio de cierre absoluto 1:1.
+pero aun no cumple criterio de cierre absoluto 1:1. Para cierre editorial,
+se mantiene decision Go con limitacion explicita y claim de proxy Python.
 
 ## 11) Evidencia de integracion editorial y warnings
 
