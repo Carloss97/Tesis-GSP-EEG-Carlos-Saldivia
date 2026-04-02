@@ -26,6 +26,12 @@
 - Documentar resultados y pipeline.
 - Redactar secciones de resultados y discusión.
 
+## Fase 7: Estructura editorial paper/tesis
+- Crear base LaTeX modular para paper en formato IEEE.
+- Crear base LaTeX modular para tesis en formato institucional (base report + adaptacion USM).
+- Definir workflow de fuentes bibliograficas y convenciones de lenguaje por entregable.
+- Definir checklist de cierre para pre-submission del paper y entrega de tesis.
+
 ---
 
 Cada fase debe incluir pruebas mínimas y scripts de ejemplo en /experiments. El avance es incremental: no avanzar a la siguiente fase sin pruebas básicas de la anterior.

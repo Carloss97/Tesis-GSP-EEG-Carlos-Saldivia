@@ -23,3 +23,9 @@
 
 ## 6. Análisis y reporte
 - WHEN se completan los experimentos, THE SYSTEM SHALL facilitar la extracción de conclusiones y la redacción de resultados para paper y tesis.
+
+## 7. Estructura documental de investigacion
+- WHEN se prepare el manuscrito de paper, THE SYSTEM SHALL mantener una estructura modular en formato IEEE con secciones separadas y bibliografia BibTeX.
+- WHEN se prepare la tesis de magister, THE SYSTEM SHALL mantener una estructura modular en LaTeX con frontmatter, capitulos y bibliografia.
+- WHEN se reporten resultados en paper o tesis, THE SYSTEM SHALL trazar cada tabla y figura a artefactos reproducibles del directorio de resultados.
+- IF se use una plantilla institucional externa (USM), THEN THE SYSTEM SHALL registrar y aplicar sus convenciones de formato sin perder la compilacion base local.

@@ -1,0 +1,28 @@
+{
+  "reference": "Narang et al. 2013",
+  "graph_method": "knng",
+  "graph_params": {
+    "k": 8,
+    "sigma": 0.9
+  },
+  "bandwidth": 16,
+  "missing_ratios": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5
+  ],
+  "seeds": [
+    1,
+    7,
+    13,
+    21,
+    42
+  ],
+  "methods": [
+    "gsp",
+    "tikhonov",
+    "gsmooth"
+  ]
+}

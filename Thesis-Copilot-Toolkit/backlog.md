@@ -27,7 +27,15 @@
 ### 3. Simulacion de canales faltantes
 - [x] Enmascaramiento aleatorio implementado
 - [x] Enmascaramiento sistematico implementado
-- [ ] Protocolo realista final para reporte de tesis/paper
+- [ ] Protocolo realista final para reporte de tesis/paper (Ticket: PRT-01, Estado: ⚠ parcial)
+
+Detalle de avance PRT-01:
+- [x] PRT-01.A - Protocolo aleatorio reproducible implementado (`simulate_missing_channels`, `missing_ratio`, `random_state`)
+- [x] PRT-01.B - Protocolo sistematico por lista de canales implementado (`simulate_missing_channels_systematic`, `missing_indices`)
+- [x] PRT-01.C - Integracion en experimentos base (`experiment_mne_pipeline.py`, `experiment_pipeline_demo.py`, `optimize_and_benchmark.py`)
+- [ ] PRT-01.D - Definir escenarios realistas por region/tipo de electrodo para analisis de tesis
+- [ ] PRT-01.E - Definir bateria multi-nivel de perdida (p.ej. 10/20/30/40%) para cierre experimental
+- [ ] PRT-01.F - Congelar protocolo final por dataset y documentarlo para paper/tesis
 
 ### 4. Interpolacion y reconstruccion
 - [x] Wrapper unificado implementado (`interpolate_signals`)
@@ -35,15 +43,21 @@
 - [x] Metodos TV/tiempo implementados
 - [x] Interfaz de entrada/salida estandarizada
 - [x] Correccion paper-faithful de BGSRP y consolidacion de TRSS/sobolev_temporal
+- [x] Estabilización numérica de `spline_surface` con fallback controlado
 
 ### 5. Evaluacion y comparacion
 - [x] Metricas MAE, RMSE, DTW, SNR implementadas
 - [x] Scripts de comparacion y optimizacion implementados
 - [x] Resultados guardados en `results` con rankings y figuras
 - [ ] Corrida final extendida con DTW completo en candidatas finales
+- [x] Réplica frozen Narang 2013-like agregada
+- [x] Réplica frozen Puy 2018-like agregada
+- [x] Réplica BGSRP exfig4-like (aprox. Python) agregada
 
 ### 6. Analisis y reporte
 - [x] Conclusiones preliminares extraidas
+- [x] Tests paper-faithful ampliados para métodos TV/tiempo activos
+- [x] Tests dedicados para métodos de grafo `nnk` y `aew`
 - [ ] Consolidar tabla final baseline vs GSP vs TV/tiempo (media +- desviacion)
 - [ ] Redactar version final de metodos, resultados y discusion
 
@@ -357,6 +371,7 @@ Notas paper-faithful:
 
 ## Pendientes inmediatos de cierre
 
+- [ ] Cerrar PRT-01 (protocolo realista final de canales faltantes) y dejarlo congelado por dataset
 - [ ] Ejecutar corrida final larga con DTW en candidatas top y mas ventanas temporales
 - [ ] Congelar configuracion final por dataset para seccion experimental del paper
 - [ ] Consolidar tabla final de comparacion (baseline vs GSP vs TV/tiempo)

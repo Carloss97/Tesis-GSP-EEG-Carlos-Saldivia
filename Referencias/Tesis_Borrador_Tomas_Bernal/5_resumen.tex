@@ -1,0 +1,20 @@
+\clearpage
+\setlength{\parindent}{0cm}
+    \vspace{15mm}
+	{\huge {\bf Resumen}}\\
+\vspace{2cm}
+	\large
+	\\
+
+Esta Tesis de postgrado se centra en el diseño de control de una manipulador paralelo de 6 grados de libertad (6-DOFs) llamado plataforma Stewart, caracterizado por ser un sistema multivariable no lineal, es decir, múltiples entradas y múltiples salidas (MIMO), de alta complejidad por la cantidad de grados de libertad que posee. El problema radica en lograr un funcionamiento eficiente para la plataforma en cuestión, optimizando criterios de diseño como funcionales de costo.
+
+Se estudian dos tipos de control con distinta estructura, correspondientes a versiones full (matriz con componentes fuera de la diagonal distintos de cero) y versiones descentralizadas, es decir con una estructura diagonal de controladores SISO (entrada única y salida única). La estructura descentralizada posee dos versiones, una inicial y una optimizada mediante un algoritmo numérico de optimización, para mejorar su  desempeño y así ser comparada con la versión full del controlador correspondiente. 
+
+Finalmente se busca diseñar un nuevo controlador MIMO que garantice un seguimiento eficiente en estado estacionario a señales sinusoidales de referencia, las cuales pueden ser de distinta frecuencia para cada actuador de la plataforma Stewart, por ende, el ajuste del controlador MIMO sera individual en cada componente correspondiente a cada brazo con la frecuencia de interés de cada uno. 
+
+Mediante simulaciones se ilustra los resultados de los controladores obtenidos, analizando sus desempeños en base a criterios e índices de medición. Se espera que este trabajo sirva de guía para el análisis del seguimiento de señales sinusoidales de la plataforma Stewart.
+\\
+\vspace{10mm}
+
+\textit{\textbf{Palabras clave:}} Plataforma Stewart, control PID MIMO, control PID descentralizado, seguimiento sinusoidal, Output Regulation.
+\vspace{1cm}

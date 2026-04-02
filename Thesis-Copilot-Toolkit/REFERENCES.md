@@ -60,14 +60,14 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 
 | Ticket | Metodo | Referencia principal | Tipo de alineacion | Estado Validacion |
 |---|---|---|---|---|
-| TVT-01 | `graph_time_tikhonov` | extension temporal de Tikhonov en grafo | derivado | ✓ |
+| TVT-01 | `graph_time_tikhonov` | Narang et al., arXiv 2013 + Jiang et al., IEEE Sensors Journal 2021 | extension paper-inspired | ✓ |
 | TVT-02 | `trss` | Giraldo et al., IEEE TSIPN 2022 | paper-aligned | ✓✓ |
 | TVT-03 | `sobolev_temporal` | alias funcional de `trss` | paper-aligned | ✓✓ |
 | TVT-04 | `tv` | Mortaheb et al., EMBC 2019 | paper-inspired | ✓ |
 | TVT-05 | `temporal_laplacian` | Jiang et al., IEEE Sensors Journal 2021 | paper-inspired | ✓ |
-| TVT-06 | `heat_diffusion_temporal` | diffusion temporal en grafo | derivado | ✓ |
-| TVT-07 | `spline_temporal` | spline temporal + regularizacion espacial | derivado | ✓ |
-| TVT-08 | `wavelet_temporal` | filtro temporal tipo Haar + regularizacion espacial | derivado | ✓ |
+| TVT-06 | `heat_diffusion_temporal` | Shuman et al., IEEE SPM 2013 (graph spectral filtering / heat kernels) | paper-inspired | ✓ |
+| TVT-07 | `spline_temporal` | Narang et al., arXiv 2013 (regularizacion en grafo) + spline smoothing clasico | paper-inspired | ✓ |
+| TVT-08 | `wavelet_temporal` | Hammond et al., ACHA 2011 (wavelets on graphs) | paper-inspired | ✓ |
 | TVT-09 | `directed_tv` | Schultz y Villafane-Delgado, arXiv 2020 | paper-inspired | ✓ |
 | TVT-10 | `adaptive_temporal` | Bozkurt y Ortega, EUSIPCO 2022 | paper-inspired | ✓ |
 
@@ -80,6 +80,7 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 - Puy G, et al. (2018). *Random sampling of bandlimited signals on graphs*. DOI: 10.1016/j.acha.2016.05.005
 - Shekkizhar S, Ortega A (2020). *Graph Construction from Data by Non-Negative Kernel Regression*. DOI: 10.1109/ICASSP40776.2020.9054425
 - Giraldo JH, et al. (2022). *Reconstruction of Time-Varying Graph Signals via Sobolev Smoothness*. DOI: 10.1109/TSIPN.2022.3156886
+- Hammond DK, Vandergheynst P, Gribonval R (2011). *Wavelets on Graphs via Spectral Graph Theory*. DOI: 10.1016/j.acha.2010.04.005
 - Bozkurt E, Ortega A (2022). *Non-Negative Kernel Graphs for Time-Varying Signals Using Visibility Graphs*. DOI: 10.23919/EUSIPCO55093.2022.9909594
 - Zhang Q, et al. (2024). *Recovery of bandlimited graph signals based on the reproducing kernel Hilbert space*. DOI: 10.1016/j.dsp.2024.104565
 

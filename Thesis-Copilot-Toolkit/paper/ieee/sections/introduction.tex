@@ -1,0 +1,12 @@
+\section{Introduction}
+
+Electroencephalography (EEG) recordings often contain missing channels due to hardware issues, poor contact, or artifact rejection. This affects both clinical interpretation and downstream machine learning tasks. We address this problem with a reconstruction benchmark centered on graph signal processing (GSP), where channels are represented as graph vertices and interpolation is guided by graph structure.
+
+The main contributions of this manuscript are:
+\begin{itemize}
+\item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation.
+\item A cross-family comparison including geometric baselines, graph-based interpolation, and temporal regularization methods.
+\item A publication-oriented artifact set with frozen configurations, raw outputs, and summary tables.
+\end{itemize}
+
+We evaluate performance using MAE, RMSE, DTW, and SNR across controlled and realistic masking settings.

@@ -19,3 +19,26 @@
 - Documentar claramente los formatos de entrada/salida.
 - Modularizar el código para facilitar cambios y pruebas.
 - Mantener versiones fijas de dependencias críticas.
+
+## Arquitectura documental (paper y tesis)
+
+### Componentes
+- `paper/ieee/main.tex`: punto de entrada del paper en formato IEEE.
+- `paper/ieee/sections/*`: unidades modulares para escritura colaborativa.
+- `thesis/usm/main.tex`: punto de entrada de la tesis en formato base LaTeX.
+- `thesis/usm/frontmatter/*`: portada, resumenes y secciones preliminares.
+- `thesis/usm/chapters/*`: capitulos de desarrollo de la investigacion.
+- `*/bibliography/references.bib`: bibliografias separadas por entregable.
+
+### Flujo de datos documental
+- Resultados cuantitativos en `results/` -> seleccion de evidencia -> tablas/figuras de LaTeX -> redaccion de resultados y discusion.
+
+### Riesgos documentales
+- Divergencia entre paper y tesis en cifras reportadas.
+- Inconsistencia de claves BibTeX entre entregables.
+- Cambios tardios en formato institucional.
+
+### Mitigacion documental
+- Definir una politica de trazabilidad resultado-a-artefacto.
+- Mantener sincronizada la base bibliografica por claves estables.
+- Partir con plantilla compilable base y ajustar luego al formato institucional final.

@@ -1,0 +1,89 @@
+\renewcommand{\proofname}{Demostración}
+\renewcommand{\appendixname}{APÉNDICE}
+\chapter*{APÉNDICES}
+\appendix
+\markboth{\thechapter APÉNDICES}{\thechapter APÉNDICES}
+\addcontentsline{toc}{chapter}{APÉNDICES}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\theequation}{A.\arabic{equation}}
+
+\section{Resolución ecuaciones de regulación del Lema \ref{lem2:regulation_equation} y Teorema \ref{teo1:OutputRegulation}}
+\lhead[\thepage]{\thesection. Resolución ecuaciones de regulación del Lema \ref{lem2:regulation_equation} y Teorema \ref{teo1:OutputRegulation}} \label{appen1}
+
+Se asume el sistema lineal sin distorsión $d(t)=0$ dado por:
+\begin{align}
+    \dot{x}(t) & = A x(t) + B u(t), \notag \\
+    y(t) & = C x(t) + D u(t) 
+\end{align}
+
+Se posee el sistema exógeno compuesto únicamente por la referencia dado por:
+\begin{align}
+    \dot{v}(t) & = A_1 v(t), \notag \\
+    r(t) & = C_1 v(t)  
+\end{align}
+
+Una vez descrito el sistema lineal sin distorsión y el sistema exógeno de la referencia ($E=0$ y $F=-C_1$ respectivamente de Teorema \ref{teo1:OutputRegulation}), las ecuaciones de regulación que caracterizan al problema de Output Regulation se definen como:
+\begin{align}
+    X A_1 = A X + B U,  \\
+    0 = C X + D U - C_1
+\end{align}
+
+Mediante el operador $vec(\cdot)$ junto a su propiedad $vec(ABC)=(C^\top \otimes A) vec(B)$ donde $\otimes$ es el producto de Kronecker, se desarrollan las ecuaciones de regulación para encontrar $X$ y $U$:
+
+\begin{itemize}
+    \item $ X A_1 = A X + B U $
+    
+    \begin{align} \label{eq:apendixA_regulation1}
+        vec(A X) + vec(B U) & = vec(X A_1) \notag \\
+        vec(A X I_1) - vec(I_2 X A_1) + vec(B U I_3) & = 0 \notag \\
+        (I_1\otimes A) vec(X) - (A_1^\top \otimes I_2) vec(X) + (I_3 \otimes B) vec(U) & = 0 \notag \\
+        \left[(I_1\otimes A) - (A_1^\top \otimes I_2)\right] vec(X) + (I_3 \otimes B) vec(U) & = 0
+    \end{align}
+    con $I_1$, $I_2$ y $I_3$ matrices identidad de dimensiones apropiadas.
+
+    \newpage
+    \item $0 = C X + D U - C_1$
+
+    \begin{align} \label{eq:apendixA_regulation2}
+        vec(CX) + vec(DU) - vec(C_1) & = 0 \notag \\
+        vec(C X I_1) + vec(D U I_3) & = vec(C_1) \notag \\
+        (I_1 \otimes C) vec(X) + (I_3 \otimes D) vec(U) & = vec(C_1)
+    \end{align}
+\end{itemize}
+
+Juntando las ecuaciones \ref{eq:apendixA_regulation1} y \ref{eq:apendixA_regulation2} en forma matricial tenemos:
+
+\begin{equation}
+    \underbrace{\begin{bmatrix}
+        \left[(I_1\otimes A) - (A_1^\top \otimes I_2)\right] & (I_3 \otimes B) \\ (I_1 \otimes C) & (I_3 \otimes D)
+    \end{bmatrix}}_{M}
+    \underbrace{\begin{bmatrix}
+        \bar{X} \\ \bar{U}    
+    \end{bmatrix}}_{x} = 
+    \underbrace{\begin{bmatrix}
+        0 \\ \bar{C_1}
+    \end{bmatrix}}_{y}
+\end{equation}
+
+donde $\bar{X}=vec(X)$, $\bar{U}=vec(U)$  y $\bar{C_1}=vec(C_1)$.
+
+Como se puede apreciar, esta ecuación matricial $(M x = y)$ se puede resolver para $x$ mediante división matricial de la forma:
+\begin{equation}
+    x = M^{-1} y
+\end{equation}
+\begin{remark}
+    El comando para resolver la ecuación matricial en Matlab es $M \backslash y$.
+\end{remark}
+
+Finalmente con $x$ obtenido, se utiliza el operador inverso $vec(\cdot)^{-1}$ para obtener las soluciones originales $X$ y $U$ buscadas:
+
+\begin{equation}
+    vec^{-1}(x) = vec^{-1}\begin{bmatrix} \bar{X} \\ \bar{U} \end{bmatrix} = \begin{bmatrix}
+        X \\ U
+    \end{bmatrix}
+\end{equation}
+
+
+
+
+

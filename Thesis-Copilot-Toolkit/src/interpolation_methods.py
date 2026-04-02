@@ -1158,11 +1158,44 @@ def interpolate_spline_surface(signals: np.ndarray, positions: np.ndarray) -> np
         if np.sum(observed) < 6:
             reconstructed[i, ~observed] = np.nanmean(row)
             continue
+
+        filled = False
         try:
-            # Smoothing adaptativo para evitar sobreajuste y warnings numéricos.
-            s_val = max(0.5, 0.05 * np.sum(observed))
-            spline = SmoothBivariateSpline(x[observed], y[observed], row[observed], s=s_val)
-            reconstructed[i, ~observed] = spline.ev(x[~observed], y[~observed])
+            import warnings
+
+            # Escala de suavizado creciente para robustecer el ajuste de FITPACK.
+            base_s = max(0.5, 0.05 * np.sum(observed))
+            for factor in (1.0, 5.0, 20.0):
+                with warnings.catch_warnings(record=True) as w:
+                    warnings.simplefilter("always")
+                    spline = SmoothBivariateSpline(
+                        x[observed],
+                        y[observed],
+                        row[observed],
+                        s=base_s * factor,
+                    )
+
+                fitpack_warn = False
+                for warn in w:
+                    msg = str(warn.message)
+                    if "required storage space exceeds" in msg.lower() or "nxest" in msg.lower() or "nyest" in msg.lower():
+                        fitpack_warn = True
+                        break
+
+                if not fitpack_warn:
+                    reconstructed[i, ~observed] = spline.ev(x[~observed], y[~observed])
+                    filled = True
+                    break
+        except Exception:
+            filled = False
+
+        if filled:
+            continue
+
+        # Fallback controlado: RBF geométrico, y si falla, media de canales observados.
+        try:
+            rbf = Rbf(x[observed], y[observed], row[observed], function="thin_plate")
+            reconstructed[i, ~observed] = rbf(x[~observed], y[~observed])
         except Exception:
             reconstructed[i, ~observed] = np.nanmean(row)
 

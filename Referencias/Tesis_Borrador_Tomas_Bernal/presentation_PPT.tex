@@ -1,0 +1,888 @@
+% ============================= Config ============================ %
+\documentclass[aspectratio=169,dvipsnames]{beamer}
+\usefonttheme[onlymath]{serif}
+\usepackage[utf8]{inputenc}
+\usepackage{appendixnumberbeamer}
+
+\usetheme{Madrid}
+\useinnertheme{circles}
+\definecolor{myblue}{rgb}{0.0, 0.19, 0.33}
+\definecolor{mygrey}{rgb}{0.3686, 0.5255, 0.6235}
+\definecolor{myyellow}{rgb}{0.90, 0.50, 0.013}
+\definecolor{myred}{rgb}{0.65, 0.0, 0.18}
+
+\setbeamercolor{palette primary}{bg=myblue,fg=white}
+\setbeamercolor{palette secondary}{bg=myred,fg=white}
+\setbeamercolor{palette tertiary}{bg=myyellow,fg=white}
+\setbeamercolor{palette quaternary}{bg=myblue,fg=white}
+\setbeamercolor{structure}{fg=myblue}
+\setbeamercolor{section in toc}{fg=myred}
+
+% Fórmulas Matemáticas
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,esint,cancel,latexsym,mathtools,bm,scalerel,nicematrix,amsthm}
+\usepackage{subfig}
+
+
+
+% Gráficos y Figuras
+\usepackage{color,xcolor,graphics,graphicx,pgf,tikz,pgfplots,pstricks,pstricks-add,epsfig}
+\pgfplotsset{compat=1.16}
+
+
+% Texto, tablas y otros
+\usepackage{lipsum,ulem,enumitem,setspace,multirow,soul,times,verbatim,fancybox,array,ragged2e}
+\usepackage[most]{tcolorbox}
+
+% Comandos propios
+\newcommand{\oequal}[1]{\ensuremath{\overset{(#1)}{=}}}
+\newcommand{\mean}[1]{\mathcal{E}\left\{ #1 \right\}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+
+\usepackage{varwidth}
+\newtcolorbox{mybox}[2][]{enhanced,before skip=2mm,after skip=2mm, colback=black!5, colframe=black!50,boxrule=0.2mm,attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},varwidth boxed title*=-3cm,boxed title style={frame code={\path[fill=tcbcolback!30!black]([yshift=-1mm,xshift=-1mm]frame.north west)arc[start angle=0,end angle=180,radius=1mm]([yshift=-1mm,xshift=1mm]frame.north east)arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,middle color=tcbcolback!80!black]([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)-- (frame.south east) -- (frame.south west)-- ([xshift=-1mm,yshift=-1mm]frame.north west)[sharp corners]-- cycle;},interior engine=empty,},fonttitle=\bfseries,title={#2},#1}
+
+
+% ============================== Prep ============================= %
+\title[Estabilidad en cuerda estocástica]{Análisis de estabilidad en cuerda para pelotones de vehículos con canales de comunicación afectados por ruido aditivo}
+\author[Presentación de la Tesis]{}
+
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{Contenido}
+    \tableofcontents[currentsection]
+  \end{frame}}
+
+
+\begin{document}
+% \newtheorem{theorem}{Teorema}
+% \newtheorem{corollary}{Corolario}
+% \newtheorem{lemma}{Lema}
+% \renewtheorem{assumption}{Suposición}
+
+% ============================== Titlepage ============================= %
+\begin{frame}
+\begin{center}
+    {\large UNIVERSIDAD TÉCNICA FEDERICO SANTA MARÍA} \\
+    {\normalsize DEPARTAMENTO DE INGENIERÍA ELECTRÓNICA}
+\end{center}
+\begin{figure}[h!]
+    \centering
+	\includegraphics[width=2.5cm, height=1.7cm]{Figures/UTFSM.pdf}
+\end{figure}
+\begin{block}{}
+\centering
+{\large \bf \textcolor{myblue} {Análisis de estabilidad en cuerda para pelotones de vehículos \\ con canales de comunicación afectados por ruido aditivo}}
+\end{block}
+\begin{center}
+    Defensa de tesis presentada por \\
+    {\bf Marco Anthony Gordon Almeida} \\ \vspace{2mm}
+    como requisito para obtener el grado de  \\
+    {\bf Magíster en Ciencias de la Ingeniería Electrónica} \\  \vspace{2mm}
+    Supervisor de tesis \\
+    {\bf Francisco Javier Vargas, Ph.D.}
+\end{center}
+\end{frame}
+
+\title[Estabilidad en cuerda estocástica]{Análisis de estabilidad en cuerda para pelotones de vehículos con canales de comunicación afectados por ruido aditivo}
+\author[Marco Gordon]{}
+
+% =============================== Outline ============================= %
+\begin{frame}
+\frametitle{Resumen}
+\tableofcontents
+\end{frame}
+
+
+% ====================== Introduction & Motivation ===================== %
+\section{Motivación}
+\begin{frame}
+\frametitle{Motivación}
+
+{\bf \large $\bullet$ Pelotón de vehículos:}
+\begin{figure}[h!]
+	\includegraphics[width=9cm,height=6cm]{Figures/platoon_example.eps}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\begin{figure}[h!]
+\includegraphics[width=13.5cm,height=2.5cm]{Figures/generic_platoon.eps}
+\end{figure}
+{\bf \large $\bullet$ Ventajas:} \\
+\begin{figure}[h!]
+	\includegraphics[width=14.5cm,height=3.4cm]{Figures/ventajas_platoon.eps}
+\end{figure}
+%\pause
+{\bf \large $\bullet$ Problema de interés:} 
+Estabilidad en cuerda. \\
+\end{frame}
+
+
+% ================================ Setup =============================== %
+\section{Descripción del pelotón}
+\begin{frame}
+\frametitle{Descripción del pelotón}
+{\bf \large $\bullet$ Configuración bajo análisis} \\
+\vspace{4mm}
+\begin{figure}[h!]
+    \centering
+	\includegraphics[width=15cm, height=3.6cm]{Figures/resumen_config.eps}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{}
+\vspace{2mm}
+\begin{figure}[h!]
+\includegraphics[width=12cm,height=2cm]{Figures/platoon.eps}
+\end{figure}
+\vspace{4mm}
+{\bf \large $\bullet$ Distancia de separación entre vehículos}
+$$\textrm{Real: }\ell_i(k) \triangleq y_{i-1}(k)-y_i(k) \qquad \qquad \textrm{Medida: } \tilde \ell_i(k) \triangleq y_{i-1}(k)-y_i(k)+d_i(k) $$
+\pause
+\vspace{2mm}
+{\bf \large $\bullet$ Distancia de separación deseada}
+$$r_i(k)=\epsilon_i + h\ \dfrac{y_i(k)-y_i(k-1)}{T_s}, \textrm{donde }h \textrm{ es la constante time-headway.}$$
+\pause
+\vspace{2mm}
+{\bf \large $\bullet$ Error de seguimiento}
+\begin{align*}
+    \zeta_i(k)&=\ell_i(k)-r_i(k) \notag  \\
+	&=y_{i-1}(k)-\left[ (h+1)\ y_i(k)-h\ y_i(k-1) \right]
+\end{align*}
+\end{frame}
+
+
+
+\begin{frame}{}
+
+{\bf \large $\bullet$ Lazo de control}\\
+\vspace{3mm}
+\begin{figure}[h!]
+    \centering
+	\includegraphics[width=8.5cm, height=3cm]{Figures/lazo_simple.eps}
+\end{figure}
+\begin{align*}
+    H(z) \triangleq (1+h)- \dfrac{h}{z}, \quad T(z)=\dfrac{G(z)K(z)}{1+G(z)H(z)K(z)}, \quad S(z)=1-H(z)T(z). \\
+\end{align*}
+
+$\qquad \circ$ El producto $K(z)G(z)$ tiene al menos un integrador doble. \\
+$\qquad \circ$ Los ruidos $d_i$ son secuencias estacionarias i.i.d. de ruido blanco \\
+$\hspace{9mm}$ de media $\mu_{d_i}=0$ y varianza $P_{d_i}=P_d,\ \forall k\geq 0$.\\
+\end{frame}
+
+
+\begin{frame}{}
+
+\begin{figure}[h!]
+\includegraphics[width=13cm,height=2.5cm]{Figures/concatenacion.eps}
+\end{figure}
+{\bf \large $\bullet$ Señales de interés}\\
+\vspace{3mm}
+$\qquad \circ$ Vector de estados $\bm{\xi}(k)$ \\
+\vspace{1mm}
+$\qquad \circ$ Vector de errores de seguimiento $\bm{\zeta}(k)$ \\
+\vspace{1mm}
+$\qquad \circ$ Vector de entradas exógenas $\bm{\nu}(k)$
+\begin{align*}
+     \bm{\xi}(k) = \begin{bmatrix} \xi_1(k) \\ \xi_2(k) \\ \vdots \\ \xi_N(k) \end{bmatrix}, \;
+     \bm{\zeta}(k)= \begin{bmatrix} \zeta_1(k) \\ \zeta_2(k) \\ \vdots \\ \zeta_N(k)\end{bmatrix}, \;
+     \bm{\nu}(k)= \begin{bmatrix} \nu_1(k) \\ \nu_2(k) \\ \vdots \\ \nu_N(k) \end{bmatrix}.
+\end{align*}
+\end{frame}
+
+
+% ========================== String Stability ========================== %
+\section{Estabilidad en cuerda - Caso determinístico}
+\begin{frame}
+\frametitle{Estabilidad en cuerda para el caso determinístico}
+\justify
+
+{\bf \large $\bullet$ Interpretación} \\
+\begin{figure}[h!]
+\includegraphics[width=12cm,height=6.8cm]{Figures/determ_results.eps}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{}
+
+{\bf \large $\bullet$ Definiciones } \\
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Definición 1:}
+        Un pelotón se dice estable en cuerda si la función de transferencia entre dos vehículos consecutivos, llamada $T$, satisface
+        \begin{equation*}
+        ||T||_{\infty} \leq 1, \ \textrm{ donde }\ ||T||_{\infty} = \sup_{\omega} |T(j\omega)|.
+        \end{equation*}
+\end{mybox}
+\pause
+\vspace{3mm}
+\begin{mybox}{}
+   {\bf Definición 2:} Un pelotón se dice estable en cuerda si, para cualquier frecuencia, la magnitud máxima de una secuencia relevante de funciones de transferencia se puede acotar uniformemente con el número de agentes: 
+    \begin{equation*}
+    |T(e^{j\omega})|<1, \quad \forall\ \omega \in (0,2\pi).
+\end{equation*}
+\end{mybox}
+\end{frame}
+
+
+\begin{frame}{}
+
+{\bf \large $\bullet$ Respuesta en frecuencia de $T(e^{j\omega})$ } \\
+\begin{figure}[h!]
+\includegraphics[width=12cm,height=6.5cm]{Figures/bode_T.eps}
+\end{figure}
+\end{frame}
+
+
+
+% ========================== Problem Statement ========================= %
+\section{Estabilidad en cuerda - Caso estocástico}
+
+\begin{frame}
+\frametitle{Estabilidad en cuerda estocástica}
+$\qquad \circ$ Campo poco explorado. \\
+\vspace{5mm}
+$\qquad \circ$ Análisis de estabilidad en cuerda estocástica está restringido o ausente. \\
+\vspace{5mm}
+$\qquad \circ$ Definiciones propuestas aplican para la media o el segundo momento. \\
+\vspace{5mm}
+$\qquad \circ$ Dichas definiciones no se pueden aplicar directamente a pelotones \\ 
+$\hspace{10mm}$ con canales afectados por ruido aditivo. \\
+\vspace{5mm}
+$\qquad \circ$ Condiciones necesarias y suficientes.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Estabilidad en cuerda estocástica}
+{\bf \large $\bullet$ Estabilidad en cuerda $\mathcal{L}_p-\mathcal{L}_q$:}\\
+\vspace{5mm}
+\begin{mybox}{}
+{\bf Definición 3:}
+Un pelotón de vehículos se dice estable en cuerda en base a la media con norma $\mathcal{L}_p$ y la varianza con norma $\mathcal{L}_q$, donde $p,q \in \mathbb{N}\cup\{+\infty\}$, si existen las siguientes funciones clase $\mathcal{K}$, $\alpha_1$, $\alpha_2$, $\beta_1$ y $\beta_2$, tales que, para cualquier $\{\bm{\xi}(0),\bm{\nu}\} \in \mathcal{G}$, se cumple
+\begin{align*}
+\norm{\mu_{\zeta_i}(k)}_{\mathcal{L}_p} &\leq \alpha_1(\norm{\mu_{\bm{\nu}}(k)}_{\mathcal{L}_p})+\beta_1(\norm{\mu_{\bm{\xi}}(0)}_p), \\
+\norm{P_{\zeta_i}(k)}_{\mathcal{L}_q} &\leq \alpha_2 (\norm{P_{\bm{\nu}}(k)}_{\mathcal{L}_q})+\beta_2(\norm{P_{\bm{\xi}}(0)}_q), %\\
+\end{align*}
+ $\forall k\in\mathbb{N}_0$, $\forall i \in \left\lbrace 1, \dots, N\right\rbrace$ y $\forall N \in \mathbb{N}$.
+\end{mybox}
+\vspace{1mm}
+\end{frame}
+
+\begin{frame}{}
+
+{\bf \large $\bullet$ Estabilidad en cuerda en sentido cuadrático medio} \\
+\vspace{5mm}
+\begin{mybox}{}
+{\bf Definición 4:}
+Un pelotón que satisface la Definición 3 se dice \textbf{estable en cuerda en sentido cuadrático medio} si y solo si, para cualquier $\{\bm{\xi}(0),\bm{\nu} \} \in \mathcal{G}$, existen constantes finitas $M_1$ y $M_2$ tales que
+\begin{align*}
+    \lim_{k,i \rightarrow \infty}\mu_{\zeta_i}(k)  = M_1, \quad \lim_{k,i \rightarrow \infty}P_{\zeta_i}(k)  = M_2. 
+\end{align*}
+\end{mybox}
+\end{frame}
+
+\begin{frame}{}
+\vspace{1mm}
+{\bf \large $\bullet$ Métodos de análisis para obtener las condiciones de estabilidad en cuerda} \\
+\vspace{3mm}
+\begin{figure}[h!]
+\includegraphics[width=13.3cm,height=4.5cm]{Figures/metodos_analisis.eps}
+\end{figure}
+\end{frame}
+
+
+% ============================ Methodology =========================== %
+\section{Análisis del pelotón con ruido en todos los agentes}
+\begin{frame}
+\frametitle{Configuración del pelotón}
+\begin{figure}[h!]
+\includegraphics[width=10.5cm,height=3.5cm]{Figures/config_all.eps}
+\end{figure}
+$T(z)$ está descrita por
+\begin{subequations}
+    \label{eq:sys_estado_x_def}
+    \begin{align}
+	     x_i(k+1)&=A x_i(k) + B {y}_{i-1}(k) + B d_{i}(k)\\
+	     y_i(k)&=C x_i(k)
+	\end{align}
+\end{subequations}
+%\pause
+{\bf \large $\bullet$ Estado alternativo}
+\begin{equation}
+    \label{eq:estado_alternativo_def}
+    \xi_i(k) \triangleq x_{i-1}(k)-x_i(k)- h\left[ x_i(k)-x_i(k-1) \right]
+\end{equation} 
+\begin{equation}
+    \label{eq:estado_alternativo_zero}
+    \zeta_0(k)=e_0(k)=r_0(k)-y_0(k)- h\left[ y_0(k)-y_0(k-1) \right].
+\end{equation}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Representación en espacio de estados del pelotón}
+\begin{subequations} \label{eq:ss_sys_all}
+    \begin{align}
+        \label{eq:xi_all}
+        \bm{\xi}(k+1) &=\mathbf{A} \bm{\xi}(k) + \mathbf{B}_{o}\, \zeta_0(k)+\mathbf{B}_{a}\, \mathbf{d}(k) +\mathbf{B}_{b}\, \mathbf{d}(k-1) \\
+        \label{eq:z_all}
+        \bm{\zeta}(k) &= \mathbf{C} \bm{\xi}(k),
+    \end{align}
+\end{subequations}
+\begin{align*}
+    \mathbf{A} &\triangleq 
+        \begin{bmatrix}
+            A & \ & \ & \ \\
+            BC & A & \ & \ \\
+            \ & \ddots & \ddots & \ \\
+            \ & \ & BC & A
+        \end{bmatrix}, \;
+    \mathbf{B}_{o} \triangleq  \begin{bmatrix}
+        B \\ 0 \\ \vdots \\ 0
+        \end{bmatrix}, \;
+    \mathbf{B}_{a} \triangleq \begin{bmatrix}
+            \lambda B &   &  \  &  \  \\
+            B &  \lambda B &    \  &  \  \\
+            & \ddots  &  \ddots & \ \\
+            &  & B & \lambda B
+        \end{bmatrix}, \\
+    \mathbf{d}(k) &\triangleq  \begin{bmatrix}
+        d_1(k) \\ d_2(k) \\ \vdots \\ d_N(k) 
+        \end{bmatrix}, \;
+    \mathbf{B}_{b} \triangleq \begin{bmatrix}
+            h B &   &  \  &  \  \\
+             &  h B &    \  &  \  \\
+            &   &  \ddots & \ \\
+            &  &  & h B
+        \end{bmatrix}, \;
+    \mathbf{C} \triangleq \begin{bmatrix}
+           C &   &  \  &  \  \\
+             &  C &    \  &  \  \\
+             &   &  \ddots & \ \\
+             &  &  & C
+        \end{bmatrix},
+\end{align*}
+$\hspace{14mm}$ con $\lambda\triangleq -(1+h)$.
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Estadísticas del estado y el error de seguimiento}
+\vspace{3mm}
+\begin{mybox}{}
+{\bf Lema 1:} Las medias del estado y el error de seguimiento están dadas por 
+\begin{subequations} \label{eq:means_all}
+\begin{align}
+    \label{eq:mu_xi_all}
+    \mu_{\bm{\xi}}(k+1) &= \mathbf{A} \mu_{\bm{\xi}}(k) +\mathbf{B}_o\ \zeta_0(k), \quad \mu_{\bm{\xi}}(0)=\mu_{\bm{\xi}_0}, \\
+        \label{eq:mu_z_all}
+    \mu_{\bm{\zeta}}(k) &=
+        \mathbf{C} \mu_{\bm{\xi}}(k)
+\end{align}	  
+\end{subequations}
+y sus matrices de varianza son
+\begin{subequations} \label{eq:variance_all}
+\begin{align} 
+    \label{eq:P_xi_all}
+    P_{\bm{\xi}}(k+1) &=
+    \begin{cases}
+        \mathbf{A} P_{\bm{\xi}}(k)\mathbf{A}^\top + \mathbf{B}_a P_{\bm{d}} {\mathbf{B}_a}^\top,  & \text{for } k=0, \\
+        \mathbf{A} P_{\bm{\xi}}(k)\mathbf{A}^\top + \Upsilon, & \text{for } k>0,
+    \end{cases} \\
+    \label{eq:P_z_all}
+    P_{\bm{\zeta}}(k) &=
+        \mathbf{C} P_{\bm{\xi}}(k)\mathbf{C}^\top,
+\end{align}
+\end{subequations}
+donde $P_{\bm{\xi}}(0) = P_{\bm{\xi}_0} \geq 0$, $\Upsilon = \mathbf{B}_{a} P_{\mathbf{d}} {\mathbf{B}_{a}}^\top + \mathbf{B}_{b} P_{\mathbf{d}} {\mathbf{B}_{b}}^\top + \mathbf{A}\mathbf{B}_{a} P_{\mathbf{d}} {\mathbf{B}_{b}}^\top + \mathbf{B}_{b} P_{\mathbf{d}} {\mathbf{B}_{a}}^\top \mathbf{A}^{\top}$ y $P_{\bm{d}}=diag(P_d,P_d,\cdots,P_d)$. 
+\end{mybox}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Condición de convergencia en el tiempo}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Lema 2:} La media y varianza del error de seguimiento, $\mu_{\bm{\zeta}}(k)$ y $P_{\bm{\zeta}}(k)$ convergen (en el tiempo) a valores estacionarios, para todo $N \in \mathbb{N}$, si y solo si
+    \begin{align}
+        \label{eq:MSS_all}
+        \rho (A)<1.
+    \end{align}
+   Dichos valores estacionarios están dados por
+   \begin{subequations} \label{eq:stationary_all}
+       \begin{align}
+           \mu_{\bm{\zeta}} =& 0 \\
+           P_{\bm{\zeta}} =& vec^{-1} \left( (\mathbf{C} \otimes \mathbf{C})  (I- \mathbf{A} \otimes \mathbf{A} )^{-1} vec(\Upsilon)  \right).
+       \end{align}
+   \end{subequations}
+\end{mybox}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Escalabilidad: Condición de convergencia en el número de vehículos}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Teorema 1:} Considere el sistema descrito en \eqref{eq:ss_sys_all} y asumiendo que $\rho(A) < 1$. La media y la densidad espectral de potencia del error de seguimiento del $i$-ésimo vehículo, con $i \in \lbrace 2,3,...,N\rbrace$, $\forall N \in \mathbb{N}$, satisfacen
+    \begin{align}
+    \label{eq:zdom_muz_all}
+    \mu_{\zeta_{i}}(e^{j\omega}) =& T(e^{j\omega}) \mu_{\zeta_{i-1}} (e^{j\omega}) \\
+     \label{eq:zdom_psdz_all}
+    \phi_{\zeta_i}(e^{j\omega}) =&
+        |T(e^{j\omega})|^2 \phi_{\zeta_{i-1}} (e^{j\omega}) + |T(e^{j\omega})|^2 \ |S(e^{j\omega})|^2 P_d + \left( 1-|T(e^{j\omega} \right)|^2)\ |1-S(e^{j\omega})|^2  P_d,
+    \end{align}
+    donde $\mu_{\zeta_{1}}(e^{j\omega}) = T(e^{j\omega}) \zeta_{0} (e^{j\omega})$, y $\phi_{\zeta_1}(e^{j\omega})=|H(e^{j\omega})T(e^{j\omega})|^2 P_d$.
+    Adicionalmente, $\mu_{\zeta_{N}}(e^{j\omega})$ y $\phi_{\zeta_N}(e^{j\omega})$ permanecen acotados cuando $N \rightarrow \infty$, $\forall \omega$, si y solo si 
+        \begin{equation} \label{eq:scalability_all}
+    |T(e^{j\omega})| <1, \quad \forall \omega >0.
+     %\norm{T(z)}_\infty \leq 1
+\end{equation}
+\end{mybox}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Escalabilidad: Condición de convergencia en el número de vehículos}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Corolario 1:} Considere el pelotón descrito en \eqref{eq:ss_sys_all} y que este satisface las condiciones \eqref{eq:MSS_all} y \eqref{eq:scalability_all}. Entonces, para $i \in \lbrace 1,2,...,N\rbrace$, $\forall N \in \mathbb{N}$, las varianzas estacionarias $P_{\zeta_i}$ satisfacen
+\begin{flalign*}
+    &1. \quad P_{\zeta_{i-1}} \leq  P_{\zeta_i} \qquad \forall i>1 & \\
+    &2. \quad \max_{i} P_{\zeta_i} =  P_{\zeta_N}  =\|F_{\zeta_N}\|_{2}^2 \; P_d  &  \\
+    &3. \quad \lim_{N \rightarrow \infty} P_{\zeta_N}=\left( \norm{ \dfrac{S(z)}{M(z)} }_2^2 -1 \right) P_d.&
+\end{flalign*}
+donde $F_{\zeta_N} = \left[ ST^{N-1}\ \ ST^{N-2}\ \ \cdots \  ST \, \, HT \right]$ y $M(z)$ es un factor espectral de fase mínima y estable, tal que $1-T(z)T(z)^{\sim}=M(z)M(z)^{\sim}$.
+\end{mybox}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Análisis de estabilidad en cuerda}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Teorema 2:} Considere el pelotón descrito en \eqref{eq:ss_sys_all}. Las condiciones en \eqref{eq:MSS_all} y \eqref{eq:scalability_all} son necesarias y suficientes para lograr estabilidad en cuerda  en base a la media con norma $\mathcal{L}_2$ y la varianza con norma $\mathcal{L}_\infty$. Además, dichas condiciones también permiten lograr estabilidad en cuerda en sentido cuadrático medio. Los valores límite para la media y la varianza del error de seguimiento están dados por
+\begin{align*}
+\lim_{k,N \rightarrow \infty}\mu_{\zeta_N}(k) & = 0 ,\\
+\lim_{k,N \rightarrow \infty}P_{\zeta_N}(k)  &= \left( \norm{ \frac{S(z)}{M(z)} }_2^2 -1 \right) P_d .
+\end{align*}
+\end{mybox}
+\end{frame}
+
+
+
+
+\begin{frame}{}
+\frametitle{Resultados de simulación - Condiciones iniciales igual a cero}
+\begin{figure}[h!]
+\includegraphics[width=13cm,height=7.4cm]{Results/all_zerocond.eps}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Resultados de simulación - Condiciones iniciales diferentes de cero}
+\begin{figure}[h!]
+\includegraphics[width=13cm,height=7.4cm]{Results/all_diffcond.eps}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Análisis del pelotón solo con ruido en el canal del primer seguidor}
+\begin{frame}
+\frametitle{Condiciones de convergencia en el tiempo y escalabilidad}
+\begin{figure}[h!]
+\includegraphics[width=9.5cm,height=3.5cm]{Figures/config_lider.eps}
+\end{figure}
+\begin{subequations} \label{eq:ss_sys_lider}
+    \begin{align}
+        \label{eq:xi_lider}
+        \bm{\xi}(k+1) &=\mathbf{A} \bm{\xi}(k) + \mathbf{B}_{o}\, \zeta_0(k)+\mathbf{B}_{a}\, d_1(k) +\mathbf{B}_{b}\, d_1(k-1) \\
+        \label{eq:z_lider}
+        \bm{\zeta}(k) &= \mathbf{C} \bm{\xi}(k),
+    \end{align}
+\end{subequations}
+$\quad \circ$ Condición de convergencia en el tiempo: $\rho (A)<1$. \\
+$\quad \circ$ Condición de escalabilidad: $\norm{T(z)}_\infty \leq 1$. \\
+\end{frame}
+
+
+% \begin{frame}{}
+% \frametitle{Representación en espacio de estados del pelotón}
+% \vspace{3mm}
+% \begin{mybox}{}
+%     {\bf Lema 3:} Con base en la representación alternativa del estado, la descripción en espacio de estados del pelotón, en función del estado $\bm{\xi}(k)$ y el error de seguimiento $\bm{\zeta}(k)$, vienen dados por 
+%     \begin{subequations} \label{eq:ss_sys_lider}
+%     \begin{align}
+%         \label{eq:xi_lider}
+%         \bm{\xi}(k+1) &=\mathbf{A} \bm{\xi}(k) + \mathbf{B}_{o}\, \zeta_0(k)+\mathbf{B}_{a}\, d_1(k) +\mathbf{B}_{b}\, d_1(k-1) \\
+%         \label{eq:z_lider}
+%         \bm{\zeta}(k) &= \mathbf{C} \bm{\xi}(k),
+%     \end{align}
+% \end{subequations}
+% \end{mybox}
+% \end{frame}
+
+
+% \begin{frame}{}
+% \frametitle{Representación en espacio de estados del pelotón}
+% \vspace{3mm}
+% Donde $\mathbf{A} \in \mathbb{R}^{nN \times nN}$, $\mathbf{B}_{o} \in \mathbb{R}^{nN}$, $\mathbf{B}_{a} \in \mathbb{R}^{nN}$, $\mathbf{B}_{b} \in \mathbb{R}^{nN}$ y $\mathbf{C} \in \mathbb{R}^{N \times nN}$ están dadas por
+% \begin{align*}
+%     \mathbf{A}&\triangleq 
+%         \begin{bmatrix}
+%             A & \ & \ & \ \\
+%             BC & A & \ & \ \\
+%             \ & \ddots & \ddots & \ \\
+%             \ & \ & BC & A
+%         \end{bmatrix},
+%     \mathbf{B}_{o} \triangleq  \begin{bmatrix}
+%         B \\ 0 \\ \vdots \\ 0
+%         \end{bmatrix},
+%     \mathbf{B}_{a} \triangleq \begin{bmatrix}
+%             \lambda B \\
+%             B \\
+%             0 \\
+%             \vdots \\
+%             0
+%         \end{bmatrix},
+%     \mathbf{B}_{b} \triangleq \begin{bmatrix}
+%             h B \\
+%             0  \\
+%             \vdots \\
+%             0
+%         \end{bmatrix},
+%     \mathbf{C} \triangleq \begin{bmatrix}
+%            C &   &  \  &  \  \\
+%              &  C &    \  &  \  \\
+%              &   &  \ddots & \ \\
+%              &  &  & C
+%         \end{bmatrix},
+% \end{align*}
+% con $\lambda\triangleq -(1+h)$ y $d_1 \in \mathbb{R}^{1 \times 1}$. 
+% \end{frame}
+
+
+% \begin{frame}{}
+% \frametitle{Estadísticas del estado y el error de seguimiento}
+% \vspace{3mm}
+% \begin{mybox}{}
+% Las medias del estado y el error de seguimiento están dadas por 
+% \begin{subequations} \label{eq:means_lider}
+% \begin{align}
+%     \label{eq:mu_xi_lider}
+%     \mu_{\bm{\xi}}(k+1) &= \mathbf{A} \mu_{\bm{\xi}}(k) +\mathbf{B}_o\ \zeta_0(k), \quad \mu_{\bm{\xi}}(0)=\mu_{\bm{\xi}_0}, \\
+%         \label{eq:mu_z_lider}
+%     \mu_{\bm{\zeta}}(k) &=
+%         \mathbf{C} \mu_{\bm{\xi}}(k)
+% \end{align}	  
+% \end{subequations}
+% y sus matrices de varianza son
+% \begin{subequations} \label{eq:variance_lider}
+% \begin{align} 
+%     \label{eq:P_xi_lider}
+%     P_{\bm{\xi}}(k+1) &=
+%     \begin{cases}
+%         \mathbf{A} P_{\bm{\xi}}(k)\mathbf{A}^\top + \mathbf{B}_a P_{d_1} {\mathbf{B}_a}^\top,  & \text{para } k=0, \\
+%         \mathbf{A} P_{\bm{\xi}}(k)\mathbf{A}^\top + \Psi, & \text{para } k>0,
+%     \end{cases} \\
+%     \label{eq:P_z_lider}
+%     P_{\bm{\zeta}}(k) &=
+%         \mathbf{C} P_{\bm{\xi}}(k)\mathbf{C}^\top,
+% \end{align}
+% \end{subequations}
+% donde $P_{\bm{\xi}}(0) = P_{\bm{\xi}_0}$ y $\Psi = \left[ \mathbf{B}_{a} {\mathbf{B}_{a}}^\top + \mathbf{B}_{b} {\mathbf{B}_{b}}^\top + \mathbf{A}\mathbf{B}_{a} {\mathbf{B}_{b}}^\top + \mathbf{B}_{b} {\mathbf{B}_{a}}^\top \mathbf{A}^{\top} \right] P_{d_1}$. 
+% \end{mybox}
+% \end{frame}
+
+
+% \begin{frame}{}
+% \frametitle{Condición de convergencia en el tiempo}
+% \vspace{3mm}
+% \begin{mybox}{}
+%     {\bf Lema 3:} La media y varianza del error de seguimiento, $\mu_{\bm{\zeta}}(k)$ y $P_{\bm{\zeta}}(k)$ convergen (en el tiempo) a valores estacionarios, para todo $N \in \mathbb{N}$, si y solo si
+%     \begin{align}
+%         \label{eq:MSS_lider}
+%         \rho (A)<1.
+%     \end{align}
+%    Dichos valores estacionarios están dados por
+%     \begin{subequations} \label{eq:stationary_lider}
+%        \begin{align}
+%        \label{eq:mu_z_stationary_lider}
+%            \mu_{\bm{\zeta}} =& 0 \\
+%            \label{eq:P_z_stationary_lider}
+%            P_{\bm{\zeta}} =& vec^{-1} \left( (\mathbf{C} \otimes \mathbf{C})  (I- \mathbf{A} \otimes \mathbf{A} )^{-1} vec(\Psi)  \right).
+%        \end{align}
+%    \end{subequations}
+% \end{mybox}
+% \end{frame}
+
+% \begin{frame}{}
+% \frametitle{Escalabilidad: Condición de convergencia en el número de vehículos}
+% \vspace{3mm}
+% \begin{mybox}{}
+%     {\bf Teorema 3:} Considere el sistema descrito en \eqref{eq:ss_sys_lider} y asuma que $\rho(A) < 1$. La media estacionaria y la densidad espectral de potencia estacionaria del error de seguimiento del $i$-ésimo vehículo, con $i \in \lbrace 2,...,N\rbrace$, $\forall N \in \mathbb{N}$, satisfacen
+%     \begin{align}
+%     \label{eq:zdom_muz_lider}
+%     &\mu_{\zeta_{i}}(e^{j\omega}) = T(e^{j\omega}) \mu_{\zeta_{i-1}}(e^{j\omega}), \\
+%     \label{eq:zdom_psdz_lider}
+%     &\phi_{\zeta_i}(e^{j\omega}) = \begin{cases}
+%         |T(e^{j\omega})S(e^{j\omega})|^{2} P_{d_1}, & \text{para } i=2, \\
+%         |T(e^{j\omega})|^{2} \phi_{\zeta_{i-1}} (e^{j\omega}), & \text{para } i>2.
+%         \end{cases}
+%     \end{align}
+%     con $\mu_{\zeta_{1}}(e^{j\omega}) = T(e^{j\omega}) \zeta_{0} (e^{j\omega})$, y $\phi_{\zeta_1}(e^{j\omega})=|H(e^{j\omega})T(e^{j\omega})|^2 P_{d_1}$.
+%     Adicionalmente, $\mu_{\zeta_{N}}(e^{j\omega})$ y $\phi_{\zeta_N}(e^{j\omega})$ permanecen acotadas cuando $N \rightarrow \infty$, $\forall \omega$, si y solo si 
+%     \begin{equation} \label{eq:scalability_lider}
+%     \norm{T(z)}_\infty \leq 1.
+% \end{equation}
+% \end{mybox}
+% \end{frame}
+
+\begin{frame}{}
+\frametitle{Escalabilidad: Condición de convergencia en el número de vehículos}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Corolario 2:} Considere el sistema descrito en \eqref{eq:ss_sys_lider} y asuma que $\rho(A) < 1$ y $\norm{T(z)}_\infty \leq 1$. Entonces, para  $i \in \lbrace 1,2,...,N\rbrace$, y $\forall N \in \mathbb{N}$, las varianzas estacionarias $P_{\zeta_i}$ satisfacen
+\begin{flalign*}
+&1.\quad P_{\zeta_i} \leq  P_{\zeta_{i-1}} \quad \forall 
+ i>1 & \\
+ &2. \quad \max_{i} P_{\zeta_i} =  P_{\zeta_1}  =\| H(z)T(z) \|_{2}^2 P_{d_1} & \\
+ &3. \quad \lim_{N \rightarrow \infty} P_{\zeta_N}=0. &
+\end{flalign*}
+\end{mybox}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Análisis de estabilidad en cuerda}
+\vspace{3mm}
+\begin{mybox}{}
+    {\bf Teorema 3:} Considere el sistema descrito en \eqref{eq:ss_sys_lider}. Las condiciones $\rho(A) < 1$ y $\norm{T(z)}_\infty \leq 1$ son necesarias y suficientes para conseguir estabilidad en cuerda en base a la media con norma $\mathcal{L}_2$ y la varianza con norma $\mathcal{L}_\infty$. Además, dichas condiciones también permiten conseguir estabilidad en cuerda en sentido cuadrático medio. Los valores límite de la media y la varianza del error de seguimiento están dados por
+\begin{align*}
+\lim_{k,N \rightarrow \infty}\mu_{\zeta_N}(k) & = 0 ,\\
+\lim_{k,N \rightarrow \infty}P_{\zeta_N}(k) & = 0 .
+\end{align*}
+\end{mybox}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Resultados de simulación - Condiciones iniciales igual a cero}
+\begin{figure}[h!]
+\includegraphics[width=13cm,height=7.4cm]{Results/leader_zerocond.eps}
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Resultados de simulación - Condiciones iniciales diferentes de cero}
+\begin{figure}[h!]
+\includegraphics[width=13cm,height=7.4cm]{Results/leader_diffcond.eps}
+\end{figure}
+\end{frame}
+
+\section{Conclusiones}
+\begin{frame}{Publicaciones}
+\justify
+$\quad \circ$ \textcolor{red}{Convergencia en el tiempo y su efecto en el análisis de estabilidad en cuerda:}\\
+\vspace{2mm}
+[1] {\bf Gordon, M. A.}, Vargas, F. J., Peters, A. A., \& Maass, A. I. (2020). Platoon stability conditions under inter-vehicle additive noisy communication channels. IFAC Papers On Line, 53(2), 3150-3155. \\
+\vspace{2mm}
+
+\pause
+\vspace{3mm}
+$\quad \circ$  \textcolor{red}{Escalabilidad y definición de estabilidad en cuerda en sentido cuadrático medio:}\\
+\vspace{2mm}
+*[2] Vargas, F. J., {\bf Gordon, M. A.}, Peters, A. A., \& Maass, A. I. On stochastic string stability with applications to platooning over additive noise channels. ** Submitted to Automatica (2023) **
+\end{frame}
+
+
+\begin{frame}{Conclusiones y trabajo futuro}
+\justify
+$\quad \circ$ Se obtuvieron las condiciones necesarias y suficientes para las cuales un pelotón homogéneo, con topología de seguimiento al predecesor, cuyos canales se encuentran afectados por ruido blanco aditivo, es estable en cuerda. Además, se mostró el comportamiento estable e inestable en cuerda a través de simulaciones.  \\
+\pause
+\vspace{4mm}
+$\quad \circ$ Para la configuración bajo análisis, las condiciones derivadas del análisis de estabilidad en cuerda estocástica, resultaron similares a las condiciones de estabilidad en cuerda de un pelotón determinístico. \\
+\pause
+\vspace{4mm}
+$\quad \circ$ Se propuso una metodología de análisis que consiste en analizar tanto la convergencia en el tiempo, como en el número de vehículos, demostrando que el análisis de una sola de ellas no es condición suficiente para la estabilidad en cuerda.
+\end{frame}
+
+
+\begin{frame}{Conclusiones y trabajo futuro}
+\justify
+$\quad \circ$ Se propuso una definición apropiada de estabilidad en cuerda estocástica, llamada estabilidad en cuerda en sentido cuadrático medio. Esta definición combina la definición de la estabilidad en sentido cuadrático medio, con la estabilidad $\mathcal{L}_p - \mathcal{L}_q$ para la media y la varianza, respectivamente. \\
+\pause
+\vspace{4mm}
+$\quad \circ$ Dada la flexibilidad de la definición propuesta se espera que sea aplicable a distintas configuraciones de pelotones con diferentes tipos fenómenos estocásticos en la comunicación, como son la pérdida de datos, retardos aleatorios, entre otros.\\
+\pause
+\vspace{4mm}
+$\quad \circ$ Actualmente se trabaja en la aplicación de la definición de estabilidad en cuerda en sentido cuadrático medio, aquí propuesta, aplicada a pelotones con canales de comunicación afectados por pérdida aleatoria de datos. Además de la extensión de dicha definición para pelotones heterogéneos. \\
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{}
+\centering
+{\large \bf \textcolor{myblue} {Análisis de estabilidad en cuerda para pelotones de vehículos \\ con canales de comunicación afectados por ruido aditivo}}
+\end{block}
+\begin{center}
+    Tesis presentada por \\
+    {\bf Marco Anthony Gordon Almeida} \\ \vspace{4mm}
+    Supervisor de tesis\\
+    {\bf Francisco J. Vargas, Ph.D.}
+\end{center}
+\centering
+\vspace{8mm}
+\Huge Gracias
+\end{frame}
+
+\appendix
+\begin{frame}{}
+\frametitle{Casos de no-convergencia en canales con pérdidas}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/spe_strat.eps}
+    \caption{Primera fila: comportamiento de un pelotón con estrategias no convergentes. Segunda fila: comportamiento con estrategias convergentes a valores distintas de cero.}         
+\end{figure}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Pelotón con canales con pérdidas}
+\begin{figure}
+    \centering
+    \includegraphics[width=10.5cm,height=7.4cm]{Figures/homogen_sim.eps}  
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Importancia del time-headway}
+\vspace{3mm}
+{\bf \large $\bullet$ Time headway} \\
+\vspace{1mm}
+\begin{figure}[h!]
+\includegraphics[width=14.5cm,height=5.8cm]{Figures/time_headway.eps}
+\end{figure}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Importancia del time-headway}
+
+{\bf \large $\bullet$ Arquitectura de un grado de libertad: }\\
+\vspace{2mm}
+\begin{figure}
+    \centering
+\includegraphics[width=0.45\textwidth,height=2cm]{Figures/lazo_1dof.eps}
+\end{figure}
+Para una entrada tipo rampa, $KG$ debe tener al menos doble acción integral. En el dominio del tiempo, el error $e_i$ satisface
+\begin{align*}
+    \lim_{t\longrightarrow \infty} e(t)&=0 \qquad \qquad \forall j \geq 1 \\
+    \int_0^{\infty} e(t)\ dt &= 0  \qquad \qquad \forall j \geq 2
+\end{align*}
+donde $j$ es el número de polos en el origen.
+\end{frame}
+
+\begin{frame}{Importancia del time-headway}
+
+{\bf \large $\bullet$ Arquitectura 1-dof vs 2-dof: }\\
+\vspace{2mm}
+\begin{figure}
+    \centering    \includegraphics[width=0.5\textwidth,height=4.4cm]{Figures/fundamental_lim.eps}
+\end{figure}
+Si la integral es igual a cero, entonces el error debe cambiar de signo. Por lo tanto, con una arquitectura de $1$ grado de libertad, es imposible evitar el sobreimpulso.
+\end{frame}
+
+\begin{frame}{Importancia del estado alternativo $\xi$}
+
+{\bf \large $\bullet$ Evolución del estado $x_i(k)$ vs el estado $\xi_i(k)$: }\\
+\vspace{2mm}
+\begin{figure}
+  {\includegraphics[height=6cm,width=7.5cm]{Figures/aux_estado_x.eps}}
+  {\includegraphics[height=6cm,width=7.5cm]{Figures/aux_estado_xi.eps}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Gráfico de 1 realización}
+
+\begin{figure}
+    \centering
+\includegraphics[width=11cm,height=7.4cm]{Figures/aux_1_realiz.eps}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Funciones $\alpha_1$ y $\beta_1$ (media) - Ruido en todos los agentes}
+\vspace{3mm}
+$\qquad \circ$ La media del error de seguimiento satisface
+    \begin{align}
+        \norm{\mu_{\zeta_i}(k)}_{\mathcal{L}_2} &\leq \alpha_1(\norm{\mu_{\bm{\nu}}(k)}_{\mathcal{L}_2})+\beta_1(\norm{\mu_{\bm{\xi}}(0)}_2)
+    \end{align}
+$\qquad $ donde, las funciones tipo $\mathcal{K}$, $\alpha_1$ y $\beta_1$ acotan respectivamente a
+\begin{align}
+    \label{eq:alpha1_all}
+    \norm{\sum_{\ell=1}^{k} \eta_i \mathbf{C} \mathbf{A}^{k-\ell}\ \mathbf{B}_o \ \zeta_0(\ell-1)}_{\mathcal{L}_2} <& \norm{T(z)}_{\infty} \norm{\mu_{\bm{\nu}}(k)}_{\mathcal{L}_2}, \\
+    \label{eq:beta1_all}
+    \norm{\eta_i \mathbf{C} \mathbf{A}^k \mu_{\bm{\xi}}(0)}_{\mathcal{L}_2} \leq & \left(\sum_{k=0}^{\infty}  \rho ( \mathbf{A}^{k^\top} \mathbf{C}^{\top} \eta_i^{\top}  \eta_i \mathbf{C} \mathbf{A}^k) \right)^{\frac{1}{2}} \norm{\mu_{\bm{\xi}}(0)}_2.
+\end{align}
+\end{frame}
+
+\begin{frame}{}
+\frametitle{Funciones $\alpha_2$ y $\beta_2$ (varianza) - Ruido en todos los agentes}
+\vspace{3mm}
+$\qquad \circ$ La varianza del error de seguimiento satisface
+    \begin{align}
+        \norm{P_{\zeta_i}(k)}_{\mathcal{L}_\infty} &\leq \alpha_2 (\norm{P_{\bm{d}}}_{\mathcal{L}_\infty})+\beta_2(\norm{P_{\bm{\xi}}(0)}_{\mathcal{L}_\infty}),
+    \end{align}
+$\qquad $ donde, las funciones tipo $\mathcal{K}$, $\alpha_2$ y $\beta_2$ acotan respectivamente a
+\begin{align}
+    \label{eq:alpha2_all}
+   \norm{ f_i(P_{\bm{\xi}}(0),k)}_{\mathcal{L}_\infty} &\leq  \sigma_{max} (P_{\bm{\xi}}(0)) \norm{C}_2, \\
+    \label{eq:beta2_all}
+    \norm{g_i(P_{\bm{d}},k)}_{\mathcal{L}_\infty} &\leq 
+     \left( \norm{ \frac{S(z)}{M(z)}}_2^2 -1 \right) P_d.
+\end{align}
+\end{frame}
+
+
+\begin{frame}{}
+\frametitle{Funciones que acotan la media y la varianza - Ruido en el primer agente}
+\vspace{3mm}
+$\qquad \circ$ La media y la varianza del error de seguimiento satisfacen respectivamente
+    \begin{align}
+        \norm{\mu_{\zeta_i}(k)}_{\mathcal{L}_2} &\leq \alpha_1(\norm{\mu_{\bm{\nu}}(k)}_{\mathcal{L}_2})+\beta_1(\norm{\mu_{\bm{\xi}}(0)}_2), \\
+        \norm{P_{\zeta_i}(k)}_{\mathcal{L}_\infty} &\leq \alpha_2 (\norm{P_{d_1}}_{\mathcal{L}_\infty})+\beta_2(\norm{P_{\bm{\xi}}(0)}_{\mathcal{L}_\infty}),
+    \end{align}
+$\qquad $ donde las funciones tipo $\mathcal{K}$, $\alpha_1$, $\beta_1$ y  $\beta_2$ son como en el caso anterior y la \\
+$\qquad $ función $\alpha_2$ acota a
+\begin{align}
+    \label{eq:alpha2_lider}
+    \norm{g_i(P_{d_1},k)}_{\mathcal{L}_\infty} &\leq 
+    \norm{ H(z)T(z)}_2^{2} P_{d_1}.
+\end{align}
+\end{frame}
+
+\begin{frame}{Estabilidad de Lyapunov}
+Sea el sistema LTI
+\begin{equation*}
+    x(t+1)=A x(t), \qquad A \in \mathcal{R}^{n\times n}
+\end{equation*}
+con un punto de equilibrio en el origen $x=0$. La solución del sistema LTI tiene la forma
+\begin{equation*}
+    x(t)=A^t x(0)
+\end{equation*}
+Entonces, el punto de equilibrio es estable si y solo si todos los valores propios de $A$ satisfacen $|\lambda_i|\leq 1$. Una matriz $A$ con todos los valores propios (en valor absoluto) menores que $1$ se denomina matriz {\bf Schur}.\\
+
+{\it Teorema:} Un sistema de tiempo discreto con la matriz del sistema $A$ (Schur) es asintóticamente estable si y solo si existe una única matriz $P$ que satisface la ecuación de Lyapunov
+\begin{equation*}
+    A^{\top}PA-P=-Q
+\end{equation*}
+para toda matriz definida positiva $Q$.
+\end{frame}
+
+\end{document}
