@@ -1,14 +1,26 @@
 \chapter{Metodologia}
 
-Este capitulo describe el pipeline experimental completo usado en la etapa B2. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso.
+Este capitulo describe el pipeline experimental completo usado en la etapa B2. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso. En otras palabras, se priorizo una comparacion honesta antes que una optimizacion excesiva de un metodo particular.
+
+La metodologia se organizo como una secuencia fija: (i) carga y estandarizacion de los datos, (ii) construccion del grafo, (iii) simulacion de canales faltantes, (iv) interpolacion o reconstruccion, y (v) evaluacion cuantitativa y consolidacion de resultados. Esta estructura permite rastrear cada resultado desde el dato de entrada hasta la tabla final del manuscrito.
+
+De forma practica, el pipeline se implemento de modo que cada corrida genere artefactos intermedios reutilizables. Esto fue importante para la tesis, porque permitio separar lo experimental de lo editorial: primero se consolida evidencia, y luego se redacta sobre esa evidencia.
 
 \section{Construccion de grafos}
 
 Se evaluaron constructores de grafo de tipo vecindad, distancia y variantes adaptativas. En B2 se mantuvieron los metodos que mostraron estabilidad numerica en corrida extendida y que permitieron consolidar resultados sin interrupciones.
 
+La intuicion detras de esta etapa es que la calidad del grafo condiciona directamente la reconstruccion posterior. Si el grafo no refleja bien la relacion entre electrodos, entonces el interpolador trabaja sobre una geometria poco representativa. Por eso se incluyeron varias estrategias y no solo una sola configuracion fija.
+
+Entre los metodos mas relevantes aparecen `knn`, `knng`, `nnk`, `aew` y `kalofolias`. Los primeros ofrecen una base local sencilla; `nnk` y `aew` introducen una relacion mas rica entre distancia y estructura de senal; `kalofolias` sirve como ejemplo de aprendizaje de grafos con regularizacion. En este trabajo, el objetivo no fue declarar un ganador absoluto, sino construir una base comun que luego soporte la comparacion de interpoladores.
+
 \section{Simulacion de canales faltantes}
 
 Se trabajaron escenarios por region de electrodos (por ejemplo frontal, occipital y temporal lateral) con niveles de perdida de 10\%, 20\%, 30\% y 40\%. Este diseno intenta aproximar situaciones mas realistas que una mascara completamente aleatoria.
+
+Para la tesis, este punto era importante porque un EEG real no falla siempre de manera uniforme. A veces se pierden grupos completos de canales, a veces solo algunos sensores perifericos, y otras veces la perdida tiene un patron que responde a la calidad del montaje. Por eso, el protocolo no se limitó a un caso sintético, sino que intento cubrir patrones con mayor interpretabilidad experimental.
+
+La version actual del protocolo queda congelada en los artefactos de resultados y se usa tanto en el paper como en la tesis. Eso evita que la narrativa cambie segun el documento y asegura que ambos reporten exactamente el mismo conjunto de escenarios.
 
 \section{Interpolacion y reconstruccion}
 
@@ -20,3 +32,13 @@ Las comparaciones se organizaron por familias:
 \end{itemize}
 
 Para la evaluacion se usaron MAE, RMSE, DTW y SNR con agregacion estadistica (media, desviacion estandar e intervalo de confianza aproximado) sobre corridas repetidas.
+
+La decision de trabajar con varias metricas responde a que cada una captura una parte distinta del problema. MAE y RMSE reflejan error puntual; DTW penaliza desalineacion temporal; SNR da una idea mas global de la calidad de la reconstruccion. En una tesis de magister esto ayuda a evitar una lectura ingenua basada en un solo numero.
+
+Desde el punto de vista de implementacion, cada metodo recibe exactamente la misma entrada y la misma mascara, y devuelve una reconstruccion comparable. Esa homogeneidad fue una prioridad del trabajo, porque la literatura de reconstruccion EEG puede ser muy sensible a detalles aparentemente menores como la ordenacion de canales, el tratamiento de observados o la forma de agregar resultados.
+
+\section{Consolidacion y reporte}
+
+La fase B2 incorporo una consolidacion estadistica por escenario y familia de metodos. Los resultados se resumieron con tablas de ranking, tablas top-k y archivos de configuracion congelada. Este ultimo punto resulta muy relevante para una tesis: no solo importa el resultado, sino que quede claro como volver a producirlo.
+
+Finalmente, para el tratamiento de INS-13/BGSRP se adopto una politica de redaccion prudente. La implementacion Python se reporta como proxy controlado con evidencia cross-stack cuantitativa, pero sin afirmar equivalencia absoluta 1:1 con MATLAB/GSPBox. Esa distincion no es solo editorial; es parte de la validez metodologica del trabajo.

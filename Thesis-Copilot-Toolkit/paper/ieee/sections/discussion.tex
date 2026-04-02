@@ -2,15 +2,10 @@
 
 The B2 results suggest two practical conclusions. First, graph-aware methods and TV/time methods are competitive in realistic missing-channel settings, and often better than simple geometric baselines. Second, the performance margins between top methods are small in several scenarios, so variance and protocol details matter as much as mean MAE.
 
-The B3/B4 closure adds formal significance evidence. The family-level Wilcoxon test
-rejects the null hypothesis for MAE and DTW when comparing instant vs TV/time
-aggregates under shared contexts. This supports reporting family-level differences,
-while still avoiding over-generalized claims at method level.
+The B3/B4 closure adds formal significance evidence. The family-level Wilcoxon test rejects the null hypothesis for MAE and DTW when comparing instant vs TV/time aggregates under shared contexts. This supports reporting family-level differences, while still avoiding over-generalized claims at method level.
 
 At the same time, we still have an important limitation: strict BGSRP equivalence against the original MATLAB/GSPBox setup is not fully closed. The current artifact \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} reports a residual gap in a controlled proxy comparison, which we currently mark as accepted for this stage and pending for final closure.
 
 Another positive signal is that the B2 warnings registry is currently empty in the consolidated output, which improves confidence in large-scale execution stability.
 
-For release readiness, we mark a conditional Go decision: the package is suitable for
-manuscript review and reproducibility checks, but strict BGSRP cross-stack equivalence
-must remain an explicit limitation until a direct MATLAB/GSPBox 1:1 replication is closed.
+For release readiness, we mark a conditional Go decision: the package is suitable for manuscript review and reproducibility checks, but strict BGSRP cross-stack equivalence must remain an explicit limitation until a direct MATLAB/GSPBox 1:1 replication is closed.

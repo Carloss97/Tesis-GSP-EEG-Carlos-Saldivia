@@ -1,10 +1,10 @@
 \section{Introduction}
 
-Electroencephalography (EEG) recordings frequently exhibit missing channels due to contact issues, amplifier saturation, movement artifacts, or quality-control rejection. In practical studies, this is not a minor inconvenience: missing channels can distort spatial interpretations, degrade biomarkers, and reduce the reliability of downstream decoding pipelines.
+Electroencephalography (EEG) recordings frequently exhibit missing channels due to contact issues, amplifier saturation, movement artifacts, or quality-control rejection. In practical studies, this is not a minor inconvenience: missing channels can distort spatial interpretations, degrade biomarkers, and reduce the reliability of downstream decoding pipelines. Because of that, channel interpolation has been studied for decades, from classical spatial interpolation to graph-based reconstruction.
 
-Graph Signal Processing (GSP) provides a natural framework for this problem by representing electrodes as graph vertices and modeling inter-channel relationships through weighted edges. From this viewpoint, reconstruction becomes a graph-constrained estimation problem, where smoothness, bandlimitedness, and temporal priors can be exploited instead of using purely geometric interpolation.
+Graph Signal Processing (GSP) provides a natural framework for this problem by representing electrodes as graph vertices and modeling inter-channel relationships through weighted edges. The general perspective is consistent with the graph-signal literature associated with Ortega and collaborators, where smoothness, bandlimitedness, and spectral structure are used to replace purely geometric interpolation with graph-constrained estimation.
 
-Even though many methods have been proposed in the literature, in practice it is still difficult to compare them fairly in a single reproducible pipeline. Different papers use different masks, datasets, and evaluation conventions, so conclusions are often hard to transfer to real EEG workflows. This thesis-paper track tries to reduce that gap with a unified benchmark and publication-ready artifacts.
+Even though many methods have been proposed in the literature \cite{narang2013,puy2018,zhang2024bgsrp}, in practice it is still difficult to compare them fairly in a single reproducible pipeline. Different papers use different masks, datasets, and evaluation conventions, so conclusions are often hard to transfer to real EEG workflows. This thesis-paper track tries to reduce that gap with a unified benchmark and publication-ready artifacts.
 
 The main contributions of this manuscript are:
 \begin{itemize}
@@ -15,4 +15,4 @@ The main contributions of this manuscript are:
 
 At the current B2 stage, we evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions with repeated runs and consolidated variability statistics.
 
-This is still an evolving manuscript, so we intentionally keep a transparent scope statement: most of the benchmark is consolidated, but strict BGSRP equivalence against the original MATLAB/GSPBox environment is still pending final closure.
+This is still an evolving manuscript, so we intentionally keep a transparent scope statement: most of the benchmark is consolidated, but strict BGSRP equivalence against the original MATLAB/GSPBox environment remains a documented limitation rather than a completed claim.

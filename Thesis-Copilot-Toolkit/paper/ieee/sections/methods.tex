@@ -1,9 +1,11 @@
 \section{Methods}
 
-We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. At this stage, we focus on a practical and reproducible benchmark implementation, not yet on claiming a single theoretically optimal method.
+We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. The goal is not to propose a new theory, but to compare established families under the same experimental conditions and with the same evaluation pipeline.
+
+In practice, each method receives the same masked input and the same reference signal, so differences in the reported metrics are attributable to the reconstruction strategy rather than to a different data split or a different masking design.
 
 \subsection{Graph Construction}
-We evaluate several graph constructors implemented in our pipeline, including neighborhood and adaptive alternatives. In the B2 stage, we prioritize methods that stayed numerically stable during full-scale execution.
+We evaluate several graph constructors implemented in our pipeline, including neighborhood and adaptive alternatives. In the B2 stage, we prioritize methods that stayed numerically stable during full-scale execution. This includes local neighborhood graphs, fully connected baselines, and adaptive graph construction methods inspired by the graph learning literature.
 
 \subsection{Interpolation Families}
 We compare three families:
@@ -12,7 +14,9 @@ We compare three families:
 \item TV/time methods (e.g., trss, tv, graph\_time\_tikhonov).
 \item Reference geometric/spline baselines.
 \end{itemize}
-The goal is to compare behavior under the same masking protocol and metrics, instead of tuning each method independently for best-case numbers.
+The goal is to compare behavior under the same masking protocol and metrics, instead of tuning each method independently for best-case numbers. This is especially relevant because some methods optimize local spatial consistency, while others are better at preserving temporal structure.
 
 \subsection{Evaluation Metrics}
 Performance is assessed with MAE, RMSE, DTW, and SNR. We report mean and standard deviation, and for consolidated B2 analysis we also track approximate 95\% confidence intervals from repeated runs.
+
+For the EEG setting, the metric combination is useful because it avoids a one-dimensional view of reconstruction quality. A method with a low MAE may still distort temporal evolution, while another may preserve dynamics better at the cost of slightly larger pointwise error.

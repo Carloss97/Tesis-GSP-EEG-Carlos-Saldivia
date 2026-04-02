@@ -1,9 +1,6 @@
 \section{Results}
 
-The B3/B4 closure used the consolidated B1+B2 ranking to build a final publication
-table (REP-01), plus significance tests (STAT-02) over the full-scale B2 raw data.
-The family-level summary confirms that baseline methods obtained the lowest average
-MAE, while TV/time methods achieved the lowest average DTW.
+The B3/B4 closure used the consolidated B1+B2 ranking to build a final publication table (REP-01), plus significance tests (STAT-02) over the full-scale B2 raw data. The family-level summary confirms that baseline methods obtained the lowest average MAE, while TV/time methods achieved the lowest average DTW. In other words, the best family depends on the way the reconstruction quality is measured.
 
 \begin{table}[t]
 \centering
@@ -25,3 +22,7 @@ MAE and DTW (Wilcoxon paired), indicating that family-level differences are not
 explained by noise alone under the current protocol. At method level, the contrast
 between TRSS and BGSRP is significant, while TRSS vs GSP is not significant in MAE,
 which supports a scenario-aware interpretation instead of a single universal winner.
+
+The practical implication is that the final manuscript should avoid a strong claim of universal dominance. The data support a more nuanced statement: graph-aware interpolation is consistently competitive, TV/time methods can be better when temporal structure matters, and method ranking changes with the masking scenario.
+
+For readability in the journal version, the full family-level ranking is kept in the consolidated CSV artifacts, while the paper itself should only expose one compact table and one paragraph of interpretation.

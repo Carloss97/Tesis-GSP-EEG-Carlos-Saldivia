@@ -1,6 +1,6 @@
 \chapter{Experimentos y Resultados}
 
-Este capitulo resume la corrida consolidada de la fase B2 y presenta resultados cuantitativos preliminares con foco en trazabilidad para paper y tesis.
+Este capitulo resume la corrida consolidada de la fase B2 y presenta resultados cuantitativos preliminares con foco en trazabilidad para paper y tesis. La idea es que esta seccion pueda crecer luego sin tener que reescribir desde cero la historia experimental.
 
 \section{Configuracion experimental}
 
@@ -13,11 +13,11 @@ La corrida B2 se ejecuto en lotes y luego se consolidaron resultados en artefact
 
 Las metricas reportadas fueron MAE, RMSE, DTW y SNR. Para cada combinacion de dataset-escenario-metodo se consolidaron estadisticos de tendencia central y variabilidad.
 
+En terminos de lectura experimental, esto significa que no se presento una unica corrida aislada, sino una bateria de resultados que permite mirar el comportamiento de los metodos bajo distintos niveles de perdida y distintas regiones del casco. Esa decision hace que la tesis sea mas larga, pero tambien mas honesta y mas util para un lector que quiera reproducir el trabajo.
+
 \section{Resultados}
 
-En los escenarios analizados no aparece un ganador unico universal. La evidencia B3/B4
-resume el rendimiento por familia (baseline, GSP y TV/tiempo), mostrando un compromiso
-entre error puntual (MAE) y alineamiento temporal (DTW).
+En los escenarios analizados no aparece un ganador unico universal. La evidencia B3/B4 resume el rendimiento por familia (baseline, GSP y TV/tiempo), mostrando un compromiso entre error puntual (MAE) y alineamiento temporal (DTW). Esto es importante porque evita vender una narrativa demasiado simple: el metodo mejor posicionado en una familia no siempre domina en todas las metricas ni en todos los escenarios.
 
 \begin{table}[h]
 \centering
@@ -34,12 +34,10 @@ GSP & 0.073695 & 0.498893 & 0.168976 & gsmooth \\
 \label{tab:tesis_rep01_final}
 \end{table}
 
-Ademas, se cerro STAT-02 con pruebas de significancia sobre la corrida full-scale:
-el contraste por familias instantaneo vs TV/tiempo rechazo la hipotesis nula tanto en
-MAE como en DTW (Wilcoxon pareado, $\alpha=0.05$). A nivel de metodos, TRSS vs BGSRP
-mostro diferencia significativa en MAE, mientras que TRSS vs GSP no mostro diferencia
-significativa en esa metrica.
+Ademas, se cerro STAT-02 con pruebas de significancia sobre la corrida full-scale: el contraste por familias instantaneo vs TV/tiempo rechazo la hipotesis nula tanto en MAE como en DTW (Wilcoxon pareado, $\alpha=0.05$). A nivel de metodos, TRSS vs BGSRP mostro diferencia significativa en MAE, mientras que TRSS vs GSP no mostro diferencia significativa en esa metrica. En la practica, esto sugiere que hay una diferencia real entre familias, pero que entre metodos cercanos la separacion no siempre es grande.
 
 Tambien se verifico consistencia operativa en la corrida B2, ya que el registro consolidado de warnings no reporta entradas en \texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}. Esto no prueba perfeccion del pipeline, pero si indica que la corrida larga fue estable en terminos practicos.
+
+Un detalle que vale la pena destacar es que la tabla final no pretende ser una verdad universal sobre EEG interpolation. Es, mas bien, una fotografia bien documentada de este conjunto de experimentos, con una comparacion limpia entre familias y con el costo de ser transparente en los casos donde una equivalencia estricta todavia no se puede afirmar.
 
 Finalmente, para BGSRP se mantiene una nota de cautela: el archivo \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} reporta un gap residual en comparacion proxy, aceptado en B2 pero todavia pendiente de cierre estricto 1:1 con MATLAB/GSPBox.

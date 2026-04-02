@@ -1,11 +1,25 @@
 \chapter{Marco Teorico}
 
-Este capitulo resume fundamentos de EEG, grafos y procesamiento de senales sobre grafos.
+Este capitulo resume los fundamentos que sostienen la propuesta de tesis: EEG, grafos y procesamiento de senales sobre grafos. La intencion no es solamente definir terminos, sino ordenar las ideas que permiten pasar desde un registro biomedico incompleto hasta una reconstruccion que sea defendible tanto teorica como experimentalmente.
 
 \section{EEG y reconstruccion}
 
-Descripcion de adquisicion EEG, configuracion de electrodos y escenarios de perdida de canales.
+La electroencefalografia mide diferencias de potencial en el cuero cabelludo mediante un conjunto de electrodos. Su interpretacion depende de la ubicacion espacial de los sensores, de la calidad del contacto y de la estabilidad del registro. Por eso, cuando faltan canales, no basta con "rellenar huecos": lo ideal es aprovechar tanto la geometria de los electrodos como la correlacion fisiologica entre señales.
+
+La literatura de interpolacion EEG clasica parte de esta idea y propone distintos niveles de sofisticacion. Por ejemplo, la interpolacion espacial puede apoyarse en la distancia euclidiana, en splines esfericos \cite{perrin1989} o en modelos de regularizacion. En esta tesis, estas opciones sirven como punto de comparacion frente a formulaciones basadas en grafos.
+
+Desde el punto de vista experimental, el problema de canales faltantes puede aparecer de distintas formas: perdida aleatoria, descarte por calidad, o ausencias concentradas en una region del casco. Esa diversidad importa porque un metodo puede verse bien en un escenario sintético pero no necesariamente en uno mas realista.
 
 \section{Procesamiento de senales sobre grafos}
 
-Se presentan representaciones espectrales en grafos y supuestos de suavidad.
+El procesamiento de senales sobre grafos (GSP) generaliza herramientas de procesamiento clasico a dominios no euclidianos. En lugar de asumir que la variable vive sobre una linea o una malla regular, se asume que la senal vive sobre los nodos de un grafo y que la relacion entre nodos esta definida por una matriz de pesos.
+
+La idea central es que una senal suave sobre el grafo tiende a variar poco entre nodos conectados por aristas de gran peso. A partir de esa hipotesis, se pueden formular problemas de interpolacion, filtrado y reconstruccion con herramientas espectrales o variacionales. En la linea de Narang y Ortega \cite{narang2013}, esto permite reconstruir señales bandlimited mediante regularizacion en el grafo. En trabajos posteriores, Puy \emph{et al.} \cite{puy2018} estudiaron de manera mas formal las condiciones bajo las cuales la recuperacion parcial es posible.
+
+Para esta tesis, la consecuencia practica es simple: si los electrodos se modelan como nodos y su relacion espacial o funcional se codifica como un grafo, entonces la reconstruccion puede formularse como un problema de estimacion regularizada. Ese marco justifica el uso de metodos como GSP, Tikhonov, TRSS y BGSRP dentro de un mismo pipeline experimental.
+
+\section{Interpolacion en grafos y variantes temporales}
+
+Una parte importante de la literatura reciente intenta combinar la suavidad espacial del grafo con regularizacion temporal. Esto es especialmente util en EEG, porque las muestras no solo estan organizadas en el espacio, sino tambien en el tiempo. En la practica, esta combinacion es la que motiva comparar metodos instantaneos con variantes TV/tiempo.
+
+En este trabajo, la lectura teorica se apoya en las referencias trazadas en \texttt{REFERENCES.md}: las formulaciones de Narang \cite{narang2013}, la recuperacion bandlimited sobre RKHS \cite{zhang2024bgsrp}, y las formulaciones de variacion temporal asociadas a \cite{giraldo2022}. Esta base bibliografica es la que permite sostener la parte experimental sin tratar cada metodo como una caja negra aislada.
