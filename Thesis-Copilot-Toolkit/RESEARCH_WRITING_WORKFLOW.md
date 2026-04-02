@@ -74,3 +74,12 @@ Estado aplicado en esta iteracion:
   - Capitulos completos con narrativa coherente.
   - Metodologia y experimentos totalmente reproducibles.
   - Formato institucional validado con plantilla USM final.
+
+## 8. Cierre B3/B4 (evidencia operativa)
+
+- Significancia estadistica (STAT-02): `results/b3_stat02_significance.csv`.
+- Tabla final REP-01: `results/b3_rep01_final_table_overall.csv` y tabla LaTeX en `paper/ieee/tables/` y `thesis/usm/tables/`.
+- Trazabilidad editorial: `results/b3_b4_editorial_traceability.md`.
+- Reproducibilidad y recursos: `results/b3_b4_reproducibility_guide.md`, `results/b3_b4_compute_resources.md`.
+- Checklist de envio: `results/b3_b4_submission_checklist.md`.
+- INS-13 estricto cross-stack: `results/ins13_strict_status.md` y `results/ins13_strict_matlab_compare_summary.csv`.

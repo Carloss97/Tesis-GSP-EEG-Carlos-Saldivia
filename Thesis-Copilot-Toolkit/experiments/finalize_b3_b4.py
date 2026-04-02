@@ -274,6 +274,59 @@ def reproducibility_and_release_artifacts(paths: Dict[str, Path], stat_df: pd.Da
     (results_dir / "b3_b4_submission_checklist.md").write_text("\n".join(checklist_lines) + "\n", encoding="utf-8")
 
 
+def editorial_traceability_artifact(paths: Dict[str, Path]) -> None:
+    results_dir = paths["results"]
+    lines = [
+        "# Editorial Traceability (DOC-01 / REP-02)",
+        "",
+        "This file maps manuscript claims to generated artifacts.",
+        "",
+        "| Editorial location | Claim type | Evidence artifact |",
+        "|---|---|---|",
+        "| paper/ieee/sections/results.tex | REP-01 final table and STAT-02 interpretation | results/b3_rep01_final_table_overall.csv; results/b3_stat02_significance.csv |",
+        "| paper/ieee/sections/discussion.tex | Limitation and Go/No-Go framing | results/ins13_strict_status.md; results/b3_b4_submission_checklist.md |",
+        "| paper/ieee/sections/reproducibility.tex | Reproducibility command package | results/b3_b4_reproducibility_guide.md; results/b3_b4_compute_resources.md |",
+        "| thesis/usm/chapters/04_experimentos_y_resultados.tex | REP-01 and STAT-02 narrative | results/b3_rep01_final_table_overall.csv; results/b3_stat02_summary.md |",
+        "| thesis/usm/chapters/05_discusion.tex | Limitations and release decision | results/ins13_strict_status.md; results/b3_b4_submission_checklist.md |",
+        "",
+    ]
+    (results_dir / "b3_b4_editorial_traceability.md").write_text("\n".join(lines), encoding="utf-8")
+
+
+def warnings_policy_artifact(paths: Dict[str, Path]) -> None:
+    results_dir = paths["results"]
+    warnings_csv = results_dir / "opt_benchmark_b2_full_scale_warnings_registry.csv"
+    has_rows = False
+    if warnings_csv.exists():
+        try:
+            has_rows = len(pd.read_csv(warnings_csv)) > 0
+        except Exception:
+            has_rows = False
+
+    lines = [
+        "# Warning Hardening Policy (B3/B4)",
+        "",
+        "## Current status",
+        f"- Consolidated B2 warning registry has rows: {'yes' if has_rows else 'no'}",
+        "",
+        "## Classification decisions",
+        "- fixed: warning source solved in code path; regression test should stay green.",
+        "- accepted: warning is low-impact and understood under current scope.",
+        "- deferred: warning is known and tracked for future hardening.",
+        "",
+        "## Current decisions",
+        "- FITPACK_CAPACITY (spline_surface): fixed",
+        "- FITPACK_FALLBACK_RBF (spline_surface): accepted",
+        "- FITPACK_FALLBACK_MEAN (spline_surface): deferred",
+        "- NAN_MEAN_EMPTY in TRSS/TV init paths: fixed via guarded nanmean helper",
+        "",
+        "## Action for future runs",
+        "- Keep exporting warnings registry in every full-scale run.",
+        "- Promote deferred items to fixed before final camera-ready if they recur.",
+    ]
+    (results_dir / "b3_b4_warning_hardening.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def write_latex_tables(by_scenario: pd.DataFrame, overall: pd.DataFrame, paths: Dict[str, Path]) -> None:
     paper_path = paths["paper_tables"] / "b3_rep01_final_table.tex"
     thesis_path = paths["thesis_tables"] / "b3_rep01_final_table.tex"
@@ -305,6 +358,8 @@ def main() -> None:
 
     write_latex_tables(by_scenario, overall, paths)
     reproducibility_and_release_artifacts(paths, stat_df, overall)
+    editorial_traceability_artifact(paths)
+    warnings_policy_artifact(paths)
 
     config = {
         "source_raw": "results/opt_benchmark_b2_full_scale_raw.csv",
@@ -324,6 +379,8 @@ def main() -> None:
     print(f"Saved: {paths['results'] / 'b3_b4_reproducibility_guide.md'}")
     print(f"Saved: {paths['results'] / 'b3_b4_compute_resources.md'}")
     print(f"Saved: {paths['results'] / 'b3_b4_submission_checklist.md'}")
+    print(f"Saved: {paths['results'] / 'b3_b4_editorial_traceability.md'}")
+    print(f"Saved: {paths['results'] / 'b3_b4_warning_hardening.md'}")
     print(f"Saved: {paths['results'] / 'b3_b4_finalize_config.json'}")
 
 

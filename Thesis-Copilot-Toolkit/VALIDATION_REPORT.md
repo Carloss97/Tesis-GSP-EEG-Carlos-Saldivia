@@ -254,6 +254,31 @@ Riesgos residuales B3/B4 para seguimiento:
 2. Tiempo total de corrida full-scale no quedo serializado automaticamente; se recomienda capturarlo en siguientes ejecuciones.
 3. El paquete es apto para revision y redaccion final, pero las claims cross-stack deben conservar la nota de proxy.
 
+## 10) INS-13 estricto (MATLAB/GSPBox) - intento ejecutado
+
+Se ejecuto un contraste directo Python vs MATLAB/GSPBox sobre entradas compartidas para BGSRP
+en escenario controlado.
+
+Artefactos:
+- `results/ins13_strict_matlab_compare_raw.csv`
+- `results/ins13_strict_matlab_compare_summary.csv`
+- `results/ins13_strict_status.md`
+- `results/ins13_strict_config.json`
+
+Resultado actual:
+- status: `proxy_or_partial`
+- strict_close: `False`
+- mae_gap_mean: `1.835249e-04`
+- corr_mean: `0.989777`
+
+Interpretacion: se avanzo desde "sin intento estricto" a una medicion cross-stack verificable,
+pero aun no cumple criterio de cierre absoluto 1:1.
+
+## 11) Evidencia de integracion editorial y warnings
+
+- Trazabilidad paper/tesis -> artefactos: `results/b3_b4_editorial_traceability.md`
+- Politica de hardening warnings: `results/b3_b4_warning_hardening.md`
+
 ## 7) Nota de consistencia documental
 
 Este reporte se alinea con:

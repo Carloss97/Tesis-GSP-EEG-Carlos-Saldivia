@@ -170,6 +170,12 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - `results/b3_b4_compute_resources.md`
 - `results/b3_b4_submission_checklist.md`
 - `results/b3_b4_finalize_config.json`
+- `results/ins13_strict_matlab_compare_raw.csv`
+- `results/ins13_strict_matlab_compare_summary.csv`
+- `results/ins13_strict_status.md`
+- `results/ins13_strict_config.json`
+- `results/b3_b4_editorial_traceability.md`
+- `results/b3_b4_warning_hardening.md`
 
 ## Checklist minimo
 
@@ -195,5 +201,6 @@ $env:B2_RANDOM_SEED='42'
 ```
 
 Nota de alcance:
-- La equivalencia estricta 1:1 con stack MATLAB/GSPBox del paper BGSRP sigue marcada como pendiente de cierre final, aunque ya existe replica exfig4-like congelada y reproducible en Python.
+- Se ejecuto comparacion estricta Python vs MATLAB/GSPBox en escenario controlado (`results/ins13_strict_matlab_compare_*`), con estado `proxy_or_partial` en esta iteracion.
+- La equivalencia estricta 1:1 completa con criterio de cierre absoluto sigue pendiente como trabajo adicional, ahora con evidencia cuantitativa directa del gap residual cross-stack.
 - Existen replicas frozen para Narang y Puy en entorno Python, pero el cierre total requiere completar la matriz de replicacion numerica de todos los metodos paper-faithful definidos en `REFERENCES.md` y validar equivalencia/criterios por metodo.

@@ -83,6 +83,9 @@ Detalle de avance PRT-01:
 - [x] RPL-01 - Guia reproducible consolidada (`results/b3_b4_reproducibility_guide.md`)
 - [x] RPL-02 - Reporte de recursos computacionales (`results/b3_b4_compute_resources.md`)
 - [x] REL-01 - Checklist final de envio y decision (`results/b3_b4_submission_checklist.md`, decision: Go con limitacion INS-13)
+- [x] INS-13 estricta (intento cross-stack) ejecutada con evidencia MATLAB/GSPBox (`results/ins13_strict_matlab_compare_raw.csv`, `results/ins13_strict_matlab_compare_summary.csv`, `results/ins13_strict_status.md`)
+- [x] Trazabilidad editorial paper/tesis a artefactos (`results/b3_b4_editorial_traceability.md`)
+- [x] Politica de hardening de warnings no fatales (`results/b3_b4_warning_hardening.md`)
 
 ---
 
