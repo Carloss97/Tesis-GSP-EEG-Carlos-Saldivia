@@ -182,7 +182,7 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - [x] Referencias bibliograficas por metodo
 - [x] Estado paper-faithful documentado
 - [x] Tests paper-faithful ampliados (incluye TV/tiempo activos y `nnk`/`aew`)
-- [ ] Reproducibilidad numerica completa para todos los metodos paper-faithful (pendiente cierre total)
+- [ ] Reproducibilidad numerica completa para todos los metodos paper-faithful (pendiente cierre total; limitacion principal: `INS-13` estricto 1:1 MATLAB/GSPBox)
 - [x] Corrida final extendida con DTW completo (B1 cierre en benchmark final)
 - [x] Tabla final consolidada baseline vs GSP vs TV/tiempo (B2 publication ranking + top-k)
 
@@ -204,4 +204,4 @@ Nota de alcance:
 - Se ejecuto comparacion estricta Python vs MATLAB/GSPBox en escenario controlado (`results/ins13_strict_matlab_compare_*`), con estado `proxy_or_partial` en esta iteracion.
 - Estado tecnico reportable: `strict_close=False`, `mae_gap_mean=1.835239e-04`, `corr_mean=0.989777` (fuente canonica: `results/ins13_strict_status.md`).
 - La equivalencia estricta 1:1 completa con criterio de cierre absoluto sigue pendiente como trabajo adicional, ahora con evidencia cuantitativa directa del gap residual cross-stack.
-- Existen replicas frozen para Narang y Puy en entorno Python, pero el cierre total requiere completar la matriz de replicacion numerica de todos los metodos paper-faithful definidos en `REFERENCES.md` y validar equivalencia/criterios por metodo.
+- Existen replicas frozen para Narang y Puy en entorno Python, y el paquete actual ya es util para paper y tesis; el cierre total, si se persigue, exige una replica cross-stack completa de `INS-13` con criterio de equivalencia absoluto.

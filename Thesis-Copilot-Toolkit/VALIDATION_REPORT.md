@@ -5,7 +5,7 @@ Proyecto: Thesis-Copilot-Toolkit
 
 ## 1) Objetivo de esta iteracion
 
-Actualizar el estado paper-faithful en base a avances recientes, cerrar B1 (PRT-01.D/E/F + MET-01) y dejar consistentes:
+Actualizar el estado paper-faithful en base a avances recientes, cerrar B1/B2/B3/B4 y dejar consistentes:
 - `backlog.md`
 - `README.md`
 - `REFERENCES.md`
@@ -90,6 +90,26 @@ Evidencia de artefactos:
 - `results/opt_benchmark_b1_protocol_summary.csv`
 - `results/opt_benchmark_b1_protocol_config.json`
 
+### 2.8 Estado INS-13 estricto (MATLAB/GSPBox)
+
+Se ejecuto una comparacion cross-stack directa en escenario controlado para acotar la brecha BGSRP.
+
+Evidencia:
+- `results/ins13_strict_matlab_compare_raw.csv`
+- `results/ins13_strict_matlab_compare_summary.csv`
+- `results/ins13_strict_status.md`
+
+Estado tecnico reportable:
+- `strict_close=False`
+- `status=proxy_or_partial`
+- `mae_gap_mean=1.835239e-04`
+- `corr_mean=0.989777`
+
+Interpretacion actual:
+- La implementacion Python es util y coherente para el manuscrito.
+- La equivalencia estricta 1:1 con MATLAB/GSPBox sigue como limitacion metodologica abierta.
+- El gap residual ya esta cuantificado y documentado, por lo que la redaccion puede ser transparente sin sobredimensionar el claim.
+
 ### 2.8 Cierre de metrica final DTW (MET-01)
 
 Estado actual: ✓ done.
@@ -127,7 +147,7 @@ Leyenda:
 | Metodo | Estado Validacion | Comentario |
 |---|---|---|
 | TVT-02 / TVT-03 (`trss` / `sobolev_temporal`) | ✓✓ | Alias consistente y evidencia de reproduccion de figura |
-| INS-13 (`bgsrp`) | ⚠ | Alineado a RKHS, pendiente benchmark 1:1 con referencia MATLAB |
+| INS-13 (`bgsrp`) | ⚠ | Alineado a RKHS, proxy controlado con gap residual cuantificado; 1:1 MATLAB/GSPBox pendiente |
 | INS-10/11/12 (`gsp`/`tikhonov`/`gsmooth`) | ✓ | Replica frozen Narang-style disponible |
 | INS-14 (`puy`) | ✓ | Replica frozen Puy-style disponible |
 | GRA-08 (`nnk`) | ✓✓ | Implementacion NNLS local alineada al enfoque NNK |
@@ -160,9 +180,9 @@ Leyenda:
 
 ## 5) Riesgos y brechas actuales
 
-1. BGSRP aun requiere cierre estricto 1:1 MATLAB/GSPBox (actualmente INS-13.A/B se cierra en proxy controlado Python).
-2. La narrativa final paper/tesis aun debe integrar explicitamente los hallazgos B2 en secciones de resultados y discusion.
-3. Existen warnings runtime no fatales clasificados; su seguimiento para B3/B4 queda en modo hardening continuo.
+1. BGSRP aun requiere cierre estricto 1:1 MATLAB/GSPBox; la evidencia actual es proxy controlado Python con gap residual cuantificado.
+2. La narrativa final paper/tesis debe conservar el matiz metodologico de INS-13 para no sobredimensionar la equivalencia.
+3. Existen warnings runtime no fatales clasificados; su seguimiento para futuras iteraciones queda en modo hardening continuo.
 
 ## 6) Siguiente bloque de cierre recomendado
 
