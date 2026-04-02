@@ -203,3 +203,129 @@ Razon de seleccion: es el camino minimo que cierra exactamente las tres brechas 
 | 2026-04-16 | Revisar cierre BGSRP 1:1 | Decision sobre INS-13 (cerrado o limitacion) |
 | 2026-04-20 | Revisar tabla final y sincronizacion documental | REP-01, REP-02 y DOC-01 en estado Done |
 | 2026-04-22 | Go/No-Go publicable | REL-01 completado con evidencia |
+
+## Sprint Plan (Execution Breakdown)
+
+### Sprint 1: Protocolo y metrica completa
+
+- Ventana: 2026-04-03 a 2026-04-08
+- Objetivo: cerrar definicion experimental base para corrida final.
+- Alcance (IDs): PRT-01.D, PRT-01.E, PRT-01.F, MET-01.
+- Entregables:
+  - Protocolo realista por regiones/tipos de electrodo.
+  - Bateria multi-nivel por dataset.
+  - Configuraciones congeladas por dataset.
+  - Integracion de DTW en benchmark final.
+- Evidencia minima:
+  - Configs versionadas en results.
+  - Salidas de benchmark con columna DTW.
+  - Actualizacion sincronizada en README/backlog/VALIDATION_REPORT.
+- Criterio de cierre:
+  - PRT-01.D/E/F en Done.
+  - MET-01 en Done.
+
+### Sprint 2: Corridas finales y equivalencia BGSRP
+
+- Ventana: 2026-04-09 a 2026-04-16
+- Objetivo: generar evidencia numerica final y cerrar brecha de equivalencia principal.
+- Alcance (IDs): MET-02, INS-13.A, INS-13.B, STAT-01.
+- Entregables:
+  - Corrida final extendida MAE/RMSE/DTW/SNR en candidatas.
+  - Reporte comparativo BGSRP Python vs MATLAB/GSPBox en setup controlado.
+  - Tabla de gap residual con justificacion tecnica.
+  - Resumen estadistico de variabilidad por metodo/escenario.
+- Evidencia minima:
+  - CSV raw/summary finales en results.
+  - Informe de equivalencia BGSRP y conclusion documentada.
+  - Figuras o tablas con variabilidad (media-desviacion o IC).
+- Criterio de cierre:
+  - MET-02, INS-13.A, INS-13.B, STAT-01 en Done.
+
+### Sprint 3: Significancia, narrativa final y reproducibilidad de envio
+
+- Ventana: 2026-04-17 a 2026-04-22
+- Objetivo: dejar el paquete final listo para submission.
+- Alcance (IDs): STAT-02, REP-01, REP-02, DOC-01, RPL-01, RPL-02, REL-01.
+- Entregables:
+  - Significancia estadistica de comparaciones clave.
+  - Tabla final baseline vs GSP vs TV/tiempo.
+  - Seccion de limitaciones alineada a evidencia real.
+  - Documentacion sincronizada entre archivos canonicos.
+  - Guia de reproduccion completa y reporte de recursos computacionales.
+  - Checklist final de envio completado con trazabilidad.
+- Evidencia minima:
+  - Secciones finalizadas en paper y tesis.
+  - Guia de comandos y entorno reproducible.
+  - Checklist respondible con referencias cruzadas a artefactos.
+- Criterio de cierre:
+  - Todos los IDs restantes en Done.
+  - Decision final Go para publicacion.
+
+### Dependencias entre sprints
+
+- Sprint 2 depende de cierre de Sprint 1 (sin protocolo congelado no hay corrida final valida).
+- Sprint 3 depende de resultados finales de Sprint 2 (sin evidencia final no hay significancia ni tabla definitiva).
+
+### Riesgos de calendario
+
+- Riesgo alto: equivalencia BGSRP 1:1 puede requerir iteraciones extra por diferencias de stack.
+- Mitigacion: reservar buffer de 1 a 2 dias entre Sprint 2 y Sprint 3 para ajustes de equivalencia.
+
+## One-Month Master Plan (Daily Execution)
+
+This section supersedes the short sprint windows and assumes 30 days of constant daily work, including experiment closure, paper, and thesis.
+
+### Global Horizon
+
+- Start: 2026-04-03
+- End: 2026-05-02
+- Mode: daily execution, 6 days active + 1 day light-review each week.
+
+### Monthly Sprint Layout
+
+| Sprint | Window | Main objective | Primary IDs |
+|---|---|---|---|
+| Sprint A | 2026-04-03 to 2026-04-10 | Close protocol and metric completeness | PRT-01.D, PRT-01.E, PRT-01.F, MET-01 |
+| Sprint B | 2026-04-11 to 2026-04-18 | Final runs and BGSRP equivalence closure | MET-02, INS-13.A, INS-13.B, STAT-01 |
+| Sprint C | 2026-04-19 to 2026-04-26 | Statistical claims and final result packaging | STAT-02, REP-01, REP-02, DOC-01 |
+| Sprint D | 2026-04-27 to 2026-05-02 | Paper + thesis finalization and submission package | RPL-01, RPL-02, REL-01 + manuscript closure |
+
+### Daily Work Template (recommended)
+
+- Block 1 (Experiments): run or validate one core task with artifact output.
+- Block 2 (Analysis): update summaries/tables/figures from that day output.
+- Block 3 (Writing): update paper and thesis sections linked to the new evidence.
+- End of day (15-20 min): sync status in README/backlog/REFERENCES/VALIDATION_REPORT and this board.
+
+### 30-Day Operational Sequence
+
+| Day range | Daily focus | Expected output |
+|---|---|---|
+| Days 1-3 | Define realistic missing-channel scenarios by region/type | Scenario document + draft dataset configs |
+| Days 4-5 | Multi-level loss battery (10/20/30/40) across datasets | Initial raw/summary CSVs per dataset |
+| Days 6-8 | Freeze final protocol and integrate DTW in final benchmark | Versioned configs + DTW-enabled benchmark output |
+| Days 9-12 | Run full candidate benchmark with MAE/RMSE/DTW/SNR | Final run raw files in results |
+| Days 13-16 | BGSRP 1:1 controlled comparison vs MATLAB/GSPBox | Equivalence report + residual gap table |
+| Days 17-19 | Variability consolidation (mean/std or CI) | Statistical summary tables/plots |
+| Days 20-22 | Significance testing for key claims | Significance section and decision notes |
+| Days 23-24 | Final baseline vs GSP vs TV/time table | Final consolidated table for paper/thesis |
+| Days 25-26 | Limitations and consistency synchronization | Updated README/backlog/REFERENCES/VALIDATION_REPORT |
+| Days 27-28 | Reproducibility package (commands, env, compute report) | Repro guide + compute section |
+| Days 29-30 | Final editorial pass paper + thesis and go/no-go review | Submission-ready package and final checklist |
+
+### Writing Plan Embedded in the Month
+
+| Week | Paper target | Thesis target |
+|---|---|---|
+| Week 1 | Methods and experimental protocol draft updated | Chapter methodology aligned with PRT-01 closure |
+| Week 2 | Results section with final-run placeholders | Results chapter with per-method evidence blocks |
+| Week 3 | Statistical claims + limitations fully drafted | Discussion and limitations chapter synchronized |
+| Week 4 | Final manuscript polish, references, consistency pass | Final thesis coherence pass and bibliography check |
+
+### Monthly Exit Criteria
+
+- All board IDs in `Done`.
+- Final experimental artifacts exist and are traceable.
+- Paper has complete methods/results/discussion/limitations with evidence links.
+- Thesis has synchronized methodology/results/discussion aligned to final artifacts.
+- Final go/no-go review completed with explicit publication decision.
