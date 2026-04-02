@@ -14,6 +14,8 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
   - Zhang et al., *Recovery of bandlimited graph signals based on the reproducing kernel Hilbert space* (DSP, 2024).
   - Codigo de contraste: `Papers/Code-for-BGSRP-master/gsp_BGSRP_recon.m`.
 - TRSS/sobolev_temporal queda consolidado como mismo nucleo de implementacion.
+- Cierre B3/B4 completado con significancia estadistica (STAT-02) y tabla final consolidada (REP-01).
+- INS-13 se mantiene como cierre proxy controlado en Python, pendiente equivalencia estricta 1:1 MATLAB/GSPBox.
 
 ---
 

@@ -9,6 +9,7 @@
 - [x] Documentacion sincronizada en README, REFERENCES y VALIDATION_REPORT
 - [x] Cierre B1 ejecutado: PRT-01.D/E/F + MET-01 con artefactos reproducibles en `results/opt_benchmark_b1_protocol_*`
 - [x] Cierre B2 ejecutado: MET-02 + INS-13.A + INS-13.B + STAT-01 con corrida full-scale por lotes y consolidacion de publicacion
+- [x] Cierre B3/B4 ejecutado: STAT-02 + REP-01 + REP-02 + DOC-01 + RPL-01 + RPL-02 + REL-01
 
 ---
 
@@ -72,6 +73,16 @@ Detalle de avance PRT-01:
 - [x] Tabla pre-final top-k por familia y escenario (`results/opt_benchmark_b2_full_scale_topk_by_family_scenario.csv`, `results/b2_publication_topk_by_family_scenario.csv`)
 - [x] Ranking consolidado final de publicacion (`results/b2_publication_ranking_final.csv`)
 - [x] Registro de warnings remanentes con decision fixed/accepted/deferred (`results/opt_benchmark_b2_full_scale_warnings_registry.csv`)
+
+### 6.2 Cierre B3/B4 (abril 2026)
+
+- [x] STAT-02 - Significancia estadistica sobre comparaciones clave (`results/b3_stat02_significance.csv`, `results/b3_stat02_summary.md`)
+- [x] REP-01 - Tabla final baseline vs GSP vs TV/tiempo (`results/b3_rep01_final_table_overall.csv`, `results/b3_rep01_final_table_by_scenario.csv`)
+- [x] REP-02 - Limitaciones sincronizadas en paper y tesis (`paper/ieee/sections/discussion.tex`, `thesis/usm/chapters/05_discusion.tex`)
+- [x] DOC-01 - Documentacion canonica sincronizada (`README.md`, `backlog.md`, `REFERENCES.md`, `VALIDATION_REPORT.md`)
+- [x] RPL-01 - Guia reproducible consolidada (`results/b3_b4_reproducibility_guide.md`)
+- [x] RPL-02 - Reporte de recursos computacionales (`results/b3_b4_compute_resources.md`)
+- [x] REL-01 - Checklist final de envio y decision (`results/b3_b4_submission_checklist.md`, decision: Go con limitacion INS-13)
 
 ---
 

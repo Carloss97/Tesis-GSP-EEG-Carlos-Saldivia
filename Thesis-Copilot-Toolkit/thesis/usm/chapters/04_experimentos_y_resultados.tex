@@ -1,11 +1,45 @@
 \chapter{Experimentos y Resultados}
 
-Este capitulo reporta la configuracion experimental y los resultados cuantitativos.
+Este capitulo resume la corrida consolidada de la fase B2 y presenta resultados cuantitativos preliminares con foco en trazabilidad para paper y tesis.
 
 \section{Configuracion experimental}
 
-Definicion de datasets, particiones, hiperparametros y metricas.
+La corrida B2 se ejecuto en lotes y luego se consolidaron resultados en artefactos finales. Los archivos de referencia principales son:
+\begin{itemize}
+\item \texttt{results/opt\_benchmark\_b2\_full\_scale\_summary.csv}
+\item \texttt{results/b2\_publication\_ranking\_final.csv}
+\item \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}
+\end{itemize}
+
+Las metricas reportadas fueron MAE, RMSE, DTW y SNR. Para cada combinacion de dataset-escenario-metodo se consolidaron estadisticos de tendencia central y variabilidad.
 
 \section{Resultados}
 
-Analisis comparativo por metrica y por familia de metodos.
+En los escenarios analizados no aparece un ganador unico universal. La evidencia B3/B4
+resume el rendimiento por familia (baseline, GSP y TV/tiempo), mostrando un compromiso
+entre error puntual (MAE) y alineamiento temporal (DTW).
+
+\begin{table}[h]
+\centering
+\caption{Resumen final REP-01 (B1+B2 consolidados).}
+\begin{tabular}{lcccc}
+\hline
+Grupo & MAE $\downarrow$ & DTW $\downarrow$ & RMSE $\downarrow$ & Metodo top \\
+\hline
+Baseline & 0.071270 & 0.521934 & 0.162150 & spherical\_spline \\
+TV/Tiempo & 0.072925 & 0.491819 & 0.167430 & tv \\
+GSP & 0.073695 & 0.498893 & 0.168976 & gsmooth \\
+\hline
+\end{tabular}
+\label{tab:tesis_rep01_final}
+\end{table}
+
+Ademas, se cerro STAT-02 con pruebas de significancia sobre la corrida full-scale:
+el contraste por familias instantaneo vs TV/tiempo rechazo la hipotesis nula tanto en
+MAE como en DTW (Wilcoxon pareado, $\alpha=0.05$). A nivel de metodos, TRSS vs BGSRP
+mostro diferencia significativa en MAE, mientras que TRSS vs GSP no mostro diferencia
+significativa en esa metrica.
+
+Tambien se verifico consistencia operativa en la corrida B2, ya que el registro consolidado de warnings no reporta entradas en \texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}. Esto no prueba perfeccion del pipeline, pero si indica que la corrida larga fue estable en terminos practicos.
+
+Finalmente, para BGSRP se mantiene una nota de cautela: el archivo \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} reporta un gap residual en comparacion proxy, aceptado en B2 pero todavia pendiente de cierre estricto 1:1 con MATLAB/GSPBox.

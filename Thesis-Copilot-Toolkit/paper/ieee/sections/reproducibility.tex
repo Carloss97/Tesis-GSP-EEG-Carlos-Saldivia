@@ -1,5 +1,22 @@
 \section{Reproducibility Statement}
 
-To support reproducibility, this project maintains experiment scripts, frozen configuration files, raw outputs, and aggregated summaries under version control. Each reported table or figure should be traceable to: (i) a script in the experiments directory, (ii) a configuration artifact, and (iii) generated CSV/figure files.
+This manuscript is backed by frozen scripts and traceable artifacts in
+\texttt{results/}. The final B3/B4 closure adds:
+\begin{itemize}
+\item \texttt{results/b3\_stat02\_significance.csv}
+\item \texttt{results/b3\_rep01\_final\_table\_overall.csv}
+\item \texttt{results/b3\_b4\_reproducibility\_guide.md}
+\item \texttt{results/b3\_b4\_compute\_resources.md}
+\item \texttt{results/b3\_b4\_submission\_checklist.md}
+\end{itemize}
 
-Before submission, we will release the final command list used to generate manuscript figures and tables, including dependency versions and random seeds.
+Core execution commands were:
+\begin{itemize}
+\item \texttt{python experiments/run\_b2\_batched.py}
+\item \texttt{python experiments/consolidate\_b2\_publication.py}
+\item \texttt{python experiments/finalize\_b3\_b4.py}
+\end{itemize}
+
+The strict BGSRP 1:1 equivalence against MATLAB/GSPBox is explicitly tracked as an
+open limitation. This does not block reproducibility of the Python pipeline, but it
+does constrain cross-stack equivalence claims.

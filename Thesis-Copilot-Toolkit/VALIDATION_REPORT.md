@@ -213,6 +213,47 @@ $env:B2_RANDOM_SEED='42'
 & "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" -m experiments.verify_bgsrp_vs_narang
 ```
 
+## 9) Cierre B3/B4 (abril 2026)
+
+Estado de cierre solicitado:
+- STAT-02: ✓ done
+- REP-01: ✓ done
+- REP-02: ✓ done
+- DOC-01: ✓ done
+- RPL-01: ✓ done
+- RPL-02: ✓ done
+- REL-01: ✓ done
+
+Artefactos B3/B4 generados:
+- `results/b3_stat02_significance.csv`
+- `results/b3_stat02_summary.md`
+- `results/b3_rep01_final_table_by_scenario.csv`
+- `results/b3_rep01_final_table_overall.csv`
+- `paper/ieee/tables/b3_rep01_final_table.tex`
+- `thesis/usm/tables/b3_rep01_final_table.tex`
+- `results/b3_b4_reproducibility_guide.md`
+- `results/b3_b4_compute_resources.md`
+- `results/b3_b4_submission_checklist.md`
+- `results/b3_b4_finalize_config.json`
+
+Evidencia cuantitativa principal:
+- STAT-02 total tests: 6.
+- REP-01 grupos finales: 3 (Baseline, GSP, TV/Tiempo).
+- REL-01 decision final: Go con limitacion explicita INS-13 (proxy Python).
+
+Comando reproducible B3/B4:
+
+```powershell
+Push-Location Thesis-Copilot-Toolkit
+& .\.venv\Scripts\python.exe experiments/finalize_b3_b4.py
+Pop-Location
+```
+
+Riesgos residuales B3/B4 para seguimiento:
+1. Equivalencia BGSRP 1:1 MATLAB/GSPBox sigue pendiente (fuera de alcance de este cierre).
+2. Tiempo total de corrida full-scale no quedo serializado automaticamente; se recomienda capturarlo en siguientes ejecuciones.
+3. El paquete es apto para revision y redaccion final, pero las claims cross-stack deben conservar la nota de proxy.
+
 ## 7) Nota de consistencia documental
 
 Este reporte se alinea con:

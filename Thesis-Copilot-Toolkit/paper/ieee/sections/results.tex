@@ -1,17 +1,27 @@
 \section{Results}
 
-Table and figure placeholders should be replaced with final paper-faithful runs.
+The B3/B4 closure used the consolidated B1+B2 ranking to build a final publication
+table (REP-01), plus significance tests (STAT-02) over the full-scale B2 raw data.
+The family-level summary confirms that baseline methods obtained the lowest average
+MAE, while TV/time methods achieved the lowest average DTW.
 
 \begin{table}[t]
 \centering
-\caption{Placeholder ranking by MAE.}
-\begin{tabular}{lcc}
+\caption{Final REP-01 summary (B1+B2 consolidated).}
+\begin{tabular}{lcccc}
 \toprule
-Method & MAE $\downarrow$ & DTW $\downarrow$ \\
+Group & MAE $\downarrow$ & DTW $\downarrow$ & RMSE $\downarrow$ & Top method \\
 \midrule
-Method A & 0.000 & 0.000 \\
-Method B & 0.000 & 0.000 \\
+Baseline & 0.071270 & 0.521934 & 0.162150 & spherical\_spline \\
+TV/Time & 0.072925 & 0.491819 & 0.167430 & tv \\
+GSP & 0.073695 & 0.498893 & 0.168976 & gsmooth \\
 \bottomrule
 \end{tabular}
-\label{tab:mae_dtw_placeholder}
+\label{tab:b3_rep01_summary}
 \end{table}
+
+STAT-02 tests reject $H_0$ for the key family contrast instant vs TV/time on both
+MAE and DTW (Wilcoxon paired), indicating that family-level differences are not
+explained by noise alone under the current protocol. At method level, the contrast
+between TRSS and BGSRP is significant, while TRSS vs GSP is not significant in MAE,
+which supports a scenario-aware interpretation instead of a single universal winner.

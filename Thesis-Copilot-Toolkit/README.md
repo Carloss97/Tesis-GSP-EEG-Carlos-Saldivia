@@ -66,6 +66,7 @@ Idioma esperado para tesis: espanol academico.
 - Protocolo realista de canales faltantes cerrado (Ticket `PRT-01`) con bateria multi-nivel 10/20/30/40 y escenarios por region/tipo de electrodo.
 - Cierre de metrica DTW en benchmark final (Ticket `MET-01`) con artefactos `raw/summary/config` reproducibles.
 - Ejecucion B2 full-scale por lotes completada (Tickets `MET-02`, `INS-13.A`, `INS-13.B`, `STAT-01`) con consolidacion publication-ready.
+- Cierre B3/B4 completado (Tickets `STAT-02`, `REP-01`, `REP-02`, `DOC-01`, `RPL-01`, `RPL-02`, `REL-01`) con paquete final de submission.
 
 ## Estado de validacion paper-faithful
 - [x] PRT-01: protocolo realista final de canales faltantes (estado: ✓ done)
@@ -74,6 +75,12 @@ Idioma esperado para tesis: espanol academico.
 - [x] INS-13.A: comparativa controlada BGSRP vs familia Narang (estado: ✓ done en proxy Python)
 - [x] INS-13.B: cuantificacion de gap residual BGSRP (estado: ✓ done)
 - [x] STAT-01: variabilidad consolidada (media, desviacion estandar, CI95) (estado: ✓ done)
+- [x] STAT-02: pruebas de significancia sobre comparaciones clave (estado: ✓ done)
+- [x] REP-01: tabla final baseline vs GSP vs TV/tiempo (estado: ✓ done)
+- [x] REP-02: limitaciones y narrativa final alineadas a evidencia (estado: ✓ done)
+- [x] DOC-01: sincronizacion de documentacion canonica (estado: ✓ done)
+- [x] RPL-01 / RPL-02: guia reproducible y reporte de recursos (estado: ✓ done)
+- [x] REL-01: checklist final con decision Go/No-Go (estado: ✓ done, Go con limitacion INS-13)
 Resumen rapido:
 - `trss` / `sobolev_temporal`: ✓✓
 - `nnk`: ✓✓
@@ -155,6 +162,14 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - `results/b2_publication_topk_by_family_scenario.csv`
 - `results/b2_publication_bgsrp_gap_residual.csv`
 - `results/b2_publication_consolidation_config.json`
+- `results/b3_stat02_significance.csv`
+- `results/b3_stat02_summary.md`
+- `results/b3_rep01_final_table_by_scenario.csv`
+- `results/b3_rep01_final_table_overall.csv`
+- `results/b3_b4_reproducibility_guide.md`
+- `results/b3_b4_compute_resources.md`
+- `results/b3_b4_submission_checklist.md`
+- `results/b3_b4_finalize_config.json`
 
 ## Checklist minimo
 
