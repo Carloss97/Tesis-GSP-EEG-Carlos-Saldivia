@@ -19,6 +19,18 @@ def _nanmean_no_warn(values: np.ndarray, axis: int | None = None) -> np.ndarray:
     return np.where(np.isnan(m), 0.0, m)
 
 
+def _pinv_matlab(a: np.ndarray) -> np.ndarray:
+    # MATLAB-like tolerance: tol = max(size(A)) * eps(norm(A))
+    u, s, vh = np.linalg.svd(a, full_matrices=False)
+    if s.size == 0:
+        return np.zeros_like(a.T)
+    tol = max(a.shape) * np.spacing(np.linalg.norm(a, ord=2))
+    s_inv = np.zeros_like(s)
+    keep = s > tol
+    s_inv[keep] = 1.0 / s[keep]
+    return (vh.T * s_inv) @ u.T
+
+
 def interpolate_signals(
     method: str,
     signals: np.ndarray,
@@ -67,10 +79,17 @@ def interpolate_signals(
             raise ValueError("Se requiere 'adjacency' para BGSRP.")
         bandwidth = int(kwargs.get("bandwidth", max(2, min(signals.shape[1] // 4, signals.shape[1] - 1))))
         gamma = float(kwargs.get("gamma", 0.1))
-        reconstructed = interpolate_bgsrp(signals, adjacency=adjacency, bandwidth=bandwidth, gamma=gamma)
+        strict_matlab = bool(kwargs.get("strict_matlab", False))
+        reconstructed = interpolate_bgsrp(
+            signals,
+            adjacency=adjacency,
+            bandwidth=bandwidth,
+            gamma=gamma,
+            strict_matlab=strict_matlab,
+        )
         return {
             "reconstructed": reconstructed,
-            "info": {"method": "bgsrp", "bandwidth": bandwidth, "gamma": gamma},
+            "info": {"method": "bgsrp", "bandwidth": bandwidth, "gamma": gamma, "strict_matlab": strict_matlab},
         }
 
     if method in {"gsmooth", "graph_regularization"}:
@@ -420,6 +439,7 @@ def interpolate_bgsrp(
     bandwidth: int = 8,
     gamma: float = 0.1,
     reg: float = 1e-8,
+    strict_matlab: bool = False,
 ) -> np.ndarray:
     from scipy.sparse import csgraph
 
@@ -431,7 +451,8 @@ def interpolate_bgsrp(
     n = int(np.clip(bandwidth, 2, n_nodes - 1))
     u_n = evecs[:, 1:n]
     mu_n = evals[1:n]
-    mu_n = np.maximum(mu_n, reg)
+    if not strict_matlab:
+        mu_n = np.maximum(mu_n, reg)
     phi_n = np.diag(1.0 / mu_n)
 
     reconstructed = signals.copy()
@@ -456,7 +477,10 @@ def interpolate_bgsrp(
             g_mat = b_mat @ (gamma * phi_n + core) @ b_mat.T
             d_vec = b_mat @ phi_n @ b_mat.T @ a_center @ y0
 
-            xi = np.linalg.pinv(g_mat + reg * np.eye(ell)) @ d_vec
+            if strict_matlab:
+                xi = _pinv_matlab(g_mat) @ d_vec
+            else:
+                xi = np.linalg.pinv(g_mat + reg * np.eye(ell)) @ d_vec
             g_vec = u_n @ phi_n @ b_mat.T @ xi
 
             # Termino constante z de la formulacion original.

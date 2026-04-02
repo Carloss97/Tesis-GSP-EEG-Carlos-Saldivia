@@ -116,7 +116,14 @@ def main() -> None:
         x0 = np.where(~np.isnan(y_obs))[0] + 1  # MATLAB 1-based
         y0 = y_obs[~np.isnan(y_obs)]
 
-        py_rec = interpolate_signals("bgsrp", masked, adjacency=adjacency, bandwidth=8, gamma=0.1)["reconstructed"][0]
+        py_rec = interpolate_signals(
+            "bgsrp",
+            masked,
+            adjacency=adjacency,
+            bandwidth=8,
+            gamma=0.1,
+            strict_matlab=True,
+        )["reconstructed"][0]
 
         savemat(
             tmp_in,
