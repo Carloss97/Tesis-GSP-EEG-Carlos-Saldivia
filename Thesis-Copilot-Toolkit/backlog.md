@@ -8,6 +8,7 @@
 - [x] Tests paper-faithful agregados en `tests/test_paper_faithful.py`
 - [x] Documentacion sincronizada en README, REFERENCES y VALIDATION_REPORT
 - [x] Cierre B1 ejecutado: PRT-01.D/E/F + MET-01 con artefactos reproducibles en `results/opt_benchmark_b1_protocol_*`
+- [x] Cierre B2 ejecutado: MET-02 + INS-13.A + INS-13.B + STAT-01 con corrida full-scale por lotes y consolidacion de publicacion
 
 ---
 
@@ -54,13 +55,23 @@ Detalle de avance PRT-01:
 - [x] Réplica frozen Narang 2013-like agregada
 - [x] Réplica frozen Puy 2018-like agregada
 - [x] Réplica BGSRP exfig4-like (aprox. Python) agregada
+- [x] MET-02 - Corrida final extendida full-scale ejecutada con matriz completa de datasets/grafos/metodos activos
+- [x] STAT-01 - Consolidacion estadistica con media, desviacion estandar y CI95 en resumen final B2
 
 ### 6. Analisis y reporte
 - [x] Conclusiones preliminares extraidas
 - [x] Tests paper-faithful ampliados para métodos TV/tiempo activos
 - [x] Tests dedicados para métodos de grafo `nnk` y `aew`
-- [ ] Consolidar tabla final baseline vs GSP vs TV/tiempo (media +- desviacion)
+- [x] Consolidar tabla final baseline vs GSP vs TV/tiempo (media +- desviacion)
 - [ ] Redactar version final de metodos, resultados y discusion
+
+### 6.1 Cierre B2 (abril 2026)
+
+- [x] INS-13.A - Comparativa controlada BGSRP vs familia Narang actualizada (`results/bgsrp_vs_narang_check.csv`, `results/bgsrp_vs_narang_check_summary.csv`)
+- [x] INS-13.B - Gap residual BGSRP cuantificado para publicacion (`results/b2_publication_bgsrp_gap_residual.csv`)
+- [x] Tabla pre-final top-k por familia y escenario (`results/opt_benchmark_b2_full_scale_topk_by_family_scenario.csv`, `results/b2_publication_topk_by_family_scenario.csv`)
+- [x] Ranking consolidado final de publicacion (`results/b2_publication_ranking_final.csv`)
+- [x] Registro de warnings remanentes con decision fixed/accepted/deferred (`results/opt_benchmark_b2_full_scale_warnings_registry.csv`)
 
 ---
 

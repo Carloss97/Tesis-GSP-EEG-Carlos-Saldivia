@@ -1,10 +1,22 @@
 """Interpolation methods for EEG reconstruction with missing channels."""
 
+import warnings
 from typing import Any, Dict
 
 import numpy as np
 from scipy.interpolate import Rbf, SmoothBivariateSpline
 from scipy.special import lpmv
+
+from src.interpolation_warning_registry import record_warning
+
+
+def _nanmean_no_warn(values: np.ndarray, axis: int | None = None) -> np.ndarray:
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", category=RuntimeWarning)
+        m = np.nanmean(values, axis=axis)
+    if np.isscalar(m):
+        return float(0.0 if np.isnan(m) else m)
+    return np.where(np.isnan(m), 0.0, m)
 
 
 def interpolate_signals(
@@ -519,8 +531,7 @@ def interpolate_trss(
     x = y.copy()
 
     # Inicializacion para faltantes.
-    col_mean = np.nanmean(x, axis=0)
-    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    col_mean = _nanmean_no_warn(x, axis=0)
     miss = ~mask
     x[miss] = np.take(col_mean, np.where(miss)[1])
 
@@ -574,8 +585,7 @@ def interpolate_graph_tv(
     y = signals.astype(float)
     mask = ~np.isnan(y)
     x = y.copy()
-    col_mean = np.nanmean(x, axis=0)
-    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+    col_mean = _nanmean_no_warn(x, axis=0)
     miss = ~mask
     x[miss] = np.take(col_mean, np.where(miss)[1])
 
@@ -1180,6 +1190,14 @@ def interpolate_spline_surface(signals: np.ndarray, positions: np.ndarray) -> np
                     msg = str(warn.message)
                     if "required storage space exceeds" in msg.lower() or "nxest" in msg.lower() or "nyest" in msg.lower():
                         fitpack_warn = True
+                        record_warning(
+                            method="spline_surface",
+                            warning_code="FITPACK_CAPACITY",
+                            message=msg,
+                            severity="medium",
+                            decision="fixed",
+                            context={"row": int(i), "s_factor": float(factor)},
+                        )
                         break
 
                 if not fitpack_warn:
@@ -1196,7 +1214,23 @@ def interpolate_spline_surface(signals: np.ndarray, positions: np.ndarray) -> np
         try:
             rbf = Rbf(x[observed], y[observed], row[observed], function="thin_plate")
             reconstructed[i, ~observed] = rbf(x[~observed], y[~observed])
+            record_warning(
+                method="spline_surface",
+                warning_code="FITPACK_FALLBACK_RBF",
+                message="FITPACK fallback applied; RBF interpolation used",
+                severity="low",
+                decision="accepted",
+                context={"row": int(i)},
+            )
         except Exception:
             reconstructed[i, ~observed] = np.nanmean(row)
+            record_warning(
+                method="spline_surface",
+                warning_code="FITPACK_FALLBACK_MEAN",
+                message="FITPACK and RBF failed; mean fallback used",
+                severity="high",
+                decision="deferred",
+                context={"row": int(i)},
+            )
 
     return reconstructed

@@ -160,14 +160,58 @@ Leyenda:
 
 ## 5) Riesgos y brechas actuales
 
-1. BGSRP aun requiere cierre mas cercano a 1:1 MATLAB/GSPBox (entorno y generador de grafo original).
-2. La corrida B1 ejecutada usa configuracion reproducible acotada (INCLUDE_MNE=0 y subconjunto de metodos/grafos); falta corrida extendida full para tablas finales de publicacion.
-3. Falta consolidar resultados finales baseline vs GSP vs TV/tiempo con matriz final para manuscrito.
+1. BGSRP aun requiere cierre estricto 1:1 MATLAB/GSPBox (actualmente INS-13.A/B se cierra en proxy controlado Python).
+2. La narrativa final paper/tesis aun debe integrar explicitamente los hallazgos B2 en secciones de resultados y discusion.
+3. Existen warnings runtime no fatales clasificados; su seguimiento para B3/B4 queda en modo hardening continuo.
 
 ## 6) Siguiente bloque de cierre recomendado
 
 1. Ejecutar comparacion 1:1 BGSRP vs referencia MATLAB en escenario controlado (incluyendo barrido N completo de exfig4).
-2. Ejecutar corrida full de robustez con todos los metodos/grafos objetivo para cierre B2 y tabla final de paper.
+2. Integrar resultados B2 en manuscrito final (tabla principal y narrativa de variabilidad).
+
+## 8) Cierre B2 (abril 2026)
+
+Estado de cierre solicitado:
+- MET-02: ✓ done
+- INS-13.A: ✓ done (comparativa controlada Python)
+- INS-13.B: ✓ done (gap residual cuantificado)
+- STAT-01: ✓ done (media/std/CI95)
+
+Artefactos B2 full-scale generados:
+- `results/opt_benchmark_b2_full_scale_raw.csv`
+- `results/opt_benchmark_b2_full_scale_summary.csv`
+- `results/opt_benchmark_b2_full_scale_config.json`
+- `results/opt_benchmark_b2_full_scale_ranking_final.csv`
+- `results/opt_benchmark_b2_full_scale_topk_by_family_scenario.csv`
+- `results/opt_benchmark_b2_full_scale_warnings_registry.csv`
+
+Artefactos publication-ready generados:
+- `results/b2_publication_ranking_final.csv`
+- `results/b2_publication_topk_by_family_scenario.csv`
+- `results/b2_publication_bgsrp_gap_residual.csv`
+- `results/b2_publication_consolidation_config.json`
+
+Evidencia cuantitativa de salida:
+- `opt_benchmark_b2_full_scale_raw.csv`: 25760 filas, 17 columnas.
+- `opt_benchmark_b2_full_scale_summary.csv`: 480 filas, 20 columnas.
+- `opt_benchmark_b2_full_scale_ranking_final.csv`: 480 filas, 20 columnas.
+- `opt_benchmark_b2_full_scale_topk_by_family_scenario.csv`: 240 filas, 20 columnas.
+- `b2_publication_ranking_final.csv`: 480 filas, 18 columnas.
+- `b2_publication_topk_by_family_scenario.csv`: 240 filas, 18 columnas.
+
+Comandos reproducibles ejecutados:
+
+```powershell
+$env:PYTHONPATH='c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit'
+$env:INCLUDE_MNE='1'
+$env:MAX_TIME_SAMPLES='220'
+$env:B2_DTW_MAX_POINTS='80'
+$env:B2_TOP_K='3'
+$env:B2_RANDOM_SEED='42'
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_b2_batched.py"
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\consolidate_b2_publication.py"
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" -m experiments.verify_bgsrp_vs_narang
+```
 
 ## 7) Nota de consistencia documental
 

@@ -22,6 +22,7 @@ from src.data.data_loader import load_mne_sample_dataset, load_synthetic_eeg
 from src.evaluation import evaluate_signals
 from src.graph_construction.graph_constructors import build_graph
 from src.interpolation_methods import interpolate_signals
+from src.interpolation_warning_registry import clear_registry, summarize_registry
 
 
 INSTANT_METHODS = {
@@ -204,12 +205,55 @@ def stable_seed_from_text(text: str, base_seed: int) -> int:
     return int(acc)
 
 
+def _ci95(std: pd.Series, n: pd.Series) -> pd.Series:
+    return 1.96 * (std / np.sqrt(np.maximum(n, 1)))
+
+
+def build_stat_summary(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame()
+
+    grouped = (
+        df.groupby(["dataset", "scenario", "region", "electrode_type", "missing_ratio", "method", "family"], as_index=False)
+        .agg(
+            runs=("mae", "size"),
+            mae_mean=("mae", "mean"),
+            mae_std=("mae", "std"),
+            rmse_mean=("rmse", "mean"),
+            rmse_std=("rmse", "std"),
+            dtw_mean=("dtw", "mean"),
+            dtw_std=("dtw", "std"),
+            snr_mean=("snr", "mean"),
+            snr_std=("snr", "std"),
+        )
+        .fillna(0.0)
+    )
+
+    grouped["mae_ci95"] = _ci95(grouped["mae_std"], grouped["runs"])
+    grouped["rmse_ci95"] = _ci95(grouped["rmse_std"], grouped["runs"])
+    grouped["dtw_ci95"] = _ci95(grouped["dtw_std"], grouped["runs"])
+    grouped["snr_ci95"] = _ci95(grouped["snr_std"], grouped["runs"])
+    return grouped.sort_values(["dataset", "scenario", "missing_ratio", "mae_mean"]).reset_index(drop=True)
+
+
+def build_topk_table(df_stats: pd.DataFrame, top_k: int) -> pd.DataFrame:
+    if df_stats.empty:
+        return pd.DataFrame()
+    ranked = df_stats.sort_values(["dataset", "scenario", "missing_ratio", "family", "mae_mean", "dtw_mean"])
+    return (
+        ranked.groupby(["dataset", "scenario", "missing_ratio", "family"], as_index=False)
+        .head(top_k)
+        .reset_index(drop=True)
+    )
+
+
 def run_benchmark(
     include_mne: bool = True,
     max_time_samples: int = 220,
     missing_levels: List[float] | None = None,
     random_seed: int = 42,
 ) -> tuple[pd.DataFrame, Dict[str, Any]]:
+    clear_registry()
     datasets = build_dataset_registry(include_mne)
     missing_levels = missing_levels or [0.10, 0.20, 0.30, 0.40]
 
@@ -238,9 +282,9 @@ def run_benchmark(
         "tv": expand_grid({"lam": [0.1, 0.2, 0.4], "n_iter": [20], "eps": [1e-5]}),
     }
 
-    graph_filter = set(parse_csv_env_list("B1_GRAPH_NAMES", cast=str))
-    method_filter = set(parse_csv_env_list("B1_METHOD_NAMES", cast=str))
-    max_scenarios = int(os.environ.get("B1_MAX_SCENARIOS", "4"))
+    graph_filter = set(parse_csv_env_list("B2_GRAPH_NAMES", cast=str) or parse_csv_env_list("B1_GRAPH_NAMES", cast=str))
+    method_filter = set(parse_csv_env_list("B2_METHOD_NAMES", cast=str) or parse_csv_env_list("B1_METHOD_NAMES", cast=str))
+    max_scenarios = int(os.environ.get("B2_MAX_SCENARIOS", os.environ.get("B1_MAX_SCENARIOS", "5")))
 
     if graph_filter:
         graph_spaces = {k: v for k, v in graph_spaces.items() if k in graph_filter}
@@ -341,13 +385,33 @@ def run_benchmark(
     return pd.DataFrame(rows), protocol_config
 
 
-def save_outputs(df: pd.DataFrame, out_dir: Path, protocol_config: Dict[str, Any]) -> None:
+def save_outputs(
+    df: pd.DataFrame,
+    out_dir: Path,
+    protocol_config: Dict[str, Any],
+    artifact_prefix: str,
+    top_k: int,
+) -> None:
     full_csv = out_dir / "opt_benchmark_full.csv"
     df.to_csv(full_csv, index=False)
 
-    # Required B1 artifact schema.
-    df.to_csv(out_dir / "opt_benchmark_b1_protocol_raw.csv", index=False)
-    (out_dir / "opt_benchmark_b1_protocol_config.json").write_text(json.dumps(protocol_config, indent=2), encoding="utf-8")
+    raw_path = out_dir / f"{artifact_prefix}_raw.csv"
+    summary_path = out_dir / f"{artifact_prefix}_summary.csv"
+    cfg_path = out_dir / f"{artifact_prefix}_config.json"
+    rank_path = out_dir / f"{artifact_prefix}_ranking_final.csv"
+    topk_path = out_dir / f"{artifact_prefix}_topk_by_family_scenario.csv"
+    warn_path = out_dir / f"{artifact_prefix}_warnings_registry.csv"
+
+    df.to_csv(raw_path, index=False)
+    cfg_path.write_text(json.dumps(protocol_config, indent=2), encoding="utf-8")
+
+    # Keep B1 canonical files in sync when using B1 prefix.
+    if artifact_prefix == "opt_benchmark_b1_protocol":
+        df.to_csv(out_dir / "opt_benchmark_b1_protocol_raw.csv", index=False)
+        (out_dir / "opt_benchmark_b1_protocol_config.json").write_text(
+            json.dumps(protocol_config, indent=2),
+            encoding="utf-8",
+        )
 
     if df.empty:
         print("No results to save.")
@@ -370,12 +434,23 @@ def save_outputs(df: pd.DataFrame, out_dir: Path, protocol_config: Dict[str, Any
     )
     best_by_method.to_csv(out_dir / "opt_benchmark_mean_by_method.csv", index=False)
 
-    summary = (
-        df.groupby(["dataset", "scenario", "region", "electrode_type", "missing_ratio", "method", "family"], as_index=False)
-        .agg(mae=("mae", "mean"), rmse=("rmse", "mean"), dtw=("dtw", "mean"), snr=("snr", "mean"))
-        .sort_values(["dataset", "scenario", "missing_ratio", "mae"])
-    )
-    summary.to_csv(out_dir / "opt_benchmark_b1_protocol_summary.csv", index=False)
+    summary = build_stat_summary(df)
+    summary.to_csv(summary_path, index=False)
+    if artifact_prefix == "opt_benchmark_b1_protocol":
+        summary.to_csv(out_dir / "opt_benchmark_b1_protocol_summary.csv", index=False)
+
+    ranking = summary.sort_values(["mae_mean", "rmse_mean", "dtw_mean", "snr_mean"], ascending=[True, True, True, False])
+    ranking.to_csv(rank_path, index=False)
+
+    topk = build_topk_table(summary, top_k=top_k)
+    topk.to_csv(topk_path, index=False)
+
+    warnings_df = pd.DataFrame(summarize_registry(reset=True))
+    if warnings_df.empty:
+        warnings_df = pd.DataFrame(
+            columns=["method", "warning_code", "severity", "decision", "count", "sample_message"]
+        )
+    warnings_df.to_csv(warn_path, index=False)
 
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=df, x="family", y="mae", hue="dataset")
@@ -400,8 +475,10 @@ def save_outputs(df: pd.DataFrame, out_dir: Path, protocol_config: Dict[str, Any
 def main() -> None:
     include_mne = os.environ.get("INCLUDE_MNE", "1") == "1"
     max_time_samples = int(os.environ.get("MAX_TIME_SAMPLES", "220"))
-    missing_levels = parse_csv_env_list("B1_MISSING_LEVELS", cast=float) or [0.10, 0.20, 0.30, 0.40]
-    random_seed = int(os.environ.get("B1_RANDOM_SEED", "42"))
+    missing_levels = parse_csv_env_list("B2_MISSING_LEVELS", cast=float) or parse_csv_env_list("B1_MISSING_LEVELS", cast=float) or [0.10, 0.20, 0.30, 0.40]
+    random_seed = int(os.environ.get("B2_RANDOM_SEED", os.environ.get("B1_RANDOM_SEED", "42")))
+    artifact_prefix = os.environ.get("B2_ARTIFACT_PREFIX", "opt_benchmark_b2_full_scale")
+    top_k = int(os.environ.get("B2_TOP_K", "3"))
 
     out_dir = ensure_results_dir()
     df, protocol_config = run_benchmark(
@@ -410,7 +487,9 @@ def main() -> None:
         missing_levels=missing_levels,
         random_seed=random_seed,
     )
-    save_outputs(df, out_dir, protocol_config)
+    protocol_config["artifact_prefix"] = artifact_prefix
+    protocol_config["top_k"] = top_k
+    save_outputs(df, out_dir, protocol_config, artifact_prefix=artifact_prefix, top_k=top_k)
 
     if not df.empty:
         print(df.sort_values("mae").head(25))

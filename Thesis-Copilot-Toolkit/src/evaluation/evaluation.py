@@ -1,8 +1,16 @@
 """Funciones de evaluacion para reconstruccion/interpolacion EEG."""
 
+import os
 from typing import Any, Dict
 
 import numpy as np
+
+
+def _downsample_1d(arr: np.ndarray, max_points: int) -> np.ndarray:
+    if max_points <= 0 or arr.size <= max_points:
+        return arr
+    idx = np.linspace(0, arr.size - 1, num=max_points, dtype=int)
+    return arr[idx]
 
 
 def evaluate_signals(original: np.ndarray, reconstructed: np.ndarray, metrics: list = None) -> Dict[str, Any]:
@@ -38,6 +46,8 @@ def root_mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
 
 def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    max_points = int(os.environ.get("B2_DTW_MAX_POINTS", "80"))
+
     try:
         from dtaidistance import dtw
     except ImportError as exc:
@@ -48,7 +58,9 @@ def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         mask = ~np.isnan(y_true)
         if np.sum(mask) < 2:
             return float("nan")
-        return float(dtw.distance(y_true[mask], y_pred[mask]))
+        a = _downsample_1d(y_true[mask], max_points=max_points)
+        b = _downsample_1d(y_pred[mask], max_points=max_points)
+        return float(dtw.distance(a, b))
     else:
         _, n_channels = y_true.shape
         dist = 0.0
@@ -57,7 +69,9 @@ def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
             mask = ~np.isnan(y_true[:, d])
             if np.sum(mask) < 2:
                 continue
-            dist += dtw.distance(y_true[mask, d], y_pred[mask, d])
+            a = _downsample_1d(y_true[mask, d], max_points=max_points)
+            b = _downsample_1d(y_pred[mask, d], max_points=max_points)
+            dist += dtw.distance(a, b)
             count += 1
         return float(dist / count) if count > 0 else float("nan")
 

@@ -65,10 +65,15 @@ Idioma esperado para tesis: espanol academico.
 - `experiments/replicate_bgsrp_exfig4_frozen.py`
 - Protocolo realista de canales faltantes cerrado (Ticket `PRT-01`) con bateria multi-nivel 10/20/30/40 y escenarios por region/tipo de electrodo.
 - Cierre de metrica DTW en benchmark final (Ticket `MET-01`) con artefactos `raw/summary/config` reproducibles.
+- Ejecucion B2 full-scale por lotes completada (Tickets `MET-02`, `INS-13.A`, `INS-13.B`, `STAT-01`) con consolidacion publication-ready.
 
 ## Estado de validacion paper-faithful
 - [x] PRT-01: protocolo realista final de canales faltantes (estado: ✓ done)
 - [x] MET-01: benchmark final integra MAE, RMSE, DTW y SNR en salida consolidada
+- [x] MET-02: corrida full-scale final de candidatas (estado: ✓ done)
+- [x] INS-13.A: comparativa controlada BGSRP vs familia Narang (estado: ✓ done en proxy Python)
+- [x] INS-13.B: cuantificacion de gap residual BGSRP (estado: ✓ done)
+- [x] STAT-01: variabilidad consolidada (media, desviacion estandar, CI95) (estado: ✓ done)
 Resumen rapido:
 - `trss` / `sobolev_temporal`: ✓✓
 - `nnk`: ✓✓
@@ -140,6 +145,16 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - `results/opt_benchmark_b1_protocol_raw.csv`
 - `results/opt_benchmark_b1_protocol_summary.csv`
 - `results/opt_benchmark_b1_protocol_config.json`
+- `results/opt_benchmark_b2_full_scale_raw.csv`
+- `results/opt_benchmark_b2_full_scale_summary.csv`
+- `results/opt_benchmark_b2_full_scale_config.json`
+- `results/opt_benchmark_b2_full_scale_ranking_final.csv`
+- `results/opt_benchmark_b2_full_scale_topk_by_family_scenario.csv`
+- `results/opt_benchmark_b2_full_scale_warnings_registry.csv`
+- `results/b2_publication_ranking_final.csv`
+- `results/b2_publication_topk_by_family_scenario.csv`
+- `results/b2_publication_bgsrp_gap_residual.csv`
+- `results/b2_publication_consolidation_config.json`
 
 ## Checklist minimo
 
@@ -148,7 +163,21 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 - [x] Tests paper-faithful ampliados (incluye TV/tiempo activos y `nnk`/`aew`)
 - [ ] Reproducibilidad numerica completa para todos los metodos paper-faithful (pendiente cierre total)
 - [x] Corrida final extendida con DTW completo (B1 cierre en benchmark final)
-- [ ] Tabla final consolidada baseline vs GSP vs TV/tiempo
+- [x] Tabla final consolidada baseline vs GSP vs TV/tiempo (B2 publication ranking + top-k)
+
+Comandos reproducibles B2 (ejecutados):
+
+```powershell
+$env:PYTHONPATH='c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit'
+$env:INCLUDE_MNE='1'
+$env:MAX_TIME_SAMPLES='220'
+$env:B2_DTW_MAX_POINTS='80'
+$env:B2_TOP_K='3'
+$env:B2_RANDOM_SEED='42'
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_b2_batched.py"
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\consolidate_b2_publication.py"
+& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" -m experiments.verify_bgsrp_vs_narang
+```
 
 Nota de alcance:
 - La equivalencia estricta 1:1 con stack MATLAB/GSPBox del paper BGSRP sigue marcada como pendiente de cierre final, aunque ya existe replica exfig4-like congelada y reproducible en Python.

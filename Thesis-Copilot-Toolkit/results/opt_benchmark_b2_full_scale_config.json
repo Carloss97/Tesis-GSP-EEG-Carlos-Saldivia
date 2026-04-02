@@ -1,0 +1,49 @@
+{
+  "mode": "batched_full_scale",
+  "include_mne": true,
+  "max_time_samples": 220,
+  "missing_levels": [
+    0.1,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "random_seed": 42,
+  "top_k": 3,
+  "graph_chunks": [
+    [
+      "knn",
+      "knng",
+      "vknng"
+    ],
+    [
+      "gaussian",
+      "nnk"
+    ],
+    [
+      "aew",
+      "kalofolias"
+    ]
+  ],
+  "method_chunks": [
+    [
+      "linear",
+      "idw",
+      "rbfi_tps",
+      "rbfi_mq",
+      "spherical_spline"
+    ],
+    [
+      "gsp",
+      "tikhonov",
+      "bgsrp",
+      "gsmooth"
+    ],
+    [
+      "graph_time_tikhonov",
+      "trss",
+      "tv"
+    ]
+  ],
+  "rows": 25760
+}
