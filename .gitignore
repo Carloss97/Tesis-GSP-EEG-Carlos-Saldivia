@@ -1,6 +1,13 @@
 /Papers/GraphTRSS/
 /Tesis/Git/Main_Carlos_Saldivia/
 /Carlos-thesis/
+
+# Datasets
+/Code1201/Datasets/
+/datasets/
+/datasets/*/
+/Code1201/Datasets/*
+
 # Python cache
 **/__pycache__/
 **/*.pyc
