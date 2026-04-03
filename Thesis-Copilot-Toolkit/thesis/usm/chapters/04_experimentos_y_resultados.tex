@@ -1,6 +1,6 @@
 \chapter{Experimentos y Resultados}
 
-Este capitulo resume la corrida consolidada de la fase B2 y presenta resultados cuantitativos preliminares con foco en trazabilidad para paper y tesis. La idea es que esta seccion pueda crecer luego sin tener que reescribir desde cero la historia experimental.
+Este capitulo resume la corrida consolidada de la fase \ResPhase\ y presenta resultados cuantitativos con foco en trazabilidad para paper y tesis. La estructura permite actualizar los numeros cambiando unicamente el archivo \texttt{shared/results\_data.tex}.
 
 \section{Configuracion experimental}
 
@@ -11,33 +11,67 @@ La corrida B2 se ejecuto en lotes y luego se consolidaron resultados en artefact
 \item \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}
 \end{itemize}
 
-Las metricas reportadas fueron MAE, RMSE, DTW y SNR. Para cada combinacion de dataset-escenario-metodo se consolidaron estadisticos de tendencia central y variabilidad.
+Se evaluaron \ResNGraphMethods~constructores de grafo, \ResNInstantMethods~metodos de interpolacion instantanea y \ResNTVMethods~metodos TV/tiempo. Los escenarios de canales faltantes cubrieron \ResNScenarios~regiones del casco (\ResScenariosNames) con niveles de perdida de \ResMissingLevels. Las metricas reportadas fueron MAE, RMSE, DTW y SNR, con estadisticos de media, desviacion estandar e intervalo de confianza aproximado al 95\%.
 
-En terminos de lectura experimental, esto significa que no se presento una unica corrida aislada, sino una bateria de resultados que permite mirar el comportamiento de los metodos bajo distintos niveles de perdida y distintas regiones del casco. Esa decision hace que la tesis sea mas larga, pero tambien mas honesta y mas util para un lector que quiera reproducir el trabajo.
+\section{Resultados por familia}
 
-\section{Resultados}
-
-En los escenarios analizados no aparece un ganador unico universal. La evidencia B3/B4 resume el rendimiento por familia (baseline, GSP y TV/tiempo), mostrando un compromiso entre error puntual (MAE) y alineamiento temporal (DTW). Esto es importante porque evita vender una narrativa demasiado simple: el metodo mejor posicionado en una familia no siempre domina en todas las metricas ni en todos los escenarios.
+La Tabla~\ref{tab:tesis_rep01_final} muestra el resumen consolidado REP-01 por familia de metodos. Esta tabla se actualiza automaticamente cuando se modifican los valores en \texttt{shared/results\_data.tex}.
 
 \begin{table}[h]
 \centering
-\caption{Resumen final REP-01 (B1+B2 consolidados).}
+\caption{Resumen final REP-01 (B1+B2 consolidados, fase \ResPhase).}
+\label{tab:tesis_rep01_final}
 \begin{tabular}{lcccc}
 \hline
 Grupo & MAE $\downarrow$ & DTW $\downarrow$ & RMSE $\downarrow$ & Metodo top \\
 \hline
-Baseline & 0.071270 & 0.521934 & 0.162150 & spherical\_spline \\
-TV/Tiempo & 0.072925 & 0.491819 & 0.167430 & tv \\
-GSP & 0.073695 & 0.498893 & 0.168976 & gsmooth \\
+Baseline   & \ResBaselineMAEFull & \ResBaselineDTWFull & \ResBaselineRMSEFull & \ResBaselineTop \\
+TV/Tiempo  & \ResTVMAEFull       & \ResTVDTWFull       & \ResTVRMSEFull       & \ResTVTop       \\
+GSP        & \ResGSPMAEFull      & \ResGSPDTWFull      & \ResGSPRMSEFull      & \ResGSPTop      \\
 \hline
 \end{tabular}
-\label{tab:tesis_rep01_final}
 \end{table}
 
-Ademas, se cerro STAT-02 con pruebas de significancia sobre la corrida full-scale: el contraste por familias instantaneo vs TV/tiempo rechazo la hipotesis nula tanto en MAE como en DTW (Wilcoxon pareado, $\alpha=0.05$). A nivel de metodos, TRSS vs BGSRP mostro diferencia significativa en MAE, mientras que TRSS vs GSP no mostro diferencia significativa en esa metrica. En la practica, esto sugiere que hay una diferencia real entre familias, pero que entre metodos cercanos la separacion no siempre es grande.
+El resultado mas destacado es un cruce de rendimiento entre metricas: la familia Baseline lidera en MAE (\ResBaselineMAE) y RMSE (\ResBaselineRMSE), mientras que TV/Tiempo alcanza el menor DTW (\ResTVDTW). Esto significa que no existe un ganador universal; la mejor opcion depende del criterio de evaluacion y del escenario de perdida.
 
-Tambien se verifico consistencia operativa en la corrida B2, ya que el registro consolidado de warnings no reporta entradas en \texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}. Esto no prueba perfeccion del pipeline, pero si indica que la corrida larga fue estable en terminos practicos.
+\subsection{Analisis estadistico (STAT-02)}
 
-Un detalle que vale la pena destacar es que la tabla final no pretende ser una verdad universal sobre EEG interpolation. Es, mas bien, una fotografia bien documentada de este conjunto de experimentos, con una comparacion limpia entre familias y con el costo de ser transparente en los casos donde una equivalencia estricta todavia no se puede afirmar.
+Se realizaron pruebas de significancia sobre la corrida full-scale B2. Los resultados principales son:
 
-Finalmente, para BGSRP se mantiene una nota de cautela: el archivo \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} reporta un gap residual en comparacion proxy, aceptado en B2 pero todavia pendiente de cierre estricto 1:1 con MATLAB/GSPBox.
+\begin{itemize}
+\item Contraste de familias TV/Tiempo vs.\ Instantaneo: \StatFamilyResult\ tanto en MAE ($p = $\StatFamilyMAEpval) como en DTW ($p = $\StatFamilyDTWpval). Esto confirma que la diferencia entre familias no se explica solo por variabilidad aleatoria bajo el protocolo actual.
+\item Contraste TRSS vs.\ BGSRP en MAE: \StatTRSSGSRPResult\ ($p = $\StatTRSSBGSRPpval).
+\item Contraste TRSS vs.\ \texttt{gsmooth} en MAE: \StatTRSSGSPResult\ ($p = $\StatTRSSGSPpval). Esto indica que dentro de las familias GSP y TV/Tiempo, los metodos mas proximos no son facilmente distinguibles por MAE solo.
+\end{itemize}
+
+Estas pruebas se deben interpretar junto con el estado proxy de INS-13 (pendiente equivalencia 1:1 MATLAB/GSPBox).
+
+\subsection{Comportamiento por escenario}
+
+Los rankings completos por escenario estan disponibles en \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}. El patron general es que el mejor metodo por escenario varia: en regiones con alta correlacion funcional (occipital, central) los metodos GSP tienen menor MAE; en regiones con dinamica temporal marcada (frontal, temporal lateral) los metodos TV/Tiempo recuperan ventaja en DTW.
+
+Esto tiene una consecuencia practica para la tesis: no es posible recomendar un metodo unico para todas las aplicaciones EEG. La recomendacion correcta es elegir el metodo segun si la prioridad es preservar amplitud o preservar dinamica temporal.
+
+\subsection{Estado BGSRP (INS-13)}
+
+Para BGSRP se mantiene la nota de cautela: el archivo \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} reporta un gap residual en la comparacion proxy Python vs.\ MATLAB/GSPBox, aceptado en B2 pero pendiente de cierre estricto. El estado actual del metodo es: \BGSRPStatus.
+
+\section{Estabilidad operativa}
+
+La corrida B2 no genero entradas en el registro de warnings consolidado (\texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}), lo que indica estabilidad practica del pipeline a escala completa. Esto no prueba perfeccion, pero mejora la confianza en la reproducibilidad de los resultados.
+
+\section{Reproducibilidad}
+
+Los artefactos de cierre B3/B4 necesarios para la reproduccion completa son:
+\begin{itemize}
+\item \texttt{results/b3\_b4\_reproducibility\_guide.md}: guia reproducible consolidada.
+\item \texttt{results/b3\_b4\_compute\_resources.md}: reporte de recursos computacionales.
+\item \texttt{results/b3\_b4\_submission\_checklist.md}: checklist final de envio.
+\end{itemize}
+
+Los comandos principales de ejecucion son:
+\begin{verbatim}
+python experiments/run_b2_batched.py
+python experiments/consolidate_b2_publication.py
+python experiments/finalize_b3_b4.py
+\end{verbatim}

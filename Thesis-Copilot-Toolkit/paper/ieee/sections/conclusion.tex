@@ -1,7 +1,9 @@
 \section{Conclusion}
 
-This paper draft reports the current B2 stage of our EEG reconstruction benchmark. The main result is that graph-based and TV/time methods remain strong candidates under scenario-based missing-channel protocols, with consistent performance across MAE, RMSE, DTW, and SNR.
+This paper presented a reproducible benchmark comparing geometric baselines, graph-based interpolation, and temporal regularization methods for EEG reconstruction under realistic missing-channel conditions.
 
-Our current position is cautious: we already have consolidated full-scale artifacts for publication drafting, but we still need to close strict MATLAB/GSPBox equivalence for BGSRP and run final submission-level ablations.
+The main empirical finding is a performance crossover across evaluation criteria: the Baseline family achieves the lowest average MAE (\ResBaselineMAE) and RMSE (\ResBaselineRMSE), while TV/time methods achieve the lowest average DTW (\ResTVDTW), and this difference is statistically significant (family contrast $p = $\StatFamilyMAEpval\ on MAE and $p = $\StatFamilyDTWpval\ on DTW). A single universal winner does not emerge, but the evidence supports graph-aware methods as consistently competitive alternatives to classical baselines.
 
-In short, B2 gives enough evidence to move forward with manuscript writing, while keeping transparent what is still pending before final submission.
+At the method level, TRSS significantly outperforms BGSRP in MAE ($p = $\StatTRSSBGSRPpval), while TRSS and \texttt{gsmooth} are not separable in that metric ($p = $\StatTRSSGSPpval). This points toward scenario-aware method selection rather than a single recommendation.
+
+The declared limitation---strict BGSRP equivalence against MATLAB/GSPBox pending---does not invalidate the current benchmark, but it constrains cross-stack claims. Future work will close this equivalence and extend the evaluation to additional datasets and electrode montages.
