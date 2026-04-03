@@ -1,3 +1,11 @@
+"""
+data_loader.py
+Funciones generales para cargar y preprocesar datasets de EEG para el pipeline experimental.
+"""
+
+from typing import Tuple, Dict, Any, List
+import numpy as np
+
 
 # Simulación de canales faltantes (enmascaramiento aleatorio)
 def simulate_missing_channels(signals: np.ndarray, missing_ratio: float = 0.1, random_state: int = 42) -> np.ndarray:
@@ -7,7 +15,6 @@ def simulate_missing_channels(signals: np.ndarray, missing_ratio: float = 0.1, r
     - missing_ratio: proporción de canales a enmascarar (por fila)
     Retorna una copia de signals con NaN en los canales faltantes.
     """
-    import numpy as np
     rng = np.random.default_rng(random_state)
     signals_masked = signals.copy()
     N, D = signals.shape
@@ -18,14 +25,13 @@ def simulate_missing_channels(signals: np.ndarray, missing_ratio: float = 0.1, r
     return signals_masked
 
 # Simulación de canales faltantes (enmascaramiento sistemático)
-def simulate_missing_channels_systematic(signals: np.ndarray, missing_indices: list) -> np.ndarray:
+def simulate_missing_channels_systematic(signals: np.ndarray, missing_indices: List[int]) -> np.ndarray:
     """
     Simula canales faltantes en las señales EEG enmascarando sistemáticamente los canales indicados.
     - signals: matriz (N_instantes, N_electrodos)
     - missing_indices: lista de índices de canales a enmascarar (por ejemplo, [0, 3, 7])
     Retorna una copia de signals con NaN en los canales seleccionados.
     """
-    import numpy as np
     signals_masked = signals.copy()
     N, D = signals.shape
     for idx in missing_indices:
@@ -33,13 +39,6 @@ def simulate_missing_channels_systematic(signals: np.ndarray, missing_indices: l
             raise ValueError(f"Índice de canal fuera de rango: {idx}")
         signals_masked[:, idx] = np.nan
     return signals_masked
-"""
-data_loader.py
-Funciones generales para cargar y preprocesar datasets de EEG para el pipeline experimental.
-"""
-
-from typing import Tuple, Dict, Any
-import numpy as np
 
 
 # Implementación para MNE Sample Dataset
