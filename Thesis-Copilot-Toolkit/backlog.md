@@ -10,6 +10,7 @@
 - [x] Cierre B1 ejecutado: PRT-01.D/E/F + MET-01 con artefactos reproducibles en `results/opt_benchmark_b1_protocol_*`
 - [x] Cierre B2 ejecutado: MET-02 + INS-13.A + INS-13.B + STAT-01 con corrida full-scale por lotes y consolidacion de publicacion
 - [x] Cierre B3/B4 ejecutado: STAT-02 + REP-01 + REP-02 + DOC-01 + RPL-01 + RPL-02 + REL-01
+- [x] Experimento unificado final ejecutado: 2304 corridas (3 datasets × 8 grafos × 24 metodos × 4 niveles), tablas y figuras en `results/unified_*`
 
 ---
 
@@ -19,7 +20,7 @@
 - [x] Descargar y preparar datasets principales
 - [x] Estandarizar formato de senales y posiciones
 - [x] Implementar carga y preprocesamiento en `src/data`
-- [ ] Definir division entrenamiento/validacion/prueba para validacion final
+- [x] Definir division entrenamiento/validacion/prueba para validacion final
 
 ### 2. Construccion de grafos
 - [x] Wrapper de seleccion de metodo implementado
@@ -369,7 +370,7 @@ Notas paper-faithful:
 - [x] PhysioNet EEGMMIDB (loader implementado)
 - [x] Sintetico propio
 - [x] BCI Competition IV 2a (loader implementado)
-- [ ] Integrar de forma estable todos los datasets en corrida final unificada
+- [x] Integrar de forma estable todos los datasets en corrida final unificada
 
 ---
 
@@ -396,6 +397,18 @@ Notas paper-faithful:
 - [x] `results/graphtrss_main_figure_raw.csv`
 - [x] `results/graphtrss_main_figure_summary.csv`
 - [x] `results/graphtrss_main_figure.png`
+- [x] `results/unified_final_raw.csv` (2304 corridas: 3 datasets × 8 grafos × 24 metodos × 4 niveles)
+- [x] `results/unified_final_ranking.csv` (ranking global con MAE/DTW/RMSE/SNR)
+- [x] `results/unified_final_topk.csv` (top-5 por dataset × nivel × familia)
+- [x] `results/unified_final_dataset_best.csv` (mejor metodo por dataset × nivel)
+- [x] `results/unified_final_graph_sensitivity.csv` (sensibilidad al metodo de grafo)
+- [x] `results/unified_mae_ranking_bar.png`
+- [x] `results/unified_mae_vs_missing_ratio.png`
+- [x] `results/unified_heatmap_mae_graph_method.png`
+- [x] `results/unified_family_boxplot.png`
+- [x] `results/unified_dataset_comparison.png`
+- [x] `results/unified_snr_ranking_bar.png`
+- [x] `results/RESULTS_FINAL_REPORT.md` (reporte final con tablas y graficos)
 
 ---
 
@@ -404,5 +417,5 @@ Notas paper-faithful:
 - [x] Cerrar PRT-01 (protocolo realista final de canales faltantes) y dejarlo congelado por dataset
 - [x] Ejecutar corrida reproducible B1 con DTW en candidatas finales (configuracion acotada para cierre de bloque)
 - [x] Congelar configuracion final por dataset para seccion experimental del paper
-- [ ] Consolidar tabla final de comparacion (baseline vs GSP vs TV/tiempo)
+- [x] Consolidar tabla final de comparacion (baseline vs GSP vs TV/tiempo)
 - [ ] Completar redaccion final de metodos y discusion

@@ -1,3 +1,9 @@
 /Papers/GraphTRSS/
 /Tesis/Git/Main_Carlos_Saldivia/
 /Carlos-thesis/
+# Python cache
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache/
