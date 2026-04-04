@@ -157,7 +157,20 @@
 
 ## 7. Notas Metodológicas
 
-- Todos los resultados son sobre datasets sintéticos (alpha/beta/broad) debido a restricciones de descarga en entorno cloud.
+- **Actualización 2026-04-04 00:58**: Corrida canónica ejecutada con datasets sintéticos (alpha/beta/broad) + physionet_eegmmidb real (sujetos [1, 2, 3, 4, 5]). Ver `RESULTS_CANONICAL_REPORT.md` para reporte completo con separación sintético/real.
+- BCI Competition IV 2a: declarado formalmente como PROXY/NO DISPONIBLE (archivos .gdf no encontrados). Excluido de afirmaciones fuertes. Ver `RESULTS_CANONICAL_REPORT.md` §Declaración BCI 2a.
 - Los grafos se construyen con los parámetros de su configuración (ver `run_unified_final.py`).
 - La métrica primaria es MAE; DTW y SNR se reportan como métricas secundarias.
 - Para métodos con múltiples configuraciones de parámetros, se reporta el mejor resultado en el ranking global.
+
+
+---
+## Actualización 2026-04-04 00:59
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-04 01:01
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
