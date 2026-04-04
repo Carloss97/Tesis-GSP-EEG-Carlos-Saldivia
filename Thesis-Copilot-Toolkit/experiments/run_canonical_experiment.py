@@ -532,7 +532,9 @@ def build_per_dataset_ranking(df: pd.DataFrame) -> pd.DataFrame:
     agg["rank"] = (
         agg.groupby("dataset")["mae_mean"]
         .rank(method="first")
+        .fillna(0)
         .astype(int)
+        # Note: rank 0 indicates methods with NaN mae_mean (no valid runs) — treated as unranked
     )
     return agg.sort_values(["dataset", "rank"]).reset_index(drop=True)
 
@@ -727,7 +729,9 @@ def write_canonical_report(
     lines.append(f"- **BCI Competition IV 2a:** {'DISPONIBLE (real)' if bci_2a_available else 'NO DISPONIBLE — declarado formalmente como PROXY/EXCLUIDO de afirmaciones fuertes'}")
     lines.append(f"- **Métodos de interpolación:** {df['method'].nunique()}")
     lines.append(f"- **Métodos de grafo:** {df['graph_method'].nunique()}")
-    lines.append(f"- **Niveles de pérdida:** {sorted(df['missing_ratio'].unique())}")
+    missing_levels_str = [f"{v:.0%}" for v in sorted(df['missing_ratio'].unique())]
+    lines.append(f"- **Niveles de pérdida:** {missing_levels_str}")
+    lines.append(f"- **Unidades de señal PhysioNet:** Voltios (EEG en V desde MNE; MAE ~1e-6 V es normal)")
     lines.append("")
 
     best_row = ranking.iloc[0]
@@ -796,7 +800,8 @@ def write_canonical_report(
         "Datasets sintéticos (alpha/beta/broad): señales EEG simuladas con frecuencias en bandas características "
         "y geometría esférica/circular. Son la base robusta del análisis.",
         f"Dataset real: physionet_eegmmidb (sujetos {physionet_subjects}, run motor imagery). "
-        "Cargado desde archivos EDF locales. 64 canales, 160 Hz.",
+        "Cargado desde archivos EDF locales (22 canales subseleccionados, 160 Hz). "
+        "Señales en Voltios; MAE del orden de 1e-6 V es esperado y correcto para EEG en V.",
         "BCI Competition IV 2a: archivos .gdf no disponibles. Declarado formalmente como proxy/excluido. "
         "No se hacen afirmaciones empíricas sobre este dataset.",
         "Métrica primaria: MAE. RMSE y SNR como métricas secundarias. "
@@ -858,6 +863,85 @@ def update_final_report_note(physionet_subjects: List[int], bci_2a_available: bo
 # Main
 # ---------------------------------------------------------------------------
 
+def run_postprocessing(df: pd.DataFrame, bci_2a_available: bool,
+                       physionet_subjects_loaded: List[int],
+                       physionet_available: bool, run_timestamp: str) -> None:
+    """Run all post-processing (tables, plots, reports) from a results DataFrame."""
+    # -----------------------------------------------------------------------
+    # Build analysis tables
+    # -----------------------------------------------------------------------
+    print("\n[3] Construyendo tablas de análisis...")
+    ranking     = build_overall_ranking(df)
+    per_ds_rank = build_per_dataset_ranking(df)
+    topk        = build_top_k_table(df, k=5)
+    best_per    = build_best_per_dataset_ratio(df)
+    graph_sens  = build_graph_sensitivity(df)
+    family_cmp  = build_family_comparison(df)
+
+    ranking.to_csv(RESULTS_DIR / "canonical_final_ranking.csv", index=False)
+    per_ds_rank.to_csv(RESULTS_DIR / "canonical_per_dataset_ranking.csv", index=False)
+    topk.to_csv(RESULTS_DIR / "canonical_final_topk.csv", index=False)
+    best_per.to_csv(RESULTS_DIR / "canonical_final_best_per_dataset.csv", index=False)
+    graph_sens.to_csv(RESULTS_DIR / "canonical_graph_sensitivity.csv", index=False)
+    family_cmp.to_csv(RESULTS_DIR / "canonical_family_comparison.csv", index=False)
+    print("  [csv] tablas guardadas.")
+
+    # -----------------------------------------------------------------------
+    # Plots
+    # -----------------------------------------------------------------------
+    print("\n[4] Generando figuras...")
+    top_methods = ranking.head(10)["method"].tolist()
+    plot_overall_ranking(ranking, top_n=20)
+    plot_per_source_comparison(df, top_methods[:8])
+    plot_heatmap(df)
+    plot_mae_vs_missing(df, top_methods[:10])
+    plot_family_boxplot_per_source(df)
+
+    # -----------------------------------------------------------------------
+    # Canonical markdown report
+    # -----------------------------------------------------------------------
+    print("\n[5] Generando reporte canónico...")
+    write_canonical_report(
+        df=df,
+        ranking=ranking,
+        per_ds_ranking=per_ds_rank,
+        topk=topk,
+        best_per=best_per,
+        graph_sens=graph_sens,
+        family_cmp=family_cmp,
+        bci_2a_available=bci_2a_available,
+        physionet_subjects=physionet_subjects_loaded if physionet_available else [],
+        run_timestamp=run_timestamp,
+    )
+
+    # Patch existing RESULTS_FINAL_REPORT
+    update_final_report_note(
+        physionet_subjects=physionet_subjects_loaded if physionet_available else [],
+        bci_2a_available=bci_2a_available,
+        run_timestamp=run_timestamp,
+    )
+
+    # -----------------------------------------------------------------------
+    # Print summary
+    # -----------------------------------------------------------------------
+    print("\n" + "=" * 70)
+    print("  RESULTADOS CANÓNICOS FINALES (outer fold)")
+    print("=" * 70)
+    print(ranking.head(10).to_string(index=False))
+
+    print("\n  Mejor método por dataset:")
+    for ds in sorted(df["dataset"].unique()):
+        sub = df[df["dataset"] == ds]
+        best_m = sub.groupby("method")["mae"].mean().idxmin()
+        best_mae = sub.groupby("method")["mae"].mean().min()
+        src = sub["data_source"].iloc[0]
+        print(f"    {ds} [{src}]: {best_m}  MAE={best_mae:.4f}")
+
+    print(f"\n[done] Resultados en: {RESULTS_DIR}")
+    print(f"  → RESULTS_CANONICAL_REPORT.md  (reporte canónico)")
+    print(f"  → RESULTS_FINAL_REPORT.md      (actualizado con nota)")
+
+
 def main() -> None:
     print("=" * 70)
     print("  Experimento Canónico Final — EEG-GSP (Validación Anidada)")
@@ -865,6 +949,29 @@ def main() -> None:
 
     clear_registry()
     run_timestamp = pd.Timestamp.now().strftime("%Y-%m-%d %H:%M")
+    raw_path = RESULTS_DIR / "canonical_final_raw.csv"
+
+    # -----------------------------------------------------------------------
+    # Check if raw results already exist — skip heavy benchmark if so
+    # -----------------------------------------------------------------------
+    if raw_path.exists():
+        print(f"\n[0] Archivo raw existente encontrado: {raw_path.name} — omitiendo benchmark.")
+        df = pd.read_csv(raw_path)
+        print(f"    Cargado: {len(df)} filas")
+        physionet_available = "physionet_eegmmidb" in df["dataset"].values
+        bci_2a_available = "bci_competition_iv_2a" in df["dataset"].values
+        # Load run metadata if saved, otherwise derive from DataFrame
+        meta_path = RESULTS_DIR / "canonical_run_metadata.json"
+        if meta_path.exists():
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            physionet_subjects_loaded = meta.get("physionet_subjects_loaded", [])
+        else:
+            # Fallback: subjects not stored in CSV; use empty list
+            physionet_subjects_loaded = []
+        run_postprocessing(df, bci_2a_available, physionet_subjects_loaded,
+                           physionet_available, run_timestamp)
+        return
 
     # -----------------------------------------------------------------------
     # 1. Load datasets
@@ -928,85 +1035,26 @@ def main() -> None:
         return
 
     # -----------------------------------------------------------------------
-    # 3. Save raw results
+    # 3. Save raw results + run metadata
     # -----------------------------------------------------------------------
-    raw_path = RESULTS_DIR / "canonical_final_raw.csv"
     df.to_csv(raw_path, index=False)
     print(f"\n  [csv] {raw_path.name} ({len(df)} filas)")
 
-    # -----------------------------------------------------------------------
-    # 4. Build analysis tables
-    # -----------------------------------------------------------------------
-    print("\n[3] Construyendo tablas de análisis...")
-    ranking     = build_overall_ranking(df)
-    per_ds_rank = build_per_dataset_ranking(df)
-    topk        = build_top_k_table(df, k=5)
-    best_per    = build_best_per_dataset_ratio(df)
-    graph_sens  = build_graph_sensitivity(df)
-    family_cmp  = build_family_comparison(df)
+    meta = {
+        "run_timestamp": run_timestamp,
+        "physionet_available": physionet_available,
+        "physionet_subjects_loaded": physionet_subjects_loaded if physionet_available else [],
+        "bci_2a_available": bci_2a_available,
+        "datasets": sorted(df["dataset"].unique().tolist()),
+        "n_rows": len(df),
+    }
+    meta_path = RESULTS_DIR / "canonical_run_metadata.json"
+    with open(meta_path, "w", encoding="utf-8") as f:
+        json.dump(meta, f, indent=2)
+    print(f"  [json] {meta_path.name}")
 
-    ranking.to_csv(RESULTS_DIR / "canonical_final_ranking.csv", index=False)
-    per_ds_rank.to_csv(RESULTS_DIR / "canonical_per_dataset_ranking.csv", index=False)
-    topk.to_csv(RESULTS_DIR / "canonical_final_topk.csv", index=False)
-    best_per.to_csv(RESULTS_DIR / "canonical_final_best_per_dataset.csv", index=False)
-    graph_sens.to_csv(RESULTS_DIR / "canonical_graph_sensitivity.csv", index=False)
-    family_cmp.to_csv(RESULTS_DIR / "canonical_family_comparison.csv", index=False)
-    print("  [csv] tablas guardadas.")
-
-    # -----------------------------------------------------------------------
-    # 5. Plots
-    # -----------------------------------------------------------------------
-    print("\n[4] Generando figuras...")
-    top_methods = ranking.head(10)["method"].tolist()
-    plot_overall_ranking(ranking, top_n=20)
-    plot_per_source_comparison(df, top_methods[:8])
-    plot_heatmap(df)
-    plot_mae_vs_missing(df, top_methods[:10])
-    plot_family_boxplot_per_source(df)
-
-    # -----------------------------------------------------------------------
-    # 6. Canonical markdown report
-    # -----------------------------------------------------------------------
-    print("\n[5] Generando reporte canónico...")
-    write_canonical_report(
-        df=df,
-        ranking=ranking,
-        per_ds_ranking=per_ds_rank,
-        topk=topk,
-        best_per=best_per,
-        graph_sens=graph_sens,
-        family_cmp=family_cmp,
-        bci_2a_available=bci_2a_available,
-        physionet_subjects=physionet_subjects_loaded if physionet_available else [],
-        run_timestamp=run_timestamp,
-    )
-
-    # Patch existing RESULTS_FINAL_REPORT
-    update_final_report_note(
-        physionet_subjects=physionet_subjects_loaded if physionet_available else [],
-        bci_2a_available=bci_2a_available,
-        run_timestamp=run_timestamp,
-    )
-
-    # -----------------------------------------------------------------------
-    # 7. Print summary
-    # -----------------------------------------------------------------------
-    print("\n" + "=" * 70)
-    print("  RESULTADOS CANÓNICOS FINALES (outer fold)")
-    print("=" * 70)
-    print(ranking.head(10).to_string(index=False))
-
-    print("\n  Mejor método por dataset:")
-    for ds in sorted(df["dataset"].unique()):
-        sub = df[df["dataset"] == ds]
-        best_m = sub.groupby("method")["mae"].mean().idxmin()
-        best_mae = sub.groupby("method")["mae"].mean().min()
-        src = sub["data_source"].iloc[0]
-        print(f"    {ds} [{src}]: {best_m}  MAE={best_mae:.4f}")
-
-    print(f"\n[done] Resultados en: {RESULTS_DIR}")
-    print(f"  → RESULTS_CANONICAL_REPORT.md  (reporte canónico)")
-    print(f"  → RESULTS_FINAL_REPORT.md      (actualizado con nota)")
+    run_postprocessing(df, bci_2a_available, physionet_subjects_loaded,
+                       physionet_available, run_timestamp)
 
 
 if __name__ == "__main__":
