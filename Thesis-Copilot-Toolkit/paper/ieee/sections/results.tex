@@ -1,28 +1,38 @@
 \section{Results}
 
-The B3/B4 closure used the consolidated B1+B2 ranking to build a final publication table (REP-01), plus significance tests (STAT-02) over the full-scale B2 raw data. The family-level summary confirms that baseline methods obtained the lowest average MAE, while TV/time methods achieved the lowest average DTW. In other words, the best family depends on the way the reconstruction quality is measured.
+The B3/B4 closure used the consolidated B1+B2 ranking to build a final publication table (REP-01), plus significance tests (STAT-02) over the full-scale B2 raw data.
+
+\subsection{Family-Level Summary}
+
+Table~\ref{tab:b3_rep01_summary} summarizes average performance across all scenarios and missing-ratio levels. The best method within each family is reported in the rightmost column.
 
 \begin{table}[t]
 \centering
-\caption{Final REP-01 summary (B1+B2 consolidated).}
+\caption{Final REP-01 summary (B1+B2 consolidated, phase \ResPhase).}
+\label{tab:b3_rep01_summary}
 \begin{tabular}{lcccc}
 \toprule
 Group & MAE $\downarrow$ & DTW $\downarrow$ & RMSE $\downarrow$ & Top method \\
 \midrule
-Baseline & 0.071270 & 0.521934 & 0.162150 & spherical\_spline \\
-TV/Time & 0.072925 & 0.491819 & 0.167430 & tv \\
-GSP & 0.073695 & 0.498893 & 0.168976 & gsmooth \\
+Baseline   & \ResBaselineMAEFull & \ResBaselineDTWFull & \ResBaselineRMSEFull & \ResBaselineTop \\
+TV/Time    & \ResTVMAEFull       & \ResTVDTWFull       & \ResTVRMSEFull       & \ResTVTop       \\
+GSP        & \ResGSPMAEFull      & \ResGSPDTWFull      & \ResGSPRMSEFull      & \ResGSPTop      \\
 \bottomrule
 \end{tabular}
-\label{tab:b3_rep01_summary}
 \end{table}
 
-STAT-02 tests reject $H_0$ for the key family contrast instant vs TV/time on both
-MAE and DTW (Wilcoxon paired), indicating that family-level differences are not
-explained by noise alone under the current protocol. At method level, the contrast
-between TRSS and BGSRP is significant, while TRSS vs GSP is not significant in MAE,
-which supports a scenario-aware interpretation instead of a single universal winner.
+The family-level summary reveals a performance crossover: the Baseline family achieves the lowest average MAE (\ResBaselineMAE) and RMSE (\ResBaselineRMSE), while the TV/Time family achieves the lowest average DTW (\ResTVDTW). This crossover has a practical implication: the best family depends on how reconstruction quality is defined. If pointwise amplitude fidelity is the priority (e.g., BCI feature extraction), baseline and GSP methods are competitive. If temporal dynamics must be preserved (e.g., event-related analysis), TV/time methods offer a clear advantage.
 
-The practical implication is that the final manuscript should avoid a strong claim of universal dominance. The data support a more nuanced statement: graph-aware interpolation is consistently competitive, TV/time methods can be better when temporal structure matters, and method ranking changes with the masking scenario.
+\subsection{Statistical Significance (STAT-02)}
 
-For readability in the journal version, the full family-level ranking is kept in the consolidated CSV artifacts, while the paper itself should only expose one compact table and one paragraph of interpretation.
+STAT-02 tests \emph{reject $H_0$} for the key family contrast TV/time vs.\ instant on both MAE ($p = $\StatFamilyMAEpval) and DTW ($p = $\StatFamilyDTWpval). This confirms that family-level differences are not explained by noise alone under the current protocol.
+
+At the method level, the contrast between TRSS and BGSRP is significant in MAE ($p = $\StatTRSSBGSRPpval), while TRSS vs.\ \texttt{gsmooth} fails to reject $H_0$ ($p = $\StatTRSSGSPpval). This supports a scenario-aware interpretation: there is a real difference between families, but within the GSP and TV/time families the top methods are not easily separable by MAE alone.
+
+\subsection{Scenario-Dependent Behavior}
+
+Full per-scenario rankings are available in \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}. Across the \ResNScenarios~scenarios (\ResScenariosNames), the relative ranking of methods changes depending on the region and level of missing data (\ResMissingLevels). This sensitivity is expected: frontal electrodes share different functional correlations than occipital ones, so a graph constructed from spatial proximity may not capture the dominant structure in all regions.
+
+\subsection{BGSRP Status}
+
+The BGSRP method is currently treated as a \BGSRPStatus. The residual gap is quantified in \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} and classified as \emph{accepted for this stage}. BGSRP results should be interpreted accordingly until full cross-stack equivalence is established.

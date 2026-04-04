@@ -1,0 +1,17 @@
+dataset,data_source,graph,graph_method,method,best_params,family,missing_ratio,n_missing,missing_indices,outer_n_times,best_mae,best_rmse,best_snr
+physionet_eegmmidb,real,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.6826704545454545e-06,7.756908781104999e-06,3.0426897712021708
+physionet_eegmmidb,real,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.3157670454545457e-06,1.1367476907827877e-05,6.794844424621461
+physionet_eegmmidb,real,aew__k4_sigma_corr0_5_sigma_dist1,aew,trss,"{'alpha': 0.7, 'beta': 0.2, 'n_iter': 60, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.252801322438139e-06,1.9038589647094504e-05,5.453054779595811
+physionet_eegmmidb,real,aew__k4_sigma_corr0_5_sigma_dist1,aew,trss,"{'alpha': 0.7, 'beta': 0.2, 'n_iter': 60, 'lr': 0.03}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2274095026911852e-05,2.4222934152456265e-05,3.754526781727232
+synthetic_alpha,synthetic,knn__k3,knn,mean,{},instant,0.1,2,"12,18",64,0.0589478976695532,0.2085273501920232,0.9476396031020364
+synthetic_alpha,synthetic,gaussian__sigma1,gaussian,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"0,11,17,18",64,0.1201225722821212,0.2998275342266644,0.8143530299897397
+synthetic_alpha,synthetic,gaussian__sigma1,gaussian,directed_tv,"{'alpha': 0.5, 'beta': 0.2, 'n_iter': 15}",tv_time,0.3,6,"1,4,7,13,14,17",64,0.1994671073568643,0.3978158386133799,0.0051598554862775
+synthetic_alpha,synthetic,nnk__k4,nnk,tv,"{'lam': 0.4, 'n_iter': 30}",tv_time,0.4,8,"1,6,8,12,13,14,17,18",64,0.2603035939550637,0.4601103297500681,0.141420363268784
+synthetic_beta,synthetic,aew__k4_sigma_corr0_5_sigma_dist1,aew,tv,"{'lam': 0.4, 'n_iter': 30}",tv_time,0.1,2,"9,17",64,0.0645346647704065,0.2281835734020629,0.0323158990259723
+synthetic_beta,synthetic,aew__k4_sigma_corr0_5_sigma_dist1,aew,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,4,7,10",64,0.1156136258256727,0.308820446269679,2.073326825103115
+synthetic_beta,synthetic,aew__k4_sigma_corr0_5_sigma_dist1,aew,trss,"{'alpha': 0.7, 'beta': 0.2, 'n_iter': 60, 'lr': 0.03}",tv_time,0.3,6,"2,3,7,9,10,17",64,0.1888467320048998,0.3922937977452957,0.8227465160153656
+synthetic_beta,synthetic,aew__k4_sigma_corr0_5_sigma_dist1,aew,directed_tv,"{'alpha': 0.5, 'beta': 0.2, 'n_iter': 15}",tv_time,0.4,8,"0,2,3,5,7,9,13,15",64,0.2555062283071105,0.4793174700360632,0.5614835579827806
+synthetic_broad,synthetic,knn__k3,knn,directed_tv,"{'alpha': 0.5, 'beta': 0.2, 'n_iter': 15}",tv_time,0.1,2,"0,2",64,0.0756943796692691,0.2587583977985699,0.0840772186283094
+synthetic_broad,synthetic,gaussian__sigma1,gaussian,directed_tv,"{'alpha': 0.5, 'beta': 0.2, 'n_iter': 15}",tv_time,0.2,3,"7,9,13",64,0.1181534984305608,0.3073598099181884,0.0405281339882937
+synthetic_broad,synthetic,aew__k4_sigma_corr0_5_sigma_dist1,aew,heat_diffusion_temporal,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",tv_time,0.3,5,"0,8,10,11,13",64,0.1970722472652671,0.395234527580117,0.0035883899026536
+synthetic_broad,synthetic,knn__k5,knn,heat_diffusion_temporal,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",tv_time,0.4,6,"0,1,4,6,7,10",64,0.2351614839899412,0.4330791307138873,0.0126519512455754

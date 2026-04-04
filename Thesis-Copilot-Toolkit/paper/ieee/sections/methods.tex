@@ -1,22 +1,49 @@
 \section{Methods}
 
-We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. The goal is not to propose a new theory, but to compare established families under the same experimental conditions and with the same evaluation pipeline.
+We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. Let $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ be an undirected weighted graph where $\mathcal{V}$ is the set of $N$ electrode vertices, $\mathcal{E}$ the edge set, and $\mathbf{W} \in \mathbb{R}^{N \times N}$ the symmetric weight matrix. The combinatorial graph Laplacian is $\mathbf{L} = \mathbf{D} - \mathbf{W}$, where $\mathbf{D}$ is the degree matrix. A graph signal $\mathbf{x} \in \mathbb{R}^{N}$ assigns a scalar value to each electrode at a given time instant.
 
-In practice, each method receives the same masked input and the same reference signal, so differences in the reported metrics are attributable to the reconstruction strategy rather than to a different data split or a different masking design.
+The goal is not to propose a new theory, but to compare \ResNInstantMethods~instant and \ResNTVMethods~TV/time methods under the same experimental conditions and with the same evaluation pipeline.
 
 \subsection{Graph Construction}
-We evaluate several graph constructors implemented in our pipeline, including neighborhood and adaptive alternatives. In the B2 stage, we prioritize methods that stayed numerically stable during full-scale execution. This includes local neighborhood graphs, fully connected baselines, and adaptive graph construction methods inspired by the graph learning literature.
+We evaluate \ResNGraphMethods~graph constructors organized into three categories:
+\begin{itemize}
+\item \emph{Neighborhood graphs}: $k$-NN (\texttt{knn}), Gaussian-weighted $k$-NN (\texttt{knng}), variable-$k$ NN (\texttt{vknng}), epsilon-ball (\texttt{epsilon\_ball}), and minimum spanning tree (\texttt{mst}).
+\item \emph{Dense/global graphs}: fully connected inverse-distance (\texttt{fully\_connected\_inverse\_distance}) and Gaussian kernel (\texttt{gaussian}).
+\item \emph{Adaptive/learned graphs}: non-negative kernel regression \cite{shekkizhar2020} (\texttt{nnk}), adaptive edge weighting \cite{kalofolias2016} (\texttt{aew}), and graph learning via log-degree regularization \cite{kalofolias2016} (\texttt{kalofolias}).
+\end{itemize}
+
+In phase \ResPhase, we retained only constructors with demonstrated numerical stability across the full-scale batched runs.
 
 \subsection{Interpolation Families}
-We compare three families:
-\begin{itemize}
-\item Instant methods (e.g., linear, idw, gsp, gsmooth, tikhonov, bgsrp).
-\item TV/time methods (e.g., trss, tv, graph\_time\_tikhonov).
-\item Reference geometric/spline baselines.
-\end{itemize}
-The goal is to compare behavior under the same masking protocol and metrics, instead of tuning each method independently for best-case numbers. This is especially relevant because some methods optimize local spatial consistency, while others are better at preserving temporal structure.
+
+Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ the unknown (missing) channels. We compare three families:
+
+\paragraph{Instant methods} These operate independently at each time sample. The graph Laplacian regularization problem takes the form:
+\begin{equation}
+  \hat{\mathbf{x}}_{\mathcal{U}} = \arg\min_{\mathbf{z}}
+    \|\mathbf{z} - \mathbf{x}_{\mathcal{K}}\|^2 + \alpha \, \mathbf{z}^\top \mathbf{L}_{\mathcal{U}\mathcal{U}} \mathbf{z},
+  \label{eq:tikhonov}
+\end{equation}
+yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$ for the pure GSP case ($\alpha \to \infty$, i.e., \texttt{gsp}), and the regularized variant for \texttt{tikhonov}. Geometric baselines (IDW, splines, RBF) do not use the graph. The BGSRP method \cite{zhang2024bgsrp} extends this to a bandlimited RKHS recovery.
+
+\paragraph{TV/time methods} These jointly optimize spatial and temporal criteria over a signal matrix $\mathbf{X} \in \mathbb{R}^{N \times T}$:
+\begin{equation}
+  \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
+    \|\mathbf{Z}_{\mathcal{K},:} - \mathbf{X}_{\mathcal{K},:}\|_F^2
+    + \alpha \operatorname{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})
+    + \beta \|\Delta_t \mathbf{Z}\|_F^2,
+  \label{eq:sobolev}
+\end{equation}
+where $\Delta_t$ is a finite-difference operator along the time axis \cite{giraldo2022}. This covers \texttt{trss}, \texttt{sobolev\_temporal}, \texttt{tv}, and \texttt{temporal\_laplacian}.
+
+\paragraph{Geometric/spline baselines} Classical alternatives that do not exploit the graph: linear, nearest-neighbor, spherical spline \cite{perrin1989}, RBF thin-plate spline, and surface spline.
 
 \subsection{Evaluation Metrics}
-Performance is assessed with MAE, RMSE, DTW, and SNR. We report mean and standard deviation, and for consolidated B2 analysis we also track approximate 95\% confidence intervals from repeated runs.
 
-For the EEG setting, the metric combination is useful because it avoids a one-dimensional view of reconstruction quality. A method with a low MAE may still distort temporal evolution, while another may preserve dynamics better at the cost of slightly larger pointwise error.
+Performance is assessed with four complementary metrics: mean absolute error (MAE), root mean square error (RMSE), dynamic time warping distance (DTW), and signal-to-noise ratio (SNR). We report mean $\pm$ standard deviation and approximate 95\% confidence intervals from repeated runs.
+
+The four-metric combination is essential in EEG: MAE and RMSE capture pointwise amplitude accuracy, DTW penalizes temporal misalignment even under small shifts, and SNR provides a global quality view. A method with low MAE may still distort temporal dynamics, and a method competitive on DTW may not rank first on MAE.
+
+\subsection{Statistical Analysis}
+
+Family-level differences are tested with Wilcoxon paired tests (STAT-02, $\alpha = 0.05$) over shared scenario-contexts. Method-level pairwise contrasts use Mann-Whitney U. All statistical tests are computed on the B2 full-scale batched raw outputs prior to mean aggregation.
