@@ -1,0 +1,176 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Resumen}{\es@scroman {iv}}{chapter*.2}%
+\contentsline {chapter}{Abstract}{\es@scroman {v}}{chapter*.3}%
+\contentsline {chapter}{Agradecimientos}{\es@scroman {vi}}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introduccion}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivacion}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Planteamiento del problema}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objetivos}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Preguntas de investigacion}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Alcance actual (fase B2)}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Contribucion esperada}{3}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Estructura de la tesis}{4}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Marco Teorico}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}EEG y reconstruccion}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Modelado de EEG como senal multicanal estructurada}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Procesamiento de senales sobre grafos}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Laplaciano de grafo}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Reconstruccion de senales sobre grafos}{7}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Reconstruccion bandlimited (BGSRP)}{7}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Reconstruccion temporal (TRSS)}{7}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Relaciones entre familias de metodos}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Construccion de grafos para EEG}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Metricas de evaluacion}{8}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Sintesis teorica para la tesis}{9}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Metodologia}{10}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Diseno metodologico general}{10}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Construccion de grafos}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Simulacion de canales faltantes}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Politica de parametrizacion}{11}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Interpolacion y reconstruccion}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Evaluacion estadistica y criterios de decision}{12}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Consolidacion y reporte}{12}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Flujo reproducible de ejecucion}{13}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Criterios de validez metodologica}{13}{section.3.9}%
+\contentsline {chapter}{\numberline {4}Experimentos y Resultados}{14}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Configuracion experimental}{14}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Resultados por familia}{15}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Analisis estadistico (STAT-02)}{15}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Comportamiento por escenario}{17}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Estado BGSRP (INS-13)}{17}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Estabilidad operativa}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Reproducibilidad}{18}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Sintesis del capitulo}{19}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Discusion}{20}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Analisis critico}{20}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Interpretacion de la hipotesis}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Implicancias para seleccion de metodo}{21}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Validez y alcance de las conclusiones}{21}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Limitaciones}{22}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Cierre argumental}{22}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusiones}{23}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Respuesta a la hipotesis de trabajo}{23}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Aportes principales}{24}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Recomendaciones practicas derivadas}{24}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Trabajo futuro}{24}{section.6.2}%
+\contentsline {paragraph}{Horizonte corto (cierre de submission).}{25}{section*.12}%
+\contentsline {paragraph}{Horizonte medio (fortalecimiento empirico).}{25}{section*.13}%
+\contentsline {paragraph}{Horizonte largo (nueva linea metodologica).}{25}{section*.14}%
+\contentsline {section}{\numberline {6.3}Cierre final}{25}{section.6.3}%
+\contentsline {chapter}{\numberline {A}Anexos Tecnicos}{26}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Inventario de artefactos de cierre}{26}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Secuencia de ejecucion recomendada}{27}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Trazabilidad de afirmaciones del manuscrito}{27}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Resumen de control de calidad}{27}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}Figura de apoyo}{28}{section.Alph1.5}%
+\contentsline {section}{\numberline {A.6}Alcance y limitacion declarada}{29}{section.Alph1.6}%
+\contentsline {section}{\numberline {A.7}Guia rapida de troubleshooting}{29}{section.Alph1.7}%
+\contentsline {section}{\numberline {A.8}Checklist minimo previo a submission}{29}{section.Alph1.8}%
+\contentsline {chapter}{\numberline {B}Anexo de Metodologia Expandida}{30}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Principios de diseno del benchmark}{30}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Estructura del flujo experimental}{30}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}Politica de escenarios y severidad}{31}{section.Alph2.3}%
+\contentsline {section}{\numberline {B.4}Razonamiento de metricas complementarias}{31}{section.Alph2.4}%
+\contentsline {section}{\numberline {B.5}Lineamientos de analisis estadistico}{31}{section.Alph2.5}%
+\contentsline {section}{\numberline {B.6}Gestion de limitaciones en redaccion cientifica}{32}{section.Alph2.6}%
+\contentsline {section}{\numberline {B.7}Trazabilidad paper-tesis mediante fuente comun}{32}{section.Alph2.7}%
+\contentsline {section}{\numberline {B.8}Protocolo de validacion previa a entrega}{32}{section.Alph2.8}%
+\contentsline {section}{\numberline {B.9}Matriz de riesgos metodologicos}{32}{section.Alph2.9}%
+\contentsline {section}{\numberline {B.10}Notas para continuidad del trabajo}{33}{section.Alph2.10}%
+\contentsline {section}{\numberline {B.11}Sintesis del anexo}{33}{section.Alph2.11}%
+\contentsline {chapter}{\numberline {C}Catalogo Tecnico de Metodos Evaluados}{34}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Familia de constructores de grafo}{34}{section.Alph3.1}%
+\contentsline {subsection}{\numberline {C.1.1}knn}{34}{subsection.Alph3.1.1}%
+\contentsline {subsection}{\numberline {C.1.2}knng}{34}{subsection.Alph3.1.2}%
+\contentsline {subsection}{\numberline {C.1.3}vknng}{34}{subsection.Alph3.1.3}%
+\contentsline {subsection}{\numberline {C.1.4}epsilon\_ball}{34}{subsection.Alph3.1.4}%
+\contentsline {subsection}{\numberline {C.1.5}mst}{35}{subsection.Alph3.1.5}%
+\contentsline {subsection}{\numberline {C.1.6}fully\_connected\_inverse\_distance}{35}{subsection.Alph3.1.6}%
+\contentsline {subsection}{\numberline {C.1.7}gaussian}{35}{subsection.Alph3.1.7}%
+\contentsline {subsection}{\numberline {C.1.8}nnk}{35}{subsection.Alph3.1.8}%
+\contentsline {subsection}{\numberline {C.1.9}aew}{35}{subsection.Alph3.1.9}%
+\contentsline {subsection}{\numberline {C.1.10}kalofolias}{35}{subsection.Alph3.1.10}%
+\contentsline {section}{\numberline {C.2}Familia de metodos instantaneos y geometricos}{35}{section.Alph3.2}%
+\contentsline {subsection}{\numberline {C.2.1}linear}{35}{subsection.Alph3.2.1}%
+\contentsline {subsection}{\numberline {C.2.2}nearest}{36}{subsection.Alph3.2.2}%
+\contentsline {subsection}{\numberline {C.2.3}mean}{36}{subsection.Alph3.2.3}%
+\contentsline {subsection}{\numberline {C.2.4}random}{36}{subsection.Alph3.2.4}%
+\contentsline {subsection}{\numberline {C.2.5}idw}{36}{subsection.Alph3.2.5}%
+\contentsline {subsection}{\numberline {C.2.6}spherical\_spline}{36}{subsection.Alph3.2.6}%
+\contentsline {subsection}{\numberline {C.2.7}rbfi\_tps}{36}{subsection.Alph3.2.7}%
+\contentsline {subsection}{\numberline {C.2.8}rbfi\_mq}{36}{subsection.Alph3.2.8}%
+\contentsline {subsection}{\numberline {C.2.9}spline\_surface}{36}{subsection.Alph3.2.9}%
+\contentsline {subsection}{\numberline {C.2.10}gsp}{36}{subsection.Alph3.2.10}%
+\contentsline {subsection}{\numberline {C.2.11}tikhonov}{37}{subsection.Alph3.2.11}%
+\contentsline {subsection}{\numberline {C.2.12}gsmooth}{37}{subsection.Alph3.2.12}%
+\contentsline {subsection}{\numberline {C.2.13}bgsrp}{37}{subsection.Alph3.2.13}%
+\contentsline {subsection}{\numberline {C.2.14}puy}{37}{subsection.Alph3.2.14}%
+\contentsline {subsection}{\numberline {C.2.15}sobolev}{37}{subsection.Alph3.2.15}%
+\contentsline {section}{\numberline {C.3}Familia de metodos TV/Tiempo}{37}{section.Alph3.3}%
+\contentsline {subsection}{\numberline {C.3.1}graph\_time\_tikhonov}{37}{subsection.Alph3.3.1}%
+\contentsline {subsection}{\numberline {C.3.2}trss}{37}{subsection.Alph3.3.2}%
+\contentsline {subsection}{\numberline {C.3.3}sobolev\_temporal}{37}{subsection.Alph3.3.3}%
+\contentsline {subsection}{\numberline {C.3.4}tv}{38}{subsection.Alph3.3.4}%
+\contentsline {subsection}{\numberline {C.3.5}temporal\_laplacian}{38}{subsection.Alph3.3.5}%
+\contentsline {subsection}{\numberline {C.3.6}heat\_diffusion\_temporal}{38}{subsection.Alph3.3.6}%
+\contentsline {subsection}{\numberline {C.3.7}spline\_temporal}{38}{subsection.Alph3.3.7}%
+\contentsline {subsection}{\numberline {C.3.8}wavelet\_temporal}{38}{subsection.Alph3.3.8}%
+\contentsline {subsection}{\numberline {C.3.9}directed\_tv}{38}{subsection.Alph3.3.9}%
+\contentsline {subsection}{\numberline {C.3.10}adaptive\_temporal}{38}{subsection.Alph3.3.10}%
+\contentsline {section}{\numberline {C.4}Criterios de lectura del catalogo}{38}{section.Alph3.4}%
+\contentsline {section}{\numberline {C.5}Notas para extension futura}{39}{section.Alph3.5}%
+\contentsline {chapter}{\numberline {D}Anexo de Protocolo Editorial y de Validacion}{40}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Objetivo del protocolo editorial}{40}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Ciclo de actualizacion documental}{40}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Matriz de consistencia por seccion}{41}{section.Alph4.3}%
+\contentsline {section}{\numberline {D.4}Politica de afirmaciones permitidas}{41}{section.Alph4.4}%
+\contentsline {section}{\numberline {D.5}Plantilla interna de trazabilidad}{41}{section.Alph4.5}%
+\contentsline {section}{\numberline {D.6}Reglas de estilo para escritura tecnica extensa}{42}{section.Alph4.6}%
+\contentsline {section}{\numberline {D.7}Control de calidad de tablas y figuras}{42}{section.Alph4.7}%
+\contentsline {section}{\numberline {D.8}Gestion de cambios entre versiones}{42}{section.Alph4.8}%
+\contentsline {section}{\numberline {D.9}Estrategia para revisiones por pares}{43}{section.Alph4.9}%
+\contentsline {section}{\numberline {D.10}Protocolo de cierre de capitulo}{43}{section.Alph4.10}%
+\contentsline {section}{\numberline {D.11}Riesgos editoriales recurrentes}{43}{section.Alph4.11}%
+\contentsline {section}{\numberline {D.12}Checklist final de pre-entrega}{44}{section.Alph4.12}%
+\contentsline {section}{\numberline {D.13}Recomendaciones para continuidad post-tesis}{44}{section.Alph4.13}%
+\contentsline {section}{\numberline {D.14}Cierre del protocolo editorial}{44}{section.Alph4.14}%
+\contentsline {chapter}{\numberline {E}Playbook Experimental para Iteraciones Futuras}{45}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Proposito del playbook}{45}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Fase 0: Preparacion de iteracion}{45}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Fase 1: Preparacion tecnica del entorno}{45}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Fase 2: Ejecucion por lotes}{46}{section.Alph5.4}%
+\contentsline {section}{\numberline {E.5}Fase 3: Consolidacion intermedia}{46}{section.Alph5.5}%
+\contentsline {section}{\numberline {E.6}Fase 4: Consolidacion editorial}{46}{section.Alph5.6}%
+\contentsline {section}{\numberline {E.7}Fase 5: Validacion estadistica}{47}{section.Alph5.7}%
+\contentsline {section}{\numberline {E.8}Fase 6: Integracion a paper y tesis}{47}{section.Alph5.8}%
+\contentsline {section}{\numberline {E.9}Fase 7: Cierre de iteracion}{47}{section.Alph5.9}%
+\contentsline {section}{\numberline {E.10}Plantilla de bitacora por corrida}{47}{section.Alph5.10}%
+\contentsline {section}{\numberline {E.11}Plantilla de decision metodologica}{48}{section.Alph5.11}%
+\contentsline {section}{\numberline {E.12}Criterios de calidad por nivel}{48}{section.Alph5.12}%
+\contentsline {subsection}{\numberline {E.12.1}Nivel de datos}{48}{subsection.Alph5.12.1}%
+\contentsline {subsection}{\numberline {E.12.2}Nivel de metodos}{48}{subsection.Alph5.12.2}%
+\contentsline {subsection}{\numberline {E.12.3}Nivel de metricas}{48}{subsection.Alph5.12.3}%
+\contentsline {subsection}{\numberline {E.12.4}Nivel estadistico}{48}{subsection.Alph5.12.4}%
+\contentsline {subsection}{\numberline {E.12.5}Nivel editorial}{48}{subsection.Alph5.12.5}%
+\contentsline {section}{\numberline {E.13}Estrategia para incorporar nuevos metodos}{49}{section.Alph5.13}%
+\contentsline {section}{\numberline {E.14}Estrategia para incorporar nuevos escenarios}{49}{section.Alph5.14}%
+\contentsline {section}{\numberline {E.15}Gestion de deuda tecnica experimental}{49}{section.Alph5.15}%
+\contentsline {section}{\numberline {E.16}Lineamientos de comunicacion de resultados}{49}{section.Alph5.16}%
+\contentsline {section}{\numberline {E.17}Protocolo de compilacion y verificacion final}{50}{section.Alph5.17}%
+\contentsline {section}{\numberline {E.18}Checklist ejecutivo del playbook}{50}{section.Alph5.18}%
+\contentsline {section}{\numberline {E.19}Cierre del playbook}{50}{section.Alph5.19}%
+\contentsline {section}{\numberline {E.20}Anexo operativo para defensa y presentacion}{50}{section.Alph5.20}%
+\contentsline {section}{\numberline {E.21}Plan de mantenimiento del repositorio documental}{51}{section.Alph5.21}%
+\contentsline {section}{\numberline {E.22}Lecciones aprendidas del proceso}{51}{section.Alph5.22}%
+\contentsline {section}{\numberline {E.23}Cierre final del anexo}{52}{section.Alph5.23}%
+\contentsline {section}{\numberline {E.24}Casos de uso del playbook}{52}{section.Alph5.24}%
+\contentsline {subsection}{\numberline {E.24.1}Caso A: actualizacion menor de resultados}{52}{subsection.Alph5.24.1}%
+\contentsline {subsection}{\numberline {E.24.2}Caso B: incorporacion de un metodo nuevo}{52}{subsection.Alph5.24.2}%
+\contentsline {subsection}{\numberline {E.24.3}Caso C: extension de validez externa}{52}{subsection.Alph5.24.3}%
+\contentsline {section}{\numberline {E.25}Matriz de decisiones para seleccion de metodo}{52}{section.Alph5.25}%
+\contentsline {section}{\numberline {E.26}Guia de redaccion de resultados para iteraciones futuras}{53}{section.Alph5.26}%
+\contentsline {section}{\numberline {E.27}Lineamientos para cierre de equivalencia pendiente}{53}{section.Alph5.27}%
+\contentsline {section}{\numberline {E.28}Checklist de cierre ampliado}{54}{section.Alph5.28}%
+\contentsline {section}{\numberline {E.29}Hoja de ruta post-tesis para continuidad investigativa}{54}{section.Alph5.29}%
+\contentsline {section}{\numberline {E.30}Guia de lectura para comision evaluadora y revisores}{54}{section.Alph5.30}%
