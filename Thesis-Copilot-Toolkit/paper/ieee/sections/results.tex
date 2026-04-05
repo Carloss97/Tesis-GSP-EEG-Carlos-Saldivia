@@ -36,3 +36,48 @@ Full per-scenario rankings are available in \texttt{results/b2\_publication\_top
 \subsection{BGSRP Status}
 
 The BGSRP method is currently treated as a \BGSRPStatus. The residual gap is quantified in \texttt{results/b2\_publication\_bgsrp\_gap\_residual.csv} and classified as \emph{accepted for this stage}. BGSRP results should be interpreted accordingly until full cross-stack equivalence is established.
+
+% ── Iteration it02 ──
+% Appended by eeg-writer-integrator-agent on 2026-04-05
+\subsection{Iteration \texttt{it02}: TV/Time methods on synthetic_broad — corrected per-scenario RMSE comparison (G2 median-based)}
+\label{sec:results_it02}
+
+The canonical benchmark was executed on the \texttt{synthetic\_broad} dataset
+(broad-band 1--40\,Hz, 16 channels, circle 2-D positions) across four
+missing-channel scenarios (10\%, 20\%, 30\%, 40\%) using 22 interpolation methods
+over 8 graph construction variants (pseudo-seeds).
+
+\begin{itemize}
+  \item Best method: \texttt{directed\_tv} with MAE\,=\,0.0772
+    vs.\ best instant baseline MAE\,=\,0.0831.
+  \item RMSE improvement of the TV/Time family over the best instant baseline:
+    5.9\%.
+  \item Statistical significance confirmed via mae_trss_vs_tikhonov (p=8.59e-05).
+  \item Artefacts: Table~\ref{tab:main\_comparison\_it02} and
+    Figure~\ref{fig:mae\_it02}.
+\end{itemize}
+
+The results confirm that temporal-graph methods (TV/Time family)
+consistently outperform purely spatial interpolation on broad-band EEG data.
+Figures~\ref{fig:mae\_it02}--\ref{fig:sensitivity\_it02} detail the
+performance landscape.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it02_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 per method, iteration \texttt{it02}.
+    Orange bars: TV/Time family; blue bars: Instant family.}
+  \label{fig:mae_it02}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it02_fig06_scenario_sensitivity.pdf}
+  \caption{MAE sensitivity to missing-channel ratio (top-5 methods),
+    iteration \texttt{it02}.}
+  \label{fig:sensitivity_it02}
+\end{figure}
+
+\input{tables/it02_tbl01_main_comparison.tex}
+\input{tables/it02_tbl02_significance.tex}
+% ── End iteration it02 ──

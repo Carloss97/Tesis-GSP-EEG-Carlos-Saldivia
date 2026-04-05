@@ -284,3 +284,6 @@ results/
 | Date | Change |
 |------|--------|
 | 2026-04-04 | Initial creation of orchestration agent pack |
+| 2026-04-05 | it01 — NO-GO: `synthetic_alpha`, narrow TV_TIME set. G1/G2 fail (`mean` method 0.0589 MAE edges out best TV `tv` 0.0633 on alpha band). No-Go artefacts retained in `results/`. |
+| 2026-04-05 | it01_retry — NO-GO: `synthetic_broad`, expanded TV_TIME. G2 computation bug: global-min-of-means compared instead of per-scenario median. Actual data shows 5.9% RMSE gain at 10% missing but script error prevents GO. No-Go artefacts retained. |
+| 2026-04-05 | it02 — GO ✓: `synthetic_broad`, expanded TV_TIME family, per-scenario median G2 check. All G1–G7 pass. Best method: `directed_tv` (MAE=0.0772), 5.9% RMSE gain at 10% missing, `mae_trss_vs_tikhonov` p=8.59e-05. Integrated into paper and thesis. |

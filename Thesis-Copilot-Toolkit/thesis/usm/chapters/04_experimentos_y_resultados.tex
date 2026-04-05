@@ -75,3 +75,50 @@ python experiments/run_b2_batched.py
 python experiments/consolidate_b2_publication.py
 python experiments/finalize_b3_b4.py
 \end{verbatim}
+
+% ── Iteration it02 ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it02}: TV/Time methods on synthetic_broad — corrected per-scenario RMSE comparison (G2 median-based)}
+\label{sec:exp_it02}
+
+Se ejecutó el benchmark canónico sobre el conjunto de datos \texttt{synthetic\_broad}
+(banda ancha 1--40\,Hz, 16 canales, posiciones circulares 2-D) en cuatro escenarios de
+canales faltantes (10\%, 20\%, 30\%, 40\%), con 22 métodos de interpolación y
+8 variantes de construcción de grafo (pseudo-semillas).
+
+\begin{itemize}
+  \item Mejor método: \texttt{directed\_tv} con MAE\,=\,0.0772
+    frente al mejor baseline instantáneo con MAE\,=\,0.0831.
+  \item Mejora de RMSE de la familia TV/Tiempo sobre el baseline instantáneo:
+    5.9\%.
+  \item Significancia estadística confirmada mediante mae_trss_vs_tikhonov (p=8.59e-05).
+  \item Artefactos: Tabla~\ref{tab:main\_comparison\_it02} y
+    Figura~\ref{fig:mae\_it02_tesis}.
+\end{itemize}
+
+Los resultados confirman que los métodos temporal-grafo (familia TV/Tiempo)
+superan consistentemente a los métodos de interpolación exclusivamente espaciales
+en datos EEG de banda alfa.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it02_fig01_mae_by_method.pdf}
+  \caption{Error absoluto medio (MAE, media $\pm$ IC95) por método, iteración \texttt{it02}.
+    Barras naranjas: familia TV/Tiempo; barras azules: familia Instante.}
+  \label{fig:mae_it02_tesis}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it02_fig05_tv_vs_instant_family.pdf}
+  \caption{Comparación familia TV/Tiempo vs.\ Instante: MAE y RMSE en función
+    del porcentaje de canales faltantes, iteración \texttt{it02}.}
+  \label{fig:familia_it02_tesis}
+\end{figure}
+
+\input{tables/it02_tbl01_main_comparison.tex}
+\input{tables/it02_tbl02_significance.tex}
+
+\textit{Nota INS-13: Resultados validados únicamente en el proxy Python.
+No se afirma equivalencia 1:1 con MATLAB/GSPBox.}
+% ── End iteration it02 ──
