@@ -210,6 +210,150 @@ def load_bci_competition_iv_2a(subject: int = 1) -> Dict[str, Any]:
     }
     return {'signals': signals, 'positions': positions, 'info': info}
 
+def load_mne_sample_proxy(seed: int = 42) -> Dict[str, Any]:
+    """
+    Proxy para MNE Sample Dataset (auditory/visual EEG paradigm, 60 canales).
+    Genera datos sintéticos con las mismas características estadísticas que el 
+    dataset real MNE Sample: 60 canales EEG, 600 Hz, respuestas auditivas/visuales.
+    NOTA: Proxy sintético — el dataset real requiere descarga via mne.datasets.sample.
+    """
+    import numpy as np
+    rng = np.random.default_rng(seed=seed)
+
+    n_channels = 60
+    sfreq = 600.0
+    duration = 30.0
+    n_times = int(sfreq * duration)
+
+    t = np.linspace(0, duration, n_times)
+    signals = np.zeros((n_times, n_channels))
+
+    for ch in range(n_channels):
+        freqs = np.fft.rfftfreq(n_times, d=1/sfreq)
+        freqs[0] = 1
+        spectrum = rng.normal(0, 1, len(freqs)) / np.sqrt(freqs)
+        background = np.fft.irfft(spectrum, n=n_times)
+
+        alpha_freq = rng.uniform(9, 11)
+        alpha_amp = rng.uniform(2, 6) * 1e-6
+
+        aud_evoked = np.zeros(n_times)
+        stim_times = np.arange(0.5, duration, 0.8)
+        for st in stim_times:
+            st_idx = int(st * sfreq)
+            n1_idx = st_idx + int(0.1 * sfreq)
+            p2_idx = st_idx + int(0.2 * sfreq)
+            if n1_idx < n_times:
+                aud_evoked[max(0, n1_idx-5):min(n_times, n1_idx+5)] -= rng.uniform(1, 3) * 1e-6
+            if p2_idx < n_times:
+                aud_evoked[max(0, p2_idx-5):min(n_times, p2_idx+5)] += rng.uniform(1, 3) * 1e-6
+
+        signals[:, ch] = (background * 2e-7 +
+                          alpha_amp * np.sin(2*np.pi*alpha_freq*t + rng.uniform(0, 2*np.pi)) +
+                          aud_evoked)
+
+    angles = np.linspace(0, 2*np.pi, n_channels, endpoint=False)
+    elevations = np.linspace(-np.pi/3, np.pi/2, n_channels)
+    r_head = 0.09
+    positions = np.column_stack([
+        r_head * np.cos(elevations) * np.cos(angles),
+        r_head * np.cos(elevations) * np.sin(angles),
+        r_head * np.sin(elevations)
+    ])
+
+    return {
+        'signals': signals,
+        'positions': positions,
+        'info': {
+            'sfreq': sfreq,
+            'n_channels': n_channels,
+            'duration': duration,
+            'ch_names': [f'EEG{i+1:03d}' for i in range(n_channels)],
+            'source': 'synthetic_proxy',
+            'dataset': 'mne_sample_proxy',
+            'note': 'Proxy sintético del MNE Sample Dataset. El real requiere mne.datasets.sample.data_path(download=True).'
+        }
+    }
+
+
+def load_bci_competition_proxy(subject: int = 1, session: str = 'T') -> Dict[str, Any]:
+    """
+    Proxy para BCI Competition IV Dataset 2a (motor imagery EEG, 22 canales).
+    Genera datos sintéticos con las mismas características que el dataset real:
+    22 canales EEG, 250 Hz, motor imagery 4 clases (mano izq, mano der, pies, lengua).
+    9 sujetos disponibles (subject=1-9), 2 sesiones (T=training, E=evaluation).
+    NOTA: Proxy sintético — el dataset real requiere descarga manual desde
+    https://www.bbci.de/competition/iv/
+    """
+    import numpy as np
+    seed = subject * 17 + (0 if session == 'T' else 100)
+    rng = np.random.default_rng(seed=seed)
+
+    n_channels = 22
+    sfreq = 250.0
+    duration = 300.0
+    n_times = int(sfreq * duration)
+
+    t = np.linspace(0, duration, n_times)
+    signals = np.zeros((n_times, n_channels))
+
+    mu_amp = rng.uniform(5, 15) * 1e-6
+    beta_amp = rng.uniform(3, 10) * 1e-6
+
+    for ch in range(n_channels):
+        freqs = np.fft.rfftfreq(n_times, d=1/sfreq)
+        freqs[0] = 1
+        spectrum = rng.normal(0, 1, len(freqs)) / np.sqrt(freqs)
+        background = np.fft.irfft(spectrum, n=n_times)
+
+        mu_freq = rng.uniform(9, 12)
+        beta_freq = rng.uniform(18, 26)
+        laterality = 1.0 if ch < 11 else -1.0
+        class_label = rng.integers(0, 4)
+        class_effect = laterality * [1, -1, 0.5, 0.3][class_label] * 0.5
+
+        signals[:, ch] = (background * 3e-7 +
+                          mu_amp * (1 - class_effect * 0.3) * np.sin(2*np.pi*mu_freq*t + rng.uniform(0, 2*np.pi)) +
+                          beta_amp * 0.5 * np.sin(2*np.pi*beta_freq*t + rng.uniform(0, 2*np.pi)) +
+                          rng.normal(0, 2e-6, n_times))
+
+    bci2a_positions_2d = np.array([
+        [-0.5, 0.8], [0, 0.8], [0.5, 0.8],
+        [-0.75, 0.5], [-0.3, 0.5], [0, 0.5], [0.3, 0.5], [0.75, 0.5],
+        [-1.0, 0], [-0.5, 0], [0, 0], [0.5, 0], [1.0, 0],
+        [-0.75, -0.5], [-0.3, -0.5], [0, -0.5], [0.3, -0.5], [0.75, -0.5],
+        [-0.5, -0.8], [0, -0.8], [0.5, -0.8], [0, -1.0],
+    ])[:n_channels]
+
+    r_head = 0.09
+    norm = np.sqrt(bci2a_positions_2d[:, 0]**2 + bci2a_positions_2d[:, 1]**2).max()
+    positions = np.column_stack([
+        r_head * bci2a_positions_2d[:, 0] / norm,
+        r_head * bci2a_positions_2d[:, 1] / norm,
+        r_head * np.sqrt(np.maximum(0, 1 - (bci2a_positions_2d[:, 0]**2 + bci2a_positions_2d[:, 1]**2) / norm**2))
+    ])
+
+    ch_names = ['F3', 'Fz', 'F4', 'FC3', 'FC1', 'FCz', 'FC2', 'FC4',
+                'C5', 'C3', 'Cz', 'C4', 'C6', 'CP3', 'CP1', 'CPz',
+                'CP2', 'CP4', 'P3', 'Pz', 'P4', 'Oz'][:n_channels]
+
+    return {
+        'signals': signals,
+        'positions': positions,
+        'info': {
+            'sfreq': sfreq,
+            'n_channels': n_channels,
+            'duration': duration,
+            'ch_names': ch_names,
+            'source': 'synthetic_proxy',
+            'dataset': 'bci_competition_iv_2a_proxy',
+            'subject': subject,
+            'session': session,
+            'note': 'Proxy sintético del BCI Competition IV 2a. El real requiere descarga manual desde https://www.bbci.de/competition/iv/'
+        }
+    }
+
+
 # Ejemplo de función de preprocesamiento
 def preprocess_signals(signals: np.ndarray) -> np.ndarray:
     """

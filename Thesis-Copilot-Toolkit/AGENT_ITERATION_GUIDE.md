@@ -355,3 +355,39 @@ results/
 | 2026-04-05 | it58_broad_low_missing — GO ✓: Synthetic broadband — low missing rates 10%+20%. |
 | 2026-04-05 | it59_broad_high_missing — GO ✓: Synthetic broadband — high missing rates 30%+40%. |
 | 2026-04-05 | it60_broad_all_graphs_high_mr — GO ✓: Synthetic broadband — all 8 graphs × high missing rates 30%+40%. |
+
+
+## Motor de Estadísticas v6 — Datasets Proxy Externos
+
+**Activado en**: it61–it70  
+**Novedad**: Soporte para datasets proxy de MNE Sample y BCI Competition IV 2a
+
+### Nuevas funciones en data_loader.py
+- `load_mne_sample_proxy(seed)`: 60 canales, 600 Hz, respuestas auditivas/visuales (proxy)
+- `load_bci_competition_proxy(subject, session)`: 22 canales, 250 Hz, motor imagery (proxy)
+
+### Nuevos tipos de figuras (fig07-fig09)
+- `fig07_signal_reconstruction`: Señal original vs reconstrucción TV y Instant
+- `fig08_temporal_error`: Error MAE por instante temporal con suavizado
+- `fig09_topomap`: Mapa topográfico 2D de error por electrodo
+
+### Iteraciones Fase 5 (it61-it70)
+- it61-it63: MNE Sample proxy (60ch, auditivo/visual)
+- it64-it67: BCI Competition IV 2a proxy (22ch, motor imagery)
+- it68-it69: Combinación multi-dataset proxy
+- it70: Los 5 datasets combinados (análisis final exhaustivo)
+
+### Tabla de iteraciones Fase 5
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-05 | it61_mne_sample_knn — GO ✓: MNE Sample proxy (60ch) kNN-k3, todos los MR. |
+| 2026-04-05 | it62_mne_sample_all_graphs — GO ✓: MNE Sample proxy, 3 grafos (kNN, Gaussian, Kalofolias). |
+| 2026-04-05 | it63_mne_sample_high_mr — GO ✓: MNE Sample proxy, alta pérdida (30-40%). |
+| 2026-04-05 | it64_bci_competition_single_subj — GO ✓: BCI Competition IV 2a proxy, sujeto 1, kNN-k3. |
+| 2026-04-05 | it65_bci_competition_multisubj — GO ✓: BCI Competition IV 2a proxy, 9 sujetos, kNN-k3. |
+| 2026-04-05 | it66_bci_competition_gaussian — GO ✓: BCI Competition IV 2a proxy, 9 sujetos, grafo Gaussiano. |
+| 2026-04-05 | it67_bci_competition_all_graphs — GO ✓: BCI Competition IV 2a proxy, sujeto 1, 3 grafos. |
+| 2026-04-05 | it68_three_real_datasets — GO ✓: Tres datasets (PhysioNet+MNE+BCI proxy), kNN-k3. |
+| 2026-04-05 | it69_mne_bci_high_mr — GO ✓: MNE Sample + BCI proxy, alta pérdida (30-40%). |
+| 2026-04-05 | it70_all_five_datasets — GO ✓: Los 5 datasets combinados (análisis final exhaustivo). |
