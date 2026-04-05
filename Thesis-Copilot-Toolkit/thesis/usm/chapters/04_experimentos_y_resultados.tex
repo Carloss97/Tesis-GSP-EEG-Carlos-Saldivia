@@ -854,3 +854,364 @@ Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthe
 
 \input{tables/it40_3syn_all_mr_analysis_tbl01_main_comparison.tex}
 % ── End it40_3syn_all_mr_analysis ──
+
+% ── Iteración it41_physionet_multisubject_run4 ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it41_physionet_multisubject_run4}: Physionet 9 subjects, run=4 motor imagery L/R, knn_k3}
+\label{sec:exp_it41_physionet_multisubject_run4}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 13.6\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.48e-03).
+\end{itemize}
+
+\input{tables/it41_physionet_multisubject_run4_tbl01_main_comparison.tex}
+% ── End it41_physionet_multisubject_run4 ──
+
+% ── Iteración it42_physionet_run8_allsubj ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it42_physionet_run8_allsubj}: Physionet 9 subjects, run=8 motor imagery hands/feet, knn_k3}
+\label{sec:exp_it42_physionet_run8_allsubj}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=3.50e-03).
+\end{itemize}
+
+\input{tables/it42_physionet_run8_allsubj_tbl01_main_comparison.tex}
+% ── End it42_physionet_run8_allsubj ──
+
+% ── Iteración it43_physionet_run12_allsubj ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it43_physionet_run12_allsubj}: Physionet 9 subjects, run=12 motor imagery hands/feet, knn_k3}
+\label{sec:exp_it43_physionet_run12_allsubj}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 17.3\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.95e-03).
+\end{itemize}
+
+\input{tables/it43_physionet_run12_allsubj_tbl01_main_comparison.tex}
+% ── End it43_physionet_run12_allsubj ──
+
+% ── Iteración it44_physionet_allruns_allsubj ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it44_physionet_allruns_allsubj}: Physionet 9 subjects × 3 runs pooled, knn_k3}
+\label{sec:exp_it44_physionet_allruns_allsubj}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{idw} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 15.9\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=2.20e-02).
+\end{itemize}
+
+\input{tables/it44_physionet_allruns_allsubj_tbl01_main_comparison.tex}
+% ── End it44_physionet_allruns_allsubj ──
+
+% ── Iteración it45_physionet_multisubj_gaussian ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it45_physionet_multisubj_gaussian}: Physionet 9 subjects, run=4, gaussian sigma=1 graph}
+\label{sec:exp_it45_physionet_multisubj_gaussian}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 16.0\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.66e-13).
+\end{itemize}
+
+\input{tables/it45_physionet_multisubj_gaussian_tbl01_main_comparison.tex}
+% ── End it45_physionet_multisubj_gaussian ──
+
+% ── Iteración it46_physionet_multisubj_kalofolias ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it46_physionet_multisubj_kalofolias}: Physionet 9 subjects, run=4, kalofolias graph}
+\label{sec:exp_it46_physionet_multisubj_kalofolias}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{idw} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 11.7\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.01e-05).
+\end{itemize}
+
+\input{tables/it46_physionet_multisubj_kalofolias_tbl01_main_comparison.tex}
+% ── End it46_physionet_multisubj_kalofolias ──
+
+% ── Iteración it47_physionet_multisubj_best3graphs ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it47_physionet_multisubj_best3graphs}: Physionet 9 subjects, run=4, 3 best graphs (knn_k3, gaussian, kalofolias)}
+\label{sec:exp_it47_physionet_multisubj_best3graphs}
+
+Benchmark en \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 3 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 13.8\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.17e-18).
+\end{itemize}
+
+\input{tables/it47_physionet_multisubj_best3graphs_tbl01_main_comparison.tex}
+% ── End it47_physionet_multisubj_best3graphs ──
+
+% ── Iteración it48_physionet_multisubj_high_mr ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it48_physionet_multisubj_high_mr}: Physionet 9 subjects, run=4, high missing rates 30%/40%}
+\label{sec:exp_it48_physionet_multisubj_high_mr}
+
+Benchmark en \texttt{physionet_eegmmidb},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,40\%): 19.2\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=4.12e-03).
+\end{itemize}
+
+\input{tables/it48_physionet_multisubj_high_mr_tbl01_main_comparison.tex}
+% ── End it48_physionet_multisubj_high_mr ──
+
+% ── Iteración it49_physionet_multisubj_low_mr ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it49_physionet_multisubj_low_mr}: Physionet 9 subjects, run=4, low missing rates 10%/20%}
+\label{sec:exp_it49_physionet_multisubj_low_mr}
+
+Benchmark en \texttt{physionet_eegmmidb},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{linear} MAE\,=\,0.0000;
+    baseline instante MAE\,=\,0.0000.
+  \item Mejora RMSE familia (mr\,=\,20\%): 5.5\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.12e-06).
+\end{itemize}
+
+\input{tables/it49_physionet_multisubj_low_mr_tbl01_main_comparison.tex}
+% ── End it49_physionet_multisubj_low_mr ──
+
+% ── Iteración it51_all_datasets_strong_tv ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it51_all_datasets_strong_tv}: All 4 datasets — strong TV/Time + key instant methods}
+\label{sec:exp_it51_all_datasets_strong_tv}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+14 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.1595;
+    baseline instante MAE\,=\,0.1848.
+  \item Mejora RMSE familia (mr\,=\,30\%): 4.7\%.
+  \item Contraste significativo: mae_trss_vs_tikhonov (p=4.52e-06).
+\end{itemize}
+
+\input{tables/it51_all_datasets_strong_tv_tbl01_main_comparison.tex}
+% ── End it51_all_datasets_strong_tv ──
+
+% ── Iteración it52_all_datasets_gaussian_graph ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it52_all_datasets_gaussian_graph}: All 4 datasets — Gaussian sigma=1 graph only}
+\label{sec:exp_it52_all_datasets_gaussian_graph}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.1595;
+    baseline instante MAE\,=\,0.2734.
+  \item Mejora RMSE familia (mr\,=\,10\%): 14.0\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=6.66e-03).
+\end{itemize}
+
+\input{tables/it52_all_datasets_gaussian_graph_tbl01_main_comparison.tex}
+% ── End it52_all_datasets_gaussian_graph ──
+
+% ── Iteración it53_all_datasets_nnk ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it53_all_datasets_nnk}: All 4 datasets — NNK k=4 graph only}
+\label{sec:exp_it53_all_datasets_nnk}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 1 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.1595;
+    baseline instante MAE\,=\,0.2395.
+  \item Mejora RMSE familia (mr\,=\,30\%): 14.8\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.45e-03).
+\end{itemize}
+
+\input{tables/it53_all_datasets_nnk_tbl01_main_comparison.tex}
+% ── End it53_all_datasets_nnk ──
+
+% ── Iteración it54_all_datasets_high_mr ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it54_all_datasets_high_mr}: All 4 datasets — high missing rates 30%+40%}
+\label{sec:exp_it54_all_datasets_high_mr}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.2263;
+    baseline instante MAE\,=\,0.3181.
+  \item Mejora RMSE familia (mr\,=\,30\%): 13.4\%.
+  \item Contraste significativo: mae_tv_family_vs_instant (p=2.98e-04).
+\end{itemize}
+
+\input{tables/it54_all_datasets_high_mr_tbl01_main_comparison.tex}
+% ── End it54_all_datasets_high_mr ──
+
+% ── Iteración it55_all_datasets_low_mr ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it55_all_datasets_low_mr}: All 4 datasets — low missing rates 10%+20%}
+\label{sec:exp_it55_all_datasets_low_mr}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0927;
+    baseline instante MAE\,=\,0.1948.
+  \item Mejora RMSE familia (mr\,=\,20\%): 9.9\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.60e-04).
+\end{itemize}
+
+\input{tables/it55_all_datasets_low_mr_tbl01_main_comparison.tex}
+% ── End it55_all_datasets_low_mr ──
+
+% ── Iteración it56_3syn_mr10_only ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it56_3syn_mr10_only}: Alpha+Beta+Broad synthetic — mr=10% only}
+\label{sec:exp_it56_3syn_mr10_only}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad},
+1 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0658;
+    baseline instante MAE\,=\,0.1879.
+  \item Mejora RMSE familia (mr\,=\,10\%): 16.5\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=3.25e-05).
+\end{itemize}
+
+\input{tables/it56_3syn_mr10_only_tbl01_main_comparison.tex}
+% ── End it56_3syn_mr10_only ──
+
+% ── Iteración it57_3syn_mr40_only ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it57_3syn_mr40_only}: Alpha+Beta+Broad synthetic — mr=40% only}
+\label{sec:exp_it57_3syn_mr40_only}
+
+Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad},
+1 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.2611;
+    baseline instante MAE\,=\,0.3677.
+  \item Mejora RMSE familia (mr\,=\,40\%): 20.8\%.
+  \item Contraste significativo: mae_tv_family_vs_instant (p=2.70e-07).
+\end{itemize}
+
+\input{tables/it57_3syn_mr40_only_tbl01_main_comparison.tex}
+% ── End it57_3syn_mr40_only ──
+
+% ── Iteración it58_broad_low_missing ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it58_broad_low_missing}: Synthetic broadband — low missing rates 10%+20%}
+\label{sec:exp_it58_broad_low_missing}
+
+Benchmark en \texttt{synthetic_broad},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{directed_tv} MAE\,=\,0.0991;
+    baseline instante MAE\,=\,0.1947.
+  \item Mejora RMSE familia (mr\,=\,10\%): 15.4\%.
+  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.42e-04).
+\end{itemize}
+
+\input{tables/it58_broad_low_missing_tbl01_main_comparison.tex}
+% ── End it58_broad_low_missing ──
+
+% ── Iteración it59_broad_high_missing ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it59_broad_high_missing}: Synthetic broadband — high missing rates 30%+40%}
+\label{sec:exp_it59_broad_high_missing}
+
+Benchmark en \texttt{synthetic_broad},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{heat_diffusion_temporal} MAE\,=\,0.2175;
+    baseline instante MAE\,=\,0.3087.
+  \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
+  \item Contraste significativo: mae_tv_family_vs_instant (p=2.07e-03).
+\end{itemize}
+
+\input{tables/it59_broad_high_missing_tbl01_main_comparison.tex}
+% ── End it59_broad_high_missing ──
+
+% ── Iteración it60_broad_all_graphs_high_mr ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it60_broad_all_graphs_high_mr}: Synthetic broadband — all 8 graphs × high missing rates 30%+40%}
+\label{sec:exp_it60_broad_all_graphs_high_mr}
+
+Benchmark en \texttt{synthetic_broad},
+2 escenario(s) (10\%, 20\%, 30\%, 40\%),
+22 métodos, 8 variante(s) de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{heat_diffusion_temporal} MAE\,=\,0.2175;
+    baseline instante MAE\,=\,0.3087.
+  \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
+  \item Contraste significativo: mae_tv_family_vs_instant (p=2.07e-03).
+\end{itemize}
+
+\input{tables/it60_broad_all_graphs_high_mr_tbl01_main_comparison.tex}
+% ── End it60_broad_all_graphs_high_mr ──

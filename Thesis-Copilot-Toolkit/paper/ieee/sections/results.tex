@@ -1080,3 +1080,516 @@ across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
 \input{tables/it40_3syn_all_mr_analysis_tbl01_main_comparison.tex}
 \input{tables/it40_3syn_all_mr_analysis_tbl02_significance.tex}
 % ── End it40_3syn_all_mr_analysis ──
+
+% ── Iteration it41_physionet_multisubject_run4 ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it41_physionet_multisubject_run4}: Physionet 9 subjects, run=4 motor imagery L/R, knn_k3}
+\label{sec:results_it41_physionet_multisubject_run4}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{tv} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 13.6\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=2.48e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it41_physionet_multisubject_run4_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it41_physionet_multisubject_run4}.}
+  \label{fig:mae_it41_physionet_multisubject_run4}
+\end{figure}
+
+\input{tables/it41_physionet_multisubject_run4_tbl01_main_comparison.tex}
+\input{tables/it41_physionet_multisubject_run4_tbl02_significance.tex}
+% ── End it41_physionet_multisubject_run4 ──
+
+% ── Iteration it42_physionet_run8_allsubj ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it42_physionet_run8_allsubj}: Physionet 9 subjects, run=8 motor imagery hands/feet, knn_k3}
+\label{sec:results_it42_physionet_run8_allsubj}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 17.2\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=3.50e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it42_physionet_run8_allsubj_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it42_physionet_run8_allsubj}.}
+  \label{fig:mae_it42_physionet_run8_allsubj}
+\end{figure}
+
+\input{tables/it42_physionet_run8_allsubj_tbl01_main_comparison.tex}
+\input{tables/it42_physionet_run8_allsubj_tbl02_significance.tex}
+% ── End it42_physionet_run8_allsubj ──
+
+% ── Iteration it43_physionet_run12_allsubj ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it43_physionet_run12_allsubj}: Physionet 9 subjects, run=12 motor imagery hands/feet, knn_k3}
+\label{sec:results_it43_physionet_run12_allsubj}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{tv} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 17.3\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=2.95e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it43_physionet_run12_allsubj_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it43_physionet_run12_allsubj}.}
+  \label{fig:mae_it43_physionet_run12_allsubj}
+\end{figure}
+
+\input{tables/it43_physionet_run12_allsubj_tbl01_main_comparison.tex}
+\input{tables/it43_physionet_run12_allsubj_tbl02_significance.tex}
+% ── End it43_physionet_run12_allsubj ──
+
+% ── Iteration it44_physionet_allruns_allsubj ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it44_physionet_allruns_allsubj}: Physionet 9 subjects × 3 runs pooled, knn_k3}
+\label{sec:results_it44_physionet_allruns_allsubj}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{idw} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 15.9\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=2.20e-02).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it44_physionet_allruns_allsubj_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it44_physionet_allruns_allsubj}.}
+  \label{fig:mae_it44_physionet_allruns_allsubj}
+\end{figure}
+
+\input{tables/it44_physionet_allruns_allsubj_tbl01_main_comparison.tex}
+\input{tables/it44_physionet_allruns_allsubj_tbl02_significance.tex}
+% ── End it44_physionet_allruns_allsubj ──
+
+% ── Iteration it45_physionet_multisubj_gaussian ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it45_physionet_multisubj_gaussian}: Physionet 9 subjects, run=4, gaussian sigma=1 graph}
+\label{sec:results_it45_physionet_multisubj_gaussian}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{gsmooth} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 16.0\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=1.66e-13).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it45_physionet_multisubj_gaussian_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it45_physionet_multisubj_gaussian}.}
+  \label{fig:mae_it45_physionet_multisubj_gaussian}
+\end{figure}
+
+\input{tables/it45_physionet_multisubj_gaussian_tbl01_main_comparison.tex}
+\input{tables/it45_physionet_multisubj_gaussian_tbl02_significance.tex}
+% ── End it45_physionet_multisubj_gaussian ──
+
+% ── Iteration it46_physionet_multisubj_kalofolias ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it46_physionet_multisubj_kalofolias}: Physionet 9 subjects, run=4, kalofolias graph}
+\label{sec:results_it46_physionet_multisubj_kalofolias}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{idw} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 11.7\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=1.01e-05).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it46_physionet_multisubj_kalofolias_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it46_physionet_multisubj_kalofolias}.}
+  \label{fig:mae_it46_physionet_multisubj_kalofolias}
+\end{figure}
+
+\input{tables/it46_physionet_multisubj_kalofolias_tbl01_main_comparison.tex}
+\input{tables/it46_physionet_multisubj_kalofolias_tbl02_significance.tex}
+% ── End it46_physionet_multisubj_kalofolias ──
+
+% ── Iteration it47_physionet_multisubj_best3graphs ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it47_physionet_multisubj_best3graphs}: Physionet 9 subjects, run=4, 3 best graphs (knn_k3, gaussian, kalofolias)}
+\label{sec:results_it47_physionet_multisubj_best3graphs}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 3 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{tv} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 13.8\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=2.17e-18).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it47_physionet_multisubj_best3graphs_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it47_physionet_multisubj_best3graphs}.}
+  \label{fig:mae_it47_physionet_multisubj_best3graphs}
+\end{figure}
+
+\input{tables/it47_physionet_multisubj_best3graphs_tbl01_main_comparison.tex}
+\input{tables/it47_physionet_multisubj_best3graphs_tbl02_significance.tex}
+% ── End it47_physionet_multisubj_best3graphs ──
+
+% ── Iteration it48_physionet_multisubj_high_mr ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it48_physionet_multisubj_high_mr}: Physionet 9 subjects, run=4, high missing rates 30%/40%}
+\label{sec:results_it48_physionet_multisubj_high_mr}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 19.2\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=4.12e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it48_physionet_multisubj_high_mr_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it48_physionet_multisubj_high_mr}.}
+  \label{fig:mae_it48_physionet_multisubj_high_mr}
+\end{figure}
+
+\input{tables/it48_physionet_multisubj_high_mr_tbl01_main_comparison.tex}
+\input{tables/it48_physionet_multisubj_high_mr_tbl02_significance.tex}
+% ── End it48_physionet_multisubj_high_mr ──
+
+% ── Iteration it49_physionet_multisubj_low_mr ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it49_physionet_multisubj_low_mr}: Physionet 9 subjects, run=4, low missing rates 10%/20%}
+\label{sec:results_it49_physionet_multisubj_low_mr}
+
+Benchmark executed on \texttt{physionet_eegmmidb}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{linear} MAE\,=\,0.0000,
+    instant baseline MAE\,=\,0.0000.
+  \item RMSE family gain at best scenario (mr\,=\,20\%): 5.5\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=1.12e-06).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it49_physionet_multisubj_low_mr_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it49_physionet_multisubj_low_mr}.}
+  \label{fig:mae_it49_physionet_multisubj_low_mr}
+\end{figure}
+
+\input{tables/it49_physionet_multisubj_low_mr_tbl01_main_comparison.tex}
+\input{tables/it49_physionet_multisubj_low_mr_tbl02_significance.tex}
+% ── End it49_physionet_multisubj_low_mr ──
+
+% ── Iteration it51_all_datasets_strong_tv ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it51_all_datasets_strong_tv}: All 4 datasets — strong TV/Time + key instant methods}
+\label{sec:results_it51_all_datasets_strong_tv}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+14 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.1595,
+    instant baseline MAE\,=\,0.1848.
+  \item RMSE family gain at best scenario (mr\,=\,30\%): 4.7\%.
+  \item Key contrast: mae_trss_vs_tikhonov (p=4.52e-06).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it51_all_datasets_strong_tv_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it51_all_datasets_strong_tv}.}
+  \label{fig:mae_it51_all_datasets_strong_tv}
+\end{figure}
+
+\input{tables/it51_all_datasets_strong_tv_tbl01_main_comparison.tex}
+\input{tables/it51_all_datasets_strong_tv_tbl02_significance.tex}
+% ── End it51_all_datasets_strong_tv ──
+
+% ── Iteration it52_all_datasets_gaussian_graph ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it52_all_datasets_gaussian_graph}: All 4 datasets — Gaussian sigma=1 graph only}
+\label{sec:results_it52_all_datasets_gaussian_graph}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.1595,
+    instant baseline MAE\,=\,0.2734.
+  \item RMSE family gain at best scenario (mr\,=\,10\%): 14.0\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=6.66e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it52_all_datasets_gaussian_graph_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it52_all_datasets_gaussian_graph}.}
+  \label{fig:mae_it52_all_datasets_gaussian_graph}
+\end{figure}
+
+\input{tables/it52_all_datasets_gaussian_graph_tbl01_main_comparison.tex}
+\input{tables/it52_all_datasets_gaussian_graph_tbl02_significance.tex}
+% ── End it52_all_datasets_gaussian_graph ──
+
+% ── Iteration it53_all_datasets_nnk ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it53_all_datasets_nnk}: All 4 datasets — NNK k=4 graph only}
+\label{sec:results_it53_all_datasets_nnk}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb}
+across 4 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 1 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.1595,
+    instant baseline MAE\,=\,0.2395.
+  \item RMSE family gain at best scenario (mr\,=\,30\%): 14.8\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=1.45e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it53_all_datasets_nnk}.}
+  \label{fig:mae_it53_all_datasets_nnk}
+\end{figure}
+
+\input{tables/it53_all_datasets_nnk_tbl01_main_comparison.tex}
+\input{tables/it53_all_datasets_nnk_tbl02_significance.tex}
+% ── End it53_all_datasets_nnk ──
+
+% ── Iteration it54_all_datasets_high_mr ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it54_all_datasets_high_mr}: All 4 datasets — high missing rates 30%+40%}
+\label{sec:results_it54_all_datasets_high_mr}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.2263,
+    instant baseline MAE\,=\,0.3181.
+  \item RMSE family gain at best scenario (mr\,=\,30\%): 13.4\%.
+  \item Key contrast: mae_tv_family_vs_instant (p=2.98e-04).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it54_all_datasets_high_mr_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it54_all_datasets_high_mr}.}
+  \label{fig:mae_it54_all_datasets_high_mr}
+\end{figure}
+
+\input{tables/it54_all_datasets_high_mr_tbl01_main_comparison.tex}
+\input{tables/it54_all_datasets_high_mr_tbl02_significance.tex}
+% ── End it54_all_datasets_high_mr ──
+
+% ── Iteration it55_all_datasets_low_mr ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it55_all_datasets_low_mr}: All 4 datasets — low missing rates 10%+20%}
+\label{sec:results_it55_all_datasets_low_mr}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}, \texttt{physionet_eegmmidb}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.0927,
+    instant baseline MAE\,=\,0.1948.
+  \item RMSE family gain at best scenario (mr\,=\,20\%): 9.9\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=1.60e-04).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it55_all_datasets_low_mr_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it55_all_datasets_low_mr}.}
+  \label{fig:mae_it55_all_datasets_low_mr}
+\end{figure}
+
+\input{tables/it55_all_datasets_low_mr_tbl01_main_comparison.tex}
+\input{tables/it55_all_datasets_low_mr_tbl02_significance.tex}
+% ── End it55_all_datasets_low_mr ──
+
+% ── Iteration it56_3syn_mr10_only ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it56_3syn_mr10_only}: Alpha+Beta+Broad synthetic — mr=10% only}
+\label{sec:results_it56_3syn_mr10_only}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}
+across 1 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{gsmooth} MAE\,=\,0.0658,
+    instant baseline MAE\,=\,0.1879.
+  \item RMSE family gain at best scenario (mr\,=\,10\%): 16.5\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=3.25e-05).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it56_3syn_mr10_only_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it56_3syn_mr10_only}.}
+  \label{fig:mae_it56_3syn_mr10_only}
+\end{figure}
+
+\input{tables/it56_3syn_mr10_only_tbl01_main_comparison.tex}
+\input{tables/it56_3syn_mr10_only_tbl02_significance.tex}
+% ── End it56_3syn_mr10_only ──
+
+% ── Iteration it57_3syn_mr40_only ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it57_3syn_mr40_only}: Alpha+Beta+Broad synthetic — mr=40% only}
+\label{sec:results_it57_3syn_mr40_only}
+
+Benchmark executed on \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{synthetic_broad}
+across 1 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{mean} MAE\,=\,0.2611,
+    instant baseline MAE\,=\,0.3677.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 20.8\%.
+  \item Key contrast: mae_tv_family_vs_instant (p=2.70e-07).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it57_3syn_mr40_only}.}
+  \label{fig:mae_it57_3syn_mr40_only}
+\end{figure}
+
+\input{tables/it57_3syn_mr40_only_tbl01_main_comparison.tex}
+\input{tables/it57_3syn_mr40_only_tbl02_significance.tex}
+% ── End it57_3syn_mr40_only ──
+
+% ── Iteration it58_broad_low_missing ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it58_broad_low_missing}: Synthetic broadband — low missing rates 10%+20%}
+\label{sec:results_it58_broad_low_missing}
+
+Benchmark executed on \texttt{synthetic_broad}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{directed_tv} MAE\,=\,0.0991,
+    instant baseline MAE\,=\,0.1947.
+  \item RMSE family gain at best scenario (mr\,=\,10\%): 15.4\%.
+  \item Key contrast: rmse_tv_family_vs_instant (p=1.42e-04).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it58_broad_low_missing_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it58_broad_low_missing}.}
+  \label{fig:mae_it58_broad_low_missing}
+\end{figure}
+
+\input{tables/it58_broad_low_missing_tbl01_main_comparison.tex}
+\input{tables/it58_broad_low_missing_tbl02_significance.tex}
+% ── End it58_broad_low_missing ──
+
+% ── Iteration it59_broad_high_missing ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it59_broad_high_missing}: Synthetic broadband — high missing rates 30%+40%}
+\label{sec:results_it59_broad_high_missing}
+
+Benchmark executed on \texttt{synthetic_broad}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{heat_diffusion_temporal} MAE\,=\,0.2175,
+    instant baseline MAE\,=\,0.3087.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 17.2\%.
+  \item Key contrast: mae_tv_family_vs_instant (p=2.07e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it59_broad_high_missing_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it59_broad_high_missing}.}
+  \label{fig:mae_it59_broad_high_missing}
+\end{figure}
+
+\input{tables/it59_broad_high_missing_tbl01_main_comparison.tex}
+\input{tables/it59_broad_high_missing_tbl02_significance.tex}
+% ── End it59_broad_high_missing ──
+
+% ── Iteration it60_broad_all_graphs_high_mr ──
+% Appended 2026-04-05
+\subsection{Iteration \texttt{it60_broad_all_graphs_high_mr}: Synthetic broadband — all 8 graphs × high missing rates 30%+40%}
+\label{sec:results_it60_broad_all_graphs_high_mr}
+
+Benchmark executed on \texttt{synthetic_broad}
+across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
+22 methods, 8 graph variant(s).
+
+\begin{itemize}
+  \item Best method: \texttt{heat_diffusion_temporal} MAE\,=\,0.2175,
+    instant baseline MAE\,=\,0.3087.
+  \item RMSE family gain at best scenario (mr\,=\,40\%): 17.2\%.
+  \item Key contrast: mae_tv_family_vs_instant (p=2.07e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{figures/it60_broad_all_graphs_high_mr_fig01_mae_by_method.pdf}
+  \caption{MAE mean $\pm$ CI95 --- \texttt{it60_broad_all_graphs_high_mr}.}
+  \label{fig:mae_it60_broad_all_graphs_high_mr}
+\end{figure}
+
+\input{tables/it60_broad_all_graphs_high_mr_tbl01_main_comparison.tex}
+\input{tables/it60_broad_all_graphs_high_mr_tbl02_significance.tex}
+% ── End it60_broad_all_graphs_high_mr ──

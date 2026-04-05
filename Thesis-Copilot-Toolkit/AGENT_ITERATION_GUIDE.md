@@ -333,3 +333,25 @@ results/
 | 2026-04-05 | it38_broad_gaussian_kalofolias_nnk — GO ✓: synthetic_broad + 3 complementary graphs (Gaussian, Kalofolias, NNK). heat_diffusion_temporal MAE=0.0813, 22.1% RMSE gain, p=3.55e-03. |
 | 2026-04-05 | it39_physionet_gaussian_nnk_knn — GO ✓: Physionet at mr=40%, best 3 graphs (gaussian, nnk, knn_k3). mean MAE=1.3e-05, 18.5% RMSE gain, p=5.97e-03. |
 | 2026-04-05 | it40_3syn_all_mr_analysis — GO ✓: KNN k=3 and k=5 on 3 synthetic, all 4 missing rates. mean MAE=0.0659, 24.7% RMSE gain, p=1.78e-03. |
+
+| 2026-04-05 | Engine v5: 20 new iterations (it41-it60). Covers multi-subject physionet (9 subjects × runs 4/8/12), multi-run pooled analysis, graph variants on physionet (gaussian, kalofolias, best-3), high/low missing rate split on physionet, strong-TV subset on physionet, all-datasets cross-graph analysis (gaussian, NNK, strong-TV), all-datasets high/low missing split, and exhaustive synthetic broadband analysis (mr splits, all-8-graphs × high-mr). GO count: 19/20. |
+| 2026-04-05 | it41_physionet_multisubject_run4 — GO ✓: Physionet 9 subjects, run=4 motor imagery L/R, knn_k3. |
+| 2026-04-05 | it42_physionet_run8_allsubj — GO ✓: Physionet 9 subjects, run=8 motor imagery hands/feet, knn_k3. |
+| 2026-04-05 | it43_physionet_run12_allsubj — GO ✓: Physionet 9 subjects, run=12 motor imagery hands/feet, knn_k3. |
+| 2026-04-05 | it44_physionet_allruns_allsubj — GO ✓: Physionet 9 subjects × 3 runs pooled, knn_k3. |
+| 2026-04-05 | it45_physionet_multisubj_gaussian — GO ✓: Physionet 9 subjects, run=4, gaussian sigma=1 graph. |
+| 2026-04-05 | it46_physionet_multisubj_kalofolias — GO ✓: Physionet 9 subjects, run=4, kalofolias graph. |
+| 2026-04-05 | it47_physionet_multisubj_best3graphs — GO ✓: Physionet 9 subjects, run=4, 3 best graphs (knn_k3, gaussian, kalofolias). |
+| 2026-04-05 | it48_physionet_multisubj_high_mr — GO ✓: Physionet 9 subjects, run=4, high missing rates 30%/40%. |
+| 2026-04-05 | it49_physionet_multisubj_low_mr — GO ✓: Physionet 9 subjects, run=4, low missing rates 10%/20%. |
+| 2026-04-05 | it50_physionet_multisubj_strong_tv — NO-GO ✗: Physionet 9 subjects, run=4, strong TV+instant subset comparison. |
+| 2026-04-05 | it51_all_datasets_strong_tv — GO ✓: All 4 datasets — strong TV/Time + key instant methods. |
+| 2026-04-05 | it52_all_datasets_gaussian_graph — GO ✓: All 4 datasets — Gaussian sigma=1 graph only. |
+| 2026-04-05 | it53_all_datasets_nnk — GO ✓: All 4 datasets — NNK k=4 graph only. |
+| 2026-04-05 | it54_all_datasets_high_mr — GO ✓: All 4 datasets — high missing rates 30%+40%. |
+| 2026-04-05 | it55_all_datasets_low_mr — GO ✓: All 4 datasets — low missing rates 10%+20%. |
+| 2026-04-05 | it56_3syn_mr10_only — GO ✓: Alpha+Beta+Broad synthetic — mr=10% only. |
+| 2026-04-05 | it57_3syn_mr40_only — GO ✓: Alpha+Beta+Broad synthetic — mr=40% only. |
+| 2026-04-05 | it58_broad_low_missing — GO ✓: Synthetic broadband — low missing rates 10%+20%. |
+| 2026-04-05 | it59_broad_high_missing — GO ✓: Synthetic broadband — high missing rates 30%+40%. |
+| 2026-04-05 | it60_broad_all_graphs_high_mr — GO ✓: Synthetic broadband — all 8 graphs × high missing rates 30%+40%. |
