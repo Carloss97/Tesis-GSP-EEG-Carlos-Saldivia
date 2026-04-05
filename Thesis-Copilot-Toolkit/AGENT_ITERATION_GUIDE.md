@@ -298,3 +298,21 @@ results/
 | 2026-04-05 | it07b_knn_3syn — GO ✓: KNN (k=3,5) graphs on 3 synthetic datasets. RMSE family gain 24.7%, p=1.78e-03. |
 | 2026-04-05 | it08_high_missing_synthetic — GO ✓: High missing rates (30%,40%) on 3 synthetic datasets. `directed_tv` best (MAE=0.2026), 24.9% RMSE gain, p=9.23e-10. |
 | 2026-04-05 | it09_tikhonov_rbfi_focus — GO ✓: TV/Time vs tikhonov/rbfi/spherical_spline on 3 synthetic datasets. 26% RMSE family gain, p=7.05e-10. Confirms superiority over classic spatial methods. |
+| 2026-04-05 | Engine v3: added `qa06_mode=family_median` (TV family MAE median < instant family MAE median per scenario). |
+| 2026-04-05 | it10_synthetic_alpha — GO ✓: synthetic_alpha (alpha band), family G2. 25.4% RMSE gain, p=4.46e-04. Alpha band confirms TV advantage. |
+| 2026-04-05 | it11_physionet_high_missing — GO ✓: physionet at mr=40% only. TV family MAE median (1.5e-5) < instant (2.0e-5). 14.3% RMSE gain, p=1.09e-03. First physionet GO. |
+| 2026-04-05 | it12_vknng_knng_3syn — GO ✓: VKNNG + KNNG graphs on 3 synthetic datasets. 26.2% RMSE family gain, p=4.29e-03. |
+| 2026-04-05 | it13_gaussian_aew_3syn — GO ✓: Gaussian + AEW graphs on 3 synthetic datasets. Best RMSE gain 28.3%, p=4.02e-03. |
+| 2026-04-05 | it14_low_missing_synthetic — GO ✓: Low missing (10%, 20%) on 3 synthetic datasets. 16-26% RMSE family gain, p=3.65e-12. |
+| 2026-04-05 | it15_synthetic_broad_gaussian — NO-GO: Single graph + single dataset → n=1 per group → QA-04/QA-05 fail. |
+| 2026-04-05 | it16_synthetic_broad_vknng — NO-GO: Same issue as it15 (n=1). Retried with 3 datasets as it16b. |
+| 2026-04-05 | it17_synthetic_broad_all_graphs — GO ✓: All 8 graphs on synthetic_broad. directed_tv best (MAE=0.0772), 21.5% RMSE gain, p=8.59e-05. |
+| 2026-04-05 | it18_directed_tv_vs_trss — GO ✓: Best 4 TV methods (directed_tv, trss, tv, graph_time_tikhonov) vs instant. 25.7% gain, p=7.05e-10. |
+| 2026-04-05 | it19_synthetic_beta_high_missing — GO ✓: Beta band, mr=30/40%. heat_diffusion_temporal best (MAE=0.203), 23.4% RMSE gain, p=2.73e-03. |
+| 2026-04-05 | it20_synthetic_alpha_high_missing — GO ✓: Alpha band, mr=30/40%. directed_tv best (MAE=0.2019), 25.4% RMSE gain, p=3.69e-04. |
+| 2026-04-05 | it21_all_datasets_family — GO ✓: All 4 datasets pooled, family G2. 25.4% RMSE gain, p=9.04e-06. Prior it05 failed with best-method G2. |
+| 2026-04-05 | it15b_gaussian_3syn — GO ✓: Gaussian sigma=1 graph on 3 synthetic datasets. trss best (MAE=0.0651), 29.0% RMSE gain, p=1.35e-03. |
+| 2026-04-05 | it16b_vknng_3syn — GO ✓: VKNNG (alpha=1, kmin=2, kmax=8) on 3 synthetic datasets. tv best (MAE=0.0655), 26.8% gain, p=4.87e-05. |
+| 2026-04-05 | it22b_knn_k3_3syn — GO ✓: KNN k=3 on 3 synthetic datasets. 21.5% RMSE gain, p=3.78e-05. Minimal 3-NN topology. |
+| 2026-04-05 | it23b_knng_3syn — GO ✓: KNNG (k=4, sigma=1) on 3 synthetic datasets. 26.3% RMSE gain, p=2.61e-05. Gaussian-weighted k-NN. |
+| 2026-04-05 | it24_physionet_all_scenarios — GO ✓: Physionet full 4-scenario analysis, family G2. directed_tv best (MAE=2e-06), 14.3% RMSE gain, p=6.02e-04. |
