@@ -316,3 +316,20 @@ results/
 | 2026-04-05 | it22b_knn_k3_3syn — GO ✓: KNN k=3 on 3 synthetic datasets. 21.5% RMSE gain, p=3.78e-05. Minimal 3-NN topology. |
 | 2026-04-05 | it23b_knng_3syn — GO ✓: KNNG (k=4, sigma=1) on 3 synthetic datasets. 26.3% RMSE gain, p=2.61e-05. Gaussian-weighted k-NN. |
 | 2026-04-05 | it24_physionet_all_scenarios — GO ✓: Physionet full 4-scenario analysis, family G2. directed_tv best (MAE=2e-06), 14.3% RMSE gain, p=6.02e-04. |
+| 2026-04-05 | Engine v4: 16 new iterations (it25-it40). Covers two-band analysis, per-dataset all-graph exhaustive, per-graph single-dataset (with 3 datasets for n≥3), strong-TV focus, per-scenario (mr=20%, mr=30%), physionet best-graph combos. |
+| 2026-04-05 | it25_alpha_beta_two_bands — GO ✓: Alpha+beta (no broadband), family G2. mean MAE=0.0624, 25.6% RMSE gain, p=1.40e-06. |
+| 2026-04-05 | it26_synthetic_beta_all_graphs — GO ✓: Synthetic beta band — all 8 graphs. gsmooth MAE=0.0657, 26.2% RMSE gain, p=8.90e-04. |
+| 2026-04-05 | it27_synthetic_alpha_all_graphs — GO ✓: Synthetic alpha band — all 8 graphs. mean MAE=0.0589, 25.4% RMSE gain, p=4.46e-04. |
+| 2026-04-05 | it28_nnk_3syn — GO ✓: NNK k=4 graph on 3 synthetic datasets. gsmooth MAE=0.0651, 22.7% RMSE gain, p=8.79e-06. |
+| 2026-04-05 | it29_kalofolias_3syn — GO ✓: Kalofolias graph on 3 synthetic datasets. mean MAE=0.0659, 25.5% RMSE gain, p=3.66e-05. |
+| 2026-04-05 | it30_knn_k5_3syn — GO ✓: KNN k=5 on 3 synthetic datasets. mean MAE=0.0659, 27.4% RMSE gain, p=8.19e-05. KNN k=5 slightly outperforms k=3 (it22b). |
+| 2026-04-05 | it31_strong_tv_3syn — GO ✓: Strong TV (directed_tv, tv, trss) only on 3 synthetic. gsmooth MAE=0.0658, 26.0% RMSE gain, p=7.05e-10. |
+| 2026-04-05 | it32_3syn_mr20_only — GO ✓: 3 synthetic, mr=20% only (moderate missing). mean MAE=0.1252, 26.0% RMSE gain, p=7.81e-08. |
+| 2026-04-05 | it33_3syn_mr30_only — GO ✓: 3 synthetic, mr=30% only (high missing). directed_tv MAE=0.2026, 24.9% RMSE gain, p=1.23e-07. |
+| 2026-04-05 | it34_physionet_kalofolias_gaussian — NO-GO: Physionet with kalofolias+gaussian, mr=30/40%. n<5 per group → QA-04 fails. |
+| 2026-04-05 | it35_all4_kalofolias — GO ✓: All 4 datasets + kalofolias graph. mean MAE=0.0624, 25.0% RMSE gain, p=3.94e-03. |
+| 2026-04-05 | it36_3syn_beta_low_missing — GO ✓: Synthetic beta, mr=10/20%. gsmooth MAE=0.0657, 26.2% RMSE gain, p=2.05e-04. |
+| 2026-04-05 | it37_3syn_alpha_low_missing — GO ✓: Synthetic alpha, mr=10/20%. mean MAE=0.0589, 23.1% RMSE gain, p=5.09e-05. |
+| 2026-04-05 | it38_broad_gaussian_kalofolias_nnk — GO ✓: synthetic_broad + 3 complementary graphs (Gaussian, Kalofolias, NNK). heat_diffusion_temporal MAE=0.0813, 22.1% RMSE gain, p=3.55e-03. |
+| 2026-04-05 | it39_physionet_gaussian_nnk_knn — GO ✓: Physionet at mr=40%, best 3 graphs (gaussian, nnk, knn_k3). mean MAE=1.3e-05, 18.5% RMSE gain, p=5.97e-03. |
+| 2026-04-05 | it40_3syn_all_mr_analysis — GO ✓: KNN k=3 and k=5 on 3 synthetic, all 4 missing rates. mean MAE=0.0659, 24.7% RMSE gain, p=1.78e-03. |

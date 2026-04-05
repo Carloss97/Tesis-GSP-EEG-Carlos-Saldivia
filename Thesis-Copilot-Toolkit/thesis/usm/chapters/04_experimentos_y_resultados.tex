@@ -569,3 +569,288 @@ Benchmark en \texttt{physionet\_eegmmidb},
 
 \input{tables/it24_physionet_all_scenarios_tbl01_main_comparison.tex}
 % ── End it24_physionet_all_scenarios ──
+
+% ── Iteración it25_alpha_beta_two_bands ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it25\_alpha\_beta\_two\_bands}: Two-band analysis (alpha 8-13Hz + beta 13-30Hz) — no broadband EEG}
+\label{sec:exp_it25_alpha_beta_two_bands}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0624;
+    baseline instante MAE\,=\,0.0624.
+  \item Mejora RMSE familia (mr\,=\,30\%): 25.6\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=1.40e-06).
+\end{itemize}
+
+\input{tables/it25_alpha_beta_two_bands_tbl01_main_comparison.tex}
+% ── End it25_alpha_beta_two_bands ──
+
+% ── Iteración it26_synthetic_beta_all_graphs ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it26\_synthetic\_beta\_all\_graphs}: Synthetic beta (13-30 Hz) — all 8 graph topologies}
+\label{sec:exp_it26_synthetic_beta_all_graphs}
+
+Benchmark en \texttt{synthetic\_beta},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0657;
+    baseline instante MAE\,=\,0.0657.
+  \item Mejora RMSE familia (mr\,=\,20\%): 26.2\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=8.90e-04).
+\end{itemize}
+
+\input{tables/it26_synthetic_beta_all_graphs_tbl01_main_comparison.tex}
+% ── End it26_synthetic_beta_all_graphs ──
+
+% ── Iteración it27_synthetic_alpha_all_graphs ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it27\_synthetic\_alpha\_all\_graphs}: Synthetic alpha (8-13 Hz) — all 8 graph topologies}
+\label{sec:exp_it27_synthetic_alpha_all_graphs}
+
+Benchmark en \texttt{synthetic\_alpha},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0589;
+    baseline instante MAE\,=\,0.0589.
+  \item Mejora RMSE familia (mr\,=\,30\%): 25.4\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=4.46e-04).
+\end{itemize}
+
+\input{tables/it27_synthetic_alpha_all_graphs_tbl01_main_comparison.tex}
+% ── End it27_synthetic_alpha_all_graphs ──
+
+% ── Iteración it28_nnk_3syn ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it28\_nnk\_3syn}: NNK k=4 (non-negative kernel) graph on 3 synthetic datasets}
+\label{sec:exp_it28_nnk_3syn}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 1 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0651;
+    baseline instante MAE\,=\,0.0651.
+  \item Mejora RMSE familia (mr\,=\,20\%): 22.7\%.
+  \item Contraste significativo: rmse\_tv\_family\_vs\_instant (p=8.79e-06).
+\end{itemize}
+
+\input{tables/it28_nnk_3syn_tbl01_main_comparison.tex}
+% ── End it28_nnk_3syn ──
+
+% ── Iteración it29_kalofolias_3syn ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it29\_kalofolias\_3syn}: Kalofolias graph learning on 3 synthetic datasets}
+\label{sec:exp_it29_kalofolias_3syn}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 1 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0659;
+    baseline instante MAE\,=\,0.0659.
+  \item Mejora RMSE familia (mr\,=\,40\%): 25.5\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=3.66e-05).
+\end{itemize}
+
+\input{tables/it29_kalofolias_3syn_tbl01_main_comparison.tex}
+% ── End it29_kalofolias_3syn ──
+
+% ── Iteración it30_knn_k5_3syn ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it30\_knn\_k5\_3syn}: KNN k=5 graph on 3 synthetic datasets}
+\label{sec:exp_it30_knn_k5_3syn}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 1 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0659;
+    baseline instante MAE\,=\,0.0659.
+  \item Mejora RMSE familia (mr\,=\,20\%): 27.4\%.
+  \item Contraste significativo: rmse\_tv\_family\_vs\_instant (p=8.19e-05).
+\end{itemize}
+
+\input{tables/it30_knn_k5_3syn_tbl01_main_comparison.tex}
+% ── End it30_knn_k5_3syn ──
+
+% ── Iteración it31_strong_tv_3syn ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it31\_strong\_tv\_3syn}: Strong TV methods only (directed_tv, tv, trss) vs instant — focused comparison}
+\label{sec:exp_it31_strong_tv_3syn}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0658;
+    baseline instante MAE\,=\,0.0658.
+  \item Mejora RMSE familia (mr\,=\,20\%): 26.0\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=7.05e-10).
+\end{itemize}
+
+\input{tables/it31_strong_tv_3syn_tbl01_main_comparison.tex}
+% ── End it31_strong_tv_3syn ──
+
+% ── Iteración it32_3syn_mr20_only ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it32\_3syn\_mr20\_only}: Moderate missing rate (20%) on 3 synthetic datasets — single scenario deep-dive}
+\label{sec:exp_it32_3syn_mr20_only}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+1 escenario(s) (20\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.1252;
+    baseline instante MAE\,=\,0.1252.
+  \item Mejora RMSE familia (mr\,=\,20\%): 26.0\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=7.81e-08).
+\end{itemize}
+
+\input{tables/it32_3syn_mr20_only_tbl01_main_comparison.tex}
+% ── End it32_3syn_mr20_only ──
+
+% ── Iteración it33_3syn_mr30_only ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it33\_3syn\_mr30\_only}: Moderate-high missing rate (30%) on 3 synthetic datasets — single scenario deep-dive}
+\label{sec:exp_it33_3syn_mr30_only}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+1 escenario(s) (30\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{directed\_tv} MAE\,=\,0.2026;
+    baseline instante MAE\,=\,0.2039.
+  \item Mejora RMSE familia (mr\,=\,30\%): 24.9\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=1.23e-07).
+\end{itemize}
+
+\input{tables/it33_3syn_mr30_only_tbl01_main_comparison.tex}
+% ── End it33_3syn_mr30_only ──
+
+% ── Iteración it35_all4_kalofolias ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it35\_all4\_kalofolias}: Kalofolias graph — all 4 datasets including physionet}
+\label{sec:exp_it35_all4_kalofolias}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}, \texttt{physionet\_eegmmidb},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 1 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0624;
+    baseline instante MAE\,=\,0.0624.
+  \item Mejora RMSE familia (mr\,=\,40\%): 25.0\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=3.94e-03).
+\end{itemize}
+
+\input{tables/it35_all4_kalofolias_tbl01_main_comparison.tex}
+% ── End it35_all4_kalofolias ──
+
+% ── Iteración it36_3syn_beta_low_missing ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it36\_3syn\_beta\_low\_missing}: Synthetic beta band — low missing scenarios (10%, 20%)}
+\label{sec:exp_it36_3syn_beta_low_missing}
+
+Benchmark en \texttt{synthetic\_beta},
+2 escenario(s) (10\%, 20\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0657;
+    baseline instante MAE\,=\,0.0657.
+  \item Mejora RMSE familia (mr\,=\,20\%): 26.2\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=2.05e-04).
+\end{itemize}
+
+\input{tables/it36_3syn_beta_low_missing_tbl01_main_comparison.tex}
+% ── End it36_3syn_beta_low_missing ──
+
+% ── Iteración it37_3syn_alpha_low_missing ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it37\_3syn\_alpha\_low\_missing}: Synthetic alpha band — low missing scenarios (10%, 20%)}
+\label{sec:exp_it37_3syn_alpha_low_missing}
+
+Benchmark en \texttt{synthetic\_alpha},
+2 escenario(s) (10\%, 20\%),
+21 métodos, 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0589;
+    baseline instante MAE\,=\,0.0589.
+  \item Mejora RMSE familia (mr\,=\,20\%): 23.1\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=5.09e-05).
+\end{itemize}
+
+\input{tables/it37_3syn_alpha_low_missing_tbl01_main_comparison.tex}
+% ── End it37_3syn_alpha_low_missing ──
+
+% ── Iteración it38_broad_gaussian_kalofolias_nnk ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it38\_broad\_gaussian\_kalofolias\_nnk}: synthetic_broad with 3 complementary graphs: Gaussian, Kalofolias, NNK}
+\label{sec:exp_it38_broad_gaussian_kalofolias_nnk}
+
+Benchmark en \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 3 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{heat\_diffusion\_temporal} MAE\,=\,0.0813;
+    baseline instante MAE\,=\,0.0831.
+  \item Mejora RMSE familia (mr\,=\,40\%): 22.1\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=3.55e-03).
+\end{itemize}
+
+\input{tables/it38_broad_gaussian_kalofolias_nnk_tbl01_main_comparison.tex}
+% ── End it38_broad_gaussian_kalofolias_nnk ──
+
+% ── Iteración it39_physionet_gaussian_nnk_knn ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it39\_physionet\_gaussian\_nnk\_knn}: Physionet real EEG at 40% missing — best 3 graphs (gaussian, nnk, knn_k3)}
+\label{sec:exp_it39_physionet_gaussian_nnk_knn}
+
+Benchmark en \texttt{physionet\_eegmmidb},
+1 escenario(s) (40\%),
+21 métodos, 3 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,1.3e-05;
+    baseline instante MAE\,=\,1.3e-05.
+  \item Mejora RMSE familia (mr\,=\,40\%): 18.5\%.
+  \item Contraste significativo: rmse\_tv\_family\_vs\_instant (p=5.97e-03).
+\end{itemize}
+
+\input{tables/it39_physionet_gaussian_nnk_knn_tbl01_main_comparison.tex}
+% ── End it39_physionet_gaussian_nnk_knn ──
+
+% ── Iteración it40_3syn_all_mr_analysis ──
+% Agregado 2026-04-05
+\subsection{Iteración \texttt{it40\_3syn\_all\_mr\_analysis}: KNN graphs (k=3 and k=5) on 3 synthetic datasets — full missing rate comparison}
+\label{sec:exp_it40_3syn_all_mr_analysis}
+
+Benchmark en \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad},
+4 escenario(s) (10\%, 20\%, 30\%, 40\%),
+21 métodos, 2 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0659;
+    baseline instante MAE\,=\,0.0659.
+  \item Mejora RMSE familia (mr\,=\,30\%): 24.7\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=1.78e-03).
+\end{itemize}
+
+\input{tables/it40_3syn_all_mr_analysis_tbl01_main_comparison.tex}
+% ── End it40_3syn_all_mr_analysis ──
