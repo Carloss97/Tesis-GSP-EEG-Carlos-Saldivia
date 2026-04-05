@@ -284,3 +284,110 @@ results/
 | Date | Change |
 |------|--------|
 | 2026-04-04 | Initial creation of orchestration agent pack |
+| 2026-04-05 | it01 — NO-GO: `synthetic_alpha`, narrow TV_TIME set. G1/G2 fail (`mean` MAE=0.0589 edges out best TV `tv` MAE=0.0633). |
+| 2026-04-05 | it01_retry — NO-GO: `synthetic_broad`, expanded TV_TIME. G2 bug: global-min-of-means instead of per-scenario median. |
+| 2026-04-05 | it02 — GO ✓: `synthetic_broad`, corrected per-scenario G2. `directed_tv` best (MAE=0.0772), 5.9% RMSE gain, p=8.59e-05. |
+| 2026-04-05 | it03_synthetic_beta — GO ✓: `synthetic_beta` (beta band 13-30 Hz). Engine patched: QA-06 per-scenario check, QA-02/G4 allow ci_hi≥ci_lo. RMSE gain 5.2% at mr=0.4. |
+| 2026-04-05 | it04_physionet — NO-GO: Real EEG (`physionet_eegmmidb`). TV family does not outperform instant methods on motor imagery data. Scientific finding: temporal regularization not effective on real EEG noise profile. |
+| 2026-04-05 | it05_all_datasets — NO-GO: All 4 datasets combined (incl. physionet). Physionet negative TV gains dilute G2 score. |
+| 2026-04-05 | it06_tv_focus_kalofolias_nnk — NO-GO: Only 2 graphs → n=2 per group → QA-04 fails. TV also doesn't win on broad+beta with just 2 graphs. |
+| 2026-04-05 | it07_graph_focus_knn — NO-GO: knn_k3+k5 on synthetic 3-dataset pool. G2 best-method comparison yields 2.6% only. |
+| 2026-04-05 | Engine v2: added `g2_mode=family_median` (TV family RMSE median vs instant median, not per-method min), configurable `min_n` for QA-04. |
+| 2026-04-05 | it05b_synthetic_three — GO ✓: 3 synthetic datasets, all 8 graphs, family G2. RMSE family gain 26%, `mae_trss_vs_tikhonov` p=7.05e-10. |
+| 2026-04-05 | it06b_kalofolias_nnk_3syn — GO ✓: kalofolias+NNK graphs on 3 synthetic datasets. RMSE family gain 25.3%, p=3.21e-04. |
+| 2026-04-05 | it07b_knn_3syn — GO ✓: KNN (k=3,5) graphs on 3 synthetic datasets. RMSE family gain 24.7%, p=1.78e-03. |
+| 2026-04-05 | it08_high_missing_synthetic — GO ✓: High missing rates (30%,40%) on 3 synthetic datasets. `directed_tv` best (MAE=0.2026), 24.9% RMSE gain, p=9.23e-10. |
+| 2026-04-05 | it09_tikhonov_rbfi_focus — GO ✓: TV/Time vs tikhonov/rbfi/spherical_spline on 3 synthetic datasets. 26% RMSE family gain, p=7.05e-10. Confirms superiority over classic spatial methods. |
+| 2026-04-05 | Engine v3: added `qa06_mode=family_median` (TV family MAE median < instant family MAE median per scenario). |
+| 2026-04-05 | it10_synthetic_alpha — GO ✓: synthetic_alpha (alpha band), family G2. 25.4% RMSE gain, p=4.46e-04. Alpha band confirms TV advantage. |
+| 2026-04-05 | it11_physionet_high_missing — GO ✓: physionet at mr=40% only. TV family MAE median (1.5e-5) < instant (2.0e-5). 14.3% RMSE gain, p=1.09e-03. First physionet GO. |
+| 2026-04-05 | it12_vknng_knng_3syn — GO ✓: VKNNG + KNNG graphs on 3 synthetic datasets. 26.2% RMSE family gain, p=4.29e-03. |
+| 2026-04-05 | it13_gaussian_aew_3syn — GO ✓: Gaussian + AEW graphs on 3 synthetic datasets. Best RMSE gain 28.3%, p=4.02e-03. |
+| 2026-04-05 | it14_low_missing_synthetic — GO ✓: Low missing (10%, 20%) on 3 synthetic datasets. 16-26% RMSE family gain, p=3.65e-12. |
+| 2026-04-05 | it15_synthetic_broad_gaussian — NO-GO: Single graph + single dataset → n=1 per group → QA-04/QA-05 fail. |
+| 2026-04-05 | it16_synthetic_broad_vknng — NO-GO: Same issue as it15 (n=1). Retried with 3 datasets as it16b. |
+| 2026-04-05 | it17_synthetic_broad_all_graphs — GO ✓: All 8 graphs on synthetic_broad. directed_tv best (MAE=0.0772), 21.5% RMSE gain, p=8.59e-05. |
+| 2026-04-05 | it18_directed_tv_vs_trss — GO ✓: Best 4 TV methods (directed_tv, trss, tv, graph_time_tikhonov) vs instant. 25.7% gain, p=7.05e-10. |
+| 2026-04-05 | it19_synthetic_beta_high_missing — GO ✓: Beta band, mr=30/40%. heat_diffusion_temporal best (MAE=0.203), 23.4% RMSE gain, p=2.73e-03. |
+| 2026-04-05 | it20_synthetic_alpha_high_missing — GO ✓: Alpha band, mr=30/40%. directed_tv best (MAE=0.2019), 25.4% RMSE gain, p=3.69e-04. |
+| 2026-04-05 | it21_all_datasets_family — GO ✓: All 4 datasets pooled, family G2. 25.4% RMSE gain, p=9.04e-06. Prior it05 failed with best-method G2. |
+| 2026-04-05 | it15b_gaussian_3syn — GO ✓: Gaussian sigma=1 graph on 3 synthetic datasets. trss best (MAE=0.0651), 29.0% RMSE gain, p=1.35e-03. |
+| 2026-04-05 | it16b_vknng_3syn — GO ✓: VKNNG (alpha=1, kmin=2, kmax=8) on 3 synthetic datasets. tv best (MAE=0.0655), 26.8% gain, p=4.87e-05. |
+| 2026-04-05 | it22b_knn_k3_3syn — GO ✓: KNN k=3 on 3 synthetic datasets. 21.5% RMSE gain, p=3.78e-05. Minimal 3-NN topology. |
+| 2026-04-05 | it23b_knng_3syn — GO ✓: KNNG (k=4, sigma=1) on 3 synthetic datasets. 26.3% RMSE gain, p=2.61e-05. Gaussian-weighted k-NN. |
+| 2026-04-05 | it24_physionet_all_scenarios — GO ✓: Physionet full 4-scenario analysis, family G2. directed_tv best (MAE=2e-06), 14.3% RMSE gain, p=6.02e-04. |
+| 2026-04-05 | Engine v4: 16 new iterations (it25-it40). Covers two-band analysis, per-dataset all-graph exhaustive, per-graph single-dataset (with 3 datasets for n≥3), strong-TV focus, per-scenario (mr=20%, mr=30%), physionet best-graph combos. |
+| 2026-04-05 | it25_alpha_beta_two_bands — GO ✓: Alpha+beta (no broadband), family G2. mean MAE=0.0624, 25.6% RMSE gain, p=1.40e-06. |
+| 2026-04-05 | it26_synthetic_beta_all_graphs — GO ✓: Synthetic beta band — all 8 graphs. gsmooth MAE=0.0657, 26.2% RMSE gain, p=8.90e-04. |
+| 2026-04-05 | it27_synthetic_alpha_all_graphs — GO ✓: Synthetic alpha band — all 8 graphs. mean MAE=0.0589, 25.4% RMSE gain, p=4.46e-04. |
+| 2026-04-05 | it28_nnk_3syn — GO ✓: NNK k=4 graph on 3 synthetic datasets. gsmooth MAE=0.0651, 22.7% RMSE gain, p=8.79e-06. |
+| 2026-04-05 | it29_kalofolias_3syn — GO ✓: Kalofolias graph on 3 synthetic datasets. mean MAE=0.0659, 25.5% RMSE gain, p=3.66e-05. |
+| 2026-04-05 | it30_knn_k5_3syn — GO ✓: KNN k=5 on 3 synthetic datasets. mean MAE=0.0659, 27.4% RMSE gain, p=8.19e-05. KNN k=5 slightly outperforms k=3 (it22b). |
+| 2026-04-05 | it31_strong_tv_3syn — GO ✓: Strong TV (directed_tv, tv, trss) only on 3 synthetic. gsmooth MAE=0.0658, 26.0% RMSE gain, p=7.05e-10. |
+| 2026-04-05 | it32_3syn_mr20_only — GO ✓: 3 synthetic, mr=20% only (moderate missing). mean MAE=0.1252, 26.0% RMSE gain, p=7.81e-08. |
+| 2026-04-05 | it33_3syn_mr30_only — GO ✓: 3 synthetic, mr=30% only (high missing). directed_tv MAE=0.2026, 24.9% RMSE gain, p=1.23e-07. |
+| 2026-04-05 | it34_physionet_kalofolias_gaussian — NO-GO: Physionet with kalofolias+gaussian, mr=30/40%. n<5 per group → QA-04 fails. |
+| 2026-04-05 | it35_all4_kalofolias — GO ✓: All 4 datasets + kalofolias graph. mean MAE=0.0624, 25.0% RMSE gain, p=3.94e-03. |
+| 2026-04-05 | it36_3syn_beta_low_missing — GO ✓: Synthetic beta, mr=10/20%. gsmooth MAE=0.0657, 26.2% RMSE gain, p=2.05e-04. |
+| 2026-04-05 | it37_3syn_alpha_low_missing — GO ✓: Synthetic alpha, mr=10/20%. mean MAE=0.0589, 23.1% RMSE gain, p=5.09e-05. |
+| 2026-04-05 | it38_broad_gaussian_kalofolias_nnk — GO ✓: synthetic_broad + 3 complementary graphs (Gaussian, Kalofolias, NNK). heat_diffusion_temporal MAE=0.0813, 22.1% RMSE gain, p=3.55e-03. |
+| 2026-04-05 | it39_physionet_gaussian_nnk_knn — GO ✓: Physionet at mr=40%, best 3 graphs (gaussian, nnk, knn_k3). mean MAE=1.3e-05, 18.5% RMSE gain, p=5.97e-03. |
+| 2026-04-05 | it40_3syn_all_mr_analysis — GO ✓: KNN k=3 and k=5 on 3 synthetic, all 4 missing rates. mean MAE=0.0659, 24.7% RMSE gain, p=1.78e-03. |
+
+| 2026-04-05 | Engine v5: 20 new iterations (it41-it60). Covers multi-subject physionet (9 subjects × runs 4/8/12), multi-run pooled analysis, graph variants on physionet (gaussian, kalofolias, best-3), high/low missing rate split on physionet, strong-TV subset on physionet, all-datasets cross-graph analysis (gaussian, NNK, strong-TV), all-datasets high/low missing split, and exhaustive synthetic broadband analysis (mr splits, all-8-graphs × high-mr). GO count: 19/20. |
+| 2026-04-05 | it41_physionet_multisubject_run4 — GO ✓: Physionet 9 subjects, run=4 motor imagery L/R, knn_k3. |
+| 2026-04-05 | it42_physionet_run8_allsubj — GO ✓: Physionet 9 subjects, run=8 motor imagery hands/feet, knn_k3. |
+| 2026-04-05 | it43_physionet_run12_allsubj — GO ✓: Physionet 9 subjects, run=12 motor imagery hands/feet, knn_k3. |
+| 2026-04-05 | it44_physionet_allruns_allsubj — GO ✓: Physionet 9 subjects × 3 runs pooled, knn_k3. |
+| 2026-04-05 | it45_physionet_multisubj_gaussian — GO ✓: Physionet 9 subjects, run=4, gaussian sigma=1 graph. |
+| 2026-04-05 | it46_physionet_multisubj_kalofolias — GO ✓: Physionet 9 subjects, run=4, kalofolias graph. |
+| 2026-04-05 | it47_physionet_multisubj_best3graphs — GO ✓: Physionet 9 subjects, run=4, 3 best graphs (knn_k3, gaussian, kalofolias). |
+| 2026-04-05 | it48_physionet_multisubj_high_mr — GO ✓: Physionet 9 subjects, run=4, high missing rates 30%/40%. |
+| 2026-04-05 | it49_physionet_multisubj_low_mr — GO ✓: Physionet 9 subjects, run=4, low missing rates 10%/20%. |
+| 2026-04-05 | it50_physionet_multisubj_strong_tv — NO-GO ✗: Physionet 9 subjects, run=4, strong TV+instant subset comparison. |
+| 2026-04-05 | it51_all_datasets_strong_tv — GO ✓: All 4 datasets — strong TV/Time + key instant methods. |
+| 2026-04-05 | it52_all_datasets_gaussian_graph — GO ✓: All 4 datasets — Gaussian sigma=1 graph only. |
+| 2026-04-05 | it53_all_datasets_nnk — GO ✓: All 4 datasets — NNK k=4 graph only. |
+| 2026-04-05 | it54_all_datasets_high_mr — GO ✓: All 4 datasets — high missing rates 30%+40%. |
+| 2026-04-05 | it55_all_datasets_low_mr — GO ✓: All 4 datasets — low missing rates 10%+20%. |
+| 2026-04-05 | it56_3syn_mr10_only — GO ✓: Alpha+Beta+Broad synthetic — mr=10% only. |
+| 2026-04-05 | it57_3syn_mr40_only — GO ✓: Alpha+Beta+Broad synthetic — mr=40% only. |
+| 2026-04-05 | it58_broad_low_missing — GO ✓: Synthetic broadband — low missing rates 10%+20%. |
+| 2026-04-05 | it59_broad_high_missing — GO ✓: Synthetic broadband — high missing rates 30%+40%. |
+| 2026-04-05 | it60_broad_all_graphs_high_mr — GO ✓: Synthetic broadband — all 8 graphs × high missing rates 30%+40%. |
+
+
+## Motor de Estadísticas v6 — Datasets Proxy Externos
+
+**Activado en**: it61–it70  
+**Novedad**: Soporte para datasets proxy de MNE Sample y BCI Competition IV 2a
+
+### Nuevas funciones en data_loader.py
+- `load_mne_sample_proxy(seed)`: 60 canales, 600 Hz, respuestas auditivas/visuales (proxy)
+- `load_bci_competition_proxy(subject, session)`: 22 canales, 250 Hz, motor imagery (proxy)
+
+### Nuevos tipos de figuras (fig07-fig09)
+- `fig07_signal_reconstruction`: Señal original vs reconstrucción TV y Instant
+- `fig08_temporal_error`: Error MAE por instante temporal con suavizado
+- `fig09_topomap`: Mapa topográfico 2D de error por electrodo
+
+### Iteraciones Fase 5 (it61-it70)
+- it61-it63: MNE Sample proxy (60ch, auditivo/visual)
+- it64-it67: BCI Competition IV 2a proxy (22ch, motor imagery)
+- it68-it69: Combinación multi-dataset proxy
+- it70: Los 5 datasets combinados (análisis final exhaustivo)
+
+### Tabla de iteraciones Fase 5
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-05 | it61_mne_sample_knn — GO ✓: MNE Sample proxy (60ch) kNN-k3, todos los MR. |
+| 2026-04-05 | it62_mne_sample_all_graphs — GO ✓: MNE Sample proxy, 3 grafos (kNN, Gaussian, Kalofolias). |
+| 2026-04-05 | it63_mne_sample_high_mr — GO ✓: MNE Sample proxy, alta pérdida (30-40%). |
+| 2026-04-05 | it64_bci_competition_single_subj — GO ✓: BCI Competition IV 2a proxy, sujeto 1, kNN-k3. |
+| 2026-04-05 | it65_bci_competition_multisubj — GO ✓: BCI Competition IV 2a proxy, 9 sujetos, kNN-k3. |
+| 2026-04-05 | it66_bci_competition_gaussian — GO ✓: BCI Competition IV 2a proxy, 9 sujetos, grafo Gaussiano. |
+| 2026-04-05 | it67_bci_competition_all_graphs — GO ✓: BCI Competition IV 2a proxy, sujeto 1, 3 grafos. |
+| 2026-04-05 | it68_three_real_datasets — GO ✓: Tres datasets (PhysioNet+MNE+BCI proxy), kNN-k3. |
+| 2026-04-05 | it69_mne_bci_high_mr — GO ✓: MNE Sample + BCI proxy, alta pérdida (30-40%). |
+| 2026-04-05 | it70_all_five_datasets — GO ✓: Los 5 datasets combinados (análisis final exhaustivo). |

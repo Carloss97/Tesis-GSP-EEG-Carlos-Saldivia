@@ -1,0 +1,793 @@
+dataset,data_source,graph,graph_method,method,best_params,family,missing_ratio,n_missing,missing_indices,outer_n_times,mae,rmse,snr,seed
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,1.8938371573800503e-06,8.958095459037172e-06,1.2185676125002876,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.9657333287730345e-06,1.4716310393191424e-05,-3.5358313513132416,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.3868876305534223e-06,1.0387823052093809e-05,1.2416277043591695,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.6366078711883928e-06,7.169427354626653e-06,2.2353578395973415,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.7229114152446106e-06,1.1831666891563844e-05,-0.42914631835102135,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.6830719380357212e-06,7.20221475469056e-06,1.2988553720074192,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.4467351698600114e-06,1.006649597786607e-05,-0.1563322840174486,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,5.437296408831977e-06,2.4269928849803632e-05,-5.07279026337344,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.4616085420869697e-06,6.737839904436396e-06,1.8902974218635595,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.03840029195327e-06,1.0469182026503319e-05,18.714332406384184,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.080570648479129e-05,3.1256933615032804e-05,4.2446010278202415,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.8163411558577009e-06,8.047731962904744e-06,2.2030442232153433,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.8182598410604482e-05,2.7713234220906048e-05,8.448816733885625,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.1821429860808112e-05,3.350130128973887e-05,5.822265043657772,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.7737568677511063e-05,2.58886113528744e-05,7.756095003582043,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.6430711256500533e-06,7.492433809075123e-06,3.244703403984718,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.1880647294808624e-06,9.474880934325722e-06,-0.16762018126505662,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.112535369699969e-05,3.071461165241065e-05,5.728526971794125,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.1207146523049108e-06,9.387036271229667e-06,-0.5159695692361672,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.910530458925231e-06,1.1904723134518193e-05,31.65728246539861,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.4695067535571733e-06,1.1172243837669368e-05,0.962007617118096,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.0076736329979358e-06,1.0311237219229882e-05,5.734706957397819,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.593409674159028e-06,1.932502469050787e-05,2.770235248579219,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.001513690308349e-06,1.1874761049645985e-05,5.359253367704486,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.164785333790836e-06,1.3544622362078724e-05,3.699659418322068,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,7.144768046495119e-06,2.3074738272266024e-05,1.4719415468260681,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,5.7566408508046235e-06,1.7742085421994613e-05,2.84375179915999,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,6.1866853882006455e-06,1.899307277741253e-05,0.38500063616274627,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.1257432329343468e-05,3.865026865804354e-05,-3.8037367883898368,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.293483386697721e-06,1.6361052040545194e-05,1.6340592207210505,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,9.276665985432579e-06,1.7857148999113803e-05,18.387516900642176,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.675512699329687e-05,3.858039781392981e-05,6.969024058943642,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.681543382873577e-06,1.4174652985364587e-05,5.239349345273211,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.9717245440927495e-05,2.952741108620904e-05,6.58572440292128,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.4096662238478046e-05,3.643793374154858e-05,3.157251659262546,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.6111819646513437e-05,2.326386858973566e-05,9.346214461967149,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,4.495157265474976e-06,1.3770769617847769e-05,3.38525271608789,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,3.926450287793589e-06,1.1693668622036306e-05,4.9890017271484055,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.6868665392495942e-05,3.9036810535626894e-05,2.5393238272989147,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.032914122969458e-06,1.6067084429434764e-05,0.3938848377983373,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,7.0336281903176414e-06,2.2112013272633336e-05,26.003696088719302,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,6.144670287637407e-06,1.996731948077293e-05,-0.13822570198104167,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.03770569718369e-06,2.0495582792748616e-05,2.3921467236421408,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.92019405103939e-06,2.1019993187592986e-05,5.568246520719665,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.21697044138639e-06,2.186862730892945e-05,2.3614145687215102,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,9.361576621981668e-06,2.1958130050928995e-05,3.2502822912760476,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2436784553682172e-05,2.9641459178222886e-05,0.084027266748538,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.570926888270015e-06,2.154717616759966e-05,5.034448352991159,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.940989768629093e-06,2.3347456771246158e-05,1.0624505842700467,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.4344409230871777e-05,3.644849832213196e-05,-1.2427021620933378,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0358946442391559e-05,2.358687150036926e-05,3.0379642963815745,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2041105090430394e-05,2.144672561274517e-05,15.669050489106182,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.4395419997179324e-05,3.586336591769626e-05,6.173819370135512,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,8.5633786715217e-06,1.9438185141861243e-05,2.7698362732797106,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.0018345091052343e-05,2.9453947375934897e-05,8.937930263960892,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.992937209300469e-05,4.51448288521555e-05,4.614198656787985,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.242217326211338e-05,3.193638362640786e-05,7.102853842284306,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.0207009276700438e-05,2.324091702337817e-05,4.025071423332014,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.683422614985701e-06,2.290522891448609e-05,1.3732468381721699,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.885351461031832e-05,4.2694729893636154e-05,5.062310798884386,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.028618511280455e-06,2.2222267313350873e-05,0.08930246091054217,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.1008629826649046e-05,2.788277281360721e-05,21.77150863139035,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2538440754642816e-05,3.22303525476384e-05,1.7938989652925206,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5318275254434444e-05,3.3680862816252584e-05,3.424136459901124,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.330063496802505e-05,3.306213558489334e-05,3.5401898784519124,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4019559131847376e-05,2.908956917102526e-05,4.014050375411243,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.1514230168123403e-05,2.3578315023654573e-05,2.8263172615747245,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.444815939116778e-05,8.084055557263705e-05,-4.465919791029867,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.9205545433594483e-05,4.1314884391656105e-05,-1.157498967991153,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.8997974402529503e-05,4.194425030059541e-05,-3.611467502400816,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.357680866233602e-05,5.524418196502866e-05,-4.037089693775577,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7140317575415426e-05,3.51128298628013e-05,2.148575215707143,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.878180873535259e-05,3.3656939856226046e-05,11.258641703691337,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.580532593531488e-05,5.6280675486361686e-05,5.327032380662055,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.24901000676606e-05,2.4786446469123492e-05,3.260549011725857,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.6322587763717044e-05,4.0848008978470696e-05,4.5093207023635165,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.7424933740289943e-05,4.0344654748955105e-05,2.069704450349975,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.700847402467676e-05,3.851216829418532e-05,3.8648997480371454,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.775095834509412e-05,3.540506833373994e-05,-0.27697555913669936,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4176559125699439e-05,2.929174840452572e-05,1.0188577669814136,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.973457725089201e-05,4.3541566664620055e-05,2.2329639520164806,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5017490449703531e-05,3.196404365959811e-05,1.8644217732192518,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7064994786333394e-05,3.758683889038725e-05,19.935669041452115,1
+physionet_eegmmidb,physionet_subj01_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5509655421597123e-05,3.450055824817342e-05,0.712801751060908,1
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,2.0631664752001688e-06,9.759045100950795e-06,-0.2458757127113924,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.859745649437633e-06,1.4190387319858628e-05,-3.2565458691615583,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.109108289802657e-06,9.17891711018435e-06,-1.3054532041953415,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.8866093111040456e-06,8.264599383052642e-06,2.990832324524114,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.672673750203532e-06,1.1613372857153397e-05,1.6663808597983207,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.8575054268768707e-06,7.948651920359241e-06,2.916644712173829,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.6174302220312825e-06,1.0768779198907133e-05,-0.04444305198142029,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,5.2985025399772306e-06,2.365040821516946e-05,-6.320241919480404,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.5276213799006458e-06,7.04215116153331e-06,3.342985564819001,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,5.669808917977169e-06,9.830130290781682e-06,17.549605476446317,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.5916088430970846e-05,3.893438832467992e-05,4.139998065502608,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.874539017381417e-06,8.305591445329975e-06,3.1140077404703748,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.5102284890654052e-05,2.30183359382479e-05,8.104417576478491,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.4047668929032736e-05,3.691912983000019e-05,5.015342340162741,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.8536852696399038e-05,2.7055194761331582e-05,7.178360831165614,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.9009645689493074e-06,8.668432537036255e-06,3.2908914970381975,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,1.976704591568095e-06,8.559637379597215e-06,0.8096871882109027,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.359698526036974e-05,3.430817059138045e-05,5.415433890037113,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.1964005714337193e-06,9.722049030872416e-06,0.9560359065220099,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.5008444560333614e-06,1.0229015387994171e-05,30.480096086422417,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.8836454961525347e-06,8.521761180215618e-06,2.3154828107868846,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,2.951376265704859e-06,1.0118232398956741e-05,4.796130377312922,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.252867652083558e-06,1.8148464529866074e-05,2.176294946711388,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.503662115789801e-06,1.3364920280761528e-05,2.571301281645617,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,5.1869077247218854e-06,1.6868746100380705e-05,5.207755158751908,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,7.599630558178981e-06,2.4543761946466257e-05,2.5578643506191217,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,5.794422864816443e-06,1.7858530365736244e-05,2.230106455274841,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,5.868377277593851e-06,1.8015869520572297e-05,2.499511017648211,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.039087646231117e-05,3.567511268213767e-05,-1.4836408246282151,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.323732134996524e-06,1.645454460657869e-05,2.6712651165809214,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,1.0112660591808486e-05,1.9466399593233793e-05,15.794013565636018,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.4193584434801142e-05,3.4886700865721116e-05,6.150943146676557,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.850169826439778e-06,1.4685215662291001e-05,2.6906576759256313,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,2.1182335992358605e-05,3.17214463088386e-05,8.545547516950846,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.639751943547881e-05,3.991719079646152e-05,2.3982900110307064,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.759891046792726e-05,2.5411080153009316e-05,5.955546643991484,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,4.948132725620265e-06,1.515844536216686e-05,2.4658607244114985,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,3.7971482544038136e-06,1.1308584125916237e-05,3.720703659221468,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.141071899541912e-05,3.110709700859029e-05,5.6526525243756485,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,4.943616004451129e-06,1.578200894939118e-05,1.5333568635730916,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,5.950872918549891e-06,1.870809451370602e-05,28.600699261152847,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,6.1394607063402224e-06,1.9950390765438728e-05,1.960021484047791,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0106240397424089e-05,2.5770200426895826e-05,5.429254512217592,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.096902679959243e-06,1.907994805937156e-05,4.237191182498684,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.045240783632278e-05,2.479988548374842e-05,1.9818795553538067,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,8.300258968554946e-06,1.946874690529838e-05,6.170692285560662,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2256044834427177e-05,2.9210689553883428e-05,0.0020508189936949694,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.28301637520393e-06,2.333735800231575e-05,1.9830931046897335,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.722952165907311e-06,2.0486767751623435e-05,2.3367856020720374,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.3901879916376234e-05,3.5324051248900715e-05,2.23232327624963,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.025621495485207e-06,2.0550948458792433e-05,2.2457108921278546,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2938133773065898e-05,2.3044446742057086e-05,14.037115752634271,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.3142727966212392e-05,3.4021800874178104e-05,3.9468592811859957,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,8.58671162155267e-06,1.949114907350613e-05,1.860522171724567,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.0519411548881198e-05,3.019119039046029e-05,6.959892858449715,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,3.1557122202210905e-05,4.760009252644313e-05,1.7935997758214635,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.2402106112500917e-05,3.190780155361677e-05,7.969181101845623,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.632927676428166e-06,1.9656801552506355e-05,3.895642479317102,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.103775328758324e-06,2.1534127568547544e-05,3.253041614192056,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.892852051643984e-05,4.2805716612083985e-05,3.254869446945004,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.062973242395454e-05,2.6163111787188603e-05,3.793122179624108,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.3019672083407351e-05,3.297636168404198e-05,20.424774738175035,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2322952921123045e-05,3.167643607748263e-05,0.10814271855041435,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3927809993481685e-05,3.0623595015077805e-05,3.3135824589028395,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4650104932023383e-05,3.641658888916885e-05,3.640531301929506,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2480761675721002e-05,2.589667596951933e-05,3.2007573891114354,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.34686006952982e-05,2.7580385790855805e-05,0.7451676809943257,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.444152453005676e-05,8.082498533992091e-05,-4.0768688966343785,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.862132047631e-05,4.0058102247541226e-05,1.169845824538318,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.8967812366948694e-05,4.187765772903113e-05,0.14518377380751302,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8723698329988473e-05,6.730415638421053e-05,-3.1103204814041816,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.786563857458466e-05,3.6598687562210296e-05,-1.1380449325342514,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.8848078291823264e-05,3.3775694684787045e-05,13.669761584836674,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.4247533634791e-05,5.383205644294544e-05,5.259753319796069,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2452820255648647e-05,2.4712465151135027e-05,1.8248760043358925,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.0852353807183375e-05,4.7877406151530243e-05,7.2607300943138195,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8912979723935616e-05,4.253371022778593e-05,4.630123953089737,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.120419019602378e-05,3.0235671242479824e-05,5.5336809475732505,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5092199033800489e-05,3.01020557713036e-05,0.311527805766894,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.346905413911349e-05,2.782989451753744e-05,1.0652670821685315,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.1217211032091104e-05,4.5712648401501353e-05,4.184563739049717,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.329502272655135e-05,2.8297849651386046e-05,1.530872299607362,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6786199307105923e-05,3.6972772440775234e-05,21.287815493591154,2
+physionet_eegmmidb,physionet_subj02_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.465499814092407e-05,3.259941006063685e-05,0.6802734311661119,2
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,1.9569723251989095e-06,9.256732993916934e-06,-0.8069341680786062,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,3.416679077187186e-06,1.6953955140198455e-05,-2.631862563231958,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.3307889166625634e-06,1.014367937901559e-05,1.356520340475301,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.6455094940999593e-06,7.208422363709931e-06,1.6634315052142168,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.357850815204298e-06,1.0245395891071754e-05,2.2883699372367765,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.7773842329887798e-06,7.605796673507644e-06,1.9479920139476112,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.0656221421629355e-06,8.498499241772857e-06,1.1004903816004918,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,6.5289810302802075e-06,2.9142774855759183e-05,-6.620116221048297,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.7321433706887378e-06,7.98497298501495e-06,1.2682838891259824,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.824127610321993e-06,1.1831450495216845e-05,17.76478782462128,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.3653461864114322e-05,3.553518780017279e-05,3.8231898228480814,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.8112537947325615e-06,8.025191198136193e-06,0.8842017044427859,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.759825839356573e-05,2.6822605093476252e-05,8.254380174941568,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.8322792071680903e-05,4.34825030537605e-05,4.928010863003843,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.4190271486893592e-05,2.0711205137248394e-05,8.049291168865448,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.5827517251974273e-06,7.217376260902585e-06,1.3617790018539924,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.318480306617311e-06,1.0039613800177636e-05,0.5429105697372778,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,1.9014201911180207e-05,2.764516210989493e-05,2.9981680529137176,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.9607753108085505e-06,8.679087939665511e-06,-0.776225627213448,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.4434751615727925e-06,9.994362091416776e-06,31.313985726059475,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.021631777131725e-06,9.1460220270961e-06,1.3102547453971898,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,2.9942895089722904e-06,1.0265352294653652e-05,5.239972829370487,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,4.962954416131344e-06,1.714682496308002e-05,4.020882353732667,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,5.1325382326256035e-06,1.5231152460684159e-05,2.052239427181374,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.6738383110379875e-06,1.5200153148542737e-05,2.4705907238831855,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,6.3067427059013256e-06,2.036825217308268e-05,2.2965136859155977,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,5.53134045097586e-06,1.7047704958983314e-05,2.2691132022079197,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.4377015622076115e-06,2.2833682045171835e-05,0.43605340334017173,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.0224148747963952e-05,3.510268455077201e-05,-3.2693666598171003,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.691583474193267e-06,1.759149630060048e-05,1.6264173326077578,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.167927801559642e-06,1.572287974963164e-05,17.9122479273015,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.838790260239226e-05,4.093483001511367e-05,3.214773198137592,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,5.429806291816035e-06,1.6440223590750822e-05,1.3139813482978622,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.7781542853041607e-05,2.6628614384388572e-05,5.932620420579768,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.6680170371370747e-05,4.034460335559891e-05,2.1426548914704435,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.9352603750445038e-05,2.7943239211779826e-05,8.418294750662714,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,5.5208568610126225e-06,1.691296731930596e-05,1.4969926154763482,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.481825925229731e-06,1.3347676234235024e-05,2.7282611781469175,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.1630760030874754e-05,3.142678911408444e-05,3.0197412890711246,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.345106796098505e-06,1.706372890117788e-05,3.3378600677941055,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,7.230058302672235e-06,2.272954168528227e-05,29.00997165210579,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.4095691699816995e-06,1.7578582871676797e-05,1.8330922790191355,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.947594786537364e-06,2.2815735814723677e-05,4.866224414894676,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.560405061204248e-06,2.017216834521476e-05,5.764805610991736,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.31351036147482e-06,1.9725034476368532e-05,2.771608879987299,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,9.15341714473681e-06,2.1469879721177548e-05,3.469814998112421,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.1600998437961552e-05,2.764947162517619e-05,0.2621085453273848,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.33243695198638e-06,2.34616005595231e-05,4.576013267492044,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.205986651264407e-06,2.1621224886011087e-05,3.3860037471744127,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.5542392447786875e-05,3.9492519764137255e-05,0.28749818296398366,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0174791298645032e-05,2.316755822987043e-05,5.432319920204369,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2540297950175559e-05,2.2335851005339306e-05,15.657483441735732,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.718984330464304e-05,3.99714085591469e-05,6.403836370102006,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,9.595269630697566e-06,2.178049514356399e-05,2.1196232625005615,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.2819550646684516e-05,3.357549491892559e-05,9.010038246991215,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.946253589204393e-05,4.444066304711044e-05,2.5310485888496435,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.8709357863224744e-05,2.664814079968349e-05,8.310996953362032,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.689430957918574e-06,2.2062413660265973e-05,3.2265785036535597,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.711431521696657e-06,2.297148135903665e-05,2.7683741799333634,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.573319177570303e-05,3.8077568261714765e-05,5.576605943301575,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.682034109014963e-06,2.3830528428983046e-05,1.0297181930076058,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2461044524502622e-05,3.1561463957655096e-05,21.164546938390746,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2325471039080343e-05,3.1682908958051146e-05,-0.625775710354261,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2963303093362816e-05,2.8502897740178758e-05,1.38113814152104,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6362302097149105e-05,4.067269357571542e-05,3.805276616177557,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.278306965292712e-05,2.6523943113313696e-05,2.539307967400365,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5314244996759014e-05,3.135981195535365e-05,4.343487120416937,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.145607107910462e-05,7.381892986767715e-05,-3.4658676441567144,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.2125445613649915e-05,4.7596160744430234e-05,-1.2101622488291297,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.158038758596813e-05,4.764577313932948e-05,-1.4523628677002733,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.986634116316771e-05,6.998154879559448e-05,-2.775837728638426,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5669679097569613e-05,3.210015063821362e-05,-1.0032070484911557,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.0054810685206067e-05,3.5938155188934125e-05,10.824419606676383,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8979916471059583e-05,4.5552141529897475e-05,3.20975584734423,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.617894476523542e-05,3.210691236883936e-05,0.34588684563293115,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9170364220078898e-05,4.526725526619662e-05,6.319293177560439,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.0017653112267038e-05,4.4158788592045214e-05,1.8875293692111081,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.7996156233737093e-05,3.992053306969061e-05,6.918849337689577,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4727632159954791e-05,2.9374911082561083e-05,0.7796804798183268,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3125860766028117e-05,2.712078493393661e-05,2.3260770280474694,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8237299941158174e-05,4.134904180552715e-05,1.1787604975471666,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2264052935802626e-05,2.6103477461599202e-05,2.9017828645983004,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.673768686594545e-05,3.686592041222739e-05,19.68409380383563,3
+physionet_eegmmidb,physionet_subj03_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.379121260100456e-05,3.0677956454876845e-05,0.5923677163849704,3
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,2.3327802253686678e-06,1.103435311867902e-05,0.8257368671882981,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.811368274938523e-06,1.3950333215118504e-05,-0.7264885544206128,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.0638570945061097e-06,8.981982238337332e-06,-0.6514628580002024,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.8411199472971765e-06,8.065325815472451e-06,2.0028909369828676,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.5058216870810863e-06,1.0888362847653102e-05,-0.46210863546441416,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.7103353814056935e-06,7.318880697283631e-06,4.198936190987169,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.2956500505198162e-06,9.4448930496503e-06,-0.5394497799248272,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,5.153524635422211e-06,2.300328450445386e-05,-5.610974164781627,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.7961237412426714e-06,8.279914812053937e-06,3.619709903140733,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.605877246240036e-06,1.145305511259051e-05,19.320654663768515,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.5050684811613272e-05,3.763427080642877e-05,4.460760416736777,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.7630060584348805e-06,7.81141811465547e-06,3.495499456337348,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.7992788893808572e-05,2.7423933677741978e-05,8.54493959628916,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.2945037861764184e-05,3.522631795508568e-05,4.708113989952955,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.4697007256529604e-05,2.1450803987418832e-05,7.3287322846895115,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.53462112866683e-06,6.997899877277299e-06,2.0759049610624642,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.236931780651835e-06,9.686487787275825e-06,-1.1265772407404744,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.20902291692514e-05,3.211746510746815e-05,6.056020225992936,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.933380819736352e-06,8.557830192402287e-06,1.3852199380673889,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.489437265152788e-06,1.0182357415816143e-05,31.235040597496884,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.4796993765540887e-06,1.121835607012346e-05,2.5812924546655522,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.488014478916826e-06,1.1957994485050093e-05,6.926456840667864,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,4.470861661985201e-06,1.544666259738954e-05,3.766060503742106,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.919750501751778e-06,1.4599690555519882e-05,5.46535170184673,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.781227055421189e-06,1.5549400437906466e-05,2.4935281020429754,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,6.780106866023034e-06,2.1897028759138212e-05,1.897640267476358,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,6.9535260262128845e-06,2.1430910132927255e-05,-0.030993161720533235,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.063857807764962e-06,2.16859848228349e-05,0.9960551803740496,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.0609144316947993e-05,3.6424494155134715e-05,-3.1540299547215014,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,4.779014384035471e-06,1.4770935757766893e-05,4.502265471379636,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.363848396880536e-06,1.6100017750302813e-05,18.305366173934456,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.185748209683031e-05,3.1518084541995704e-05,4.773929373220605,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.3296827862944645e-06,1.3109298795979525e-05,2.546766835169644,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,2.010200673142135e-05,3.010360743313335e-05,8.212974347227052,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.7944588804689385e-05,4.2256602396747736e-05,2.0883164337120648,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,2.058529936382069e-05,2.9723129341503345e-05,9.318376278272362,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,5.104831444892328e-06,1.5638486845716463e-05,4.459502672833164,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.759111641260317e-06,1.4173482506879264e-05,4.469092036189446,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.454300137742285e-05,3.5657911576570705e-05,2.6851908930662702,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,4.659444907121204e-06,1.4874820608472067e-05,3.030134149517716,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,5.6965202340186465e-06,1.7908471647085484e-05,28.37819447646391,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.722932190703205e-06,1.8596866889420595e-05,0.8901070953405424,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.973435277185227e-06,2.2881627243874174e-05,5.353974225319879,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.246690742845434e-06,1.943291617233358e-05,6.102475338347116,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.04972006572843e-05,2.490616308482703e-05,0.9722948467399513,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,7.844891521789513e-06,1.8400655704340152e-05,2.6884461715580534,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0087290195730068e-05,2.4041744814747545e-05,1.802719062039005,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.582039674624444e-06,2.157511353871637e-05,2.212298225789192,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0974087910591848e-05,2.5773796076618612e-05,3.98730649328915,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.3186848069630328e-05,3.350718750450202e-05,1.6555853631637176,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.307562002159634e-06,2.11929147570701e-05,3.3858374715169566,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.3964810718066917e-05,2.487308776520269e-05,14.99556911705343,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.383218803582307e-05,3.503536648464708e-05,6.7934209272640445,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,9.620018041603662e-06,2.1836672058262318e-05,5.530789657353732,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,1.9848243850604013e-05,2.920366929540636e-05,8.985742981965688,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,3.140745165825565e-05,4.7374332658508965e-05,4.546137422436498,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.9726357080060874e-05,2.8096674657528357e-05,4.758980874117908,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.52657909068671e-06,2.169160702819231e-05,4.115450256553656,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.0260975312316083e-05,2.4271375706639792e-05,4.532278504839129,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.839933875612077e-05,4.2022682980770936e-05,4.757309433424547,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.051241000641849e-05,2.587434445018381e-05,1.446385521832684,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.288218735816866e-05,3.26281389333876e-05,23.173731082025785,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.0499997473861035e-05,2.6990486851927097e-05,2.340449292971987,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3327179411391093e-05,2.930296616472581e-05,2.109750779394769,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.319581634532979e-05,3.280158204562972e-05,1.4375760907465347,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3639413163123862e-05,2.8300793835918705e-05,3.688785516203135,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.200503383142939e-05,2.4583360364873275e-05,1.8898964737500434,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9437141298313886e-05,6.908104523099866e-05,-3.6132411301043432,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.2385103805097734e-05,4.81547362974186e-05,-2.3631842409503223,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.490711740046227e-05,5.499061870365537e-05,-0.4415709063383968,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.4869471701181308e-05,5.827309538415128e-05,-0.7118875553954798,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7813395893115098e-05,3.649166571865658e-05,1.5577749567239518,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.2012304624550067e-05,3.9445977929212455e-05,13.207739401326691,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.336182661278495e-05,5.24398560319907e-05,3.1541531111913548,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3622447327059186e-05,2.7033575361406146e-05,2.23527059294919,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.7288136272503048e-05,4.234636979732622e-05,7.527924024523028,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.6894419917475067e-05,3.956421906135413e-05,4.89180934998641,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.1060341244199003e-05,3.0030552840138528e-05,6.013297678061349,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4059082401656215e-05,2.8041459140592653e-05,0.6504330589183454,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.430396385137547e-05,2.955499332432327e-05,3.8432725180296496,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.1520919364555415e-05,4.615738102685585e-05,3.2275215017162426,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5410840249571493e-05,3.280127077278211e-05,1.3307811991764815,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5466392978038857e-05,3.4065807130895065e-05,20.21174222697916,4
+physionet_eegmmidb,physionet_subj04_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5043045783082808e-05,3.346260527145509e-05,-1.2670943007552524,4
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,1.954255762706414e-06,9.243883300883196e-06,0.4363000218953266,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,3.226334554455176e-06,1.6009443693066078e-05,-4.089679287097697,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.3805070535121563e-06,1.0360054545346151e-05,-0.9772612777856975,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,2.024826652645473e-06,8.870082960869809e-06,2.554994307301548,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.1901468664411957e-06,9.51668424549416e-06,-1.3148926656021072,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.8332180979518516e-06,7.844721390247768e-06,2.2208435159714317,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.0516837577222295e-06,8.44115315354936e-06,1.3049309987310198,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,6.7007440070881695e-06,2.990945647704957e-05,-7.021706813309777,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.4422378706007614e-06,6.648543434446459e-06,1.335072504115308,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.4533520704474705e-06,1.1188611923700781e-05,18.92811707010083,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.5551402501798702e-05,3.8386511525264205e-05,7.178777226668522,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.6034075377015073e-06,7.104278868046386e-06,2.7484472906731527,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.7068970105520603e-05,2.601588374563951e-05,8.42693320290164,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.3038973597111238e-05,3.537053258225761e-05,3.5056869638157484,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.4301199988860915e-05,2.0873109224984476e-05,7.31205380864185,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.631775946233006e-06,7.440927588301892e-06,2.579422198163898,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.2047449965509395e-06,9.547110764783815e-06,-0.442954675843807,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.403335938410278e-05,3.494262443001724e-05,5.994359521904896,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.8200595627518472e-06,8.056230060362486e-06,-0.8421626368856034,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.2865800832449244e-06,9.352625990379187e-06,29.627370769525243,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.458850694197716e-06,1.1124034982463345e-05,0.553303021923734,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.215393034034015e-06,1.102336369319988e-05,5.87670103413901,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.631199888433578e-06,1.945558849084761e-05,4.662814060857791,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.1289487853467344e-06,1.2252933266471049e-05,5.702293919852313,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.7484562137720695e-06,1.5442823834540262e-05,2.7016879056970504,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,8.128960098379592e-06,2.6253284287908777e-05,2.2134092436860255,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,6.7354347364156625e-06,2.0758748295206482e-05,0.5267183587882551,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.636413527461202e-06,2.3443726128713275e-05,0.8110632346360171,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,9.934404958939923e-06,3.410790395070676e-05,-1.3898260310524477,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.251000838271377e-06,1.6229747352338354e-05,4.108520076662442,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.909623728238433e-06,1.7150609787075835e-05,18.308065129703696,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.6181662291981994e-05,3.7753472331030126e-05,6.778331445620303,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.471593548361232e-06,1.3538972440475451e-05,2.9589556567568263,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.8628811842813863e-05,2.7897435621947075e-05,6.86374221643794,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.5658606574958597e-05,3.8799838626026064e-05,2.052876842119964,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.9972065544872008e-05,2.883768056589649e-05,8.235819167138509,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,4.522317002780969e-06,1.3853972599019235e-05,2.894966757840071,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.461299699659339e-06,1.3286545476861748e-05,2.0505835075506784,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.2156498798119588e-05,3.219062179234997e-05,4.87547630638589,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,4.966109240390062e-06,1.585381639773858e-05,1.0220878718220043,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,6.447413083820786e-06,2.0269095810302812e-05,26.90406355918168,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.6324079939735985e-06,1.8302705368585703e-05,-0.7803099601060036,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.093903643423986e-06,2.063888359316907e-05,3.3730904881504515,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.914843886459799e-06,2.1007385791120215e-05,6.6616470470773095,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.829032837631224e-06,2.09481878945263e-05,3.0230628657396124,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,9.195417832927985e-06,2.156839481225364e-05,3.3890658929877002,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.674835046488716e-06,2.3058711586479097e-05,3.5719466736920795,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.14319185963771e-06,2.0471856994406498e-05,4.891695956116294,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.12871240067994e-05,2.6508994169982443e-05,2.1935019807099043,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2882536686298805e-05,3.273394597421345e-05,0.2651416927289424,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.099045697156561e-05,2.5024793569528998e-05,4.912121175055701,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2381583235428973e-05,2.2053160096796335e-05,13.953521881656336,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.5681342622186234e-05,3.775378279298677e-05,5.6733815565192085,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,1.08052171124283e-05,2.4526979219998204e-05,4.555662003787889,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,1.971940869320998e-05,2.901410797408864e-05,7.792825349002431,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.8201449468906853e-05,4.2538467085117415e-05,5.037269095649547,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.1021100191090092e-05,2.9940805117502352e-05,4.847832239776785,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.707914163450334e-06,2.210449911688158e-05,3.6664259664297907,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.142263338607137e-06,2.1625167349738725e-05,4.561043356872032,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.8985302894635634e-05,4.288973785984285e-05,1.979571175337886,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.846514601383781e-06,2.1774052366681655e-05,3.5513166359576833,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2586192209384682e-05,3.187843932340573e-05,21.21443234534051,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2054524645192448e-05,3.098643497317511e-05,1.5020647084392187,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5368076252534976e-05,3.379036212719171e-05,2.081092778959178,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5663426669631137e-05,3.893545966191377e-05,3.1470702977658265,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4083506115149524e-05,2.9222254527002006e-05,4.323856885391511,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2934790905983904e-05,2.6487274467616172e-05,3.4710663750314974,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.3655691569381353e-05,7.898084695194721e-05,-5.477843833290155,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7496186219344496e-05,3.763771841036521e-05,-1.9007975382097002,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.111013740821342e-05,4.660754186573556e-05,-1.1746579614055364,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.345547388479849e-05,5.495987544055498e-05,-0.6063000883412903,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.8289080427760413e-05,3.746613016833069e-05,0.4461168987196703,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.1367957075360415e-05,3.829130922742964e-05,12.809172320411946,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.316264661425511e-05,5.212677454012315e-05,2.688729449141893,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2670610025429663e-05,2.5144666209649925e-05,2.909385196893143,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8713570106309706e-05,4.455839144824495e-05,5.326615668721481,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8229800210167826e-05,4.152868896226403e-05,2.142156788701313,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.1690596507252576e-05,3.092925214232193e-05,4.002780189533082,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.563387207287096e-05,3.1182446507961194e-05,1.139432945101778,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2191693034513668e-05,2.5190598213976962e-05,2.1082893669884766,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.489269727639501e-05,3.645140231108698e-05,3.720462393953412,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4391770686362006e-05,3.063222767468987e-05,0.36279962072843164,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7791060322452135e-05,3.9186048774225795e-05,19.585610623497505,5
+physionet_eegmmidb,physionet_subj05_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6552060109236534e-05,3.681934242915487e-05,0.05736378161489564,5
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,2.0292926924974467e-06,9.598817714014604e-06,0.10537342956070006,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.6760165415499565e-06,1.3278702323197853e-05,-3.945397029230491,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.192060402334279e-06,9.539927765125014e-06,-1.8426350036403552,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.7605332821809486e-06,7.712302802768198e-06,0.5707078850014331,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.7963273412347024e-06,1.2150675720124078e-05,1.4707479065981568,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.6606029780958617e-06,7.1060654035283796e-06,2.9207882306775397,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.3180107455528406e-06,9.536890683634165e-06,2.2203078245269023,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,5.59522061029036e-06,2.4974839681376332e-05,-5.164538658721392,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.5231893589077335e-06,7.021720076845815e-06,2.9673292644976934,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,5.309790912493296e-06,9.205942782502048e-06,18.913042582466524,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.2578378126858485e-05,3.392006259254906e-05,3.9523422964040966,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.8843828561830307e-06,8.349206916964222e-06,3.005448198364871,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.761596828529082e-05,2.6849597845904757e-05,7.034117758834688,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.2343701632219107e-05,3.430311785633289e-05,3.6523282695593027,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.547589535768553e-05,2.2587618829679024e-05,6.211816964782547,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.7091897962521144e-06,7.793936133165928e-06,3.1705497125811526,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.4051433783002982e-06,1.0414887106554663e-05,1.2448197007677595,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,1.969334900125243e-05,2.863258884961364e-05,4.874820524666782,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.9451173542817607e-06,8.609780262797922e-06,1.7659133032354637,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.963704332919147e-06,1.2122216219308335e-05,31.45480882428507,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.1761171666732705e-06,9.844926145835344e-06,1.159304787108666,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.4829820617536573e-06,1.1940741799590393e-05,8.472682010271665,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.048634587731729e-06,1.7442846804518504e-05,3.5975782999522345,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.4558191525202745e-06,1.3222943068960751e-05,5.411975810403148,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,5.137499613539036e-06,1.6708062138553034e-05,3.4118198030618334,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,6.253876518780454e-06,2.0197515569272967e-05,1.7240964077709897,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,7.1089594609675115e-06,2.1909959173560937e-05,1.3326220950252703,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.664193103208692e-06,2.35290091956208e-05,2.128577493349352,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.0379017551175928e-05,3.563439734955031e-05,-2.427516910424682,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.698734193790881e-06,1.7613597682038243e-05,1.859487252945133,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.816462271359189e-06,1.697127833124035e-05,16.591108855028043,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.1888944443158338e-05,3.156345266294684e-05,5.205620611484752,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,5.567926963249845e-06,1.6858421699272483e-05,2.0748125616542836,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,2.0683067044602016e-05,3.0973769889880644e-05,6.2375655167833335,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.562034231642699e-05,3.874197706398708e-05,2.8143252291583987,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.7243579040420353e-05,2.489801683572517e-05,5.6180447066873835,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,4.744902124704583e-06,1.4535854956709511e-05,1.460686207733981,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.04823376627832e-06,1.205636152189716e-05,4.477334068338909,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.2570382589749506e-05,3.279194317998154e-05,5.121013198120589,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,4.889206031735965e-06,1.5608310451054394e-05,0.9679879336493626,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,7.2512453373036145e-06,2.2796148559899513e-05,29.253718972686535,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,6.396644847510388e-06,2.0786119563201022e-05,2.3171962302782125,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.013404995981542e-06,2.0433617718114824e-05,2.5984113524023846,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.538087676049874e-06,2.2476028752969962e-05,4.361122617166833,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.061370625451157e-05,2.5182589867506853e-05,1.2039341365202945,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,7.458607484974237e-06,1.749460371550409e-05,6.006231456274284,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.868617257928194e-06,2.3520566295391648e-05,3.3200925618625394,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.190656153965982e-06,2.0591181488115782e-05,4.234771156611655,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.966247035427739e-06,2.3406776110513776e-05,2.3782663761923537,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.5640295934835447e-05,3.9741288118831207e-05,0.7733122126308886,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0658772036249499e-05,2.426956136600162e-05,2.4052043655006172,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.111227165162514e-05,1.979235620458923e-05,15.796641127357118,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.5114343464241498e-05,3.692024525689398e-05,3.5447999541910375,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,8.290960280069082e-06,1.8819817166763503e-05,2.1245191055762045,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.382202519078422e-05,3.505048360222212e-05,7.3697117572062645,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.836233446269798e-05,4.278114259087178e-05,3.8649728849586658,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.764580426950612e-05,2.5133298541567733e-05,6.425589055941138,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.0894972515617165e-05,2.480737945300445e-05,2.155872987801752,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,7.939607690181397e-06,1.8780398095336836e-05,2.6190781075966445,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.696546996714444e-05,3.9900978173746586e-05,3.900832213605563,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.79760559702478e-06,2.1653671937766913e-05,0.5805915951629514,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.2602709150239491e-05,3.1920273604027603e-05,21.771566885258263,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.603487031845501e-06,2.468598598341995e-05,1.9283244222790286,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.576742672379022e-05,3.4668428894797296e-05,1.6977419490219525,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3264597092244646e-05,3.297255421241694e-05,1.2266697498562666,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.1966082379541247e-05,2.4828753729860233e-05,2.607877514997271,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3542653785444856e-05,2.7732028329041886e-05,1.712459195880709,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8644544027331073e-05,6.722103282789666e-05,-4.789005276445467,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7769513057999916e-05,3.822569789677087e-05,-1.2596311851769637,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.943890249949498e-05,4.2917743477911346e-05,-1.031832508933186,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.3096233836894493e-05,5.411811933777768e-05,-1.005125503545409,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.52979993892025e-05,3.133874547136485e-05,0.8146415392031515,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7343810148080847e-05,3.1080051088636624e-05,10.727062498187072,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8481687976402637e-05,4.476900004205001e-05,5.285508858865297,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.554682099227429e-05,3.085247069299327e-05,0.77160968985366,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.6487551374964616e-05,4.1104003378939555e-05,7.134359562119473,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.3236042510016684e-05,4.8893341839448405e-05,2.1627957207757853,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.2868095639094573e-05,3.260828238632323e-05,5.806338336040952,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7792382560433583e-05,3.5487690755935565e-05,1.2432290123438663,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.310825885509038e-05,2.7084415689322628e-05,4.417329850952289,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.6247163634164878e-05,3.8434803208775964e-05,3.970762999336359,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4987912570078627e-05,3.190108849149893e-05,2.303097795012338,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.677655916664499e-05,3.6951539360371604e-05,21.86840663773195,6
+physionet_eegmmidb,physionet_subj06_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5279497756789695e-05,3.398858246888596e-05,-0.2627599041227685,6
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,2.2015499316179884e-06,1.0413616803544953e-05,2.1477231775408754,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.811519790078304e-06,1.395108505069477e-05,-0.7289749612214265,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.5750684655669983e-06,1.1206792990558425e-05,1.8751095845406138,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.8696125674489919e-06,8.190142378998498e-06,2.598025923180972,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.851951651345861e-06,1.239237594754376e-05,1.527179238813246,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.7194233959605657e-06,7.357770201076518e-06,1.8527764845954038,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.0541220254537955e-06,8.451184812314528e-06,1.6333025073958707,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,6.825528080005256e-06,3.04664429540728e-05,-3.5044886755222002,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.644095001449798e-06,7.5790805735409505e-06,1.738543048156013,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.496029286195988e-06,1.126260429228406e-05,16.51515907026286,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.6210332211974098e-05,3.9376438121747754e-05,4.038979089628222,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.8332215155740625e-06,8.122524415851472e-06,0.9511127134695023,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.9120600226239123e-05,2.914290139109208e-05,9.425704207653748,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.346710951920473e-05,3.602782729715504e-05,3.7179363049223517,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.729537280036134e-05,2.5243210767624692e-05,9.964245964851774,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.543677079027921e-06,7.039195173384399e-06,3.138971101800636,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.545187253342287e-06,1.1021312969430874e-05,-0.03875331091456547,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.037428121231062e-05,2.962261101559707e-05,4.307267649962062,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.2624078926869094e-06,1.0014220878743121e-05,0.23344222812063498,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.318185540923e-06,9.48189940926523e-06,28.254701842099326,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.313289996258803e-06,1.0465506874284504e-05,-0.9350774423658779,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.0899413842952702e-06,1.059327656346348e-05,7.585355142803587,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.652951752735331e-06,1.953074038194508e-05,3.3033817576192863,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.579662890543167e-06,1.3590457692259086e-05,5.5511675477885385,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.9462995933926236e-06,1.6086245679612567e-05,2.849109076495566,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,8.224101830550193e-06,2.656055396472965e-05,2.1929248902758474,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,7.110941869258209e-06,2.191606899665853e-05,0.028368760253657088,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,6.922095832417841e-06,2.1250776735484472e-05,0.8450183333423538,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,9.978019744414349e-06,3.425764708277565e-05,-2.4107077062300517,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.276873495230726e-06,1.630971433362762e-05,1.5158095981757378,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.740908100060424e-06,1.6825840078261826e-05,15.637989017631101,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.2813330076019777e-05,3.289639963263271e-05,3.756191804979543,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.80333924127707e-06,1.4543423257629892e-05,2.9856576038967004,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.787554771930474e-05,2.6769390657553687e-05,6.1448076729825125,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.7420160987150668e-05,4.146358526107212e-05,4.538552058217174,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.9460948821769014e-05,2.8099678742318636e-05,6.025066923001976,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,5.2964720922585e-06,1.6225571801467372e-05,4.390250139992641,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.3156969490716445e-06,1.2852914540256596e-05,5.689473358723694,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.360179001185406e-05,3.4290449173248325e-05,2.373406296683016,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.5296295707053835e-06,1.765279975085354e-05,2.374637173248595,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,6.100008852585256e-06,1.9176941553041436e-05,26.675401758724494,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.55052595459754e-06,1.8036626838180515e-05,2.640566274612149,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.565349683435365e-06,2.184103775374655e-05,3.343785387967616,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,7.232826549663547e-06,1.704379567653624e-05,6.800232251849092,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0424405919519357e-05,2.473344678934184e-05,2.0982139214851925,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,9.292986291097218e-06,2.1797247384833997e-05,2.9429831459607425,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.808899838890729e-06,2.3378237590493102e-05,3.2622520690455223,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.220261736157331e-06,2.3179593821090295e-05,5.023829214423429,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.113855111742576e-05,2.6160055161617628e-05,0.6073889842433933,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2033147719242933e-05,3.057568683350628e-05,0.8172974082807384,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.841720923136497e-06,2.2409171439149096e-05,4.955706470878218,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.456616081870731e-05,2.594416807791261e-05,14.102567087074599,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.6356431128684107e-05,3.874622096942168e-05,3.156710037830567,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,9.77840530244015e-06,2.2196198480992007e-05,3.5117354375452563,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.287597386716715e-05,3.3658513098466264e-05,7.067683002839017,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,3.0262787368376894e-05,4.564774536829888e-05,3.3043435827368106,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.2184064625519793e-05,3.159724037414057e-05,6.577600162647932,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.096458988450632e-05,2.4965895179783706e-05,4.936111398434369,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.100373903401025e-06,1.9160675509834057e-05,1.434073686306573,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.871582723662923e-05,4.249099300720091e-05,4.45698056952085,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.571311153408774e-06,2.3558004441605484e-05,2.6853079770681596,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.1869182671553015e-05,3.0062390063564694e-05,22.813540794737072,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.0120483366499392e-05,2.6014937043428082e-05,1.623438010413123,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6568066537596733e-05,3.642882549860167e-05,1.8580778083912974,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.598036989506999e-05,3.9723303243619755e-05,3.301511066967393,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.415764975725243e-05,2.9376097211016565e-05,4.135396837777585,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3900466589664746e-05,2.8464741058786527e-05,1.5702990252794065,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.006919921529938e-05,7.056431499246787e-05,-2.9503112642773175,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.0239001595325113e-05,4.3538050715850135e-05,-2.4055458295431773,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.467226830532077e-05,5.447211241341783e-05,-0.8675142555228903,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.5766011965757632e-05,6.037383065433021e-05,-0.6912724043004626,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5027842290671564e-05,3.0785314638172434e-05,-0.9551537266621372,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7553076753611966e-05,3.145505616165816e-05,13.236130877064536,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.77747875818765e-05,4.365785719762009e-05,3.6427744097998556,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.676609877392142e-05,3.3272112113163956e-05,1.1319541436289786,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.0124401974425542e-05,4.6747753426376326e-05,5.219212475219184,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9113621904556533e-05,4.2828873730527094e-05,2.2982589637605355,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.3993090263734e-05,3.421244492710884e-05,3.8917832324595945,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7956536186975447e-05,3.58151023948994e-05,-0.015922623579068595,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3664138652735867e-05,2.823298009281549e-05,2.854173820549451,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9353096031713186e-05,4.2982947996662456e-05,2.5497899780580435,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2223549331271585e-05,2.601726738622494e-05,2.287590753614226,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7606803402898086e-05,3.878021008300841e-05,20.057204647598354,7
+physionet_eegmmidb,physionet_subj07_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6200432467755204e-05,3.6037161935982745e-05,2.235350115258804,7
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,2.1620609332374505e-06,1.022682871793996e-05,1.2992955844724898,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,3.187214869013359e-06,1.5815327307799587e-05,-1.533519064658622,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.503588587575374e-06,1.0895709923698637e-05,0.33161059876306714,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.6819904333618316e-06,7.368233060255477e-06,-0.37628763928977405,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.5456965144846696e-06,1.1061628005144615e-05,1.3550336314266138,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.7210924681428573e-06,7.364912507965655e-06,3.432962002476589,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.2872449953512317e-06,9.410312497128493e-06,1.8758074793179387,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,5.931322986810811e-06,2.6475067028031793e-05,-4.172981601430282,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.4963863336170138e-06,6.898161348114273e-06,3.171540905722561,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,6.25092482128369e-06,1.0837650143070893e-05,20.269509615414417,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.494574843723749e-05,3.7476622264666266e-05,4.178890498470585,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.5979584209705292e-06,7.0801352589319505e-06,0.5316952018717256,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.6579977121717538e-05,2.5270578988503673e-05,9.275862909330337,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.6818348058308374e-05,4.1172808753843956e-05,5.098584032916292,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.8470890307701465e-05,2.6958920312677085e-05,6.314635623914236,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.7296269235728751e-06,7.887129800383382e-06,2.048703660849871,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.06299443898393e-06,8.93329452926488e-06,1.6538386704138013,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,1.8985206072793207e-05,2.7603004429206283e-05,4.637531458629949,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.9098027529667997e-06,8.453465294592622e-06,1.8455962563653094,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.820452470560326e-06,1.1536283935158452e-05,29.471002467468146,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.272537461664663e-06,1.0281139185136475e-05,1.9032852448168263,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.4751722874611613e-06,1.1913967473255556e-05,8.13684928205615,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.708694940998638e-06,1.972333104707958e-05,3.052342564128239,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,5.092907516840233e-06,1.5113545645713736e-05,2.250190633263362,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.823772235355196e-06,1.5687764927153334e-05,1.7552945562731672,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,7.949192766995632e-06,2.5672707830479418e-05,0.8006000978727519,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,5.917812156067418e-06,1.8238818697468486e-05,3.5591125038885627,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.648686471956477e-06,2.3481403966418826e-05,0.20355808828672473,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.0109420473343685e-05,3.470878667894658e-05,-0.14505802998220285,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.3280486105276325e-06,1.6467885931305178e-05,1.8179308708889352,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,8.603635749573247e-06,1.656159721127088e-05,16.210962544518992,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.211564168767819e-05,3.1890345892759904e-05,4.992408278950236,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,4.82706028574878e-06,1.4615245207431094e-05,2.6282895167263556,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.9787464144012858e-05,2.9632566571449296e-05,5.925632974369464,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.7340602314189998e-05,4.1343280065887155e-05,5.302501414382133,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.887183650821353e-05,2.724905902661721e-05,9.039983045409667,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,4.865299685877354e-06,1.4904689010680204e-05,2.894077055628983,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.134103727091083e-06,1.23120975666023e-05,3.7063284889702155,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.1163282267477892e-05,3.074760238810591e-05,4.191919747692053,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,4.35282293318756e-06,1.3895960047226269e-05,3.861226314902764,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,5.887171423666091e-06,1.8507832534789335e-05,27.739467985409636,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,6.225666260350337e-06,2.023051870678655e-05,2.0849569901074885,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.365044129571575e-06,2.3880202205292574e-05,4.153715866385767,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.432098679802846e-06,1.9869820745201744e-05,6.165157664071746,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0516817778006246e-05,2.495270760882987e-05,3.487929413420689,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,7.996819301855388e-06,1.8757011272183514e-05,4.129703786914434,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0490200208700946e-05,2.500202845160106e-05,3.4710338473420936,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.941060473296477e-06,2.247768621232134e-05,5.126544309010091,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.1259155358494492e-05,2.6443306866962604e-05,0.792360525548331,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.2035419737620709e-05,3.058145992995782e-05,-1.004984155500631,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0380321495208614e-05,2.36355415680169e-05,3.695818058618173,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.410340980384897e-05,2.5119950203543786e-05,13.078052958879073,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.1774038920694723e-05,3.200971024107493e-05,3.3438936380625024,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,8.610169917407766e-06,1.9544397530153308e-05,1.8871909509935652,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.3607099786637415e-05,3.473425358846734e-05,7.826600940479056,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.764987194820475e-05,4.1706479274166554e-05,4.908851319178087,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.8404949863396128e-05,2.6214565938414323e-05,8.319412773039813,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.051854275859552e-05,2.3950265237575958e-05,3.7991734399060375,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.04589843215814e-06,1.9031818886648806e-05,2.6169543210196013,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.5428852830428135e-05,3.76272359801847e-05,3.6175885619744257,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.853749645179476e-06,2.4253174323450233e-05,0.7059268140806578,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.352481046586893e-05,3.425578146465027e-05,22.315794798916443,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.1591929602522495e-05,2.97973236950027e-05,2.07301030491803,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5812844126194796e-05,3.476828983047386e-05,3.6310227831411357,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5919721593034865e-05,3.9572546351960127e-05,3.1283880480443766,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.1721494059738626e-05,2.4321250692110594e-05,2.5968889260262245,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2805784568623322e-05,2.622310117787626e-05,3.947837405724505,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.5585171552080605e-05,8.350881699517925e-05,-6.345349693027558,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.093959857372233e-05,4.504517183707556e-05,-2.547961513833194,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.4389536353013703e-05,5.3847889034426183e-05,-2.2147969690428146,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9084385186701794e-05,6.814930258826387e-05,-0.8755862231660094,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.963996774561612e-05,4.023349292850019e-05,-0.9138841431617725,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.958271241835996e-05,3.5092156638029935e-05,11.584420998674775,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.312544123644879e-05,5.206829319021315e-05,1.816741954173919,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3271844312621769e-05,2.6337808089551612e-05,3.774488218231866,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.3623184689137028e-05,3.665901198407392e-05,3.6987634531013387,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.3319073913966816e-05,4.901548883741062e-05,1.1086206145841264,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.4340702076822908e-05,3.470811471706052e-05,5.882047200340409,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4668268981734061e-05,2.925650860870289e-05,0.8260454498244139,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.1178600957918481e-05,2.3097337222002607e-05,2.9310016394510168,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.5347348605511018e-05,3.711716698595785e-05,4.980885950025104,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2394185602847224e-05,2.6380458909657035e-05,1.1159482245048427,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4834864565888518e-05,3.267482184321088e-05,19.64440507579556,8
+physionet_eegmmidb,physionet_subj08_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3259498938832566e-05,2.9495182390949547e-05,-1.0516918959487622,8
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,linear,{},instant,0.1,2,"1,20",320,1.9952888850606565e-06,9.437975293216987e-06,-1.295586590200799,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,nearest,{},instant,0.1,2,"1,20",320,2.779198077747042e-06,1.379070099104532e-05,-1.615631689253049,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,mean,{},instant,0.1,2,"1,20",320,2.305463206069216e-06,1.003346095191216e-05,-1.7602713367437248,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.1,2,"1,20",320,1.9047686945649315e-06,8.344149520149986e-06,-0.2426183467959504,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spherical_spline,{},instant,0.1,2,"1,20",320,2.287216522116192e-06,9.938473887564534e-06,0.596581605472037,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_tps,{},instant,0.1,2,"1,20",320,1.8312886018727844e-06,7.836464675358924e-06,3.4297161370247253,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_mq,{},instant,0.1,2,"1,20",320,2.2412264725205447e-06,9.220980492304711e-06,-0.24883701721899554,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_surface,{},instant,0.1,2,"1,20",320,6.088738833364483e-06,2.7177708765473863e-05,-4.046104725215199,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsp,{},instant,0.1,2,"1,20",320,1.8496813216176585e-06,8.526808827684407e-06,1.171460500689932,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.1,2,"1,20",320,5.216290399668236e-06,9.043834634481225e-06,20.069537033928977,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.1,2,"1,20",320,2.598689674271641e-05,3.904076542373405e-05,6.966933867068239,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.1,2,"1,20",320,1.7792620682745857e-06,7.883444236815604e-06,0.8864533793679108,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.1,2,"1,20",320,1.6784827587287393e-05,2.5582804381398458e-05,7.374882519330349,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.1,2,"1,20",320,2.547620419502289e-05,3.911228539561724e-05,4.397076652104468,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.1,2,"1,20",320,1.4353554777609853e-05,2.094952289830271e-05,7.82373140273846,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.1,2,"1,20",320,1.5230175610042107e-06,6.944987400571884e-06,2.7654020819598926,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.1,2,"1,20",320,2.239413965905599e-06,9.697236285443857e-06,1.0651183156567328,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.1,2,"1,20",320,2.2676631730863358e-05,3.2970048558151306e-05,4.316752375403027,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,1.957898471857537e-06,8.666354028693424e-06,0.2120722180533119,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.1,2,"1,20",320,,,,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.1,2,"1,20",320,2.89492152638472e-06,1.1840879095452967e-05,28.88388293243253,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.1,2,"1,20",320,2.500949034205689e-06,1.131449120172766e-05,2.570128492199484,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,linear,{},instant,0.2,4,"1,5,10,15",320,3.0272761142511255e-06,1.0378440599300637e-05,6.615817454397311,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,nearest,{},instant,0.2,4,"1,5,10,15",320,5.1860366686359765e-06,1.7917565940195076e-05,5.320962946620219,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,mean,{},instant,0.2,4,"1,5,10,15",320,4.1830104120378705e-06,1.2413364780292247e-05,3.3097273578816044,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.2,4,"1,5,10,15",320,4.379685455590743e-06,1.4243515765234045e-05,1.785610696305537,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spherical_spline,{},instant,0.2,4,"1,5,10,15",320,8.16484299049128e-06,2.636917165311657e-05,1.7087242967708791,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_tps,{},instant,0.2,4,"1,5,10,15",320,5.365246777074332e-06,1.653580084219237e-05,0.7208451571172649,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_mq,{},instant,0.2,4,"1,5,10,15",320,7.695864614013564e-06,2.3626240470842075e-05,1.973830298527559,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_surface,{},instant,0.2,4,"1,5,10,15",320,1.1059870314008795e-05,3.7971976775319434e-05,-2.7653304991815544,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsp,{},instant,0.2,4,"1,5,10,15",320,5.845399395941874e-06,1.8066909202947057e-05,3.843612294931966,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.2,4,"1,5,10,15",320,9.107213469928457e-06,1.7530960816593977e-05,16.04086675187213,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.2,4,"1,5,10,15",320,2.7615511323719486e-05,3.982105609033763e-05,5.076719183777386,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.2,4,"1,5,10,15",320,5.1646402157705725e-06,1.563736077307719e-05,3.2130422536146224,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.2,4,"1,5,10,15",320,1.6187926219129242e-05,2.4242105903560043e-05,6.002237302234663,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.2,4,"1,5,10,15",320,2.483488267058e-05,3.7554238851583084e-05,5.092929923168083,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.2,4,"1,5,10,15",320,1.9104185649989402e-05,2.7584548128394824e-05,5.408343827993496,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.2,4,"1,5,10,15",320,5.867352052870738e-06,1.7974444188517542e-05,3.0300360660993007,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.2,4,"1,5,10,15",320,4.240750808003659e-06,1.2629711577296917e-05,3.726502207393185,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.2,4,"1,5,10,15",320,2.2406345283401258e-05,3.25536174888782e-05,3.681495519333207,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.325738802749813e-06,1.70018984831022e-05,1.3821612822700708,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.2,4,"1,5,10,15",320,,,,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.2,4,"1,5,10,15",320,7.151238536342404e-06,2.2481751544536663e-05,26.678911434333465,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.2,4,"1,5,10,15",320,5.282028429773188e-06,1.7164134807363034e-05,0.37227760459596426,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,linear,{},instant,0.3,7,"3,6,7,10,12,18,20",320,9.968770216911627e-06,2.5419661159550605e-05,5.327825544164645,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,nearest,{},instant,0.3,7,"3,6,7,10,12,18,20",320,7.268359418546867e-06,1.7127527113048655e-05,5.214815977797573,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,mean,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.660775459783067e-06,2.054897234842701e-05,2.1073612838298876,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,idw,{'power': 2.0},instant,0.3,7,"3,6,7,10,12,18,20",320,9.567803763470608e-06,2.2441847973208514e-05,5.792459266378353,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spherical_spline,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.094146243758966e-05,2.6077553309215355e-05,3.562880596979383,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_tps,{},instant,0.3,7,"3,6,7,10,12,18,20",320,8.832468379204192e-06,2.2204687385903012e-05,4.1540022211699235,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_mq,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.1042437625006695e-05,2.593432254729898e-05,3.485336066985214,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_surface,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.4212481755274454e-05,3.6113276543698366e-05,-0.6524291013762281,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsp,{},instant,0.3,7,"3,6,7,10,12,18,20",320,1.0857539231806006e-05,2.4722145644350077e-05,1.9120527533337839,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.3,7,"3,6,7,10,12,18,20",320,1.3902194633013326e-05,2.4761560626704747e-05,15.286627606110397,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.3,7,"3,6,7,10,12,18,20",320,2.4800571150148647e-05,3.645897296412528e-05,3.752503360945704,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.3,7,"3,6,7,10,12,18,20",320,8.472052782312032e-06,1.923088267273112e-05,2.822886274787192,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.3,7,"3,6,7,10,12,18,20",320,2.1684937622616742e-05,3.1906084578013846e-05,9.187596378507997,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.3,7,"3,6,7,10,12,18,20",320,2.584196401376324e-05,3.897946936473073e-05,3.7689711400153962,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.9886890981675218e-05,2.8325326546311263e-05,6.207282023072138,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,trss,"{'alpha': 0.9, 'beta': 0.3, 'n_iter': 80, 'lr': 0.03}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.005299995929522e-06,2.050467715883984e-05,2.560569093128403,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.016739466115814e-05,2.4050019444296957e-05,3.877891768749023,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,2.693706370510763e-05,3.985894524634315e-05,2.71378021336051,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,8.603997912037677e-06,2.117714258564876e-05,3.8052355099719954,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.3,7,"3,6,7,10,12,18,20",320,,,,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,1.1847854004764402e-05,3.0008368593150245e-05,22.80426729566509,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.3,7,"3,6,7,10,12,18,20",320,9.674903480637542e-06,2.4869563620169994e-05,-0.5372312874978199,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,linear,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4463296789505558e-05,3.180098979466134e-05,2.074095589816193,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,nearest,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.530123660525921e-05,3.803514347065272e-05,4.510878376147606,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,mean,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2982288762662318e-05,2.693730832817751e-05,2.2061334473278467,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,idw,{'power': 3.0},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.3088867382901934e-05,2.6802785244929405e-05,1.2032154973002718,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spherical_spline,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.9417946625938917e-05,6.903600050273881e-05,-3.6551676985740715,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_tps,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.7126084889077093e-05,3.684155806563221e-05,-1.132815911802771,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,rbfi_mq,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.0774363706436504e-05,4.5866211453698936e-05,-1.0617182808593486,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_surface,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.3405943015411775e-05,5.484381680002926e-05,-3.495422825126111,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsp,{},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.737480534456383e-05,3.559319022408336e-05,0.10554764233933078,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tikhonov,{'alpha': 0.05},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.111650013648911e-05,3.784069921498223e-05,12.80465635840191,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,bgsrp,{'bandwidth': 8},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.7435256816039054e-05,4.312416506242614e-05,3.5503338425071678,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,gsmooth,"{'lam': 0.7, 'n_iter': 30}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5020982552670829e-05,2.9808950924213727e-05,3.2435138724886263,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,puy,{'alpha': 0.1},instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.8769734901872493e-05,4.4645549295110784e-05,5.3679878536183745,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,sobolev,"{'alpha': 0.5, 'order': 2}",instant,0.4,9,"3,8,9,10,12,14,15,18,21",320,3.1170495500398946e-05,4.585472808162047e-05,2.6007464595202294,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,graph_time_tikhonov,"{'alpha': 0.3, 'beta': 0.1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.1819841010310078e-05,3.111354563658973e-05,6.24247044577434,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,trss,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.4590838802506353e-05,2.9102070705500418e-05,2.2573626920649024,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,tv,"{'lam': 0.1, 'n_iter': 20}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.0683167040508605e-05,2.2073666701450768e-05,2.519797193467042,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,temporal_laplacian,"{'alpha': 0.3, 'beta': 0.3}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,2.7337967442457134e-05,4.0032112171201315e-05,3.7579119195868826,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,heat_diffusion_temporal,"{'alpha': 0.5, 'beta': 0.5, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.2002669732759949e-05,2.554713523238829e-05,2.6135529551915186,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,spline_temporal,{'alpha': 0.3},tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,,,,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,wavelet_temporal,"{'alpha': 0.3, 'wavelet_level': 1}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.5245689824372814e-05,3.357969307206807e-05,21.392006532271314,9
+physionet_eegmmidb,physionet_subj09_run12,knn__k3,knn,directed_tv,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",tv_time,0.4,9,"3,8,9,10,12,14,15,18,21",320,1.6355531378438032e-05,3.638217276032317e-05,0.4435084971823128,9

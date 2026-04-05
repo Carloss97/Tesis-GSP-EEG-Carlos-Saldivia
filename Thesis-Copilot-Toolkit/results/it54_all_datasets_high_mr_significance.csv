@@ -1,0 +1,4 @@
+test_id,metric,group_a,group_b,p_value,decision
+mae_tv_family_vs_instant,mae,tv_time,instant,0.0002980261534193274,significant
+rmse_tv_family_vs_instant,rmse,tv_time,instant,3.206655452528497e-16,significant
+mae_trss_vs_tikhonov,mae,trss,tikhonov,5.629025932286374e-06,significant
