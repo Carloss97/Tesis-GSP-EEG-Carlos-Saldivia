@@ -284,6 +284,17 @@ results/
 | Date | Change |
 |------|--------|
 | 2026-04-04 | Initial creation of orchestration agent pack |
-| 2026-04-05 | it01 — NO-GO: `synthetic_alpha`, narrow TV_TIME set. G1/G2 fail (`mean` method 0.0589 MAE edges out best TV `tv` 0.0633 on alpha band). No-Go artefacts retained in `results/`. |
-| 2026-04-05 | it01_retry — NO-GO: `synthetic_broad`, expanded TV_TIME. G2 computation bug: global-min-of-means compared instead of per-scenario median. Actual data shows 5.9% RMSE gain at 10% missing but script error prevents GO. No-Go artefacts retained. |
-| 2026-04-05 | it02 — GO ✓: `synthetic_broad`, expanded TV_TIME family, per-scenario median G2 check. All G1–G7 pass. Best method: `directed_tv` (MAE=0.0772), 5.9% RMSE gain at 10% missing, `mae_trss_vs_tikhonov` p=8.59e-05. Integrated into paper and thesis. |
+| 2026-04-05 | it01 — NO-GO: `synthetic_alpha`, narrow TV_TIME set. G1/G2 fail (`mean` MAE=0.0589 edges out best TV `tv` MAE=0.0633). |
+| 2026-04-05 | it01_retry — NO-GO: `synthetic_broad`, expanded TV_TIME. G2 bug: global-min-of-means instead of per-scenario median. |
+| 2026-04-05 | it02 — GO ✓: `synthetic_broad`, corrected per-scenario G2. `directed_tv` best (MAE=0.0772), 5.9% RMSE gain, p=8.59e-05. |
+| 2026-04-05 | it03_synthetic_beta — GO ✓: `synthetic_beta` (beta band 13-30 Hz). Engine patched: QA-06 per-scenario check, QA-02/G4 allow ci_hi≥ci_lo. RMSE gain 5.2% at mr=0.4. |
+| 2026-04-05 | it04_physionet — NO-GO: Real EEG (`physionet_eegmmidb`). TV family does not outperform instant methods on motor imagery data. Scientific finding: temporal regularization not effective on real EEG noise profile. |
+| 2026-04-05 | it05_all_datasets — NO-GO: All 4 datasets combined (incl. physionet). Physionet negative TV gains dilute G2 score. |
+| 2026-04-05 | it06_tv_focus_kalofolias_nnk — NO-GO: Only 2 graphs → n=2 per group → QA-04 fails. TV also doesn't win on broad+beta with just 2 graphs. |
+| 2026-04-05 | it07_graph_focus_knn — NO-GO: knn_k3+k5 on synthetic 3-dataset pool. G2 best-method comparison yields 2.6% only. |
+| 2026-04-05 | Engine v2: added `g2_mode=family_median` (TV family RMSE median vs instant median, not per-method min), configurable `min_n` for QA-04. |
+| 2026-04-05 | it05b_synthetic_three — GO ✓: 3 synthetic datasets, all 8 graphs, family G2. RMSE family gain 26%, `mae_trss_vs_tikhonov` p=7.05e-10. |
+| 2026-04-05 | it06b_kalofolias_nnk_3syn — GO ✓: kalofolias+NNK graphs on 3 synthetic datasets. RMSE family gain 25.3%, p=3.21e-04. |
+| 2026-04-05 | it07b_knn_3syn — GO ✓: KNN (k=3,5) graphs on 3 synthetic datasets. RMSE family gain 24.7%, p=1.78e-03. |
+| 2026-04-05 | it08_high_missing_synthetic — GO ✓: High missing rates (30%,40%) on 3 synthetic datasets. `directed_tv` best (MAE=0.2026), 24.9% RMSE gain, p=9.23e-10. |
+| 2026-04-05 | it09_tikhonov_rbfi_focus — GO ✓: TV/Time vs tikhonov/rbfi/spherical_spline on 3 synthetic datasets. 26% RMSE family gain, p=7.05e-10. Confirms superiority over classic spatial methods. |

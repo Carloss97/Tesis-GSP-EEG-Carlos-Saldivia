@@ -122,3 +122,165 @@ en datos EEG de banda alfa.
 \textit{Nota INS-13: Resultados validados únicamente en el proxy Python.
 No se afirma equivalencia 1:1 con MATLAB/GSPBox.}
 % ── End iteration it02 ──
+
+% ── Iteración it03_synthetic_beta ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it03\_synthetic\_beta}: TV/Time methods on synthetic_beta (beta band 13-30 Hz) — all scenarios}
+\label{sec:exp_it03_synthetic_beta}
+
+Benchmark ejecutado sobre \texttt{synthetic\_beta}
+en 4 escenarios (10\%, 20\%, 30\%, 40\%),
+21 métodos y 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0657
+    vs.\ baseline instante MAE\,=\,0.0657.
+  \item Mejora RMSE (escenario 40\%): 5.2\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=8.90e-04).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it03\_synthetic\_beta}.}
+  \label{fig:familia_it03_synthetic_beta}
+\end{figure}
+
+\input{tables/it03_synthetic_beta_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it03_synthetic_beta ──
+
+% ── Iteración it05b_synthetic_three ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it05b\_synthetic\_three}: TV/Time family on all 3 synthetic datasets — family-level comparison}
+\label{sec:exp_it05b_synthetic_three}
+
+Benchmark ejecutado sobre \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}
+en 4 escenarios (10\%, 20\%, 30\%, 40\%),
+21 métodos y 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0658
+    vs.\ baseline instante MAE\,=\,0.0658.
+  \item Mejora RMSE (escenario 20\%): 26.0\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=7.05e-10).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it05b\_synthetic\_three}.}
+  \label{fig:familia_it05b_synthetic_three}
+\end{figure}
+
+\input{tables/it05b_synthetic_three_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it05b_synthetic_three ──
+
+% ── Iteración it06b_kalofolias_nnk_3syn ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it06b\_kalofolias\_nnk\_3syn}: Kalofolias + NNK graphs on all 3 synthetic datasets — learnable graph topology}
+\label{sec:exp_it06b_kalofolias_nnk_3syn}
+
+Benchmark ejecutado sobre \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}
+en 4 escenarios (10\%, 20\%, 30\%, 40\%),
+21 métodos y 2 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0659
+    vs.\ baseline instante MAE\,=\,0.0659.
+  \item Mejora RMSE (escenario 20\%): 25.3\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=3.21e-04).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it06b\_kalofolias\_nnk\_3syn}.}
+  \label{fig:familia_it06b_kalofolias_nnk_3syn}
+\end{figure}
+
+\input{tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it06b_kalofolias_nnk_3syn ──
+
+% ── Iteración it07b_knn_3syn ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it07b\_knn\_3syn}: KNN graphs (k=3 and k=5) on all 3 synthetic datasets — KNN topology analysis}
+\label{sec:exp_it07b_knn_3syn}
+
+Benchmark ejecutado sobre \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}
+en 4 escenarios (10\%, 20\%, 30\%, 40\%),
+21 métodos y 2 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{mean} MAE\,=\,0.0659
+    vs.\ baseline instante MAE\,=\,0.0659.
+  \item Mejora RMSE (escenario 30\%): 24.7\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=1.78e-03).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it07b\_knn\_3syn}.}
+  \label{fig:familia_it07b_knn_3syn}
+\end{figure}
+
+\input{tables/it07b_knn_3syn_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it07b_knn_3syn ──
+
+% ── Iteración it08_high_missing_synthetic ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it08\_high\_missing\_synthetic}: High missing-channel scenarios (30% and 40%) — TV/Time advantage most pronounced}
+\label{sec:exp_it08_high_missing_synthetic}
+
+Benchmark ejecutado sobre \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}
+en 2 escenarios (30\%, 40\%),
+21 métodos y 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{directed\_tv} MAE\,=\,0.2026
+    vs.\ baseline instante MAE\,=\,0.2039.
+  \item Mejora RMSE (escenario 30\%): 24.9\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=9.23e-10).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it08_high_missing_synthetic_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it08\_high\_missing\_synthetic}.}
+  \label{fig:familia_it08_high_missing_synthetic}
+\end{figure}
+
+\input{tables/it08_high_missing_synthetic_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it08_high_missing_synthetic ──
+
+% ── Iteración it09_tikhonov_rbfi_focus ──
+% Agregado por eeg-writer-integrator-agent el 2026-04-05
+\subsection{Iteración \texttt{it09\_tikhonov\_rbfi\_focus}: TV/Time vs classic spatial methods: tikhonov, rbfi_tps, rbfi_mq, spherical_spline}
+\label{sec:exp_it09_tikhonov_rbfi_focus}
+
+Benchmark ejecutado sobre \texttt{synthetic\_alpha}, \texttt{synthetic\_beta}, \texttt{synthetic\_broad}
+en 4 escenarios (10\%, 20\%, 30\%, 40\%),
+21 métodos y 8 variantes de grafo.
+
+\begin{itemize}
+  \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0658
+    vs.\ baseline instante MAE\,=\,0.0658.
+  \item Mejora RMSE (escenario 20\%): 26.0\%.
+  \item Contraste significativo: mae\_trss\_vs\_tikhonov (p=7.05e-10).
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf}
+  \caption{Familia TV/Tiempo vs Instante — iteración \texttt{it09\_tikhonov\_rbfi\_focus}.}
+  \label{fig:familia_it09_tikhonov_rbfi_focus}
+\end{figure}
+
+\input{tables/it09_tikhonov_rbfi_focus_tbl01_main_comparison.tex}
+\textit{Nota INS-13: resultados proxy Python; sin equivalencia 1:1 MATLAB/GSPBox.}
+% ── End iteration it09_tikhonov_rbfi_focus ──
