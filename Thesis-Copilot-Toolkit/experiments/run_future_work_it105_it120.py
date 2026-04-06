@@ -79,6 +79,7 @@ def _sample_segment(signals: np.ndarray, *, n_times: int = 320, max_ch: int = 24
     x = np.asarray(signals, dtype=float)
     if x.ndim != 2:
         raise ValueError(f"Expected 2D signals array, got shape={x.shape}")
+    x = np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0)
     if x.shape[0] > n_times:
         x = x[:n_times]
     if x.shape[1] > max_ch:
@@ -639,6 +640,7 @@ def _run_iteration(it: IterDef, availability: Dict[str, Any], data: Dict[str, An
         pos = np.asarray(d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != np.asarray(d["signals"]).shape[1]:
             pos = _safe_positions(np.asarray(d["signals"]).shape[1])
+        pos = np.nan_to_num(pos, nan=0.0, posinf=0.0, neginf=0.0)
         if pos.shape[0] != x.shape[1]:
             idx = np.round(np.linspace(0, pos.shape[0] - 1, x.shape[1])).astype(int)
             pos = pos[idx]
