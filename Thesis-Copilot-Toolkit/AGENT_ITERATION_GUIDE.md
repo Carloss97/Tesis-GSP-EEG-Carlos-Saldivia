@@ -478,6 +478,15 @@ results/
 | 2026-04-06 | it99_final_comparative_consensus — GO ✓: consenso final multi-escenario. |
 | 2026-04-06 | it100_final_comparative_publication_pack — GO ✓: paquete comparativo final publication-ready. |
 
+### Iteraciones Fase 10 (it101-it104) — Trabajo futuro 8.3
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it101_real_data_validation — GO ✓: validación con datos reales disponibles (`physionet_eegmmidb`), registrando bloqueo de MNE real (sin descarga) y BCI IV 2a real (sin `.gdf` local). |
+| 2026-04-06 | it102_compute_time_tv_vs_instant — GO ✓: comparación de tiempo de cómputo TV vs Instant sobre datos reales disponibles. |
+| 2026-04-06 | it103_tv_lambda_grid_search — GO ✓: grid search de parámetro λ/regularización en familia TV. |
+| 2026-04-06 | it104_noise_sensitivity_tv — GO ✓: sensibilidad al ruido con niveles SNR inicial controlados (20/10/5/0 dB). |
+
 ### Estado de avance
 
 - it61–it70: consolidación v6 en proxies externos.
@@ -485,3 +494,4 @@ results/
 - it83–it87: completación de Fase 7 (generalización cross-dataset), GO ✓ en todas las corridas.
 - it88–it94: Fase 8 (robustez/sensibilidad), GO ✓ en todas las corridas.
 - it95–it100: Fase 9 (comparativa final), GO ✓ en todas las corridas.
+- it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.

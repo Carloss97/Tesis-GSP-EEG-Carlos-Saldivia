@@ -637,14 +637,35 @@ El módulo `src/data/data_loader.py` provee las siguientes funciones de carga:
 
 5. **Pipeline reproducible y escalable**: El Motor de Estadísticas v6 genera automáticamente todos los artefactos necesarios para publicación (figuras, tablas, tests estadísticos, logs de integración) con trazabilidad completa.
 
-### 8.3 Trabajo Futuro
+### 8.3 Trabajo Futuro (ejecutado en it101–it104)
 
-- **Validar con datos reales descargados**: Usar `load_bci_competition_iv_2a()` y el dataset MNE real para confirmar los resultados del proxy.
-- **Análisis de tiempo de cómputo**: Comparar complejidad computacional TV vs Instant.
-- **Optimización de hiperparámetros**: Grid search del parámetro λ en métodos TV para cada paradigma.
-- **Análisis de sensibilidad al ruido**: Evaluar el comportamiento TV bajo diferentes niveles de SNR inicial.
+Se implementaron iteraciones dedicadas para cubrir los cuatro puntos de trabajo futuro:
+
+1. **Validación con datos reales descargados (`it101_real_data_validation`)**
+   - Dataset real disponible y ejecutado: `physionet_eegmmidb` (local).
+   - `load_mne_sample_dataset()` no pudo validarse en este entorno por bloqueo de descarga externa del paquete sample.
+   - `load_bci_competition_iv_2a()` no pudo validarse con datos reales por ausencia de archivos `.gdf` locales.
+   - Resultado: se confirma validez en dataset real disponible y se documentan explícitamente los bloqueos para no sobre-claim.
+
+2. **Análisis de tiempo de cómputo TV vs Instant (`it102_compute_time_tv_vs_instant`)**
+   - Se incorporó medición explícita `time_sec` por corrida método×seed×escenario.
+   - Resultado: se dispone evidencia reproducible de complejidad relativa, manteniendo gate estadístico sobre MAE.
+
+3. **Optimización de hiperparámetros λ (`it103_tv_lambda_grid_search`)**
+   - Se ejecutó grid search de regularización (`0.05, 0.1, 0.2, 0.4, 0.8`) para métodos de la familia TV.
+   - Resultado: se generó ranking y significancia para seleccionar configuración de regularización por paradigma evaluable.
+
+4. **Sensibilidad al ruido (`it104_noise_sensitivity_tv`)**
+   - Se evaluaron niveles de SNR inicial controlados: `20, 10, 5, 0 dB`.
+   - Resultado: se cuantificó degradación/robustez de familia TV e Instant bajo estrés de ruido.
+
+**Conclusión científica de 8.3 (estado actual):**
+- El pipeline queda extendido con evidencia real reproducible para el dataset disponible (`physionet_eegmmidb`) y con nuevos ejes cuantitativos (tiempo, λ, ruido).
+- Para afirmar generalización real completa en los dos paradigmas externos originalmente propuestos (MNE real + BCI IV 2a real), aún falta correr las mismas iteraciones cuando se habilite:
+  - acceso local al MNE sample real, y
+  - archivos `.gdf` de BCI IV 2a en `BCI_IV_2A_PATH`.
 
 ---
 
-*Reporte generado automáticamente por el Motor de Estadísticas v6/v7 del Thesis-Copilot-Toolkit.*  
-*Fecha: 2026-04-06 | Versión del pipeline: v6/v7 | Total iteraciones analizadas: 82*
+*Reporte generado automáticamente por el Motor de Estadísticas v6/v7/v8 del Thesis-Copilot-Toolkit.*  
+*Fecha: 2026-04-06 | Versión del pipeline: v6/v7/v8 | Total iteraciones analizadas: 104*
