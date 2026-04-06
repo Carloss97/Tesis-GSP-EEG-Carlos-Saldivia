@@ -1,0 +1,40 @@
+{
+  "tag": "it80_few_missing_comprehensive",
+  "timestamp": "2026-04-06T06:34:25.429143",
+  "description": "1+2+3 missing electrodes, comprehensive analysis",
+  "objective": "1+2+3 missing electrodes, comprehensive analysis",
+  "fase": "Phase 6: Few Electrodes Missing",
+  "datasets": [
+    "synthetic_16ch",
+    "mne_sample_proxy",
+    "bci_competition_proxy"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "1ch",
+    "2ch",
+    "3ch"
+  ],
+  "methods": [
+    "mean",
+    "tikhonov",
+    "temporal_laplacian",
+    "tv"
+  ],
+  "n_methods": 4,
+  "n_rows": 36,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 7.489229584579561e-06,
+    "inst_median_mae": 6.6743969715070315e-06,
+    "gain_pct": -12.208333075647824,
+    "p_value": 0.6767966304922457
+  },
+  "best_method": "mean",
+  "best_mae": 0.13511050953965856,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos cuando los reales no est\u00e1n disponibles.",
+  "engine_version": "v7",
+  "include_instant_vs_full": false
+}
