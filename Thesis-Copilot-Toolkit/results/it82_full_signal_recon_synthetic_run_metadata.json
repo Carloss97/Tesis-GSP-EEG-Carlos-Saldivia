@@ -1,0 +1,42 @@
+{
+  "tag": "it82_full_signal_recon_synthetic",
+  "timestamp": "2026-04-06T06:35:20.084057",
+  "description": "Full signal reconstruction (all instants), synthetic_broad",
+  "objective": "Full signal reconstruction (all instants), synthetic_broad",
+  "fase": "Phase 7: Full Signal Reconstruction",
+  "datasets": [
+    "synthetic_16ch"
+  ],
+  "graphs": [
+    "knn__k3",
+    "gaussian"
+  ],
+  "missing_ratios": [
+    "0.1",
+    "0.2",
+    "0.3"
+  ],
+  "methods": [
+    "mean",
+    "nearest",
+    "tikhonov",
+    "temporal_laplacian",
+    "graph_time_tikhonov",
+    "tv",
+    "trss"
+  ],
+  "n_methods": 7,
+  "n_rows": 84,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.533193942542221,
+    "inst_median_mae": 0.5604649355099741,
+    "gain_pct": 4.865780397651269,
+    "p_value": 0.27087990611251817
+  },
+  "best_method": "mean",
+  "best_mae": 0.48466145883363865,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos cuando los reales no est\u00e1n disponibles.",
+  "engine_version": "v7",
+  "include_instant_vs_full": false
+}
