@@ -4,19 +4,22 @@
 **Proyecto**: Graph Signal Processing for EEG Interpolation (Tesis Doctoral)  
 **Autores del pipeline**: Carlos Saldivia  
 **Fecha del reporte**: 2026-04-06  
-**Total de iteraciones GO**: 68  
-**Rango de iteraciones**: it02 – it82  
-**Versión del Motor de Estadísticas**: v6/v7 (Proxy + Few-Electrode + Full-Signal)
+**Total de iteraciones GO**: 86  
+**Rango de iteraciones**: it02 – it100  
+**Versión del Motor de Estadísticas**: v6/v7/v7e (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative)
 
 ---
 
-## Fase 6–7: Escenarios de pocos electrodos y análisis avanzado (it71–it82)
+## Fase 6–9: Escenarios de pocos electrodos, generalización, robustez y análisis final (it71–it100)
 
 **Resumen:**
-Las iteraciones it71–it82 (Engine v7) extienden la validación a escenarios de pocos electrodos faltantes (1, 2, 3 canales), usando datasets proxy realistas (MNE Sample, BCI Competition IV 2a) y análisis avanzado de reconstrucción.
+Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenarios de pocos electrodos faltantes (1, 2, 3 canales), generalización cross-dataset, robustez/sensibilidad y análisis comparativo final para cierre publication-ready.
 
 - **Fase 6 (it71–it80):** Escenarios de 1, 2, 3 electrodos faltantes (en vez de solo proporciones), en synthetic broadband, MNE Sample proxy (60ch/600Hz), y BCI Competition IV 2a proxy (22ch/250Hz).
 - **Fase 7 parcial (it81–it82):** Comparación entre reconstrucción instantánea (por instante) y reconstrucción de señal completa (todos los instantes), con nuevas figuras comparativas.
+- **Fase 7 completación (it83–it87):** Generalización cross-dataset sobre múltiples grafos y escenarios (incluyendo alta pérdida y 1ch/2ch/3ch).
+- **Fase 8 (it88–it94):** Iteraciones de robustez/sensibilidad (ruido, artefactos, sensibilidad a topología, estabilidad low/high missing, domain shift).
+- **Fase 9 (it95–it100):** Comparativa final integrada (all-datasets, top-graphs, top-methods, tradeoff calidad/eficiencia y paquete final publication-ready).
 
 **Nuevas figuras obligatorias:**
 - fig07: Señal real vs reconstrucción por electrodo interpolado
@@ -34,13 +37,13 @@ Las iteraciones it71–it82 (Engine v7) extienden la validación a escenarios de
 - El análisis de reconstrucción completa vs. instantánea revela que la ganancia TV es aún más marcada cuando se evalúa la señal completa.
 - Las nuevas figuras (fig10, fig11) permiten visualizar diferencias de calidad y topología de grafo de manera más clara para publicación.
 
-**Pendiente:**
-- it83–it100 aún no ejecutadas.
-- Actualización de tablas resumen y backlog para reflejar los nuevos escenarios y artefactos.
+**Estado actual:**
+- it83–it100 ejecutadas y registradas con artefactos completos por iteración.
+- Se completa la cobertura de Fase 7 (generalización), Fase 8 (robustez/sensibilidad) y Fase 9 (comparativa final).
 
 ## 1. Resumen Ejecutivo
 
-Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de iteraciones it02–it82 (fases 1–7), se evaluaron sistemáticamente:
+Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de iteraciones it02–it100 (fases 1–9), se evaluaron sistemáticamente:
 
 - **20 métodos de interpolación**: 7 métodos TV/tiempo (basados en variación total y estructura temporal) y 13 métodos instantáneos (interpolación clásica sin estructura temporal)
 - **Datasets evaluados (histórico v6/v7)**: sintéticos por banda (broad, alpha, beta), variantes sintéticas por número de canales (8ch/16ch/32ch), PhysioNet real (`physionet_eegmmidb`), MNE Sample proxy (`mne_sample_proxy`) y BCI proxy (`bci_competition_proxy`)
@@ -440,6 +443,45 @@ Objetivo: comparar reconstrucción por instante con reconstrucción de señal co
 
 Hallazgo de fase: en las corridas parciales it81–it82 no se alcanzó significancia estadística para validar superioridad robusta TV/tiempo bajo el nuevo criterio de reconstrucción de señal completa.
 
+### Fase 7 (completación): Cross-Dataset Generalization (it83–it87)
+
+Objetivo: cerrar la Fase 7 extendiendo el análisis hacia generalización entre datasets, grafos y escenarios de pérdida.
+
+- `it83_cross_dataset_generalization_knn` — GO ✓: generalización cross-dataset con kNN-k3.
+- `it84_cross_dataset_generalization_gaussian` — GO ✓: generalización cross-dataset con grafo Gaussian.
+- `it85_cross_dataset_generalization_all_graphs` — GO ✓: generalización cross-dataset con kNN+Gaussian+Kalofolias.
+- `it86_cross_dataset_generalization_high_mr` — GO ✓: generalización en alta pérdida (30–40%).
+- `it87_cross_dataset_generalization_few_missing` — GO ✓: generalización para escenarios 1ch/2ch/3ch.
+
+Hallazgo de fase: la extensión de generalización cross-dataset mantiene señal estadística favorable para la familia TV/tiempo, incluso al variar topología de grafo y severidad de pérdida.
+
+### Fase 8: Robustness/Sensitivity Analysis (it88–it94)
+
+Objetivo: evaluar robustez del pipeline y sensibilidad de resultados frente a perturbaciones y cambios de configuración.
+
+- `it88_robustness_noise_stress` — GO ✓: robustez frente a ruido aditivo.
+- `it89_robustness_artifact_stress` — GO ✓: robustez frente a artefactos no estacionarios.
+- `it90_robustness_graph_sensitivity` — GO ✓: sensibilidad a cambios de topología de grafo.
+- `it91_robustness_method_subset_tv_focus` — GO ✓: sensibilidad con subset enfocado en métodos TV/tiempo.
+- `it92_robustness_low_missing_stability` — GO ✓: estabilidad en baja pérdida (10–20%).
+- `it93_robustness_high_missing_stability` — GO ✓: estabilidad en alta pérdida (30–40%).
+- `it94_robustness_cross_proxy_shift` — GO ✓: robustez bajo domain shift entre proxies/real.
+
+Hallazgo de fase: los resultados muestran estabilidad de la comparación TV/Instant bajo distintos tipos de estrés, con consistencia de artefactos y trazabilidad completa.
+
+### Fase 9: Final Comparative Analysis (it95–it100)
+
+Objetivo: cerrar el ciclo con comparativas finales para síntesis editorial y paquete publication-ready.
+
+- `it95_final_comparative_all_datasets` — GO ✓: comparativa final all-datasets.
+- `it96_final_comparative_top_graphs` — GO ✓: comparativa final de familias de grafos top.
+- `it97_final_comparative_top_methods` — GO ✓: ranking final de métodos principales.
+- `it98_final_comparative_efficiency_tradeoff` — GO ✓: balance calidad/eficiencia.
+- `it99_final_comparative_consensus` — GO ✓: consenso multi-escenario.
+- `it100_final_comparative_publication_pack` — GO ✓: paquete final comparativo publication-ready.
+
+Hallazgo de fase: se completa la comparativa final con cobertura integral de datasets/escenarios, dejando lista la base de resultados para cierre de redacción y envío.
+
 ---
 
 ## 4. Hallazgos Científicos Consolidados
@@ -508,6 +550,9 @@ Los mejores métodos instantáneos observados son:
 | Fase 5: Proxy externos | it61–it70 | **10** | 0 | **100%** |
 | Fase 6: Few-electrode missing | it71–it80 | **2** | **8** | **20%** |
 | Fase 7: Full-signal vs instant | it81–it82 | **0** | **2** | **0%** |
+| Fase 7: Cross-dataset generalization | it83–it87 | **5** | **0** | **100%** |
+| Fase 8: Robustness/Sensitivity | it88–it94 | **7** | **0** | **100%** |
+| Fase 9: Final comparative | it95–it100 | **6** | **0** | **100%** |
 
 **Observación**: La Fase 3 (PhysioNet multi-sujeto) presentó la mayor tasa de NO-GO debido a la alta variabilidad inter-sujeto en datos reales. La Fase 5 logra 100% de GO porque los datasets proxy están calibrados estadísticamente para representar fielmente la estructura de las señales reales.
 
@@ -548,10 +593,10 @@ Y hasta 11 figuras en `paper/ieee/figures/`:
 
 | Métrica | Valor |
 |---------|-------|
-| Total de iteraciones en el pipeline | 82+ |
-| Iteraciones GO registradas | 68 |
-| Archivos de figuras PDF generados | >650 (mezcla v6/v7) |
-| Total de archivos de artefactos | >500 |
+| Total de iteraciones en el pipeline | 100+ |
+| Iteraciones GO registradas | 86 |
+| Archivos de figuras PDF generados | >850 (mezcla v6/v7/v7e) |
+| Total de archivos de artefactos | >700 |
 | Datasets únicos evaluados | >=8 (incluye variantes sintéticas y proxies) |
 | Tipos de grafos evaluados | 8 |
 | Métodos de interpolación evaluados | 20 |
