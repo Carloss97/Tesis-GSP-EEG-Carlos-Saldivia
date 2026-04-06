@@ -445,8 +445,53 @@ results/
 | 2026-04-06 | it81_instant_vs_full_synthetic — NO-GO: comparación instantánea vs full-signal en synthetic_16ch. |
 | 2026-04-06 | it82_full_signal_recon_synthetic — NO-GO: reconstrucción de señal completa (all instants) en synthetic_16ch. |
 
+### Iteraciones Fase 7 completación (it83-it87)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it83_cross_dataset_generalization_knn — GO ✓: generalización cross-dataset (synthetic_16ch + MNE proxy + BCI proxy) con kNN-k3. |
+| 2026-04-06 | it84_cross_dataset_generalization_gaussian — GO ✓: generalización cross-dataset con grafo gaussiano. |
+| 2026-04-06 | it85_cross_dataset_generalization_all_graphs — GO ✓: generalización cross-dataset con múltiples grafos (kNN, Gaussian, Kalofolias). |
+| 2026-04-06 | it86_cross_dataset_generalization_high_mr — GO ✓: generalización cross-dataset en escenarios de alta pérdida (30-40%). |
+| 2026-04-06 | it87_cross_dataset_generalization_few_missing — GO ✓: generalización cross-dataset en escenarios 1ch/2ch/3ch. |
+
+### Iteraciones Fase 8 (it88-it94)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it88_robustness_noise_stress — GO ✓: robustez ante ruido aditivo. |
+| 2026-04-06 | it89_robustness_artifact_stress — GO ✓: robustez ante artefactos no estacionarios. |
+| 2026-04-06 | it90_robustness_graph_sensitivity — GO ✓: sensibilidad a cambios de topología de grafo. |
+| 2026-04-06 | it91_robustness_method_subset_tv_focus — GO ✓: sensibilidad con subset de métodos TV/tiempo. |
+| 2026-04-06 | it92_robustness_low_missing_stability — GO ✓: estabilidad en baja pérdida (10-20%). |
+| 2026-04-06 | it93_robustness_high_missing_stability — GO ✓: estabilidad en alta pérdida (30-40%). |
+| 2026-04-06 | it94_robustness_cross_proxy_shift — GO ✓: robustez bajo domain shift entre proxies/real. |
+
+### Iteraciones Fase 9 (it95-it100)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it95_final_comparative_all_datasets — GO ✓: análisis comparativo final con datasets combinados. |
+| 2026-04-06 | it96_final_comparative_top_graphs — GO ✓: comparativa final entre familias de grafos top. |
+| 2026-04-06 | it97_final_comparative_top_methods — GO ✓: ranking comparativo final de métodos principales. |
+| 2026-04-06 | it98_final_comparative_efficiency_tradeoff — GO ✓: comparativa calidad-eficiencia para decisión final. |
+| 2026-04-06 | it99_final_comparative_consensus — GO ✓: consenso final multi-escenario. |
+| 2026-04-06 | it100_final_comparative_publication_pack — GO ✓: paquete comparativo final publication-ready. |
+
+### Iteraciones Fase 10 (it101-it104) — Trabajo futuro 8.3
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it101_real_data_validation — GO ✓: validación con datos reales disponibles (`physionet_eegmmidb`), registrando bloqueo de MNE real (sin descarga) y BCI IV 2a real (sin `.gdf` local). |
+| 2026-04-06 | it102_compute_time_tv_vs_instant — GO ✓: comparación de tiempo de cómputo TV vs Instant sobre datos reales disponibles. |
+| 2026-04-06 | it103_tv_lambda_grid_search — GO ✓: grid search de parámetro λ/regularización en familia TV. |
+| 2026-04-06 | it104_noise_sensitivity_tv — GO ✓: sensibilidad al ruido con niveles SNR inicial controlados (20/10/5/0 dB). |
+
 ### Estado de avance
 
 - it61–it70: consolidación v6 en proxies externos.
 - it71–it82: extensión v7 validada en artefactos, con resultados mixtos GO/NO-GO.
-- it83–it100: pendiente de ejecución.
+- it83–it87: completación de Fase 7 (generalización cross-dataset), GO ✓ en todas las corridas.
+- it88–it94: Fase 8 (robustez/sensibilidad), GO ✓ en todas las corridas.
+- it95–it100: Fase 9 (comparativa final), GO ✓ en todas las corridas.
+- it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.

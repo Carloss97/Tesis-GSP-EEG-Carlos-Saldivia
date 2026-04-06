@@ -1,0 +1,17 @@
+{
+  "physionet": {
+    "ok": true,
+    "shape": [
+      20000,
+      64
+    ]
+  },
+  "mne_real": {
+    "ok": false,
+    "reason": "Local MNE sample not found at /home/runner/mne_data/MNE-sample-data/MEG/sample/sample_audvis_raw.fif; network download skipped."
+  },
+  "bci_iv2a_real": {
+    "ok": false,
+    "reason": "Local BCI IV 2a file not found at /home/runner/work/Tesis-GSP-EEG-Carlos-Saldivia/Tesis-GSP-EEG-Carlos-Saldivia/datasets/BCI_IV_2a/A01T.gdf."
+  }
+}
