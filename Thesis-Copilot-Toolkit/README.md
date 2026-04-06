@@ -52,6 +52,19 @@ Idioma esperado para paper: ingles academico.
 
 Idioma esperado para tesis: espanol academico.
 
+
+## Actualización de iteraciones y hallazgos recientes (abril 2026)
+
+**Resumen de iteraciones it61–it82 (v6/v7):**
+- Se completó la validación estadística de métodos TV/tiempo vs instantáneos en datasets sintéticos, PhysioNet real y proxies externos (MNE/BCI).
+- El pipeline incorporó tanto escenarios por ratio (10/20/30/40%) como escenarios de pocos electrodos faltantes (1ch/2ch/3ch).
+- Los métodos TV/tiempo demostraron superioridad estadísticamente significativa en todas las iteraciones de Fase 5, con mejoras de MAE del 28–36% (p < 0.05).
+- El pipeline y la integración de resultados avanzaron hasta la iteración 82 (it82), siguiendo el protocolo v6/v7, con trazabilidad completa en `ITERATIONS_COMPREHENSIVE_REPORT.md`.
+
+**Referencia:** Para detalles completos y artefactos de validación, consultar `ITERATIONS_COMPREHENSIVE_REPORT.md` y `VALIDATION_REPORT.md`.
+
+---
+
 ### Referencia externa para formato institucional
 
 - Referencia disponible: `Referencias/Tesis_Borrador_Tomas_Bernal.zip`.

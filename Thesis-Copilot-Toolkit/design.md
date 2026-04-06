@@ -1,3 +1,8 @@
+
+---
+
+## Nota de actualización (abril 2026)
+La arquitectura documental y la trazabilidad de resultados están alineadas con las versiones v6/v7 del pipeline y las iteraciones hasta it82. Para detalles y artefactos, ver `ITERATIONS_COMPREHENSIVE_REPORT.md`.
 # Dependencias y riesgos del pipeline EEG-GSP
 
 ## Dependencias

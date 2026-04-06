@@ -25,7 +25,9 @@ Emit a QA report with a clear PASS/FAIL verdict for each statistical gate.
 | Raw CSV | `Thesis-Copilot-Toolkit/results/<tag>_raw.csv` | yes |
 | Run metadata | `Thesis-Copilot-Toolkit/results/<tag>_run_metadata.json` | yes |
 
-Required CSV columns: `dataset`, `graph`, `method`, `missing_ratio`, `seed`, `mae`, `rmse`, `snr`, `dtw`
+Required CSV columns (core): `dataset`, `graph`, `method`, `missing_ratio`, `mae`, `rmse`, `snr`
+
+Optional columns: `scenario_label`, `seed`, `dtw`, `error`
 
 ## Exit Contract (artefacts produced)
 
@@ -55,7 +57,9 @@ if "error" in df.columns:
 else:
     df_clean = df.copy()
 
-metrics = ["mae", "rmse", "snr", "dtw"]
+metrics = ["mae", "rmse", "snr"]
+if "dtw" in df_clean.columns:
+    metrics.append("dtw")
 assert all(m in df_clean.columns for m in metrics), "Missing metric columns"
 ```
 
@@ -73,13 +77,14 @@ def ci95(x):
     return ci[0], ci[1]
 
 rows = []
-for (method, missing_ratio), grp in df_clean.groupby(["method", "missing_ratio"]):
+scenario_col = "scenario_label" if "scenario_label" in df_clean.columns else "missing_ratio"
+for (method, scenario), grp in df_clean.groupby(["method", scenario_col]):
     for m in metrics:
         vals = grp[m].dropna()
         lo, hi = ci95(vals)
         rows.append({
             "method": method,
-            "missing_ratio": missing_ratio,
+            scenario_col: scenario,
             "metric": m,
             "mean": vals.mean(),
             "std": vals.std(ddof=1),
@@ -103,9 +108,8 @@ Run the following key contrasts using Mann-Whitney U (unpaired) or Wilcoxon sign
 | `mae_bgsrp_vs_tikhonov` | mae | bgsrp | tikhonov | Mann-Whitney U |
 | `mae_tv_family_vs_instant` | mae | tv_time family | instant family | Wilcoxon |
 | `rmse_trss_vs_tikhonov` | rmse | trss | tikhonov | Mann-Whitney U |
-| `dtw_tv_family_vs_instant` | dtw | tv_time family | instant family | Wilcoxon |
 
-TV/Time methods: `graph_time_tikhonov`, `trss`, `tv`
+TV/Time methods (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `directed_tv`
 Instant methods: all others
 
 Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
@@ -113,9 +117,9 @@ Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
 ```python
 from scipy.stats import mannwhitneyu, wilcoxon
 
-TV_TIME = {"graph_time_tikhonov", "trss", "tv"}
+TV_TIME = {"graph_time_tikhonov", "trss", "tv", "temporal_laplacian", "directed_tv"}
 alpha = 0.05
-n_tests = 5  # update if more contrasts are added
+n_tests = 4  # increment dynamically if dtw is available
 bonferroni_alpha = alpha / n_tests
 
 sig_rows = []
@@ -132,14 +136,22 @@ def mwu(a_vals, b_vals, test_id, metric, group_a, group_b):
             "group_b": group_b, "statistic": stat, "p_value": p, "decision": decision}
 
 for metric in ["mae", "rmse"]:
-    a = df_clean[df_clean["method"] == "trss"][metric]
-    b = df_clean[df_clean["method"] == "tikhonov"][metric]
-    sig_rows.append(mwu(a, b, f"{metric}_trss_vs_tikhonov", metric, "trss", "tikhonov"))
+    if {"trss", "tikhonov"}.issubset(set(df_clean["method"].unique())):
+        a = df_clean[df_clean["method"] == "trss"][metric]
+        b = df_clean[df_clean["method"] == "tikhonov"][metric]
+        sig_rows.append(mwu(a, b, f"{metric}_trss_vs_tikhonov", metric, "trss", "tikhonov"))
 
-for metric in ["mae", "dtw"]:
+for metric in ["mae"]:
     a = df_clean[df_clean["method"].isin(TV_TIME)][metric]
     b = df_clean[~df_clean["method"].isin(TV_TIME)][metric]
     sig_rows.append(mwu(a, b, f"{metric}_tv_family_vs_instant", metric, "tv_time", "instant"))
+
+if "dtw" in df_clean.columns:
+    n_tests += 1
+    bonferroni_alpha = alpha / n_tests
+    a = df_clean[df_clean["method"].isin(TV_TIME)]["dtw"]
+    b = df_clean[~df_clean["method"].isin(TV_TIME)]["dtw"]
+    sig_rows.append(mwu(a, b, "dtw_tv_family_vs_instant", "dtw", "tv_time", "instant"))
 
 sig_df = pd.DataFrame(sig_rows)
 sig_df.to_csv(RESULTS / f"{tag}_significance.csv", index=False)
@@ -157,7 +169,7 @@ Evaluate each gate and record PASS/FAIL:
 | QA-04 | N ≥ 5 per (method, scenario) | `n >= 5` in all stats rows |
 | QA-05 | At least one contrast significant (Bonferroni) | ≥ 1 row in `significance.csv` with `decision=reject_H0` |
 | QA-06 | TV/Time family MAE < best instant MAE (median) | `median_tv < median_instant` |
-| QA-07 | No duplicate (method, missing_ratio) rows in stats CSV | 0 duplicates |
+| QA-07 | No duplicate (method, scenario) rows in stats CSV | 0 duplicates |
 
 ```python
 gates = {}
@@ -189,7 +201,8 @@ instant_median = mae_stats[~mae_stats["method"].isin(TV_TIME)]["median"].min()
 gates["QA-06"] = "PASS" if (not np.isnan(tv_median) and tv_median < instant_median) else "FAIL"
 
 # QA-07
-dups = stats_df.duplicated(subset=["method","missing_ratio","metric"]).sum()
+scenario_col_stats = "scenario_label" if "scenario_label" in stats_df.columns else "missing_ratio"
+dups = stats_df.duplicated(subset=["method", scenario_col_stats, "metric"]).sum()
 gates["QA-07"] = "PASS" if dups == 0 else "FAIL"
 ```
 
@@ -238,7 +251,7 @@ lines += [
     "",
     "## Interpretation Note",
     "",
-    "- TV/Time family: `graph_time_tikhonov`, `trss`, `tv`.",
+    "- TV/Time family (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `directed_tv`.",
     "- Bonferroni-adjusted alpha: {:.4f}.".format(bonferroni_alpha),
     "- INS-13 status: proxy Python-only — do not claim 1:1 MATLAB/GSPBox equivalence.",
 ]

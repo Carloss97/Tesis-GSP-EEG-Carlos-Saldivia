@@ -22,8 +22,8 @@ Produce a reproducible raw results CSV and run metadata JSON that satisfy the en
 | Field | Required | Description |
 |-------|----------|-------------|
 | `iteration_tag` | yes | Unique lowercase tag, e.g. `it01` |
-| `dataset` | yes | `synthetic_alpha`, `synthetic_beta`, `synthetic_broad`, `physionet_eegmmidb`, or `all` |
-| `scenarios` | yes | Missing-channel percentages, e.g. `["10pct","20pct","30pct"]` or `"all"` |
+| `dataset` | yes | Dataset key de v6/v7 (`synthetic_*`, `physionet_eegmmidb`, `mne_sample_proxy`, `bci_competition_proxy`) o `all` |
+| `scenarios` | yes | Missing scenarios por ratio o por conteo, e.g. `["10pct","20pct","30pct"]` o `["1ch","2ch","3ch"]` o `"all"` |
 | `seeds` | yes | Integer range, e.g. `0-29` (produces 30 seeds: 0,1,...,29) |
 
 ## Exit Contract (artefacts produced)
@@ -35,7 +35,9 @@ Produce a reproducible raw results CSV and run metadata JSON that satisfy the en
 
 ### Required CSV columns
 
-`dataset`, `graph`, `method`, `missing_ratio`, `seed`, `mae`, `rmse`, `snr`, `dtw`, `params`, `error`
+Core required: `dataset`, `graph`, `method`, `missing_ratio`, `mae`, `rmse`, `snr`
+
+Optional (if present): `scenario_label`, `seed`, `dtw`, `error`, `best_params`, `family`, `n_missing`, `missing_indices`
 
 ### Required metadata JSON fields
 
@@ -61,8 +63,9 @@ Produce a reproducible raw results CSV and run metadata JSON that satisfy the en
 ### Step 1 — Resolve parameters
 
 1. Parse `dataset`, `scenarios`, and `seeds` from the input fields.
-2. Map scenario names to missing ratios:
+2. Map scenario names to missing ratios/counts:
    - `10pct` → 0.10, `20pct` → 0.20, `30pct` → 0.30, `40pct` → 0.40
+  - `1ch` → 1 missing electrode, `2ch` → 2, `3ch` → 3
    - `"all"` → [0.10, 0.20, 0.30, 0.40]
 3. Expand `seeds` range string (e.g. `"0-29"`) to integer list `[0, 1, ..., 29]`.
 
@@ -73,10 +76,14 @@ Execute from `Thesis-Copilot-Toolkit/`:
 ```bash
 cd Thesis-Copilot-Toolkit
 python3 experiments/run_canonical_experiment.py \
-  --iteration_tag <tag> \
-  --dataset <dataset> \
-  --missing_ratios 0.10 0.20 0.30 \
-  --seeds 0 1 2 ... 29
+  --missing-ratios 0.10 0.20 0.30
+```
+
+Para escenarios few-electrode (v7), si el script lo soporta:
+
+```bash
+python3 experiments/run_canonical_experiment.py \
+  --missing-counts 1 2 3
 ```
 
 If the script does not yet accept those flags, run it in standard mode and then filter/rename the output CSV to `results/<tag>_raw.csv` using a short Python snippet:
@@ -88,10 +95,16 @@ RESULTS = pathlib.Path("Thesis-Copilot-Toolkit/results")
 src = RESULTS / "canonical_final_raw.csv"
 df = pd.read_csv(src)
 
-# Filter by requested datasets and missing_ratios
+# Filter by requested datasets and scenarios
 datasets = [<dataset_list>]
-ratios   = [<ratio_list>]
-df = df[df["dataset"].isin(datasets) & df["missing_ratio"].isin(ratios)]
+ratios   = [<ratio_list>]  # optional
+labels   = [<scenario_labels>]  # optional, e.g. ["1ch", "2ch"]
+
+df = df[df["dataset"].isin(datasets)]
+if ratios:
+  df = df[df["missing_ratio"].isin(ratios)]
+if labels and "scenario_label" in df.columns:
+  df = df[df["scenario_label"].isin(labels)]
 
 tag = "<iteration_tag>"
 df.to_csv(RESULTS / f"{tag}_raw.csv", index=False)
@@ -100,7 +113,7 @@ meta = {
     "iteration_tag": tag,
     "run_timestamp": datetime.datetime.utcnow().isoformat() + "Z",
     "dataset": datasets,
-    "scenarios": [f"{int(r*100)}pct" for r in ratios],
+    "scenarios": labels if labels else [f"{int(r*100)}pct" for r in ratios],
     "seeds": sorted(df["seed"].unique().tolist()) if "seed" in df.columns else [],
     "global_seed": 42,
     "n_rows": len(df),
@@ -142,7 +155,7 @@ Phase 1 exit: OK ✓  /  FAIL ✗
 ## Reproducibility Requirements
 
 - Random seed for all numpy/scipy operations: `GLOBAL_SEED = 42` (matches canonical script).
-- Per-combination seed: `seed_combo = GLOBAL_SEED + int(missing_ratio * 10000) + hash(dataset) % 100000`.
+- Per-combination seed is handled internally by the canonical script using dataset + scenario context.
 - Store the exact command line or script call in the metadata JSON under `"command"`.
 - Never modify `canonical_final_raw.csv` in place — always write to the tagged output path.
 
@@ -153,7 +166,13 @@ Phase 1 exit: OK ✓  /  FAIL ✗
 | `synthetic_alpha` | Alpha band 8–13 Hz, 19 ch, sphere 3-D | 19 | Synthetic |
 | `synthetic_beta` | Beta band 13–30 Hz, 19 ch, sphere 3-D | 19 | Synthetic |
 | `synthetic_broad` | Broad 1–40 Hz, 16 ch, circle 2-D | 16 | Synthetic |
+| `synthetic_8ch` | Synthetic few-channel variant | 8 | Synthetic |
+| `synthetic_16ch` | Synthetic medium-channel variant | 16 | Synthetic |
+| `synthetic_32ch` | Synthetic high-channel variant | 32 | Synthetic |
 | `physionet_eegmmidb` | Motor imagery real, 64 ch | 64 | Real |
+| `mne_sample_proxy` | MNE Sample proxy | 60 | Proxy |
+| `bci_competition_proxy` | BCI Competition proxy | 22 | Proxy |
+| `bci_competition_proxy_s2` | BCI Competition proxy variant | 22 | Proxy |
 | `all` | All available datasets | — | Mixed |
 
 ## Graph Methods Available

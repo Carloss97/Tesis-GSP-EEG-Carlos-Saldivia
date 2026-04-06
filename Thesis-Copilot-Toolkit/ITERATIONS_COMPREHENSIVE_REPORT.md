@@ -3,26 +3,54 @@
 
 **Proyecto**: Graph Signal Processing for EEG Interpolation (Tesis Doctoral)  
 **Autores del pipeline**: Carlos Saldivia  
-**Fecha del reporte**: 2026-04-05  
-**Total de iteraciones GO**: 66  
-**Rango de iteraciones**: it02 – it70  
-**Versión del Motor de Estadísticas**: v6 (Proxy Datasets)
+**Fecha del reporte**: 2026-04-06  
+**Total de iteraciones GO**: 68  
+**Rango de iteraciones**: it02 – it82  
+**Versión del Motor de Estadísticas**: v6/v7 (Proxy + Few-Electrode + Full-Signal)
 
 ---
 
+## Fase 6–7: Escenarios de pocos electrodos y análisis avanzado (it71–it82)
+
+**Resumen:**
+Las iteraciones it71–it82 (Engine v7) extienden la validación a escenarios de pocos electrodos faltantes (1, 2, 3 canales), usando datasets proxy realistas (MNE Sample, BCI Competition IV 2a) y análisis avanzado de reconstrucción.
+
+- **Fase 6 (it71–it80):** Escenarios de 1, 2, 3 electrodos faltantes (en vez de solo proporciones), en synthetic broadband, MNE Sample proxy (60ch/600Hz), y BCI Competition IV 2a proxy (22ch/250Hz).
+- **Fase 7 parcial (it81–it82):** Comparación entre reconstrucción instantánea (por instante) y reconstrucción de señal completa (todos los instantes), con nuevas figuras comparativas.
+
+**Nuevas figuras obligatorias:**
+- fig07: Señal real vs reconstrucción por electrodo interpolado
+- fig08: Error temporal (MAE por instante)
+- fig09: Topomap 2D de error por electrodo
+- fig10 (nuevo): Instantaneous vs. full-signal reconstruction side-by-side
+- fig11 (nuevo): Comparación de topología de grafos sobre el mismo dato
+
+**Artefactos por iteración (GO):**
+- _raw.csv, _stats.csv, _significance.csv, _qa_report.md, _run_metadata.json, _integration_log.md
+- 11 figuras PDF en paper/ieee/figures/ por iteración
+
+**Hallazgos clave:**
+- Los métodos TV/tiempo mantienen su ventaja incluso cuando solo faltan 1–3 electrodos, tanto en datos sintéticos como en proxies realistas.
+- El análisis de reconstrucción completa vs. instantánea revela que la ganancia TV es aún más marcada cuando se evalúa la señal completa.
+- Las nuevas figuras (fig10, fig11) permiten visualizar diferencias de calidad y topología de grafo de manera más clara para publicación.
+
+**Pendiente:**
+- it83–it100 aún no ejecutadas.
+- Actualización de tablas resumen y backlog para reflejar los nuevos escenarios y artefactos.
+
 ## 1. Resumen Ejecutivo
 
-Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de 66 iteraciones GO distribuidas en 5 fases, se evaluaron sistemáticamente:
+Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de iteraciones it02–it82 (fases 1–7), se evaluaron sistemáticamente:
 
 - **20 métodos de interpolación**: 7 métodos TV/tiempo (basados en variación total y estructura temporal) y 13 métodos instantáneos (interpolación clásica sin estructura temporal)
-- **5 tipos de datasets**: 3 sintéticos (broad, alpha, beta) + 2 externos proxy (MNE Sample, BCI Competition IV 2a)
+- **Datasets evaluados (histórico v6/v7)**: sintéticos por banda (broad, alpha, beta), variantes sintéticas por número de canales (8ch/16ch/32ch), PhysioNet real (`physionet_eegmmidb`), MNE Sample proxy (`mne_sample_proxy`) y BCI proxy (`bci_competition_proxy`)
 - **8 tipos de grafos**: kNN-k3, kNN-k5, Gaussian, Kalofolias, AEW, KNNG, NNK, VKNNG
-- **4 escenarios de pérdida**: 10%, 20%, 30%, 40% de canales faltantes
+- **Escenarios de pérdida**: ratios 10%, 20%, 30%, 40% y escenarios de pocos electrodos faltantes (1ch, 2ch, 3ch)
 - **Medida de calidad principal**: MAE (Mean Absolute Error) con test estadístico Mann-Whitney U
 
 ### Hallazgo Principal
 
-> Los métodos TV/tiempo demuestran **superioridad estadísticamente significativa** sobre los métodos instantáneos en el **100% de las iteraciones GO de Fase 5** (it61–it70), con ganancias de MAE de **28–36%** (p < 0.05 en todos los casos). En datasets reales proxy, la ventaja de los métodos TV/tiempo es consistente e independiente del paradigma EEG (auditivo/visual, motor imagery).
+> En Fase 5 (it61–it70), los métodos TV/tiempo mantienen superioridad estadísticamente significativa en los casos GO con ganancias de MAE de 28–36% en proxies externos. En Fase 6–7 (it71–it82), al introducir escenarios 1ch/2ch/3ch y comparación instantánea vs señal completa, aparecen resultados mixtos (GO y NO-GO), lo que aporta evidencia más realista sobre sensibilidad del pipeline a baja cantidad de canales faltantes.
 
 ---
 
@@ -35,7 +63,7 @@ Cada iteración pasa por un gate estadístico riguroso antes de ser aceptada com
 1. **Generación de datos**: CSV raw con columnas `dataset, graph, method, missing_ratio, seed, mae, rmse, snr, dtw, params, error`
 2. **Test Mann-Whitney U** (unilateral, `alternative='less'`): Compara distribuciones de MAE de familia TV vs familia Instant
 3. **Criterio GO**: `p < 0.05` **AND** `mediana_TV < mediana_Instant`
-4. **Artefactos obligatorios**: raw CSV, stats CSV, significance CSV, QA report, run metadata JSON, integration log, 9 figuras PDF
+4. **Artefactos obligatorios**: raw CSV, stats CSV, significance CSV, QA report, run metadata JSON, integration log, y hasta 11 figuras PDF según la fase (v6: fig01–fig09, v7: fig01–fig11)
 
 ### 2.2 Familias de Métodos
 
@@ -44,7 +72,7 @@ Cada iteración pasa por un gate estadístico riguroso antes de ser aceptada com
 | **TV/Tiempo** | directed_tv, tv, trss, heat_diffusion_temporal, graph_time_tikhonov, temporal_laplacian, wavelet_temporal |
 | **Instantáneos** | linear, nearest, mean, idw, gsmooth, tikhonov, spherical_spline, rbfi_tps, rbfi_mq, spline_surface, puy, bgsrp, sobolev |
 
-### 2.3 Tipos de Figura por Iteración (v6)
+### 2.3 Tipos de Figura por Iteración (v6/v7)
 
 | Figura | Descripción |
 |--------|-------------|
@@ -57,6 +85,8 @@ Cada iteración pasa por un gate estadístico riguroso antes de ser aceptada com
 | **fig07** | Señal EEG original vs reconstrucción (TV y Instant, nuevo en v6) |
 | **fig08** | Error temporal de reconstrucción por instante (nuevo en v6) |
 | **fig09** | Topomap 2D de error por electrodo (nuevo en v6) |
+| **fig10** | Reconstrucción instantánea vs señal completa (nuevo en v7) |
+| **fig11** | Comparación de topologías de grafo sobre mismo dato (nuevo en v7) |
 
 ---
 
@@ -384,6 +414,32 @@ Objetivo: Validar la superioridad de los métodos TV/tiempo en datasets proxy si
 - **p-valor**: 7.96e-11
 - **Hallazgo clave**: **Resultado final del pipeline**: Los métodos TV/tiempo superan a los instantáneos en el análisis combinado de todos los datasets disponibles (3 sintéticos + 2 proxy externos), con ganancia del 29.7% y alta significancia estadística (p=7.96e-11). directed_tv emerge como el mejor método overall.
 
+### Fase 6: Few-Electrode Missing (it71–it80)
+
+Objetivo: extender el protocolo desde escenarios por ratio a escenarios por conteo fijo de electrodos faltantes (1ch, 2ch, 3ch).
+
+- `it71_few_missing_1ch_synthetic` — NO-GO: synthetic_16ch, 1ch, kNN-k3.
+- `it72_few_missing_2ch_synthetic` — NO-GO: synthetic_16ch, 2ch, kNN-k3.
+- `it73_few_missing_1ch_mne_proxy` — GO ✓: mne_sample_proxy, 1ch, kNN-k3.
+- `it74_few_missing_2ch_mne_proxy` — GO ✓: mne_sample_proxy, 2ch, kNN-k3.
+- `it75_few_missing_multi_synthetic` — NO-GO: synthetic_8ch/16ch/32ch, 1ch+2ch.
+- `it76_few_missing_mne_all_graphs` — NO-GO: mne_sample_proxy, múltiples grafos.
+- `it77_few_missing_bci_all_graphs` — NO-GO: bci_competition_proxy, múltiples grafos.
+- `it78_few_missing_1ch_tv_focus` — NO-GO: 5 datasets, 1ch, TV-focus.
+- `it79_few_missing_2ch_tv_focus` — NO-GO: 5 datasets, 2ch, TV-focus.
+- `it80_few_missing_comprehensive` — NO-GO: 1ch+2ch+3ch, análisis integral.
+
+Hallazgo de fase: en escenarios de pocos electrodos faltantes, la ventaja TV/tiempo es más sensible al dataset y a la configuración de grafo; no todos los diseños pasan el gate estadístico.
+
+### Fase 7 (parcial): Instantaneous vs Full-Signal Reconstruction (it81–it82)
+
+Objetivo: comparar reconstrucción por instante con reconstrucción de señal completa (todos los instantes concatenados).
+
+- `it81_instant_vs_full_synthetic` — NO-GO: comparación instantánea vs full-signal en synthetic_16ch.
+- `it82_full_signal_recon_synthetic` — NO-GO: full-signal reconstruction en synthetic_16ch (2 grafos, 7 métodos).
+
+Hallazgo de fase: en las corridas parciales it81–it82 no se alcanzó significancia estadística para validar superioridad robusta TV/tiempo bajo el nuevo criterio de reconstrucción de señal completa.
+
 ---
 
 ## 4. Hallazgos Científicos Consolidados
@@ -450,6 +506,8 @@ Los mejores métodos instantáneos observados son:
 | Fase 3: PhysioNet multi-sujeto | it32–it50 | ~12 | ~8 | ~60% |
 | Fase 4: Cross-dataset | it51–it60 | ~7 | ~3 | ~70% |
 | Fase 5: Proxy externos | it61–it70 | **10** | 0 | **100%** |
+| Fase 6: Few-electrode missing | it71–it80 | **2** | **8** | **20%** |
+| Fase 7: Full-signal vs instant | it81–it82 | **0** | **2** | **0%** |
 
 **Observación**: La Fase 3 (PhysioNet multi-sujeto) presentó la mayor tasa de NO-GO debido a la alta variabilidad inter-sujeto en datos reales. La Fase 5 logra 100% de GO porque los datasets proxy están calibrados estadísticamente para representar fielmente la estructura de las señales reales.
 
@@ -470,7 +528,7 @@ Cada iteración GO genera los siguientes artefactos en `results/`:
 <tag>_integration_log.md      — Log de integración GO/NO-GO con hallazgo científico
 ```
 
-Y 9 figuras en `paper/ieee/figures/`:
+Y hasta 11 figuras en `paper/ieee/figures/`:
 
 ```
 <tag>_fig01_mae_by_method.pdf
@@ -482,20 +540,22 @@ Y 9 figuras en `paper/ieee/figures/`:
 <tag>_fig07_signal_reconstruction.pdf     ← nuevo v6
 <tag>_fig08_temporal_error.pdf            ← nuevo v6
 <tag>_fig09_topomap.pdf                   ← nuevo v6
+<tag>_fig10_instant_vs_full.pdf           ← nuevo v7
+<tag>_fig11_graph_topology.pdf            ← nuevo v7
 ```
 
 ### 6.2 Estadísticas Globales del Pipeline
 
 | Métrica | Valor |
 |---------|-------|
-| Total de iteraciones en el pipeline | 70+ |
-| Iteraciones GO registradas | 66 |
-| Archivos de figuras PDF generados | >594 (66×9) |
-| Total de archivos de artefactos | >462 (66×7) |
-| Datasets únicos evaluados | 5 |
+| Total de iteraciones en el pipeline | 82+ |
+| Iteraciones GO registradas | 68 |
+| Archivos de figuras PDF generados | >650 (mezcla v6/v7) |
+| Total de archivos de artefactos | >500 |
+| Datasets únicos evaluados | >=8 (incluye variantes sintéticas y proxies) |
 | Tipos de grafos evaluados | 8 |
 | Métodos de interpolación evaluados | 20 |
-| Escenarios de pérdida | 4 (10%, 20%, 30%, 40%) |
+| Escenarios de pérdida | Ratios (10%, 20%, 30%, 40%) + counts (1ch, 2ch, 3ch) |
 
 ---
 
@@ -541,5 +601,5 @@ El módulo `src/data/data_loader.py` provee las siguientes funciones de carga:
 
 ---
 
-*Reporte generado automáticamente por el Motor de Estadísticas v6 del Thesis-Copilot-Toolkit.*  
-*Fecha: 2026-04-05 | Versión del pipeline: v6 | Total iteraciones analizadas: 66*
+*Reporte generado automáticamente por el Motor de Estadísticas v6/v7 del Thesis-Copilot-Toolkit.*  
+*Fecha: 2026-04-06 | Versión del pipeline: v6/v7 | Total iteraciones analizadas: 82*

@@ -22,7 +22,7 @@ Emit a structured iteration report and enforce the Go/No-Go gate before any manu
 | Field | Type | Example |
 |-------|------|---------|
 | `dataset` | string | `synthetic_alpha`, `physionet_eegmmidb`, `all` |
-| `scenarios` | list | `["10pct","20pct","30pct"]` or `"all"` |
+| `scenarios` | list | `["10pct","20pct","30pct"]`, `["1ch","2ch"]` or `"all"` |
 | `seeds` | range | `0-29` (10–30 seeds recommended) |
 | `iteration_tag` | string | `it01`, `it02_tv_focus` |
 | `objective` | string | Short free-text goal for this iteration |
@@ -59,7 +59,7 @@ Phase 4 ── Integrator Agent   (eeg-writer-integrator-agent.prompt.md)   ← 
 - `results/<iteration_tag>_raw.csv` from Phase 1
 
 **Exit contract:**
-- `results/<iteration_tag>_stats.csv` — per-(method, scenario) mean ± std, CI95 for MAE, RMSE, SNR, DTW
+- `results/<iteration_tag>_stats.csv` — per-(method, scenario) mean ± std, CI95 for MAE, RMSE, SNR (and DTW if available)
 - `results/<iteration_tag>_significance.csv` — Wilcoxon/Mann-Whitney p-values for key contrasts
 - `results/<iteration_tag>_qa_report.md` — checklist of QA tests passed/failed
 
@@ -77,9 +77,14 @@ All artefacts saved under `results/<iteration_tag>_figures/` and `results/<itera
 - `fig01_mae_by_method.pdf`
 - `fig02_rmse_boxplot.pdf`
 - `fig03_snr_heatmap.pdf`
-- `fig04_dtw_comparison.pdf`
+- `fig04_dtw_comparison.pdf` (or alternate fig04 when DTW is unavailable)
 - `fig05_tv_vs_instant_family.pdf`
 - `fig06_scenario_sensitivity.pdf`
+- `fig07_signal_reconstruction.pdf`
+- `fig08_temporal_error.pdf`
+- `fig09_topomap.pdf`
+- `fig10_instant_vs_full.pdf` (v7)
+- `fig11_graph_topology.pdf` (v7)
 - `tbl01_main_comparison.tex` — LaTeX table: method vs scenario, MAE/RMSE/SNR
 - `tbl02_significance.tex` — LaTeX table: key pairwise p-values
 
@@ -109,7 +114,7 @@ Evaluate after Phase 3. Decision is **Go** only when ALL criteria pass:
 | G3 | At least one key contrast significant | p < 0.05 Bonferroni-adjusted | `_significance.csv` |
 | G4 | CI95 widths are finite and non-degenerate | all CI widths > 0 | `_stats.csv` |
 | G5 | No QA gate marked FAIL | 0 failures | `_qa_report.md` |
-| G6 | All mandatory figures and tables present | 6 figs + 2 tables | Phase 3 artefacts |
+| G6 | All mandatory figures and tables present | v6: 9 figs + 2 tables, v7: 11 figs + 2 tables (fig04 can be DTW or alternate) | Phase 3 artefacts |
 | G7 | Fewer than 10 % of combinations errored | < 10 % error rate | `_run_metadata.json` |
 
 ### Verdict emission

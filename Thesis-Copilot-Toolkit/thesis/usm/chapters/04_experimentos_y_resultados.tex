@@ -1215,3 +1215,25 @@ Benchmark en \texttt{synthetic_broad},
 
 \input{tables/it60_broad_all_graphs_high_mr_tbl01_main_comparison.tex}
 % ── End it60_broad_all_graphs_high_mr ──
+
+% ── Iteraciones it71-it82 (Engine v7) — Alineación editorial ──
+% Agregado 2026-04-06
+\subsection{Extensión Engine v7 (\texttt{it71}--\texttt{it82}): escenarios con pocos electrodos faltantes y análisis de señal completa}
+\label{sec:exp_it71_it82_v7}
+
+La versión v7 extiende el protocolo de pérdida por proporción a escenarios de conteo fijo
+(\texttt{1ch}, \texttt{2ch}, \texttt{3ch}) e incorpora una fase parcial para comparar reconstrucción instantánea
+versus reconstrucción de señal completa.
+
+\begin{itemize}
+  \item Fase 6 (\texttt{it71}--\texttt{it80}): resultados mixtos (2 GO, 8 NO-GO). Los casos GO se observan en
+  \texttt{it73} y \texttt{it74} sobre \texttt{mne\_sample\_proxy} en escenarios \texttt{1ch}/\texttt{2ch}.
+  \item Fase 7 parcial (\texttt{it81}--\texttt{it82}): ambas iteraciones quedan en NO-GO con el gate estadístico
+  vigente, por lo que la superioridad robusta bajo criterio full-signal no se considera cerrada.
+  \item Implicancia metodológica: aunque v6 (\texttt{it61}--\texttt{it70}) mantiene ventaja TV/Tiempo en proxies,
+  v7 muestra sensibilidad al dataset, a la topología de grafo y a regímenes de baja pérdida por conteo.
+\end{itemize}
+
+En consecuencia, las iteraciones v7 se usan como evidencia de frontera (robustez y limitaciones), y no como
+evidencia confirmatoria principal.
+% ── Fin it71-it82 alineación editorial ──

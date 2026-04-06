@@ -1593,3 +1593,25 @@ across 2 scenario(s) (10\%, 20\%, 30\%, 40\%),
 \input{tables/it60_broad_all_graphs_high_mr_tbl01_main_comparison.tex}
 \input{tables/it60_broad_all_graphs_high_mr_tbl02_significance.tex}
 % ── End it60_broad_all_graphs_high_mr ──
+
+% ── Iterations it71-it82 (Engine v7) — Editorial alignment ──
+% Appended 2026-04-06
+\subsection{Engine v7 extension (\texttt{it71}--\texttt{it82}): few-electrode missing scenarios and full-signal analysis}
+\label{sec:results_it71_it82_v7}
+
+Engine v7 extends the validation protocol beyond ratio-only missingness by introducing fixed-count scenarios
+(\texttt{1ch}, \texttt{2ch}, \texttt{3ch}) and a partial Phase 7 analysis contrasting instantaneous reconstruction
+against full-signal reconstruction.
+
+\begin{itemize}
+  \item Phase 6 (\texttt{it71}--\texttt{it80}): mixed outcomes (2 GO, 8 NO-GO), with GO obtained in
+  \texttt{it73} and \texttt{it74} on \texttt{mne\_sample\_proxy} for \texttt{1ch}/\texttt{2ch} missing cases.
+  \item Phase 7 partial (\texttt{it81}--\texttt{it82}): both iterations are NO-GO under the statistical gate,
+  indicating that robust superiority under the full-signal criterion is not yet established in the current setup.
+  \item Interpretation: the TV/Time advantage remains strong in v6 proxy settings (\texttt{it61}--\texttt{it70}),
+  but v7 reveals sensitivity to dataset configuration, graph choice, and low-count missing-channel regimes.
+\end{itemize}
+
+These v7 outcomes are retained as critical boundary evidence and should be used for limitations and robustness
+discussion rather than as confirmatory evidence.
+% ── End it71-it82 editorial alignment ──

@@ -91,3 +91,13 @@ Estado aplicado en esta iteracion:
 - Claim no permitido: equivalencia estricta 1:1 MATLAB/GSPBox ya cerrada.
 - Fuente numerica oficial para paper/tesis: `results/ins13_strict_status.md`.
 - Decisiones editoriales asociadas: `results/b3_b4_submission_checklist.md` y `results/b3_b4_editorial_traceability.md`.
+
+## 10. Estado iterativo v6/v7 (actualizado a it82)
+
+- v6 (it61-it70): consolidación de proxies externos (`mne_sample_proxy`, `bci_competition_proxy`) con artefactos fig01-fig09.
+- v7 (it71-it82): incorporación de escenarios de pocos electrodos faltantes (`1ch`, `2ch`, `3ch`) y comparación de reconstrucción instantánea vs señal completa (fig10, fig11).
+- PhysioNet no se elimina del marco experimental: sigue siendo dataset real de referencia (`physionet_eegmmidb`) para comparación histórica y discusión de generalización.
+
+Regla editorial:
+- Citar explícitamente si una iteración fue GO o NO-GO cuando se use para narrativa de resultados.
+- No presentar iteraciones NO-GO como evidencia confirmatoria; usarlas para discusión de límites, sensibilidad y riesgo metodológico.

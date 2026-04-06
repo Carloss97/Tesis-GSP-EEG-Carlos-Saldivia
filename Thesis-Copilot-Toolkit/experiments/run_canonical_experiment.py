@@ -21,10 +21,16 @@ Protocolo de validación anidada:
   - Reporta SOLO métricas de la fracción de evaluación.
 
 Métricas: MAE (primaria), RMSE, SNR, DTW.
+
+Soporte de escenarios:
+    - Ratios: --missing-ratios 0.1 0.2 0.3 0.4
+    - Conteos: --missing-counts 1 2 3
+    - Mixto: combinar ambos flags.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sys
@@ -308,7 +314,7 @@ GRAPH_BASED = {
 }
 POSITION_BASED = {"idw", "spherical_spline", "rbfi_tps", "rbfi_mq", "spline_surface"}
 
-MISSING_RATIOS = [0.10, 0.20, 0.30, 0.40]
+DEFAULT_MISSING_RATIOS = [0.10, 0.20, 0.30, 0.40]
 
 # Nested validation split: fraction used for inner (param selection) fold
 INNER_FRACTION = 0.60  # first 60% of time samples for inner tuning
@@ -331,15 +337,71 @@ def _method_label(method: str, params: Dict) -> str:
     return f"{method}__{'_'.join(parts)}"
 
 
-def _apply_mask_temporal(signals: np.ndarray, missing_ratio: float, seed: int) -> Tuple[np.ndarray, List[int]]:
+def _apply_mask_temporal(
+    signals: np.ndarray,
+    seed: int,
+    missing_ratio: Optional[float] = None,
+    missing_count: Optional[int] = None,
+) -> Tuple[np.ndarray, List[int]]:
     """Mask the same set of channels for ALL time steps (systematic temporal)."""
     rng = np.random.default_rng(seed)
     n_channels = signals.shape[1]
-    n_missing = max(1, int(round(n_channels * missing_ratio)))
+    if missing_count is not None:
+        n_missing = int(missing_count)
+    elif missing_ratio is not None:
+        n_missing = int(round(n_channels * float(missing_ratio)))
+    else:
+        raise ValueError("Either missing_ratio or missing_count must be provided")
+
+    n_missing = max(1, min(n_channels - 1, n_missing))
     missing_idx = sorted(rng.choice(n_channels, n_missing, replace=False).tolist())
     masked = signals.copy()
     masked[:, missing_idx] = np.nan
     return masked, missing_idx
+
+
+def _build_missing_scenarios(
+    missing_ratios: Optional[List[float]],
+    missing_counts: Optional[List[int]],
+) -> List[Dict[str, Any]]:
+    scenarios: List[Dict[str, Any]] = []
+
+    for mr in (missing_ratios or []):
+        v = float(mr)
+        if not (0.0 < v < 1.0):
+            raise ValueError(f"Invalid missing ratio: {v}. Expected 0 < ratio < 1.")
+        scenarios.append({
+            "mode": "ratio",
+            "missing_ratio": v,
+            "missing_count": None,
+            "label": f"{int(round(v * 100))}pct",
+        })
+
+    for mc in (missing_counts or []):
+        c = int(mc)
+        if c <= 0:
+            raise ValueError(f"Invalid missing count: {c}. Expected count >= 1.")
+        scenarios.append({
+            "mode": "count",
+            "missing_ratio": None,
+            "missing_count": c,
+            "label": f"{c}ch",
+        })
+
+    if not scenarios:
+        for mr in DEFAULT_MISSING_RATIOS:
+            scenarios.append({
+                "mode": "ratio",
+                "missing_ratio": mr,
+                "missing_count": None,
+                "label": f"{int(round(mr * 100))}pct",
+            })
+
+    return scenarios
+
+
+def _scenario_group_col(df: pd.DataFrame) -> str:
+    return "scenario_label" if "scenario_label" in df.columns else "missing_ratio"
 
 
 def _run_one(
@@ -398,17 +460,17 @@ def _split_inner_outer(signals: np.ndarray, inner_frac: float):
     return signals[:split], signals[split:]
 
 
-def run_benchmark(datasets: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
+def run_benchmark(datasets: Dict[str, Dict[str, Any]], missing_scenarios: List[Dict[str, Any]]) -> pd.DataFrame:
     rows: List[Dict] = []
     n_ds = len(datasets)
     n_gc = len(GRAPH_CONFIGS)
     n_mg = len(ALL_METHOD_GRIDS)
-    n_mr = len(MISSING_RATIOS)
-    total = n_ds * n_gc * n_mg * n_mr
+    n_sc = len(missing_scenarios)
+    total = n_ds * n_gc * n_mg * n_sc
     done = 0
 
-    print(f"\n[canonical] datasets={n_ds}, graphs={n_gc}, method_grids={n_mg}, "
-          f"missing_ratios={n_mr} → est. combos={total}")
+        print(f"\n[canonical] datasets={n_ds}, graphs={n_gc}, method_grids={n_mg}, "
+            f"scenarios={n_sc} → est. combos={total}")
 
     for ds_name, ds_data in datasets.items():
         signals_full: np.ndarray = ds_data["signals"]
@@ -441,11 +503,23 @@ def run_benchmark(datasets: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
                 done += n_mg * n_mr
                 continue
 
-            for missing_ratio in MISSING_RATIOS:
-                mr_seed = GLOBAL_SEED + int(missing_ratio * 10000) + hash(ds_name) % 100000
+            for sc in missing_scenarios:
+                sc_label = str(sc["label"])
+                sc_ratio = sc.get("missing_ratio")
+                sc_count = sc.get("missing_count")
+
+                seed_offset = int(sc_ratio * 10000) if sc_ratio is not None else int(sc_count) * 1000 + 70000
+                mr_seed = GLOBAL_SEED + seed_offset + hash(ds_name) % 100000
 
                 # Apply same mask to inner and outer (same channel indices)
-                _, missing_idx = _apply_mask_temporal(signals_full, missing_ratio, mr_seed)
+                _, missing_idx = _apply_mask_temporal(
+                    signals_full,
+                    mr_seed,
+                    missing_ratio=sc_ratio,
+                    missing_count=sc_count,
+                )
+
+                missing_ratio_effective = len(missing_idx) / max(1, signals_full.shape[1])
 
                 # Inner masked / clean
                 inner_masked = signals_inner.copy()
@@ -460,7 +534,7 @@ def run_benchmark(datasets: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
                 for method, param_grid in ALL_METHOD_GRIDS:
                     done += 1
                     if done % 200 == 0:
-                        print(f"    [{done}/{total}] {ds_name}/{g_label}/{method}/mr={missing_ratio:.2f}")
+                        print(f"    [{done}/{total}] {ds_name}/{g_label}/{method}/scenario={sc_label}")
 
                     # --- Inner fold: select best params ---
                     best_params, _ = _best_params_inner(
@@ -482,7 +556,8 @@ def run_benchmark(datasets: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
                         "method":            method,
                         "best_params":       str(best_params),
                         "family":            _family(method),
-                        "missing_ratio":     missing_ratio,
+                        "scenario_label":    sc_label,
+                        "missing_ratio":     float(missing_ratio_effective),
                         "n_missing":         len(missing_idx),
                         "missing_indices":   ",".join(str(i) for i in missing_idx),
                         "outer_n_times":     int(signals_outer.shape[0]),
@@ -540,8 +615,9 @@ def build_per_dataset_ranking(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_top_k_table(df: pd.DataFrame, k: int = 5) -> pd.DataFrame:
+    sc_col = _scenario_group_col(df)
     out = []
-    for (ds, mr, fam), sub in df.groupby(["dataset", "missing_ratio", "family"]):
+    for (ds, sc, fam), sub in df.groupby(["dataset", sc_col, "family"]):
         top = (
             sub.groupby("method")["mae"]
             .mean()
@@ -551,7 +627,7 @@ def build_top_k_table(df: pd.DataFrame, k: int = 5) -> pd.DataFrame:
         )
         top.columns = ["method", "mae_mean"]
         top["dataset"] = ds
-        top["missing_ratio"] = mr
+        top["scenario"] = sc
         top["family"] = fam
         top["rank"] = range(1, len(top) + 1)
         out.append(top)
@@ -559,9 +635,13 @@ def build_top_k_table(df: pd.DataFrame, k: int = 5) -> pd.DataFrame:
 
 
 def build_best_per_dataset_ratio(df: pd.DataFrame) -> pd.DataFrame:
-    idx = df.groupby(["dataset", "missing_ratio"])["mae"].idxmin()
+    sc_col = _scenario_group_col(df)
+    idx = df.groupby(["dataset", sc_col])["mae"].idxmin()
     best = df.loc[idx].copy()
-    return best.rename(columns={"mae": "best_mae", "rmse": "best_rmse", "snr": "best_snr"}).reset_index(drop=True)
+    best = best.rename(columns={"mae": "best_mae", "rmse": "best_rmse", "snr": "best_snr"})
+    if sc_col != "scenario":
+        best = best.rename(columns={sc_col: "scenario"})
+    return best.reset_index(drop=True)
 
 
 def build_graph_sensitivity(df: pd.DataFrame) -> pd.DataFrame:
@@ -658,14 +738,16 @@ def plot_heatmap(df: pd.DataFrame) -> None:
 
 
 def plot_mae_vs_missing(df: pd.DataFrame, top_methods: List[str]) -> None:
+    sc_col = _scenario_group_col(df)
     sub = df[df["method"].isin(top_methods)]
-    pivot = sub.groupby(["missing_ratio", "method"])["mae"].mean().reset_index()
+    pivot = sub.groupby([sc_col, "method"])["mae"].mean().reset_index()
     fig, ax = plt.subplots(figsize=(10, 5))
     for m in top_methods:
         row = pivot[pivot["method"] == m]
         if not row.empty:
-            ax.plot(row["missing_ratio"], row["mae"], marker="o", label=m)
-    ax.set_xlabel("Proporción de canales faltantes")
+            ax.plot(row[sc_col], row["mae"], marker="o", label=m)
+    xlabel = "Escenario de pérdida (ratio/count)" if sc_col == "scenario_label" else "Proporción de canales faltantes"
+    ax.set_xlabel(xlabel)
     ax.set_ylabel("MAE medio (outer fold)")
     ax.set_title("MAE vs. nivel de pérdida — top métodos (outer fold)")
     ax.legend(bbox_to_anchor=(1.05, 1), loc="upper left", fontsize=7)
@@ -729,7 +811,10 @@ def write_canonical_report(
     lines.append(f"- **BCI Competition IV 2a:** {'DISPONIBLE (real)' if bci_2a_available else 'NO DISPONIBLE — declarado formalmente como PROXY/EXCLUIDO de afirmaciones fuertes'}")
     lines.append(f"- **Métodos de interpolación:** {df['method'].nunique()}")
     lines.append(f"- **Métodos de grafo:** {df['graph_method'].nunique()}")
-    missing_levels_str = [f"{v:.0%}" for v in sorted(df['missing_ratio'].unique())]
+    if "scenario_label" in df.columns:
+        missing_levels_str = sorted(df["scenario_label"].dropna().unique().tolist())
+    else:
+        missing_levels_str = [f"{v:.0%}" for v in sorted(df['missing_ratio'].unique())]
     lines.append(f"- **Niveles de pérdida:** {missing_levels_str}")
     lines.append(f"- **Unidades de señal PhysioNet:** Voltios (EEG en V desde MNE; MAE ~1e-6 V es normal)")
     lines.append("")
@@ -766,11 +851,11 @@ def write_canonical_report(
         lines.append("")
 
     lines.append("## 3. Top-5 por Dataset × Nivel de Pérdida × Familia\n")
-    lines.append(_df_md(topk[["dataset", "missing_ratio", "family", "rank", "method", "mae_mean"]]))
+    lines.append(_df_md(topk[["dataset", "scenario", "family", "rank", "method", "mae_mean"]]))
     lines.append("")
 
     lines.append("## 4. Mejor Método por Dataset × Nivel de Pérdida\n")
-    lines.append(_df_md(best_per[["dataset", "data_source", "missing_ratio", "method", "family", "best_mae", "best_rmse", "best_snr"]]))
+    lines.append(_df_md(best_per[["dataset", "data_source", "scenario", "method", "family", "best_mae", "best_rmse", "best_snr"]]))
     lines.append("")
 
     lines.append("## 5. Sensibilidad al Método de Grafo (Top-20)\n")
@@ -942,10 +1027,38 @@ def run_postprocessing(df: pd.DataFrame, bci_2a_available: bool,
     print(f"  → RESULTS_FINAL_REPORT.md      (actualizado con nota)")
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Canonical EEG-GSP benchmark")
+    parser.add_argument(
+        "--missing-ratios",
+        type=float,
+        nargs="*",
+        default=None,
+        help="Missing ratios as decimals (e.g., 0.1 0.2 0.3)",
+    )
+    parser.add_argument(
+        "--missing-counts",
+        type=int,
+        nargs="*",
+        default=None,
+        help="Missing channel counts (e.g., 1 2 3)",
+    )
+    parser.add_argument(
+        "--force-rerun",
+        action="store_true",
+        help="Force benchmark run even if canonical_final_raw.csv already exists",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = _parse_args()
+    missing_scenarios = _build_missing_scenarios(args.missing_ratios, args.missing_counts)
+
     print("=" * 70)
     print("  Experimento Canónico Final — EEG-GSP (Validación Anidada)")
     print("=" * 70)
+    print(f"  Escenarios configurados: {[sc['label'] for sc in missing_scenarios]}")
 
     clear_registry()
     run_timestamp = pd.Timestamp.now().strftime("%Y-%m-%d %H:%M")
@@ -954,7 +1067,10 @@ def main() -> None:
     # -----------------------------------------------------------------------
     # Check if raw results already exist — skip heavy benchmark if so
     # -----------------------------------------------------------------------
-    if raw_path.exists():
+    custom_scenarios_requested = bool(args.missing_ratios) or bool(args.missing_counts)
+    should_skip_benchmark = raw_path.exists() and not args.force_rerun and not custom_scenarios_requested
+
+    if should_skip_benchmark:
         print(f"\n[0] Archivo raw existente encontrado: {raw_path.name} — omitiendo benchmark.")
         df = pd.read_csv(raw_path)
         print(f"    Cargado: {len(df)} filas")
@@ -1028,7 +1144,7 @@ def main() -> None:
     # 2. Run benchmark
     # -----------------------------------------------------------------------
     print(f"\n[2] Ejecutando benchmark canónico ({len(datasets)} datasets)...")
-    df = run_benchmark(datasets)
+    df = run_benchmark(datasets, missing_scenarios)
 
     if df.empty:
         print("[ERROR] No se generaron resultados.")
@@ -1042,6 +1158,7 @@ def main() -> None:
 
     meta = {
         "run_timestamp": run_timestamp,
+        "missing_scenarios": [sc["label"] for sc in missing_scenarios],
         "physionet_available": physionet_available,
         "physionet_subjects_loaded": physionet_subjects_loaded if physionet_available else [],
         "bci_2a_available": bci_2a_available,

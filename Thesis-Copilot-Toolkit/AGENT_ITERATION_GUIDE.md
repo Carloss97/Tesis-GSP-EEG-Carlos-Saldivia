@@ -28,7 +28,7 @@ Every time you invoke the Orchestrator, supply all five fields:
 | Field | Type | Description | Example |
 |-------|------|-------------|---------|
 | `dataset` | string | Dataset key or `all` | `synthetic_alpha` |
-| `scenarios` | list | Missing-channel percentages | `["10pct","20pct","30pct"]` |
+| `scenarios` | list | Missing scenarios (ratio o count) | `["10pct","20pct","30pct"]` o `["1ch","2ch"]` |
 | `seeds` | range | Seed range (recommend 10–30) | `0-29` |
 | `iteration_tag` | string | Unique lowercase tag | `it01` |
 | `objective` | string | Short goal for this iteration | `Validate TV/Time advantage on alpha band` |
@@ -73,7 +73,7 @@ The Orchestrator evaluates seven criteria after Phase 3:
 | G3 | ≥ 1 contrast significant (Bonferroni α = 0.05/n) | p < adjusted α |
 | G4 | All CI95 widths finite and positive | `ci95_hi > ci95_lo` |
 | G5 | No QA gate marked FAIL | 0 failures in QA report |
-| G6 | All 6 mandatory figures + 2 tables present | complete artefact set |
+| G6 | All mandatory figures + 2 tables present | v6: 9 figs + 2 tables, v7: 11 figs + 2 tables |
 | G7 | Error rate < 10 % | `error_rate < 0.10` |
 
 **Go** = all 7 criteria pass.
@@ -115,25 +115,40 @@ All paths relative to `Thesis-Copilot-Toolkit/`:
 
 ## 7. Mandatory Figures and Tables per Iteration
 
-Every Go iteration must produce and cite these artefacts in the manuscript:
 
-### Figures (6)
+### Engine v7 (it71–it82): Nuevas figuras y artefactos
+Cada iteración GO debe producir y citar los siguientes artefactos en el manuscrito:
 
+#### Figuras (11 obligatorias)
 | Key | Description |
 |-----|-------------|
-| `fig01_mae_by_method` | Bar plot: MAE mean ± CI95 per method |
-| `fig02_rmse_boxplot` | Box plot: RMSE distribution across seeds |
-| `fig03_snr_heatmap` | Heatmap: mean SNR (method × missing_ratio) |
-| `fig04_dtw_comparison` | Bar plot: DTW top-10 methods |
-| `fig05_tv_vs_instant_family` | Grouped line: TV/Time vs Instant — MAE and RMSE |
-| `fig06_scenario_sensitivity` | Line plot: MAE vs missing_ratio for top-5 methods |
+| fig01_mae_by_method | Bar plot: MAE mean ± CI95 per method |
+| fig02_rmse_boxplot | Box plot: RMSE distribution across seeds |
+| fig03_snr_heatmap | Heatmap: mean SNR (method × missing_ratio) |
+| fig04_dtw_comparison | Bar plot: DTW top-10 methods |
+| fig05_tv_vs_instant_family | Grouped line: TV/Time vs Instant — MAE and RMSE |
+| fig06_scenario_sensitivity | Line plot: MAE vs missing_ratio for top-5 methods |
+| fig07_signal_reconstruction | Signal real vs. reconstruction per interpolated electrode |
+| fig08_temporal_error | Temporal error — MAE per time instant |
+| fig09_topomap | 2D topomap of per-electrode reconstruction error |
+| fig10_instant_vs_full | Instantaneous vs. full-signal reconstruction side-by-side (nuevo v7) |
+| fig11_graph_topology | Graph topology comparison — same data, different graph structures (nuevo v7) |
 
-### Tables (2)
-
+#### Tablas (2)
 | Key | Description |
 |-----|-------------|
-| `tbl01_main_comparison` | Main table: method × scenario, MAE/RMSE/SNR |
-| `tbl02_significance` | Significance table: pairwise p-values |
+| tbl01_main_comparison | Main table: method × scenario, MAE/RMSE/SNR |
+| tbl02_significance | Significance table: pairwise p-values |
+
+#### Escenarios y datasets
+- Fase 6 (it71–it80): Escenarios de 1, 2, 3 electrodos faltantes (no solo proporciones), en synthetic broadband, MNE Sample proxy (60ch/600Hz), y BCI Competition IV 2a proxy (22ch/250Hz).
+- Fase 7 (it81–it82): Análisis de reconstrucción completa vs. instantánea.
+
+#### Artefactos por iteración (GO):
+- _raw.csv, _stats.csv, _significance.csv, _qa_report.md, _run_metadata.json, _integration_log.md
+- 11 figuras PDF en paper/ieee/figures/ por iteración
+
+
 
 ---
 
@@ -172,7 +187,7 @@ objective     = Confirm TV/Time advantage on alpha band with 25 seeds
 #    → it02_tv_focus_qa_report.md
 
 # 4. Orchestrator runs Phase 3 (Viz/Tables)
-#    → it02_tv_focus_figures/fig01_mae_by_method.pdf  ...fig06
+#    → it02_tv_focus_figures/fig01_mae_by_method.pdf  ...fig11
 #    → it02_tv_focus_tables/tbl01_main_comparison.tex
 #    → it02_tv_focus_tables/tbl02_significance.tex
 
@@ -223,11 +238,17 @@ The Runner Agent filters and renames the output to `results/<tag>_raw.csv`.
 
 | Key | Band / type | Channels | Notes |
 |-----|-------------|----------|-------|
-| `synthetic_alpha` | Alpha 8–13 Hz | 19 | Sphere 3-D positions |
-| `synthetic_beta` | Beta 13–30 Hz | 19 | Sphere 3-D positions |
-| `synthetic_broad` | Broad 1–40 Hz | 16 | Circle 2-D positions |
-| `physionet_eegmmidb` | Motor imagery | 64 | Requires local data |
-| `all` | All available | — | Includes all above |
+| `synthetic_alpha` | Alpha 8–13 Hz | 19 | Histórica v6 |
+| `synthetic_beta` | Beta 13–30 Hz | 19 | Histórica v6 |
+| `synthetic_broad` | Broad 1–40 Hz | 16 | Histórica v6 |
+| `synthetic_8ch` | Sintético baja densidad | 8 | Introducido en v7 |
+| `synthetic_16ch` | Sintético densidad media | 16 | Introducido en v7 |
+| `synthetic_32ch` | Sintético alta densidad | 32 | Introducido en v7 |
+| `physionet_eegmmidb` | Motor imagery real | 64 | Requiere datos locales |
+| `mne_sample_proxy` | Auditivo/visual proxy | 60 | Proxy sintético |
+| `bci_competition_proxy` | Motor imagery proxy | 22 | Proxy sintético |
+| `bci_competition_proxy_s2` | Motor imagery proxy (subject/session variant) | 22 | Variante usada en v7 |
+| `all` | Todos los disponibles | — | Depende de la configuración |
 
 ---
 
@@ -269,7 +290,12 @@ results/
 │   ├── fig03_snr_heatmap.pdf
 │   ├── fig04_dtw_comparison.pdf
 │   ├── fig05_tv_vs_instant_family.pdf
-│   └── fig06_scenario_sensitivity.pdf
+│   ├── fig06_scenario_sensitivity.pdf
+│   ├── fig07_signal_reconstruction.pdf
+│   ├── fig08_temporal_error.pdf
+│   ├── fig09_topomap.pdf
+│   ├── fig10_instant_vs_full.pdf
+│   └── fig11_graph_topology.pdf
 ├── <tag>_tables/
 │   ├── tbl01_main_comparison.tex
 │   └── tbl02_significance.tex
@@ -391,3 +417,36 @@ results/
 | 2026-04-05 | it68_three_real_datasets — GO ✓: Tres datasets (PhysioNet+MNE+BCI proxy), kNN-k3. |
 | 2026-04-05 | it69_mne_bci_high_mr — GO ✓: MNE Sample + BCI proxy, alta pérdida (30-40%). |
 | 2026-04-05 | it70_all_five_datasets — GO ✓: Los 5 datasets combinados (análisis final exhaustivo). |
+
+## Motor de Estadísticas v7 — Few-Electrode + Full-Signal
+
+**Activado en**: it71–it82  
+**Novedad**: escenarios de pocos electrodos faltantes (`1ch`, `2ch`, `3ch`) y análisis de reconstrucción instantánea vs señal completa.
+
+### Iteraciones Fase 6 (it71-it80)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it71_few_missing_1ch_synthetic — NO-GO: 1ch faltante, synthetic_16ch, kNN-k3. |
+| 2026-04-06 | it72_few_missing_2ch_synthetic — NO-GO: 2ch faltantes, synthetic_16ch, kNN-k3. |
+| 2026-04-06 | it73_few_missing_1ch_mne_proxy — GO ✓: 1ch faltante, mne_sample_proxy, kNN-k3. |
+| 2026-04-06 | it74_few_missing_2ch_mne_proxy — GO ✓: 2ch faltantes, mne_sample_proxy, kNN-k3. |
+| 2026-04-06 | it75_few_missing_multi_synthetic — NO-GO: 1+2ch, synthetic_8/16/32ch. |
+| 2026-04-06 | it76_few_missing_mne_all_graphs — NO-GO: mne_sample_proxy con varios grafos. |
+| 2026-04-06 | it77_few_missing_bci_all_graphs — NO-GO: bci_competition_proxy con varios grafos. |
+| 2026-04-06 | it78_few_missing_1ch_tv_focus — NO-GO: 1ch, 5 datasets, TV focus. |
+| 2026-04-06 | it79_few_missing_2ch_tv_focus — NO-GO: 2ch, 5 datasets, TV focus. |
+| 2026-04-06 | it80_few_missing_comprehensive — NO-GO: análisis integral 1+2+3ch. |
+
+### Iteraciones Fase 7 parcial (it81-it82)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-06 | it81_instant_vs_full_synthetic — NO-GO: comparación instantánea vs full-signal en synthetic_16ch. |
+| 2026-04-06 | it82_full_signal_recon_synthetic — NO-GO: reconstrucción de señal completa (all instants) en synthetic_16ch. |
+
+### Estado de avance
+
+- it61–it70: consolidación v6 en proxies externos.
+- it71–it82: extensión v7 validada en artefactos, con resultados mixtos GO/NO-GO.
+- it83–it100: pendiente de ejecución.

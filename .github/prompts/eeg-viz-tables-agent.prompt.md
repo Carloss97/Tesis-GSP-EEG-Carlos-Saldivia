@@ -31,16 +31,23 @@ All outputs go to:
 - Figures: `Thesis-Copilot-Toolkit/results/<tag>_figures/`
 - Tables: `Thesis-Copilot-Toolkit/results/<tag>_tables/`
 
-### Mandatory Figures (6)
+### Mandatory Figures (v6/v7)
+
+Baseline v6: fig01–fig09. Extended v7: fig01–fig11.
 
 | File | Content |
 |------|---------|
 | `fig01_mae_by_method.pdf` | Bar plot — MAE mean ± CI95 per method, grouped by dataset |
 | `fig02_rmse_boxplot.pdf` | Box-and-whisker — RMSE distribution per method across seeds |
-| `fig03_snr_heatmap.pdf` | Heatmap — mean SNR (method × missing_ratio) |
-| `fig04_dtw_comparison.pdf` | Bar plot — DTW mean ± std, top-10 methods vs baseline |
+| `fig03_snr_heatmap.pdf` | Heatmap — mean SNR (method × scenario) |
+| `fig04_dtw_comparison.pdf` | Bar plot — DTW mean ± std when available; alternate metric summary otherwise |
 | `fig05_tv_vs_instant_family.pdf` | Grouped bar — TV/Time family vs Instant family, MAE and RMSE |
-| `fig06_scenario_sensitivity.pdf` | Line plot — MAE vs missing_ratio for top-5 methods |
+| `fig06_scenario_sensitivity.pdf` | Line plot — MAE vs scenario for top-5 methods |
+| `fig07_signal_reconstruction.pdf` | Signal real vs reconstrucción por electrodo interpolado |
+| `fig08_temporal_error.pdf` | Error temporal — MAE por instante |
+| `fig09_topomap.pdf` | Topomap 2D de error por electrodo |
+| `fig10_instant_vs_full.pdf` | Instantaneous vs full-signal reconstruction side-by-side |
+| `fig11_graph_topology.pdf` | Graph topology comparison on same data |
 
 ### Mandatory Tables (2)
 
@@ -72,6 +79,7 @@ TBL_DIR.mkdir(parents=True, exist_ok=True)
 raw_df   = pd.read_csv(RESULTS / f"{tag}_raw.csv")
 stats_df = pd.read_csv(RESULTS / f"{tag}_stats.csv")
 sig_df   = pd.read_csv(RESULTS / f"{tag}_significance.csv")
+scenario_col = "scenario_label" if "scenario_label" in stats_df.columns else "missing_ratio"
 
 # Clean errored rows from raw
 if "error" in raw_df.columns:
@@ -135,16 +143,16 @@ plt.close(fig)
 print("[fig02] saved")
 ```
 
-### Step 3 — fig03: SNR heatmap (method × missing_ratio)
+### Step 3 — fig03: SNR heatmap (method × scenario)
 
 ```python
 snr = stats_df[stats_df["metric"] == "snr"].copy()
-pivot = snr.pivot_table(index="method", columns="missing_ratio", values="mean")
+pivot = snr.pivot_table(index="method", columns=scenario_col, values="mean")
 fig, ax = plt.subplots(figsize=(8, max(4, len(pivot) * 0.35)))
 sns.heatmap(pivot, annot=True, fmt=".2f", cmap="YlGnBu", linewidths=0.3,
             cbar_kws={"label": "SNR (dB)"}, ax=ax)
-ax.set_title("Mean SNR — Method × Missing Ratio")
-ax.set_xlabel("Missing Ratio")
+ax.set_title("Mean SNR — Method × Scenario")
+ax.set_xlabel("Scenario")
 ax.set_ylabel("Method")
 fig.tight_layout()
 fig.savefig(FIG_DIR / "fig03_snr_heatmap.pdf", dpi=DPI)
@@ -152,23 +160,32 @@ plt.close(fig)
 print("[fig03] saved")
 ```
 
-### Step 4 — fig04: DTW comparison (top-10 vs baseline)
+### Step 4 — fig04: DTW comparison (or alternate if DTW unavailable)
 
 ```python
-dtw = stats_df[stats_df["metric"] == "dtw"].copy()
-top10 = dtw.groupby("method")["mean"].mean().sort_values().head(10).index.tolist()
-dtw_top = dtw[dtw["method"].isin(top10)]
-order_dtw = dtw_top.groupby("method")["mean"].mean().sort_values().index.tolist()
 fig, ax = plt.subplots(figsize=FIG_SIZE)
-x = np.arange(len(order_dtw))
-means_dtw = [dtw_top[dtw_top["method"]==m]["mean"].mean() for m in order_dtw]
-stds_dtw  = [dtw_top[dtw_top["method"]==m]["std"].mean() for m in order_dtw]
-colors = ["#e07b54" if m in TV_TIME else "#5b8db8" for m in order_dtw]
-ax.bar(x, means_dtw, width=0.6, color=colors, edgecolor="black", linewidth=0.5)
-ax.errorbar(x, means_dtw, yerr=stds_dtw, fmt="none", color="black", capsize=4)
-ax.set_xticks(x); ax.set_xticklabels(order_dtw, rotation=40, ha="right")
-ax.set_ylabel("DTW (mean ± std)")
-ax.set_title("DTW — Top-10 Methods")
+if "dtw" in stats_df["metric"].unique():
+    dtw = stats_df[stats_df["metric"] == "dtw"].copy()
+    top10 = dtw.groupby("method")["mean"].mean().sort_values().head(10).index.tolist()
+    dtw_top = dtw[dtw["method"].isin(top10)]
+    order_dtw = dtw_top.groupby("method")["mean"].mean().sort_values().index.tolist()
+    x = np.arange(len(order_dtw))
+    means_dtw = [dtw_top[dtw_top["method"]==m]["mean"].mean() for m in order_dtw]
+    stds_dtw  = [dtw_top[dtw_top["method"]==m]["std"].mean() for m in order_dtw]
+    colors = ["#e07b54" if m in TV_TIME else "#5b8db8" for m in order_dtw]
+    ax.bar(x, means_dtw, width=0.6, color=colors, edgecolor="black", linewidth=0.5)
+    ax.errorbar(x, means_dtw, yerr=stds_dtw, fmt="none", color="black", capsize=4)
+    ax.set_xticks(x); ax.set_xticklabels(order_dtw, rotation=40, ha="right")
+    ax.set_ylabel("DTW (mean ± std)")
+    ax.set_title("DTW — Top-10 Methods")
+else:
+    alt = stats_df[stats_df["metric"] == "mae"].groupby("method")["mean"].mean().sort_values().head(10)
+    x = np.arange(len(alt.index))
+    colors = ["#e07b54" if m in TV_TIME else "#5b8db8" for m in alt.index]
+    ax.bar(x, alt.values, width=0.6, color=colors, edgecolor="black", linewidth=0.5)
+    ax.set_xticks(x); ax.set_xticklabels(alt.index, rotation=40, ha="right")
+    ax.set_ylabel("MAE (mean)")
+    ax.set_title("MAE — Top-10 Methods (DTW unavailable)")
 fig.tight_layout()
 fig.savefig(FIG_DIR / "fig04_dtw_comparison.pdf", dpi=DPI)
 plt.close(fig)
@@ -181,21 +198,21 @@ print("[fig04] saved")
 for metric in ["mae", "rmse"]:
     s = stats_df[stats_df["metric"] == metric].copy()
     s["family"] = s["method"].apply(lambda m: "TV/Time" if m in TV_TIME else "Instant")
-    fam_stats = s.groupby(["family", "missing_ratio"])["mean"].mean().reset_index()
-    fam_std   = s.groupby(["family", "missing_ratio"])["std"].mean().reset_index()
+    fam_stats = s.groupby(["family", scenario_col])["mean"].mean().reset_index()
+    fam_std   = s.groupby(["family", scenario_col])["std"].mean().reset_index()
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 for ax, metric in zip(axes, ["mae", "rmse"]):
     s = stats_df[stats_df["metric"] == metric].copy()
     s["family"] = s["method"].apply(lambda m: "TV/Time" if m in TV_TIME else "Instant")
-    fam = s.groupby(["family","missing_ratio"]).agg(mean=("mean","mean"), std=("std","mean")).reset_index()
+    fam = s.groupby(["family",scenario_col]).agg(mean=("mean","mean"), std=("std","mean")).reset_index()
     for fam_name, grp in fam.groupby("family"):
         color = "#e07b54" if fam_name == "TV/Time" else "#5b8db8"
-        ax.plot(grp["missing_ratio"], grp["mean"], "o-", color=color, label=fam_name)
-        ax.fill_between(grp["missing_ratio"],
+        ax.plot(grp[scenario_col], grp["mean"], "o-", color=color, label=fam_name)
+        ax.fill_between(grp[scenario_col],
                         grp["mean"] - grp["std"], grp["mean"] + grp["std"],
                         alpha=0.2, color=color)
-    ax.set_xlabel("Missing Ratio"); ax.set_ylabel(metric.upper())
+    ax.set_xlabel("Scenario"); ax.set_ylabel(metric.upper())
     ax.set_title(f"{metric.upper()} — TV/Time vs Instant")
     ax.legend()
 
@@ -213,12 +230,12 @@ top5 = mae.groupby("method")["mean"].mean().sort_values().head(5).index.tolist()
 fig, ax = plt.subplots(figsize=FIG_SIZE)
 palette = sns.color_palette(PALETTE, n_colors=len(top5))
 for method, color in zip(top5, palette):
-    sub = mae[mae["method"] == method].sort_values("missing_ratio")
-    ax.plot(sub["missing_ratio"], sub["mean"], "o-", color=color, label=method)
-    ax.fill_between(sub["missing_ratio"], sub["ci95_lo"], sub["ci95_hi"], alpha=0.15, color=color)
-ax.set_xlabel("Missing Ratio")
+    sub = mae[mae["method"] == method].sort_values(scenario_col)
+    ax.plot(sub[scenario_col], sub["mean"], "o-", color=color, label=method)
+    ax.fill_between(sub[scenario_col], sub["ci95_lo"], sub["ci95_hi"], alpha=0.15, color=color)
+ax.set_xlabel("Scenario")
 ax.set_ylabel("MAE (mean ± CI95)")
-ax.set_title("MAE Sensitivity to Missing Ratio — Top-5 Methods")
+ax.set_title("MAE Sensitivity to Scenario — Top-5 Methods")
 ax.legend(fontsize=9)
 fig.tight_layout()
 fig.savefig(FIG_DIR / "fig06_scenario_sensitivity.pdf", dpi=DPI)
@@ -233,22 +250,27 @@ mae_s  = stats_df[stats_df["metric"]=="mae"]
 rmse_s = stats_df[stats_df["metric"]=="rmse"]
 snr_s  = stats_df[stats_df["metric"]=="snr"]
 
-ratios = sorted(stats_df["missing_ratio"].unique())
+ratios = sorted(stats_df[scenario_col].unique())
 method_mae_avg = mae_s.groupby("method")["mean"].mean()
 methods_ordered = method_mae_avg.sort_values().index.tolist()
 
+def scenario_label(v):
+    if isinstance(v, (int, float, np.floating)) and 0 < float(v) < 1:
+        return f"{int(round(float(v)*100))}\\%"
+    return str(v)
+
 col_spec = "l" + "".join(["c" * 3 for _ in ratios])
 header_top = "\\multicolumn{1}{c}{}" + "".join(
-    [f" & \\multicolumn{{3}}{{c}}{{{int(r*100)}\\%}}" for r in ratios]) + " \\\\"
+    [f" & \\multicolumn{{3}}{{c}}{{{scenario_label(r)}}}" for r in ratios]) + " \\\\"
 header_sub = "Method" + " & MAE & RMSE & SNR" * len(ratios) + " \\\\"
 
 rows_tex = []
 for m in methods_ordered:
     row = m.replace("_", "\\_")
     for r in ratios:
-        mae_row  = mae_s[(mae_s["method"]==m)  & (mae_s["missing_ratio"]==r)]
-        rmse_row = rmse_s[(rmse_s["method"]==m) & (rmse_s["missing_ratio"]==r)]
-        snr_row  = snr_s[(snr_s["method"]==m)   & (snr_s["missing_ratio"]==r)]
+        mae_row  = mae_s[(mae_s["method"]==m)  & (mae_s[scenario_col]==r)]
+        rmse_row = rmse_s[(rmse_s["method"]==m) & (rmse_s[scenario_col]==r)]
+        snr_row  = snr_s[(snr_s["method"]==m)   & (snr_s[scenario_col]==r)]
         def fmt(df_r, col="mean", std_col="std"):
             if df_r.empty: return "--"
             return f"${df_r[col].values[0]:.3f}_{{\pm{df_r[std_col].values[0]:.3f}}}$"
@@ -260,7 +282,7 @@ tex = [
     f"% Iteration: {tag}",
     "\\begin{table}[ht]",
     "\\centering",
-    f"\\caption{{EEG channel reconstruction — MAE, RMSE, SNR by method and missing ratio (mean $\\pm$ std). Iteration: \\texttt{{{tag}}}.}}",
+    f"\\caption{{EEG channel reconstruction — MAE, RMSE, SNR by method and scenario (mean $\\pm$ std). Iteration: \\texttt{{{tag}}}.}}",
     f"\\label{{tab:main_comparison_{tag}}}",
     "\\small",
     f"\\begin{{tabular}}{{{col_spec}}}",
@@ -323,10 +345,16 @@ print("[tbl02] saved")
 required_figs = [
     "fig01_mae_by_method.pdf", "fig02_rmse_boxplot.pdf", "fig03_snr_heatmap.pdf",
     "fig04_dtw_comparison.pdf", "fig05_tv_vs_instant_family.pdf", "fig06_scenario_sensitivity.pdf",
+    "fig07_signal_reconstruction.pdf", "fig08_temporal_error.pdf", "fig09_topomap.pdf",
+]
+required_figs_v7 = [
+    "fig10_instant_vs_full.pdf", "fig11_graph_topology.pdf",
 ]
 required_tbls = ["tbl01_main_comparison.tex", "tbl02_significance.tex"]
 
-missing_figs = [f for f in required_figs if not (FIG_DIR / f).exists()]
+is_v7_iteration = tag.startswith("it7") or tag.startswith("it8")
+required_all = required_figs + required_figs_v7 if is_v7_iteration else required_figs
+missing_figs = [f for f in required_all if not (FIG_DIR / f).exists()]
 missing_tbls = [t for t in required_tbls if not (TBL_DIR / t).exists()]
 
 status = "OK" if not missing_figs and not missing_tbls else "FAIL"

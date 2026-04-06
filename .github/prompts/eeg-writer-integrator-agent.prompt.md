@@ -143,7 +143,7 @@ Bonferroni-adjusted).
 
 \\input{{tables/{tag}_tbl01_main_comparison}}
 
-Figures~\\ref{{fig:{tag}_fig01}} through~\\ref{{fig:{tag}_fig06}} illustrate the
+Figures~\\ref{{fig:{tag}_fig01}} through~\\ref{{fig:{tag}_fig11}} illustrate the
 per-method and per-scenario distributions of all four metrics.
 
 \\begin{{figure}}[ht]
@@ -197,7 +197,7 @@ corrección de Bonferroni).
 
 \\input{{tables/{tag}_tbl01_main_comparison}}
 
-Las Figuras~\\ref{{fig:{tag}_fig01}} a~\\ref{{fig:{tag}_fig06}} ilustran las distribuciones
+Las Figuras~\\ref{{fig:{tag}_fig01}} a~\\ref{{fig:{tag}_fig11}} ilustran las distribuciones
 de todas las métricas por método y escenario.
 
 \\begin{{figure}}[ht]
@@ -302,7 +302,7 @@ print(f"[Integrator] Log saved: {tag}_integration_log.md")
 
 Before reporting completion, verify:
 
-- [ ] All 6 figures copied to `paper/ieee/figures/` and `thesis/usm/figures/`
+- [ ] All 11 figures copied to `paper/ieee/figures/` and `thesis/usm/figures/`
 - [ ] Both `.tex` tables copied to `paper/ieee/tables/` and `thesis/usm/tables/`
 - [ ] `results.tex` contains new `\subsection` block with `\label{sec:results_<tag>}`
 - [ ] `04_experimentos_y_resultados.tex` contains new `\subsection` block with `\label{sec:resultados_<tag>}`
