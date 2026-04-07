@@ -487,6 +487,32 @@ results/
 | 2026-04-06 | it103_tv_lambda_grid_search — GO ✓: grid search de parámetro λ/regularización en familia TV. |
 | 2026-04-06 | it104_noise_sensitivity_tv — GO ✓: sensibilidad al ruido con niveles SNR inicial controlados (20/10/5/0 dB). |
 
+### Iteraciones Fase 11–14 (it105-it118) — Expansión multidominio (EEG + no-EEG)
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-07 | it105_real_eeg_crossdataset — NO-GO: validación cross-dataset real EEG (PhysioNet + BCI IV 2a S1), `p=1.0`, mejor método `trss`. |
+| 2026-04-07 | it106_bci_iv2a_multisubject — NO-GO: validación multisujeto BCI IV 2a (S1-S3), `p=1.0`, mejor método `trss`. |
+| 2026-04-07 | it107_mat100hz_baseline — NO-GO: baseline en dataset MAT 100Hz, `p=0.999`, mejor método `trss`. |
+| 2026-04-07 | it108_mat100hz_lambda_grid — NO-GO: grid λ en MAT 100Hz, `p=1.0`, mejor método `trss`. |
+| 2026-04-07 | it109_mat100hz_noise_sensitivity — NO-GO: sensibilidad a ruido en MAT 100Hz, `p=0.990`, mejor método `trss`. |
+| 2026-04-07 | it110_iris_graph_baseline — NO-GO: baseline en tarea grafo-señal Iris, `p=0.787`, mejor método `trss`. |
+| 2026-04-07 | it111_iris_graph_lambda_grid — NO-GO: grid λ en Iris, `p=1.0`, mejor método `trss`. |
+| 2026-04-07 | it112_movielens_graph_baseline — NO-GO: baseline en MovieLens grafo-señal, `p=1.0`, mejor método `tv`. |
+| 2026-04-07 | it113_movielens_graph_lambda_grid — NO-GO: grid λ en MovieLens, `p=1.0`, mejor método `tv`. |
+| 2026-04-07 | it114_eeg_vs_iris_transfer — NO-GO: transferencia EEG vs Iris, `p=0.972`, mejor método `trss`. |
+| 2026-04-07 | it115_eeg_vs_movielens_transfer — NO-GO: transferencia EEG vs MovieLens, `p=0.995`, mejor método `tv`. |
+| 2026-04-07 | it116_all_new_datasets_comprehensive — NO-GO: corrida comprehensiva en datasets nuevos, `p=0.984`, mejor método `trss`. |
+| 2026-04-07 | it117_graph_sensitivity_multidomain — NO-GO: sensibilidad a topología multidominio, `p=0.952`, mejor método `trss`. |
+| 2026-04-07 | it118_runtime_family_multidomain — NO-GO: análisis de runtime por familia en multidominio, `p=0.697`, mejor método `trss`. |
+
+### Iteraciones Fase 15 (it119-it120) — Pendientes de cierre
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-07 | it119_noise_trend_multidomain — PENDIENTE: consolidación de tendencia SNR en EEG/no-EEG. |
+| 2026-04-07 | it120_final_multidomain_publication_pack — PENDIENTE: paquete final multidominio y cierre de ciclo. |
+
 ### Estado de avance
 
 - it61–it70: consolidación v6 en proxies externos.
@@ -495,3 +521,5 @@ results/
 - it88–it94: Fase 8 (robustez/sensibilidad), GO ✓ en todas las corridas.
 - it95–it100: Fase 9 (comparativa final), GO ✓ en todas las corridas.
 - it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.
+- it105–it118: Fases 11–14 (expansión multidominio), ejecutadas con artefactos completos y resultado NO-GO en todas las corridas registradas hasta ahora.
+- it119–it120: Fase 15 en curso, pendientes de ejecución/cierre final.
