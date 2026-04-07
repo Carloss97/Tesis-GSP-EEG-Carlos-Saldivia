@@ -5,7 +5,7 @@
 **Autores del pipeline**: Carlos Saldivia  
 **Fecha del reporte**: 2026-04-07  
 **Total de iteraciones GO**: 90  
-**Rango de iteraciones**: it02 – it120 (cierre operativo completado)  
+**Rango de iteraciones**: it02 – it130 (cierre operativo extendido)  
 **Versión del Motor de Estadísticas**: v6/v7/v7e/v8/v9 (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative + Future multidomain)
 
 ---
@@ -44,6 +44,7 @@ Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenari
 - it105–it118 ejecutadas (Fase 11–14, expansión multidominio EEG/no-EEG), con salida NO-GO en las corridas registradas.
 - it119 ejecutada con artefactos completos (Fase 15 parcial), estado NO-GO.
 - it120 ejecutada con artefactos completos mediante destrabe controlado (Fase 15 cerrada operativamente), estado NO-GO.
+- it121–it130 ejecutadas en ciclo final operativo (Fase 16–18), con resultados mixtos y artefactos completos.
 
 ## Actualización Fase 11–15 (it105–it120): expansión multidominio
 
@@ -86,11 +87,32 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
 
 ### Pendiente inmediato
 
-- Re-ejecutar `it120_final_multidomain_publication_pack` en perfil exhaustivo original para comparabilidad directa con diseño inicial (faltante explícito).
-- Ejecutar siguiente bloque recomendado para reducir incertidumbre científica multidominio:
-  - `it121_domain_stratified_gate`
-  - `it122_subjectwise_bci_holdout`
-  - `it126_metric_robustness_multiobjective`
+- Sin pendientes operativos inmediatos: `it120` exhaustivo tuvo último intento sin cierre en ventana razonable y se da por perdido en esta etapa.
+
+## Actualización Fase 16–18 (it121–it130): cierre informativo prioritario
+
+Objetivo: ejecutar primero el bloque más informativo recomendado para cierre editorial rápido, con `it120` cerrado en perfil controlado tras último intento exhaustivo fallido.
+
+### Estado por iteración (resumen)
+
+| Iteración | Estado | p-value | Gain TV (%) | Nota |
+|-----------|--------|---------|-------------|------|
+| it121 | NO-GO | 0.992 | -10.6 | Gate estratificado por dominio; `eeg_real` y `non_eeg` también NO-GO |
+| it122 | NO-GO | 1.000 | -89.4 | Holdout por sujeto BCI IV 2a; S1/S2/S3 todos NO-GO |
+| it123 | NO-GO | 0.156 | +28.3 | Calibración de densidad de grafo (`k/sigma`); mejor método `trss` |
+| it124 | GO | 0.027 | +43.5 | Missing pattern realistic v2; evidencia favorable TV bajo perfil rápido |
+| it125 | GO | 0.023 | +41.3 | Sensibilidad temporal (proxy operativo) con señal favorable TV |
+| it126 | NO-GO | 0.120 | +28.3 | Ranking multiobjetivo; frente de Pareto emitido (`tv`, `mean`, `trss`) |
+| it127 | NO-GO | 0.056 | +38.0 | Perfil de ruido no-gaussiano (proxy) cercano a umbral estadístico |
+| it128 | NO-GO | 1.000 | +0.0 | Calibración por familia de dataset sin mejora estadística global |
+| it129 | NO-GO | 0.059 | +19.6 | Bootstrap de estabilidad emitido; decisión global frágil/no concluyente |
+| it130 | NO-GO | 0.149 | +0.5 | Matriz final emitida con recomendación `CONDICIONAL` por dominio |
+
+### Lectura técnica
+
+- El bloque recomendado y el resto pendiente (`it121–it130`) quedaron ejecutados con artefactos completos.
+- La evidencia sigue favoreciendo una conclusión condicional por dominio/caso de uso, no una dominancia global única.
+- Cierre final adoptado: no reintentar más `it120` exhaustivo en esta fase; se conserva `it120` controlado (NO-GO, `p=0.0535`) como artefacto de cierre.
 
 ## 1. Resumen Ejecutivo
 

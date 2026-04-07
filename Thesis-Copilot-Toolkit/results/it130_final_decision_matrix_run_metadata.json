@@ -1,0 +1,99 @@
+{
+  "tag": "it130_final_decision_matrix",
+  "timestamp": "2026-04-07T17:44:49.492210+00:00",
+  "description": "Final conditional decision matrix",
+  "objective": "Emit final recommendation matrix by use case (clinical EEG, BCI, non-EEG)",
+  "fase": "Phase 18: Final recommendations",
+  "datasets": [
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "iris_graph_signal",
+    "iv100hz_mat",
+    "movielens_graph_signal",
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "mean",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 4,
+  "n_rows": 48,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.01627703612262088,
+    "inst_median_mae": 0.016355375298193423,
+    "gain_pct": 0.478981216537391,
+    "p_value": 0.14886991988770537
+  },
+  "best_method": "trss",
+  "best_mae": 5.693749035915569,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real",
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "iv100hz_mat",
+    "iris_graph_signal",
+    "movielens_graph_signal"
+  ]
+}

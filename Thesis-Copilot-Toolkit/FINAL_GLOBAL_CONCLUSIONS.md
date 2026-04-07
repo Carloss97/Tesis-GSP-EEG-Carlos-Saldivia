@@ -18,12 +18,12 @@
 3. En la expansión multidominio reciente (it105–it119), el gate global TV vs Instant no mostró superioridad estadística consolidada (`NO-GO` en todas las corridas de ese bloque), lo que sugiere alta sensibilidad al dominio y al protocolo agregado.
 4. Aun con `NO-GO` global en ese bloque, `trss` aparece repetidamente como mejor método puntual en varios escenarios, y `tv` destaca en subconjuntos específicos (p. ej., MovieLens).
 5. La evidencia acumulada respalda un mensaje científico más matizado: no existe una dominancia universal por familia en todos los dominios; el rendimiento depende fuertemente de dataset, topología y configuración experimental.
-6. El proyecto queda listo para cierre editorial técnico en su versión operativa actual; el faltante explícito es repetir `it120` en perfil exhaustivo original para comparabilidad estricta con el diseño inicial.
+6. El proyecto queda listo para cierre editorial técnico en su versión operativa actual; el último intento exhaustivo de `it120` no cerró dentro de ventana razonable y se da por perdido en esta fase.
 
 ## Estado de riesgo y recomendaciones inmediatas
 
-- Riesgo principal actual: brecha entre cierre operativo (controlado) y cierre exhaustivo equivalente al diseño completo original de `it120`.
-- Recomendación operativa: ejecutar rerun exhaustivo de `it120` en ventana dedicada (sin tareas concurrentes) y monitoreo por hitos de artefactos para evitar ciclos largos sin visibilidad.
+- Riesgo principal residual: brecha metodológica entre cierre operativo (controlado) y diseño exhaustivo original de `it120` que no completó en última ventana.
+- Recomendación operativa: documentar explícitamente esta brecha como limitación y no bloquear más el cierre editorial.
 - Recomendación de reporte: mantener explícita la distinción entre:
   - evidencia fuerte en bloques EEG/proxy previos,
   - evidencia mixta/no concluyente en expansión multidominio reciente.
@@ -55,6 +55,24 @@ Estas iteraciones están enfocadas en extraer información nueva útil y no redu
 
 ## Criterio de cierre sugerido para ciclo final
 
-- Completar rerun exhaustivo de `it120`.
 - Ejecutar al menos 3 de las iteraciones propuestas más informativas (`it121`, `it122`, `it126`).
 - Emitir un cierre con recomendación condicional por dominio en lugar de una recomendación única global.
+
+## Actualización operativa aplicada (2026-04-07, cierre rápido)
+
+Decisión aplicada para no bloquear el escrito final:
+- Se ejecuta un último intento exhaustivo de `it120`, sin cierre en ventana razonable; se cierra ciclo con perfil controlado.
+- Se ejecutan primero las iteraciones más informativas priorizadas: `it121`, `it122`, `it126`.
+- Se ejecuta luego el bloque pendiente `it123–it130` en perfil operativo rápido.
+
+Resultado de las iteraciones priorizadas:
+- `it121_domain_stratified_gate`: **NO-GO** global (`p=0.9923`, gain=-10.6%) y también NO-GO por dominio (`eeg_real`, `non_eeg`).
+- `it122_subjectwise_bci_holdout`: **NO-GO** global (`p=0.9999`, gain=-89.4%) y NO-GO en S1/S2/S3.
+- `it126_metric_robustness_multiobjective`: **NO-GO** global (`p=0.1197`, gain=+28.3%); se emitió frente de Pareto (`tv`, `mean`, `trss`) para soporte de decisión.
+- `it123–it130` (restante): ejecutadas con resultados mixtos, **GO en it124 e it125** y NO-GO en `it123`, `it127`, `it128`, `it129`, `it130`.
+- `it130_final_decision_matrix`: recomendación final **CONDICIONAL** por dominio/caso de uso (EEG clínico, BCI, no-EEG), consistente con la evidencia estratificada.
+
+Lectura de cierre condicional:
+- No hay evidencia estadística para una recomendación global única TV>Instant en el bloque multidominio final.
+- Sí hay señal útil para cierre por dominio/caso de uso (matriz condicional) apoyada en resultados estratificados y trade-off multiobjetivo.
+- Decisión final del ciclo: `it120` exhaustivo se da por perdido en esta etapa; cierre técnico queda sustentado por `it120` controlado (NO-GO, `p=0.0535`) + bloque `it121–it130`.
