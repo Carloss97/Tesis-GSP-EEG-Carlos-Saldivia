@@ -1,237 +1,250 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.3)  5 APR 2026 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.7)  7 APR 2026 18:56
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/thesis/usm/main.tex
-(c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/thesis/usm/main.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
-Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/base\bk11.clo
-File: bk11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+**main.tex
+(./main.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2023/05/17 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@chapter=\count276
-\c@section=\count277
-\c@subsection=\count278
-\c@subsubsection=\count279
-\c@paragraph=\count280
-\c@subparagraph=\count281
-\c@figure=\count282
-\c@table=\count283
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen148
-) (config/packages.tex (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2024/02/08 v1.3d Input encoding file
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (./config/packages.tex (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc
+.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2026/03/24 v26.5 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count284
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2083.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
-\U@D=\dimen149
-\l@unhyphenated=\language79
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
-\bbl@readstream=\read2
-\bbl@dirlevel=\count285
-Package babel Info: Configuration files are deprecated, as
-(babel)             they can break document portability.
-(babel)             Reported on input line 4206.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count196
+\U@D=\dimen141
+\l@unhyphenated=\language12
 
-*************************************
-* Local config file bblopts.cfg used
-*
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel-spanish.tex)
-Package babel Info: Importing font and identification data for spanish
-(babel)             from babel-es.ini. Reported on input line 4330.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count197
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks19
-\es@quotdepth=\count286
+\es@quotdepth=\count198
 Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 4.
-LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 4.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2026/03/07 v6.0 Page Geometry
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 11.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks20
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count287
-\Gm@cntv=\count288
-\c@Gm@tempcnt=\count289
-\Gm@bindingoffset=\dimen150
-\Gm@wd@mp=\dimen151
-\Gm@odd@mp=\dimen152
-\Gm@even@mp=\dimen153
-\Gm@layoutwidth=\dimen154
-\Gm@layoutheight=\dimen155
-\Gm@layouthoffset=\dimen156
-\Gm@layoutvoffset=\dimen157
+\Gm@cnth=\count199
+\Gm@cntv=\count266
+\c@Gm@tempcnt=\count267
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
 \Gm@dimlist=\toks21
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2024/11/17 v2.01 AMS text
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen158
-)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+\ex@=\dimen150
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen159
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+\pmbraise@=\dimen151
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count290
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count291
-\leftroot@=\count292
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count293
-\DOTSCASE@=\count294
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen160
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count295
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count296
-\dotsspace@=\muskip17
-\c@parentequation=\count297
-\dspbrk@lvl=\count298
+\inf@bad=\count268
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count269
+\leftroot@=\count270
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count271
+\DOTSCASE@=\count272
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen152
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count273
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count274
+\dotsspace@=\muskip16
+\c@parentequation=\count275
+\dspbrk@lvl=\count276
 \tag@help=\toks23
-\row@=\count299
-\column@=\count300
-\maxfields@=\count301
+\row@=\count277
+\column@=\count278
+\maxfields@=\count279
 \andhelp@=\toks24
-\eqnshift@=\dimen161
-\alignsep@=\dimen162
-\tagshift@=\dimen163
-\tagwidth@=\dimen164
-\totwidth@=\dimen165
-\lineht@=\dimen166
+\eqnshift@=\dimen153
+\alignsep@=\dimen154
+\tagshift@=\dimen155
+\tagwidth@=\dimen156
+\totwidth@=\dimen157
+\lineht@=\dimen158
 \@envbody=\toks25
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip51
+\multlinetaggap=\skip52
 \mathdisplay@stack=\toks26
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks27
 \thm@bodyfont=\toks28
 \thm@headfont=\toks29
 \thm@notefont=\toks30
 \thm@headpunct=\toks31
-\thm@preskip=\skip54
-\thm@postskip=\skip55
-\thm@headsep=\skip56
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
 \dth@everypar=\toks32
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen167
-\Gin@req@width=\dimen168
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen169
-\lightrulewidth=\dimen170
-\cmidrulewidth=\dimen171
-\belowrulesep=\dimen172
-\belowbottomsep=\dimen173
-\aboverulesep=\dimen174
-\abovetopsep=\dimen175
-\cmidrulesep=\dimen176
-\cmidrulekern=\dimen177
-\defaultaddspace=\dimen178
-\@cmidla=\count302
-\@cmidlb=\count303
-\@aboverulesep=\dimen179
-\@belowrulesep=\dimen180
-\@thisruleclass=\count304
-\@lastruleclass=\count305
-\@thisrulewidth=\dimen181
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
-Package: siunitx 2026-03-26 v3.5.1 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count306
-\l__siunitx_number_exponent_fixed_int=\count307
-\l__siunitx_number_min_decimal_int=\count308
-\l__siunitx_number_min_integer_int=\count309
-\l__siunitx_number_round_precision_int=\count310
-\l__siunitx_number_lower_threshold_int=\count311
-\l__siunitx_number_upper_threshold_int=\count312
-\l__siunitx_number_group_first_int=\count313
-\l__siunitx_number_group_size_int=\count314
-\l__siunitx_number_group_min_int=\count315
-\l__siunitx_number_group_minimum_int=\count316
-\l__siunitx_compound_count_int=\count317
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/translations\translations.sty
-Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count318
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+\heavyrulewidth=\dimen161
+\lightrulewidth=\dimen162
+\cmidrulewidth=\dimen163
+\belowrulesep=\dimen164
+\belowbottomsep=\dimen165
+\aboverulesep=\dimen166
+\abovetopsep=\dimen167
+\cmidrulesep=\dimen168
+\cmidrulekern=\dimen169
+\defaultaddspace=\dimen170
+\@cmidla=\count280
+\@cmidlb=\count281
+\@aboverulesep=\dimen171
+\@belowrulesep=\dimen172
+\@thisruleclass=\count282
+\@lastruleclass=\count283
+\@thisrulewidth=\dimen173
+)
+(/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2024-01-25 v3.3.10 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count284
+\l__siunitx_number_exponent_fixed_int=\count285
+\l__siunitx_number_min_decimal_int=\count286
+\l__siunitx_number_min_integer_int=\count287
+\l__siunitx_number_round_precision_int=\count288
+\l__siunitx_number_lower_threshold_int=\count289
+\l__siunitx_number_upper_threshold_int=\count290
+\l__siunitx_number_group_first_int=\count291
+\l__siunitx_number_group_size_int=\count292
+\l__siunitx_number_group_minimum_int=\count293
+\l__siunitx_angle_tmp_dim=\dimen174
+\l__siunitx_angle_marker_box=\box53
+\l__siunitx_angle_unit_box=\box54
+\l__siunitx_compound_count_int=\count294
+
+(/usr/share/texlive/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count295
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -239,173 +252,208 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
 \l__siunitx_table_tmp_box=\box55
-\l__siunitx_table_tmp_dim=\dimen182
-\l__siunitx_table_column_width_dim=\dimen183
+\l__siunitx_table_tmp_dim=\dimen175
+\l__siunitx_table_column_width_dim=\dimen176
 \l__siunitx_table_integer_box=\box56
 \l__siunitx_table_decimal_box=\box57
 \l__siunitx_table_uncert_box=\box58
 \l__siunitx_table_before_box=\box59
 \l__siunitx_table_after_box=\box60
-\l__siunitx_table_before_dim=\dimen184
-\l__siunitx_table_carry_dim=\dimen185
-\l__siunitx_unit_tmp_int=\count319
-\l__siunitx_unit_position_int=\count320
-\l__siunitx_unit_total_int=\count321
-\l__siunitx_sexagesimal_tmp_dim=\dimen186
-\l__siunitx_sexagesimal_marker_box=\box61
-\l__siunitx_sexagesimal_unit_box=\box62
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen187
-\ar@mcellbox=\box63
-\extrarowheight=\dimen188
+\l__siunitx_table_before_dim=\dimen177
+\l__siunitx_table_carry_dim=\dimen178
+\l__siunitx_unit_tmp_int=\count296
+\l__siunitx_unit_position_int=\count297
+\l__siunitx_unit_total_int=\count298
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen179
+\ar@mcellbox=\box61
+\extrarowheight=\dimen180
 \NC@list=\toks33
-\extratabsurround=\skip57
-\backup@length=\skip58
-\ar@cellbox=\box64
-)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+\extratabsurround=\skip56
+\backup@length=\skip57
+\ar@cellbox=\box62
+))
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
-Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-\f@nch@headwidth=\skip59
-\f@nch@offset@elh=\skip60
-\f@nch@offset@erh=\skip61
-\f@nch@offset@olh=\skip62
-\f@nch@offset@orh=\skip63
-\f@nch@offset@elf=\skip64
-\f@nch@offset@erf=\skip65
-\f@nch@offset@olf=\skip66
-\f@nch@offset@orf=\skip67
-\f@nch@height=\skip68
-\f@nch@footalignment=\skip69
-\f@nch@widthL=\skip70
-\f@nch@widthC=\skip71
-\f@nch@widthR=\skip72
-\@temptokenb=\toks34
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip58
+\f@nch@O@elh=\skip59
+\f@nch@O@erh=\skip60
+\f@nch@O@olh=\skip61
+\f@nch@O@orh=\skip62
+\f@nch@O@elf=\skip63
+\f@nch@O@erf=\skip64
+\f@nch@O@olf=\skip65
+\f@nch@O@orf=\skip66
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count322
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+\c@section@level=\count299
 )
-\@linkdim=\dimen189
-\Hy@linkcounter=\count323
-\Hy@pagecounter=\count324
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen181
+\Hy@linkcounter=\count300
+\Hy@pagecounter=\count301
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count325
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count302
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4201.
-Package hyperref Info: Link nesting OFF on input line 4206.
-Package hyperref Info: Hyper index ON on input line 4209.
-Package hyperref Info: Plain pages OFF on input line 4216.
-Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4468.
-\c@Hy@tempcnt=\count326
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip18
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count303
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen190
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+LaTeX Info: Redefining \url on input line 4784.
+\XeTeXLinkMargin=\dimen182
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
 ))
-\Fld@menulength=\count327
-\Field@Width=\dimen191
-\Fld@charsize=\dimen192
-Package hyperref Info: Hyper figures OFF on input line 6084.
-Package hyperref Info: Link nesting OFF on input line 6089.
-Package hyperref Info: Hyper index ON on input line 6092.
-Package hyperref Info: backreferencing OFF on input line 6099.
-Package hyperref Info: Link coloring OFF on input line 6104.
-Package hyperref Info: Link coloring with OCG OFF on input line 6109.
-Package hyperref Info: PDF/A mode OFF on input line 6114.
-\Hy@abspage=\count328
-\c@Item=\count329
-\c@Hfootnote=\count330
+\Fld@menulength=\count304
+\Field@Width=\dimen183
+\Fld@charsize=\dimen184
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count305
+\c@Item=\count306
+\c@Hfootnote=\count307
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
-\Fld@listcount=\count331
-\c@bookmark@seq@number=\count332
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count308
+\c@bookmark@seq@number=\count309
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
 )
-\Hy@SectionHShift=\skip73
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+\Hy@SectionHShift=\skip67
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen193
-\captionmargin=\dimen194
-\caption@leftmargin=\dimen195
-\caption@rightmargin=\dimen196
-\caption@width=\dimen197
-\caption@indent=\dimen198
-\caption@parindent=\dimen199
-\caption@hangindent=\dimen256
+\caption@tempdima=\dimen185
+\captionmargin=\dimen186
+\caption@leftmargin=\dimen187
+\caption@rightmargin=\dimen188
+\caption@width=\dimen189
+\caption@indent=\dimen190
+\caption@parindent=\dimen191
+\caption@hangindent=\dimen192
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count333
-\c@continuedfloat=\count334
+\c@caption@flags=\count310
+\c@continuedfloat=\count311
 Package caption Info: hyperref package is loaded.
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count335
+\c@subfigure=\count312
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count336
-)) (config/metadata.tex) (../../shared/results_data.tex) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+\c@subtable=\count313
+))
+(./config/metadata.tex) (../../shared/results_data.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count337
-) (main.aux
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count314
+\l__pdf_internal_box=\box63
+)
+(./main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 11.
 
-main.aux:83: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
@@ -413,7 +461,7 @@ l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-main.aux:83: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
@@ -421,7 +469,7 @@ l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-main.aux:87: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
@@ -429,7 +477,7 @@ l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-main.aux:87: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
@@ -495,48 +543,61 @@ LaTeX Info: Redefining \% on input line 11.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count338
-\scratchdimen=\dimen257
-\scratchbox=\box65
-\nofMPsegments=\count339
-\nofMParguments=\count340
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count341
-\MPscratchDim=\dimen258
-\MPnumerator=\count342
-\makeMPintoPDFobject=\count343
-\everyMPtoPDFconversion=\toks36
-) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+\scratchcounter=\count315
+\scratchdimen=\dimen193
+\scratchbox=\box64
+\nofMPsegments=\count316
+\nofMParguments=\count317
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count318
+\MPscratchDim=\dimen194
+\MPnumerator=\count319
+\makeMPintoPDFobject=\count320
+\everyMPtoPDFconversion=\toks35
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
-)) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-spanish.trsl
-File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictio
+nary-spanish.trsl
+File: translations-basic-dictionary-spanish.trsl (spanish translation file `tra
+nslations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 11.
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `spanish'. on input line 11.
 Package hyperref Info: Link coloring OFF on input line 11.
- (main.out) (main.out)
+ (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
- (frontmatter/cover_page.tex
-<../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf, id=179, 880.17873pt x 638.30524pt>
-File: ../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf Graphic file (type pdf)
+ (./frontmatter/cover_page.tex
+<../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf, id=180, 88
+0.17873pt x 638.30524pt>
+File: ../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf Graphi
+c file (type pdf)
 <use ../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf>
-Package pdftex.def Info: ../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf  used on input line 19.
+Package pdftex.def Info: ../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figur
+es/UTFSM.pdf  used on input line 19.
 (pdftex.def)             Requested size: 113.8253pt x 82.5443pt.
- [1
+
+[1
 
 
-{C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../../../Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf>]) [2
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../../Referencias/Tesis
+_Borrador_Tomas_Bernal/Figures/UTFSM.pdf>]) [2
 
-] (frontmatter/title_page.tex
-pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
+] (./frontmatter/title_page.tex
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.27 \end{titlepage}
@@ -544,13 +605,14 @@ l.27 \end{titlepage}
 
 
 ])
-pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.24 \clearpage
                 [2
 
-] (frontmatter/approval_page.tex
+] (./frontmatter/approval_page.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
@@ -583,29 +645,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--21
 [3
 
 
-]) (frontmatter/abstract_es.tex) (frontmatter/abstract_en.tex [4
+]) (./frontmatter/abstract_es.tex) (./frontmatter/abstract_en.tex [4
 
 
 
-]) (frontmatter/acknowledgements.tex [5
+])
+(./frontmatter/acknowledgements.tex [5
 
 ]) [6
 
-] (main.toc
+] (./main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
- (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [7
 
 
 ]
-main.toc:32: Missing $ inserted.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
+2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+! Missing $ inserted.
 <inserted text> 
                 $
 l.32 ...n (G2 median-based)}{10}{subsection.4.4.1}
@@ -616,7 +687,7 @@ you left one out. Proceed, with fingers crossed.
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 32.
 
-main.toc:32: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...o RMSE comparison (G2 median-based)}
                                                   \Hy@toclinkend 
 l.32 ...n (G2 median-based)}{10}{subsection.4.4.1}
@@ -627,7 +698,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.toc:32: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.32 ...n (G2 median-based)}{10}{subsection.4.4.1}
@@ -638,7 +709,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.toc:32: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.32 ...n (G2 median-based)}{10}{subsection.4.4.1}
@@ -651,10 +722,14 @@ my insertion and my current dilemma will both disappear.
 
 
 Overfull \hbox (169.00964pt too wide) in paragraph at lines 32--32
- [][] [][]\T1/cmr/m/n/10.95 Iteración \T1/cmtt/m/n/10.95 it02\T1/cmr/m/n/10.95 : TV/Time methods on synthetic$[]\OML/cmm/m/it/10.95 road\OT1/cmr/m/n/10.95 ^^V\OML/cmm/m/it/10.95 correctedper \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 scenarioRMSEcomparison\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 G\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 median \OMS/cmsy/m/n/10.95 ^^@ 
+ [][] [][]\T1/cmr/m/n/10.95 Iteración \T1/cmtt/m/n/10.95 it02\T1/cmr/m/n/10.95 
+: TV/Time methods on synthetic$[]\OML/cmm/m/it/10.95 road\OT1/cmr/m/n/10.95 ^^V
+\OML/cmm/m/it/10.95 correctedper \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 sc
+enarioRMSEcomparison\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 G\OT1/cmr/m/n/10.95
+ 2\OML/cmm/m/it/10.95 median \OMS/cmsy/m/n/10.95 ^^@ 
  []
 
-main.toc:33: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.33 ...) â€” all scenarios}{11}{subsection.4.4.2}
@@ -665,7 +740,7 @@ you left one out. Proceed, with fingers crossed.
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 33.
 
-main.toc:33: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...ta band 13-30 Hz) â€” all scenarios}
                                                   \Hy@toclinkend 
 l.33 ...) â€” all scenarios}{11}{subsection.4.4.2}
@@ -676,7 +751,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.toc:33: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.33 ...) â€” all scenarios}{11}{subsection.4.4.2}
@@ -687,7 +762,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.toc:33: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.33 ...) â€” all scenarios}{11}{subsection.4.4.2}
@@ -700,14 +775,17 @@ my insertion and my current dilemma will both disappear.
 
 
 Overfull \hbox (39.41957pt too wide) in paragraph at lines 33--33
- [][] [][]\T1/cmr/m/n/10.95 Iteración \T1/cmtt/m/n/10.95 it03_synthetic_beta\T1/cmr/m/n/10.95 : TV/Time methods on synthetic$[]\OML/cmm/m/it/10.95 eta\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 betaband\OT1/cmr/m/n/10.95 13 \OMS/cmsy/m/n/10.95 ^^@ 
+ [][] [][]\T1/cmr/m/n/10.95 Iteración \T1/cmtt/m/n/10.95 it03_synthetic_beta\T1
+/cmr/m/n/10.95 : TV/Time methods on synthetic$[]\OML/cmm/m/it/10.95 eta\OT1/cmr
+/m/n/10.95 (\OML/cmm/m/it/10.95 betaband\OT1/cmr/m/n/10.95 13 \OMS/cmsy/m/n/10.
+95 ^^@ 
  []
 
 )
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [8] (main.lof
+ [8] (./main.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -716,11 +794,11 @@ LaTeX Info: Redefining \% on input line 1.
 
  [9
 
-] (main.lot
+] (./main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 
-main.lot:9: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -728,7 +806,7 @@ l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-main.lot:9: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -739,7 +817,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:9: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> }
                  
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -750,7 +828,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:9: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...ion \texttt {it03_synthetic_beta}.}}
                                                   \Hy@toclinkend 
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -761,7 +839,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:9: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -772,7 +850,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:9: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -783,7 +861,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:9: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -794,7 +872,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:9: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.9 ...03_synthetic_beta}.}}{14}{table.caption.14}
@@ -805,7 +883,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:10: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -813,7 +891,7 @@ l.10 ..._synthetic_three}.}}{15}{table.caption.16}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-main.lot:10: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -824,7 +902,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:10: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> }
                  
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -835,7 +913,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:10: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...n \texttt {it05b_synthetic_three}.}}
                                                   \Hy@toclinkend 
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -846,7 +924,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:10: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -857,7 +935,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:10: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -868,7 +946,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:10: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -879,7 +957,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:10: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.10 ..._synthetic_three}.}}{15}{table.caption.16}
@@ -890,7 +968,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:11: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -898,7 +976,7 @@ l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-main.lot:11: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -909,7 +987,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:11: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> }
                  
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -920,7 +998,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:11: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...exttt {it06b_kalofolias_nnk_3syn}.}}
                                                   \Hy@toclinkend 
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -931,7 +1009,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:11: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -942,7 +1020,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:11: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -953,7 +1031,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:11: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -964,7 +1042,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:11: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.11 ...ofolias_nnk_3syn}.}}{16}{table.caption.18}
@@ -975,7 +1053,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:12: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -983,7 +1061,7 @@ l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-main.lot:12: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -994,7 +1072,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:12: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> }
                  
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1005,7 +1083,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:12: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <argument> ...teration \texttt {it07b_knn_3syn}.}}
                                                   \Hy@toclinkend 
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1016,7 +1094,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-main.lot:12: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1027,7 +1105,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:12: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1038,7 +1116,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:12: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1049,7 +1127,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-main.lot:12: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.12 ... {it07b_knn_3syn}.}}{17}{table.caption.20}
@@ -1066,25 +1144,26 @@ my insertion and my current dilemma will both disappear.
 
  [10
 
-] (chapters/01_introduccion.tex
+] (./chapters/01_introduccion.tex
 Cap\'{\i }tulo 1.
 [1
 
 
 ]
 Overfull \hbox (18.08463pt too wide) in paragraph at lines 34--35
-[]\T1/cmr/m/n/10.95 Hasta es-ta eta-pa se com-ple-ta-ron co-rri-das full-scale por lo-tes, con-so-li-da-cion es-ta-dis-ti-ca publication-
+[]\T1/cmr/m/n/10.95 Hasta es-ta eta-pa se com-ple-ta-ron co-rri-das full-scale 
+por lo-tes, con-so-li-da-cion es-ta-dis-ti-ca publication-
  []
 
-) (chapters/02_marco_teorico.tex [2]
+) (./chapters/02_marco_teorico.tex [2]
 Cap\'{\i }tulo 2.
 [3
 
-] [4]) (chapters/03_metodologia.tex [5]
+] [4]) (./chapters/03_metodologia.tex [5]
 Cap\'{\i }tulo 3.
 [6
 
-]) (chapters/04_experimentos_y_resultados.tex [7]
+]) (./chapters/04_experimentos_y_resultados.tex [7]
 Cap\'{\i }tulo 4.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1093,24 +1172,29 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ]
 Overfull \hbox (118.32747pt too wide) in paragraph at lines 51--52
-[]\T1/cmr/m/n/10.95 Los ran-kings com-ple-tos por es-ce-na-rio es-tan dis-po-ni-bles en \T1/cmtt/m/n/10.95 results/b2_publication_topk_by_family_scenario.csv\T1/cmr/m/n/10.95 .
+[]\T1/cmr/m/n/10.95 Los ran-kings com-ple-tos por es-ce-na-rio es-tan dis-po-ni
+-bles en \T1/cmtt/m/n/10.95 results/b2_publication_topk_by_family_scenario.csv\
+T1/cmr/m/n/10.95 .
  []
 
 
 Overfull \hbox (72.34848pt too wide) in paragraph at lines 57--58
-[]\T1/cmr/m/n/10.95 Para BGSRP se man-tie-ne la no-ta de cau-te-la: el ar-chi-vo \T1/cmtt/m/n/10.95 results/b2_publication_bgsrp_gap_residual.csv
+[]\T1/cmr/m/n/10.95 Para BGSRP se man-tie-ne la no-ta de cau-te-la: el ar-chi-v
+o \T1/cmtt/m/n/10.95 results/b2_publication_bgsrp_gap_residual.csv
  []
 
 
 Overfull \hbox (228.68684pt too wide) in paragraph at lines 61--62
-[]\T1/cmr/m/n/10.95 La co-rri-da B2 no ge-ne-ro en-tra-das en el re-gis-tro de war-nings con-so-li-da-do (\T1/cmtt/m/n/10.95 results/opt_benchmark_b2_full_scale_warnings_registry.csv\T1/cmr/m/n/10.95 ),
+[]\T1/cmr/m/n/10.95 La co-rri-da B2 no ge-ne-ro en-tra-das en el re-gis-tro de 
+war-nings con-so-li-da-do (\T1/cmtt/m/n/10.95 results/opt_benchmark_b2_full_sca
+le_warnings_registry.csv\T1/cmr/m/n/10.95 ),
  []
 
 [9]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 81.
 
-chapters/04_experimentos_y_resultados.tex:81: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.81 ...cenario RMSE comparison (G2 median-based)}
@@ -1121,7 +1205,7 @@ you left one out. Proceed, with fingers crossed.
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 81.
 
-chapters/04_experimentos_y_resultados.tex:81: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.81 ...cenario RMSE comparison (G2 median-based)}
@@ -1131,14 +1215,18 @@ you left one out. Proceed, with fingers crossed.
 
 
 Overfull \hbox (180.84108pt too wide) in paragraph at lines 81--81
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it02\T1/cmr/bx/n/12 : TV/Time methods on synthetic$[]\OML/cmm/m/it/12 road\OT1/cmr/m/n/12 ^^V\OML/cmm/m/it/12 correctedper \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 scenarioRMSEcomparison\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 median \OMS/cmsy/m/n/12 ^^@
+[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it02\T1/cmr/bx/n/12 : TV/Time metho
+ds on synthetic$[]\OML/cmm/m/it/12 road\OT1/cmr/m/n/12 ^^V\OML/cmm/m/it/12 corr
+ectedper \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 scenarioRMSEcomparison\OT1/cmr/m
+/n/12 (\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 median \OMS/cmsy/m/n
+/12 ^^@
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `subscript' on input line 81.
 
-chapters/04_experimentos_y_resultados.tex:94: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.94 ...ncia estadÃ­stica confirmada mediante mae_
@@ -1147,7 +1235,7 @@ I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-chapters/04_experimentos_y_resultados.tex:95: LaTeX Error: Command \item invalid in math mode.
+! LaTeX Error: Command \item invalid in math mode.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1158,15 +1246,31 @@ l.95   \item
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-chapters/04_experimentos_y_resultados.tex:95: Missing $ inserted.
-<inserted text> 
-                $
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
 l.95   \item A
               rtefactos: Tabla~\ref{tab:main\_comparison\_it02} y
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-chapters/04_experimentos_y_resultados.tex:95: Missing \endcsname inserted.
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95   \item A
+              rtefactos: Tabla~\ref{tab:main\_comparison\_it02} y
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.95 ...os: Tabla~\ref{tab:main\_comparison\_it02}
@@ -1174,7 +1278,7 @@ l.95 ...os: Tabla~\ref{tab:main\_comparison\_it02}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-chapters/04_experimentos_y_resultados.tex:95: Use of \r@tab:main doesn't match its definition.
+! Use of \r@tab:main doesn't match its definition.
 \@setref ...expandafter \Hy@setref@link #1\@empty 
                                                   \@empty \@empty \@nil {#2}...
 l.95 ...os: Tabla~\ref{tab:main\_comparison\_it02}
@@ -1186,7 +1290,7 @@ followed by the required stuff, so I'm ignoring it.
 
 Runaway argument?
 comparison\_it02\endcsname \@firstoffive {tab:main\_comparison\_it02}\ETC.
-chapters/04_experimentos_y_resultados.tex:98: Paragraph ended before \Hy@setref@link was complete.
+! Paragraph ended before \Hy@setref@link was complete.
 <to be read again> 
                    \par 
 l.98 
@@ -1195,23 +1299,63 @@ I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
-<figures/it02_fig01_mae_by_method.pdf, id=403, 722.7pt x 361.35pt>
+! Missing $ inserted.
+<inserted text> 
+                $
+l.98 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.98 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (13.48076pt too wide) in paragraph at lines 94--98
+[]\T1/cmr/m/n/10.95 Significancia es-ta-dís-ti-ca con-fir-ma-da me-dian-te mae$
+[]\OML/cmm/m/it/10.95 rss[]s[]ikhonov\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p 
+\OT1/cmr/m/n/10.95 = 8[]59\OML/cmm/m/it/10.95 e \OMS/cmsy/m/n/10.95 ^^@ \OT1/cm
+r/m/n/10.95 05)\OML/cmm/m/it/10.95 :Artefactos \OT1/cmr/m/n/10.95 :
+ []
+
+! Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.98 
+     
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+<figures/it02_fig01_mae_by_method.pdf, id=406, 722.7pt x 361.35pt>
 File: figures/it02_fig01_mae_by_method.pdf Graphic file (type pdf)
 <use figures/it02_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it02_fig01_mae_by_method.pdf  used on input line 105.
+Package pdftex.def Info: figures/it02_fig01_mae_by_method.pdf  used on input li
+ne 105.
 (pdftex.def)             Requested size: 455.30124pt x 227.6517pt.
-<figures/it02_fig05_tv_vs_instant_family.pdf, id=404, 867.24pt x 361.35pt>
+<figures/it02_fig05_tv_vs_instant_family.pdf, id=407, 867.24pt x 361.35pt>
 File: figures/it02_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
 <use figures/it02_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it02_fig05_tv_vs_instant_family.pdf  used on input line 113.
+Package pdftex.def Info: figures/it02_fig05_tv_vs_instant_family.pdf  used on i
+nput line 113.
 (pdftex.def)             Requested size: 455.30124pt x 189.7116pt.
-(tables/it02_tbl01_main_comparison.tex
+(./tables/it02_tbl01_main_comparison.tex
 Overfull \hbox (416.59062pt too wide) in paragraph at lines 9--38
  [][] 
  []
 
-) (tables/it02_tbl02_significance.tex)
-chapters/04_experimentos_y_resultados.tex:128: Missing $ inserted.
+) (./tables/it02_tbl02_significance.tex)
+! Missing $ inserted.
 <inserted text> 
                 $
 l.128 ...a (beta band 13-30 Hz) â€” all scenarios}
@@ -1222,7 +1366,7 @@ you left one out. Proceed, with fingers crossed.
 
 LaTeX Warning: Command \textemdash invalid in math mode on input line 128.
 
-chapters/04_experimentos_y_resultados.tex:128: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.128 ...a (beta band 13-30 Hz) â€” all scenarios}
@@ -1231,8 +1375,10 @@ I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (71.07497pt too wide) in paragraph at lines 128--128
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it03_synthetic_beta\T1/cmr/bx/n/12 : TV/Time methods on synthetic$[]\OML/cmm/m/it/12 eta\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 betaband\OT1/cmr/m/n/12 13 \OMS/cmsy/m/n/12 ^^@
+Overfull \hbox (43.6999pt too wide) in paragraph at lines 128--128
+[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it03_synthetic_beta\T1/cmr/bx/n/12 
+: TV/Time methods on synthetic$[]\OML/cmm/m/it/12 eta\OT1/cmr/m/n/12 (\OML/cmm/
+m/it/12 betaband\OT1/cmr/m/n/12 13 \OMS/cmsy/m/n/12 ^^@
  []
 
 
@@ -1240,13 +1386,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `subscript' on input line 128.
 
 [10]
-<figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf, id=412, 867.24pt x 361.35pt>
-File: figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
+<figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf, id=415, 867.24pt x
+ 361.35pt>
+File: figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf Graphic file (
+type pdf)
 <use figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf  used on input line 144.
+Package pdftex.def Info: figures/it03_synthetic_beta_fig05_tv_vs_instant_family
+.pdf  used on input line 144.
 (pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- (tables/it03_synthetic_beta_tbl01_main_comparison.tex
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing $ inserted.
+ (./tables/it03_synthetic_beta_tbl01_main_comparison.tex
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1254,7 +1403,7 @@ l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1265,7 +1414,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1273,7 +1422,7 @@ l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1284,7 +1433,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1292,7 +1441,7 @@ l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1303,7 +1452,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1311,7 +1460,7 @@ l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it03_synthetic_beta_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...R. Iteration \texttt{it03_synthetic_beta}.}
@@ -1328,13 +1477,16 @@ Overfull \hbox (421.59064pt too wide) in paragraph at lines 8--37
  []
 
 )
-<figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf, id=413, 867.24pt x 361.35pt>
-File: figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
+<figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf, id=416, 867.24pt
+ x 361.35pt>
+File: figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf Graphic file
+ (type pdf)
 <use figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf  used on input line 171.
+Package pdftex.def Info: figures/it05b_synthetic_three_fig05_tv_vs_instant_fami
+ly.pdf  used on input line 171.
 (pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- (tables/it05b_synthetic_three_tbl01_main_comparison.tex
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing $ inserted.
+ (./tables/it05b_synthetic_three_tbl01_main_comparison.tex
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1342,7 +1494,7 @@ l.5 ... Iteration \texttt{it05b_synthetic_three}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1353,7 +1505,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1361,7 +1513,7 @@ l.5 ... Iteration \texttt{it05b_synthetic_three}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1372,7 +1524,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1380,7 +1532,7 @@ l.5 ... Iteration \texttt{it05b_synthetic_three}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1391,7 +1543,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1399,7 +1551,7 @@ l.5 ... Iteration \texttt{it05b_synthetic_three}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it05b_synthetic_three_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ... Iteration \texttt{it05b_synthetic_three}.}
@@ -1416,13 +1568,17 @@ Overfull \hbox (421.59064pt too wide) in paragraph at lines 8--37
  []
 
 ) [11 <./figures/it02_fig01_mae_by_method.pdf>]
-<figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf, id=470, 867.24pt x 361.35pt>
-File: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
+<figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf, id=473, 867.
+24pt x 361.35pt>
+File: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf Graphic 
+file (type pdf)
 <use figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf  used on input line 198.
+Package pdftex.def Info: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_
+family.pdf  used on input line 198.
 (pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- (tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+
+(./tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1430,7 +1586,7 @@ l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1441,7 +1597,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1449,7 +1605,7 @@ l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1460,7 +1616,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1468,7 +1624,7 @@ l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1479,7 +1635,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1487,7 +1643,7 @@ l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...ration \texttt{it06b_kalofolias_nnk_3syn}.}
@@ -1503,14 +1659,19 @@ Overfull \hbox (421.59064pt too wide) in paragraph at lines 8--37
  [][] 
  []
 
-) [12 <./figures/it02_fig05_tv_vs_instant_family.pdf> <./figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf>]
-<figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf, id=558, 867.24pt x 361.35pt>
-File: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
+) [12 <./figures/it02_fig05_tv_vs_instant_family.pdf> <./figures/it03_synthetic
+_beta_fig05_tv_vs_instant_family.pdf>]
+<figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf, id=562, 867.24pt x 361.
+35pt>
+File: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf Graphic file (type 
+pdf)
 <use figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf  used on input line 225.
+Package pdftex.def Info: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf 
+ used on input line 225.
 (pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- (tables/it07b_knn_3syn_tbl01_main_comparison.tex
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+
+(./tables/it07b_knn_3syn_tbl01_main_comparison.tex
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1518,7 +1679,7 @@ l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1529,7 +1690,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1537,7 +1698,7 @@ l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1548,7 +1709,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1556,7 +1717,7 @@ l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Extra }, or forgotten $.
+! Extra }, or forgotten $.
 <recently read> \egroup 
                         
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1567,7 +1728,7 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing $ inserted.
+! Missing $ inserted.
 <inserted text> 
                 $
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1575,7 +1736,7 @@ l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-tables/it07b_knn_3syn_tbl01_main_comparison.tex:5: Missing } inserted.
+! Missing } inserted.
 <inserted text> 
                 }
 l.5 ...SE/SNR. Iteration \texttt{it07b_knn_3syn}.}
@@ -1594,7 +1755,7 @@ Overfull \hbox (421.59064pt too wide) in paragraph at lines 8--37
 ))
 Runaway argument?
 {IteraciÃ³n \texttt {it08\_high\_missing\_synthetic}: High missing-ch\ETC.
-c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/thesis/usm/main.tex:42: File ended while scanning use of \@xdblarg.
+! File ended while scanning use of \@xdblarg.
 <inserted text> 
                 \par 
 l.42 \input{chapters/04_experimentos_y_resultados}
@@ -1604,17 +1765,32 @@ to read past where you wanted me to stop.
 I'll try to recover; but if the error is serious,
 you'd better type `E' or `X' now and fix your file.
 
-(chapters/05_discusion.tex [13] [14 <./figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf>] [15 <./figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf>] [16 <./figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf>] [17]
+(./chapters/05_discusion.tex [13] [14 <./figures/it05b_synthetic_three_fig05_tv
+_vs_instant_family.pdf>] [15 <./figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_i
+nstant_family.pdf>] [16 <./figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pd
+f>] [17]
 Cap\'{\i }tulo 5.
 [18
 
-]) (chapters/06_conclusiones_y_trabajo_futuro.tex [19]
+]) (./chapters/06_conclusiones_y_trabajo_futuro.tex
+Overfull \hbox (107.8969pt too wide) in paragraph at lines 29--1
+\T1/cmr/m/n/10.95 ta-cion INS-13 de-cla-ra-da ex-pli-ci-ta-men-te en el chec-kl
+ist fi-nal de sub-mis-sion (\T1/cmtt/m/n/10.95 results/b3_b4_submission_checkli
+st.md\T1/cmr/m/n/10.95 ).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--1
+
+ []
+
+[19]
 Cap\'{\i }tulo 6.
 [20
 
-]) (main.bbl [21])
+]) (./main.bbl [21])
 
-c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/thesis/usm/main.tex:49: LaTeX Error: \begin{itemize} on input line 89 ended by \end{document}.
+! LaTeX Error: \begin{itemize} on input line 89 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1628,11 +1804,11 @@ or  <return>  to continue without it.
 
 [22
 
-] (main.aux
+] (./main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 
-main.aux:83: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
@@ -1640,14 +1816,14 @@ l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-main.aux:83: Extra \endcsname.
+! Extra \endcsname.
 \@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
                                                   \def \bbl@tempb {#3}\@safe...
 l.83 ...tion: \texttt {it02}}{table.caption.11}{}}
                                                   
 I'm ignoring this, since I wasn't doing a \csname.
 
-main.aux:87: Missing \endcsname inserted.
+! Missing \endcsname inserted.
 <to be read again> 
                    \protect 
 l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
@@ -1655,7 +1831,7 @@ l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
 The control sequence marked <to be read again> should
 not appear between \csname and \endcsname.
 
-main.aux:87: Extra \endcsname.
+! Extra \endcsname.
 \@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
                                                   \def \bbl@tempb {#3}\@safe...
 l.87 ...tion: \texttt {it02}}{table.caption.12}{}}
@@ -1664,9 +1840,13 @@ I'm ignoring this, since I wasn't doing a \csname.
 
 )
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2026-01-19>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3365748AF72C0A066C97E56E7C78D833;9697.
  )
@@ -1676,17 +1856,48 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 ### bottom level
 (\end occurred when \ifx on line 95 was incomplete) 
 Here is how much of TeX's memory you used:
- 18480 strings out of 467867
- 366419 string characters out of 5418335
- 899016 words of memory out of 5000000
- 46962 multiletter control sequences out of 15000+600000
- 651910 words of font info for 103 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 80i,11n,83p,849b,1379s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (34 pages, 575653 bytes).
+ 17913 strings out of 476047
+ 345128 string characters out of 5792076
+ 2076975 words of memory out of 5000000
+ 39533 multiletter control sequences out of 15000+600000
+ 582258 words of font info for 99 fonts, out of 8000000 for 9000
+ 85 hyphenation exceptions out of 8191
+ 80i,12n,83p,740b,1237s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/runner/.texlive2023/
+texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/runner/.texlive202
+3/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/runner/.texlive2
+023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </home/runner/.texliv
+e2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk> </home/runner/.texl
+ive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk> </home/runner/.te
+xlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/runner/.
+texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk> </home/runner
+/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecxc1095.600pk> </home/runn
+er/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1095.600pk> </home/ru
+nner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/
+runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </hom
+e/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </h
+ome/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> <
+/home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk>
+ </home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600p
+k> </home/runner/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (34 pages, 480263 bytes).
 PDF statistics:
- 1356 PDF objects out of 1440 (max. 8388607)
+ 1363 PDF objects out of 1440 (max. 8388607)
+ 565 compressed objects within 6 object streams
  108 named destinations out of 1000 (max. 500000)
  388 words of extra memory for PDF output out of 10000 (max. 10000000)
 

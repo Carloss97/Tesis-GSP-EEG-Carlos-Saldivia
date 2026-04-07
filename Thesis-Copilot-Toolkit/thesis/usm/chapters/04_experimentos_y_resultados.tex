@@ -91,7 +91,7 @@ canales faltantes (10\%, 20\%, 30\%, 40\%), con 22 métodos de interpolación y
     frente al mejor baseline instantáneo con MAE\,=\,0.0831.
   \item Mejora de RMSE de la familia TV/Tiempo sobre el baseline instantáneo:
     5.9\%.
-  \item Significancia estadística confirmada mediante mae_trss_vs_tikhonov (p=8.59e-05).
+  \item Significancia estadística confirmada mediante \texttt{mae\_trss\_vs\_tikhonov} (p=8.59e-05).
   \item Artefactos: Tabla~\ref{tab:main\_comparison\_it02} y
     Figura~\ref{fig:mae\_it02_tesis}.
 \end{itemize}
@@ -868,7 +868,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 13.6\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.48e-03).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=2.48e-03).
 \end{itemize}
 
 \input{tables/it41_physionet_multisubject_run4_tbl01_main_comparison.tex}
@@ -887,7 +887,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{mean} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=3.50e-03).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=3.50e-03).
 \end{itemize}
 
 \input{tables/it42_physionet_run8_allsubj_tbl01_main_comparison.tex}
@@ -906,7 +906,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 17.3\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.95e-03).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=2.95e-03).
 \end{itemize}
 
 \input{tables/it43_physionet_run12_allsubj_tbl01_main_comparison.tex}
@@ -944,7 +944,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{gsmooth} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 16.0\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.66e-13).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=1.66e-13).
 \end{itemize}
 
 \input{tables/it45_physionet_multisubj_gaussian_tbl01_main_comparison.tex}
@@ -963,7 +963,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{idw} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 11.7\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.01e-05).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=1.01e-05).
 \end{itemize}
 
 \input{tables/it46_physionet_multisubj_kalofolias_tbl01_main_comparison.tex}
@@ -982,7 +982,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{tv} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 13.8\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=2.17e-18).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=2.17e-18).
 \end{itemize}
 
 \input{tables/it47_physionet_multisubj_best3graphs_tbl01_main_comparison.tex}
@@ -1001,7 +1001,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{mean} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 19.2\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=4.12e-03).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=4.12e-03).
 \end{itemize}
 
 \input{tables/it48_physionet_multisubj_high_mr_tbl01_main_comparison.tex}
@@ -1020,7 +1020,7 @@ Benchmark en \texttt{physionet_eegmmidb},
   \item Mejor método: \texttt{linear} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,20\%): 5.5\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=1.12e-06).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=1.12e-06).
 \end{itemize}
 
 \input{tables/it49_physionet_multisubj_low_mr_tbl01_main_comparison.tex}
@@ -1039,7 +1039,7 @@ Benchmark en \texttt{synthetic_alpha}, \texttt{synthetic_beta}, \texttt{syntheti
   \item Mejor método: \texttt{mean} MAE\,=\,0.1595;
     baseline instante MAE\,=\,0.1848.
   \item Mejora RMSE familia (mr\,=\,30\%): 4.7\%.
-  \item Contraste significativo: mae_trss_vs_tikhonov (p=4.52e-06).
+  \item Contraste significativo: \texttt{mae\_trss\_vs\_tikhonov} (p=4.52e-06).
 \end{itemize}
 
 \input{tables/it51_all_datasets_strong_tv_tbl01_main_comparison.tex}
