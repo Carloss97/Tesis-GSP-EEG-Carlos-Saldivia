@@ -2,8 +2,9 @@
 
 ## Alcance consolidado
 
-- Iteraciones integradas y documentadas: `it02` a `it120`.
-- Estado de `it120`: cierre operativo completado con perfil controlado de destrabe y artefactos completos emitidos.
+- Iteraciones integradas y documentadas: `it02` a `it130`.
+- Estado de `it120`: cierre operativo completado con perfil controlado de destrabe y artefactos completos emitidos (NO-GO, `p=0.0535`).
+- Estado de `it121–it130`: bloque final ejecutado completamente con resultados mixtos (GO en `it124` e `it125`; resto NO-GO).
 - Cobertura metodológica consolidada:
   - comparación TV/tiempo vs instantáneos,
   - múltiples topologías de grafo,
@@ -15,10 +16,11 @@
 
 1. El pipeline experimental está técnicamente maduro y reproducible, con artefactos estandarizados por iteración (`raw`, `stats`, `significance`, `qa`, `metadata`, `integration_log`, figuras).
 2. En fases históricas de EEG/proxy (especialmente Fase 5 y bloques it71–it100), la familia TV/tiempo mostró ventaja robusta en escenarios relevantes de reconstrucción.
-3. En la expansión multidominio reciente (it105–it119), el gate global TV vs Instant no mostró superioridad estadística consolidada (`NO-GO` en todas las corridas de ese bloque), lo que sugiere alta sensibilidad al dominio y al protocolo agregado.
+3. En la expansión multidominio (it105–it120), el gate global TV vs Instant no mostró superioridad estadística consolidada (`NO-GO` en todas las corridas de ese bloque), lo que sugiere alta sensibilidad al dominio y al protocolo agregado.
 4. Aun con `NO-GO` global en ese bloque, `trss` aparece repetidamente como mejor método puntual en varios escenarios, y `tv` destaca en subconjuntos específicos (p. ej., MovieLens).
-5. La evidencia acumulada respalda un mensaje científico más matizado: no existe una dominancia universal por familia en todos los dominios; el rendimiento depende fuertemente de dataset, topología y configuración experimental.
-6. El proyecto queda listo para cierre editorial técnico en su versión operativa actual; el último intento exhaustivo de `it120` no cerró dentro de ventana razonable y se da por perdido en esta fase.
+5. El bloque final it121–it130 aporta evidencia adicional útil (incluyendo estratificación por dominio, holdout por sujeto y matriz final de decisión), con señal GO puntual en `it124` e `it125`, pero sin revertir el resultado global multidominio.
+6. La evidencia acumulada respalda un mensaje científico matizado: no existe una dominancia universal por familia en todos los dominios; el rendimiento depende de dataset, topología y configuración experimental.
+7. El proyecto queda listo para cierre editorial técnico con recomendación **CONDICIONAL por dominio/caso de uso**.
 
 ## Estado de riesgo y recomendaciones inmediatas
 
@@ -28,9 +30,9 @@
   - evidencia fuerte en bloques EEG/proxy previos,
   - evidencia mixta/no concluyente en expansión multidominio reciente.
 
-## Propuesta de 10 iteraciones finales adicionales (it121–it130)
+## Ejecución final it121–it130 (completada)
 
-Estas iteraciones están enfocadas en extraer información nueva útil y no redundante respecto a lo ya obtenido:
+Estas iteraciones se ejecutaron para extraer información adicional no redundante respecto a los bloques previos:
 
 1. **it121_domain_stratified_gate**  
    Evaluar gate GO/NO-GO por dominio separado (EEG real, EEG proxy, no-EEG) para evitar cancelación estadística por agregación heterogénea.
@@ -53,17 +55,17 @@ Estas iteraciones están enfocadas en extraer información nueva útil y no redu
 10. **it130_final_decision_matrix**  
     Matriz final de decisión por caso de uso (EEG clínico, BCI, no-EEG) con recomendación de método/grafo/configuración.
 
-## Criterio de cierre sugerido para ciclo final
+## Criterio de cierre aplicado
 
-- Ejecutar al menos 3 de las iteraciones propuestas más informativas (`it121`, `it122`, `it126`).
-- Emitir un cierre con recomendación condicional por dominio en lugar de una recomendación única global.
+- Se ejecutaron primero las iteraciones más informativas (`it121`, `it122`, `it126`) y luego el bloque restante `it123–it130`.
+- El cierre se emitió con recomendación condicional por dominio en lugar de una recomendación global única.
 
 ## Actualización operativa aplicada (2026-04-07, cierre rápido)
 
 Decisión aplicada para no bloquear el escrito final:
-- Se ejecuta un último intento exhaustivo de `it120`, sin cierre en ventana razonable; se cierra ciclo con perfil controlado.
-- Se ejecutan primero las iteraciones más informativas priorizadas: `it121`, `it122`, `it126`.
-- Se ejecuta luego el bloque pendiente `it123–it130` en perfil operativo rápido.
+- Se ejecutó un último intento exhaustivo de `it120`, sin cierre en ventana razonable; se cerró ciclo con perfil controlado.
+- Se ejecutaron primero las iteraciones más informativas priorizadas: `it121`, `it122`, `it126`.
+- Se ejecutó luego el bloque pendiente `it123–it130` en perfil operativo rápido.
 
 Resultado de las iteraciones priorizadas:
 - `it121_domain_stratified_gate`: **NO-GO** global (`p=0.9923`, gain=-10.6%) y también NO-GO por dominio (`eeg_real`, `non_eeg`).

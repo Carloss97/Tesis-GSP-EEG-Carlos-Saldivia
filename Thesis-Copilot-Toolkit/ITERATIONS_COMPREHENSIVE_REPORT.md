@@ -10,7 +10,19 @@
 
 ---
 
-## Fase 6–9: Escenarios de pocos electrodos, generalización, robustez y análisis final (it71–it100)
+## 0. Estado Cronológico Consolidado (it02–it130)
+
+### Mapa rápido por fase
+
+| Fase | Iteraciones | Estado consolidado |
+|------|-------------|--------------------|
+| Fase 1–5 | it02–it70 | Bloques históricos con señal favorable TV/tiempo en la mayoría de corridas |
+| Fase 6–9 | it71–it100 | Extensión few-missing/full-signal/robustez/final comparative completada |
+| Fase 10 | it101–it104 | Trabajo futuro original ejecutado (GO en las 4 corridas) |
+| Fase 11–15 | it105–it120 | Expansión multidominio ejecutada con resultado global NO-GO |
+| Fase 16–18 | it121–it130 | Cierre informativo final ejecutado (GO en it124/it125; resto NO-GO) |
+
+### Contexto de fases 6–9 (it71–it100)
 
 **Resumen:**
 Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenarios de pocos electrodos faltantes (1, 2, 3 canales), generalización cross-dataset, robustez/sensibilidad y análisis comparativo final para cierre publication-ready.
@@ -87,7 +99,7 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
 
 ### Pendiente inmediato
 
-- Sin pendientes operativos inmediatos: `it120` exhaustivo tuvo último intento sin cierre en ventana razonable y se da por perdido en esta etapa.
+- Sin pendientes operativos inmediatos: `it120` exhaustivo tuvo último intento sin cierre en ventana razonable y se dio por perdido en esta etapa.
 
 ## Actualización Fase 16–18 (it121–it130): cierre informativo prioritario
 
@@ -116,17 +128,17 @@ Objetivo: ejecutar primero el bloque más informativo recomendado para cierre ed
 
 ## 1. Resumen Ejecutivo
 
-Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de iteraciones it02–it100 (fases 1–9), se evaluaron sistemáticamente:
+Este reporte documenta el proceso completo de validación estadística de métodos de interpolación de señales EEG basados en Graph Signal Processing (GSP). A lo largo de iteraciones it02–it130 (fases 1–18), se evaluaron sistemáticamente:
 
 - **20 métodos de interpolación**: 7 métodos TV/tiempo (basados en variación total y estructura temporal) y 13 métodos instantáneos (interpolación clásica sin estructura temporal)
-- **Datasets evaluados (histórico v6/v7)**: sintéticos por banda (broad, alpha, beta), variantes sintéticas por número de canales (8ch/16ch/32ch), PhysioNet real (`physionet_eegmmidb`), MNE Sample proxy (`mne_sample_proxy`) y BCI proxy (`bci_competition_proxy`)
+- **Datasets evaluados (histórico + expansión multidominio)**: sintéticos por banda (broad, alpha, beta), variantes sintéticas por número de canales (8ch/16ch/32ch), PhysioNet real (`physionet_eegmmidb`), BCI IV 2a real/parcial, MNE Sample proxy (`mne_sample_proxy`), BCI proxy (`bci_competition_proxy`), MAT 100Hz e instancias no-EEG (`Iris`, `MovieLens`)
 - **8 tipos de grafos**: kNN-k3, kNN-k5, Gaussian, Kalofolias, AEW, KNNG, NNK, VKNNG
 - **Escenarios de pérdida**: ratios 10%, 20%, 30%, 40% y escenarios de pocos electrodos faltantes (1ch, 2ch, 3ch)
 - **Medida de calidad principal**: MAE (Mean Absolute Error) con test estadístico Mann-Whitney U
 
 ### Hallazgo Principal
 
-> En Fase 5 (it61–it70), los métodos TV/tiempo mantienen superioridad estadísticamente significativa en los casos GO con ganancias de MAE de 28–36% en proxies externos. En Fase 6–7 (it71–it82), al introducir escenarios 1ch/2ch/3ch y comparación instantánea vs señal completa, aparecen resultados mixtos (GO y NO-GO), lo que aporta evidencia más realista sobre sensibilidad del pipeline a baja cantidad de canales faltantes.
+> La evidencia consolidada muestra superioridad TV/tiempo fuerte en bloques EEG/proxy históricos (especialmente it61–it100), pero no una dominancia global única al expandir a validación multidominio (it105–it130). El cierre científico queda en recomendación condicional por dominio/caso de uso, sustentada por resultados estratificados y trade-off multiobjetivo.
 
 ---
 
@@ -626,8 +638,12 @@ Los mejores métodos instantáneos observados son:
 | Fase 7: Cross-dataset generalization | it83–it87 | **5** | **0** | **100%** |
 | Fase 8: Robustness/Sensitivity | it88–it94 | **7** | **0** | **100%** |
 | Fase 9: Final comparative | it95–it100 | **6** | **0** | **100%** |
+| Fase 10: Trabajo futuro ejecutado | it101–it104 | **4** | **0** | **100%** |
+| Fase 11–14: Expansión multidominio | it105–it118 | **0** | **14** | **0%** |
+| Fase 15: Cierre operativo multidominio | it119–it120 | **0** | **2** | **0%** |
+| Fase 16–18: Cierre informativo final | it121–it130 | **2** | **8** | **20%** |
 
-**Observación**: La Fase 3 (PhysioNet multi-sujeto) presentó la mayor tasa de NO-GO debido a la alta variabilidad inter-sujeto en datos reales. La Fase 5 logra 100% de GO porque los datasets proxy están calibrados estadísticamente para representar fielmente la estructura de las señales reales.
+**Observación**: La Fase 5 mantiene 100% de GO por alta señal en proxies EEG controlados, mientras que las Fases 11–15 muestran 0% de GO al agregar dominios heterogéneos y criterios más exigentes. El bloque final (Fase 16–18) recupera señal parcial (it124, it125), pero confirma cierre condicional en lugar de dominancia global.
 
 ---
 
@@ -666,14 +682,14 @@ Y hasta 11 figuras en `paper/ieee/figures/`:
 
 | Métrica | Valor |
 |---------|-------|
-| Total de iteraciones en el pipeline | 100+ |
-| Iteraciones GO registradas | 86 |
-| Archivos de figuras PDF generados | >850 (mezcla v6/v7/v7e) |
-| Total de archivos de artefactos | >700 |
-| Datasets únicos evaluados | >=8 (incluye variantes sintéticas y proxies) |
+| Total de iteraciones en el pipeline | 129 (it02–it130) |
+| Iteraciones GO registradas | 90 |
+| Archivos de figuras PDF generados | >1000 (mezcla v6/v7/v7e/v8/v9) |
+| Total de archivos de artefactos | >900 |
+| Datasets únicos evaluados | >=11 (EEG real/proxy + no-EEG) |
 | Tipos de grafos evaluados | 8 |
 | Métodos de interpolación evaluados | 20 |
-| Escenarios de pérdida | Ratios (10%, 20%, 30%, 40%) + counts (1ch, 2ch, 3ch) |
+| Escenarios evaluados | Ratios (10%, 20%, 30%, 40%), counts (1ch, 2ch, 3ch), estratificación por dominio, holdout por sujeto y estrés de ruido |
 
 ---
 
@@ -696,49 +712,45 @@ El módulo `src/data/data_loader.py` provee las siguientes funciones de carga:
 
 ### 8.1 Conclusión Principal
 
-> Los métodos de interpolación basados en **variación total y estructura temporal** (TV/tiempo) demuestran superioridad estadísticamente significativa sobre los métodos de interpolación instantánea en señales EEG, con ganancias de MAE del **8-36%** según el paradigma, la densidad de canales y la tasa de pérdida.
+> Los métodos de interpolación basados en **variación total y estructura temporal** (TV/tiempo) muestran ventaja estadística clara en múltiples bloques EEG/proxy, con ganancias de MAE del **8-36%** según paradigma y severidad de pérdida; sin embargo, la expansión multidominio final no respalda una superioridad global única, por lo que la recomendación científica final es **condicional por dominio/caso de uso**.
 
 ### 8.2 Contribuciones del Pipeline
 
-1. **Validación sistemática multi-dataset**: 5 datasets distintos (sintéticos y proxy reales) evaluados con el mismo protocolo estadístico rigoroso.
+1. **Validación sistemática multi-dataset/multidominio**: EEG sintético, EEG real/proxy y no-EEG evaluados con protocolo estadístico uniforme y trazabilidad completa por iteración.
 
 2. **Evidencia escalable con pérdida**: La ventaja TV escala monotónamente con la tasa de pérdida, siendo especialmente relevante en escenarios clínicos de alta degradación de señal.
 
-3. **Generalización inter-paradigma**: Los métodos TV son superiores tanto en paradigmas auditivos/visuales (MNE Sample) como en motor imagery (BCI Competition), con ganancias similares (~30-36%).
+3. **Generalización inter-paradigma (alcance y límites)**: Se observa ventaja TV robusta en paradigmas auditivos/visuales y motor imagery en bloques históricos, junto con degradación de esa señal al agregar dominios heterogéneos recientes.
 
-4. **Mejor método recomendado**: `directed_tv` y `trss` ofrecen el mejor balance entre rendimiento y robustez multi-grafo. `temporal_laplacian` es especialmente efectivo en alta densidad.
+4. **Métodos recomendados por contexto**: `directed_tv` y `trss` ofrecen el mejor balance global en EEG/proxy; `temporal_laplacian` destaca en alta densidad; en multidominio final, la selección queda condicionada por dataset y objetivo.
 
-5. **Pipeline reproducible y escalable**: El Motor de Estadísticas v6 genera automáticamente todos los artefactos necesarios para publicación (figuras, tablas, tests estadísticos, logs de integración) con trazabilidad completa.
+5. **Pipeline reproducible y escalable**: El motor v6/v7/v7e/v8/v9 genera artefactos publication-ready (figuras, tablas, tests, metadata, logs) y permitió cerrar operativamente hasta `it130`.
 
-### 8.3 Trabajo Futuro (ejecutado en it101–it104)
+### 8.3 Cierre extendido (it101–it130)
 
-Se implementaron iteraciones dedicadas para cubrir los cuatro puntos de trabajo futuro:
+Tras ejecutar el bloque de trabajo futuro inicial y la expansión multidominio, el estado consolidado queda así:
 
-1. **Validación con datos reales descargados (`it101_real_data_validation`)**
-   - Dataset real disponible y ejecutado: `physionet_eegmmidb` (local).
-   - `load_mne_sample_dataset()` no pudo validarse en este entorno por bloqueo de descarga externa del paquete sample.
-   - `load_bci_competition_iv_2a()` no pudo validarse con datos reales por ausencia de archivos `.gdf` locales.
-   - Resultado: se confirma validez en dataset real disponible y se documentan explícitamente los bloqueos para no sobre-claim.
+1. **Fase 10 (`it101–it104`) — trabajo futuro original ejecutado**
+   - Validación real disponible, análisis de runtime, grid de λ y sensibilidad a ruido: todos ejecutados con estado GO.
+   - Se mantuvieron explícitas las limitaciones de entorno para MNE real y BCI IV 2a real completo.
 
-2. **Análisis de tiempo de cómputo TV vs Instant (`it102_compute_time_tv_vs_instant`)**
-   - Se incorporó medición explícita `time_sec` por corrida método×seed×escenario.
-   - Resultado: se dispone evidencia reproducible de complejidad relativa, manteniendo gate estadístico sobre MAE.
+2. **Fases 11–15 (`it105–it120`) — expansión multidominio ejecutada**
+   - Cobertura EEG real/parcial + no-EEG (MAT 100Hz, Iris, MovieLens), sensibilidad topológica y cierre publication-pack operativo.
+   - Resultado agregado: NO-GO en todas las corridas de este bloque, con mejor método puntual recurrente `trss` (y `tv` en subconjuntos MovieLens).
 
-3. **Optimización de hiperparámetros λ (`it103_tv_lambda_grid_search`)**
-   - Se ejecutó grid search de regularización (`0.05, 0.1, 0.2, 0.4, 0.8`) para métodos de la familia TV.
-   - Resultado: se generó ranking y significancia para seleccionar configuración de regularización por paradigma evaluable.
+3. **Fases 16–18 (`it121–it130`) — bloque final informativo ejecutado**
+   - Iteraciones priorizadas y bloque restante completados con artefactos completos.
+   - Resultado mixto: GO en `it124` e `it125`; NO-GO en el resto, incluyendo matriz final `it130` con recomendación **CONDICIONAL** por dominio.
 
-4. **Sensibilidad al ruido (`it104_noise_sensitivity_tv`)**
-   - Se evaluaron niveles de SNR inicial controlados: `20, 10, 5, 0 dB`.
-   - Resultado: se cuantificó degradación/robustez de familia TV e Instant bajo estrés de ruido.
+4. **Decisión de cierre técnico**
+   - `it120` exhaustivo se intentó por última vez y se cerró como perdido por ventana de runtime.
+   - Se conserva `it120` controlado (NO-GO, `p=0.0535`) y el bloque `it121–it130` como sustento final del cierre editorial.
 
-**Conclusión científica de 8.3 (estado actual):**
-- El pipeline queda extendido con evidencia real reproducible para el dataset disponible (`physionet_eegmmidb`) y con nuevos ejes cuantitativos (tiempo, λ, ruido).
-- Para afirmar generalización real completa en los dos paradigmas externos originalmente propuestos (MNE real + BCI IV 2a real), aún falta correr las mismas iteraciones cuando se habilite:
-  - acceso local al MNE sample real, y
-  - archivos `.gdf` de BCI IV 2a en `BCI_IV_2A_PATH`.
+**Conclusión científica de 8.3 (estado final):**
+- El trabajo futuro ya no está pendiente: quedó ejecutado y extendido hasta `it130`.
+- La evidencia final respalda una política de selección de método **condicional por dominio**, no una regla global TV>Instant para todos los contextos.
 
 ---
 
 *Reporte generado automáticamente por el Motor de Estadísticas v6/v7/v8/v9 del Thesis-Copilot-Toolkit.*  
-*Fecha: 2026-04-07 | Versión del pipeline: v6/v7/v8/v9 | Total iteraciones analizadas: 120 (it120 cerrado operativamente)*
+*Fecha: 2026-04-07 | Versión del pipeline: v6/v7/v8/v9 | Total iteraciones analizadas: 129 (it02–it130)*

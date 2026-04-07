@@ -478,7 +478,7 @@ results/
 | 2026-04-06 | it99_final_comparative_consensus — GO ✓: consenso final multi-escenario. |
 | 2026-04-06 | it100_final_comparative_publication_pack — GO ✓: paquete comparativo final publication-ready. |
 
-### Iteraciones Fase 10 (it101-it104) — Trabajo futuro 8.3
+### Iteraciones Fase 10 (it101-it104) — Trabajo futuro 8.3 (ya ejecutado)
 
 | Fecha | Entrada |
 |-------|---------|
@@ -521,10 +521,11 @@ results/
 - it88–it94: Fase 8 (robustez/sensibilidad), GO ✓ en todas las corridas.
 - it95–it100: Fase 9 (comparativa final), GO ✓ en todas las corridas.
 - it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.
-- it105–it118: Fases 11–14 (expansión multidominio), ejecutadas con artefactos completos y resultado NO-GO en todas las corridas registradas hasta ahora.
+- it105–it118: Fases 11–14 (expansión multidominio), ejecutadas con artefactos completos y resultado NO-GO en todas las corridas del bloque.
 - it119: Fase 15 parcial ejecutada con artefactos completos (NO-GO).
 - it120: Fase 15 cerrada operativamente con artefactos completos (NO-GO) mediante perfil controlado.
 - Intento final exhaustivo de it120 ejecutado y detenido por runtime prolongado sin cierre operativo; cierre definitivo mantenido con perfil controlado (NO-GO).
+- it121–it130: Fases 16–18 ejecutadas con artefactos completos; GO en it124/it125 y NO-GO en el resto.
 
 ### Iteraciones Fase 16–18 (it121-it130) — Ejecución final operativa
 
