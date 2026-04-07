@@ -526,7 +526,7 @@ results/
 - it120: Fase 15 cerrada operativamente con artefactos completos (NO-GO) mediante perfil controlado.
 - Faltante explícito: re-ejecutar it120 en perfil exhaustivo original (6 seeds, 4 missing ratios, 7 métodos) para comparabilidad 1:1 con diseño inicial.
 
-### Iteraciones Fase 16–18 (it121-it130) — Ejecución final operativa (en curso)
+### Iteraciones Fase 16–18 (it121-it130) — Ejecución final operativa
 
 Se habilitó `experiments/run_future_work_it121_it130.py` con ejecución resiliente por lote y `--light-profile` (seeds/escenarios/métodos reducidos) para evitar bloqueos largos.
 
@@ -534,9 +534,16 @@ Se habilitó `experiments/run_future_work_it121_it130.py` con ejecución resilie
 |-------|---------|
 | 2026-04-07 | it121_domain_stratified_gate — NO-GO global (`p=0.992`, gain=-10.6%); estratificado: `eeg_real` NO-GO (`p=0.9996`) y `non_eeg` NO-GO (`p=0.9987`). |
 | 2026-04-07 | it122_subjectwise_bci_holdout — NO-GO global (`p=0.9999`, gain=-89.4%); por sujeto S1/S2/S3 todos NO-GO. |
+| 2026-04-07 | it123_graph_density_calibration — NO-GO (`p=0.1562`, gain=+28.3%); mejor método `trss`. |
+| 2026-04-07 | it124_missing_pattern_realistic_v2 — GO (`p=0.0265`, gain=+43.5%); mejor método `trss`. |
+| 2026-04-07 | it125_temporal_window_sensitivity — GO (`p=0.0232`, gain=+41.3%); mejor método `trss`. |
 | 2026-04-07 | it126_metric_robustness_multiobjective — NO-GO global (`p=0.1197`, gain=+28.3%); se generó `*_pareto.csv` (frente con `tv`, `mean`, `trss`). |
+| 2026-04-07 | it127_noise_profile_non_gaussian — NO-GO (`p=0.0555`, gain=+38.0%); mejor método `trss`. |
+| 2026-04-07 | it128_calibration_by_dataset_family — NO-GO (`p=1.000`, gain=0.0%); mejor método `trss`. |
+| 2026-04-07 | it129_confidence_interval_stability — NO-GO (`p=0.0589`, gain=+19.6%); bootstrap emitido. |
+| 2026-04-07 | it130_final_decision_matrix — NO-GO (`p=0.1489`, gain=+0.5%); matriz final con recomendación `CONDICIONAL` en EEG clínico/BCI/no-EEG. |
 
 Estado operativo acordado:
 - `it120` exhaustivo queda **temporalmente diferido** para no bloquear cierre editorial.
-- Prioridad ejecutada: `it121`, `it122`, `it126` (artefactos completos emitidos).
-- Resto `it123–it130`: mantener estrategia best-effort con skip por error/tiempo en ventana dedicada.
+- `it121–it130` (incluyendo el bloque pendiente `it123–it130`) quedó ejecutado con artefactos completos.
+- Pendiente final exclusivo del ciclo: rerun exhaustivo de `it120`.

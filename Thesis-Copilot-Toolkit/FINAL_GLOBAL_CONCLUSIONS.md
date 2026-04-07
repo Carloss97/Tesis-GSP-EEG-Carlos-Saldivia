@@ -64,13 +64,16 @@ Estas iteraciones están enfocadas en extraer información nueva útil y no redu
 Decisión aplicada para no bloquear el escrito final:
 - Se **difiere temporalmente** el rerun exhaustivo de `it120` (queda como pendiente técnico explícito).
 - Se ejecutan primero las iteraciones más informativas priorizadas: `it121`, `it122`, `it126`.
-- Se mantiene estrategia best-effort para `it123+` con skip operativo si reaparecen ciclos largos sin visibilidad.
+- Se ejecuta luego el bloque pendiente `it123–it130` en perfil operativo rápido.
 
 Resultado de las iteraciones priorizadas:
 - `it121_domain_stratified_gate`: **NO-GO** global (`p=0.9923`, gain=-10.6%) y también NO-GO por dominio (`eeg_real`, `non_eeg`).
 - `it122_subjectwise_bci_holdout`: **NO-GO** global (`p=0.9999`, gain=-89.4%) y NO-GO en S1/S2/S3.
 - `it126_metric_robustness_multiobjective`: **NO-GO** global (`p=0.1197`, gain=+28.3%); se emitió frente de Pareto (`tv`, `mean`, `trss`) para soporte de decisión.
+- `it123–it130` (restante): ejecutadas sin reabrir `it120`; resultados mixtos con **GO en it124 e it125** y NO-GO en `it123`, `it127`, `it128`, `it129`, `it130`.
+- `it130_final_decision_matrix`: recomendación final **CONDICIONAL** por dominio/caso de uso (EEG clínico, BCI, no-EEG), consistente con la evidencia estratificada.
 
 Lectura de cierre condicional:
 - No hay evidencia estadística para una recomendación global única TV>Instant en el bloque multidominio final.
 - Sí hay señal útil para cierre por dominio/caso de uso (matriz condicional) apoyada en resultados estratificados y trade-off multiobjetivo.
+- Pendiente único para cierre técnico completo del ciclo: rerun exhaustivo de `it120`.
