@@ -1,22 +1,22 @@
-\section{Reproducibility Statement}
+﻿\section{Reproducibility Statement}
 
-This manuscript is backed by frozen scripts and traceable artifacts in
-\texttt{results/}. The final B3/B4 closure adds:
+This manuscript is grounded on frozen scripts and versioned artefacts under \texttt{results/}. The B3/B4 closure package includes:
 \begin{itemize}
-\item \texttt{results/b3\_stat02\_significance.csv}
-\item \texttt{results/b3\_rep01\_final\_table\_overall.csv}
-\item \texttt{results/b3\_b4\_reproducibility\_guide.md}
-\item \texttt{results/b3\_b4\_compute\_resources.md}
-\item \texttt{results/b3\_b4\_submission\_checklist.md}
+\item \url{results/b3_stat02_significance.csv}
+\item \url{results/b3_rep01_final_table_overall.csv}
+\item \url{results/b3_b4_reproducibility_guide.md}
+\item \url{results/b3_b4_compute_resources.md}
+\item \url{results/b3_b4_submission_checklist.md}
 \end{itemize}
 
-Core execution commands were:
+The main commands were:
 \begin{itemize}
-\item \texttt{python experiments/run\_b2\_batched.py}
-\item \texttt{python experiments/consolidate\_b2\_publication.py}
-\item \texttt{python experiments/finalize\_b3\_b4.py}
+\item \url{python experiments/run_b2_batched.py}
+\item \url{python experiments/consolidate_b2_publication.py}
+\item \url{python experiments/finalize_b3_b4.py}
+\item \url{python experiments/run_future_work_it121_it130.py --light-profile}
 \end{itemize}
 
-The strict BGSRP 1:1 equivalence against MATLAB/GSPBox is explicitly tracked as an
-open limitation. This does not block reproducibility of the Python pipeline, but it
-does constrain cross-stack equivalence claims.
+Claim traceability follows the chain: reported claim $\rightarrow$ result artefact $\rightarrow$ generating script $\rightarrow$ run tag.
+
+The strict BGSRP 1:1 MATLAB/GSPBox closure remains open by policy (INS-13), so reproducibility is complete for the Python stack but not yet closed for strict cross-stack equivalence.

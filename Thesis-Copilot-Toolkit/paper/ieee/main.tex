@@ -1,31 +1,35 @@
 \documentclass[journal]{IEEEtran}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
-\usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{siunitx}
-\usepackage{cite}
-\usepackage{url}
+\usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{balance}
+\usepackage{url}
 
-% Fuente unica de resultados numericos - actualizar shared/results_data.tex
-% cuando se obtengan nuevos resultados.
-\input{../../shared/results_data}
+\graphicspath{{Thesis-Copilot-Toolkit/paper/ieee/figures/}}
+\makeatletter
+\def\input@path{{Thesis-Copilot-Toolkit/paper/ieee/}{Thesis-Copilot-Toolkit/paper/ieee/sections/}{Thesis-Copilot-Toolkit/paper/ieee/tables/}}
+\makeatother
 
-\title{Graph Signal Processing and Interpolation for EEG Channel Reconstruction}
-
-\author{Carlos~Saldivia,~\IEEEmembership{Student Member, IEEE}
-\thanks{Manuscript prepared for journal submission.}
-}
+% Single source of truth for numerical claims.
+\input{Thesis-Copilot-Toolkit/shared/results_data.tex}
 
 \begin{document}
 
+\title{EEG Channel Reconstruction Under Missing-Channel Conditions: A Reproducible Graph Signal Processing Benchmark}
+
+\author{Carlos~Saldivia,~\IEEEmembership{Graduate Student Member, IEEE}}
+
 \maketitle
 
+\begin{abstract}
 \input{sections/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+Electroencephalography, graph signal processing, missing channels, interpolation, reproducibility.
+\end{IEEEkeywords}
+
 \input{sections/introduction}
 \input{sections/related_work}
 \input{sections/methods}
@@ -36,8 +40,6 @@
 \input{sections/conclusion}
 
 \bibliographystyle{IEEEtran}
-\bibliography{bibliography/references}
-
-\balance
+\bibliography{Thesis-Copilot-Toolkit/paper/ieee/bibliography/references}
 
 \end{document}

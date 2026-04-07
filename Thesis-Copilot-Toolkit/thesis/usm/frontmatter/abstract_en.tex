@@ -1,8 +1,10 @@
-\chapter*{Abstract}
+﻿\chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-This thesis addresses EEG channel reconstruction under missing-channel conditions using a graph signal processing (GSP) perspective, together with geometric baselines and temporal regularization methods. The central motivation is practical: missing channels in real EEG studies are not always purely random and can significantly impact both clinical interpretation and BCI-oriented analysis.
+This thesis studies EEG missing-channel reconstruction from a graph signal processing perspective, comparing baseline methods, graph-based instant methods, and TV/time methods under a common and reproducible protocol.
 
-Following the GSP view discussed by Ortega and collaborators, EEG is modeled as a graph signal and evaluated through a reproducible benchmark pipeline. The comparative analysis is performed with MAE, RMSE, DTW, and SNR, including repeated runs and statistical consolidation.
+The B3/B4 closure consolidated quantitative evidence through traceable REP-01 and STAT-02 artefacts. Results show a metric-dependent crossover: Baseline achieves lower mean MAE and RMSE, whereas TV/Time achieves lower mean DTW. Therefore, method selection should be objective-aware and scenario-aware rather than based on a universal ranking.
 
-Up to the B2 stage, full-scale batched experiments and publication-ready artifacts were completed (final rankings, top-k tables, and summary statistics). Results suggest that graph-based and TV/time approaches are consistently competitive, but scenario-dependent ranking changes require careful interpretation. A key limitation remains explicit: strict 1:1 BGSRP equivalence against the original MATLAB/GSPBox stack is still pending final closure.
+The extended it02--it130 campaign is integrated under explicit GO/NO-GO policy: only GO runs are treated as confirmatory evidence, while NO-GO runs are used to characterize limits and risk. In addition, INS-13 constraints are enforced: BGSRP is reported as proxy\_or\_partial with strict\_close=False, and strict 1:1 MATLAB/GSPBox equivalence is not claimed.
+
+The main contribution is a reproducible and auditable methodological base for publication, together with a concrete closure agenda to strengthen external validation and cross-stack equivalence.

@@ -1,29 +1,30 @@
-\chapter{Discusion}
+﻿\chapter{Discusion}
 
-En esta etapa del trabajo, la evidencia de la fase \ResPhase\ sugiere que los metodos basados en estructura de grafo y los metodos TV/tiempo son una alternativa solida para reconstruccion de EEG con canales faltantes. Sin embargo, tambien se observa que el orden del ranking cambia con el escenario espacial y con el nivel de perdida, por lo que no es razonable afirmar una superioridad universal. Esa conclusion puede sonar simple, pero es valiosa: en problemas reales, la robustez suele importar tanto como el mejor puntaje promedio.
+La evidencia consolidada permite una interpretacion tecnica mas precisa que una conclusion binaria de tipo ``gana/perdio'' entre familias. En el cierre B3/B4, la familia Baseline retiene ventaja en MAE y RMSE, mientras la familia TV/Tiempo muestra ventaja en DTW. Esta coexistencia de ventajas confirma que el problema de reconstruccion EEG es multiobjetivo y dependiente del uso final de la senal reconstruida.
 
-\section{Analisis critico}
+\section{Lectura tecnica de los hallazgos}
 
-Se identifican tres puntos criticos para el cierre final:
-\begin{itemize}
-\item \textbf{Sensibilidad al protocolo de mascara}: una misma familia puede mejorar o empeorar segun region y severidad de perdida. Por ejemplo, TV/Tiempo lidera en DTW con \ResTVDTW\ frente a Baseline \ResBaselineDTW, pero la ventaja en MAE no es consistente en todos los escenarios.
-\item \textbf{Sensibilidad a hiperparametros}: incluso con pipeline congelado, algunos metodos muestran dispersion no despreciable en SNR y DTW entre corridas repetidas.
-\item \textbf{Brecha de equivalencia BGSRP}: la implementacion Python es un \BGSRPStatus. Hasta no cerrar esta equivalencia, los resultados BGSRP deben interpretarse como indicativos.
-\end{itemize}
+El contraste estadistico por familias rechaza $H_0$ en MAE y DTW, por lo que la diferencia entre TV/Tiempo e Instantaneo no puede atribuirse solo a variabilidad aleatoria bajo el protocolo actual. Sin embargo, el contraste entre metodos top de distintas familias no siempre produce separacion fuerte en MAE. En consecuencia, la decision metodologica no debe descansar en un unico ranking promedio.
 
-\section{Interpretacion de la hipotesis}
+Desde una perspectiva de ingenieria aplicada, esta tesis sugiere una regla practica: seleccionar metodo segun metrica objetivo y escenario de mascara. Para tareas sensibles a amplitud puntual, Baseline y ciertos metodos GSP instantaneos son opciones robustas. Para tareas sensibles a dinamica temporal, TV/Tiempo entrega mejor desempeno agregado.
 
-Los datos apoyan una lectura matizada de la hipotesis de trabajo. En terminos estadisticos, el contraste de familias instantaneo vs.\ TV/Tiempo \StatFamilyResult\ tanto en MAE ($p = $\StatFamilyMAEpval) como en DTW ($p = $\StatFamilyDTWpval). Esto confirma que la diferencia no es ruido. Sin embargo, la magnitud de la diferencia en MAE es pequena (alrededor de 2--4\% entre familias), mientras que en DTW es mas pronunciada (alrededor de 6\% entre TV/Tiempo y Baseline).
+\section{Integracion de evidencia iterativa it02--it130}
 
-La conclusion mas honesta es: los metodos GSP y TV/Tiempo son competitivos, con ventaja real en preservacion temporal, pero sin dominio absoluto en todos los criterios.
+El ciclo extendido it02--it130 aporta contexto de generalizacion y riesgo. Bajo la politica GO/NO-GO, solo corridas GO se toman como confirmatorias; corridas NO-GO se usan para delimitar fronteras de validez.
 
-\section{Limitaciones}
+Las iteraciones GO del bloque final (it124, it125) muestran que aun en perfiles operativos rapidos existen contextos con ventaja estadistica TV. Al mismo tiempo, iteraciones NO-GO cercanas al umbral (por ejemplo it120 e it127) muestran fragilidad de decision al ampliar dominio y restricciones operativas. Esta combinacion respalda una conclusion editorial prudente: recomendacion condicional por caso de uso, no dominancia global unica.
 
-Las limitaciones principales del trabajo en esta etapa son:
+\section{Limitaciones metodologicas vigentes}
+
+Las limitaciones principales en el estado actual son:
 \begin{enumerate}
-\item La validacion se realizo principalmente sobre el MNE Sample Dataset. Mayor validez externa requiere repetir en EEGMMIDB y BCI Competition IV 2a con corridas completas.
-\item La equivalencia estricta BGSRP (INS-13) esta documentada como pendiente. Esto no invalida el benchmark, pero acota el alcance de las afirmaciones sobre ese metodo especifico.
-\item La seleccion de hiperparametros se hizo por grilla sobre el conjunto de entrenamiento, sin validacion cruzada rigurosa en todos los metodos. Un estudio de sensibilidad mas completo fortaleceria las conclusiones.
+  \item Equivalencia BGSRP estricta 1:1 con MATLAB/GSPBox aun no cerrada.
+  \item Dependencia del ranking a escenario y criterio de evaluacion.
+  \item Necesidad de ampliar validacion en cohortes EEG reales adicionales para reforzar validez externa.
 \end{enumerate}
 
-En el cierre B3/B4 se adopta una decision Go para revision del paquete de envio, pero con la limitacion INS-13 declarada explicitamente en el checklist final de submission (\texttt{results/b3\_b4\_submission\_checklist.md}).
+Estas limitaciones no invalidan el benchmark reproducible construido en Python, pero si restringen el alcance de ciertas afirmaciones comparativas.
+
+\section{Criterio editorial de cierre}
+
+El estado de entrega es tecnicamente apto para revision academica siempre que se mantenga explicita la limitacion INS-13. En otras palabras, existe base suficiente para defender resultados y metodologia, pero no para declarar cierre estricto de equivalencia cross-stack.

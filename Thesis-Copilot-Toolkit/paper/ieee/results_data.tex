@@ -1,0 +1,60 @@
+% =============================================================================
+% results_data.tex  -  Fuente unica de verdad para resultados numericos
+%
+% INSTRUCCIONES DE ACTUALIZACION:
+%   Cuando se obtengan nuevos y mejores resultados, actualizar unicamente
+%   este archivo. Todos los valores se propagan automaticamente al paper
+%   (paper/ieee/main.tex) y a la tesis (thesis/usm/main.tex).
+%
+%   Ultima actualizacion: Abril 2026 - Cierre B2/B3/B4
+%   Fuente de datos:
+%     results/b3_rep01_final_table_overall.csv
+%     results/b3_stat02_summary.md
+%     results/b2_publication_ranking_final.csv
+% =============================================================================
+
+% --- Fase / etapa actual del trabajo ---
+\newcommand{\ResPhase}{B2/B3/B4}
+\newcommand{\ResDate}{Abril 2026}
+
+% --- Resultados por familia (REP-01 consolidado) ---
+% Baseline
+\newcommand{\ResBaselineMAE}{0.071}
+\newcommand{\ResBaselineMAEFull}{0.0713}
+\newcommand{\ResBaselineDTW}{0.522}
+\newcommand{\ResBaselineDTWFull}{0.5219}
+\newcommand{\ResBaselineRMSE}{0.162}
+\newcommand{\ResBaselineRMSEFull}{0.1622}
+\newcommand{\ResBaselineSNR}{2.87}
+\newcommand{\ResBaselineTop}{spherical\_spline}
+
+% TV/Tiempo
+\newcommand{\ResTVMAE}{0.073}
+\newcommand{\ResTVMAEFull}{0.0729}
+\newcommand{\ResTVDTW}{0.492}
+\newcommand{\ResTVDTWFull}{0.4918}
+\newcommand{\ResTVRMSE}{0.167}
+\newcommand{\ResTVRMSEFull}{0.1674}
+\newcommand{\ResTVSNR}{2.25}
+\newcommand{\ResTVTop}{tv}
+
+% GSP
+\newcommand{\ResGSPMAE}{0.074}
+\newcommand{\ResGSPMAEFull}{0.0737}
+\newcommand{\ResGSPDTW}{0.499}
+\newcommand{\ResGSPDTWFull}{0.4989}
+\newcommand{\ResGSPRMSE}{0.169}
+\newcommand{\ResGSPRMSEFull}{0.1690}
+\newcommand{\ResGSPSNR}{2.45}
+\newcommand{\ResGSPTop}{gsmooth}
+
+% --- Numero de metodos y configuracion ---
+\newcommand{\ResNGraphMethods}{10}
+\newcommand{\ResNInstantMethods}{15}
+\newcommand{\ResNTVMethods}{10}
+\newcommand{\ResMissingLevels}{10\%, 20\%, 30\% y 40\%}
+\newcommand{\ResNScenarios}{4}
+\newcommand{\ResScenariosNames}{frontal, occipital, temporal lateral y central}
+
+% --- Significancia estadistica (STAT-02) ---
+% Contraste de familias (Wilcoxon pareado, alpha=0.05)

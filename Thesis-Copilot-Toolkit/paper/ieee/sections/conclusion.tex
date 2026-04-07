@@ -1,9 +1,9 @@
-\section{Conclusion}
+﻿\section{Conclusion}
 
-This paper presented a reproducible benchmark comparing geometric baselines, graph-based interpolation, and temporal regularization methods for EEG reconstruction under realistic missing-channel conditions.
+This manuscript reported a reproducible EEG channel-reconstruction benchmark that compares baseline, graph-based, and TV/time methods under shared protocols and full artefact traceability. The central result is a metric-dependent crossover: Baseline achieves the lowest mean MAE/RMSE, while TV/Time achieves the lowest mean DTW. Family-level differences are statistically significant under STAT-02.
 
-The main empirical finding is a performance crossover across evaluation criteria: the Baseline family achieves the lowest average MAE (\ResBaselineMAE) and RMSE (\ResBaselineRMSE), while TV/time methods achieve the lowest average DTW (\ResTVDTW), and this difference is statistically significant (family contrast $p = $\StatFamilyMAEpval\ on MAE and $p = $\StatFamilyDTWpval\ on DTW). A single universal winner does not emerge, but the evidence supports graph-aware methods as consistently competitive alternatives to classical baselines.
+The evidence therefore supports a conditional recommendation instead of a universal ranking. For amplitude-oriented objectives, baseline and graph-aware instant methods remain competitive. For temporal-dynamics preservation, TV/Time methods are preferable.
 
-At the method level, TRSS significantly outperforms BGSRP in MAE ($p = $\StatTRSSBGSRPpval), while TRSS and \texttt{gsmooth} are not separable in that metric ($p = $\StatTRSSGSPpval). This points toward scenario-aware method selection rather than a single recommendation.
+A strict limitation remains mandatory: BGSRP is validated only in a controlled Python proxy and must be reported as \texttt{proxy\_or\_partial} with \texttt{strict\_close=False}. No strict 1:1 MATLAB/GSPBox equivalence claim is currently supported.
 
-The declared limitation---strict BGSRP equivalence against MATLAB/GSPBox pending---does not invalidate the current benchmark, but it constrains cross-stack claims. Future work will close this equivalence and extend the evaluation to additional datasets and electrode montages.
+Future work should prioritize strict cross-stack BGSRP closure, expand validation on additional real EEG cohorts, and tighten scenario-adaptive model selection rules for deployment-oriented pipelines.

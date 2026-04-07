@@ -1,39 +1,31 @@
-\documentclass[11pt,openany]{book}
+\documentclass[12pt,letterpaper,oneside]{book}
 
-\input{config/packages}
+\input{Thesis-Copilot-Toolkit/thesis/usm/config/packages}
+\input{Thesis-Copilot-Toolkit/thesis/usm/config/metadata}
 
-\input{config/metadata}
+\graphicspath{{Thesis-Copilot-Toolkit/thesis/usm/figures/}{Thesis-Copilot-Toolkit/thesis/usm/assets/}{Thesis-Copilot-Toolkit/thesis/usm/assets/logo_usm/}}
+\makeatletter
+\def\input@path{{Thesis-Copilot-Toolkit/thesis/usm/}{Thesis-Copilot-Toolkit/thesis/usm/config/}{Thesis-Copilot-Toolkit/thesis/usm/frontmatter/}{Thesis-Copilot-Toolkit/thesis/usm/chapters/}{Thesis-Copilot-Toolkit/thesis/usm/tables/}}
+\makeatother
 
-% Fuente unica de resultados numericos - actualizar shared/results_data.tex
-% cuando se obtengan nuevos resultados.
-\input{../../shared/results_data}
+% Single source of truth for numerical claims.
+\input{Thesis-Copilot-Toolkit/shared/results_data.tex}
 
 \begin{document}
 
+% Frontmatter
 \pagenumbering{roman}
 \input{frontmatter/cover_page}
-\clearpage
-\thispagestyle{empty}
-\mbox{}
-\clearpage
-
 \input{frontmatter/title_page}
-\clearpage
-\thispagestyle{empty}
-\mbox{}
-\clearpage
-
 \input{frontmatter/approval_page}
-\clearpage
-
 \input{frontmatter/abstract_es}
 \input{frontmatter/abstract_en}
 \input{frontmatter/acknowledgements}
-\clearpage
 \tableofcontents
 \listoffigures
 \listoftables
 
+% Main content
 \clearpage
 \pagenumbering{arabic}
 \input{chapters/01_introduccion}
@@ -43,7 +35,7 @@
 \input{chapters/05_discusion}
 \input{chapters/06_conclusiones_y_trabajo_futuro}
 
-\bibliographystyle{IEEEtran}
-\bibliography{bibliography/references}
+\bibliographystyle{ieeetr}
+\bibliography{Thesis-Copilot-Toolkit/thesis/usm/bibliography/references}
 
 \end{document}
