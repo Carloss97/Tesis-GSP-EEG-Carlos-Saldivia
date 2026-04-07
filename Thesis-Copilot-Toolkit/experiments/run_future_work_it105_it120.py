@@ -5,7 +5,7 @@ import json
 import os
 import sys
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -625,7 +625,13 @@ def _build_iteration_defs() -> Dict[str, IterDef]:
     return {it.key: it for it in all_defs}
 
 
-def _run_iteration(it: IterDef, availability: Dict[str, Any], data: Dict[str, Any]):
+def _run_iteration(
+    it: IterDef,
+    availability: Dict[str, Any],
+    data: Dict[str, Any],
+    *,
+    operational_close_profile: bool = False,
+):
     methods = it.methods or METHODS
     frames: List[pd.DataFrame] = []
     blocked: List[str] = []
@@ -660,14 +666,29 @@ def _run_iteration(it: IterDef, availability: Dict[str, Any], data: Dict[str, An
         raise RuntimeError(f"Iteration {it.key} has no available datasets to run.")
 
     df_all = pd.concat(frames, ignore_index=True)
+    extra_meta: Dict[str, Any] = {
+        "blocked_requested_datasets": blocked,
+        "requested_datasets": it.datasets,
+    }
+    if operational_close_profile:
+        extra_meta["execution_profile"] = {
+            "name": "it120_operational_close_controlled",
+            "description": "Controlled unblocking profile to force operational closure and artifact emission.",
+            "seed_count": len(it.seeds),
+            "seeds": [int(s) for s in it.seeds],
+            "missing_list": [str(m) for m in it.missing_list],
+            "methods": list(it.methods or METHODS),
+            "graph_specs": [
+                {"method": gm, "params": gp}
+                for gm, gp in it.graph_specs
+            ],
+        }
+
     _write_artifacts(
         it,
         df_all,
         availability,
-        extra_meta={
-            "blocked_requested_datasets": blocked,
-            "requested_datasets": it.datasets,
-        },
+        extra_meta=extra_meta,
     )
 
 
@@ -683,6 +704,14 @@ def main():
         choices=keys,
         help="Subset of iterations to run.",
     )
+    parser.add_argument(
+        "--it120-controlled-close",
+        action="store_true",
+        help=(
+            "Run it120 with a controlled operational-close profile "
+            "(reduced seeds/scenarios/methods) to force artifact closure."
+        ),
+    )
     args = parser.parse_args()
 
     RESULTS.mkdir(parents=True, exist_ok=True)
@@ -696,7 +725,21 @@ def main():
     )
 
     for k in args.tags:
-        _run_iteration(defs[k], availability, data)
+        it = defs[k]
+        controlled = bool(args.it120_controlled_close and k == "it120")
+        if controlled:
+            it = replace(
+                it,
+                seeds=[0, 1],
+                missing_list=[0.2, 0.4],
+                methods=["mean", "tikhonov", "tv", "trss"],
+            )
+        _run_iteration(
+            it,
+            availability,
+            data,
+            operational_close_profile=controlled,
+        )
 
     print("Completed:", ",".join(args.tags))
 
