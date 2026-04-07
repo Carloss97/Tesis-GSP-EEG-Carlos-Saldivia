@@ -3,10 +3,10 @@
 
 **Proyecto**: Graph Signal Processing for EEG Interpolation (Tesis Doctoral)  
 **Autores del pipeline**: Carlos Saldivia  
-**Fecha del reporte**: 2026-04-06  
-**Total de iteraciones GO**: 86  
-**Rango de iteraciones**: it02 – it100  
-**Versión del Motor de Estadísticas**: v6/v7/v7e (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative)
+**Fecha del reporte**: 2026-04-07  
+**Total de iteraciones GO**: 90  
+**Rango de iteraciones**: it02 – it120 (cierre operativo completado)  
+**Versión del Motor de Estadísticas**: v6/v7/v7e/v8/v9 (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative + Future multidomain)
 
 ---
 
@@ -40,6 +40,57 @@ Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenari
 **Estado actual:**
 - it83–it100 ejecutadas y registradas con artefactos completos por iteración.
 - Se completa la cobertura de Fase 7 (generalización), Fase 8 (robustez/sensibilidad) y Fase 9 (comparativa final).
+- it101–it104 ejecutadas (Fase 10, trabajo futuro 8.3) con validación real disponible.
+- it105–it118 ejecutadas (Fase 11–14, expansión multidominio EEG/no-EEG), con salida NO-GO en las corridas registradas.
+- it119 ejecutada con artefactos completos (Fase 15 parcial), estado NO-GO.
+- it120 ejecutada con artefactos completos mediante destrabe controlado (Fase 15 cerrada operativamente), estado NO-GO.
+
+## Actualización Fase 11–15 (it105–it120): expansión multidominio
+
+Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y tareas no-EEG tipo graph-signal (Iris, MovieLens), incluyendo análisis de sensibilidad a grafo, ruido, runtime y transferencia entre dominios.
+
+### Cobertura ejecutada
+
+- **Fase 11 (it105–it107):** EEG real cross-dataset y multisujeto + baseline MAT 100Hz.
+- **Fase 12 (it108–it111):** grid de hiperparámetros λ, sensibilidad a ruido y transferencia a Iris.
+- **Fase 13 (it112–it115):** transferencia a MovieLens y comparativas EEG vs no-EEG.
+- **Fase 14 (it116–it118):** corrida comprehensiva multidominio, sensibilidad de grafo y análisis de runtime por familia.
+- **Fase 15 (it119–it120):** consolidación de ruido + cierre publication-pack multidominio (cierre operativo).
+
+### Estado por iteración (resumen)
+
+| Iteración | Estado | p-value | Mejor método | Nota |
+|-----------|--------|---------|--------------|------|
+| it105 | NO-GO | 1.000 | trss | Cross-dataset EEG real (PhysioNet + BCI S1) |
+| it106 | NO-GO | 1.000 | trss | BCI IV 2a multisujeto (S1–S3) |
+| it107 | NO-GO | 0.999 | trss | Baseline MAT 100Hz |
+| it108 | NO-GO | 1.000 | trss | Lambda grid MAT 100Hz |
+| it109 | NO-GO | 0.990 | trss | Noise sensitivity MAT 100Hz |
+| it110 | NO-GO | 0.787 | trss | Iris graph-signal baseline |
+| it111 | NO-GO | 1.000 | trss | Iris lambda grid |
+| it112 | NO-GO | 1.000 | tv | MovieLens baseline |
+| it113 | NO-GO | 1.000 | tv | MovieLens lambda grid |
+| it114 | NO-GO | 0.972 | trss | EEG vs Iris transfer |
+| it115 | NO-GO | 0.995 | tv | EEG vs MovieLens transfer |
+| it116 | NO-GO | 0.984 | trss | Comprehensive all new datasets |
+| it117 | NO-GO | 0.952 | trss | Graph sensitivity multidomain |
+| it118 | NO-GO | 0.697 | trss | Runtime family multidomain |
+| it119 | NO-GO | 0.870 | trss | Noise trend multidomain |
+| it120 | NO-GO | 0.054 | trss | Final publication pack (operational-close profile controlado) |
+
+### Lectura técnica preliminar
+
+- En it105–it120, el gate estadístico global TV vs Instant (`p < 0.05` y `gain_pct > 0`) no se cumple en las corridas actuales.
+- La familia TV mantiene varios mejores métodos puntuales (`trss` predominante, `tv` en escenarios MovieLens), pero sin ventaja estadística global consolidada en el agregado multidominio.
+- Los artefactos por iteración se generaron de forma completa para it105–it120 (`raw/stats/significance/qa/run_metadata/integration_log` + figuras).
+
+### Pendiente inmediato
+
+- Re-ejecutar `it120_final_multidomain_publication_pack` en perfil exhaustivo original para comparabilidad directa con diseño inicial (faltante explícito).
+- Ejecutar siguiente bloque recomendado para reducir incertidumbre científica multidominio:
+  - `it121_domain_stratified_gate`
+  - `it122_subjectwise_bci_holdout`
+  - `it126_metric_robustness_multiobjective`
 
 ## 1. Resumen Ejecutivo
 
@@ -667,5 +718,5 @@ Se implementaron iteraciones dedicadas para cubrir los cuatro puntos de trabajo 
 
 ---
 
-*Reporte generado automáticamente por el Motor de Estadísticas v6/v7/v8 del Thesis-Copilot-Toolkit.*  
-*Fecha: 2026-04-06 | Versión del pipeline: v6/v7/v8 | Total iteraciones analizadas: 104*
+*Reporte generado automáticamente por el Motor de Estadísticas v6/v7/v8/v9 del Thesis-Copilot-Toolkit.*  
+*Fecha: 2026-04-07 | Versión del pipeline: v6/v7/v8/v9 | Total iteraciones analizadas: 120 (it120 cerrado operativamente)*
