@@ -870,6 +870,11 @@ def main():
         action="store_true",
         help="Stop batch execution at first failed iteration (default: continue).",
     )
+    parser.add_argument(
+        "--light-profile",
+        action="store_true",
+        help="Use reduced seeds/scenarios/methods for faster operational execution.",
+    )
     args = parser.parse_args()
 
     RESULTS.mkdir(parents=True, exist_ok=True)
@@ -886,6 +891,16 @@ def main():
     completed: List[str] = []
     for k in args.tags:
         it = defs[k]
+        if args.light_profile:
+            it = replace(
+                it,
+                seeds=[0, 1],
+                missing_list=[0.2] if it.mode == "base" else it.missing_list,
+                methods=["mean", "tikhonov", "tv", "trss"] if it.mode in {"base", "noise"} else it.methods,
+                graph_specs=it.graph_specs[:1],
+                lambdas=it.lambdas[:3],
+                snr_levels=it.snr_levels[:3],
+            )
         try:
             _run_iteration(
                 it,

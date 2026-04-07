@@ -525,3 +525,18 @@ results/
 - it119: Fase 15 parcial ejecutada con artefactos completos (NO-GO).
 - it120: Fase 15 cerrada operativamente con artefactos completos (NO-GO) mediante perfil controlado.
 - Faltante explícito: re-ejecutar it120 en perfil exhaustivo original (6 seeds, 4 missing ratios, 7 métodos) para comparabilidad 1:1 con diseño inicial.
+
+### Iteraciones Fase 16–18 (it121-it130) — Ejecución final operativa (en curso)
+
+Se habilitó `experiments/run_future_work_it121_it130.py` con ejecución resiliente por lote y `--light-profile` (seeds/escenarios/métodos reducidos) para evitar bloqueos largos.
+
+| Fecha | Entrada |
+|-------|---------|
+| 2026-04-07 | it121_domain_stratified_gate — NO-GO global (`p=0.992`, gain=-10.6%); estratificado: `eeg_real` NO-GO (`p=0.9996`) y `non_eeg` NO-GO (`p=0.9987`). |
+| 2026-04-07 | it122_subjectwise_bci_holdout — NO-GO global (`p=0.9999`, gain=-89.4%); por sujeto S1/S2/S3 todos NO-GO. |
+| 2026-04-07 | it126_metric_robustness_multiobjective — NO-GO global (`p=0.1197`, gain=+28.3%); se generó `*_pareto.csv` (frente con `tv`, `mean`, `trss`). |
+
+Estado operativo acordado:
+- `it120` exhaustivo queda **temporalmente diferido** para no bloquear cierre editorial.
+- Prioridad ejecutada: `it121`, `it122`, `it126` (artefactos completos emitidos).
+- Resto `it123–it130`: mantener estrategia best-effort con skip por error/tiempo en ventana dedicada.

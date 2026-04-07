@@ -5,7 +5,7 @@
 **Autores del pipeline**: Carlos Saldivia  
 **Fecha del reporte**: 2026-04-07  
 **Total de iteraciones GO**: 90  
-**Rango de iteraciones**: it02 – it120 (cierre operativo completado)  
+**Rango de iteraciones**: it02 – it126 (cierre operativo extendido en curso)  
 **Versión del Motor de Estadísticas**: v6/v7/v7e/v8/v9 (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative + Future multidomain)
 
 ---
@@ -44,6 +44,7 @@ Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenari
 - it105–it118 ejecutadas (Fase 11–14, expansión multidominio EEG/no-EEG), con salida NO-GO en las corridas registradas.
 - it119 ejecutada con artefactos completos (Fase 15 parcial), estado NO-GO.
 - it120 ejecutada con artefactos completos mediante destrabe controlado (Fase 15 cerrada operativamente), estado NO-GO.
+- it121, it122 y it126 ejecutadas en ciclo final operativo (Fase 16–17), todas con estado NO-GO.
 
 ## Actualización Fase 11–15 (it105–it120): expansión multidominio
 
@@ -91,6 +92,24 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
   - `it121_domain_stratified_gate`
   - `it122_subjectwise_bci_holdout`
   - `it126_metric_robustness_multiobjective`
+
+## Actualización Fase 16–17 (it121, it122, it126): cierre informativo prioritario
+
+Objetivo: ejecutar primero el bloque más informativo recomendado para cierre editorial rápido, manteniendo `it120` exhaustivo como pendiente técnico separado.
+
+### Estado por iteración (resumen)
+
+| Iteración | Estado | p-value | Gain TV (%) | Nota |
+|-----------|--------|---------|-------------|------|
+| it121 | NO-GO | 0.992 | -10.6 | Gate estratificado por dominio; `eeg_real` y `non_eeg` también NO-GO |
+| it122 | NO-GO | 1.000 | -89.4 | Holdout por sujeto BCI IV 2a; S1/S2/S3 todos NO-GO |
+| it126 | NO-GO | 0.120 | +28.3 | Ranking multiobjetivo; frente de Pareto emitido (`tv`, `mean`, `trss`) |
+
+### Lectura técnica
+
+- El bloque informativo mínimo recomendado (`it121`, `it122`, `it126`) quedó ejecutado con artefactos completos.
+- La evidencia sigue favoreciendo una conclusión condicional por dominio/caso de uso, no una dominancia global única.
+- Se mantiene explícito el pendiente: rerun exhaustivo de `it120` para comparabilidad 1:1 con el diseño original.
 
 ## 1. Resumen Ejecutivo
 
