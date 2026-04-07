@@ -506,12 +506,12 @@ results/
 | 2026-04-07 | it117_graph_sensitivity_multidomain — NO-GO: sensibilidad a topología multidominio, `p=0.952`, mejor método `trss`. |
 | 2026-04-07 | it118_runtime_family_multidomain — NO-GO: análisis de runtime por familia en multidominio, `p=0.697`, mejor método `trss`. |
 
-### Iteraciones Fase 15 (it119-it120) — Pendientes de cierre
+### Iteraciones Fase 15 (it119-it120) — Cierre final en progreso
 
 | Fecha | Entrada |
 |-------|---------|
-| 2026-04-07 | it119_noise_trend_multidomain — PENDIENTE: consolidación de tendencia SNR en EEG/no-EEG. |
-| 2026-04-07 | it120_final_multidomain_publication_pack — PENDIENTE: paquete final multidominio y cierre de ciclo. |
+| 2026-04-07 | it119_noise_trend_multidomain — NO-GO: consolidación de tendencia SNR en EEG/no-EEG (TV median=0.3339, Instant median=0.2222, gain=-50.3%, `p=0.870`), mejor método `trss`, artefactos completos + 11 figuras. |
+| 2026-04-07 | it120_final_multidomain_publication_pack — PENDIENTE: corrida iniciada y pausada por tiempo de ejecución prolongado (>30 min sin emitir artefactos finales), requiere reintento para cierre. |
 
 ### Estado de avance
 
@@ -522,4 +522,5 @@ results/
 - it95–it100: Fase 9 (comparativa final), GO ✓ en todas las corridas.
 - it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.
 - it105–it118: Fases 11–14 (expansión multidominio), ejecutadas con artefactos completos y resultado NO-GO en todas las corridas registradas hasta ahora.
-- it119–it120: Fase 15 en curso, pendientes de ejecución/cierre final.
+- it119: Fase 15 parcial ejecutada con artefactos completos (NO-GO).
+- it120: Fase 15 aún pendiente de cierre final (reintento requerido por duración de corrida).
