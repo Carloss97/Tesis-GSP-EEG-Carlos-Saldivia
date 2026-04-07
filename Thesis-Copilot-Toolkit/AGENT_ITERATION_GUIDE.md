@@ -506,12 +506,12 @@ results/
 | 2026-04-07 | it117_graph_sensitivity_multidomain — NO-GO: sensibilidad a topología multidominio, `p=0.952`, mejor método `trss`. |
 | 2026-04-07 | it118_runtime_family_multidomain — NO-GO: análisis de runtime por familia en multidominio, `p=0.697`, mejor método `trss`. |
 
-### Iteraciones Fase 15 (it119-it120) — Cierre final en progreso
+### Iteraciones Fase 15 (it119-it120) — Cierre operativo completado
 
 | Fecha | Entrada |
 |-------|---------|
 | 2026-04-07 | it119_noise_trend_multidomain — NO-GO: consolidación de tendencia SNR en EEG/no-EEG (TV median=0.3339, Instant median=0.2222, gain=-50.3%, `p=0.870`), mejor método `trss`, artefactos completos + 11 figuras. |
-| 2026-04-07 | it120_final_multidomain_publication_pack — PENDIENTE: corrida iniciada y pausada por tiempo de ejecución prolongado (>30 min sin emitir artefactos finales), requiere reintento para cierre. |
+| 2026-04-07 | it120_final_multidomain_publication_pack — NO-GO: cierre operativo ejecutado con perfil controlado de destrabe (`seed_count=2`, `missing={0.2,0.4}`, `methods={mean,tikhonov,tv,trss}`), 6 datasets disponibles, 2 grafos, 192 filas, `p=0.0535`, gain=+0.5%, mejor método `trss`, artefactos completos + 11 figuras. |
 
 ### Estado de avance
 
@@ -523,4 +523,5 @@ results/
 - it101–it104: Fase 10 (trabajo futuro 8.3), GO ✓ en validación real disponible + cómputo + λ-grid + ruido.
 - it105–it118: Fases 11–14 (expansión multidominio), ejecutadas con artefactos completos y resultado NO-GO en todas las corridas registradas hasta ahora.
 - it119: Fase 15 parcial ejecutada con artefactos completos (NO-GO).
-- it120: Fase 15 aún pendiente de cierre final (reintento requerido por duración de corrida).
+- it120: Fase 15 cerrada operativamente con artefactos completos (NO-GO) mediante perfil controlado.
+- Faltante explícito: re-ejecutar it120 en perfil exhaustivo original (6 seeds, 4 missing ratios, 7 métodos) para comparabilidad 1:1 con diseño inicial.

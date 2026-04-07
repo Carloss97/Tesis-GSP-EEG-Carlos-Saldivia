@@ -5,7 +5,7 @@
 **Autores del pipeline**: Carlos Saldivia  
 **Fecha del reporte**: 2026-04-07  
 **Total de iteraciones GO**: 90  
-**Rango de iteraciones**: it02 – it119 (it120 pendiente)  
+**Rango de iteraciones**: it02 – it120 (cierre operativo completado)  
 **Versión del Motor de Estadísticas**: v6/v7/v7e/v8/v9 (Proxy + Few-Electrode + Full-Signal + Cross-Dataset/Robustness/Final Comparative + Future multidomain)
 
 ---
@@ -43,9 +43,9 @@ Las iteraciones it71–it100 (Engine v7/v7e) extienden la validación a escenari
 - it101–it104 ejecutadas (Fase 10, trabajo futuro 8.3) con validación real disponible.
 - it105–it118 ejecutadas (Fase 11–14, expansión multidominio EEG/no-EEG), con salida NO-GO en las corridas registradas.
 - it119 ejecutada con artefactos completos (Fase 15 parcial), estado NO-GO.
-- it120 pendiente para cierre de Fase 15 y síntesis final.
+- it120 ejecutada con artefactos completos mediante destrabe controlado (Fase 15 cerrada operativamente), estado NO-GO.
 
-## Actualización provisional Fase 11–15 (it105–it119): expansión multidominio
+## Actualización Fase 11–15 (it105–it120): expansión multidominio
 
 Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y tareas no-EEG tipo graph-signal (Iris, MovieLens), incluyendo análisis de sensibilidad a grafo, ruido, runtime y transferencia entre dominios.
 
@@ -55,7 +55,7 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
 - **Fase 12 (it108–it111):** grid de hiperparámetros λ, sensibilidad a ruido y transferencia a Iris.
 - **Fase 13 (it112–it115):** transferencia a MovieLens y comparativas EEG vs no-EEG.
 - **Fase 14 (it116–it118):** corrida comprehensiva multidominio, sensibilidad de grafo y análisis de runtime por familia.
-- **Fase 15 parcial (it119):** consolidación de tendencia de ruido multidominio.
+- **Fase 15 (it119–it120):** consolidación de ruido + cierre publication-pack multidominio (cierre operativo).
 
 ### Estado por iteración (resumen)
 
@@ -76,17 +76,21 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
 | it117 | NO-GO | 0.952 | trss | Graph sensitivity multidomain |
 | it118 | NO-GO | 0.697 | trss | Runtime family multidomain |
 | it119 | NO-GO | 0.870 | trss | Noise trend multidomain |
+| it120 | NO-GO | 0.054 | trss | Final publication pack (operational-close profile controlado) |
 
 ### Lectura técnica preliminar
 
-- En it105–it119, el gate estadístico global TV vs Instant (`p < 0.05` y `gain_pct > 0`) no se cumple en las corridas actuales.
+- En it105–it120, el gate estadístico global TV vs Instant (`p < 0.05` y `gain_pct > 0`) no se cumple en las corridas actuales.
 - La familia TV mantiene varios mejores métodos puntuales (`trss` predominante, `tv` en escenarios MovieLens), pero sin ventaja estadística global consolidada en el agregado multidominio.
-- Los artefactos por iteración se generaron de forma completa para it105–it119 (`raw/stats/significance/qa/run_metadata/integration_log` + figuras).
+- Los artefactos por iteración se generaron de forma completa para it105–it120 (`raw/stats/significance/qa/run_metadata/integration_log` + figuras).
 
 ### Pendiente inmediato
 
-- **it120_final_multidomain_publication_pack**: cierre final multidominio y síntesis publication-ready.
-- Estado operativo: corrida iniciada en esta sesión y pausada por tiempo de ejecución prolongado (>30 min), sin artefactos finales emitidos aún.
+- Re-ejecutar `it120_final_multidomain_publication_pack` en perfil exhaustivo original para comparabilidad directa con diseño inicial (faltante explícito).
+- Ejecutar siguiente bloque recomendado para reducir incertidumbre científica multidominio:
+  - `it121_domain_stratified_gate`
+  - `it122_subjectwise_bci_holdout`
+  - `it126_metric_robustness_multiobjective`
 
 ## 1. Resumen Ejecutivo
 
@@ -715,4 +719,4 @@ Se implementaron iteraciones dedicadas para cubrir los cuatro puntos de trabajo 
 ---
 
 *Reporte generado automáticamente por el Motor de Estadísticas v6/v7/v8/v9 del Thesis-Copilot-Toolkit.*  
-*Fecha: 2026-04-07 | Versión del pipeline: v6/v7/v8/v9 | Total iteraciones analizadas: 119 (it120 pendiente)*
+*Fecha: 2026-04-07 | Versión del pipeline: v6/v7/v8/v9 | Total iteraciones analizadas: 120 (it120 cerrado operativamente)*

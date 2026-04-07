@@ -2,8 +2,8 @@
 
 ## Alcance consolidado
 
-- Iteraciones integradas y documentadas: `it02` a `it119`.
-- Estado de `it120`: pendiente de cierre por tiempo de ejecución elevado en esta sesión.
+- Iteraciones integradas y documentadas: `it02` a `it120`.
+- Estado de `it120`: cierre operativo completado con perfil controlado de destrabe y artefactos completos emitidos.
 - Cobertura metodológica consolidada:
   - comparación TV/tiempo vs instantáneos,
   - múltiples topologías de grafo,
@@ -18,12 +18,12 @@
 3. En la expansión multidominio reciente (it105–it119), el gate global TV vs Instant no mostró superioridad estadística consolidada (`NO-GO` en todas las corridas de ese bloque), lo que sugiere alta sensibilidad al dominio y al protocolo agregado.
 4. Aun con `NO-GO` global en ese bloque, `trss` aparece repetidamente como mejor método puntual en varios escenarios, y `tv` destaca en subconjuntos específicos (p. ej., MovieLens).
 5. La evidencia acumulada respalda un mensaje científico más matizado: no existe una dominancia universal por familia en todos los dominios; el rendimiento depende fuertemente de dataset, topología y configuración experimental.
-6. El proyecto queda listo para cierre editorial técnico, con un único faltante operativo inmediato: completar `it120` y consolidar síntesis final multidominio.
+6. El proyecto queda listo para cierre editorial técnico en su versión operativa actual; el faltante explícito es repetir `it120` en perfil exhaustivo original para comparabilidad estricta con el diseño inicial.
 
 ## Estado de riesgo y recomendaciones inmediatas
 
-- Riesgo principal actual: `it120` con tiempo de cómputo alto para cierre integral.
-- Recomendación operativa: ejecutar `it120` en ventana dedicada (sin tareas concurrentes) y monitoreo por hitos de artefactos para evitar ciclos largos sin visibilidad.
+- Riesgo principal actual: brecha entre cierre operativo (controlado) y cierre exhaustivo equivalente al diseño completo original de `it120`.
+- Recomendación operativa: ejecutar rerun exhaustivo de `it120` en ventana dedicada (sin tareas concurrentes) y monitoreo por hitos de artefactos para evitar ciclos largos sin visibilidad.
 - Recomendación de reporte: mantener explícita la distinción entre:
   - evidencia fuerte en bloques EEG/proxy previos,
   - evidencia mixta/no concluyente en expansión multidominio reciente.
@@ -55,6 +55,6 @@ Estas iteraciones están enfocadas en extraer información nueva útil y no redu
 
 ## Criterio de cierre sugerido para ciclo final
 
-- Completar `it120`.
+- Completar rerun exhaustivo de `it120`.
 - Ejecutar al menos 3 de las iteraciones propuestas más informativas (`it121`, `it122`, `it126`).
 - Emitir un cierre con recomendación condicional por dominio en lugar de una recomendación única global.
