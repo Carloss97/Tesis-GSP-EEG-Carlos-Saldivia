@@ -87,11 +87,11 @@ Objetivo: extender el marco de validación hacia nuevos datasets EEG reales y ta
 
 ### Pendiente inmediato
 
-- Re-ejecutar `it120_final_multidomain_publication_pack` en perfil exhaustivo original para comparabilidad directa con diseño inicial (faltante explícito).
+- Sin pendientes operativos inmediatos: `it120` exhaustivo tuvo último intento sin cierre en ventana razonable y se da por perdido en esta etapa.
 
 ## Actualización Fase 16–18 (it121–it130): cierre informativo prioritario
 
-Objetivo: ejecutar primero el bloque más informativo recomendado para cierre editorial rápido, manteniendo `it120` exhaustivo como pendiente técnico separado.
+Objetivo: ejecutar primero el bloque más informativo recomendado para cierre editorial rápido, con `it120` cerrado en perfil controlado tras último intento exhaustivo fallido.
 
 ### Estado por iteración (resumen)
 
@@ -112,7 +112,7 @@ Objetivo: ejecutar primero el bloque más informativo recomendado para cierre ed
 
 - El bloque recomendado y el resto pendiente (`it121–it130`) quedaron ejecutados con artefactos completos.
 - La evidencia sigue favoreciendo una conclusión condicional por dominio/caso de uso, no una dominancia global única.
-- Se mantiene explícito el pendiente: rerun exhaustivo de `it120` para comparabilidad 1:1 con el diseño original.
+- Cierre final adoptado: no reintentar más `it120` exhaustivo en esta fase; se conserva `it120` controlado (NO-GO, `p=0.0535`) como artefacto de cierre.
 
 ## 1. Resumen Ejecutivo
 
