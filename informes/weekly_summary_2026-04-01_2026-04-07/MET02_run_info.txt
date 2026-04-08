@@ -1,0 +1,5 @@
+MET-02 run started
+command: .\.venv\Scripts\python.exe -u Thesis-Copilot-Toolkit/experiments/run_future_work_it105_it120.py --tags it05b it08 it11
+terminal_id: a82cfefd-7836-485a-912c-f398b44bf918
+started_at: 2026-04-08T00:00:00Z
+notes: Dependencies installed: numpy, pandas, scipy, matplotlib, dtaidistance

@@ -10,8 +10,17 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+import os
+# Ensure a non-interactive backend is selected even on environments
+# where `matplotlib.use` may not be present on the top-level namespace.
+os.environ.setdefault("MPLBACKEND", "Agg")
 import matplotlib
-matplotlib.use("Agg")
+if hasattr(matplotlib, "use"):
+    try:
+        matplotlib.use("Agg")
+    except Exception:
+        # best-effort: MPLBACKEND env var is set above as fallback
+        pass
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
