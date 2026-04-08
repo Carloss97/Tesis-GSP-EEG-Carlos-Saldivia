@@ -1,0 +1,112 @@
+\tiny
+% Split the full traceability into two longtables to reduce alignment pressure
+\begin{longtable}{p{2.6cm} >{\raggedright\arraybackslash}p{6.0cm} p{1.8cm} p{1.6cm}}
+\toprule
+\textbf{Tag} & \textbf{Artifact} & \textbf{Commit} & \textbf{Author} \\
+\midrule\endfirsthead
+\toprule
+\textbf{Tag} & \textbf{Artifact} & \textbf{Commit} & \textbf{Author} \\
+\midrule\endhead
+% Part A (canonical -> it25)
+\showtag{canonical\_run\_metadata} & \showresfile{results/canonical_run_metadata.json} & \texttt{b9115785} & copilot-swe-agent[bot] \\
+\showtag{it01\_retry\_run\_metadata} & \showresfile{results/it01_retry_run_metadata.json} & \texttt{2fa4909d} & copilot-swe-agent[bot] \\
+\showtag{it01\_run\_metadata} & \showresfile{results/it01_run_metadata.json} & \texttt{2fa4909d} & copilot-swe-agent[bot] \\
+\showtag{it02\_run\_metadata} & \showresfile{results/it02_run_metadata.json} & \texttt{2fa4909d} & copilot-swe-agent[bot] \\
+\showtag{it03\_synthetic\_beta\_run\_metadata} & \showresfile{results/it03_synthetic_beta_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it04\_physionet\_run\_metadata} & \showresfile{results/it04_physionet_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it05\_all\_datasets\_run\_metadata} & \showresfile{results/it05_all_datasets_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it05b\_synthetic\_three\_run\_metadata} & \showresfile{results/it05b_synthetic_three_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it06\_tv\_focus\_kalofolias\_nnk\_run\_metadata} & \showresfile{results/it06_tv_focus_kalofolias_nnk_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it06b\_kalofolias\_nnk\_3syn\_run\_metadata} & \showresfile{results/it06b_kalofolias_nnk_3syn_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it07\_graph\_focus\_knn\_run\_metadata} & \showresfile{results/it07_graph_focus_knn_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it07b\_knn\_3syn\_run\_metadata} & \showresfile{results/it07b_knn_3syn_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it08\_high\_missing\_synthetic\_run\_metadata} & \showresfile{results/it08_high_missing_synthetic_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it09\_tikhonov\_rbfi\_focus\_run\_metadata} & \showresfile{results/it09_tikhonov_rbfi_focus_run_metadata.json} & \texttt{b635bbad} & copilot-swe-agent[bot] \\
+\showtag{it100\_final\_comparative\_publication\_pack} & \showresfile{results/it100_final_comparative_publication_pack_run_metadata.json} & \texttt{e9762a1c} & copilot-swe-agent[bot] \\
+\showtag{it101\_real\_data\_validation} & \showresfile{results/it101_real_data_validation_run_metadata.json} & \texttt{f028a21c} & copilot-swe-agent[bot] \\
+\showtag{it102\_compute\_time\_tv\_vs\_instant} & \showresfile{results/it102_compute_time_tv_vs_instant_run_metadata.json} & \texttt{f028a21c} & copilot-swe-agent[bot] \\
+\showtag{it103\_tv\_lambda\_grid\_search} & \showresfile{results/it103_tv_lambda_grid_search_run_metadata.json} & \texttt{f028a21c} & copilot-swe-agent[bot] \\
+\showtag{it104\_noise\_sensitivity\_tv} & \showresfile{results/it104_noise_sensitivity_tv_run_metadata.json} & \texttt{f70c6c28} & copilot-swe-agent[bot] \\
+\showtag{it105\_real\_eeg\_crossdataset} & \showresfile{results/it105_real_eeg_crossdataset_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it106\_bci\_iv2a\_multisubject} & \showresfile{results/it106_bci_iv2a_multisubject_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it107\_mat100hz\_baseline} & \showresfile{results/it107_mat100hz_baseline_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it108\_mat100hz\_lambda\_grid} & \showresfile{results/it108_mat100hz_lambda_grid_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it109\_mat100hz\_noise\_sensitivity} & \showresfile{results/it109_mat100hz_noise_sensitivity_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it10\_synthetic\_alpha\_run\_metadata} & \showresfile{results/it10_synthetic_alpha_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it110\_iris\_graph\_baseline} & \showresfile{results/it110_iris_graph_baseline_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it111\_iris\_graph\_lambda\_grid} & \showresfile{results/it111_iris_graph_lambda_grid_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it112\_movielens\_graph\_baseline} & \showresfile{results/it112_movielens_graph_baseline_run_metadata.json} & \texttt{bffe9c4b} & copilot-swe-agent[bot] \\
+\showtag{it113\_movielens\_graph\_lambda\_grid} & \showresfile{results/it113_movielens_graph_lambda_grid_run_metadata.json} & \texttt{05648b64} & copilot-swe-agent[bot] \\
+\showtag{it114\_eeg\_vs\_iris\_transfer} & \showresfile{results/it114_eeg_vs_iris_transfer_run_metadata.json} & \texttt{05648b64} & copilot-swe-agent[bot] \\
+\showtag{it115\_eeg\_vs\_movielens\_transfer} & \showresfile{results/it115_eeg_vs_movielens_transfer_run_metadata.json} & \texttt{05648b64} & copilot-swe-agent[bot] \\
+\showtag{it116\_all\_new\_datasets\_comprehensive} & \showresfile{results/it116_all_new_datasets_comprehensive_run_metadata.json} & \texttt{bb20e019} & copilot-swe-agent[bot] \\
+\showtag{it117\_graph\_sensitivity\_multidomain} & \showresfile{results/it117_graph_sensitivity_multidomain_run_metadata.json} & \texttt{bb20e019} & copilot-swe-agent[bot] \\
+\showtag{it118\_runtime\_family\_multidomain} & \showresfile{results/it118_runtime_family_multidomain_run_metadata.json} & \texttt{bb20e019} & copilot-swe-agent[bot] \\
+\showtag{it119\_noise\_trend\_multidomain} & \showresfile{results/it119_noise_trend_multidomain_run_metadata.json} & \texttt{49d66ff8} & copilot-swe-agent[bot] \\
+\showtag{it11\_physionet\_high\_missing\_run\_metadata} & \showresfile{results/it11_physionet_high_missing_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it120\_final\_multidomain\_publication\_pack} & \showresfile{results/it120_final_multidomain_publication_pack_run_metadata.json} & \texttt{dd664d88} & copilot-swe-agent[bot] \\
+\end{longtable}
+
+% Part B (it11 -> it50)
+\begin{longtable}{p{2.6cm} >{\raggedright\arraybackslash}p{6.0cm} p{1.8cm} p{1.6cm}}
+\toprule
+\textbf{Tag} & \textbf{Artifact} & \textbf{Commit} & \textbf{Author} \\
+\midrule\endfirsthead
+\toprule
+\textbf{Tag} & \textbf{Artifact} & \textbf{Commit} & \textbf{Author} \\
+\midrule\endhead
+\showtag{it121\_domain\_stratified\_gate} & \showresfile{results/it121_domain_stratified_gate_run_metadata.json} & \texttt{a709a1ec} & copilot-swe-agent[bot] \\
+\showtag{it122\_subjectwise\_bci\_holdout} & \showresfile{results/it122_subjectwise_bci_holdout_run_metadata.json} & \texttt{a709a1ec} & copilot-swe-agent[bot] \\
+\showtag{it123\_graph\_density\_calibration} & \showresfile{results/it123_graph_density_calibration_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it124\_missing\_pattern\_realistic\_v2} & \showresfile{results/it124_missing_pattern_realistic_v2_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it125\_temporal\_window\_sensitivity} & \showresfile{results/it125_temporal_window_sensitivity_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it126\_metric\_robustness\_multiobjective} & \showresfile{results/it126_metric_robustness_multiobjective_run_metadata.json} & \texttt{a709a1ec} & copilot-swe-agent[bot] \\
+\showtag{it127\_noise\_profile\_non\_gaussian} & \showresfile{results/it127_noise_profile_non_gaussian_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it128\_calibration\_by\_dataset\_family} & \showresfile{results/it128_calibration_by_dataset_family_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it129\_confidence\_interval\_stability} & \showresfile{results/it129_confidence_interval_stability_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it12\_vknng\_knng\_3syn\_run\_metadata} & \showresfile{results/it12_vknng_knng_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it130\_final\_decision\_matrix} & \showresfile{results/it130_final_decision_matrix_run_metadata.json} & \texttt{a201b0e0} & copilot-swe-agent[bot] \\
+\showtag{it13\_gaussian\_aew\_3syn\_run\_metadata} & \showresfile{results/it13_gaussian_aew_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it14\_low\_missing\_synthetic\_run\_metadata} & \showresfile{results/it14_low_missing_synthetic_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it15\_synthetic\_broad\_gaussian\_run\_metadata} & \showresfile{results/it15_synthetic_broad_gaussian_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it15b\_gaussian\_3syn\_run\_metadata} & \showresfile{results/it15b_gaussian_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it16\_synthetic\_broad\_vknng\_run\_metadata} & \showresfile{results/it16_synthetic_broad_vknng_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it16b\_vknng\_3syn\_run\_metadata} & \showresfile{results/it16b_vknng_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it17\_synthetic\_broad\_all\_graphs\_run\_metadata} & \showresfile{results/it17_synthetic_broad_all_graphs_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it18\_directed\_tv\_vs\_trss\_run\_metadata} & \showresfile{results/it18_directed_tv_vs_trss_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it19\_synthetic\_beta\_high\_missing\_run\_metadata} & \showresfile{results/it19_synthetic_beta_high_missing_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it20\_synthetic\_alpha\_high\_missing\_run\_metadata} & \showresfile{results/it20_synthetic_alpha_high_missing_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it21\_all\_datasets\_family\_run\_metadata} & \showresfile{results/it21_all_datasets_family_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it22\_synthetic\_broad\_knn\_k3\_only\_run\_metadata} & \showresfile{results/it22_synthetic_broad_knn_k3_only_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it22b\_knn\_k3\_3syn\_run\_metadata} & \showresfile{results/it22b_knn_k3_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it23\_synthetic\_broad\_knng\_only\_run\_metadata} & \showresfile{results/it23_synthetic_broad_knng_only_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it23b\_knng\_3syn\_run\_metadata} & \showresfile{results/it23b_knng_3syn_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it24\_physionet\_all\_scenarios\_run\_metadata} & \showresfile{results/it24_physionet_all_scenarios_run_metadata.json} & \texttt{676eaba2} & copilot-swe-agent[bot] \\
+\showtag{it25\_alpha\_beta\_two\_bands\_run\_metadata} & \showresfile{results/it25_alpha_beta_two_bands_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it26\_synthetic\_beta\_all\_graphs\_run\_metadata} & \showresfile{results/it26_synthetic_beta_all_graphs_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it27\_synthetic\_alpha\_all\_graphs\_run\_metadata} & \showresfile{results/it27_synthetic_alpha_all_graphs_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it28\_nnk\_3syn\_run\_metadata} & \showresfile{results/it28_nnk_3syn_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it29\_kalofolias\_3syn\_run\_metadata} & \showresfile{results/it29_kalofolias_3syn_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it30\_knn\_k5\_3syn\_run\_metadata} & \showresfile{results/it30_knn_k5_3syn_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it31\_strong\_tv\_3syn\_run\_metadata} & \showresfile{results/it31_strong_tv_3syn_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it32\_3syn\_mr20\_only\_run\_metadata} & \showresfile{results/it32_3syn_mr20_only_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it33\_3syn\_mr30\_only\_run\_metadata} & \showresfile{results/it33_3syn_mr30_only_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it34\_physionet\_kalofolias\_gaussian\_run\_metadata} & \showresfile{results/it34_physionet_kalofolias_gaussian_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it35\_all4\_kalofolias\_run\_metadata} & \showresfile{results/it35_all4_kalofolias_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it36\_3syn\_beta\_low\_missing\_run\_metadata} & \showresfile{results/it36_3syn_beta_low_missing_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it37\_3syn\_alpha\_low\_missing\_run\_metadata} & \showresfile{results/it37_3syn_alpha_low_missing_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it38\_broad\_gaussian\_kalofolias\_nnk\_run\_metadata} & \showresfile{results/it38_broad_gaussian_kalofolias_nnk_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it39\_physionet\_gaussian\_nnk\_knn\_run\_metadata} & \showresfile{results/it39_physionet_gaussian_nnk_knn_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it40\_3syn\_all\_mr\_analysis\_run\_metadata} & \showresfile{results/it40_3syn_all_mr_analysis_run_metadata.json} & \texttt{0f1764d4} & copilot-swe-agent[bot] \\
+\showtag{it41\_physionet\_multisubject\_run4} & \showresfile{results/it41_physionet_multisubject_run4_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it42\_physionet\_run8\_allsubj} & \showresfile{results/it42_physionet_run8_allsubj_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it43\_physionet\_run12\_allsubj} & \showresfile{results/it43_physionet_run12_allsubj_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it44\_physionet\_allruns\_allsubj} & \showresfile{results/it44_physionet_allruns_allsubj_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it45\_physionet\_multisubj\_gaussian} & \showresfile{results/it45_physionet_multisubj_gaussian_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it46\_physionet\_multisubj\_kalofolias} & \showresfile{results/it46_physionet_multisubj_kalofolias_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it47\_physionet\_multisubj\_best3graphs} & \showresfile{results/it47_physionet_multisubj_best3graphs_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it48\_physionet\_multisubj\_high\_mr} & \showresfile{results/it48_physionet_multisubj_high_mr_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it49\_physionet\_multisubj\_low\_mr} & \showresfile{results/it49_physionet_multisubj_low_mr_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\showtag{it50\_physionet\_multisubj\_strong\_tv} & \showresfile{results/it50_physionet_multisubj_strong_tv_run_metadata.json} & \texttt{deed56fd} & copilot-swe-agent[bot] \\
+\end{longtable}
+\normalsize

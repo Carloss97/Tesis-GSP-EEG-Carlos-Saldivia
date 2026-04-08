@@ -1,49 +1,14 @@
 \section{Methods}
+We implemented a reproducible benchmark pipeline using the project's experiments modules (notably \showresfile{experiments/run_canonical_experiment.py} and \showresfile{experiments/run_b2_batched.py}). The codebase generates per-iteration metadata files under \showresfile{results/} that fully describe the dataset, graph construction, method, hyper-parameters and evaluation fold used to produce each reported metric.
 
-We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. Let $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ be an undirected weighted graph where $\mathcal{V}$ is the set of $N$ electrode vertices, $\mathcal{E}$ the edge set, and $\mathbf{W} \in \mathbb{R}^{N \times N}$ the symmetric weight matrix. The combinatorial graph Laplacian is $\mathbf{L} = \mathbf{D} - \mathbf{W}$, where $\mathbf{D}$ is the degree matrix. A graph signal $\mathbf{x} \in \mathbb{R}^{N}$ assigns a scalar value to each electrode at a given time instant.
+Datasets and preprocessing: The canonical pack includes synthetic generators (alpha, beta, broad) and real/proxy datasets (\texttt{physionet\_eegmmidb}, BCI IV 2a proxies). Synthetic generators create deterministic test signals and spatial positions (see \showresfile{experiments/run_canonical_experiment.py} for exact routines). Real-data loading follows the local dataset policy and may subsample channels for memory efficiency when necessary (see the script for details).
 
-The goal is not to propose a new theory, but to compare \ResNInstantMethods~instant and \ResNTVMethods~TV/time methods under the same experimental conditions and with the same evaluation pipeline.
+Graph construction and families: graph constructors explored include k-NN variants (k=3,5), variable-k schemes (vknng), Gaussian kernels, NN-K, AEW and Kalofolias learning. Reconstruction methods are grouped into two families: instant/position-based interpolators (e.g., mean, nearest, spherical spline, RBF interpolants, tikhonov/GSP variants) and TV/time-aware methods (graph–time tikhonov, TV, TRSS and temporal-laplacian). Exact parameter grids used during inner validation are defined in the experiment scripts and reproduced in the metadata.
 
-\subsection{Graph Construction}
-We evaluate \ResNGraphMethods~graph constructors organized into three categories:
-\begin{itemize}
-\item \emph{Neighborhood graphs}: $k$-NN (\texttt{knn}), Gaussian-weighted $k$-NN (\texttt{knng}), variable-$k$ NN (\texttt{vknng}), epsilon-ball (\texttt{epsilon\_ball}), and minimum spanning tree (\texttt{mst}).
-\item \emph{Dense/global graphs}: fully connected inverse-distance (\texttt{fully\_connected\_inverse\_distance}) and Gaussian kernel (\texttt{gaussian}).
-\item \emph{Adaptive/learned graphs}: non-negative kernel regression \cite{shekkizhar2020} (\texttt{nnk}), adaptive edge weighting \cite{kalofolias2016} (\texttt{aew}), and graph learning via log-degree regularization \cite{kalofolias2016} (\texttt{kalofolias}).
-\end{itemize}
+Validation and metrics: experiments use a nested validation protocol (inner fold for parameter selection, outer fold for reporting). The pipeline uses an inner fraction of 60% (parameter search) and reports results on the remaining 40% (outer fold). Primary metrics are MAE (primary), RMSE, DTW and SNR; statistical tests and family-level significance are computed and stored in \showresfile{results/} (for example \showresfile{results/b3_stat02_significance.csv}).
 
-In phase \ResPhase, we retained only constructors with demonstrated numerical stability across the full-scale batched runs.
+Reproducibility and traceability: every numerical claim in this paper is linked to a results artifact (see claim traceability tables). When MATLAB/GSPBox comparisons were reproduced in Python, those runs are explicitly annotated as proxy validations; the script \showresfile{experiments/ins13_strict_matlab_compare.py} summarizes cross-stack checks and the canonical INS-13 status file records the editorial decision.
 
-\subsection{Interpolation Families}
+Engine and validation notes: experiments were executed with the pipeline engine versions v6–v7e depending on the phase; per-pack metadata records the engine and seeds used (for example \showresfile{results/it100_final_comparative_publication_pack_run_metadata.json}). The pipeline uses nested parameter selection (inner search) and outer reporting folds; all per-iteration CSVs include the full parameter set and seeds so results can be reproduced exactly.
 
-Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ the unknown (missing) channels. We compare three families:
-
-\paragraph{Instant methods} These operate independently at each time sample. The graph Laplacian regularization problem takes the form:
-\begin{equation}
-  \hat{\mathbf{x}}_{\mathcal{U}} = \arg\min_{\mathbf{z}}
-    \|\mathbf{z} - \mathbf{x}_{\mathcal{K}}\|^2 + \alpha \, \mathbf{z}^\top \mathbf{L}_{\mathcal{U}\mathcal{U}} \mathbf{z},
-  \label{eq:tikhonov}
-\end{equation}
-yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$ for the pure GSP case ($\alpha \to \infty$, i.e., \texttt{gsp}), and the regularized variant for \texttt{tikhonov}. Geometric baselines (IDW, splines, RBF) do not use the graph. The BGSRP method \cite{zhang2024bgsrp} extends this to a bandlimited RKHS recovery.
-
-\paragraph{TV/time methods} These jointly optimize spatial and temporal criteria over a signal matrix $\mathbf{X} \in \mathbb{R}^{N \times T}$:
-\begin{equation}
-  \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
-    \|\mathbf{Z}_{\mathcal{K},:} - \mathbf{X}_{\mathcal{K},:}\|_F^2
-    + \alpha \operatorname{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})
-    + \beta \|\Delta_t \mathbf{Z}\|_F^2,
-  \label{eq:sobolev}
-\end{equation}
-where $\Delta_t$ is a finite-difference operator along the time axis \cite{giraldo2022}. This covers \texttt{trss}, \texttt{sobolev\_temporal}, \texttt{tv}, and \texttt{temporal\_laplacian}.
-
-\paragraph{Geometric/spline baselines} Classical alternatives that do not exploit the graph: linear, nearest-neighbor, spherical spline \cite{perrin1989}, RBF thin-plate spline, and surface spline.
-
-\subsection{Evaluation Metrics}
-
-Performance is assessed with four complementary metrics: mean absolute error (MAE), root mean square error (RMSE), dynamic time warping distance (DTW), and signal-to-noise ratio (SNR). We report mean $\pm$ standard deviation and approximate 95\% confidence intervals from repeated runs.
-
-The four-metric combination is essential in EEG: MAE and RMSE capture pointwise amplitude accuracy, DTW penalizes temporal misalignment even under small shifts, and SNR provides a global quality view. A method with low MAE may still distort temporal dynamics, and a method competitive on DTW may not rank first on MAE.
-
-\subsection{Statistical Analysis}
-
-Family-level differences are tested with Wilcoxon paired tests (STAT-02, $\alpha = 0.05$) over shared scenario-contexts. Method-level pairwise contrasts use Mann-Whitney U. All statistical tests are computed on the B2 full-scale batched raw outputs prior to mean aggregation.
+Artifact types produced per iteration include: raw results CSV, aggregated stats CSV, significance CSV, QA report (Markdown), run metadata JSON and up to 11 figure PDFs (fig01–fig11). These artifacts are the primary sources for tables and figures in this manuscript and are linked directly in the claim traceability tables.

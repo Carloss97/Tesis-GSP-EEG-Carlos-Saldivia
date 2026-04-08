@@ -1,0 +1,7 @@
+claim,artifact,script,commit
+"Baseline best MAE/RMSE","Thesis-Copilot-Toolkit/results/b3_rep01_final_table_overall.csv","experiments/finalize_b3_b4.py",f6857d54e2a5ef149bc45fdea1dfe6dd97cbc912
+"TV/Time best DTW","Thesis-Copilot-Toolkit/results/b3_rep01_final_table_overall.csv","experiments/finalize_b3_b4.py",f6857d54e2a5ef149bc45fdea1dfe6dd97cbc912
+"Family-level significance (STAT-02)","Thesis-Copilot-Toolkit/results/b3_stat02_significance.csv","experiments/finalize_b3_b4.py",f6857d54e2a5ef149bc45fdea1dfe6dd97cbc912
+"INS-13 editorial status","Thesis-Copilot-Toolkit/results/ins13_strict_status.md","experiments/ins13_strict_matlab_compare.py",28943f03895e6f6380abc5813f866d355ec9232a
+"Final decision matrix (it130)","Thesis-Copilot-Toolkit/results/it130_final_decision_matrix_decision_matrix.csv","experiments/run_future_work_it121_it130.py",a201b0e08651d93d3e142a2368ed362bb78c5626
+"Canonical pack metadata (it100)","Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_run_metadata.json","experiments/run_canonical_experiment.py",e9762a1c38eac4ea6c940db4a62318b44b9bc0e1

@@ -1,18 +1,6 @@
 \section{Introduction}
+Reconstructing missing EEG channels is a common problem in neurophysiology and wearable sensing. Graph Signal Processing (GSP) provides a principled framework to exploit spatial relations among sensors for interpolation and reconstruction \cite{shuman2013,narang2013,puy2018}. Recent advances propose time-aware priors and TV-based reconstructions that leverage temporal smoothness in addition to graph structure \cite{giraldo2022,zhang2024bgsrp}.
 
-Electroencephalography (EEG) recordings frequently exhibit missing channels due to contact issues, amplifier saturation, movement artifacts, or quality-control rejection. In practical studies, this is not a minor inconvenience: missing channels can distort spatial interpretations, degrade biomarkers, and reduce the reliability of downstream decoding pipelines. Because of that, channel interpolation has been studied for decades, from classical spatial interpolation to graph-based reconstruction.
+This work focuses on an empirical, reproducible comparison executed inside the repository pipeline. We rely exclusively on generated artifacts (CSV tables, per-iteration PDFs and run metadata) and we follow the project's traceability policy: every quantitative claim is anchored to a results file and the generating script (for example \showresfile{experiments/run_canonical_experiment.py} and the consolidated editorial traceability \showresfile{results/b3_b4_editorial_traceability.md}). The project executed a broad iteration campaign (it02–it130); the comprehensive inventory and per-phase summaries are available in the repository report \showresfile{Thesis-Copilot-Toolkit/ITERATIONS_COMPREHENSIVE_REPORT.md}.
 
-Graph Signal Processing (GSP) provides a natural framework for this problem by representing electrodes as graph vertices and modeling inter-channel relationships through weighted edges. The general perspective is consistent with the graph-signal literature associated with Ortega and collaborators \cite{shuman2013,ortega2018}, where smoothness, bandlimitedness, and spectral structure are used to replace purely geometric interpolation with graph-constrained estimation.
-
-Even though many methods have been proposed in the literature \cite{narang2013,puy2018,zhang2024bgsrp}, in practice it is still difficult to compare them fairly in a single reproducible pipeline. Different papers use different masks, datasets, and evaluation conventions, so conclusions are often hard to transfer to real EEG workflows. This thesis-paper track tries to reduce that gap with a unified benchmark and publication-ready artifacts.
-
-The main contributions of this manuscript are:
-\begin{itemize}
-\item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation.
-\item A cross-family comparison including geometric baselines, graph-based interpolation, and temporal regularization methods.
-\item A publication-oriented artifact set with frozen configurations, raw outputs, and summary tables.
-\end{itemize}
-
-At the current \ResPhase\ stage, we evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions (\ResNScenarios~scenarios, \ResMissingLevels\ missing) with repeated runs and consolidated variability statistics.
-
-This is still an evolving manuscript, so we intentionally keep a transparent scope statement: most of the benchmark is consolidated, but strict BGSRP equivalence against the original MATLAB/GSPBox environment remains a documented limitation rather than a completed claim.
+INS-13 editorial constraints are applied consistently: cross-stack MATLAB/GSPBox checks are included as controlled proxy comparisons and declared as \texttt{proxy\_or\_partial} with \texttt{strict\_close=False} (canonical status: \showresfile{results/ins13_strict_status.md}).

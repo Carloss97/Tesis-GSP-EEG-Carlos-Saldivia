@@ -1,42 +1,12 @@
-\chapter{Metodologia}
+\chapter{Metodología}
+La metodología documenta el pipeline reproducible implementado en los scripts del repositorio (véase \showresfile{experiments/run_canonical_experiment.py} y \showresfile{experiments/run_b2_batched.py}). El proceso incluye:
 
-Este capitulo describe el pipeline experimental completo usado en la etapa \ResPhase. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso. En otras palabras, se priorizo una comparacion honesta antes que una optimizacion excesiva de un metodo particular.
+\begin{enumerate}
+\t\item Generación o carga de datos: se usan generadores sintéticos (alpha/beta/broad) y cargas desde conjuntos reales/proxy (\showtag{physionet_eegmmidb}, BCI IV 2a proxies). Cuando los datos reales no están disponibles localmente, se emplean conjuntos proxy claramente etiquetados.
+	\item Construcción de grafos: se evalúan múltiples estrategias (k-NN, vknng, gaussian, nnk, aew, kalofolias) con rejillas de parámetros predefinidas.
+	\item Enmascaramiento de canales: escenarios de pérdida se aplican por ratio (10\%, 20\%, 30\%, 40\%) o por conteo, y se repite el protocolo con semillas controladas para reproducibilidad.
+	\item Búsqueda anidada de hiperparámetros: selección en fracción interna (60\%) y evaluación en la fracción externa (40\%), los resultados agregados se guardan en archivos \showtag{results/itNN_..._run_metadata.json} por iteración.
+	\item Cálculo de métricas y consolidación editorial: MAE (primaria), RMSE, DTW y SNR se calculan por corrida; agregados y pruebas estadísticas se consolidan con scripts de cierre (p. ej., \showresfile{experiments/finalize_b3_b4.py}).
+\end{enumerate}
 
-La metodologia se organizo como una secuencia fija: (i) carga y estandarizacion de los datos, (ii) construccion del grafo, (iii) simulacion de canales faltantes, (iv) interpolacion o reconstruccion, y (v) evaluacion cuantitativa y consolidacion de resultados. Esta estructura permite rastrear cada resultado desde el dato de entrada hasta la tabla final del manuscrito.
-
-De forma practica, el pipeline se implemento de modo que cada corrida genere artefactos intermedios reutilizables. Esto fue importante para la tesis, porque permitio separar lo experimental de lo editorial: primero se consolida evidencia, y luego se redacta sobre esa evidencia.
-
-\section{Construccion de grafos}
-
-Se evaluaron \ResNGraphMethods~constructores de grafo organizados en tres categorias:
-\begin{itemize}
-\item \emph{Grafos de vecindad}: \texttt{knn}, \texttt{knng}, \texttt{vknng}, \texttt{epsilon\_ball}, \texttt{mst}.
-\item \emph{Grafos densos/globales}: \texttt{fully\_connected\_inverse\_distance}, \texttt{gaussian}.
-\item \emph{Grafos adaptativos}: \texttt{nnk} \cite{shekkizhar2020}, \texttt{aew}, \texttt{kalofolias} \cite{kalofolias2016}.
-\end{itemize}
-
-En la fase \ResPhase\ se retuvieron solo los metodos que mostraron estabilidad numerica en la corrida extendida. La intuicion detras de esta etapa es que la calidad del grafo condiciona directamente la reconstruccion posterior.
-
-\section{Simulacion de canales faltantes}
-
-Se trabajaron \ResNScenarios~escenarios por region de electrodos (\ResScenariosNames) con niveles de perdida de \ResMissingLevels. Este diseno intenta aproximar situaciones mas realistas que una mascara completamente aleatoria.
-
-Para la tesis, este punto era importante porque un EEG real no falla siempre de manera uniforme. A veces se pierden grupos completos de canales, a veces solo algunos sensores perifericos, y otras veces la perdida tiene un patron que responde a la calidad del montaje. La version actual del protocolo queda congelada en los artefactos de resultados y se usa tanto en el paper como en la tesis.
-
-\section{Interpolacion y reconstruccion}
-
-Las comparaciones se organizaron por familias:
-\begin{itemize}
-\item \ResNInstantMethods~metodos instantaneos/geometricos (incluidos baselines como \texttt{spherical\_spline} \cite{perrin1989} y metodos GSP como \texttt{tikhonov}, \texttt{gsp}, \texttt{bgsrp} \cite{zhang2024bgsrp}).
-\item \ResNTVMethods~metodos TV/tiempo (incluyendo \texttt{trss} \cite{giraldo2022} y variantes temporales).
-\end{itemize}
-
-Para la evaluacion se usaron MAE, RMSE, DTW y SNR con agregacion estadistica (media, desviacion estandar e intervalo de confianza aproximado) sobre corridas repetidas.
-
-Desde el punto de vista de implementacion, cada metodo recibe exactamente la misma entrada y la misma mascara. Esa homogeneidad fue una prioridad del trabajo.
-
-\section{Consolidacion y reporte}
-
-La fase B2 incorporo una consolidacion estadistica por escenario y familia de metodos. Los resultados se resumieron con tablas de ranking, tablas top-k y archivos de configuracion congelada.
-
-Para el tratamiento de INS-13/BGSRP se adopto una politica de redaccion prudente: la implementacion Python se reporta como \BGSRPStatus. Esa distincion no es solo editorial; es parte de la validez metodologica del trabajo.
+Cada afirmación cuantitativa reportada en la tesis está anclada a un artefacto en \showtag{results/} y a los scripts que generaron dicho artefacto. Las comparaciones cross-stack con MATLAB/GSPBox se registran y etiquetan conforme a la regla INS-13 (\showtag{proxy_or_partial}, \showtag{strict_close=False}) y tienen su documentación en \showresfile{results/ins13_strict_status.md} y en \showresfile{experiments/ins13_strict_matlab_compare.py}.

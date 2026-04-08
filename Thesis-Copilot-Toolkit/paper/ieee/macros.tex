@@ -1,0 +1,58 @@
+% Auto-generated macros (values sourced from results/*)
+% Numerical and textual macros for paper
+\newcommand{\ResPhase}{B1--B4}
+\newcommand{\ResNMethods}{22}
+\newcommand{\ResNInstantMethods}{14}
+\newcommand{\ResNTVMethods}{8}
+\newcommand{\ResNScenarios}{5}
+\newcommand{\ResMissingLevels}{4}
+
+% Baseline / summary values (from b3_rep01_final_table.tex)
+\newcommand{\ResBaselineMAEFull}{0.071270}
+\newcommand{\ResBaselineRMSEFull}{0.162150}
+\newcommand{\ResTVDTWFull}{0.491819}
+
+% Statistical p-values (from results/b3_stat02_significance.csv)
+\newcommand{\StatFamilyMAEpval}{4.769630703710377e-44}
+\newcommand{\StatFamilyDTWpval}{2.403495923470857e-12}
+\newcommand{\StatTRSSBGSRPpval}{6.111368891088274e-259}
+\newcommand{\StatTRSSGSPpval}{0.9809566220799211}
+
+\newcommand{\StatFamilyResult}{TV/Time outperformed Instant methods (MAE $p=\StatFamilyMAEpval$, DTW $p=\StatFamilyDTWpval$)}
+\newcommand{\StatTRSSGSRPResult}{TRSS outperformed BGSRP (MAE $p=\StatTRSSBGSRPpval$)}
+\newcommand{\StatTRSSGSPResult}{No significant difference (MAE $p=\StatTRSSGSPpval$)}
+
+% it100 canonical metadata
+\newcommand{\ItHundredGainPct}{21.81186661279092}
+\newcommand{\ItHundredPval}{8.478794557394802e-15}
+\newcommand{\ItHundredBestMethod}{trss}
+\newcommand{\ItHundredBestMae}{0.17959423368096358}
+
+% Helper to display only the filename part for long artifact paths
+% Uses xstring's \IfSubStr and \StrBehind to extract text after "results/"
+% Use \seqsplit to allow line breaks inside long filenames so longtable columns can wrap.
+\RequirePackage{seqsplit}
+% Support ragged column definitions and arraybackslash for table column formatting
+\RequirePackage{array}
+\newcommand{\showresfile}[1]{%
+	\IfSubStr{#1}{results/}{%
+		\StrBehind{#1}{results/}[\resfile]%
+		\begingroup\ttfamily\edef\srfname{\detokenize{\resfile}}\seqsplit{\srfname}\endgroup%
+	}{%
+		\begingroup\ttfamily\edef\srfname{\detokenize{#1}}\seqsplit{\srfname}\endgroup%
+	}%
+}
+
+% Helper to display tags (allows underscores to break)
+\newcommand{\showtag}[1]{%
+	\StrSubstitute{#1}{\_}{_}[\tmp]% replace escaped underscores
+	\begingroup\ttfamily\edef\tgname{\detokenize{\tmp}}\seqsplit{\tgname}\endgroup%
+}
+
+% Make escaped underscores breakable by inserting a break point before the printed underscore
+\DeclareRobustCommand{\_}{\allowbreak\textunderscore}
+
+% Make \texttt safe and breakable by default: route to \showtag which
+% uses \ttfamily + \seqsplit for safe line-breaking of long identifiers.
+\let\oldtexttt\texttt
+\renewcommand{\texttt}[1]{\showtag{#1}}

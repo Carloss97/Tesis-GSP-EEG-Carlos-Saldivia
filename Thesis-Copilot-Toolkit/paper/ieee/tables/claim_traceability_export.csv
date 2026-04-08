@@ -1,0 +1,7 @@
+Claim,Artifact,Script,Commit
+"Baseline best MAE/RMSE",results/b3_rep01_final_table_overall.csv,experiments/finalize_b3_b4.py,f6857d54
+"TV/Time best DTW",results/b3_rep01_final_table_overall.csv,experiments/finalize_b3_b4.py,f6857d54
+"Family-level significance (STAT-02)",results/b3_stat02_significance.csv,experiments/finalize_b3_b4.py,f6857d54
+"INS-13 editorial status",results/ins13_strict_status.md,experiments/ins13_strict_matlab_compare.py,28943f03
+"Final decision matrix (it130)",results/it130_final_decision_matrix_decision_matrix.csv,experiments/run_future_work_it121_it130.py,a201b0e0
+"Canonical pack metadata (it100)",results/it100_final_comparative_publication_pack_run_metadata.json,experiments/run_canonical_experiment.py,e9762a1c

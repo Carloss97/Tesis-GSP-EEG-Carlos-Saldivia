@@ -1,0 +1,14 @@
+\section{Experimental setup}
+The canonical comparative experiment (tag: \texttt{it100\_final\_comparative\_publication\_pack}) covered the following configuration (metadata: \showresfile{results/it100_final_comparative_publication_pack_run_metadata.json}):
+\begin{itemize}
+  \item Datasets: \texttt{synthetic\_16ch}, \texttt{synthetic\_32ch}, \texttt{mne\_sample\_proxy}, \texttt{bci\_competition\_proxy}, \texttt{physionet\_eegmmidb} (see dataset generators and loader in \showresfile{experiments/run_canonical_experiment.py}).
+  \item Graph constructors: k-NN variants (k=3,5), Gaussian kernel, Kalofolias learning and additional variants (see script grids).
+  \item Missing scenarios: ratios {0.1, 0.2, 0.3, 0.4} (systematic temporal masking) and selected per-channel counts used for sensitivity analysis.
+  \item Methods compared: instant interpolators (mean, nearest, spherical spline, RBF variants, tikhonov/GSP) and TV/time-aware methods (temporal\_laplacian, graph\_time\_tikhonov, tv, trss).
+  \item Experimental rows recorded (metadata \texttt{n\_rows}): 1260.
+  \item Engine version used: v7e (recorded in per-pack metadata).
+\end{itemize}
+
+Primary figures and per-iteration PDFs are stored under \showresfile{paper/ieee/figures} (for example \showresfile{paper/ieee/figures/it100_final_comparative_publication_pack_fig01.pdf}). Summary tables used for editorial closure (REP-01) are included under \showresfile{paper/ieee/tables} (for example \showresfile{paper/ieee/tables/b3_rep01_final_table.tex}).
+
+Note on figures: the project produces a standard set of fig01–fig11 per iteration; the paper selects representative panels from canonical packs (e.g., it100 fig01–fig06 for main text and fig07–fig11 as supplementary illustrations). Full per-iteration figure sets (it02–it130) are available in the repository figures folder for readers who require run-level inspection.

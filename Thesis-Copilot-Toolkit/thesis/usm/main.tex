@@ -1,49 +1,67 @@
-\documentclass[11pt,openany]{book}
+% Cleaned USM thesis main file (draft)
+\documentclass[12pt,oneside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{xstring}
+\usepackage{caption}
 
-\input{config/packages}
+\makeatletter
+\def\input@path{{frontmatter/}{chapters/}{tables/}{figures/}}
+\makeatother
 
-\input{config/metadata}
+% Load generated macros with numeric/statistical values
+\input{macros.tex}
 
-% Fuente unica de resultados numericos - actualizar shared/results_data.tex
-% cuando se obtengan nuevos resultados.
-\input{../../shared/results_data}
+% Frontmatter defaults (draft)
+\newcommand{\ThesisInstitution}{Universidad de Prueba}
+\newcommand{\ThesisDepartment}{Departamento de Ingeniería}
+\newcommand{\ThesisTitle}{Reconstrucción de canales EEG mediante métodos basados en grafos y temporales}
+\newcommand{\ThesisAuthor}{Autor de Prueba}
+\newcommand{\ThesisDegree}{Magíster/Doctor (borrador)}
+\newcommand{\ThesisDirector}{Director(a) de Tesis}
+\newcommand{\ThesisDirectorName}{Dr. Ejemplo}
+\newcommand{\ThesisCoDirector}{Co-Director(a) de Tesis}
+\newcommand{\ThesisCoDirectorName}{Dr. Coejemplo}
+\newcommand{\ThesisCity}{Valparaíso}
+\newcommand{\ThesisMonth}{Abril}
+\newcommand{\ThesisYear}{2026}
+\newcommand{\ThesisInternalExaminer}{Examinador Interno}
+\newcommand{\ThesisInternalExaminerName}{Dr. Interno}
+\newcommand{\ThesisExternalExaminer}{Examinador Externo}
+\newcommand{\ThesisExternalExaminerName}{Dr. Externo}
 
 \begin{document}
 
+% Frontmatter
 \pagenumbering{roman}
-\input{frontmatter/cover_page}
-\clearpage
-\thispagestyle{empty}
-\mbox{}
-\clearpage
-
-\input{frontmatter/title_page}
-\clearpage
-\thispagestyle{empty}
-\mbox{}
-\clearpage
-
-\input{frontmatter/approval_page}
-\clearpage
-
-\input{frontmatter/abstract_es}
-\input{frontmatter/abstract_en}
-\input{frontmatter/acknowledgements}
-\clearpage
+% Use \input@path to locate frontmatter files (avoid hardcoded subpaths)
+\input{./frontmatter/cover_page.tex}
+\input{./frontmatter/title_page.tex}
+\input{./frontmatter/approval_page.tex}
+\input{./frontmatter/abstract_es.tex}
+\input{./frontmatter/abstract_en.tex}
+\input{./frontmatter/acknowledgements.tex}
 \tableofcontents
 \listoffigures
 \listoftables
 
+% Main content
 \clearpage
 \pagenumbering{arabic}
-\input{chapters/01_introduccion}
-\input{chapters/02_marco_teorico}
-\input{chapters/03_metodologia}
-\input{chapters/04_experimentos_y_resultados}
-\input{chapters/05_discusion}
-\input{chapters/06_conclusiones_y_trabajo_futuro}
+\input{chapters/01_introduccion.tex}
+\input{chapters/02_marco_teorico.tex}
+\input{chapters/03_metodologia.tex}
+\input{chapters/04_experimentos_y_resultados.tex}
+\input{chapters/05_discusion.tex}
+\input{chapters/06_conclusiones.tex}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plain}
 \bibliography{bibliography/references}
 
 \end{document}
