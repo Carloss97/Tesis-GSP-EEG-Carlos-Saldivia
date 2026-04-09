@@ -1,0 +1,2218 @@
+{
+  "root": "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results",
+  "dry_run": true,
+  "apply": false,
+  "it_summaries": [
+    {
+      "it": "it001",
+      "candidates_count": 291,
+      "total_size_bytes": 2952746,
+      "sample": [
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json",
+        "metadata__dup12.json",
+        "metadata__dup13.json",
+        "metadata__dup14.json",
+        "metadata__dup15.json",
+        "metadata__dup16.json",
+        "metadata__dup17.json",
+        "metadata__dup18.json"
+      ]
+    },
+    {
+      "it": "it002",
+      "candidates_count": 294,
+      "total_size_bytes": 2798998,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it003",
+      "candidates_count": 309,
+      "total_size_bytes": 2855737,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it004",
+      "candidates_count": 129,
+      "total_size_bytes": 1372797,
+      "sample": [
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json",
+        "metadata__dup12.json",
+        "metadata__dup13.json",
+        "metadata__dup14.json",
+        "metadata__dup15.json",
+        "metadata__dup16.json",
+        "metadata__dup17.json",
+        "metadata__dup18.json"
+      ]
+    },
+    {
+      "it": "it005",
+      "candidates_count": 234,
+      "total_size_bytes": 6505615,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it006",
+      "candidates_count": 234,
+      "total_size_bytes": 2561148,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it007",
+      "candidates_count": 234,
+      "total_size_bytes": 2706905,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it008",
+      "candidates_count": 309,
+      "total_size_bytes": 3200786,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it009",
+      "candidates_count": 294,
+      "total_size_bytes": 4143938,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it010",
+      "candidates_count": 294,
+      "total_size_bytes": 2839223,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it011",
+      "candidates_count": 430,
+      "total_size_bytes": 3505857,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup10.md",
+        "integration_log__dup11.md",
+        "integration_log__dup12.md",
+        "integration_log__dup13.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup1__dup2.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md"
+      ]
+    },
+    {
+      "it": "it012",
+      "candidates_count": 294,
+      "total_size_bytes": 2723862,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it013",
+      "candidates_count": 294,
+      "total_size_bytes": 2732906,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it014",
+      "candidates_count": 309,
+      "total_size_bytes": 3068077,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it015",
+      "candidates_count": 234,
+      "total_size_bytes": 2093161,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it016",
+      "candidates_count": 234,
+      "total_size_bytes": 2135336,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it017",
+      "candidates_count": 294,
+      "total_size_bytes": 2874289,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it018",
+      "candidates_count": 294,
+      "total_size_bytes": 4112797,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it019",
+      "candidates_count": 294,
+      "total_size_bytes": 2481321,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it020",
+      "candidates_count": 294,
+      "total_size_bytes": 2459943,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it021",
+      "candidates_count": 294,
+      "total_size_bytes": 4743034,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it022",
+      "candidates_count": 234,
+      "total_size_bytes": 2068916,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it023",
+      "candidates_count": 234,
+      "total_size_bytes": 2087905,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json"
+      ]
+    },
+    {
+      "it": "it024",
+      "candidates_count": 294,
+      "total_size_bytes": 2892893,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it025",
+      "candidates_count": 294,
+      "total_size_bytes": 3470896,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it026",
+      "candidates_count": 294,
+      "total_size_bytes": 2879702,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it027",
+      "candidates_count": 294,
+      "total_size_bytes": 2864124,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it028",
+      "candidates_count": 294,
+      "total_size_bytes": 2464508,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it029",
+      "candidates_count": 294,
+      "total_size_bytes": 2454006,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it030",
+      "candidates_count": 294,
+      "total_size_bytes": 2434568,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it031",
+      "candidates_count": 294,
+      "total_size_bytes": 4084148,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it032",
+      "candidates_count": 294,
+      "total_size_bytes": 2475572,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it033",
+      "candidates_count": 294,
+      "total_size_bytes": 2498928,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it034",
+      "candidates_count": 129,
+      "total_size_bytes": 781033,
+      "sample": [
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json",
+        "metadata__dup12.json",
+        "metadata__dup13.json",
+        "metadata__dup14.json",
+        "metadata__dup15.json",
+        "metadata__dup16.json",
+        "metadata__dup17.json",
+        "metadata__dup18.json"
+      ]
+    },
+    {
+      "it": "it035",
+      "candidates_count": 294,
+      "total_size_bytes": 2506689,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it036",
+      "candidates_count": 294,
+      "total_size_bytes": 2444372,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it037",
+      "candidates_count": 294,
+      "total_size_bytes": 2446722,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it038",
+      "candidates_count": 294,
+      "total_size_bytes": 2506195,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it039",
+      "candidates_count": 294,
+      "total_size_bytes": 2135508,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it040",
+      "candidates_count": 294,
+      "total_size_bytes": 2654557,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it041",
+      "candidates_count": 227,
+      "total_size_bytes": 2255892,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it042",
+      "candidates_count": 227,
+      "total_size_bytes": 2282867,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it043",
+      "candidates_count": 227,
+      "total_size_bytes": 2287923,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it044",
+      "candidates_count": 227,
+      "total_size_bytes": 4252414,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it045",
+      "candidates_count": 227,
+      "total_size_bytes": 2385709,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it046",
+      "candidates_count": 227,
+      "total_size_bytes": 2376746,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it047",
+      "candidates_count": 227,
+      "total_size_bytes": 4630552,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it048",
+      "candidates_count": 257,
+      "total_size_bytes": 1791176,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it049",
+      "candidates_count": 257,
+      "total_size_bytes": 1757064,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it050",
+      "candidates_count": 60,
+      "total_size_bytes": 627576,
+      "sample": [
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup11.json",
+        "metadata__dup12.json",
+        "metadata__dup13.json",
+        "metadata__dup14.json",
+        "metadata__dup15.json",
+        "metadata__dup16.json",
+        "metadata__dup17.json",
+        "metadata__dup18.json"
+      ]
+    },
+    {
+      "it": "it051",
+      "candidates_count": 257,
+      "total_size_bytes": 3427182,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it052",
+      "candidates_count": 257,
+      "total_size_bytes": 1692770,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it053",
+      "candidates_count": 257,
+      "total_size_bytes": 1659901,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it054",
+      "candidates_count": 257,
+      "total_size_bytes": 2927094,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it055",
+      "candidates_count": 257,
+      "total_size_bytes": 2814113,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it056",
+      "candidates_count": 257,
+      "total_size_bytes": 1821312,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it057",
+      "candidates_count": 257,
+      "total_size_bytes": 1856830,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it058",
+      "candidates_count": 257,
+      "total_size_bytes": 1646889,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it059",
+      "candidates_count": 257,
+      "total_size_bytes": 1654268,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it060",
+      "candidates_count": 257,
+      "total_size_bytes": 1652979,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it061",
+      "candidates_count": 210,
+      "total_size_bytes": 1536844,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it062",
+      "candidates_count": 210,
+      "total_size_bytes": 1598276,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it063",
+      "candidates_count": 210,
+      "total_size_bytes": 1455194,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it064",
+      "candidates_count": 210,
+      "total_size_bytes": 1613932,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it065",
+      "candidates_count": 210,
+      "total_size_bytes": 2142076,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it066",
+      "candidates_count": 210,
+      "total_size_bytes": 2184654,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it067",
+      "candidates_count": 210,
+      "total_size_bytes": 1744878,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it068",
+      "candidates_count": 210,
+      "total_size_bytes": 1693596,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it069",
+      "candidates_count": 210,
+      "total_size_bytes": 1528363,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it070",
+      "candidates_count": 210,
+      "total_size_bytes": 1773152,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it071",
+      "candidates_count": 240,
+      "total_size_bytes": 1438681,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it072",
+      "candidates_count": 240,
+      "total_size_bytes": 1450000,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it073",
+      "candidates_count": 240,
+      "total_size_bytes": 1500785,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it074",
+      "candidates_count": 240,
+      "total_size_bytes": 1485266,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it075",
+      "candidates_count": 240,
+      "total_size_bytes": 1523553,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it076",
+      "candidates_count": 240,
+      "total_size_bytes": 1439257,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it077",
+      "candidates_count": 240,
+      "total_size_bytes": 1475881,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it078",
+      "candidates_count": 240,
+      "total_size_bytes": 1483199,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it079",
+      "candidates_count": 240,
+      "total_size_bytes": 1476878,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it080",
+      "candidates_count": 240,
+      "total_size_bytes": 1475088,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it081",
+      "candidates_count": 240,
+      "total_size_bytes": 1453773,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it082",
+      "candidates_count": 240,
+      "total_size_bytes": 1569641,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it083",
+      "candidates_count": 240,
+      "total_size_bytes": 1371938,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it084",
+      "candidates_count": 240,
+      "total_size_bytes": 1377274,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it085",
+      "candidates_count": 240,
+      "total_size_bytes": 1610456,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it086",
+      "candidates_count": 240,
+      "total_size_bytes": 1458181,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it087",
+      "candidates_count": 240,
+      "total_size_bytes": 1377397,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it088",
+      "candidates_count": 240,
+      "total_size_bytes": 1510687,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it089",
+      "candidates_count": 240,
+      "total_size_bytes": 1527925,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it090",
+      "candidates_count": 240,
+      "total_size_bytes": 1605490,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it091",
+      "candidates_count": 240,
+      "total_size_bytes": 1356124,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it092",
+      "candidates_count": 240,
+      "total_size_bytes": 1533323,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it093",
+      "candidates_count": 240,
+      "total_size_bytes": 1528310,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it094",
+      "candidates_count": 240,
+      "total_size_bytes": 1554019,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it095",
+      "candidates_count": 240,
+      "total_size_bytes": 1604970,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it096",
+      "candidates_count": 240,
+      "total_size_bytes": 1719030,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it097",
+      "candidates_count": 240,
+      "total_size_bytes": 1641084,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it098",
+      "candidates_count": 240,
+      "total_size_bytes": 1598348,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it099",
+      "candidates_count": 240,
+      "total_size_bytes": 1876818,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup1__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it100",
+      "candidates_count": 240,
+      "total_size_bytes": 2517781,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it101",
+      "candidates_count": 240,
+      "total_size_bytes": 1264378,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it102",
+      "candidates_count": 240,
+      "total_size_bytes": 1163518,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it103",
+      "candidates_count": 240,
+      "total_size_bytes": 1206812,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it104",
+      "candidates_count": 240,
+      "total_size_bytes": 1264646,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it105",
+      "candidates_count": 302,
+      "total_size_bytes": 2338101,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it106",
+      "candidates_count": 302,
+      "total_size_bytes": 2386800,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it107",
+      "candidates_count": 302,
+      "total_size_bytes": 2363356,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it108",
+      "candidates_count": 302,
+      "total_size_bytes": 1931422,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it109",
+      "candidates_count": 302,
+      "total_size_bytes": 1997467,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it110",
+      "candidates_count": 302,
+      "total_size_bytes": 2013253,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it111",
+      "candidates_count": 302,
+      "total_size_bytes": 2049191,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it112",
+      "candidates_count": 302,
+      "total_size_bytes": 2018836,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it113",
+      "candidates_count": 302,
+      "total_size_bytes": 2037438,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it114",
+      "candidates_count": 302,
+      "total_size_bytes": 2389722,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it115",
+      "candidates_count": 302,
+      "total_size_bytes": 2342655,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it116",
+      "candidates_count": 302,
+      "total_size_bytes": 3609707,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it117",
+      "candidates_count": 302,
+      "total_size_bytes": 3013828,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it118",
+      "candidates_count": 302,
+      "total_size_bytes": 1988411,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it119",
+      "candidates_count": 302,
+      "total_size_bytes": 2259886,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it120",
+      "candidates_count": 302,
+      "total_size_bytes": 2024187,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it121",
+      "candidates_count": 311,
+      "total_size_bytes": 3257722,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it122",
+      "candidates_count": 311,
+      "total_size_bytes": 2145541,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it123",
+      "candidates_count": 302,
+      "total_size_bytes": 1745095,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it124",
+      "candidates_count": 302,
+      "total_size_bytes": 1815697,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it125",
+      "candidates_count": 302,
+      "total_size_bytes": 1743900,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it126",
+      "candidates_count": 302,
+      "total_size_bytes": 1797621,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it127",
+      "candidates_count": 302,
+      "total_size_bytes": 1791598,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it128",
+      "candidates_count": 302,
+      "total_size_bytes": 1957814,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it129",
+      "candidates_count": 311,
+      "total_size_bytes": 1771346,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    },
+    {
+      "it": "it130",
+      "candidates_count": 302,
+      "total_size_bytes": 1973208,
+      "sample": [
+        "integration_log__dup1.md",
+        "integration_log__dup2.md",
+        "integration_log__dup3.md",
+        "integration_log__dup4.md",
+        "integration_log__dup5.md",
+        "integration_log__dup6.md",
+        "integration_log__dup7.md",
+        "metadata__dup1.json",
+        "metadata__dup10.json",
+        "metadata__dup100.json"
+      ]
+    }
+  ],
+  "total_candidates": 34060
+}

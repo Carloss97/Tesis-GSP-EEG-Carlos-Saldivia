@@ -79,4 +79,21 @@ Las colisiones (múltiples orígenes apuntando a un mismo archivo destino) se re
 
 ---
 
+## Condensación de archivos `__dup` (archivado)
+
+- **Archivos candidatos detectados:** 34,060
+- **Iteraciones afectadas:** 130 (it001..it130)
+- **ZIPs creados:** 130 (`archived_dup_files_20260409_180004.zip` dentro de cada `itNNN`)
+- **Archivos eliminados tras archivado:** 34,060
+- **Informe apply (JSON):** Thesis-Copilot-Toolkit/standardize_iterations/condense_standardized_results_apply_report_20260409_180004.json
+- **Ejemplo de ZIP generado:** Thesis-Copilot-Toolkit/standardized_results/it001/archived_dup_files_20260409_180004.zip
+- **Ejemplo de manifiesto:** Thesis-Copilot-Toolkit/standardized_results/it001/archived_dup_files_20260409_180004_manifest.json
+
+Notas:
+
+- Los archivos que contenían `__dup` se agruparon por `itNNN` en un ZIP por iteración y se generó un manifiesto JSON con sumas SHA256 y tamaños. Esto reduce el número de ficheros en los árboles `itNNN` preservando la trazabilidad.
+- Hay un respaldo completo en: Thesis-Copilot-Toolkit/standardize_iterations/standardized_results_backup.tar.gz (útil para restauración si es necesario).
+
+---
+
 Informe generado automáticamente por la herramienta de compactación. Ver los JSONs de reporte para listados completos y el historial de movimientos.
