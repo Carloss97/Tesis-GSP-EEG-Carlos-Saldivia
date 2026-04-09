@@ -7,13 +7,13 @@
 - Methods tested: 4
 - Graphs: 2
 - Missing scenarios: 2
-- Best method: trss (MAE=9.4609e+00)
+- Best method: trss (MAE=9.4619e+00)
 
 ## Statistical Test (Mann-Whitney U: TV < Instant)
-- TV median MAE:      1.6280e-02
+- TV median MAE:      1.6301e-02
 - Instant median MAE: 1.6362e-02
-- Gain:               0.5%
-- p-value:            5.3513e-02
+- Gain:               0.4%
+- p-value:            5.3230e-02
 - Decision:           **NO-GO**
 
 ## Dataset availability snapshot
@@ -25,4 +25,4 @@
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-07T18:12:18.201911+00:00
+Generated: 2026-04-09T04:10:37.591392+00:00

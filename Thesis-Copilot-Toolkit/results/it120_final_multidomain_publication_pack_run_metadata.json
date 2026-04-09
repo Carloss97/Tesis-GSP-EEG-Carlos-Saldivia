@@ -1,6 +1,6 @@
 {
   "tag": "it120_final_multidomain_publication_pack",
-  "timestamp": "2026-04-07T18:12:18.202041+00:00",
+  "timestamp": "2026-04-09T04:10:37.591657+00:00",
   "description": "Final multidomain publication pack",
   "objective": "Close cycle at it120 with most exhaustive multidomain synthesis",
   "fase": "Phase 15: Final pack",
@@ -30,13 +30,13 @@
   "n_rows": 192,
   "qa": {
     "status": "NO-GO",
-    "tv_median_mae": 0.016279771009742306,
+    "tv_median_mae": 0.016300982542892986,
     "inst_median_mae": 0.016362416589003965,
-    "gain_pct": 0.5050939683151633,
-    "p_value": 0.053512514614164314
+    "gain_pct": 0.3754582691181707,
+    "p_value": 0.05323036319027159
   },
   "best_method": "trss",
-  "best_mae": 9.460879695606488,
+  "best_mae": 9.461949065662674,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {

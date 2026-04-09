@@ -3,17 +3,17 @@
 ## Status: NO-GO
 
 ## Summary
-- Total rows: 48
-- Methods tested: 4
+- Total rows: 126
+- Methods tested: 7
 - Graphs: 1
 - Missing scenarios: 1
-- Best method: trss (MAE=5.6937e+00)
+- Best method: trss (MAE=5.7394e+00)
 
 ## Statistical Test (Mann-Whitney U: TV < Instant)
-- TV median MAE:      1.6277e-02
-- Instant median MAE: 1.6355e-02
-- Gain:               0.5%
-- p-value:            1.4887e-01
+- TV median MAE:      1.6311e-02
+- Instant median MAE: 1.5576e-02
+- Gain:               -4.7%
+- p-value:            7.9271e-01
 - Decision:           **NO-GO**
 
 ## Dataset availability snapshot
@@ -25,4 +25,4 @@
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-07T17:44:49.492088+00:00
+Generated: 2026-04-09T04:19:17.184920+00:00

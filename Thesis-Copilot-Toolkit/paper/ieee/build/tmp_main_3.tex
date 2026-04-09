@@ -1,0 +1,47 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{balance}
+
+% Robust iteration identifier for captions/moving arguments
+\DeclareRobustCommand{\iterid}[1]{\texttt{\detokenize{#1}}}
+
+% Make existing \texttt safe in moving arguments by detokenizing its input.
+
+% NOTE: The following block maps fragile macros for hyperref PDF-strings.
+% It has caused ordering/expansion issues in some LaTeX runs (runaway
+% argument during auxiliary writes). Commenting out temporarily to
+% isolate the problem. If needed, reintroduce a safer mapping.
+% \pdfstringdefDisableCommands{%
+%     \def\iterid#1{#1}% keep identifier content as plain text in bookmarks
+%     \def\_{_}% map escaped underscore to literal underscore
+%     \def\textunderscore{_}% ensure text underscore maps to plain '_'
+%     \def\pm{±}% render plus-minus as a unicode symbol in bookmarks
+%     \def\textpm{±}% alternate plus-minus macro
+%     \def\%{\%}% keep literal percent in strings
+% }
+
+% Fuente unica de resultados numericos - actualizar shared/results_data.tex
+% cuando se obtengan nuevos resultados.
+\input{../../shared/results_data}
+
+\title{Graph Signal Processing and Interpolation for EEG Channel Reconstruction}
+
+\author{Carlos~Saldivia,~\IEEEmembership{Student Member, IEEE}
+\thanks{Manuscript prepared for journal submission.}
+}
+
+\begin{document}
+\maketitle
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\end{document}

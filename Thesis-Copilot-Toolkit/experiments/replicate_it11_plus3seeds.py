@@ -159,9 +159,13 @@ def main():
 
     x = np.asarray(d['signals'], dtype=float)
     pos = np.asarray(d.get('positions'), dtype=float)
-    if pos.ndim != 2 or pos.shape[0] != x.shape[1]:
-        pos = _safe_positions(x.shape[1])
     x = _sample_segment(x, n_times=320, max_ch=24)
+    # Align `pos` to the possibly subsampled `x` channels to avoid adjacency shape mismatch
+    if pos.ndim != 2:
+        pos = _safe_positions(x.shape[1])
+    if pos.shape[0] != x.shape[1]:
+        idx = np.round(np.linspace(0, pos.shape[0] - 1, x.shape[1])).astype(int)
+        pos = pos[idx]
 
     rows: List[Dict[str, Any]] = []
 

@@ -1,6 +1,6 @@
 {
   "tag": "it130_final_decision_matrix",
-  "timestamp": "2026-04-07T17:44:49.492210+00:00",
+  "timestamp": "2026-04-09T04:19:17.185198+00:00",
   "description": "Final conditional decision matrix",
   "objective": "Emit final recommendation matrix by use case (clinical EEG, BCI, non-EEG)",
   "fase": "Phase 18: Final recommendations",
@@ -19,22 +19,25 @@
     "0.2"
   ],
   "methods": [
+    "graph_time_tikhonov",
     "mean",
+    "nearest",
+    "temporal_laplacian",
     "tikhonov",
     "trss",
     "tv"
   ],
-  "n_methods": 4,
-  "n_rows": 48,
+  "n_methods": 7,
+  "n_rows": 126,
   "qa": {
     "status": "NO-GO",
-    "tv_median_mae": 0.01627703612262088,
-    "inst_median_mae": 0.016355375298193423,
-    "gain_pct": 0.478981216537391,
-    "p_value": 0.14886991988770537
+    "tv_median_mae": 0.016310676007062683,
+    "inst_median_mae": 0.015576498234031625,
+    "gain_pct": -4.713368576173446,
+    "p_value": 0.7927141876726435
   },
   "best_method": "trss",
-  "best_mae": 5.693749035915569,
+  "best_mae": 5.739448974265618,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
