@@ -1,0 +1,56 @@
+{
+  "sample": [
+    "it029",
+    "it007",
+    "it071",
+    "it063",
+    "it058"
+  ],
+  "results": [
+    {
+      "it": "it029",
+      "zip_exists": true,
+      "manifest_exists": true,
+      "entries_checked": 294,
+      "matches": 294,
+      "mismatches": [],
+      "errors": []
+    },
+    {
+      "it": "it007",
+      "zip_exists": true,
+      "manifest_exists": true,
+      "entries_checked": 234,
+      "matches": 234,
+      "mismatches": [],
+      "errors": []
+    },
+    {
+      "it": "it071",
+      "zip_exists": true,
+      "manifest_exists": true,
+      "entries_checked": 240,
+      "matches": 240,
+      "mismatches": [],
+      "errors": []
+    },
+    {
+      "it": "it063",
+      "zip_exists": true,
+      "manifest_exists": true,
+      "entries_checked": 210,
+      "matches": 210,
+      "mismatches": [],
+      "errors": []
+    },
+    {
+      "it": "it058",
+      "zip_exists": true,
+      "manifest_exists": true,
+      "entries_checked": 257,
+      "matches": 257,
+      "mismatches": [],
+      "errors": []
+    }
+  ]
+}
