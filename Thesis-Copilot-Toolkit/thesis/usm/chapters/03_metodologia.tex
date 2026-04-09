@@ -1,4 +1,4 @@
-\chapter{Metodologia}
+﻿\chapter{Metodologia}
 
 Este capitulo describe el pipeline experimental completo usado en la etapa \ResPhase. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso. En otras palabras, se priorizo una comparacion honesta antes que una optimizacion excesiva de un metodo particular.
 
@@ -10,9 +10,9 @@ De forma practica, el pipeline se implemento de modo que cada corrida genere art
 
 Se evaluaron \ResNGraphMethods~constructores de grafo organizados en tres categorias:
 \begin{itemize}
-\item \emph{Grafos de vecindad}: \texttt{knn}, \texttt{knng}, \texttt{vknng}, \texttt{epsilon\_ball}, \texttt{mst}.
-\item \emph{Grafos densos/globales}: \texttt{fully\_connected\_inverse\_distance}, \texttt{gaussian}.
-\item \emph{Grafos adaptativos}: \texttt{nnk} \cite{shekkizhar2020}, \texttt{aew}, \texttt{kalofolias} \cite{kalofolias2016}.
+\item \emph{Grafos de vecindad}: \\\code{knn}, \\\code{knng}, \\\code{vknng}, \\\code{epsilon_ball}, \\\code{mst}.
+\item \emph{Grafos densos/globales}: \\\code{fully_connected_inverse_distance}, \\\code{gaussian}.
+\item \emph{Grafos adaptativos}: \\\code{nnk} \cite{shekkizhar2020}, \\\code{aew}, \\\code{kalofolias} \cite{kalofolias2016}.
 \end{itemize}
 
 En la fase \ResPhase\ se retuvieron solo los metodos que mostraron estabilidad numerica en la corrida extendida. La intuicion detras de esta etapa es que la calidad del grafo condiciona directamente la reconstruccion posterior.
@@ -27,8 +27,8 @@ Para la tesis, este punto era importante porque un EEG real no falla siempre de 
 
 Las comparaciones se organizaron por familias:
 \begin{itemize}
-\item \ResNInstantMethods~metodos instantaneos/geometricos (incluidos baselines como \texttt{spherical\_spline} \cite{perrin1989} y metodos GSP como \texttt{tikhonov}, \texttt{gsp}, \texttt{bgsrp} \cite{zhang2024bgsrp}).
-\item \ResNTVMethods~metodos TV/tiempo (incluyendo \texttt{trss} \cite{giraldo2022} y variantes temporales).
+\item \ResNInstantMethods~metodos instantaneos/geometricos (incluidos baselines como \\\code{spherical_spline} \cite{perrin1989} y metodos GSP como \\\code{tikhonov}, \\\code{gsp}, \\\code{bgsrp} \cite{zhang2024bgsrp}).
+\item \ResNTVMethods~metodos TV/tiempo (incluyendo \\\code{trss} \cite{giraldo2022} y variantes temporales).
 \end{itemize}
 
 Para la evaluacion se usaron MAE, RMSE, DTW y SNR con agregacion estadistica (media, desviacion estandar e intervalo de confianza aproximado) sobre corridas repetidas.
@@ -40,3 +40,8 @@ Desde el punto de vista de implementacion, cada metodo recibe exactamente la mis
 La fase B2 incorporo una consolidacion estadistica por escenario y familia de metodos. Los resultados se resumieron con tablas de ranking, tablas top-k y archivos de configuracion congelada.
 
 Para el tratamiento de INS-13/BGSRP se adopto una politica de redaccion prudente: la implementacion Python se reporta como \BGSRPStatus. Esa distincion no es solo editorial; es parte de la validez metodologica del trabajo.
+
+
+
+
+

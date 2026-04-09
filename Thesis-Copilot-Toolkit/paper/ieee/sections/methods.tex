@@ -7,9 +7,9 @@ The goal is not to propose a new theory, but to compare \ResNInstantMethods~inst
 \subsection{Graph Construction}
 We evaluate \ResNGraphMethods~graph constructors organized into three categories:
 \begin{itemize}
-\item \emph{Neighborhood graphs}: $k$-NN (\texttt{knn}), Gaussian-weighted $k$-NN (\texttt{knng}), variable-$k$ NN (\texttt{vknng}), epsilon-ball (\texttt{epsilon\_ball}), and minimum spanning tree (\texttt{mst}).
-\item \emph{Dense/global graphs}: fully connected inverse-distance (\texttt{fully\_connected\_inverse\_distance}) and Gaussian kernel (\texttt{gaussian}).
-\item \emph{Adaptive/learned graphs}: non-negative kernel regression \cite{shekkizhar2020} (\texttt{nnk}), adaptive edge weighting \cite{kalofolias2016} (\texttt{aew}), and graph learning via log-degree regularization \cite{kalofolias2016} (\texttt{kalofolias}).
+\item \emph{Neighborhood graphs}: $k$-NN (\iterid{knn}), Gaussian-weighted $k$-NN (\iterid{knng}), variable-$k$ NN (\iterid{vknng}), epsilon-ball (\iterid{epsilon_ball}), and minimum spanning tree (\iterid{mst}).
+\item \emph{Dense/global graphs}: fully connected inverse-distance (\iterid{fully_connected_inverse_distance}) and Gaussian kernel (\iterid{gaussian}).
+\item \emph{Adaptive/learned graphs}: non-negative kernel regression \cite{shekkizhar2020} (\iterid{nnk}), adaptive edge weighting \cite{kalofolias2016} (\iterid{aew}), and graph learning via log-degree regularization \cite{kalofolias2016} (\iterid{kalofolias}).
 \end{itemize}
 
 In phase \ResPhase, we retained only constructors with demonstrated numerical stability across the full-scale batched runs.
@@ -24,7 +24,7 @@ Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ 
     \|\mathbf{z} - \mathbf{x}_{\mathcal{K}}\|^2 + \alpha \, \mathbf{z}^\top \mathbf{L}_{\mathcal{U}\mathcal{U}} \mathbf{z},
   \label{eq:tikhonov}
 \end{equation}
-yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$ for the pure GSP case ($\alpha \to \infty$, i.e., \texttt{gsp}), and the regularized variant for \texttt{tikhonov}. Geometric baselines (IDW, splines, RBF) do not use the graph. The BGSRP method \cite{zhang2024bgsrp} extends this to a bandlimited RKHS recovery.
+yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$ for the pure GSP case ($\alpha \to \infty$, i.e., \iterid{gsp}), and the regularized variant for \iterid{tikhonov}. Geometric baselines (IDW, splines, RBF) do not use the graph. The BGSRP method \cite{zhang2024bgsrp} extends this to a bandlimited RKHS recovery.
 
 \paragraph{TV/time methods} These jointly optimize spatial and temporal criteria over a signal matrix $\mathbf{X} \in \mathbb{R}^{N \times T}$:
 \begin{equation}
@@ -34,7 +34,7 @@ yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_
     + \beta \|\Delta_t \mathbf{Z}\|_F^2,
   \label{eq:sobolev}
 \end{equation}
-where $\Delta_t$ is a finite-difference operator along the time axis \cite{giraldo2022}. This covers \texttt{trss}, \texttt{sobolev\_temporal}, \texttt{tv}, and \texttt{temporal\_laplacian}.
+where $\Delta_t$ is a finite-difference operator along the time axis \cite{giraldo2022}. This covers \iterid{trss}, \iterid{sobolev_temporal}, \iterid{tv}, and \iterid{temporal_laplacian}.
 
 \paragraph{Geometric/spline baselines} Classical alternatives that do not exploit the graph: linear, nearest-neighbor, spherical spline \cite{perrin1989}, RBF thin-plate spline, and surface spline.
 

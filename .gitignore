@@ -14,3 +14,17 @@
 **/*.pyo
 **/*.pyd
 **/.pytest_cache/
+
+# Ignore generated LaTeX build artifacts (paper and thesis build outputs)
+Thesis-Copilot-Toolkit/paper/ieee/*.aux
+Thesis-Copilot-Toolkit/paper/ieee/*.log
+Thesis-Copilot-Toolkit/paper/ieee/*.pdf
+Thesis-Copilot-Toolkit/thesis/usm/*.aux
+Thesis-Copilot-Toolkit/thesis/usm/*.log
+Thesis-Copilot-Toolkit/thesis/usm/*.pdf
+Thesis-Copilot-Toolkit/thesis/usm/*.bbl
+Thesis-Copilot-Toolkit/thesis/usm/*.blg
+Thesis-Copilot-Toolkit/thesis/usm/*.toc
+Thesis-Copilot-Toolkit/thesis/usm/*.out
+Thesis-Copilot-Toolkit/thesis/usm/*.lof
+Thesis-Copilot-Toolkit/thesis/usm/*.lot
