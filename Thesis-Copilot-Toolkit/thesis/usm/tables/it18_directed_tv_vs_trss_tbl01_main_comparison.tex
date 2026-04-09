@@ -5,6 +5,7 @@
 \caption[EEG reconstruction - Iteration it18]{EEG reconstruction — MAE/RMSE/SNR. Iter \code{it18_directed_tv_vs_trss}.}
 \label{tab:main_it18_directed_tv_vs_trss}
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lcccccccccccc}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{3}{c}{10\%} & \multicolumn{3}{c}{20\%} & \multicolumn{3}{c}{30\%} & \multicolumn{3}{c}{40\%} \\
@@ -33,7 +34,8 @@ temporal\_laplacian & $0.4246_{\pm 0.0932}$ & $0.4899_{\pm 0.0944}$ & $3.8314_{\
 bgsrp & $0.4843_{\pm 0.0542}$ & $0.5852_{\pm 0.0466}$ & $2.1959_{\pm 0.8626}$ & $0.4995_{\pm 0.0525}$ & $0.6127_{\pm 0.0439}$ & $2.0339_{\pm 0.8194}$ & $0.5145_{\pm 0.0470}$ & $0.6471_{\pm 0.0457}$ & $2.0537_{\pm 0.9677}$ & $0.5316_{\pm 0.0437}$ & $0.6857_{\pm 0.0609}$ & $2.0093_{\pm 0.8970}$ \\
 sobolev & $0.5314_{\pm 0.0813}$ & $0.6014_{\pm 0.0862}$ & $1.6800_{\pm 1.5598}$ & $0.5417_{\pm 0.0736}$ & $0.6142_{\pm 0.0752}$ & $1.5128_{\pm 1.4068}$ & $0.5528_{\pm 0.0628}$ & $0.6283_{\pm 0.0623}$ & $1.3399_{\pm 1.2119}$ & $0.5637_{\pm 0.0544}$ & $0.6403_{\pm 0.0521}$ & $1.1581_{\pm 1.0497}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+} % end resizebox
 \end{table}
 
 

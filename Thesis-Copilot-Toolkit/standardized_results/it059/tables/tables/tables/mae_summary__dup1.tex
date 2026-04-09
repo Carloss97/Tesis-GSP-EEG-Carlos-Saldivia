@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Method comparison — MAE — \texttt{it59_broad_high_missing}}
+\label{tab:mae_it59_broad_high_missing}
+\begin{tabular}{lccc}
+\hline
+Method & Mean MAE & Median MAE & Std MAE \\
+\hline
+\texttt{heat_diffusion_temporal} & 0.436532 & 0.217511 & 0.620323 \\
+\texttt{directed_tv} & 0.225694 & 0.219687 & 0.011565 \\
+\texttt{spherical_spline} & 0.220209 & 0.220209 & 0.000000 \\
+\texttt{mean} & 0.220209 & 0.220209 & 0.000000 \\
+\texttt{tv} & 0.221417 & 0.220532 & 0.002946 \\
+\texttt{gsmooth} & 0.221030 & 0.220546 & 0.001347 \\
+\texttt{idw} & 0.226420 & 0.226420 & 0.000000 \\
+\texttt{trss} & 0.226908 & 0.227483 & 0.006166 \\
+\texttt{gsp} & 0.232696 & 0.231558 & 0.008408 \\
+\texttt{wavelet_temporal} & 0.236772 & 0.237858 & 0.008660 \\
+\texttt{linear} & 0.256486 & 0.256486 & 0.000000 \\
+\texttt{nearest} & 0.275718 & 0.275718 & 0.000000 \\
+\texttt{spline_surface} & 0.283127 & 0.283127 & 0.000000 \\
+\texttt{rbfi_tps} & 0.283127 & 0.283127 & 0.000000 \\
+\texttt{tikhonov} & 0.324453 & 0.290601 & 0.114756 \\
+\texttt{rbfi_mq} & 0.321318 & 0.321318 & 0.000000 \\
+\texttt{graph_time_tikhonov} & 0.435468 & 0.430571 & 0.092254 \\
+\texttt{puy} & 0.438774 & 0.440298 & 0.112216 \\
+\texttt{temporal_laplacian} & 0.472406 & 0.465555 & 0.073613 \\
+\texttt{bgsrp} & 0.497568 & 0.486487 & 0.045595 \\
+\texttt{sobolev} & 0.549352 & 0.565842 & 0.064074 \\
+\hline
+\end{tabular}
+\end{table}

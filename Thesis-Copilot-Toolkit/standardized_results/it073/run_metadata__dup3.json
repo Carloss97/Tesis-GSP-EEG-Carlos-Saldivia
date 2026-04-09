@@ -1,0 +1,39 @@
+{
+  "tag": "it73_few_missing_1ch_mne_proxy",
+  "timestamp": "2026-04-06T06:05:34.956278",
+  "description": "1 missing electrode, MNE Sample proxy 60ch, kNN-k3",
+  "objective": "1 missing electrode, MNE Sample proxy 60ch, kNN-k3",
+  "fase": "Phase 6: Few Electrodes Missing",
+  "datasets": [
+    "mne_sample_proxy"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "1ch"
+  ],
+  "methods": [
+    "mean",
+    "nearest",
+    "linear",
+    "tikhonov",
+    "temporal_laplacian",
+    "graph_time_tikhonov",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 14,
+  "qa": {
+    "status": "GO",
+    "tv_median_mae": 1.441481349806076e-06,
+    "inst_median_mae": 1.9009731610575945e-06,
+    "gain_pct": 24.171399189869838,
+    "p_value": 0.020932269089232552
+  },
+  "best_method": "temporal_laplacian",
+  "best_mae": 1.246731384423514e-06,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos cuando los reales no est\u00e1n disponibles.",
+  "engine_version": "v7",
+  "include_instant_vs_full": false
+}

@@ -1,0 +1,22 @@
+{
+  "original_tag": "it11_physionet_high_missing_stats",
+  "padded": "it011",
+  "sanitized": "it11_physionet_high_missing_stats",
+  "stored": {
+    "raw": null,
+    "stats": "it011_it11_physionet_high_missing_stats\\stats.csv",
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "stats": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it11_physionet_high_missing_stats.csv"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:03.692401Z"
+}

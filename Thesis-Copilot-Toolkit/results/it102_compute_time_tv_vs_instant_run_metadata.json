@@ -1,6 +1,6 @@
 {
   "tag": "it102_compute_time_tv_vs_instant",
-  "timestamp": "2026-04-06T17:43:15.570002+00:00",
+  "timestamp": "2026-04-09T17:46:25.957394+00:00",
   "description": "Computational complexity and runtime analysis TV vs Instant",
   "objective": "Compare compute time of TV vs Instant methods on real data",
   "fase": "Phase 10: Compute-time analysis",
@@ -44,11 +44,11 @@
     },
     "mne_real": {
       "ok": false,
-      "reason": "Local MNE sample not found at /home/runner/mne_data/MNE-sample-data/MEG/sample/sample_audvis_raw.fif; network download skipped."
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
     },
     "bci_iv2a_real": {
       "ok": false,
-      "reason": "Local BCI IV 2a file not found at /home/runner/work/Tesis-GSP-EEG-Carlos-Saldivia/Tesis-GSP-EEG-Carlos-Saldivia/datasets/BCI_IV_2a/A01T.gdf."
+      "reason": "Local BCI IV 2a file not found at C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\BCI_IV_2a\\A01T.gdf."
     }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "original_tag": "it047_it047_it47_physionet_multisubj_best3graphs_tables",
+  "padded": "it047",
+  "sanitized": "it047_it047_it47_physionet_multisubj_best3graphs_tables",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 2
+  },
+  "source_candidates": {
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables\\tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables\\tables\\tables"
+    ],
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables\\figures"
+    ],
+    "tex": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables\\tables\\tables\\mae_summary.tex",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it047_it047_it47_physionet_multisubj_best3graphs_tables\\tables\\tables\\rmse_summary.tex"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:50.583485Z"
+}

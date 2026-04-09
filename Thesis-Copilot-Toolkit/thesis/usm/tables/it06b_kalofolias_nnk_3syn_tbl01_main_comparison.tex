@@ -5,6 +5,7 @@
 \caption[EEG reconstruction - Iteration it06b]{EEG reconstruction — MAE/RMSE/SNR. Iteration \code{it06b_kalofolias_nnk_3syn}.}
 \label{tab:main_it06b_kalofolias_nnk_3syn}
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lcccccccccccc}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{3}{c}{10\%} & \multicolumn{3}{c}{20\%} & \multicolumn{3}{c}{30\%} & \multicolumn{3}{c}{40\%} \\
@@ -33,7 +34,8 @@ bgsrp & $0.527_{\pm 0.087}$ & $0.623_{\pm 0.072}$ & $1.588_{\pm 1.389}$ & $0.541
 sobolev & $0.534_{\pm 0.090}$ & $0.605_{\pm 0.097}$ & $1.618_{\pm 1.521}$ & $0.544_{\pm 0.083}$ & $0.617_{\pm 0.086}$ & $1.464_{\pm 1.390}$ & $0.555_{\pm 0.070}$ & $0.631_{\pm 0.072}$ & $1.303_{\pm 1.212}$ & $0.565_{\pm 0.062}$ & $0.643_{\pm 0.061}$ & $1.129_{\pm 1.066}$ \\
 heat\_diffusion\_temporal & $0.360_{\pm 0.320}$ & $1.096_{\pm 0.940}$ & $-9.160_{\pm 9.945}$ & $0.653_{\pm 0.576}$ & $1.475_{\pm 1.265}$ & $-9.138_{\pm 9.985}$ & $1.014_{\pm 0.890}$ & $1.840_{\pm 1.577}$ & $-9.199_{\pm 9.996}$ & $1.299_{\pm 1.142}$ & $2.075_{\pm 1.775}$ & $-9.152_{\pm 9.928}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+} % end resizebox
 \end{table}
 
 

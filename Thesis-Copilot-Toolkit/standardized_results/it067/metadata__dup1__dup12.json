@@ -1,0 +1,28 @@
+{
+  "original_tag": "it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw",
+  "padded": "it067",
+  "sanitized": "it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw",
+  "stored": {
+    "raw": "it067_it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw\\raw.csv",
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw\\figures"
+    ],
+    "raw": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw\\raw.csv"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it067_it067_it067_it067_it067_it067_it067_it67_bci_competition_all_graphs_raw\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:53.726915Z"
+}

@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Method comparison — RMSE — \texttt{it59_broad_high_missing}}
+\label{tab:rmse_it59_broad_high_missing}
+\begin{tabular}{lccc}
+\hline
+Method & Mean RMSE & Median RMSE & Std RMSE \\
+\hline
+\texttt{heat_diffusion_temporal} & 0.786384 & 0.415207 & 1.050277 \\
+\texttt{wavelet_temporal} & 0.424426 & 0.423681 & 0.006453 \\
+\texttt{directed_tv} & 0.444964 & 0.430886 & 0.034478 \\
+\texttt{spherical_spline} & 0.431728 & 0.431728 & 0.000000 \\
+\texttt{mean} & 0.431728 & 0.431728 & 0.000000 \\
+\texttt{tv} & 0.436488 & 0.432048 & 0.009087 \\
+\texttt{gsmooth} & 0.433569 & 0.432274 & 0.003606 \\
+\texttt{idw} & 0.449077 & 0.449077 & 0.000000 \\
+\texttt{trss} & 0.449278 & 0.452360 & 0.019388 \\
+\texttt{gsp} & 0.467863 & 0.465549 & 0.022131 \\
+\texttt{tikhonov} & 0.499500 & 0.467713 & 0.079418 \\
+\texttt{linear} & 0.524760 & 0.524760 & 0.000000 \\
+\texttt{graph_time_tikhonov} & 0.547436 & 0.532684 & 0.067354 \\
+\texttt{temporal_laplacian} & 0.561205 & 0.549092 & 0.064053 \\
+\texttt{puy} & 0.584595 & 0.573928 & 0.057190 \\
+\texttt{nearest} & 0.577608 & 0.577608 & 0.000000 \\
+\texttt{spline_surface} & 0.584525 & 0.584525 & 0.000000 \\
+\texttt{rbfi_tps} & 0.584525 & 0.584525 & 0.000000 \\
+\texttt{bgsrp} & 0.644315 & 0.626050 & 0.045176 \\
+\texttt{sobolev} & 0.626080 & 0.640462 & 0.063121 \\
+\texttt{rbfi_mq} & 0.666314 & 0.666314 & 0.000000 \\
+\hline
+\end{tabular}
+\end{table}

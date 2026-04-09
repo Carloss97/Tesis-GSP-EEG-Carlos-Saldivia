@@ -1,0 +1,30 @@
+{
+  "original_tag": "it06_tv_focus_kalofolias_nnk_figures",
+  "padded": "it006",
+  "sanitized": "it06_tv_focus_kalofolias_nnk_figures",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 6,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures"
+    ],
+    "figure_file": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig01_mae_by_method.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig02_rmse_boxplot.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig03_snr_heatmap.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig04_dtw_comparison.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig05_tv_vs_instant_family.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it06_tv_focus_kalofolias_nnk_figures\\fig06_scenario_sensitivity.pdf"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:54.175062Z"
+}

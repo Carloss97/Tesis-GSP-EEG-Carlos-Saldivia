@@ -1,0 +1,28 @@
+{
+  "original_tag": "it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata",
+  "padded": "it013",
+  "sanitized": "it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": "it013_it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata\\run_metadata.json",
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata\\figures"
+    ],
+    "run_metadata": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata\\run_metadata.json"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it013_it013_it013_it013_it013_it13_gaussian_aew_3syn_run_metadata\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:43.798763Z"
+}

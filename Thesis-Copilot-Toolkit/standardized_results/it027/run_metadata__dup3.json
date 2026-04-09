@@ -1,0 +1,61 @@
+{
+  "iteration_tag": "it27_synthetic_alpha_all_graphs",
+  "run_timestamp": "2026-04-05T15:28:47.436740+00:00",
+  "datasets": [
+    "synthetic_alpha"
+  ],
+  "scenarios": [
+    "10pct",
+    "20pct",
+    "30pct",
+    "40pct"
+  ],
+  "n_rows": 704,
+  "n_errors": 32,
+  "error_rate": 0.0455,
+  "graphs_used": [
+    "aew__k4_sigma_corr0_5_sigma_dist1",
+    "gaussian__sigma1",
+    "kalofolias",
+    "knn__k3",
+    "knn__k5",
+    "knng__k4_sigma1",
+    "nnk__k4",
+    "vknng__alpha1_k4_k_max8_k_min2"
+  ],
+  "methods_used": [
+    "bgsrp",
+    "directed_tv",
+    "graph_time_tikhonov",
+    "gsmooth",
+    "gsp",
+    "heat_diffusion_temporal",
+    "idw",
+    "linear",
+    "mean",
+    "nearest",
+    "puy",
+    "rbfi_mq",
+    "rbfi_tps",
+    "sobolev",
+    "spherical_spline",
+    "spline_surface",
+    "spline_temporal",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "tv_time_methods": [
+    "directed_tv",
+    "graph_time_tikhonov",
+    "heat_diffusion_temporal",
+    "temporal_laplacian",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "g2_mode": "family_median",
+  "note": "Full alpha band analysis across all 8 graph construction methods."
+}

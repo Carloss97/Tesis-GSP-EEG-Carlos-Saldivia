@@ -1,0 +1,28 @@
+{
+  "original_tag": "it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw",
+  "padded": "it038",
+  "sanitized": "it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw",
+  "stored": {
+    "raw": "it038_it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw\\raw.csv",
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw\\figures"
+    ],
+    "raw": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw\\raw.csv"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it038_it038_it038_it38_broad_gaussian_kalofolias_nnk_raw\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:48.963940Z"
+}

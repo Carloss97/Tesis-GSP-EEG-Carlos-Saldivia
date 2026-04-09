@@ -1,0 +1,28 @@
+{
+  "original_tag": "it080_it80_few_missing_comprehensive_raw",
+  "padded": "it080",
+  "sanitized": "it080_it80_few_missing_comprehensive_raw",
+  "stored": {
+    "raw": "it080_it080_it80_few_missing_comprehensive_raw\\raw.csv",
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it080_it80_few_missing_comprehensive_raw\\figures"
+    ],
+    "raw": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it080_it80_few_missing_comprehensive_raw\\raw.csv"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it080_it80_few_missing_comprehensive_raw\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:55.993484Z"
+}

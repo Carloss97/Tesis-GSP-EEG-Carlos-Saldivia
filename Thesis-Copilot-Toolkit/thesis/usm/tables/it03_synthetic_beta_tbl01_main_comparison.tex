@@ -5,6 +5,7 @@
 \caption[EEG reconstruction - Iteration it03]{EEG reconstruction — MAE/RMSE/SNR. Iteration \code{it03_synthetic_beta}.}
 \label{tab:main_it03_synthetic_beta}
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{lcccccccccccc}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{3}{c}{10\%} & \multicolumn{3}{c}{20\%} & \multicolumn{3}{c}{30\%} & \multicolumn{3}{c}{40\%} \\
@@ -33,7 +34,8 @@ temporal\_laplacian & $0.431_{\pm 0.097}$ & $0.496_{\pm 0.096}$ & $3.690_{\pm 1.
 bgsrp & $0.475_{\pm 0.060}$ & $0.571_{\pm 0.052}$ & $2.359_{\pm 0.902}$ & $0.489_{\pm 0.055}$ & $0.601_{\pm 0.042}$ & $2.224_{\pm 0.864}$ & $0.505_{\pm 0.051}$ & $0.622_{\pm 0.038}$ & $2.115_{\pm 0.857}$ & $0.529_{\pm 0.039}$ & $0.675_{\pm 0.034}$ & $1.928_{\pm 0.800}$ \\
 sobolev & $0.536_{\pm 0.090}$ & $0.605_{\pm 0.096}$ & $1.653_{\pm 1.708}$ & $0.547_{\pm 0.081}$ & $0.617_{\pm 0.083}$ & $1.496_{\pm 1.528}$ & $0.560_{\pm 0.071}$ & $0.633_{\pm 0.070}$ & $1.276_{\pm 1.333}$ & $0.571_{\pm 0.057}$ & $0.647_{\pm 0.056}$ & $1.103_{\pm 1.101}$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+} % end resizebox
 \end{table}
 
 

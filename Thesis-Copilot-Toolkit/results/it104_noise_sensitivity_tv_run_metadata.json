@@ -1,6 +1,6 @@
 {
   "tag": "it104_noise_sensitivity_tv",
-  "timestamp": "2026-04-06T17:50:25.775293+00:00",
+  "timestamp": "2026-04-09T17:49:19.471355+00:00",
   "description": "Noise sensitivity analysis for TV methods",
   "objective": "Evaluate TV behavior under different initial SNR levels",
   "fase": "Phase 10: Noise sensitivity",
@@ -44,11 +44,11 @@
     },
     "mne_real": {
       "ok": false,
-      "reason": "Local MNE sample not found at /home/runner/mne_data/MNE-sample-data/MEG/sample/sample_audvis_raw.fif; network download skipped."
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
     },
     "bci_iv2a_real": {
       "ok": false,
-      "reason": "Local BCI IV 2a file not found at /home/runner/work/Tesis-GSP-EEG-Carlos-Saldivia/Tesis-GSP-EEG-Carlos-Saldivia/datasets/BCI_IV_2a/A01T.gdf."
+      "reason": "Local BCI IV 2a file not found at C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\BCI_IV_2a\\A01T.gdf."
     }
   }
 }

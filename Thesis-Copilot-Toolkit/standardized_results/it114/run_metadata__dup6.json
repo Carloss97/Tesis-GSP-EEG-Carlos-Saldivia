@@ -1,0 +1,98 @@
+{
+  "tag": "it114_eeg_vs_iris_transfer",
+  "timestamp": "2026-04-06T19:46:08.341104+00:00",
+  "description": "EEG vs Iris transfer comparison",
+  "objective": "Compare TV family behavior across EEG and Iris tasks",
+  "fase": "Phase 13: EEG vs non-EEG",
+  "datasets": [
+    "bci_iv2a_real_s1",
+    "iris_graph_signal",
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.1",
+    "0.2",
+    "0.3"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 378,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 1.3026808167422014e-05,
+    "inst_median_mae": 5.535160278760574e-06,
+    "gain_pct": -135.34653942015498,
+    "p_value": 0.9721529641280023
+  },
+  "best_method": "trss",
+  "best_mae": 0.03493453565091664,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real",
+    "bci_iv2a_real_s1",
+    "iris_graph_signal"
+  ]
+}

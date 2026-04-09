@@ -1,0 +1,93 @@
+{
+  "tag": "it110_iris_graph_baseline",
+  "timestamp": "2026-04-06T19:16:23.740601+00:00",
+  "description": "Iris graph-signal baseline",
+  "objective": "Test EEG interpolation family on Iris graph-signal task",
+  "fase": "Phase 12: Non-EEG transfer",
+  "datasets": [
+    "iris_graph_signal"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.1",
+    "0.2"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 168,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.2772764551908207,
+    "inst_median_mae": 0.16251567818024074,
+    "gain_pct": -70.6152035887286,
+    "p_value": 0.787134111700247
+  },
+  "best_method": "trss",
+  "best_mae": 0.1052929356734084,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "iris_graph_signal"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "original_tag": "it124_it124_missing_pattern_realistic_v2_run_metadata",
+  "padded": "it124",
+  "sanitized": "it124_it124_missing_pattern_realistic_v2_run_metadata",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": "it124_it124_it124_missing_pattern_realistic_v2_run_metadata\\run_metadata.json",
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it124_it124_missing_pattern_realistic_v2_run_metadata\\figures"
+    ],
+    "run_metadata": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it124_it124_missing_pattern_realistic_v2_run_metadata\\run_metadata.json"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it124_it124_missing_pattern_realistic_v2_run_metadata\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:04.828050Z"
+}

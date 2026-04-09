@@ -1,0 +1,43 @@
+{
+  "tag": "it94_robustness_cross_proxy_shift",
+  "timestamp": "2026-04-06T17:04:58.520414",
+  "description": "Cross-proxy domain shift robustness",
+  "objective": "Phase 8 robustness: cross-proxy domain shift",
+  "fase": "Phase 8: Robustness/Sensitivity",
+  "datasets": [
+    "mne_sample_proxy",
+    "bci_competition_proxy",
+    "physionet_eegmmidb"
+  ],
+  "graphs": [
+    "knn__k3",
+    "gaussian"
+  ],
+  "missing_ratios": [
+    "0.2",
+    "0.3"
+  ],
+  "methods": [
+    "mean",
+    "nearest",
+    "tikhonov",
+    "temporal_laplacian",
+    "graph_time_tikhonov",
+    "tv",
+    "trss"
+  ],
+  "n_methods": 7,
+  "n_rows": 336,
+  "qa": {
+    "status": "GO",
+    "tv_median_mae": 8.348526689888812e-06,
+    "inst_median_mae": 9.175832293024013e-06,
+    "gain_pct": 9.016136920507638,
+    "p_value": 0.00053323012271598
+  },
+  "best_method": "trss",
+  "best_mae": 1.2496139599594e-05,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos cuando los reales no están disponibles.",
+  "engine_version": "v7e",
+  "include_instant_vs_full": true
+}

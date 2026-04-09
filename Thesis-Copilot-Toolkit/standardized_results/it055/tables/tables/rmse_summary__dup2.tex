@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Method comparison — RMSE — \texttt{it55_all_datasets_low_mr}}
+\label{tab:rmse_it55_all_datasets_low_mr}
+\begin{tabular}{lccc}
+\hline
+Method & Mean RMSE & Median RMSE & Std RMSE \\
+\hline
+\texttt{mean} & 0.208746 & 0.266935 & 0.123984 \\
+\texttt{heat_diffusion_temporal} & 0.400175 & 0.275496 & 0.630266 \\
+\texttt{gsmooth} & 0.214119 & 0.276816 & 0.126445 \\
+\texttt{idw} & 0.214338 & 0.277040 & 0.126712 \\
+\texttt{tv} & 0.213339 & 0.278191 & 0.126297 \\
+\texttt{wavelet_temporal} & 0.220541 & 0.285137 & 0.130111 \\
+\texttt{directed_tv} & 0.248584 & 0.289331 & 0.157291 \\
+\texttt{trss} & 0.231297 & 0.293957 & 0.137973 \\
+\texttt{gsp} & 0.240066 & 0.297224 & 0.144824 \\
+\texttt{tikhonov} & 0.277792 & 0.322023 & 0.193293 \\
+\texttt{linear} & 0.265110 & 0.331773 & 0.158941 \\
+\texttt{nearest} & 0.288050 & 0.368949 & 0.171732 \\
+\texttt{rbfi_tps} & 0.288940 & 0.374135 & 0.170941 \\
+\texttt{spherical_spline} & 0.320086 & 0.383251 & 0.205025 \\
+\texttt{rbfi_mq} & 0.307679 & 0.396150 & 0.181843 \\
+\texttt{graph_time_tikhonov} & 0.350442 & 0.432202 & 0.224738 \\
+\texttt{puy} & 0.374896 & 0.454291 & 0.239475 \\
+\texttt{temporal_laplacian} & 0.378478 & 0.471969 & 0.234564 \\
+\texttt{bgsrp} & 0.449224 & 0.565005 & 0.266368 \\
+\texttt{sobolev} & 0.455858 & 0.615481 & 0.276320 \\
+\texttt{spline_surface} & 0.668249 & 0.755920 & 0.521172 \\
+\hline
+\end{tabular}
+\end{table}

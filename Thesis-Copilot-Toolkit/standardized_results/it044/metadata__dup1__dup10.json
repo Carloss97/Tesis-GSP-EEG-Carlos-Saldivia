@@ -1,0 +1,28 @@
+{
+  "original_tag": "it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log",
+  "padded": "it044",
+  "sanitized": "it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": "it044_it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log\\integration_log.md",
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log\\figures"
+    ],
+    "integration_log": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log\\integration_log.md"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it044_it044_it044_it044_it044_it044_it044_it44_physionet_allruns_allsubj_integration_log\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:49.947044Z"
+}

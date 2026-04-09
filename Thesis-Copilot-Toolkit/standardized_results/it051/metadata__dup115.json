@@ -1,0 +1,22 @@
+{
+  "original_tag": "it51_all_datasets_strong_tv_significance",
+  "padded": "it051",
+  "sanitized": "it51_all_datasets_strong_tv_significance",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": "it051_it51_all_datasets_strong_tv_significance\\significance.csv",
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "significance": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it51_all_datasets_strong_tv_significance.csv"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:07.136826Z"
+}

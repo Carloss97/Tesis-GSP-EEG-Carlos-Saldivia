@@ -1,0 +1,34 @@
+{
+  "original_tag": "it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables",
+  "padded": "it040",
+  "sanitized": "it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 2
+  },
+  "source_candidates": {
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables\\tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables\\tables\\tables",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables\\tables\\tables\\tables"
+    ],
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\figures"
+    ],
+    "table_file": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables\\tables\\tables\\tables\\tbl01_main_comparison.tex",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it040_it040_it040_it040_it040_it40_3syn_all_mr_analysis_tables\\tables\\tables\\tables\\tables\\tables\\tbl02_significance.tex"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:49.353615Z"
+}

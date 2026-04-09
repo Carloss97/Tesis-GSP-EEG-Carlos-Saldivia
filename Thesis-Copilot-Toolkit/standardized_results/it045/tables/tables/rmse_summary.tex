@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Method comparison — RMSE — \texttt{it45_physionet_multisubj_gaussian}}
+\label{tab:rmse_it45_physionet_multisubj_gaussian}
+\begin{tabular}{lccc}
+\hline
+Method & Mean RMSE & Median RMSE & Std RMSE \\
+\hline
+\texttt{gsmooth} & 0.000018 & 0.000017 & 0.000002 \\
+\texttt{tv} & 0.000018 & 0.000018 & 0.000002 \\
+\texttt{trss} & 0.000018 & 0.000018 & 0.000002 \\
+\texttt{idw} & 0.000018 & 0.000018 & 0.000002 \\
+\texttt{mean} & 0.000018 & 0.000018 & 0.000002 \\
+\texttt{heat_diffusion_temporal} & 0.000018 & 0.000019 & 0.000002 \\
+\texttt{linear} & 0.000019 & 0.000019 & 0.000001 \\
+\texttt{gsp} & 0.000019 & 0.000019 & 0.000001 \\
+\texttt{directed_tv} & 0.000023 & 0.000022 & 0.000002 \\
+\texttt{nearest} & 0.000023 & 0.000023 & 0.000002 \\
+\texttt{rbfi_tps} & 0.000024 & 0.000024 & 0.000002 \\
+\texttt{wavelet_temporal} & 0.000025 & 0.000025 & 0.000002 \\
+\texttt{rbfi_mq} & 0.000027 & 0.000027 & 0.000002 \\
+\texttt{tikhonov} & 0.000029 & 0.000029 & 0.000003 \\
+\texttt{spherical_spline} & 0.000035 & 0.000035 & 0.000003 \\
+\texttt{spline_surface} & 0.000041 & 0.000040 & 0.000004 \\
+\texttt{bgsrp} & 0.000041 & 0.000041 & 0.000004 \\
+\texttt{graph_time_tikhonov} & 0.000042 & 0.000043 & 0.000004 \\
+\texttt{puy} & 0.000044 & 0.000044 & 0.000003 \\
+\texttt{sobolev} & 0.000046 & 0.000047 & 0.000004 \\
+\texttt{temporal_laplacian} & 0.000051 & 0.000052 & 0.000004 \\
+\hline
+\end{tabular}
+\end{table}

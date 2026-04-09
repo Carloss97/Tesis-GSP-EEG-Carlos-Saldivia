@@ -6,9 +6,9 @@ Este capitulo resume la corrida consolidada de la fase \ResPhase\ y presenta res
 
 La corrida B2 se ejecuto en lotes y luego se consolidaron resultados en artefactos finales. Los archivos de referencia principales son:
 \begin{itemize}
-\item \\\code{results/opt_benchmark_b2_full_scale_summary\.csv}
-\item \\\code{results/b2_publication_ranking_final\.csv}
-\item \\\code{results/b2_publication_topk_by_family_scenario\.csv}
+\item \code{results/opt_benchmark_b2_full_scale_summary\.csv}
+\item \code{results/b2_publication_ranking_final\.csv}
+\item \code{results/b2_publication_topk_by_family_scenario\.csv}
 \end{itemize}
 
 Se evaluaron \ResNGraphMethods~constructores de grafo, \ResNInstantMethods~metodos de interpolacion instantanea y \ResNTVMethods~metodos TV/tiempo. Los escenarios de canales faltantes cubrieron \ResNScenarios~regiones del casco (\ResScenariosNames) con niveles de perdida de \ResMissingLevels. Las metricas reportadas fueron MAE, RMSE, DTW y SNR, con estadisticos de media, desviacion estandar e intervalo de confianza aproximado al 95\%.
@@ -19,7 +19,7 @@ La Tabla~\ref{tab:tesis_rep01_final} muestra el resumen consolidado REP-01 por f
 
 \begin{table}[h]
 \centering
-\caption{Resumen final REP-01 (B1+B2 consolidados, fase \ResPhase).}
+\caption[Resumen final REP-01 (B1+B2 consolidados, fase ResPhase).]{Resumen final REP-01 (B1+B2 consolidados, fase \ResPhase).}
 \label{tab:tesis_rep01_final}
 \begin{tabular}{lcccc}
 \hline
@@ -64,9 +64,9 @@ La corrida B2 no genero entradas en el registro de warnings consolidado (\\\code
 
 Los artefactos de cierre B3/B4 necesarios para la reproduccion completa son:
 \begin{itemize}
-\item \\\code{results/b3_b4_reproducibility_guide\.md}: guia reproducible consolidada.
-\item \\\code{results/b3_b4_compute_resources\.md}: reporte de recursos computacionales.
-\item \\\code{results/b3_b4_submission_checklist\.md}: checklist final de envio.
+\item \code{results/b3_b4_reproducibility_guide\.md}: guia reproducible consolidada.
+\item \code{results/b3_b4_compute_resources\.md}: reporte de recursos computacionales.
+\item \code{results/b3_b4_submission_checklist\.md}: checklist final de envio.
 \end{itemize}
 
 Los comandos principales de ejecucion son:
@@ -78,7 +78,7 @@ python experiments/finalize_b3_b4.py
 
 % ── Iteration it02 ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it02]{Iteración \\\code{it02}: TV/Time methods on synthetic_broad — corrected per-scenario RMSE comparison (G2 median-based)}
+\subsection[Iteración it02]{Iteración \code{it02}: TV/Time methods on \code{synthetic_broad} -- corrected per-scenario RMSE comparison (G2 median-based)}
 \label{sec:exp_it02}
 
 (Se ejecutó el benchmark canónico sobre el conjunto de datos \\\code{synthetic_broad})
@@ -103,7 +103,7 @@ en datos EEG de banda alfa.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{figures/it02_fig01_mae_by_method.pdf}
-  \caption{Error absoluto medio (MAE, media $\pm$ IC95) por método, iteración \\\code{it02}.
+  \caption[Error absoluto medio (MAE, media pm IC95) por método, iteración it02. Barras]{Error absoluto medio (MAE, media $\pm$ IC95) por método, iteración \\\code{it02}.
     Barras naranjas: familia TV/Tiempo; barras azules: familia Instante.}
   \label{fig:mae_it02_tesis}
 \end{figure}
@@ -111,7 +111,7 @@ en datos EEG de banda alfa.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{figures/it02_fig05_tv_vs_instant_family.pdf}
-  \caption{Comparación familia TV/Tiempo vs.\ Instante: MAE y RMSE en función
+  \caption[Comparación familia TV/Tiempo vs. Instante: MAE y RMSE en función del]{Comparación familia TV/Tiempo vs.\ Instante: MAE y RMSE en función
     del porcentaje de canales faltantes, iteración \\\code{it02}.}
   \label{fig:familia_it02_tesis}
 \end{figure}
@@ -128,7 +128,7 @@ No se afirma equivalencia 1:1 con MATLAB/GSPBox.}
 
 % ── Iteración it03_synthetic_beta ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it03]{Iteración \\\code{it03_synthetic_beta}: TV/Time methods on synthetic_beta (beta band 13-30 Hz) — all scenarios}
+\subsection[Iteración it03]{Iteración \code{it03_synthetic_beta}: TV/Time methods on \code{synthetic_beta} (beta band 13-30 Hz) -- all scenarios}
 \label{sec:exp_it03_synthetic_beta}
 
 Benchmark ejecutado sobre \\\code{synthetic_beta}
@@ -145,7 +145,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it03_synthetic_beta}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it03 synthetic beta.]{Familia TV/Tiempo vs Instante — iteración \\\code{it03_synthetic_beta}.}
   \label{fig:familia_it03_synthetic_beta}
 \end{figure}
 
@@ -157,7 +157,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 
 % ── Iteración it05b_synthetic_three ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it05b]{Iteración \\\code{it05b_synthetic_three}: TV/Time family on all 3 synthetic datasets — family-level comparison}
+\subsection[Iteración it05b]{Iteración \code{it05b_synthetic_three}: TV/Time family on all 3 synthetic datasets -- family-level comparison}
 \label{sec:exp_it05b_synthetic_three}
 
 Benchmark ejecutado sobre \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}
@@ -174,7 +174,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it05b_synthetic_three}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it05b synthetic three.]{Familia TV/Tiempo vs Instante — iteración \\\code{it05b_synthetic_three}.}
   \label{fig:familia_it05b_synthetic_three}
 \end{figure}
 
@@ -186,7 +186,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 
 % ── Iteración it06b_kalofolias_nnk_3syn ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it06b]{Iteración \\\code{it06b_kalofolias_nnk_3syn}: Kalofolias + NNK graphs on all 3 synthetic datasets — learnable graph topology}
+\subsection[Iteración it06b]{Iteración \code{it06b_kalofolias_nnk_3syn}: Kalofolias + NNK graphs on all 3 synthetic datasets -- learnable graph topology}
 \label{sec:exp_it06b_kalofolias_nnk_3syn}
 
 Benchmark ejecutado sobre \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}
@@ -203,7 +203,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it06b_kalofolias_nnk_3syn}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it06b kalofolias nnk 3syn.]{Familia TV/Tiempo vs Instante — iteración \\\code{it06b_kalofolias_nnk_3syn}.}
   \label{fig:familia_it06b_kalofolias_nnk_3syn}
 \end{figure}
 
@@ -215,7 +215,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 
 % ── Iteración it07b_knn_3syn ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it07b]{Iteración \\\code{it07b_knn_3syn}: KNN graphs (k=3 and k=5) on all 3 synthetic datasets — KNN topology analysis}
+\subsection[Iteración it07b]{Iteración \code{it07b_knn_3syn}: KNN graphs (k=3 and k=5) on all 3 synthetic datasets -- KNN topology analysis}
 \label{sec:exp_it07b_knn_3syn}
 
 Benchmark ejecutado sobre \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}
@@ -232,7 +232,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it07b_knn_3syn}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it07b knn 3syn.]{Familia TV/Tiempo vs Instante — iteración \\\code{it07b_knn_3syn}.}
   \label{fig:familia_it07b_knn_3syn}
 \end{figure}
 
@@ -244,7 +244,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 
 % ── Iteración it08_high_missing_synthetic ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it08]{Iteración \\\code{it08_high_missing_synthetic}: High missing-channel scenarios (30% and 40%) — TV/Time advantage most pronounced}
+\subsection[Iteración it08]{Iteración \code{it08_high_missing_synthetic}: High missing-channel scenarios (30\% and 40\%) -- TV/Time advantage most pronounced}
 \label{sec:exp_it08_high_missing_synthetic}
 
 Benchmark ejecutado sobre \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}
@@ -261,7 +261,7 @@ en 2 escenarios (30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it08_high_missing_synthetic_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it08_high_missing_synthetic}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it08 high missing synthetic.]{Familia TV/Tiempo vs Instante — iteración \\\code{it08_high_missing_synthetic}.}
   \label{fig:familia_it08_high_missing_synthetic}
 \end{figure}
 
@@ -273,7 +273,7 @@ en 2 escenarios (30\%, 40\%),
 
 % ── Iteración it09_tikhonov_rbfi_focus ──
 % Agregado por eeg-writer-integrator-agent el 2026-04-05
-\subsection[Iteración it09]{Iteración \\\code{it09_tikhonov_rbfi_focus}: TV/Time vs classic spatial methods: tikhonov, rbfi_tps, rbfi_mq, spherical_spline}
+\subsection[Iteración it09]{Iteración \code{it09_tikhonov_rbfi_focus}: TV/Time vs classic spatial methods: tikhonov, \code{rbfi_tps}, \code{rbfi_mq}, \code{spherical_spline}}
 \label{sec:exp_it09_tikhonov_rbfi_focus}
 
 Benchmark ejecutado sobre \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}
@@ -290,7 +290,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\linewidth]{figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf}
-  \caption{Familia TV/Tiempo vs Instante — iteración \\\code{it09_tikhonov_rbfi_focus}.}
+  \caption[Familia TV/Tiempo vs Instante — iteración it09 tikhonov rbfi focus.]{Familia TV/Tiempo vs Instante — iteración \\\code{it09_tikhonov_rbfi_focus}.}
   \label{fig:familia_it09_tikhonov_rbfi_focus}
 \end{figure}
 
@@ -302,7 +302,7 @@ en 4 escenarios (10\%, 20\%, 30\%, 40\%),
 
 % ── Iteración it10_synthetic_alpha ──
 % Agregado 2026-04-05
-\subsection[Iteración it10]{Iteración \\\code{it10_synthetic_alpha}: TV/Time family on synthetic_alpha (alpha band 8-13 Hz) — family-level G2}
+\subsection[Iteración it10]{Iteración \code{it10_synthetic_alpha}: TV/Time family on \code{synthetic_alpha} (alpha band 8-13 Hz) -- family-level G2}
 \label{sec:exp_it10_synthetic_alpha}
 
 Benchmark en \\\code{synthetic_alpha},
@@ -323,7 +323,7 @@ Benchmark en \\\code{synthetic_alpha},
 
 % ── Iteración it12_vknng_knng_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it12]{Iteración \\\code{it12_vknng_knng_3syn}: VKNNG (variable k-NN) + KNNG (k-NN Gaussian) graphs on 3 synthetic datasets}
+\subsection[Iteración it12]{Iteración \code{it12_vknng_knng_3syn}: VKNNG (variable k-NN) + KNNG (k-NN Gaussian) graphs on 3 synthetic datasets}
 \label{sec:exp_it12_vknng_knng_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -344,7 +344,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it13_gaussian_aew_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it13]{Iteración \\\code{it13_gaussian_aew_3syn}: Gaussian kernel + AEW (Adaptive Edge Weighting) graphs on 3 synthetic datasets}
+\subsection[Iteración it13]{Iteración \code{it13_gaussian_aew_3syn}: Gaussian kernel + AEW (Adaptive Edge Weighting) graphs on 3 synthetic datasets}
 \label{sec:exp_it13_gaussian_aew_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -365,7 +365,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it11_physionet_high_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it11]{Iteración \\\code{it11_physionet_high_missing}: Physionet real EEG — high missing rate (40%) only, where TV family shows advantage}
+\subsection[Iteración it11]{Iteración \code{it11_physionet_high_missing}: Physionet real EEG -- high missing rate (40\%) only, where TV family shows advantage}
 \label{sec:exp_it11_physionet_high_missing}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -386,7 +386,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it14_low_missing_synthetic ──
 % Agregado 2026-04-05
-\subsection[Iteración it14]{Iteración \\\code{it14_low_missing_synthetic}: Low missing-channel scenarios (10% and 20%) — TV/Time advantage at mild degradation}
+\subsection[Iteración it14]{Iteración \code{it14_low_missing_synthetic}: Low missing-channel scenarios (10\% and 20\%) -- TV/Time advantage at mild degradation}
 \label{sec:exp_it14_low_missing_synthetic}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -407,7 +407,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it17_synthetic_broad_all_graphs ──
 % Agregado 2026-04-05
-\subsection[Iteración it17]{Iteración \\\code{it17_synthetic_broad_all_graphs}: All 8 graph construction methods on synthetic_broad — topology comparison}
+\subsection[Iteración it17]{Iteración \code{it17_synthetic_broad_all_graphs}: All 8 graph construction methods on \code{synthetic_broad} -- topology comparison}
 \label{sec:exp_it17_synthetic_broad_all_graphs}
 
 Benchmark en \\\code{synthetic_broad},
@@ -428,7 +428,7 @@ Benchmark en \\\code{synthetic_broad},
 
 % ── Iteración it18_directed_tv_vs_trss ──
 % Agregado 2026-04-05
-\subsection[Iteración it18]{Iteración \\\code{it18_directed_tv_vs_trss}: Best TV methods (directed_tv, trss, tv, graph_time_tikhonov) vs instant family — focused comparison}
+\subsection[Iteración it18]{Iteración \code{it18_directed_tv_vs_trss}: Best TV methods (\code{directed_tv}, trss, tv, \code{graph_time_tikhonov}) vs instant family -- focused comparison}
 \label{sec:exp_it18_directed_tv_vs_trss}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -449,7 +449,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it19_synthetic_beta_high_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it19]{Iteración \\\code{it19_synthetic_beta_high_missing}: Synthetic beta band — high missing scenarios (30%, 40%) deep-dive}
+\subsection[Iteración it19]{Iteración \code{it19_synthetic_beta_high_missing}: Synthetic beta band -- high missing scenarios (30\%, 40\%) deep-dive}
 \label{sec:exp_it19_synthetic_beta_high_missing}
 
 Benchmark en \\\code{synthetic_beta},
@@ -470,7 +470,7 @@ Benchmark en \\\code{synthetic_beta},
 
 % ── Iteración it20_synthetic_alpha_high_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it20]{Iteración \\\code{it20_synthetic_alpha_high_missing}: Synthetic alpha band — high missing scenarios (30%, 40%) deep-dive}
+\subsection[Iteración it20]{Iteración \code{it20_synthetic_alpha_high_missing}: Synthetic alpha band -- high missing scenarios (30\%, 40\%) deep-dive}
 \label{sec:exp_it20_synthetic_alpha_high_missing}
 
 Benchmark en \\\code{synthetic_alpha},
@@ -491,7 +491,7 @@ Benchmark en \\\code{synthetic_alpha},
 
 % ── Iteración it21_all_datasets_family ──
 % Agregado 2026-04-05
-\subsection[Iteración it21]{Iteración \\\code{it21_all_datasets_family}: All 4 datasets pooled — family-level G2 comparison across synthetic and real EEG}
+\subsection[Iteración it21]{Iteración \code{it21_all_datasets_family}: All 4 datasets pooled -- family-level G2 comparison across synthetic and real EEG}
 \label{sec:exp_it21_all_datasets_family}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -512,7 +512,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it15b_gaussian_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it15b]{Iteración \\\code{it15b_gaussian_3syn}: Gaussian kernel graph (sigma=1) on all 3 synthetic datasets}
+\subsection[Iteración it15b]{Iteración \code{it15b_gaussian_3syn}: Gaussian kernel graph (sigma=1) on all 3 synthetic datasets}
 \label{sec:exp_it15b_gaussian_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -533,7 +533,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it16b_vknng_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it16b]{Iteración \\\code{it16b_vknng_3syn}: VKNNG (variable k-NN, alpha=1, kmin=2, kmax=8) on all 3 synthetic datasets}
+\subsection[Iteración it16b]{Iteración \code{it16b_vknng_3syn}: VKNNG (variable k-NN, alpha=1, kmin=2, kmax=8) on all 3 synthetic datasets}
 \label{sec:exp_it16b_vknng_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -554,7 +554,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it22b_knn_k3_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it22b]{Iteración \\\code{it22b_knn_k3_3syn}: KNN k=3 graph on all 3 synthetic datasets — minimal nearest-neighbor topology}
+\subsection[Iteración it22b]{Iteración \code{it22b_knn_k3_3syn}: KNN k=3 graph on all 3 synthetic datasets -- minimal nearest-neighbor topology}
 \label{sec:exp_it22b_knn_k3_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -575,7 +575,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it23b_knng_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it23b]{Iteración \\\code{it23b_knng_3syn}: KNNG (k-NN Gaussian, k=4, sigma=1) on all 3 synthetic datasets}
+\subsection[Iteración it23b]{Iteración \code{it23b_knng_3syn}: KNNG (k-NN Gaussian, k=4, sigma=1) on all 3 synthetic datasets}
 \label{sec:exp_it23b_knng_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -596,7 +596,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it24_physionet_all_scenarios ──
 % Agregado 2026-04-05
-\subsection[Iteración it24]{Iteración \\\code{it24_physionet_all_scenarios}: Physionet real EEG — all 4 missing scenarios, family-level comparison}
+\subsection[Iteración it24]{Iteración \code{it24_physionet_all_scenarios}: Physionet real EEG -- all 4 missing scenarios, family-level comparison}
 \label{sec:exp_it24_physionet_all_scenarios}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -617,7 +617,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it25_alpha_beta_two_bands ──
 % Agregado 2026-04-05
-\subsection[Iteración it25]{Iteración \\\code{it25_alpha_beta_two_bands}: Two-band analysis (alpha 8-13Hz + beta 13-30Hz) — no broadband EEG}
+\subsection[Iteración it25]{Iteración \code{it25_alpha_beta_two_bands}: Two-band analysis (alpha 8-13Hz + beta 13-30Hz) -- no broadband EEG}
 \label{sec:exp_it25_alpha_beta_two_bands}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta},
@@ -638,7 +638,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta},
 
 % ── Iteración it26_synthetic_beta_all_graphs ──
 % Agregado 2026-04-05
-\subsection[Iteración it26]{Iteración \\\code{it26_synthetic_beta_all_graphs}: Synthetic beta (13-30 Hz) — all 8 graph topologies}
+\subsection[Iteración it26]{Iteración \code{it26_synthetic_beta_all_graphs}: Synthetic beta (13-30 Hz) -- all 8 graph topologies}
 \label{sec:exp_it26_synthetic_beta_all_graphs}
 
 Benchmark en \\\code{synthetic_beta},
@@ -659,7 +659,7 @@ Benchmark en \\\code{synthetic_beta},
 
 % ── Iteración it27_synthetic_alpha_all_graphs ──
 % Agregado 2026-04-05
-\subsection[Iteración it27]{Iteración \\\code{it27_synthetic_alpha_all_graphs}: Synthetic alpha (8-13 Hz) — all 8 graph topologies}
+\subsection[Iteración it27]{Iteración \code{it27_synthetic_alpha_all_graphs}: Synthetic alpha (8-13 Hz) -- all 8 graph topologies}
 \label{sec:exp_it27_synthetic_alpha_all_graphs}
 
 Benchmark en \\\code{synthetic_alpha},
@@ -680,7 +680,7 @@ Benchmark en \\\code{synthetic_alpha},
 
 % ── Iteración it28_nnk_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it28]{Iteración \\\code{it28_nnk_3syn}: NNK k=4 (non-negative kernel) graph on 3 synthetic datasets}
+\subsection[Iteración it28]{Iteración \code{it28_nnk_3syn}: NNK k=4 (non-negative kernel) graph on 3 synthetic datasets}
 \label{sec:exp_it28_nnk_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -701,7 +701,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it29_kalofolias_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it29]{Iteración \\\code{it29_kalofolias_3syn}: Kalofolias graph learning on 3 synthetic datasets}
+\subsection[Iteración it29]{Iteración \code{it29_kalofolias_3syn}: Kalofolias graph learning on 3 synthetic datasets}
 \label{sec:exp_it29_kalofolias_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -722,7 +722,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it30_knn_k5_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it30]{Iteración \\\code{it30_knn_k5_3syn}: KNN k=5 graph on 3 synthetic datasets}
+\subsection[Iteración it30]{Iteración \code{it30_knn_k5_3syn}: KNN k=5 graph on 3 synthetic datasets}
 \label{sec:exp_it30_knn_k5_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -743,7 +743,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it31_strong_tv_3syn ──
 % Agregado 2026-04-05
-\subsection[Iteración it31]{Iteración \\\code{it31_strong_tv_3syn}: Strong TV methods only (directed_tv, tv, trss) vs instant — focused comparison}
+\subsection[Iteración it31]{Iteración \code{it31_strong_tv_3syn}: Strong TV methods only (\code{directed_tv}, tv, trss) vs instant -- focused comparison}
 \label{sec:exp_it31_strong_tv_3syn}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -764,7 +764,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it32_3syn_mr20_only ──
 % Agregado 2026-04-05
-\subsection[Iteración it32]{Iteración \\\code{it32_3syn_mr20_only}: Moderate missing rate (20%) on 3 synthetic datasets — single scenario deep-dive}
+\subsection[Iteración it32]{Iteración \code{it32_3syn_mr20_only}: Moderate missing rate (20\%) on 3 synthetic datasets -- single scenario deep-dive}
 \label{sec:exp_it32_3syn_mr20_only}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -785,7 +785,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it33_3syn_mr30_only ──
 % Agregado 2026-04-05
-\subsection[Iteración it33]{Iteración \\\code{it33_3syn_mr30_only}: Moderate-high missing rate (30%) on 3 synthetic datasets — single scenario deep-dive}
+\subsection[Iteración it33]{Iteración \code{it33_3syn_mr30_only}: Moderate-high missing rate (30\%) on 3 synthetic datasets -- single scenario deep-dive}
 \label{sec:exp_it33_3syn_mr30_only}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -806,7 +806,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it35_all4_kalofolias ──
 % Agregado 2026-04-05
-\subsection[Iteración it35]{Iteración \\\code{it35_all4_kalofolias}: Kalofolias graph — all 4 datasets including physionet}
+\subsection[Iteración it35]{Iteración \code{it35_all4_kalofolias}: Kalofolias graph -- all 4 datasets including physionet}
 \label{sec:exp_it35_all4_kalofolias}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -827,7 +827,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it36_3syn_beta_low_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it36]{Iteración \\\code{it36_3syn_beta_low_missing}: Synthetic beta band — low missing scenarios (10%, 20%)}
+\subsection[Iteración it36]{Iteración \code{it36_3syn_beta_low_missing}: Synthetic beta band -- low missing scenarios (10\%, 20\%)}
 \label{sec:exp_it36_3syn_beta_low_missing}
 
 Benchmark en \\\code{synthetic_beta},
@@ -848,7 +848,7 @@ Benchmark en \\\code{synthetic_beta},
 
 % ── Iteración it37_3syn_alpha_low_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it37]{Iteración \\\code{it37_3syn_alpha_low_missing}: Synthetic alpha band — low missing scenarios (10%, 20%)}
+\subsection[Iteración it37]{Iteración \code{it37_3syn_alpha_low_missing}: Synthetic alpha band -- low missing scenarios (10\%, 20\%)}
 \label{sec:exp_it37_3syn_alpha_low_missing}
 
 Benchmark en \\\code{synthetic_alpha},
@@ -869,7 +869,7 @@ Benchmark en \\\code{synthetic_alpha},
 
 % ── Iteración it38_broad_gaussian_kalofolias_nnk ──
 % Agregado 2026-04-05
-\subsection[Iteración it38]{Iteración \\\code{it38_broad_gaussian_kalofolias_nnk}: synthetic_broad with 3 complementary graphs: Gaussian, Kalofolias, NNK}
+\subsection[Iteración it38]{Iteración \code{it38_broad_gaussian_kalofolias_nnk}: \code{synthetic_broad} with 3 complementary graphs: Gaussian, Kalofolias, NNK}
 \label{sec:exp_it38_broad_gaussian_kalofolias_nnk}
 
 Benchmark en \\\code{synthetic_broad},
@@ -890,7 +890,7 @@ Benchmark en \\\code{synthetic_broad},
 
 % ── Iteración it39_physionet_gaussian_nnk_knn ──
 % Agregado 2026-04-05
-\subsection[Iteración it39]{Iteración \\\code{it39_physionet_gaussian_nnk_knn}: Physionet real EEG at 40% missing — best 3 graphs (gaussian, nnk, knn_k3)}
+\subsection[Iteración it39]{Iteración \code{it39_physionet_gaussian_nnk_knn}: Physionet real EEG at 40\% missing -- best 3 graphs (gaussian, nnk, \code{knn_k3})}
 \label{sec:exp_it39_physionet_gaussian_nnk_knn}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -911,7 +911,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it40_3syn_all_mr_analysis ──
 % Agregado 2026-04-05
-\subsection[Iteración it40]{Iteración \\\code{it40_3syn_all_mr_analysis}: KNN graphs (k=3 and k=5) on 3 synthetic datasets — full missing rate comparison}
+\subsection[Iteración it40]{Iteración \code{it40_3syn_all_mr_analysis}: KNN graphs (k=3 and k=5) on 3 synthetic datasets -- full missing rate comparison}
 \label{sec:exp_it40_3syn_all_mr_analysis}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -932,7 +932,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it41_physionet_multisubject_run4 ──
 % Agregado 2026-04-05
-\subsection[Iteración it41]{Iteración \\\code{it41_physionet_multisubject_run4}: Physionet 9 subjects, run=4 motor imagery L/R, knn_k3}
+\subsection[Iteración it41]{Iteración \code{it41_physionet_multisubject_run4}: Physionet 9 subjects, run=4 motor imagery L/R, \code{knn_k3}}
 \label{sec:exp_it41_physionet_multisubject_run4}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -953,7 +953,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it42_physionet_run8_allsubj ──
 % Agregado 2026-04-05
-\subsection[Iteración it42]{Iteración \\\code{it42_physionet_run8_allsubj}: Physionet 9 subjects, run=8 motor imagery hands/feet, knn_k3}
+\subsection[Iteración it42]{Iteración \code{it42_physionet_run8_allsubj}: Physionet 9 subjects, run=8 motor imagery hands/feet, \code{knn_k3}}
 \label{sec:exp_it42_physionet_run8_allsubj}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -974,7 +974,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it43_physionet_run12_allsubj ──
 % Agregado 2026-04-05
-\subsection[Iteración it43]{Iteración \\\code{it43_physionet_run12_allsubj}: Physionet 9 subjects, run=12 motor imagery hands/feet, knn_k3}
+\subsection[Iteración it43]{Iteración \code{it43_physionet_run12_allsubj}: Physionet 9 subjects, run=12 motor imagery hands/feet, \code{knn_k3}}
 \label{sec:exp_it43_physionet_run12_allsubj}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -995,7 +995,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it44_physionet_allruns_allsubj ──
 % Agregado 2026-04-05
-\subsection[Iteración it44]{Iteración \\\code{it44_physionet_allruns_allsubj}: Physionet 9 subjects × 3 runs pooled, knn_k3}
+\subsection[Iteración it44]{Iteración \code{it44_physionet_allruns_allsubj}: Physionet 9 subjects × 3 runs pooled, \code{knn_k3}}
 \label{sec:exp_it44_physionet_allruns_allsubj}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1006,7 +1006,7 @@ Benchmark en \\\code{physionet_eegmmidb},
   \item Mejor método: \\\code{idw} MAE\,=\,0.0000;
     baseline instante MAE\,=\,0.0000.
   \item Mejora RMSE familia (mr\,=\,40\%): 15.9\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=2.20e-02).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=2.20e-02).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1016,7 +1016,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it45_physionet_multisubj_gaussian ──
 % Agregado 2026-04-05
-\subsection[Iteración it45]{Iteración \\\code{it45_physionet_multisubj_gaussian}: Physionet 9 subjects, run=4, gaussian sigma=1 graph}
+\subsection[Iteración it45]{Iteración \code{it45_physionet_multisubj_gaussian}: Physionet 9 subjects, run=4, gaussian sigma=1 graph}
 \label{sec:exp_it45_physionet_multisubj_gaussian}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1037,7 +1037,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it46_physionet_multisubj_kalofolias ──
 % Agregado 2026-04-05
-\subsection[Iteración it46]{Iteración \\\code{it46_physionet_multisubj_kalofolias}: Physionet 9 subjects, run=4, kalofolias graph}
+\subsection[Iteración it46]{Iteración \code{it46_physionet_multisubj_kalofolias}: Physionet 9 subjects, run=4, kalofolias graph}
 \label{sec:exp_it46_physionet_multisubj_kalofolias}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1058,7 +1058,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it47_physionet_multisubj_best3graphs ──
 % Agregado 2026-04-05
-\subsection[Iteración it47]{Iteración \\\code{it47_physionet_multisubj_best3graphs}: Physionet 9 subjects, run=4, 3 best graphs (knn_k3, gaussian, kalofolias)}
+\subsection[Iteración it47]{Iteración \code{it47_physionet_multisubj_best3graphs}: Physionet 9 subjects, run=4, 3 best graphs (\code{knn_k3}, gaussian, kalofolias)}
 \label{sec:exp_it47_physionet_multisubj_best3graphs}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1079,7 +1079,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it48_physionet_multisubj_high_mr ──
 % Agregado 2026-04-05
-\subsection[Iteración it48]{Iteración \\\code{it48_physionet_multisubj_high_mr}: Physionet 9 subjects, run=4, high missing rates 30%/40%}
+\subsection[Iteración it48]{Iteración \code{it48_physionet_multisubj_high_mr}: Physionet 9 subjects, run=4, high missing rates 30\%/40\%}
 \label{sec:exp_it48_physionet_multisubj_high_mr}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1100,7 +1100,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it49_physionet_multisubj_low_mr ──
 % Agregado 2026-04-05
-\subsection[Iteración it49]{Iteración \\\code{it49_physionet_multisubj_low_mr}: Physionet 9 subjects, run=4, low missing rates 10%/20%}
+\subsection[Iteración it49]{Iteración \code{it49_physionet_multisubj_low_mr}: Physionet 9 subjects, run=4, low missing rates 10\%/20\%}
 \label{sec:exp_it49_physionet_multisubj_low_mr}
 
 Benchmark en \\\code{physionet_eegmmidb},
@@ -1121,7 +1121,7 @@ Benchmark en \\\code{physionet_eegmmidb},
 
 % ── Iteración it51_all_datasets_strong_tv ──
 % Agregado 2026-04-05
-\subsection[Iteración it51]{Iteración \\\code{it51_all_datasets_strong_tv}: All 4 datasets — strong TV/Time + key instant methods}
+\subsection[Iteración it51]{Iteración \code{it51_all_datasets_strong_tv}: All 4 datasets -- strong TV/Time + key instant methods}
 \label{sec:exp_it51_all_datasets_strong_tv}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -1142,7 +1142,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it52_all_datasets_gaussian_graph ──
 % Agregado 2026-04-05
-\subsection[Iteración it52]{Iteración \\\code{it52_all_datasets_gaussian_graph}: All 4 datasets — Gaussian sigma=1 graph only}
+\subsection[Iteración it52]{Iteración \code{it52_all_datasets_gaussian_graph}: All 4 datasets -- Gaussian sigma=1 graph only}
 \label{sec:exp_it52_all_datasets_gaussian_graph}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -1153,7 +1153,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{mean} MAE\,=\,0.1595;
     baseline instante MAE\,=\,0.2734.
   \item Mejora RMSE familia (mr\,=\,10\%): 14.0\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=6.66e-03).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=6.66e-03).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1163,7 +1163,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it53_all_datasets_nnk ──
 % Agregado 2026-04-05
-\subsection[Iteración it53]{Iteración \\\code{it53_all_datasets_nnk}: All 4 datasets — NNK k=4 graph only}
+\subsection[Iteración it53]{Iteración \code{it53_all_datasets_nnk}: All 4 datasets -- NNK k=4 graph only}
 \label{sec:exp_it53_all_datasets_nnk}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -1174,7 +1174,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{mean} MAE\,=\,0.1595;
     baseline instante MAE\,=\,0.2395.
   \item Mejora RMSE familia (mr\,=\,30\%): 14.8\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.45e-03).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=1.45e-03).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1184,7 +1184,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it54_all_datasets_high_mr ──
 % Agregado 2026-04-05
-\subsection[Iteración it54]{Iteración \\\code{it54_all_datasets_high_mr}: All 4 datasets — high missing rates 30%+40%}
+\subsection[Iteración it54]{Iteración \code{it54_all_datasets_high_mr}: All 4 datasets -- high missing rates 30\%+40\%}
 \label{sec:exp_it54_all_datasets_high_mr}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -1195,7 +1195,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{mean} MAE\,=\,0.2263;
     baseline instante MAE\,=\,0.3181.
   \item Mejora RMSE familia (mr\,=\,30\%): 13.4\%.
-  \item Contraste significativo: mae_tv_family_vs_instant (p=2.98e-04).
+  \item Contraste significativo: \code{mae_tv_family_vs_instant} (p=2.98e-04).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1205,7 +1205,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it55_all_datasets_low_mr ──
 % Agregado 2026-04-05
-\subsection[Iteración it55]{Iteración \\\code{it55_all_datasets_low_mr}: All 4 datasets — low missing rates 10%+20%}
+\subsection[Iteración it55]{Iteración \code{it55_all_datasets_low_mr}: All 4 datasets -- low missing rates 10\%+20\%}
 \label{sec:exp_it55_all_datasets_low_mr}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad}, \\\code{physionet_eegmmidb},
@@ -1216,7 +1216,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{mean} MAE\,=\,0.0927;
     baseline instante MAE\,=\,0.1948.
   \item Mejora RMSE familia (mr\,=\,20\%): 9.9\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.60e-04).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=1.60e-04).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1226,7 +1226,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it56_3syn_mr10_only ──
 % Agregado 2026-04-05
-\subsection[Iteración it56]{Iteración \\\code{it56_3syn_mr10_only}: Alpha+Beta+Broad synthetic — mr=10% only}
+\subsection[Iteración it56]{Iteración \code{it56_3syn_mr10_only}: Alpha+Beta+Broad synthetic -- mr=10\% only}
 \label{sec:exp_it56_3syn_mr10_only}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -1237,7 +1237,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{gsmooth} MAE\,=\,0.0658;
     baseline instante MAE\,=\,0.1879.
   \item Mejora RMSE familia (mr\,=\,10\%): 16.5\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=3.25e-05).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=3.25e-05).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1247,7 +1247,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it57_3syn_mr40_only ──
 % Agregado 2026-04-05
-\subsection[Iteración it57]{Iteración \\\code{it57_3syn_mr40_only}: Alpha+Beta+Broad synthetic — mr=40% only}
+\subsection[Iteración it57]{Iteración \code{it57_3syn_mr40_only}: Alpha+Beta+Broad synthetic -- mr=40\% only}
 \label{sec:exp_it57_3syn_mr40_only}
 
 Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{synthetic_broad},
@@ -1258,7 +1258,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
   \item Mejor método: \\\code{mean} MAE\,=\,0.2611;
     baseline instante MAE\,=\,0.3677.
   \item Mejora RMSE familia (mr\,=\,40\%): 20.8\%.
-  \item Contraste significativo: mae_tv_family_vs_instant (p=2.70e-07).
+  \item Contraste significativo: \code{mae_tv_family_vs_instant} (p=2.70e-07).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1268,7 +1268,7 @@ Benchmark en \\\code{synthetic_alpha}, \\\code{synthetic_beta}, \\\code{syntheti
 
 % ── Iteración it58_broad_low_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it58]{Iteración \\\code{it58_broad_low_missing}: Synthetic broadband — low missing rates 10%+20%}
+\subsection[Iteración it58]{Iteración \code{it58_broad_low_missing}: Synthetic broadband -- low missing rates 10\%+20\%}
 \label{sec:exp_it58_broad_low_missing}
 
 Benchmark en \\\code{synthetic_broad},
@@ -1279,7 +1279,7 @@ Benchmark en \\\code{synthetic_broad},
   \item Mejor método: \\\code{directed_tv} MAE\,=\,0.0991;
     baseline instante MAE\,=\,0.1947.
   \item Mejora RMSE familia (mr\,=\,10\%): 15.4\%.
-  \item Contraste significativo: rmse_tv_family_vs_instant (p=1.42e-04).
+  \item Contraste significativo: \code{rmse_tv_family_vs_instant} (p=1.42e-04).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1289,7 +1289,7 @@ Benchmark en \\\code{synthetic_broad},
 
 % ── Iteración it59_broad_high_missing ──
 % Agregado 2026-04-05
-\subsection[Iteración it59]{Iteración \\\code{it59_broad_high_missing}: Synthetic broadband — high missing rates 30%+40%}
+\subsection[Iteración it59]{Iteración \code{it59_broad_high_missing}: Synthetic broadband -- high missing rates 30\%+40\%}
 \label{sec:exp_it59_broad_high_missing}
 
 Benchmark en \\\code{synthetic_broad},
@@ -1300,7 +1300,7 @@ Benchmark en \\\code{synthetic_broad},
   \item Mejor método: \\\code{heat_diffusion_temporal} MAE\,=\,0.2175;
     baseline instante MAE\,=\,0.3087.
   \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
-  \item Contraste significativo: mae_tv_family_vs_instant (p=2.07e-03).
+  \item Contraste significativo: \code{mae_tv_family_vs_instant} (p=2.07e-03).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1310,7 +1310,7 @@ Benchmark en \\\code{synthetic_broad},
 
 % ── Iteración it60_broad_all_graphs_high_mr ──
 % Agregado 2026-04-05
-\subsection[Iteración it60]{Iteración \\\code{it60_broad_all_graphs_high_mr}: Synthetic broadband — all 8 graphs × high missing rates 30%+40%}
+\subsection[Iteración it60]{Iteración \code{it60_broad_all_graphs_high_mr}: Synthetic broadband -- all 8 graphs × high missing rates 30\%+40\%}
 \label{sec:exp_it60_broad_all_graphs_high_mr}
 
 Benchmark en \\\code{synthetic_broad},
@@ -1321,7 +1321,7 @@ Benchmark en \\\code{synthetic_broad},
   \item Mejor método: \\\code{heat_diffusion_temporal} MAE\,=\,0.2175;
     baseline instante MAE\,=\,0.3087.
   \item Mejora RMSE familia (mr\,=\,40\%): 17.2\%.
-  \item Contraste significativo: mae_tv_family_vs_instant (p=2.07e-03).
+  \item Contraste significativo: \code{mae_tv_family_vs_instant} (p=2.07e-03).
 \end{itemize}
 
 % Detalle movido al Apéndice.
@@ -1331,7 +1331,7 @@ Benchmark en \\\code{synthetic_broad},
 
 % ── Iteraciones it71-it82 (Engine v7) — Alineación editorial ──
 % Agregado 2026-04-06
-\subsection[Extensión Engine v7]{Extensión Engine v7 (\\\code{it71}--\\\code{it82}): escenarios con pocos electrodos faltantes y análisis de señal completa}
+\subsection[Extensión Engine v7]{Extensión Engine v7 (\code{it71}--\code{it82}): escenarios con pocos electrodos faltantes y análisis de señal completa}
 \label{sec:exp_it71_it82_v7}
 
 La versión v7 extiende el protocolo de pérdida por proporción a escenarios de conteo fijo

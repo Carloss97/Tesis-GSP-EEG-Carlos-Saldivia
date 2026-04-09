@@ -584,6 +584,12 @@ def main():
         choices=["it101", "it102", "it103", "it104"],
         help="Subset of iterations to run.",
     )
+    # Compatibility: allow wrapper to pass --light-profile without failing
+    parser.add_argument(
+        "--light-profile",
+        action="store_true",
+        help="Compatibility flag (ignored).",
+    )
     args = parser.parse_args()
 
     RESULTS.mkdir(parents=True, exist_ok=True)

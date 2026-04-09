@@ -1,0 +1,24 @@
+{
+  "tag": "it57_3syn_mr40_only",
+  "description": "Alpha+Beta+Broad synthetic \u2014 mr=40% only",
+  "date": "2026-04-05",
+  "datasets": [
+    "synthetic_alpha",
+    "synthetic_beta",
+    "synthetic_broad"
+  ],
+  "n_graphs": 8,
+  "n_methods": 22,
+  "n_scenarios": 1,
+  "n_rows": 528,
+  "decision": "GO",
+  "qa_gates": {
+    "QA-01": "PASS",
+    "QA-02": "PASS",
+    "QA-03": "PASS",
+    "QA-04": "PASS",
+    "QA-05": "PASS",
+    "QA-06": "PASS",
+    "QA-07": "PASS"
+  }
+}

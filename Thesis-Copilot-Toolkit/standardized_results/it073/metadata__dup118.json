@@ -1,0 +1,22 @@
+{
+  "original_tag": "it73_few_missing_1ch_mne_proxy_stats",
+  "padded": "it073",
+  "sanitized": "it73_few_missing_1ch_mne_proxy_stats",
+  "stored": {
+    "raw": null,
+    "stats": "it073_it73_few_missing_1ch_mne_proxy_stats\\stats.csv",
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "stats": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it73_few_missing_1ch_mne_proxy_stats.csv"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:07.526972Z"
+}

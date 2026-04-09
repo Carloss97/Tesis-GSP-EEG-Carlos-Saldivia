@@ -1,0 +1,25 @@
+{
+  "original_tag": "it054_it54_all_datasets_high_mr_stats",
+  "padded": "it054",
+  "sanitized": "it054_it54_all_datasets_high_mr_stats",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it054_it54_all_datasets_high_mr_stats\\figures"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it054_it54_all_datasets_high_mr_stats\\tables"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:51.741338Z"
+}

@@ -1,0 +1,22 @@
+{
+  "original_tag": "it34_physionet_kalofolias_gaussian_run_metadata",
+  "padded": "it034",
+  "sanitized": "it34_physionet_kalofolias_gaussian_run_metadata",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": "it034_it34_physionet_kalofolias_gaussian_run_metadata\\run_metadata.json",
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "run_metadata": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it34_physionet_kalofolias_gaussian_run_metadata.json"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:06.807890Z"
+}

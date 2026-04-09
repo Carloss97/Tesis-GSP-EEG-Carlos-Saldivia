@@ -1,6 +1,6 @@
 {
   "tag": "it103_tv_lambda_grid_search",
-  "timestamp": "2026-04-06T17:46:05.880827+00:00",
+  "timestamp": "2026-04-09T17:47:52.530487+00:00",
   "description": "Lambda grid search for TV family methods",
   "objective": "Optimize lambda-like regularization parameter for TV family",
   "fase": "Phase 10: Hyperparameter optimization",
@@ -41,11 +41,11 @@
     },
     "mne_real": {
       "ok": false,
-      "reason": "Local MNE sample not found at /home/runner/mne_data/MNE-sample-data/MEG/sample/sample_audvis_raw.fif; network download skipped."
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
     },
     "bci_iv2a_real": {
       "ok": false,
-      "reason": "Local BCI IV 2a file not found at /home/runner/work/Tesis-GSP-EEG-Carlos-Saldivia/Tesis-GSP-EEG-Carlos-Saldivia/datasets/BCI_IV_2a/A01T.gdf."
+      "reason": "Local BCI IV 2a file not found at C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\BCI_IV_2a\\A01T.gdf."
     }
   }
 }

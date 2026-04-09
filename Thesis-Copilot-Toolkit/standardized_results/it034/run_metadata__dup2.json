@@ -1,0 +1,53 @@
+{
+  "iteration_tag": "it34_physionet_kalofolias_gaussian",
+  "run_timestamp": "2026-04-05T15:28:57.087429+00:00",
+  "datasets": [
+    "physionet_eegmmidb"
+  ],
+  "scenarios": [
+    "30pct",
+    "40pct"
+  ],
+  "n_rows": 88,
+  "n_errors": 4,
+  "error_rate": 0.0455,
+  "graphs_used": [
+    "gaussian__sigma1",
+    "kalofolias"
+  ],
+  "methods_used": [
+    "bgsrp",
+    "directed_tv",
+    "graph_time_tikhonov",
+    "gsmooth",
+    "gsp",
+    "heat_diffusion_temporal",
+    "idw",
+    "linear",
+    "mean",
+    "nearest",
+    "puy",
+    "rbfi_mq",
+    "rbfi_tps",
+    "sobolev",
+    "spherical_spline",
+    "spline_surface",
+    "spline_temporal",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "tv_time_methods": [
+    "directed_tv",
+    "graph_time_tikhonov",
+    "heat_diffusion_temporal",
+    "temporal_laplacian",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "g2_mode": "family_median",
+  "note": "Best graphs for physionet at 40% missing: gaussian shows 16.7% RMSE gain. kalofolias: 5.2%."
+}

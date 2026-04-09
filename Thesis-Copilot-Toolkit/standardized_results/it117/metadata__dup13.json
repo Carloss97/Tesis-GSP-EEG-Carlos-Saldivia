@@ -1,0 +1,22 @@
+{
+  "original_tag": "it117_graph_sensitivity_multidomain_raw",
+  "padded": "it117",
+  "sanitized": "it117_graph_sensitivity_multidomain_raw",
+  "stored": {
+    "raw": "it117_it117_graph_sensitivity_multidomain_raw\\raw.csv",
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 0,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "raw": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\results\\it117_graph_sensitivity_multidomain_raw.csv"
+    ]
+  },
+  "collected_at": "2026-04-09T15:34:02.945660Z"
+}

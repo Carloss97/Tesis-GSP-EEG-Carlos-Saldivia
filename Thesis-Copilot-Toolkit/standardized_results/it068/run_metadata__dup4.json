@@ -1,0 +1,36 @@
+{
+  "tag": "it68_three_real_datasets",
+  "timestamp": "2026-04-05T16:07:39.707934",
+  "description": "Tres datasets reales/proxy (PhysioNet+MNE+BCI), kNN-k3",
+  "objective": "Cross-validaci\u00f3n entre PhysioNet EEG motor, MNE auditivo/visual y BCI motor imagery",
+  "fase": "Fase 5: Datasets Externos Proxy",
+  "datasets": [
+    "synthetic_broad",
+    "mne_sample_proxy",
+    "bci_competition_iv_2a_proxy"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    0.1,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "subjects": [
+    0
+  ],
+  "n_methods": 20,
+  "n_rows": 240,
+  "qa": {
+    "status": "GO",
+    "tv_median_mae": 4.3876294310390175e-07,
+    "inst_median_mae": 6.6322109938531e-07,
+    "gain_pct": 33.84363924631496,
+    "p_value": 0.00016188700462851102
+  },
+  "best_method": "directed_tv",
+  "best_mae": 0.0017305408799973673,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+}

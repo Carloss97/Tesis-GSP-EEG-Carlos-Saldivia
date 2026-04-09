@@ -1,0 +1,34 @@
+{
+  "original_tag": "it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures",
+  "padded": "it011",
+  "sanitized": "it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 2,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures\\figures",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures\\figures\\figures",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures\\figures\\figures\\figures"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\tables"
+    ],
+    "figure_file": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures\\figures\\figures\\figures\\fig02_rmse_boxplot.pdf",
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it011_it011_it011_it011_it011_it11_physionet_high_missing_plus3seeds_figures\\figures\\figures\\figures\\figures\\figures\\fig05_tv_vs_instant_family.pdf"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:43.327080Z"
+}

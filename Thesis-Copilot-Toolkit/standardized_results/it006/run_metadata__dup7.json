@@ -1,0 +1,61 @@
+{
+  "iteration_tag": "it06_tv_focus_kalofolias_nnk",
+  "run_timestamp": "2026-04-05T14:59:39.475309+00:00",
+  "datasets": [
+    "synthetic_beta",
+    "synthetic_broad"
+  ],
+  "scenarios": [
+    "10pct",
+    "20pct",
+    "30pct",
+    "40pct"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "global_seed": 42,
+  "n_rows": 352,
+  "n_errors": 16,
+  "error_rate": 0.0455,
+  "graphs_used": [
+    "kalofolias",
+    "nnk__k4"
+  ],
+  "methods_used": [
+    "bgsrp",
+    "directed_tv",
+    "graph_time_tikhonov",
+    "gsmooth",
+    "gsp",
+    "heat_diffusion_temporal",
+    "idw",
+    "linear",
+    "mean",
+    "nearest",
+    "puy",
+    "rbfi_mq",
+    "rbfi_tps",
+    "sobolev",
+    "spherical_spline",
+    "spline_surface",
+    "spline_temporal",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "command": "Filtered canonical_final_raw.csv \u2192 it06_tv_focus_kalofolias_nnk_raw.csv",
+  "tv_time_methods": [
+    "directed_tv",
+    "graph_time_tikhonov",
+    "heat_diffusion_temporal",
+    "temporal_laplacian",
+    "trss",
+    "tv",
+    "wavelet_temporal"
+  ],
+  "note": "Graph focus: kalofolias (learnable graph) and NNK (non-negative kernel). Highlights graph construction effect."
+}

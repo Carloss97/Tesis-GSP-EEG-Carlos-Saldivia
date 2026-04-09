@@ -1,0 +1,32 @@
+\begin{table}[ht]
+\centering
+\caption{Method comparison — MAE — \texttt{it52_all_datasets_gaussian_graph}}
+\label{tab:mae_it52_all_datasets_gaussian_graph}
+\begin{tabular}{lccc}
+\hline
+Method & Mean MAE & Median MAE & Std MAE \\
+\hline
+\texttt{mean} & 0.124422 & 0.159522 & 0.083772 \\
+\texttt{tv} & 0.124534 & 0.159735 & 0.083845 \\
+\texttt{gsmooth} & 0.124720 & 0.160077 & 0.083885 \\
+\texttt{heat_diffusion_temporal} & 0.123930 & 0.160373 & 0.083201 \\
+\texttt{trss} & 0.125474 & 0.161320 & 0.084343 \\
+\texttt{gsp} & 0.125507 & 0.161346 & 0.084368 \\
+\texttt{directed_tv} & 0.124478 & 0.162407 & 0.083475 \\
+\texttt{idw} & 0.127144 & 0.164522 & 0.085358 \\
+\texttt{wavelet_temporal} & 0.142479 & 0.183763 & 0.095674 \\
+\texttt{linear} & 0.147093 & 0.186874 & 0.099514 \\
+\texttt{nearest} & 0.159963 & 0.203631 & 0.108157 \\
+\texttt{rbfi_tps} & 0.162433 & 0.207468 & 0.109496 \\
+\texttt{spherical_spline} & 0.179805 & 0.214444 & 0.132761 \\
+\texttt{rbfi_mq} & 0.171450 & 0.220915 & 0.115192 \\
+\texttt{spline_surface} & 0.216618 & 0.250124 & 0.165069 \\
+\texttt{tikhonov} & 0.214383 & 0.280777 & 0.143298 \\
+\texttt{graph_time_tikhonov} & 0.358369 & 0.470361 & 0.239144 \\
+\texttt{bgsrp} & 0.378229 & 0.489721 & 0.253206 \\
+\texttt{temporal_laplacian} & 0.378268 & 0.499942 & 0.252336 \\
+\texttt{puy} & 0.402972 & 0.528739 & 0.268966 \\
+\texttt{sobolev} & 0.453517 & 0.598775 & 0.302450 \\
+\hline
+\end{tabular}
+\end{table}

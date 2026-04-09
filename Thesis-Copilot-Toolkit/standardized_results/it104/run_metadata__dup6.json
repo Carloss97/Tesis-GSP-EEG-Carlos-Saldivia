@@ -1,0 +1,54 @@
+{
+  "tag": "it104_noise_sensitivity_tv",
+  "timestamp": "2026-04-09T15:33:29.347444+00:00",
+  "description": "Noise sensitivity analysis for TV methods",
+  "objective": "Evaluate TV behavior under different initial SNR levels",
+  "fase": "Phase 10: Noise sensitivity",
+  "datasets": [
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 112,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 1.1142184852252657e-05,
+    "inst_median_mae": 7.574971441765365e-06,
+    "gain_pct": -47.09210375129737,
+    "p_value": 0.9803373463191128
+  },
+  "best_method": "trss",
+  "best_mae": 5.12454659234582e-06,
+  "engine_version": "v8",
+  "real_data_availability": {
+    "physionet": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "mne_real": {
+      "ok": false,
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
+    },
+    "bci_iv2a_real": {
+      "ok": false,
+      "reason": "Local BCI IV 2a file not found at C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\BCI_IV_2a\\A01T.gdf."
+    }
+  }
+}

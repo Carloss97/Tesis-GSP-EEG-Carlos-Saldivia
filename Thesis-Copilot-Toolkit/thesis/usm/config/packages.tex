@@ -24,6 +24,12 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Reduce table column separation and use smaller font in table floats
+% to mitigate extreme overfull boxes from auto-generated wide tables.
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{\scriptsize\setlength{\tabcolsep}{1.5pt}}
+\renewcommand{\arraystretch}{0.88}
+
 \renewcommand{\baselinestretch}{1.2}
 
 \pagestyle{fancy}

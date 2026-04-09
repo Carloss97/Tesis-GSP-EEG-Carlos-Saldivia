@@ -174,3 +174,291 @@ Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos
 ## Actualización 2026-04-04 01:01
 
 Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 02:43
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 02:46
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 10:52
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:11
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:11
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:12
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:13
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:14
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:15
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:20
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 11:23
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.
+
+
+---
+## Actualización 2026-04-09 13:36
+
+Corrida canónica ejecutada con validación anidada. PhysioNet EEGMMIDB (sujetos [1, 2, 3, 4, 5]) incluido como dataset real. BCI Competition IV 2a declarado PROXY/NO DISPONIBLE. Ver `RESULTS_CANONICAL_REPORT.md` para reporte canónico completo.

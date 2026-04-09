@@ -1,0 +1,28 @@
+{
+  "original_tag": "it043_it043_it043_it43_physionet_run12_allsubj_fig02_rmse_boxplot",
+  "padded": "it043",
+  "sanitized": "it043_it043_it043_it43_physionet_run12_allsubj_fig02_rmse_boxplot",
+  "stored": {
+    "raw": null,
+    "stats": null,
+    "significance": null,
+    "qa": null,
+    "run_metadata": null,
+    "integration_log": null,
+    "nogo": null,
+    "figures_count": 1,
+    "tables_count": 0
+  },
+  "source_candidates": {
+    "figures_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it043_it043_it043_it43_physionet_run12_allsubj_fig02_rmse_boxplot\\figures"
+    ],
+    "tables_dir": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it043_it043_it043_it43_physionet_run12_allsubj_fig02_rmse_boxplot\\tables"
+    ],
+    "figure_file": [
+      "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\standardized_results\\it043_it043_it043_it43_physionet_run12_allsubj_fig02_rmse_boxplot\\figures\\it43_physionet_run12_allsubj_fig02_rmse_boxplot.pdf"
+    ]
+  },
+  "collected_at": "2026-04-09T15:33:49.870124Z"
+}

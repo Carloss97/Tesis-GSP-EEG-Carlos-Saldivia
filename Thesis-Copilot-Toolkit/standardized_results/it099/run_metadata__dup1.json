@@ -1,0 +1,46 @@
+{
+  "tag": "it99_final_comparative_consensus",
+  "timestamp": "2026-04-06T17:05:07.014730",
+  "description": "Final comparative consensus across scenarios",
+  "objective": "Phase 9 final comparative: consensus over scenarios",
+  "fase": "Phase 9: Final Comparative Analysis",
+  "datasets": [
+    "synthetic_16ch",
+    "synthetic_32ch",
+    "mne_sample_proxy",
+    "bci_competition_proxy"
+  ],
+  "graphs": [
+    "knn__k3",
+    "gaussian"
+  ],
+  "missing_ratios": [
+    "0.1",
+    "0.2",
+    "0.3",
+    "0.4"
+  ],
+  "methods": [
+    "mean",
+    "nearest",
+    "tikhonov",
+    "temporal_laplacian",
+    "graph_time_tikhonov",
+    "tv",
+    "trss"
+  ],
+  "n_methods": 7,
+  "n_rows": 672,
+  "qa": {
+    "status": "GO",
+    "tv_median_mae": 0.18215869354321074,
+    "inst_median_mae": 0.2208156725738657,
+    "gain_pct": 17.50644715570345,
+    "p_value": 9.119798540418105e-14
+  },
+  "best_method": "trss",
+  "best_mae": 0.22332380437363622,
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos cuando los reales no están disponibles.",
+  "engine_version": "v7e",
+  "include_instant_vs_full": true
+}
