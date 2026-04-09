@@ -1,0 +1,35 @@
+{
+  "b1": [
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b1_protocol_config.json",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b1_protocol_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b1_protocol_summary.csv"
+  ],
+  "b2": [
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_01_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_01_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_02_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_02_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_03_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_03_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_04_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_04_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_05_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_05_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_06_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_06_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_07_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_07_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_08_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_08_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_09_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_batch_09_warnings.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_config.json",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_ranking_final.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_raw.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_summary.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_topk_by_family_scenario.csv",
+    "Thesis-Copilot-Toolkit/results/opt_benchmark_b2_full_scale_warnings_registry.csv"
+  ],
+  "b3": [],
+  "b4": []
+}

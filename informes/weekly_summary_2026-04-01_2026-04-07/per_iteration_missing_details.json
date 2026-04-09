@@ -1,0 +1,882 @@
+{
+  "summary": {
+    "total_missing": 64,
+    "with_alternative_matches": 0,
+    "without_alternative_matches": 64
+  },
+  "details": {
+    "it41": {
+      "it": "it41",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it41_physionet_multisubject_run4_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it42": {
+      "it": "it42",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it42_physionet_run8_allsubj_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it43": {
+      "it": "it43",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it43_physionet_run12_allsubj_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it44": {
+      "it": "it44",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it44_physionet_allruns_allsubj_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it45": {
+      "it": "it45",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it45_physionet_multisubj_gaussian_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it46": {
+      "it": "it46",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it46_physionet_multisubj_kalofolias_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it47": {
+      "it": "it47",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it47_physionet_multisubj_best3graphs_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it48": {
+      "it": "it48",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it48_physionet_multisubj_high_mr_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it49": {
+      "it": "it49",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it49_physionet_multisubj_low_mr_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it50": {
+      "it": "it50",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it50_physionet_multisubj_strong_tv_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it50_physionet_multisubj_strong_tv_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it50_physionet_multisubj_strong_tv_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it50_physionet_multisubj_strong_tv_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it50_physionet_multisubj_strong_tv_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it51": {
+      "it": "it51",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it51_all_datasets_strong_tv_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it52": {
+      "it": "it52",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it52_all_datasets_gaussian_graph_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it53": {
+      "it": "it53",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it53_all_datasets_nnk_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it54": {
+      "it": "it54",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it54_all_datasets_high_mr_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it55": {
+      "it": "it55",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it55_all_datasets_low_mr_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it56": {
+      "it": "it56",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it56_3syn_mr10_only_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it57": {
+      "it": "it57",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it57_3syn_mr40_only_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it58": {
+      "it": "it58",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it58_broad_low_missing_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it59": {
+      "it": "it59",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it59_broad_high_missing_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it60": {
+      "it": "it60",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_stats.csv",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_tables/mae_summary.tex",
+        "Thesis-Copilot-Toolkit/results/it60_broad_all_graphs_high_mr_tables/rmse_summary.tex"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it61": {
+      "it": "it61",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it61_mne_sample_knn_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it62": {
+      "it": "it62",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it62_mne_sample_all_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it63": {
+      "it": "it63",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it63_mne_sample_high_mr_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it64": {
+      "it": "it64",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it64_bci_competition_single_subj_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it65": {
+      "it": "it65",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it65_bci_competition_multisubj_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it66": {
+      "it": "it66",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it66_bci_competition_gaussian_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it67": {
+      "it": "it67",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it67_bci_competition_all_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it68": {
+      "it": "it68",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it68_three_real_datasets_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it69": {
+      "it": "it69",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it69_mne_bci_high_mr_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it70": {
+      "it": "it70",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it70_all_five_datasets_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it71": {
+      "it": "it71",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it71_few_missing_1ch_synthetic_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it72": {
+      "it": "it72",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it72_few_missing_2ch_synthetic_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it73": {
+      "it": "it73",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it73_few_missing_1ch_mne_proxy_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it74": {
+      "it": "it74",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it74_few_missing_2ch_mne_proxy_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it75": {
+      "it": "it75",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it75_few_missing_multi_synthetic_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it76": {
+      "it": "it76",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it76_few_missing_mne_all_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it77": {
+      "it": "it77",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it77_few_missing_bci_all_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it78": {
+      "it": "it78",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it78_few_missing_1ch_tv_focus_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it79": {
+      "it": "it79",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it79_few_missing_2ch_tv_focus_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it80": {
+      "it": "it80",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it80_few_missing_comprehensive_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it81": {
+      "it": "it81",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_full_recon.csv",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_instant_recon.csv",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it81_instant_vs_full_synthetic_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it82": {
+      "it": "it82",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it82_full_signal_recon_synthetic_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it83": {
+      "it": "it83",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it83_cross_dataset_generalization_knn_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it84": {
+      "it": "it84",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it84_cross_dataset_generalization_gaussian_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it85": {
+      "it": "it85",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it85_cross_dataset_generalization_all_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it86": {
+      "it": "it86",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it86_cross_dataset_generalization_high_mr_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it87": {
+      "it": "it87",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it87_cross_dataset_generalization_few_missing_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it88": {
+      "it": "it88",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it88_robustness_noise_stress_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it89": {
+      "it": "it89",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it89_robustness_artifact_stress_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it90": {
+      "it": "it90",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it90_robustness_graph_sensitivity_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it91": {
+      "it": "it91",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it91_robustness_method_subset_tv_focus_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it92": {
+      "it": "it92",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it92_robustness_low_missing_stability_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it93": {
+      "it": "it93",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it93_robustness_high_missing_stability_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it94": {
+      "it": "it94",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it94_robustness_cross_proxy_shift_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it95": {
+      "it": "it95",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it95_final_comparative_all_datasets_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it96": {
+      "it": "it96",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it96_final_comparative_top_graphs_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it97": {
+      "it": "it97",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it97_final_comparative_top_methods_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it98": {
+      "it": "it98",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it98_final_comparative_efficiency_tradeoff_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it99": {
+      "it": "it99",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it99_final_comparative_consensus_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it100": {
+      "it": "it100",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it100_final_comparative_publication_pack_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it101": {
+      "it": "it101",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it101_it104_real_data_availability.json",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it101_real_data_validation_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it102": {
+      "it": "it102",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it102_compute_time_tv_vs_instant_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it103": {
+      "it": "it103",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it103_tv_lambda_grid_search_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    },
+    "it104": {
+      "it": "it104",
+      "direct_paths": [
+        "Thesis-Copilot-Toolkit/results/it101_it104_real_data_availability.json",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_integration_log.md",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_qa_report.md",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_raw.csv",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_run_metadata.json",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_significance.csv",
+        "Thesis-Copilot-Toolkit/results/it104_noise_sensitivity_tv_stats.csv"
+      ],
+      "alternative_image_matches": [],
+      "has_alternative_matches": false
+    }
+  }
+}
