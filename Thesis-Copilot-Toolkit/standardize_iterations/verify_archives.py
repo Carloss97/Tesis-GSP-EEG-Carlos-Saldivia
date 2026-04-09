@@ -8,6 +8,7 @@ import zipfile
 import hashlib
 import random
 import sys
+import argparse
 from pathlib import Path
 
 ROOT = Path('Thesis-Copilot-Toolkit') / 'standardized_results'
@@ -144,8 +145,15 @@ def main():
     if not its:
         print('No iteraciones encontradas', file=sys.stderr)
         sys.exit(2)
-    random.seed(42)
-    sample = random.sample(its, min(5, len(its)))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--all', action='store_true', help='Verify all its instead of sample')
+    parser.add_argument('--sample-size', type=int, default=5, help='number of random its to sample (ignored if --all)')
+    args = parser.parse_args()
+    if args.all:
+        sample = list(its)
+    else:
+        random.seed(42)
+        sample = random.sample(its, min(args.sample_size, len(its)))
     results = []
     for itname in sample:
         r = check_it(itname)

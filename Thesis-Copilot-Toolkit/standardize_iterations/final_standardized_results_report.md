@@ -97,3 +97,17 @@ Notas:
 ---
 
 Informe generado automáticamente por la herramienta de compactación. Ver los JSONs de reporte para listados completos y el historial de movimientos.
+
+## Verificación de archivos archivados (comprobación completa)
+
+- **Archivos verificados:** 34,060
+- **Iteraciones verificadas:** 130 (it001..it130)
+- **ZIPs verificados:** 130 (`archived_dup_files_20260409_180004.zip` por iteración)
+- **Coincidencias (SHA256/tamaños):** 34,060 (0 mismatches)
+- **Errores durante verificación:** 0
+- **Informe de verificación:** Thesis-Copilot-Toolkit/standardize_iterations/verify_archives_report_20260409_180004.json
+
+Notas:
+
+- La verificación valida que cada archivo dentro de los ZIP coincide con el manifiesto correspondiente (SHA256 y tamaño). El informe JSON contiene el detalle por `itNNN`.
+
