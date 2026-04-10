@@ -1,0 +1,16 @@
+method,best_count
+trss,107
+tv,54
+heat_diffusion_temporal,34
+directed_tv,31
+mean,28
+spherical_spline,24
+linear,8
+nearest,8
+gsmooth,6
+gsp,4
+rbfi_tps,3
+idw,3
+wavelet_temporal,2
+temporal_laplacian,2
+graph_time_tikhonov,1
