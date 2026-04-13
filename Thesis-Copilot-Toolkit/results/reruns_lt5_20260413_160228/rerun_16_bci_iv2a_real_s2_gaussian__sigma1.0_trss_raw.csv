@@ -1,0 +1,3 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+bci_iv2a_real_s2,gaussian__sigma1.0,trss,0.1,0,2.3794455465508806e-07,1.2639342935699304e-06,28.533603596717985,8.308532772503092e-06,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,2,0.0173281000006682
+bci_iv2a_real_s2,gaussian__sigma1.0,trss,0.1,1,2.520305561300552e-07,1.3686896080314242e-06,28.034809213332284,9.66504159330148e-06,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,2,0.01790909999908763
