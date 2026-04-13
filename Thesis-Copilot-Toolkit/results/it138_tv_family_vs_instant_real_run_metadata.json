@@ -1,0 +1,100 @@
+{
+  "tag": "it138_tv_family_vs_instant_real",
+  "timestamp": "2026-04-13T18:02:20.700372+00:00",
+  "description": "TV-family vs Instant on real data",
+  "objective": "Compare TV/Time family against best instant methods on real datasets",
+  "fase": "Phase 20: Family comparison",
+  "datasets": [
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "bci_iv2a_real_s3",
+    "iv100hz_mat",
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.1",
+    "0.2",
+    "0.3"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 5,
+  "n_rows": 375,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 3.2594083898718594e-06,
+    "inst_median_mae": 2.2315518465909088e-06,
+    "gain_pct": -46.06016861544955,
+    "p_value": 0.9798834652812696
+  },
+  "best_method": "trss",
+  "best_mae": 7.740183766851345,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real",
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "bci_iv2a_real_s3",
+    "iv100hz_mat"
+  ]
+}

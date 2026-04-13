@@ -1,0 +1,97 @@
+{
+  "tag": "it136_runtime_profiling_real",
+  "timestamp": "2026-04-13T18:00:38.133403+00:00",
+  "description": "Runtime profiling for top methods on real datasets",
+  "objective": "Collect runtime statistics for candidate methods",
+  "fase": "Phase 20: Practicality",
+  "datasets": [
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "bci_iv2a_real_s3",
+    "iv100hz_mat",
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "heat_diffusion_temporal",
+    "mean",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 4,
+  "n_rows": 60,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 1.806488796880284e-06,
+    "inst_median_mae": 2.4465986887613927e-06,
+    "gain_pct": 26.163256557828397,
+    "p_value": 0.1769707778689919
+  },
+  "best_method": "trss",
+  "best_mae": 6.85458957740927,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real",
+    "bci_iv2a_real_s1",
+    "bci_iv2a_real_s2",
+    "bci_iv2a_real_s3",
+    "iv100hz_mat"
+  ]
+}
