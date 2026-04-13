@@ -1,0 +1,86 @@
+{
+  "tag": "rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss",
+  "timestamp": "2026-04-13T20:13:17.154410+00:00",
+  "description": "Rerun combo: bci_iv2a_real_s2 gaussian__sigma1.0 trss mr=0.2",
+  "objective": "Auto-generated rerun",
+  "fase": "Rerun",
+  "datasets": [
+    "bci_iv2a_real_s2"
+  ],
+  "graphs": [
+    "gaussian__sigma1.0"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "trss"
+  ],
+  "n_methods": 1,
+  "n_rows": 6,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": NaN,
+    "inst_median_mae": NaN,
+    "gain_pct": 0.0,
+    "p_value": 1.0
+  },
+  "best_method": "trss",
+  "best_mae": 5.042424396095504e-07,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "bci_iv2a_real_s2"
+  ]
+}
