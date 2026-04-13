@@ -1,0 +1,32 @@
+Input file: best_method_by_combo_stats.csv
+Total combinations: 315
+Significant combinations: 129
+
+Top methods by count:
+- trss: 107
+- tv: 54
+- heat_diffusion_temporal: 34
+- directed_tv: 31
+- mean: 28
+- spherical_spline: 24
+- linear: 8
+- nearest: 8
+- gsmooth: 6
+- gsp: 4
+- idw: 3
+- rbfi_tps: 3
+- temporal_laplacian: 2
+- wavelet_temporal: 2
+- graph_time_tikhonov: 1
+
+Top 10 combos by delta_mean (second_mean - best_mean):
+- gaussian__sigma1.0 | iv100hz_mat | 0.4 -> tv (delta=12.401090303957488)
+- knn__k3 | iv100hz_mat | 0.2 -> trss (delta=9.549269867852187)
+- knn__k3 | iv100hz_mat | 0.3 -> trss (delta=7.470274733956003)
+- gaussian__sigma1.0 | iv100hz_mat | 0.3 -> tv (delta=7.175423791513204)
+- knn__k3 | iv100hz_mat | 0.4 -> trss (delta=5.966905123785836)
+- gaussian__sigma1.0 | iv100hz_mat | 0.2 -> tv (delta=3.4666914353750364)
+- gaussian__sigma1.0 | iv100hz_mat | 0.1 -> tv (delta=1.8049861163888803)
+- knn__k3 | iv100hz_mat | 0.1 -> trss (delta=1.360573863855027)
+- knn__k5 | iv100hz_mat | 0.3 -> trss (delta=0.7920825289618065)
+- knn__k5 | iv100hz_mat | 0.2 -> tv (delta=0.581036898496798)
