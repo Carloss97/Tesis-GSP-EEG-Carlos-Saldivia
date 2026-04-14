@@ -1,0 +1,2 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,kalofolias,graph_time_tikhonov,0.4,0,2.071941454999972e-05,2.6457497599498255e-05,7.286914288418423,0.0001721973238997108,"{""alpha"": 0.5, ""beta"": 0.1}",,10,0.009068999999726657

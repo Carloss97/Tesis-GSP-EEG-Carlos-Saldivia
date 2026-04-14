@@ -8776,3 +8776,839 @@ Copied files:
 Done.
 Snapshot saved.
 === resume_lt20_and_run.py END Mon Apr 13 21:52:36 2026 ===
+
+=== resume_lt20_and_run.py START Tue Apr 14 00:47:28 2026 ===
+Total tags: 209, missing: 121
+<< SKIPPED rerun_3_mne_sample_proxy_knn__k3_directed_tv - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_4_mne_sample_proxy_knn__k3_directed_tv - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_5_mne_sample_proxy_knn__k3_directed_tv - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_6_synthetic_alpha_gaussian__sigma1_directed_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_7_synthetic_alpha_kalofolias_directed_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_8_synthetic_alpha_knn__k5_directed_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_9_synthetic_alpha_knng__k4_sigma1_directed_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_10_synthetic_alpha_vknng__alpha1_k4_k_max8_k_min2_directed_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_11_synthetic_beta_aew__k4_sigma_corr0_5_sigma_dist1_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_12_synthetic_beta_gaussian__sigma1_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_13_synthetic_beta_gaussian__sigma1_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_14_synthetic_beta_kalofolias_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_15_synthetic_beta_kalofolias_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_16_synthetic_beta_knn__k5_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_17_synthetic_beta_vknng__alpha1_k4_k_max8_k_min2_directed_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_18_synthetic_broad_gaussian__sigma1_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_19_synthetic_broad_gaussian__sigma1_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_20_synthetic_broad_kalofolias_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_21_synthetic_broad_kalofolias_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_22_synthetic_broad_knn__k5_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_23_synthetic_broad_knn__k5_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_24_synthetic_broad_knn__k5_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_25_synthetic_broad_knng__k4_sigma1_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_26_synthetic_broad_vknng__alpha1_k4_k_max8_k_min2_directed_tv - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_27_synthetic_16ch_kalofolias_graph_time_tikhonov - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_28_synthetic_beta_knng__k4_sigma1_gsmooth - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_29_synthetic_beta_nnk__k4_gsmooth - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_30_synthetic_beta_vknng__alpha1_k4_k_max8_k_min2_gsmooth - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_36_mne_sample_proxy_kalofolias_heat_diffusion_temporal - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_37_mne_sample_proxy_kalofolias_heat_diffusion_temporal - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_38_mne_sample_proxy_kalofolias_heat_diffusion_temporal - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_39_mne_sample_proxy_knn__k3_heat_diffusion_temporal - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_40_synthetic_beta_gaussian__sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_41_synthetic_beta_knn__k3_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_42_synthetic_beta_knn__k3_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_43_synthetic_beta_knn__k3_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_44_synthetic_beta_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_45_synthetic_beta_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_46_synthetic_beta_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_47_synthetic_beta_nnk__k4_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_48_synthetic_beta_nnk__k4_heat_diffusion_temporal - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_49_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_50_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_51_synthetic_broad_knn__k5_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_52_synthetic_broad_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_53_synthetic_broad_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_54_synthetic_broad_knng__k4_sigma1_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_55_synthetic_broad_nnk__k4_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_56_synthetic_broad_nnk__k4_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_57_synthetic_broad_vknng__alpha1_k4_k_max8_k_min2_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_58_synthetic_broad_vknng__alpha1_k4_k_max8_k_min2_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_59_synthetic_broad_vknng__alpha1_k4_k_max8_k_min2_heat_diffusion_temporal - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_66_synthetic_alpha_aew__k4_sigma_corr0_5_sigma_dist1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_67_synthetic_alpha_aew__k4_sigma_corr0_5_sigma_dist1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_68_synthetic_alpha_aew__k4_sigma_corr0_5_sigma_dist1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_69_synthetic_alpha_gaussian__sigma1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_70_synthetic_alpha_gaussian__sigma1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_71_synthetic_alpha_kalofolias_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_72_synthetic_alpha_kalofolias_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_73_synthetic_alpha_kalofolias_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_74_synthetic_alpha_knn__k5_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_75_synthetic_alpha_knn__k5_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_76_synthetic_alpha_knn__k5_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_77_synthetic_alpha_knng__k4_sigma1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_78_synthetic_alpha_knng__k4_sigma1_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_79_synthetic_alpha_nnk__k4_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_80_synthetic_alpha_nnk__k4_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_81_synthetic_alpha_vknng__alpha1_k4_k_max8_k_min2_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_82_synthetic_alpha_vknng__alpha1_k4_k_max8_k_min2_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_83_synthetic_alpha_vknng__alpha1_k4_k_max8_k_min2_mean - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_84_synthetic_beta_kalofolias_mean - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_85_synthetic_beta_knn__k3_mean - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_86_synthetic_beta_knn__k5_mean - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_87_synthetic_beta_knn__k5_mean - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_88_synthetic_beta_nnk__k4_mean - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_97_synthetic_gaussian_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_98_synthetic_gaussian_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_99_synthetic_gaussian_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_100_synthetic_gaussian_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_101_synthetic_nnk_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_102_synthetic_nnk_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_103_synthetic_nnk_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_104_synthetic_nnk_spherical_spline - no available datasets in ['synthetic']
+<< SKIPPED rerun_105_mne_sample_proxy_gaussian__sigma1_temporal_laplacian - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_106_mne_sample_proxy_gaussian__sigma1_temporal_laplacian - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_140_mne_sample_proxy_gaussian_trss - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_141_mne_sample_proxy_kalofolias_trss - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_161_synthetic_16ch_gaussian_trss - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_162_synthetic_16ch_kalofolias_trss - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_163_synthetic_16ch_kalofolias_trss - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_164_synthetic_16ch_knn__k3_trss - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_165_synthetic_32ch_gaussian_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_166_synthetic_32ch_gaussian_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_167_synthetic_32ch_gaussian_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_168_synthetic_32ch_gaussian_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_169_synthetic_32ch_kalofolias_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_170_synthetic_32ch_kalofolias_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_171_synthetic_32ch_kalofolias_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_172_synthetic_32ch_kalofolias_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_173_synthetic_32ch_knn__k3_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_174_synthetic_32ch_knn__k3_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_175_synthetic_32ch_knn__k3_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_176_synthetic_32ch_knn__k3_trss - no available datasets in ['synthetic_32ch']
+<< SKIPPED rerun_177_synthetic_beta_aew__k4_sigma_corr0_5_sigma_dist1_trss - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_178_synthetic_beta_gaussian__sigma1_trss - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_179_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_trss - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_180_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_trss - no available datasets in ['synthetic_broad']
+<< SKIPPED rerun_184_mne_sample_proxy_gaussian__sigma1_tv - no available datasets in ['mne_sample_proxy']
+<< SKIPPED rerun_196_synthetic_16ch_kalofolias_tv - no available datasets in ['synthetic_16ch']
+<< SKIPPED rerun_197_synthetic_alpha_gaussian__sigma1_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_198_synthetic_alpha_knn__k3_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_199_synthetic_alpha_knng__k4_sigma1_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_200_synthetic_alpha_nnk__k4_tv - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_201_synthetic_beta_aew__k4_sigma_corr0_5_sigma_dist1_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_202_synthetic_beta_aew__k4_sigma_corr0_5_sigma_dist1_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_203_synthetic_beta_kalofolias_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_204_synthetic_beta_knn__k5_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_205_synthetic_beta_vknng__alpha1_k4_k_max8_k_min2_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_206_synthetic_beta_vknng__alpha1_k4_k_max8_k_min2_tv - no available datasets in ['synthetic_beta']
+<< SKIPPED rerun_207_synthetic_alpha_aew__k4_sigma_corr0_5_sigma_dist1_wavelet_temporal - no available datasets in ['synthetic_alpha']
+<< SKIPPED rerun_208_synthetic_alpha_nnk__k4_wavelet_temporal - no available datasets in ['synthetic_alpha']
+
+All missing tags processed.
+Saving snapshot using save_reruns_snapshot.py
+Target folder: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\results\reruns_lt20_20260414_004732
+Copied files:
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_integration_log.md
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_qa_report.md
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_raw.csv
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_run_metadata.json
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_significance.csv
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_stats.csv
+- results\reruns_lt20_20260414_004732\rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_107_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_108_bci_competition_iv_2a_proxy_gaussian__sigma1_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_109_bci_competition_iv_2a_proxy_kalofolias_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_110_bci_competition_iv_2a_proxy_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_111_bci_competition_iv_2a_proxy_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_112_bci_competition_proxy_gaussian_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_113_bci_competition_proxy_gaussian_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_114_bci_competition_proxy_kalofolias_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_115_bci_competition_proxy_kalofolias_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_116_bci_competition_proxy_kalofolias_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_117_bci_competition_proxy_kalofolias_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_118_bci_competition_proxy_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_119_bci_iv2a_real_s1_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_120_bci_iv2a_real_s1_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_121_bci_iv2a_real_s1_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_122_bci_iv2a_real_s1_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_123_bci_iv2a_real_s1_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_124_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_125_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_126_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_127_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_128_bci_iv2a_real_s2_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_129_bci_iv2a_real_s2_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_130_bci_iv2a_real_s2_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_131_iris_graph_signal_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_132_iris_graph_signal_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_133_iris_graph_signal_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_134_iris_graph_signal_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_135_iris_graph_signal_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_136_iris_graph_signal_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_137_iris_graph_signal_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_138_iv100hz_mat_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_139_iv100hz_mat_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_142_physionet_eegmmidb_aew_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_143_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_144_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_145_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_146_physionet_eegmmidb_gaussian_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_147_physionet_eegmmidb_gaussian_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_148_physionet_eegmmidb_knn_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_149_physionet_eegmmidb_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_14_bci_iv2a_real_s1_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_150_physionet_eegmmidb_knng_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_151_physionet_eegmmidb_nnk_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_152_physionet_eegmmidb_nnk__k4_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_153_physionet_eegmmidb_vknng_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_154_physionet_eegmmidb_real_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_155_physionet_eegmmidb_real_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_156_physionet_eegmmidb_real_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_157_physionet_eegmmidb_real_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_158_physionet_eegmmidb_real_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_159_physionet_eegmmidb_real_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_15_bci_iv2a_real_s1_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_160_physionet_eegmmidb_real_knn__k5_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_16_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_17_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_181_bci_competition_iv_2a_proxy_knn__k3_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_182_iv100hz_mat_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_183_iv100hz_mat_knn__k5_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_185_movielens_graph_signal_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_186_movielens_graph_signal_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_187_movielens_graph_signal_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_188_movielens_graph_signal_knn__k3_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_189_movielens_graph_signal_knn__k5_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_18_bci_iv2a_real_s2_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_190_movielens_graph_signal_knn__k5_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_191_physionet_eegmmidb_gaussian_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_192_physionet_eegmmidb_knn__k5_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_193_physionet_eegmmidb_knng__k4_sigma1_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_194_physionet_eegmmidb_nnk__k4_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_195_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_19_bci_iv2a_real_s2_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_20_iris_graph_signal_gaussian__sigma1.0_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_21_iris_graph_signal_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_22_iv100hz_mat_knn__k3_trss_figures
+- results\reruns_lt20_20260414_004732\rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_31_physionet_eegmmidb_knng__k4_sigma1_gsp_figures
+- results\reruns_lt20_20260414_004732\rerun_32_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_gsp_figures
+- results\reruns_lt20_20260414_004732\rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_figures
+- results\reruns_lt20_20260414_004732\rerun_34_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_figures
+- results\reruns_lt20_20260414_004732\rerun_35_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal_figures
+- results\reruns_lt20_20260414_004732\rerun_35_iv100hz_mat_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_37_movielens_graph_signal_gaussian__sigma1.0_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_38_movielens_graph_signal_knn__k3_tv_figures
+- results\reruns_lt20_20260414_004732\rerun_60_physionet_eegmmidb_aew__k4_sigma_corr0_5_sigma_dist1_linear_figures
+- results\reruns_lt20_20260414_004732\rerun_61_physionet_eegmmidb_knn__k5_linear_figures
+- results\reruns_lt20_20260414_004732\rerun_62_physionet_eegmmidb_knng__k4_sigma1_linear_figures
+- results\reruns_lt20_20260414_004732\rerun_63_physionet_eegmmidb_nnk__k4_linear_figures
+- results\reruns_lt20_20260414_004732\rerun_64_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_linear_figures
+- results\reruns_lt20_20260414_004732\rerun_65_movielens_graph_signal_gaussian__sigma1.0_mean_figures
+- results\reruns_lt20_20260414_004732\rerun_89_bci_iv2a_real_s3_knn__k3_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_90_bci_iv2a_real_s3_knn__k3_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_91_bci_iv2a_real_s3_knn__k3_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_92_physionet_eegmmidb_knn__k5_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_93_physionet_eegmmidb_knng__k4_sigma1_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_94_physionet_eegmmidb_nnk__k4_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_95_physionet_eegmmidb_vknng__alpha1_k4_k_max8_k_min2_nearest_figures
+- results\reruns_lt20_20260414_004732\rerun_96_physionet_eegmmidb_gaussian_rbfi_tps_figures
+- results\reruns_lt20_20260414_004732\analysis_batches\rerun_selection_lt5.csv
+- results\reruns_lt20_20260414_004732\analysis_batches\rerun_selection_lt20.csv
+- results\reruns_lt20_20260414_004732\run_reruns_selected.py
+
+Done.
+Snapshot saved.
+=== resume_lt20_and_run.py END Tue Apr 14 00:47:32 2026 ===

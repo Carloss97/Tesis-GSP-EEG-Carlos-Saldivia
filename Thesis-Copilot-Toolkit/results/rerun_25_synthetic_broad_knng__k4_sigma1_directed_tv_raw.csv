@@ -1,0 +1,2 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,knng,directed_tv,0.1,0,3.2855643550440414e-06,1.4130322562334116e-05,11.268841622426981,8.1444017590533e-05,{},,2,0.3827730999983032

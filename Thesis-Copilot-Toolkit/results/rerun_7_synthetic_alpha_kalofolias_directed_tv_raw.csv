@@ -1,0 +1,2 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,kalofolias,directed_tv,0.3,0,1.1675576123162766e-05,2.645581187016699e-05,5.70117461618555,0.00014722087724075957,{},,7,0.44604270000127144

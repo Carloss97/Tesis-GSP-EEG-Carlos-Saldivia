@@ -1,0 +1,86 @@
+{
+  "tag": "rerun_98_synthetic_gaussian_spherical_spline",
+  "timestamp": "2026-04-14T04:55:29.846941+00:00",
+  "description": "Rerun combo: synthetic gaussian spherical_spline mr=0.2",
+  "objective": "Auto-generated rerun",
+  "fase": "Rerun",
+  "datasets": [
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "gaussian__sigma1"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "spherical_spline"
+  ],
+  "n_methods": 1,
+  "n_rows": 1,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": NaN,
+    "inst_median_mae": NaN,
+    "gain_pct": 0.0,
+    "p_value": 1.0
+  },
+  "best_method": "spherical_spline",
+  "best_mae": 3.0454977127202724e-06,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real"
+  ]
+}

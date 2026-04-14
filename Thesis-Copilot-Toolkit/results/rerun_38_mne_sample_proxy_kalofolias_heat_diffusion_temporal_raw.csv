@@ -1,0 +1,2 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,kalofolias,heat_diffusion_temporal,0.3,0,9.58031324632938e-06,2.251575685301673e-05,7.636861279605522,0.00013577870329693436,{},,7,0.04523530000005849

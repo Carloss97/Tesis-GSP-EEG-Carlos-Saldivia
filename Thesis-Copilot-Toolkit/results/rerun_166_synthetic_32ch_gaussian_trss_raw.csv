@@ -1,0 +1,2 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,gaussian__sigma1,trss,0.2,0,3.027581370299255e-06,9.479906542262843e-06,15.082753265397761,6.773958246004544e-05,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.01873660000273958

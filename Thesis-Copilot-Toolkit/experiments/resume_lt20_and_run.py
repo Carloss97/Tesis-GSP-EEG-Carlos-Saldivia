@@ -19,6 +19,7 @@ RUNNER = ROOT / 'experiments' / 'run_reruns_selected.py'
 SAVE_SCRIPT = ROOT / 'experiments' / 'save_reruns_snapshot.py'
 RESULTS = ROOT / 'results'
 LOG = ROOT / 'experiments' / 'resume_lt20_and_run.log'
+SKIP_FILE = ROOT / 'experiments' / 'resume_lt20_and_run.skip'
 
 def load_runner_module(path: Path):
     spec = importlib.util.spec_from_file_location('runner_mod', str(path))
@@ -51,6 +52,17 @@ def main():
 
         keys = [d.key for d in defs]
         missing = [k for k in keys if not (RESULTS / f"{k}_raw.csv").exists()]
+
+        # load skip list if present (one key per line)
+        skip_keys = set()
+        if SKIP_FILE.exists():
+            try:
+                with open(SKIP_FILE, 'r', encoding='utf-8') as sf:
+                    skip_keys = set(line.strip() for line in sf if line.strip())
+                fh.write(f"Loaded skip list: {sorted(skip_keys)}\n")
+            except Exception:
+                fh.write('Failed to read skip file:\n')
+                fh.write(traceback.format_exc())
 
         fh.write('Total tags: %d, missing: %d\n' % (len(keys), len(missing)))
         print('Total tags:', len(keys), 'missing:', len(missing))
@@ -98,9 +110,16 @@ def main():
                 fh.write(f'UNKNOWN KEY {k}\n')
                 continue
 
-            fh.write(f"\n>> START {k} at {time.ctime()}\n")
-            fh.flush()
-            print('Starting', k)
+            # allow explicit skip of problematic iterations via skip file
+                if k in skip_keys:
+                    fh.write(f"\n<< SKIPPED_BY_SKIPLIST {k} at {time.ctime()}\n")
+                    fh.flush()
+                    print('Skipped by skiplist', k)
+                    continue
+
+                fh.write(f"\n>> START {k} at {time.ctime()}\n")
+                fh.flush()
+                print('Starting', k)
             try:
                 # Skip iterations if none of the requested datasets are available
                 available_ds = [ds for ds in it.datasets if availability.get(ds, {}).get('ok')]
