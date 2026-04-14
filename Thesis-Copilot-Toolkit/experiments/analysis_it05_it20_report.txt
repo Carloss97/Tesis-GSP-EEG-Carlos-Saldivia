@@ -1,0 +1,52 @@
+﻿Analysis IT05 (aggregated) â€” Top candidates
+
+Top 3 generalists:
+- aew__k4_sigma_corr0_5_sigma_dist1 | heat_diffusion_temporal: mean_mae=0.1231 std=0.097 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_beta: mae=0.0658
+- aew__k4_sigma_corr0_5_sigma_dist1 | trss: mean_mae=0.1234 std=0.0968 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_beta: mae=0.0658
+- kalofolias | directed_tv: mean_mae=0.1235 std=0.0975 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_beta: mae=0.0659
+
+Top 3 temporal:
+- knn__k3 | spline_temporal: mean_mae=0 std=0 datasets=4
+- gaussian__sigma1 | spline_temporal: mean_mae=0 std=0 datasets=4
+- knn__k5 | spline_temporal: mean_mae=0 std=0 datasets=4
+
+Top 3 instant:
+- aew__k4_sigma_corr0_5_sigma_dist1 | gsmooth: mean_mae=0.1243 std=0.099 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_alpha: mae=0.0654
+- kalofolias | mean: mean_mae=0.1244 std=0.0993 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_alpha: mae=0.0589
+- aew__k4_sigma_corr0_5_sigma_dist1 | mean: mean_mae=0.1244 std=0.0993 datasets=4
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - physionet_eegmmidb: mae=0
+    - synthetic_alpha: mae=0.0589
+
+Baselines (best graph per method):
+- method=mean: best_graph=nnk__k4 mean_mae=0.1244
+- method=nearest: best_graph=nnk__k4 mean_mae=0.16
+- method=linear: best_graph=nnk__k4 mean_mae=0.1471
+

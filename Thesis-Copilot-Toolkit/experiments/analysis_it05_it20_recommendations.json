@@ -1,0 +1,229 @@
+﻿{
+    "generalists":  [
+                        {
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "heat_diffusion_temporal",
+                            "mean_mae":  0.1231047779975913,
+                            "std_mae":  0.097040173304088539,
+                            "datasets_count":  4,
+                            "top_datasets":  [
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.938870028632922E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  5.0664669730758188E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  9.8310108824802752E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.3759773098001478E-05
+                                                 },
+                                                 {
+                                                     "dataset":  "synthetic_beta",
+                                                     "mae":  0.0658338843190566
+                                                 }
+                                             ]
+                        },
+                        {
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "trss",
+                            "mean_mae":  0.12341182811204492,
+                            "std_mae":  0.096771740194592282,
+                            "datasets_count":  4,
+                            "top_datasets":  [
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.6890409224632534E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  3.976409835055152E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  8.2528013224381391E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.2274095026911852E-05
+                                                 },
+                                                 {
+                                                     "dataset":  "synthetic_beta",
+                                                     "mae":  0.0657506991012469
+                                                 }
+                                             ]
+                        },
+                        {
+                            "graph":  "kalofolias",
+                            "method":  "directed_tv",
+                            "mean_mae":  0.12353007613416116,
+                            "std_mae":  0.097505655866340607,
+                            "datasets_count":  4,
+                            "top_datasets":  [
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  2.234582944136884E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  5.9161924400067482E-06
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.1186600733381154E-05
+                                                 },
+                                                 {
+                                                     "dataset":  "physionet_eegmmidb",
+                                                     "mae":  1.5003937671977897E-05
+                                                 },
+                                                 {
+                                                     "dataset":  "synthetic_beta",
+                                                     "mae":  0.0658848814724172
+                                                 }
+                                             ]
+                        }
+                    ],
+    "temporal":  [
+                     {
+                         "graph":  "knn__k3",
+                         "method":  "spline_temporal",
+                         "mean_mae":  null,
+                         "std_mae":  null,
+                         "datasets_count":  4,
+                         "top_datasets":  {
+
+                                          }
+                     },
+                     {
+                         "graph":  "gaussian__sigma1",
+                         "method":  "spline_temporal",
+                         "mean_mae":  null,
+                         "std_mae":  null,
+                         "datasets_count":  4,
+                         "top_datasets":  {
+
+                                          }
+                     },
+                     {
+                         "graph":  "knn__k5",
+                         "method":  "spline_temporal",
+                         "mean_mae":  null,
+                         "std_mae":  null,
+                         "datasets_count":  4,
+                         "top_datasets":  {
+
+                                          }
+                     }
+                 ],
+    "instant":  [
+                    {
+                        "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                        "method":  "gsmooth",
+                        "mean_mae":  0.12429792186147907,
+                        "std_mae":  0.099044897861070152,
+                        "datasets_count":  4,
+                        "top_datasets":  [
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  1.8358540862205184E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  4.2010509117873008E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  8.4536682541107727E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  1.2361070948037847E-05
+                                             },
+                                             {
+                                                 "dataset":  "synthetic_alpha",
+                                                 "mae":  0.0654326345423263
+                                             }
+                                         ]
+                    },
+                    {
+                        "graph":  "kalofolias",
+                        "method":  "mean",
+                        "mean_mae":  0.12442214407126183,
+                        "std_mae":  0.099317010682809612,
+                        "datasets_count":  4,
+                        "top_datasets":  [
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  2.380724431818181E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  4.5684974747474739E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  9.4801515151515137E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  1.2742657342657345E-05
+                                             },
+                                             {
+                                                 "dataset":  "synthetic_alpha",
+                                                 "mae":  0.0589478976695532
+                                             }
+                                         ]
+                    },
+                    {
+                        "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                        "method":  "mean",
+                        "mean_mae":  0.12442214407126183,
+                        "std_mae":  0.099317010682809612,
+                        "datasets_count":  4,
+                        "top_datasets":  [
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  2.380724431818181E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  4.5684974747474739E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  9.4801515151515137E-06
+                                             },
+                                             {
+                                                 "dataset":  "physionet_eegmmidb",
+                                                 "mae":  1.2742657342657345E-05
+                                             },
+                                             {
+                                                 "dataset":  "synthetic_alpha",
+                                                 "mae":  0.0589478976695532
+                                             }
+                                         ]
+                    }
+                ],
+    "baselines":  [
+                      {
+                          "method":  "mean",
+                          "mean_mae":  0.12442214407126183,
+                          "best_graph":  "nnk__k4"
+                      },
+                      {
+                          "method":  "nearest",
+                          "mean_mae":  0.15996275862916648,
+                          "best_graph":  "nnk__k4"
+                      },
+                      {
+                          "method":  "linear",
+                          "mean_mae":  0.14709275485528048,
+                          "best_graph":  "nnk__k4"
+                      }
+                  ]
+}

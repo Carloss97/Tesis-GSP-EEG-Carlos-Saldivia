@@ -1,0 +1,604 @@
+﻿{
+    "per_graph":  [
+                      {
+                          "graph":  "knn__k3",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.21068951406191352,
+                          "mean_of_median_mae":  0.23383806139289018,
+                          "mean_of_std_mae":  0.13865475936420624,
+                          "best_combo":  "knn__k3|mean",
+                          "best_combo_mean":  0.136906055370408
+                      },
+                      {
+                          "graph":  "nnk__k4",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.19767695155593837,
+                          "mean_of_median_mae":  0.21486361251623476,
+                          "mean_of_std_mae":  0.13282278622624505,
+                          "best_combo":  "nnk__k4|mean",
+                          "best_combo_mean":  0.136906055370408
+                      },
+                      {
+                          "graph":  "gaussian__sigma1",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.22336000515595653,
+                          "mean_of_median_mae":  0.25056638316933644,
+                          "mean_of_std_mae":  0.14472012185162658,
+                          "best_combo":  "gaussian__sigma1|heat_diffusion_temporal",
+                          "best_combo_mean":  0.136500203145853
+                      },
+                      {
+                          "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.18794591319059592,
+                          "mean_of_median_mae":  0.19913938755640592,
+                          "mean_of_std_mae":  0.12833082212092495,
+                          "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal",
+                          "best_combo_mean":  0.135566689682746
+                      },
+                      {
+                          "graph":  "kalofolias",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.306164759163094,
+                          "mean_of_median_mae":  0.34481665314585941,
+                          "mean_of_std_mae":  0.20006903144206079,
+                          "best_combo":  "kalofolias|directed_tv",
+                          "best_combo_mean":  0.135783637686722
+                      },
+                      {
+                          "graph":  "knn__k5",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.21788781128134888,
+                          "mean_of_median_mae":  0.24293202061170421,
+                          "mean_of_std_mae":  0.14197167862909854,
+                          "best_combo":  "knn__k5|mean",
+                          "best_combo_mean":  0.136906055370408
+                      },
+                      {
+                          "graph":  "vknng__alpha1_k4_k_max8_k_min2",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.21466100904708602,
+                          "mean_of_median_mae":  0.2385293472539447,
+                          "mean_of_std_mae":  0.14046650495040947,
+                          "best_combo":  "vknng__alpha1_k4_k_max8_k_min2|mean",
+                          "best_combo_mean":  0.136906055370408
+                      },
+                      {
+                          "graph":  "knng__k4_sigma1",
+                          "combos":  22,
+                          "mean_of_mean_mae":  0.20999144879423837,
+                          "mean_of_median_mae":  0.23211110431453769,
+                          "mean_of_std_mae":  0.13811062928336473,
+                          "best_combo":  "knng__k4_sigma1|mean",
+                          "best_combo_mean":  0.136906055370408
+                      }
+                  ],
+    "per_method":  [
+                       {
+                           "method":  "spline_temporal",
+                           "combos":  8,
+                           "mean_of_mean_mae":  null,
+                           "mean_of_median_mae":  null,
+                           "mean_of_std_mae":  null,
+                           "best_combo":  null,
+                           "best_combo_mean":  null
+                       },
+                       {
+                           "method":  "heat_diffusion_temporal",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.27483670696943252,
+                           "mean_of_median_mae":  0.27114717995659321,
+                           "mean_of_std_mae":  0.20037934835610077,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal",
+                           "best_combo_mean":  0.135566689682746
+                       },
+                       {
+                           "method":  "directed_tv",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.14279133367531113,
+                           "mean_of_median_mae":  0.15508409133089712,
+                           "mean_of_std_mae":  0.1003194915919559,
+                           "best_combo":  "kalofolias|directed_tv",
+                           "best_combo_mean":  0.135783637686722
+                       },
+                       {
+                           "method":  "trss",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.14631570644883538,
+                           "mean_of_median_mae":  0.14343806502497786,
+                           "mean_of_std_mae":  0.10728089004104907,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|trss",
+                           "best_combo_mean":  0.136464347269463
+                       },
+                       {
+                           "method":  "mean",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.136906055370408,
+                           "mean_of_median_mae":  0.129791748850282,
+                           "mean_of_std_mae":  0.10046320922153498,
+                           "best_combo":  "gaussian__sigma1|mean",
+                           "best_combo_mean":  0.136906055370408
+                       },
+                       {
+                           "method":  "tv",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.138087621898884,
+                           "mean_of_median_mae":  0.13158524775486863,
+                           "mean_of_std_mae":  0.10098336685649562,
+                           "best_combo":  "kalofolias|tv",
+                           "best_combo_mean":  0.136940273164328
+                       },
+                       {
+                           "method":  "gsmooth",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.13943089774633649,
+                           "mean_of_median_mae":  0.13141441976966961,
+                           "mean_of_std_mae":  0.10230175012772139,
+                           "best_combo":  "gaussian__sigma1|gsmooth",
+                           "best_combo_mean":  0.137314093996258
+                       },
+                       {
+                           "method":  "gsp",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.15180336744943049,
+                           "mean_of_median_mae":  0.149064753010329,
+                           "mean_of_std_mae":  0.11233635129439273,
+                           "best_combo":  "gaussian__sigma1|gsp",
+                           "best_combo_mean":  0.138463468072461
+                       },
+                       {
+                           "method":  "wavelet_temporal",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.1496072680471654,
+                           "mean_of_median_mae":  0.15381796444248264,
+                           "mean_of_std_mae":  0.10269500539272283,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|wavelet_temporal",
+                           "best_combo_mean":  0.139445826816921
+                       },
+                       {
+                           "method":  "idw",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.140492867240786,
+                           "mean_of_median_mae":  0.131749665900742,
+                           "mean_of_std_mae":  0.10355960331051597,
+                           "best_combo":  "knng__k4_sigma1|idw",
+                           "best_combo_mean":  0.140492867240786
+                       },
+                       {
+                           "method":  "tikhonov",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.22864449388231251,
+                           "mean_of_median_mae":  0.25957376511589542,
+                           "mean_of_std_mae":  0.14039843727535814,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|tikhonov",
+                           "best_combo_mean":  0.155004206128137
+                       },
+                       {
+                           "method":  "linear",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.163364850427048,
+                           "mean_of_median_mae":  0.169744893997533,
+                           "mean_of_std_mae":  0.120618740316515,
+                           "best_combo":  "kalofolias|linear",
+                           "best_combo_mean":  0.163364850427048
+                       },
+                       {
+                           "method":  "puy",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.32971304478808239,
+                           "mean_of_median_mae":  0.40551129146292569,
+                           "mean_of_std_mae":  0.1887459843317516,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|puy",
+                           "best_combo_mean":  0.170602099282217
+                       },
+                       {
+                           "method":  "nearest",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.17663986029120898,
+                           "mean_of_median_mae":  0.176866753520729,
+                           "mean_of_std_mae":  0.129888000966192,
+                           "best_combo":  "nnk__k4|nearest",
+                           "best_combo_mean":  0.176639860291209
+                       },
+                       {
+                           "method":  "rbfi_tps",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.18089014524944896,
+                           "mean_of_median_mae":  0.183393548660453,
+                           "mean_of_std_mae":  0.135855333182157,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|rbfi_tps",
+                           "best_combo_mean":  0.180890145249449
+                       },
+                       {
+                           "method":  "rbfi_mq",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.18986612624701601,
+                           "mean_of_median_mae":  0.190120089820385,
+                           "mean_of_std_mae":  0.141525867341367,
+                           "best_combo":  "knn__k3|rbfi_mq",
+                           "best_combo_mean":  0.189866126247016
+                       },
+                       {
+                           "method":  "graph_time_tikhonov",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.3232542319990645,
+                           "mean_of_median_mae":  0.39626752434257478,
+                           "mean_of_std_mae":  0.182218194254641,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|graph_time_tikhonov",
+                           "best_combo_mean":  0.20169934068248
+                       },
+                       {
+                           "method":  "spherical_spline",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.205066602847755,
+                           "mean_of_median_mae":  0.211164995624314,
+                           "mean_of_std_mae":  0.165298921592595,
+                           "best_combo":  "knn__k5|spherical_spline",
+                           "best_combo_mean":  0.205066602847755
+                       },
+                       {
+                           "method":  "spline_surface",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.23670536352034,
+                           "mean_of_median_mae":  0.258585074465057,
+                           "mean_of_std_mae":  0.164931470132765,
+                           "best_combo":  "nnk__k4|spline_surface",
+                           "best_combo_mean":  0.23670536352034
+                       },
+                       {
+                           "method":  "temporal_laplacian",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.36051476871407173,
+                           "mean_of_median_mae":  0.45036881673478613,
+                           "mean_of_std_mae":  0.20046890568680611,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|temporal_laplacian",
+                           "best_combo_mean":  0.28237669160833
+                       },
+                       {
+                           "method":  "sobolev",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.42715447416143437,
+                           "mean_of_median_mae":  0.54199599413980726,
+                           "mean_of_std_mae":  0.23565206359321636,
+                           "best_combo":  "aew__k4_sigma_corr0_5_sigma_dist1|sobolev",
+                           "best_combo_mean":  0.320548503200351
+                       },
+                       {
+                           "method":  "bgsrp",
+                           "combos":  8,
+                           "mean_of_mean_mae":  0.39990492018232882,
+                           "mean_of_median_mae":  0.49590511222209555,
+                           "mean_of_std_mae":  0.22258819153747916,
+                           "best_combo":  "knn__k3|bgsrp",
+                           "best_combo_mean":  0.384590581558975
+                       }
+                   ],
+    "top_by_mean":  [
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal",
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "heat_diffusion_temporal",
+                            "mean_mae":  0.135566689682746,
+                            "median_mae":  0.1325882316443,
+                            "std_mae":  0.0988087927240152,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "kalofolias|directed_tv",
+                            "graph":  "kalofolias",
+                            "method":  "directed_tv",
+                            "mean_mae":  0.135783637686722,
+                            "median_mae":  0.133483949571419,
+                            "std_mae":  0.0989511788039863,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|trss",
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "trss",
+                            "mean_mae":  0.136464347269463,
+                            "median_mae":  0.129532810483259,
+                            "std_mae":  0.0992394723119116,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|heat_diffusion_temporal",
+                            "graph":  "gaussian__sigma1",
+                            "method":  "heat_diffusion_temporal",
+                            "mean_mae":  0.136500203145853,
+                            "median_mae":  0.131565985431117,
+                            "std_mae":  0.099919218796513,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|directed_tv",
+                            "graph":  "gaussian__sigma1",
+                            "method":  "directed_tv",
+                            "mean_mae":  0.136801018231796,
+                            "median_mae":  0.138096698874418,
+                            "std_mae":  0.0993150157540393,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|mean",
+                            "graph":  "gaussian__sigma1",
+                            "method":  "mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "std_mae":  0.100463209221535,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "knng__k4_sigma1|mean",
+                            "graph":  "knng__k4_sigma1",
+                            "method":  "mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "std_mae":  0.100463209221535,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|mean",
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "std_mae":  0.100463209221535,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "nnk__k4|mean",
+                            "graph":  "nnk__k4",
+                            "method":  "mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "std_mae":  0.100463209221535,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        },
+                        {
+                            "combo":  "knn__k5|mean",
+                            "graph":  "knn__k5",
+                            "method":  "mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "std_mae":  0.100463209221535,
+                            "datasets_count":  4,
+                            "real_datasets_count":  1,
+                            "real_obs_count":  4,
+                            "count":  18
+                        }
+                    ],
+    "top_by_median":  [
+                          {
+                              "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|gsmooth",
+                              "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                              "method":  "gsmooth",
+                              "mean_mae":  0.137605209257611,
+                              "median_mae":  0.126404760110704,
+                              "std_mae":  0.101203765052452,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "knn__k5|tv",
+                              "graph":  "knn__k5",
+                              "method":  "tv",
+                              "mean_mae":  0.137128063422392,
+                              "median_mae":  0.129473768186945,
+                              "std_mae":  0.100514952577833,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "gaussian__sigma1|gsmooth",
+                              "graph":  "gaussian__sigma1",
+                              "method":  "gsmooth",
+                              "mean_mae":  0.137314093996258,
+                              "median_mae":  0.129492654488215,
+                              "std_mae":  0.100607131661282,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|trss",
+                              "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                              "method":  "trss",
+                              "mean_mae":  0.136464347269463,
+                              "median_mae":  0.129532810483259,
+                              "std_mae":  0.0992394723119116,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "gaussian__sigma1|tv",
+                              "graph":  "gaussian__sigma1",
+                              "method":  "tv",
+                              "mean_mae":  0.137137017283464,
+                              "median_mae":  0.129536959130518,
+                              "std_mae":  0.100882876356578,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "kalofolias|tv",
+                              "graph":  "kalofolias",
+                              "method":  "tv",
+                              "mean_mae":  0.136940273164328,
+                              "median_mae":  0.129791736158223,
+                              "std_mae":  0.100490506654046,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "nnk__k4|mean",
+                              "graph":  "nnk__k4",
+                              "method":  "mean",
+                              "mean_mae":  0.136906055370408,
+                              "median_mae":  0.129791748850282,
+                              "std_mae":  0.100463209221535,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "gaussian__sigma1|mean",
+                              "graph":  "gaussian__sigma1",
+                              "method":  "mean",
+                              "mean_mae":  0.136906055370408,
+                              "median_mae":  0.129791748850282,
+                              "std_mae":  0.100463209221535,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "knn__k3|mean",
+                              "graph":  "knn__k3",
+                              "method":  "mean",
+                              "mean_mae":  0.136906055370408,
+                              "median_mae":  0.129791748850282,
+                              "std_mae":  0.100463209221535,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          },
+                          {
+                              "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|mean",
+                              "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                              "method":  "mean",
+                              "mean_mae":  0.136906055370408,
+                              "median_mae":  0.129791748850282,
+                              "std_mae":  0.100463209221535,
+                              "datasets_count":  4,
+                              "real_datasets_count":  1,
+                              "real_obs_count":  4,
+                              "count":  18
+                          }
+                      ],
+    "top10_stats":  [
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal",
+                            "mean_mae":  0.135566689682746,
+                            "median_mae":  0.1325882316443,
+                            "z_score":  -0.67188191510938544,
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "heat_diffusion_temporal"
+                        },
+                        {
+                            "combo":  "kalofolias|directed_tv",
+                            "mean_mae":  0.135783637686722,
+                            "median_mae":  0.133483949571419,
+                            "z_score":  -0.670176690376063,
+                            "graph":  "kalofolias",
+                            "method":  "directed_tv"
+                        },
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|trss",
+                            "mean_mae":  0.136464347269463,
+                            "median_mae":  0.129532810483259,
+                            "z_score":  -0.66482627094179159,
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "trss"
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|heat_diffusion_temporal",
+                            "mean_mae":  0.136500203145853,
+                            "median_mae":  0.131565985431117,
+                            "z_score":  -0.66454444153504588,
+                            "graph":  "gaussian__sigma1",
+                            "method":  "heat_diffusion_temporal"
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|directed_tv",
+                            "mean_mae":  0.136801018231796,
+                            "median_mae":  0.138096698874418,
+                            "z_score":  -0.66218001634880053,
+                            "graph":  "gaussian__sigma1",
+                            "method":  "directed_tv"
+                        },
+                        {
+                            "combo":  "gaussian__sigma1|mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "z_score":  -0.66135441794090533,
+                            "graph":  "gaussian__sigma1",
+                            "method":  "mean"
+                        },
+                        {
+                            "combo":  "knng__k4_sigma1|mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "z_score":  -0.66135441794090533,
+                            "graph":  "knng__k4_sigma1",
+                            "method":  "mean"
+                        },
+                        {
+                            "combo":  "aew__k4_sigma_corr0_5_sigma_dist1|mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "z_score":  -0.66135441794090533,
+                            "graph":  "aew__k4_sigma_corr0_5_sigma_dist1",
+                            "method":  "mean"
+                        },
+                        {
+                            "combo":  "nnk__k4|mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "z_score":  -0.66135441794090533,
+                            "graph":  "nnk__k4",
+                            "method":  "mean"
+                        },
+                        {
+                            "combo":  "knn__k5|mean",
+                            "mean_mae":  0.136906055370408,
+                            "median_mae":  0.129791748850282,
+                            "z_score":  -0.66135441794090533,
+                            "graph":  "knn__k5",
+                            "method":  "mean"
+                        }
+                    ],
+    "global_mean":  0.22104717653127148,
+    "global_std":  0.12722546168638707
+}
