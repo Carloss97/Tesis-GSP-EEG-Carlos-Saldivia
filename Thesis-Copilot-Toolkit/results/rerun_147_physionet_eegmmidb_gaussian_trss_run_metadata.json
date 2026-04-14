@@ -1,0 +1,86 @@
+{
+  "tag": "rerun_147_physionet_eegmmidb_gaussian_trss",
+  "timestamp": "2026-04-14T01:50:55.937533+00:00",
+  "description": "Rerun combo: physionet_eegmmidb gaussian trss mr=0.3",
+  "objective": "Auto-generated rerun",
+  "fase": "Rerun",
+  "datasets": [
+    "physionet_eegmmidb_real"
+  ],
+  "graphs": [
+    "gaussian__sigma1"
+  ],
+  "missing_ratios": [
+    "0.3"
+  ],
+  "methods": [
+    "trss"
+  ],
+  "n_methods": 1,
+  "n_rows": 6,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": NaN,
+    "inst_median_mae": NaN,
+    "gain_pct": 0.0,
+    "p_value": 1.0
+  },
+  "best_method": "trss",
+  "best_mae": 5.583260225950468e-06,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "physionet_real"
+  ]
+}
