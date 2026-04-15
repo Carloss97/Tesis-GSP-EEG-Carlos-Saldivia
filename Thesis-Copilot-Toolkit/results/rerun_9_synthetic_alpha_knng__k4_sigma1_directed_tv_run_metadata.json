@@ -1,11 +1,11 @@
 {
   "tag": "rerun_9_synthetic_alpha_knng__k4_sigma1_directed_tv",
-  "timestamp": "2026-04-14T04:52:46.779114+00:00",
+  "timestamp": "2026-04-14T23:30:00.776091+00:00",
   "description": "Rerun combo: synthetic_alpha knng__k4_sigma1 directed_tv mr=0.3",
   "objective": "Auto-generated rerun",
   "fase": "Rerun",
   "datasets": [
-    "physionet_eegmmidb_real"
+    "synthetic_alpha"
   ],
   "graphs": [
     "knng"
@@ -17,7 +17,7 @@
     "directed_tv"
   ],
   "n_methods": 1,
-  "n_rows": 1,
+  "n_rows": 2,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,
@@ -26,7 +26,7 @@
     "p_value": 1.0
   },
   "best_method": "directed_tv",
-  "best_mae": 1.1674344612074134e-05,
+  "best_mae": 0.363989745666651,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
@@ -57,6 +57,13 @@
         25
       ]
     },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
     "iv100hz_mat": {
       "ok": true,
       "shape": [
@@ -77,10 +84,24 @@
         5085,
         80
       ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
     }
   },
   "blocked_requested_datasets": [],
   "requested_datasets": [
-    "physionet_real"
+    "synthetic_alpha"
   ]
 }

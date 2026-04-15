@@ -1,0 +1,100 @@
+{
+  "tag": "rerun_3_mne_sample_knn__k3_directed_tv",
+  "timestamp": "2026-04-14T23:29:42.369079+00:00",
+  "description": "Rerun combo: mne_sample knn__k3 directed_tv mr=0.1",
+  "objective": "Auto-generated rerun",
+  "fase": "Rerun",
+  "datasets": [
+    "mne_sample"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.1"
+  ],
+  "methods": [
+    "directed_tv"
+  ],
+  "n_methods": 1,
+  "n_rows": 2,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": NaN,
+    "inst_median_mae": NaN,
+    "gain_pct": 0.0,
+    "p_value": 1.0
+  },
+  "best_method": "directed_tv",
+  "best_mae": 0.07603178594973425,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "mne_sample"
+  ]
+}

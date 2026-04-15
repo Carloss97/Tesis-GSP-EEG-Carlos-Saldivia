@@ -1,0 +1,7 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,0,0.06968730399201656,0.578156875080825,-inf,4.669658796277105,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.21139359999870067
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,1,0.06512167224913891,0.5506399391967759,-inf,3.959087720386527,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.19216119999691728
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,2,0.07039709207845503,0.6565306837384223,-inf,4.825752035852749,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.19445050000285846
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,3,0.06598974198671871,0.5665634052652505,-inf,2.9704157540385343,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.19512229999963893
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,4,0.06520157293565253,0.4961316254840512,-inf,3.2321535573399793,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.20681160000094678
+movielens_graph_signal,gaussian__sigma1.0,tv,0.3,5,0.06804669562421975,0.5733833082196386,-inf,3.6255237431994245,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.22409820000029868

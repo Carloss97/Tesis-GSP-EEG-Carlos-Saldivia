@@ -1,11 +1,11 @@
 {
   "tag": "rerun_27_synthetic_16ch_kalofolias_graph_time_tikhonov",
-  "timestamp": "2026-04-14T04:54:00.248134+00:00",
+  "timestamp": "2026-04-14T23:30:56.062144+00:00",
   "description": "Rerun combo: synthetic_16ch kalofolias graph_time_tikhonov mr=0.4",
   "objective": "Auto-generated rerun",
   "fase": "Rerun",
   "datasets": [
-    "physionet_eegmmidb_real"
+    "synthetic_16ch"
   ],
   "graphs": [
     "kalofolias"
@@ -17,7 +17,7 @@
     "graph_time_tikhonov"
   ],
   "n_methods": 1,
-  "n_rows": 1,
+  "n_rows": 2,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,
@@ -26,7 +26,7 @@
     "p_value": 1.0
   },
   "best_method": "graph_time_tikhonov",
-  "best_mae": 2.071941454999972e-05,
+  "best_mae": 0.6390213186711464,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
@@ -57,6 +57,13 @@
         25
       ]
     },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
     "iv100hz_mat": {
       "ok": true,
       "shape": [
@@ -77,10 +84,45 @@
         5085,
         80
       ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_beta": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_broad": {
+      "ok": true,
+      "shape": [
+        1000,
+        32
+      ]
+    },
+    "synthetic_16ch": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
     }
   },
   "blocked_requested_datasets": [],
   "requested_datasets": [
-    "physionet_real"
+    "synthetic_16ch"
   ]
 }

@@ -1,11 +1,11 @@
 {
   "tag": "rerun_7_synthetic_alpha_kalofolias_directed_tv",
-  "timestamp": "2026-04-14T04:52:42.824852+00:00",
+  "timestamp": "2026-04-14T23:29:54.753012+00:00",
   "description": "Rerun combo: synthetic_alpha kalofolias directed_tv mr=0.3",
   "objective": "Auto-generated rerun",
   "fase": "Rerun",
   "datasets": [
-    "physionet_eegmmidb_real"
+    "synthetic_alpha"
   ],
   "graphs": [
     "kalofolias"
@@ -17,7 +17,7 @@
     "directed_tv"
   ],
   "n_methods": 1,
-  "n_rows": 1,
+  "n_rows": 2,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,
@@ -26,7 +26,7 @@
     "p_value": 1.0
   },
   "best_method": "directed_tv",
-  "best_mae": 1.1675576123162766e-05,
+  "best_mae": 0.21527672139564752,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
@@ -57,6 +57,13 @@
         25
       ]
     },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
     "iv100hz_mat": {
       "ok": true,
       "shape": [
@@ -77,10 +84,24 @@
         5085,
         80
       ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
     }
   },
   "blocked_requested_datasets": [],
   "requested_datasets": [
-    "physionet_real"
+    "synthetic_alpha"
   ]
 }

@@ -3,11 +3,11 @@
 ## Status: NO-GO
 
 ## Summary
-- Total rows: 18
+- Total rows: 2
 - Methods tested: 1
 - Graphs: 1
 - Missing scenarios: 1
-- Best method: directed_tv (MAE=1.2112e-06)
+- Best method: directed_tv (MAE=8.1834e-02)
 
 ## Statistical Test (Mann-Whitney U: TV < Instant)
 - TV median MAE:      nan
@@ -17,12 +17,14 @@
 - Decision:           **NO-GO**
 
 ## Dataset availability snapshot
+- bci_competition_iv_2a_proxy: OK
 - bci_iv2a_real_s1: OK
 - bci_iv2a_real_s2: OK
 - bci_iv2a_real_s3: OK
 - iris_graph_signal: OK
 - iv100hz_mat: OK
+- mne_sample: BLOCKED
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-14T01:48:02.679286+00:00
+Generated: 2026-04-14T23:29:32.550058+00:00

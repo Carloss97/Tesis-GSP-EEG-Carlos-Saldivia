@@ -1,0 +1,553 @@
+{
+  "generalists": [
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "heat_diffusion_temporal",
+      "mean_mae": 0.16413715432003986,
+      "std_mae": 0.07412302115826672,
+      "median_mae": 0.16586303078990416,
+      "count": 12,
+      "mean_rmse": 0.3511778796638427,
+      "mean_snr": 0.02911472342569411,
+      "datasets_count": 3,
+      "rank_metric": 0.2011986648991732,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658338843190566,
+          "rmse": 0.2286518423140863,
+          "snr": 0.0037342986187882
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0684982532883274,
+          "rmse": 0.2356680576660455,
+          "snr": -0.1474189419005786
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0806507255674608,
+          "rmse": 0.255076535905502,
+          "snr": 0.0119213570898058
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1195257423433965,
+          "rmse": 0.30847307377039,
+          "snr": 0.0064488300730634
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1305226489740586,
+          "rmse": 0.3173136009501798,
+          "snr": 0.313238914879397
+        }
+      ],
+      "it20_mean_mae": 0.23526198316398073
+    },
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "trss",
+      "mean_mae": 0.16454692145380098,
+      "std_mae": 0.0733924333696779,
+      "median_mae": 0.16382716945291048,
+      "count": 12,
+      "mean_rmse": 0.36036661968133216,
+      "mean_snr": 0.003524189708059704,
+      "datasets_count": 3,
+      "rank_metric": 0.20124313813863992,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0657506991012469,
+          "rmse": 0.230067137274653,
+          "snr": -0.0505339106098051
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0800887727837021,
+          "rmse": 0.2553677312136799,
+          "snr": 0.0010428446265721
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0807135649648896,
+          "rmse": 0.2833789369972749,
+          "snr": -1.5933223490412178
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1195827148985518,
+          "rmse": 0.3175250846715957,
+          "snr": 1.6028898058560723
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.120258014065597,
+          "rmse": 0.3107516625333942,
+          "snr": -0.0550220408629867
+        }
+      ],
+      "it20_mean_mae": 0.24088450052880345
+    },
+    {
+      "graph": "kalofolias",
+      "method": "directed_tv",
+      "mean_mae": 0.16470390640273241,
+      "std_mae": 0.0746121166385751,
+      "median_mae": 0.1659723543195345,
+      "count": 12,
+      "mean_rmse": 0.3520398842603185,
+      "mean_snr": 0.010026621025100659,
+      "datasets_count": 3,
+      "rank_metric": 0.20200996472201996,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658848814724172,
+          "rmse": 0.2285033452242554,
+          "snr": 0.0078859280759212
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0660360332661902,
+          "rmse": 0.2271444155856108,
+          "snr": 0.1705068012661878
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0814527029580689,
+          "rmse": 0.2575841402913497,
+          "snr": -0.0733234947737591
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1204880068466204,
+          "rmse": 0.3107471634836187,
+          "snr": -0.0569205819973068
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.1322596366778923,
+          "rmse": 0.3225847580696853,
+          "snr": 0.1218917565077326
+        }
+      ],
+      "it20_mean_mae": 0.23381213010721205
+    }
+  ],
+  "temporal": [
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "heat_diffusion_temporal",
+      "mean_mae": 0.16413715432003986,
+      "std_mae": 0.07412302115826672,
+      "median_mae": 0.16586303078990416,
+      "count": 12,
+      "mean_rmse": 0.3511778796638427,
+      "mean_snr": 0.02911472342569411,
+      "datasets_count": 3,
+      "rank_metric": 0.2011986648991732,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658338843190566,
+          "rmse": 0.2286518423140863,
+          "snr": 0.0037342986187882
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0684982532883274,
+          "rmse": 0.2356680576660455,
+          "snr": -0.1474189419005786
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0806507255674608,
+          "rmse": 0.255076535905502,
+          "snr": 0.0119213570898058
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1195257423433965,
+          "rmse": 0.30847307377039,
+          "snr": 0.0064488300730634
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1305226489740586,
+          "rmse": 0.3173136009501798,
+          "snr": 0.313238914879397
+        }
+      ],
+      "it20_mean_mae": 0.23526198316398073
+    },
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "trss",
+      "mean_mae": 0.16454692145380098,
+      "std_mae": 0.0733924333696779,
+      "median_mae": 0.16382716945291048,
+      "count": 12,
+      "mean_rmse": 0.36036661968133216,
+      "mean_snr": 0.003524189708059704,
+      "datasets_count": 3,
+      "rank_metric": 0.20124313813863992,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0657506991012469,
+          "rmse": 0.230067137274653,
+          "snr": -0.0505339106098051
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0800887727837021,
+          "rmse": 0.2553677312136799,
+          "snr": 0.0010428446265721
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0807135649648896,
+          "rmse": 0.2833789369972749,
+          "snr": -1.5933223490412178
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1195827148985518,
+          "rmse": 0.3175250846715957,
+          "snr": 1.6028898058560723
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.120258014065597,
+          "rmse": 0.3107516625333942,
+          "snr": -0.0550220408629867
+        }
+      ],
+      "it20_mean_mae": 0.24088450052880345
+    },
+    {
+      "graph": "kalofolias",
+      "method": "directed_tv",
+      "mean_mae": 0.16470390640273241,
+      "std_mae": 0.0746121166385751,
+      "median_mae": 0.1659723543195345,
+      "count": 12,
+      "mean_rmse": 0.3520398842603185,
+      "mean_snr": 0.010026621025100659,
+      "datasets_count": 3,
+      "rank_metric": 0.20200996472201996,
+      "temporal": true,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658848814724172,
+          "rmse": 0.2285033452242554,
+          "snr": 0.0078859280759212
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0660360332661902,
+          "rmse": 0.2271444155856108,
+          "snr": 0.1705068012661878
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0814527029580689,
+          "rmse": 0.2575841402913497,
+          "snr": -0.0733234947737591
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1204880068466204,
+          "rmse": 0.3107471634836187,
+          "snr": -0.0569205819973068
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.1322596366778923,
+          "rmse": 0.3225847580696853,
+          "snr": 0.1218917565077326
+        }
+      ],
+      "it20_mean_mae": 0.23381213010721205
+    }
+  ],
+  "instant": [
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "gsmooth",
+      "mean_mae": 0.1657283248449554,
+      "std_mae": 0.07672703614627188,
+      "median_mae": 0.16103621068756518,
+      "count": 12,
+      "mean_rmse": 0.364224064911925,
+      "mean_snr": -0.11108704618275278,
+      "datasets_count": 3,
+      "rank_metric": 0.20409184291809135,
+      "temporal": false,
+      "baseline": false,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0654326345423263,
+          "rmse": 0.2292021160145071,
+          "snr": 0.1687199035903924
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0657591665358717,
+          "rmse": 0.2319993087583531,
+          "snr": -0.1241922574414866
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0841374255245389,
+          "rmse": 0.2708562046372446,
+          "snr": -0.490608646866724
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1228879362472805,
+          "rmse": 0.3159538187505225,
+          "snr": 1.0129414041529108
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1239930647556692,
+          "rmse": 0.325655043851482,
+          "snr": -0.4610394525030127
+        }
+      ],
+      "it20_mean_mae": 0.24406350842666286
+    },
+    {
+      "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "method": "mean",
+      "mean_mae": 0.1658937610924521,
+      "std_mae": 0.07710858236491445,
+      "median_mae": 0.16815429161672224,
+      "count": 12,
+      "mean_rmse": 0.3610497534940873,
+      "mean_snr": -0.10519829634194815,
+      "datasets_count": 3,
+      "rank_metric": 0.20444805227490934,
+      "temporal": false,
+      "baseline": true,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0589478976695532,
+          "rmse": 0.2085273501920232,
+          "snr": 0.9476396031020364
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658619827367564,
+          "rmse": 0.2310340626127287,
+          "snr": -0.0856866621374472
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0853382750496039,
+          "rmse": 0.2732681774073414,
+          "snr": -0.5580111755525607
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.1208467294395676,
+          "rmse": 0.3009477438018674,
+          "snr": 0.7809578833742317
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1251951461619266,
+          "rmse": 0.327231605642745,
+          "snr": -0.5000161120511715
+        }
+      ],
+      "it20_mean_mae": 0.23677734576357667
+    },
+    {
+      "graph": "gaussian__sigma1",
+      "method": "mean",
+      "mean_mae": 0.1658937610924521,
+      "std_mae": 0.07710858236491445,
+      "median_mae": 0.16815429161672224,
+      "count": 12,
+      "mean_rmse": 0.3610497534940873,
+      "mean_snr": -0.10519829634194815,
+      "datasets_count": 3,
+      "rank_metric": 0.20444805227490934,
+      "temporal": false,
+      "baseline": true,
+      "top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0589478976695532,
+          "rmse": 0.2085273501920232,
+          "snr": 0.9476396031020364
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658619827367564,
+          "rmse": 0.2310340626127287,
+          "snr": -0.0856866621374472
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0853382750496039,
+          "rmse": 0.2732681774073414,
+          "snr": -0.5580111755525607
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.1208467294395676,
+          "rmse": 0.3009477438018674,
+          "snr": 0.7809578833742317
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1251951461619266,
+          "rmse": 0.327231605642745,
+          "snr": -0.5000161120511715
+        }
+      ],
+      "it20_mean_mae": 0.23677734576357667
+    }
+  ],
+  "baselines": [
+    {
+      "method": "mean",
+      "mean_mae": 0.1658937610924521,
+      "std_mae": 0.07421338691416218,
+      "datasets_count": 3,
+      "best_graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "best_graph_mean_mae": 0.1658937610924521,
+      "best_graph_top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0589478976695532,
+          "rmse": 0.2085273501920232,
+          "snr": 0.9476396031020364
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0658619827367564,
+          "rmse": 0.2310340626127287,
+          "snr": -0.0856866621374472
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0853382750496039,
+          "rmse": 0.2732681774073414,
+          "snr": -0.5580111755525607
+        },
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.1208467294395676,
+          "rmse": 0.3009477438018674,
+          "snr": 0.7809578833742317
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1251951461619266,
+          "rmse": 0.327231605642745,
+          "snr": -0.5000161120511715
+        }
+      ]
+    },
+    {
+      "method": "linear",
+      "mean_mae": 0.19612118379970164,
+      "std_mae": 0.08762611060591792,
+      "datasets_count": 3,
+      "best_graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "best_graph_mean_mae": 0.1961211837997016,
+      "best_graph_top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0634270409346891,
+          "rmse": 0.244209901265437,
+          "snr": -0.0777226940065491
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0784418055359528,
+          "rmse": 0.2949265284406414,
+          "snr": -2.19182207727983
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.0942564113430665,
+          "rmse": 0.3233746575345121,
+          "snr": -1.9946649185926244
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1339021480517246,
+          "rmse": 0.3679636630473734,
+          "snr": -1.5023679894519697
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1623711442886609,
+          "rmse": 0.4199936236966927,
+          "snr": -2.1649653627217624
+        }
+      ]
+    },
+    {
+      "method": "nearest",
+      "mean_mae": 0.21328102707136967,
+      "std_mae": 0.09597082354690369,
+      "datasets_count": 3,
+      "best_graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+      "best_graph_mean_mae": 0.21328102707136967,
+      "best_graph_top_datasets": [
+        {
+          "dataset": "synthetic_alpha",
+          "mae": 0.0642770299551405,
+          "rmse": 0.2523142036825606,
+          "snr": -0.2761905701468088
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.0859116155366704,
+          "rmse": 0.3279639310396917,
+          "snr": -3.1300250864740704
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1023458230485613,
+          "rmse": 0.3490013082066618,
+          "snr": -2.711873185031424
+        },
+        {
+          "dataset": "synthetic_broad",
+          "mae": 0.1556476726654413,
+          "rmse": 0.4322746410958746,
+          "snr": -2.889871228346614
+        },
+        {
+          "dataset": "synthetic_beta",
+          "mae": 0.1735483953645094,
+          "rmse": 0.4632412597566516,
+          "snr": -3.027617132778527
+        }
+      ]
+    }
+  ]
+}

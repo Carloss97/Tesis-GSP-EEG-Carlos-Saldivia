@@ -1,0 +1,201 @@
+{
+  "cutoff": 0.2,
+  "median_filter": {
+    "csv": "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\experiments\\selections_archive_2026-04-14\\filtered_threshold_median_20_no_physionet.csv",
+    "count": 68
+  },
+  "mean_filter": {
+    "csv": "C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\Thesis-Copilot-Toolkit\\experiments\\selections_archive_2026-04-14\\filtered_threshold_mean_20_no_physionet.csv",
+    "count": 79
+  },
+  "B_sets": {
+    "B1_mean_based": [
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "heat_diffusion_temporal",
+        "mean_mae": 0.1641371543200398,
+        "std_mae": 0.0741230211582667,
+        "median_mae": 0.1658630307899041,
+        "count": 12,
+        "mean_rmse": 0.3511778796638427,
+        "mean_snr": 0.0291147234256941,
+        "datasets_count": 3,
+        "rank_metric": 0.2011986648991732,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "trss",
+        "mean_mae": 0.1645469214538009,
+        "std_mae": 0.0733924333696779,
+        "median_mae": 0.1638271694529104,
+        "count": 12,
+        "mean_rmse": 0.3603666196813321,
+        "mean_snr": 0.0035241897080597,
+        "datasets_count": 3,
+        "rank_metric": 0.2012431381386399,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "kalofolias",
+        "method": "directed_tv",
+        "mean_mae": 0.1647039064027324,
+        "std_mae": 0.0746121166385751,
+        "median_mae": 0.1659723543195345,
+        "count": 12,
+        "mean_rmse": 0.3520398842603185,
+        "mean_snr": 0.0100266210251006,
+        "datasets_count": 3,
+        "rank_metric": 0.2020099647220199,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      }
+    ],
+    "B2_real_mean": [
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "heat_diffusion_temporal",
+        "mean_mae": 0.1641371543200398,
+        "std_mae": 0.0741230211582667,
+        "median_mae": 0.1658630307899041,
+        "count": 12,
+        "mean_rmse": 0.3511778796638427,
+        "mean_snr": 0.0291147234256941,
+        "datasets_count": 3,
+        "rank_metric": 0.2011986648991732,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "trss",
+        "mean_mae": 0.1645469214538009,
+        "std_mae": 0.0733924333696779,
+        "median_mae": 0.1638271694529104,
+        "count": 12,
+        "mean_rmse": 0.3603666196813321,
+        "mean_snr": 0.0035241897080597,
+        "datasets_count": 3,
+        "rank_metric": 0.2012431381386399,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "kalofolias",
+        "method": "directed_tv",
+        "mean_mae": 0.1647039064027324,
+        "std_mae": 0.0746121166385751,
+        "median_mae": 0.1659723543195345,
+        "count": 12,
+        "mean_rmse": 0.3520398842603185,
+        "mean_snr": 0.0100266210251006,
+        "datasets_count": 3,
+        "rank_metric": 0.2020099647220199,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      }
+    ],
+    "B3_median_based": [
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "gsmooth",
+        "mean_mae": 0.1657283248449554,
+        "std_mae": 0.0767270361462718,
+        "median_mae": 0.1610362106875651,
+        "count": 12,
+        "mean_rmse": 0.364224064911925,
+        "mean_snr": -0.1110870461827527,
+        "datasets_count": 3,
+        "rank_metric": 0.2040918429180913,
+        "temporal": false,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "trss",
+        "mean_mae": 0.1645469214538009,
+        "std_mae": 0.0733924333696779,
+        "median_mae": 0.1638271694529104,
+        "count": 12,
+        "mean_rmse": 0.3603666196813321,
+        "mean_snr": 0.0035241897080597,
+        "datasets_count": 3,
+        "rank_metric": 0.2012431381386399,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "heat_diffusion_temporal",
+        "mean_mae": 0.1641371543200398,
+        "std_mae": 0.0741230211582667,
+        "median_mae": 0.1658630307899041,
+        "count": 12,
+        "mean_rmse": 0.3511778796638427,
+        "mean_snr": 0.0291147234256941,
+        "datasets_count": 3,
+        "rank_metric": 0.2011986648991732,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      }
+    ],
+    "B4_stability_first": [
+      {
+        "graph": "aew__k4_sigma_corr0_5_sigma_dist1",
+        "method": "spline_temporal",
+        "mean_mae": NaN,
+        "std_mae": 0.0,
+        "median_mae": NaN,
+        "count": 0,
+        "mean_rmse": NaN,
+        "mean_snr": NaN,
+        "datasets_count": 3,
+        "rank_metric": NaN,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "gaussian__sigma1",
+        "method": "spline_temporal",
+        "mean_mae": NaN,
+        "std_mae": 0.0,
+        "median_mae": NaN,
+        "count": 0,
+        "mean_rmse": NaN,
+        "mean_snr": NaN,
+        "datasets_count": 3,
+        "rank_metric": NaN,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      },
+      {
+        "graph": "kalofolias",
+        "method": "spline_temporal",
+        "mean_mae": NaN,
+        "std_mae": 0.0,
+        "median_mae": NaN,
+        "count": 0,
+        "mean_rmse": NaN,
+        "mean_snr": NaN,
+        "datasets_count": 3,
+        "rank_metric": NaN,
+        "temporal": true,
+        "baseline": false,
+        "experiment": "it05_no_physionet"
+      }
+    ]
+  }
+}
