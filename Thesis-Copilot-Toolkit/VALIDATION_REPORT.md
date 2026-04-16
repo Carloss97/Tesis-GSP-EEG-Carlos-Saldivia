@@ -28,11 +28,8 @@ Interpretacion actual:
 - Pendiente: comparacion numerica 1:1 contra experimento MATLAB equivalente.
 
 ### 2.2 TRSS / sobolev_temporal consolidados
-
-`trss` y `sobolev_temporal` comparten nucleo de implementacion (alias funcional).
-
-Evidencia en repo:
-- `results/graphtrss_main_figure_raw.csv`
+o:
+- `results/grap,  htrss_main_figure_raw.csv`
 - `results/graphtrss_main_figure_summary.csv`
 - `results/graphtrss_main_figure.png`
 - `results/paper_faithful_closure_active_methods_2026-04-01.md`

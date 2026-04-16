@@ -1,0 +1,5 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+physionet_eegmmidb_real,gaussian__sigma1.0,trss,0.2,0,3.909433895218605e-06,1.092683543019455e-05,14.010863285298308,7.765046310551556e-05,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.01781469999696128
+physionet_eegmmidb_real,gaussian__sigma1.0,trss,0.2,1,3.9520090526364e-06,1.0982307050082567e-05,13.802034685027015,7.752506431535969e-05,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.018201200000476092
+physionet_eegmmidb_real,gaussian__sigma1.0,trss,0.2,2,3.972213311538146e-06,1.1038795849897467e-05,13.941205878865127,7.386725435937502e-05,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.016485499989357777
+physionet_eegmmidb_real,gaussian__sigma1.0,trss,0.2,3,3.846288515262054e-06,1.0825435116284495e-05,14.002761858037003,7.414338718196172e-05,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.016516300005605444

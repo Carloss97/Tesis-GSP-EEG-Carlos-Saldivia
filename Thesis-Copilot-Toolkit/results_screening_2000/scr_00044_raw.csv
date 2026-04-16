@@ -1,0 +1,15 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+movielens_graph_signal,gaussian__sigma1.0,mean,1ch,0,0.015664039198075404,0.3480717932730828,-inf,1.2074731785788606,{},,1,0.030066500010434538
+movielens_graph_signal,gaussian__sigma1.0,nearest,1ch,0,0.019261849922464942,0.42258264453413374,-inf,1.6834275593035821,{},,1,0.003387999997357838
+movielens_graph_signal,gaussian__sigma1.0,tikhonov,1ch,0,0.10781784591408862,0.5884712767947445,-inf,4.562979180130018,"{""alpha"": 0.1}",,1,0.012107899994589388
+movielens_graph_signal,gaussian__sigma1.0,tv,1ch,0,0.015664143726677467,0.34807414356759914,-inf,1.2075549413001425,"{""lam"": 0.2, ""n_iter"": 30}",,1,0.6159715999965556
+movielens_graph_signal,gaussian__sigma1.0,trss,1ch,0,0.017477028831209235,0.3524225314092421,-inf,1.3989070189012203,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,1,0.032841299995197915
+movielens_graph_signal,gaussian__sigma1.0,graph_time_tikhonov,1ch,0,0.16799592358212076,0.8710756574001217,-inf,6.889212557628692,"{""alpha"": 0.5, ""beta"": 0.1}",,1,0.021016600003349595
+movielens_graph_signal,gaussian__sigma1.0,temporal_laplacian,1ch,0,0.15001180874179612,0.8732276845097979,-inf,6.794393223678451,"{""alpha"": 0.5, ""beta"": 0.5}",,1,21.239585599993006
+movielens_graph_signal,gaussian__sigma1.0,mean,1ch,1,0.012778454098393873,0.3112937024210901,-inf,0.6506376694128707,{},,1,0.05339879999519326
+movielens_graph_signal,gaussian__sigma1.0,nearest,1ch,1,0.017187042130158085,0.43214765554512635,-inf,1.0421266162619283,{},,1,0.003387399992789142
+movielens_graph_signal,gaussian__sigma1.0,tikhonov,1ch,1,0.10796778631962343,0.5728920253385059,-inf,4.287205846030638,"{""alpha"": 0.1}",,1,0.0279688000009628
+movielens_graph_signal,gaussian__sigma1.0,tv,1ch,1,0.012779121619491006,0.3112946319084,-inf,0.6505568956711058,"{""lam"": 0.2, ""n_iter"": 30}",,1,0.6487093999894569
+movielens_graph_signal,gaussian__sigma1.0,trss,1ch,1,0.015183462359214672,0.3199715462830051,-inf,0.7080521576292563,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,1,0.4026051999971969
+movielens_graph_signal,gaussian__sigma1.0,graph_time_tikhonov,1ch,1,0.1702383849242297,0.8672536437773588,-inf,6.848335786963989,"{""alpha"": 0.5, ""beta"": 0.1}",,1,0.07759749999968335
+movielens_graph_signal,gaussian__sigma1.0,temporal_laplacian,1ch,1,0.1506607890548212,0.8690333601407397,-inf,6.719191528215798,"{""alpha"": 0.5, ""beta"": 0.5}",,1,23.783225599996513

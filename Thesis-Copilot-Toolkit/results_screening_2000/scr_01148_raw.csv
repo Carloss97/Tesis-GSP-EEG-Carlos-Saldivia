@@ -1,0 +1,25 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec,lambda
+movielens_graph_signal,kalofolias,tv,0.2,0,0.04410729173382668,0.44525921112543815,-inf,3.0065442497035235,"{""lam"": 0.05, ""n_iter"": 30}",,5,0.20125379999808501,0.05
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,0,0.1995607359904327,0.9867944339121992,-inf,7.5524537827110665,"{""alpha"": 0.05, ""beta"": 0.1}",,5,0.015136300004087389,0.05
+movielens_graph_signal,kalofolias,trss,0.2,0,0.09564139444092565,0.6140840933382878,-inf,4.362412440501589,"{""alpha"": 0.05, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.1418100000009872,0.05
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,0,0.1780811229272145,0.992514763056067,-inf,7.617419437437678,"{""alpha"": 0.05, ""beta"": 0.5}",,5,26.023749899992254,0.05
+movielens_graph_signal,kalofolias,tv,0.2,1,0.042780428367053897,0.4425675500510059,-inf,2.117591116361677,"{""lam"": 0.05, ""n_iter"": 30}",,5,0.70273140000063,0.05
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,1,0.20110947584296338,0.9869626551886665,-inf,7.689387420270201,"{""alpha"": 0.05, ""beta"": 0.1}",,5,0.013010999988182448,0.05
+movielens_graph_signal,kalofolias,trss,0.2,1,0.10143623014141445,0.626786822027804,-inf,3.795770265222092,"{""alpha"": 0.05, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.2684378999983892,0.05
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,1,0.1809151730224348,0.9930563858682789,-inf,7.59966294844964,"{""alpha"": 0.05, ""beta"": 0.5}",,5,19.661658199998783,0.05
+movielens_graph_signal,kalofolias,tv,0.2,0,0.04410729164219152,0.4452592109748337,-inf,3.0065442472256962,"{""lam"": 0.1, ""n_iter"": 30}",,5,0.6080187000043225,0.1
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,0,0.19956210604152852,0.9868012148411545,-inf,7.55246097993696,"{""alpha"": 0.1, ""beta"": 0.1}",,5,0.0137449000030756,0.1
+movielens_graph_signal,kalofolias,trss,0.2,0,0.09066207757167817,0.6000296399134514,-inf,4.2833639210248045,"{""alpha"": 0.1, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.11372539999138098,0.1
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,0,0.17808293596756672,0.9925246302790783,-inf,7.6174351488566705,"{""alpha"": 0.1, ""beta"": 0.5}",,5,24.598400000002584,0.1
+movielens_graph_signal,kalofolias,tv,0.2,1,0.04278042821082497,0.442567549831343,-inf,2.1175911114382777,"{""lam"": 0.1, ""n_iter"": 30}",,5,0.48871010000584647,0.1
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,1,0.20111083672292837,0.9869692940098668,-inf,7.689401131863157,"{""alpha"": 0.1, ""beta"": 0.1}",,5,0.013165999989723787,0.1
+movielens_graph_signal,kalofolias,trss,0.2,1,0.09607763997832525,0.6108965806014647,-inf,3.7270761150346527,"{""alpha"": 0.1, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.19975329999579117,0.1
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,1,0.18091704121595445,0.993066263845748,-inf,7.599700108259946,"{""alpha"": 0.1, ""beta"": 0.5}",,5,19.409985399994184,0.1
+movielens_graph_signal,kalofolias,tv,0.2,0,0.04410729154070752,0.4452592108171379,-inf,3.0065442444162183,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.46717469999566674,0.2
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,0,0.19956279107934752,0.9868046053802395,-inf,7.552464578829731,"{""alpha"": 0.2, ""beta"": 0.1}",,5,0.03277939998952206,0.2
+movielens_graph_signal,kalofolias,trss,0.2,0,0.0837690487141798,0.581847792964473,-inf,4.165993271803123,"{""alpha"": 0.2, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.4092763000080595,0.2
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,0,0.17808384252248757,0.992529564094053,-inf,7.6174429919655005,"{""alpha"": 0.2, ""beta"": 0.5}",,5,24.074760000003153,0.2
+movielens_graph_signal,kalofolias,tv,0.2,1,0.042780428115905364,0.442567549690503,-inf,2.117591108386232,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.41994989999511745,0.2
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.2,1,0.20111151717510295,0.98697261349369,-inf,7.68940798800694,"{""alpha"": 0.2, ""beta"": 0.1}",,5,0.008749100001296028,0.2
+movielens_graph_signal,kalofolias,trss,0.2,1,0.08875412739143039,0.5918955634919896,-inf,3.650620384287056,"{""alpha"": 0.2, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,5,0.019743200013181195,0.2
+movielens_graph_signal,kalofolias,temporal_laplacian,0.2,1,0.18091797534867204,0.9930712030377409,-inf,7.599718688978226,"{""alpha"": 0.2, ""beta"": 0.5}",,5,21.538461500007543,0.2

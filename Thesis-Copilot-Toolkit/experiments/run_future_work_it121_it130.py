@@ -258,12 +258,22 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
 
         for miss in missing_list:
             for seed in seeds:
+                # Allow missing specifications like '2ch' or numeric ratios; be robust
+                # against NaN/invalid values coming from metadata.
                 if isinstance(miss, str) and miss.endswith("ch"):
-                    n_missing = int(miss[:-2])
+                    try:
+                        n_missing = int(miss[:-2])
+                    except Exception:
+                        n_missing = max(1, int(round(0.2 * signals.shape[1])))
                     ratio = max(1, n_missing) / max(1, signals.shape[1])
                 else:
-                    ratio = float(miss)
-                    n_missing = int(round(ratio * signals.shape[1]))
+                    try:
+                        ratio = float(miss)
+                    except Exception:
+                        ratio = 0.2
+                    if not np.isfinite(ratio) or ratio <= 0:
+                        ratio = 0.2
+                    n_missing = max(1, int(round(ratio * signals.shape[1])))
 
                 masked = simulate_missing_channels(signals, missing_ratio=ratio, random_state=seed)
 

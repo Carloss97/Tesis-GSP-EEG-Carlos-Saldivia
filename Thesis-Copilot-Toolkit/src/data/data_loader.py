@@ -19,7 +19,23 @@ def simulate_missing_channels(signals: np.ndarray, missing_ratio: float = 0.1, r
     rng = np.random.default_rng(random_state)
     signals_masked = signals.copy()
     N, D = signals.shape
-    n_missing = max(1, int(D * missing_ratio))
+
+    # Robust handling of missing_ratio: coerce to float, guard NaN/Inf and
+    # accept either a fractional ratio (e.g., 0.2) or an absolute count (>1).
+    try:
+        mratio = float(missing_ratio)
+    except Exception:
+        mratio = 0.2
+
+    if not np.isfinite(mratio) or mratio <= 0:
+        mratio = 0.2
+
+    if mratio >= 1 and mratio <= D:
+        # treat as number of channels to remove
+        n_missing = max(1, int(round(mratio)))
+    else:
+        n_missing = max(1, int(round(D * mratio)))
+
     for i in range(N):
         missing_idx = rng.choice(D, n_missing, replace=False)
         signals_masked[i, missing_idx] = np.nan

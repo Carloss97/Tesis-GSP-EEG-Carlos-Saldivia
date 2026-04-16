@@ -1,0 +1,156 @@
+{
+  "tag": "pilot_0009",
+  "timestamp": "2026-04-16T06:33:57.145345+00:00",
+  "description": "Pilot run pilot_0009 dataset=mne_sample graph=gaussian miss=3ch",
+  "objective": "Auto-generated pilot iteration",
+  "fase": "Pilot",
+  "datasets": [
+    "synthetic_for_pilot_0009"
+  ],
+  "graphs": [
+    "gaussian__sigma1.0"
+  ],
+  "missing_ratios": [
+    "3ch"
+  ],
+  "methods": [
+    "mean",
+    "nearest",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 4,
+  "n_rows": 20,
+  "qa": {
+    "status": "GO",
+    "tv_median_mae": 0.11121937564102818,
+    "inst_median_mae": 0.14646913536159148,
+    "gain_pct": 24.06633973331068,
+    "p_value": 0.0014136360455584039
+  },
+  "best_method": "trss",
+  "best_mae": 0.0952651464859773,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "mne_sample": {
+      "ok": false,
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    },
+    "synthetic_for_pilot_0001": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0002": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0003": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0004": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0005": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0006": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0007": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0008": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_for_pilot_0009": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "synthetic_for_pilot_0009"
+  ]
+}
