@@ -1,0 +1,15 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+movielens_graph_signal,kalofolias,mean,0.3,0,0.06315414339319782,0.545740732519729,-inf,4.130921395568791,{},,7,0.0031297999958042055
+movielens_graph_signal,kalofolias,nearest,0.3,0,0.06709867375400182,0.8057201275144614,-inf,4.338392520366978,{},,7,0.010447500011650845
+movielens_graph_signal,kalofolias,tikhonov,0.3,0,0.20012891762845872,0.9911331585296271,-inf,7.561425279071627,"{""alpha"": 0.1}",,7,0.0087059999932535
+movielens_graph_signal,kalofolias,tv,0.3,0,0.06315414349917617,0.5457407326417759,-inf,4.130921397150446,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.7399792999931378
+movielens_graph_signal,kalofolias,trss,0.3,0,0.09398622753513966,0.6710352345018638,-inf,4.508335713342227,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,7,1.0863319000054616
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.3,0,0.1973917545621644,0.9895686620520696,-inf,7.565116153766673,"{""alpha"": 0.5, ""beta"": 0.1}",,7,0.013804000001982786
+movielens_graph_signal,kalofolias,temporal_laplacian,0.3,0,0.18093710106282657,0.9945160067403913,-inf,7.646513585900215,"{""alpha"": 0.5, ""beta"": 0.5}",,7,19.935536100005265
+movielens_graph_signal,kalofolias,mean,0.3,1,0.065229430665076,0.6532507918255962,-inf,4.121496569124766,{},,7,0.004584199996315874
+movielens_graph_signal,kalofolias,nearest,0.3,1,0.06303479965548509,0.8021076205270433,-inf,3.540840848785504,{},,7,0.018213399991509505
+movielens_graph_signal,kalofolias,tikhonov,0.3,1,0.19357951552739022,0.9934731551824801,-inf,7.460191995468937,"{""alpha"": 0.1}",,7,0.07877079999889247
+movielens_graph_signal,kalofolias,tv,0.3,1,0.06522943055594914,0.6532507917667575,-inf,4.1214965664417225,"{""lam"": 0.2, ""n_iter"": 30}",,7,0.6437172000005376
+movielens_graph_signal,kalofolias,trss,0.3,1,0.09503422201888484,0.7461923459190406,-inf,4.867918471151192,"{""alpha"": 0.7, ""beta"": 0.2, ""n_iter"": 60, ""lr"": 0.03}",,7,0.5107997000013711
+movielens_graph_signal,kalofolias,graph_time_tikhonov,0.3,1,0.19228116686294974,0.9919538532678069,-inf,7.474366373248618,"{""alpha"": 0.5, ""beta"": 0.1}",,7,0.012439999991329387
+movielens_graph_signal,kalofolias,temporal_laplacian,0.3,1,0.17375992719259525,0.9976789925455164,-inf,7.647098239397376,"{""alpha"": 0.5, ""beta"": 0.5}",,7,21.449670000001788

@@ -26,6 +26,7 @@ from src.data.data_loader import (  # noqa: E402
     load_physionet_eegmmidb,
     simulate_missing_channels,
 )
+from src.data.data_loader import load_mne_sample_dataset  # noqa: E402
 from src.evaluation import evaluate_signals  # noqa: E402
 from src.graph_construction.graph_constructors import build_graph  # noqa: E402
 from src.interpolation_methods import interpolate_signals  # noqa: E402
@@ -180,6 +181,7 @@ def load_data_availability() -> Dict[str, Any]:
         "bci_iv2a_real_s1": {"ok": False, "reason": ""},
         "bci_iv2a_real_s2": {"ok": False, "reason": ""},
         "bci_iv2a_real_s3": {"ok": False, "reason": ""},
+        "mne_sample": {"ok": False, "reason": ""},
         "iv100hz_mat": {"ok": False, "reason": ""},
         "iris_graph_signal": {"ok": False, "reason": ""},
         "movielens_graph_signal": {"ok": False, "reason": ""},
@@ -197,6 +199,18 @@ def load_data_availability() -> Dict[str, Any]:
         info["physionet_real"] = {"ok": True, "shape": list(x.shape)}
     except Exception as exc:
         info["physionet_real"] = {"ok": False, "reason": str(exc)}
+
+    # MNE Sample dataset (real) availability
+    try:
+        mne_d = load_mne_sample_dataset()
+        x = np.asarray(mne_d["signals"], dtype=float)
+        pos = np.asarray(mne_d.get("positions"), dtype=float)
+        if pos.ndim != 2 or pos.shape[0] != x.shape[1]:
+            pos = _safe_positions(x.shape[1])
+        data["mne_sample"] = {"signals": x, "positions": pos, "dataset": "mne_sample"}
+        info["mne_sample"] = {"ok": True, "shape": list(x.shape)}
+    except Exception as exc:
+        info["mne_sample"] = {"ok": False, "reason": str(exc)}
 
     bci_root = ds_root / "BCICIV_2a_gdf"
     for s in [1, 2, 3]:
@@ -244,12 +258,22 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
 
         for miss in missing_list:
             for seed in seeds:
+                # Allow missing specifications like '2ch' or numeric ratios; be robust
+                # against NaN/invalid values coming from metadata.
                 if isinstance(miss, str) and miss.endswith("ch"):
-                    n_missing = int(miss[:-2])
+                    try:
+                        n_missing = int(miss[:-2])
+                    except Exception:
+                        n_missing = max(1, int(round(0.2 * signals.shape[1])))
                     ratio = max(1, n_missing) / max(1, signals.shape[1])
                 else:
-                    ratio = float(miss)
-                    n_missing = int(round(ratio * signals.shape[1]))
+                    try:
+                        ratio = float(miss)
+                    except Exception:
+                        ratio = 0.2
+                    if not np.isfinite(ratio) or ratio <= 0:
+                        ratio = 0.2
+                    n_missing = max(1, int(round(ratio * signals.shape[1])))
 
                 masked = simulate_missing_channels(signals, missing_ratio=ratio, random_state=seed)
 

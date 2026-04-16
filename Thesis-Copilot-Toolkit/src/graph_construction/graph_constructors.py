@@ -153,7 +153,10 @@ def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, 
 
     if method == "vknng":
         # Variable kNN Graph: k_i adaptativo según densidad local.
-        base_k = int(kwargs.get("k", 5))
+        # Ensure base_k does not exceed n_nodes-1 to avoid selecting the
+        # diagonal (inf) when computing the k-th nearest neighbor distance
+        # for very small graphs.
+        base_k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))
         alpha = float(kwargs.get("alpha", 1.0))
         k_min = int(kwargs.get("k_min", 2))
         k_max = int(kwargs.get("k_max", max(3, base_k * 2)))

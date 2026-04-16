@@ -1,0 +1,33 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,combo
+synthetic_broad,gaussian__sigma1,mean,0.1,1,0.0853382750496039,0.2732681774073414,-0.5580111755525607,,{},,gaussian__sigma1|mean
+synthetic_broad,gaussian__sigma1,mean,0.2,1,0.1251951461619266,0.327231605642745,-0.5000161120511715,,{},,gaussian__sigma1|mean
+synthetic_broad,gaussian__sigma1,mean,0.3,1,0.2019202316948072,0.4161354209221696,-0.4065004593732263,,{},,gaussian__sigma1|mean
+synthetic_broad,gaussian__sigma1,mean,0.4,1,0.2384982122315032,0.4473196298650667,-0.2628429625981405,,{},,gaussian__sigma1|mean
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,linear,0.1,0,0.0942564113430665,0.3233746575345121,-1.9946649185926244,,{},,aew__k4_sigma_corr0_5_sigma_dist1|linear
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,nearest,0.1,0,0.1023458230485613,0.3490013082066618,-2.711873185031424,,{},,aew__k4_sigma_corr0_5_sigma_dist1|nearest
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,mean,0.1,0,0.0853382750496039,0.2732681774073414,-0.5580111755525607,,{},,aew__k4_sigma_corr0_5_sigma_dist1|mean
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,gsmooth,0.1,0,0.0841374255245389,0.2708562046372446,-0.490608646866724,,"{'lam': 0.3, 'n_iter': 30}",,aew__k4_sigma_corr0_5_sigma_dist1|gsmooth
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,trss,0.1,0,0.0800887727837021,0.2553677312136799,0.0010428446265721,,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",,aew__k4_sigma_corr0_5_sigma_dist1|trss
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,heat_diffusion_temporal,0.1,0,0.0806507255674608,0.255076535905502,0.0119213570898058,,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",,aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,linear,0.2,0,0.1339021480517246,0.3679636630473734,-1.5023679894519697,,{},,aew__k4_sigma_corr0_5_sigma_dist1|linear
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,nearest,0.2,0,0.1556476726654413,0.4322746410958746,-2.889871228346614,,{},,aew__k4_sigma_corr0_5_sigma_dist1|nearest
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,mean,0.2,0,0.1251951461619266,0.327231605642745,-0.5000161120511715,,{},,aew__k4_sigma_corr0_5_sigma_dist1|mean
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,gsmooth,0.2,0,0.1239930647556692,0.325655043851482,-0.4610394525030127,,"{'lam': 0.3, 'n_iter': 30}",,aew__k4_sigma_corr0_5_sigma_dist1|gsmooth
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,trss,0.2,0,0.120258014065597,0.3107516625333942,-0.0550220408629867,,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",,aew__k4_sigma_corr0_5_sigma_dist1|trss
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,heat_diffusion_temporal,0.2,0,0.1195257423433965,0.30847307377039,0.0064488300730634,,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",,aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,linear,0.3,0,0.233693269284798,0.4982573824860713,-1.98336235588486,,{},,aew__k4_sigma_corr0_5_sigma_dist1|linear
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,nearest,0.3,0,0.2529342199470004,0.5551068970985357,-2.9356929486555976,,{},,aew__k4_sigma_corr0_5_sigma_dist1|nearest
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,mean,0.3,0,0.2019202316948072,0.4161354209221696,-0.4065004593732263,,{},,aew__k4_sigma_corr0_5_sigma_dist1|mean
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,gsmooth,0.3,0,0.2031657315207218,0.4162214817463192,-0.4256914248495438,,"{'lam': 0.3, 'n_iter': 30}",,aew__k4_sigma_corr0_5_sigma_dist1|gsmooth
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,trss,0.3,0,0.1998397930882504,0.3986037046340425,-0.0697186378474759,,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",,aew__k4_sigma_corr0_5_sigma_dist1|trss
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,heat_diffusion_temporal,0.3,0,0.1970722472652671,0.395234527580117,0.0035883899026536,,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",,aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,linear,0.4,0,0.2792778570243674,0.5512632046715451,-2.0409960072172297,,{},,aew__k4_sigma_corr0_5_sigma_dist1|linear
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,nearest,0.4,0,0.2985022390450246,0.6001087897564512,-2.809760919981502,,{},,aew__k4_sigma_corr0_5_sigma_dist1|nearest
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,mean,0.4,0,0.2384982122315032,0.4473196298650667,-0.2628429625981405,,{},,aew__k4_sigma_corr0_5_sigma_dist1|mean
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,gsmooth,0.4,0,0.2379048831308214,0.4482240651138923,-0.2833266111053367,,"{'lam': 0.3, 'n_iter': 30}",,aew__k4_sigma_corr0_5_sigma_dist1|gsmooth
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,trss,0.4,0,0.2361349835693998,0.4353030337882514,-0.0364765164611026,,"{'alpha': 0.5, 'beta': 0.1, 'n_iter': 40, 'lr': 0.02}",,aew__k4_sigma_corr0_5_sigma_dist1|trss
+synthetic_broad,aew__k4_sigma_corr0_5_sigma_dist1,heat_diffusion_temporal,0.4,0,0.2366192719442399,0.4330722487670366,0.0073069829065439,,"{'alpha': 0.3, 'beta': 0.3, 'n_iter': 10}",,aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal
+synthetic_broad,kalofolias,directed_tv,0.1,2,0.0814527029580689,0.2575841402913497,-0.0733234947737591,,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",,kalofolias|directed_tv
+synthetic_broad,kalofolias,directed_tv,0.2,2,0.1204880068466204,0.3107471634836187,-0.0569205819973068,,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",,kalofolias|directed_tv
+synthetic_broad,kalofolias,directed_tv,0.3,2,0.1972364461741241,0.3962367456839398,-0.0156099912091184,,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",,kalofolias|directed_tv
+synthetic_broad,kalofolias,directed_tv,0.4,2,0.2363516508170818,0.4327311433527158,0.0151627835021501,,"{'alpha': 0.3, 'beta': 0.1, 'n_iter': 15}",,kalofolias|directed_tv

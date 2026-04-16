@@ -1,13 +1,11 @@
 {
   "tag": "rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv",
-  "timestamp": "2026-04-14T01:48:14.624060+00:00",
+  "timestamp": "2026-04-14T23:29:35.984876+00:00",
   "description": "Rerun combo: bci_competition_iv_2a_proxy gaussian__sigma1 directed_tv mr=0.3",
   "objective": "Auto-generated rerun",
   "fase": "Rerun",
   "datasets": [
-    "bci_iv2a_real_s1",
-    "bci_iv2a_real_s2",
-    "bci_iv2a_real_s3"
+    "bci_competition_iv_2a_proxy"
   ],
   "graphs": [
     "gaussian__sigma1.0"
@@ -19,7 +17,7 @@
     "directed_tv"
   ],
   "n_methods": 1,
-  "n_rows": 18,
+  "n_rows": 2,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,
@@ -28,7 +26,7 @@
     "p_value": 1.0
   },
   "best_method": "directed_tv",
-  "best_mae": 4.279798392839587e-06,
+  "best_mae": 0.24348017383570025,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
@@ -59,6 +57,10 @@
         25
       ]
     },
+    "mne_sample": {
+      "ok": false,
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
+    },
     "iv100hz_mat": {
       "ok": true,
       "shape": [
@@ -79,12 +81,17 @@
         5085,
         80
       ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
     }
   },
   "blocked_requested_datasets": [],
   "requested_datasets": [
-    "bci_iv2a_real_s1",
-    "bci_iv2a_real_s2",
-    "bci_iv2a_real_s3"
+    "bci_competition_iv_2a_proxy"
   ]
 }

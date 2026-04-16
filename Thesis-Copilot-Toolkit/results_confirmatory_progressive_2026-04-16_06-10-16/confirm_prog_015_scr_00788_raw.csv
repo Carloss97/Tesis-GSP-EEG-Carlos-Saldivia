@@ -1,0 +1,5 @@
+dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
+movielens_graph_signal,knn__k7,tv,0.2,0,0.0440708353658881,0.44521235468195836,-inf,3.005553729813151,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.15842810001049656
+movielens_graph_signal,knn__k7,tv,0.2,1,0.04280122944831223,0.44260149669658083,-inf,2.1193287559738865,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.15161359999910928
+movielens_graph_signal,knn__k7,tv,0.2,2,0.043361238504830785,0.483129553750062,-inf,2.0725403770077997,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.14809479999530595
+movielens_graph_signal,knn__k7,tv,0.2,3,0.045237167698278166,0.49014989130434466,-inf,3.386797837838261,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.16692420000617858

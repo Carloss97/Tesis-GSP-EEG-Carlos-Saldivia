@@ -3,11 +3,11 @@
 ## Status: NO-GO
 
 ## Summary
-- Total rows: 6
+- Total rows: 2
 - Methods tested: 1
 - Graphs: 1
 - Missing scenarios: 1
-- Best method: gsp (MAE=1.2613e-06)
+- Best method: gsp (MAE=2.4343e-02)
 
 ## Statistical Test (Mann-Whitney U: TV < Instant)
 - TV median MAE:      nan
@@ -17,12 +17,19 @@
 - Decision:           **NO-GO**
 
 ## Dataset availability snapshot
+- bci_competition_iv_2a_proxy: OK
 - bci_iv2a_real_s1: OK
 - bci_iv2a_real_s2: OK
 - bci_iv2a_real_s3: OK
 - iris_graph_signal: OK
 - iv100hz_mat: OK
+- mne_sample: OK
 - movielens_graph_signal: OK
+- physionet_eegmmidb: OK
 - physionet_real: OK
+- synthetic_16ch: OK
+- synthetic_alpha: OK
+- synthetic_beta: OK
+- synthetic_broad: OK
 
-Generated: 2026-04-14T01:48:27.686397+00:00
+Generated: 2026-04-14T23:31:05.330492+00:00

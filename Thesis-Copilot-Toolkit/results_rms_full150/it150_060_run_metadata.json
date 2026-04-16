@@ -1,0 +1,127 @@
+{
+  "tag": "it150_060",
+  "timestamp": "2026-04-15T00:50:35.004091+00:00",
+  "description": "Bulk normalized run it150_060 dataset=synthetic_16ch graph=kalofolias miss=[0.1] mode=base",
+  "objective": "Auto-generated bulk normalized run",
+  "fase": "BulkRun",
+  "datasets": [
+    "synthetic_16ch"
+  ],
+  "graphs": [
+    "kalofolias"
+  ],
+  "missing_ratios": [
+    "0.1"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 14,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.33854151837451346,
+    "inst_median_mae": 0.056775068770061554,
+    "gain_pct": -496.2855276241111,
+    "p_value": 0.668997668997669
+  },
+  "best_method": "trss",
+  "best_mae": 0.042147209693303433,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_beta": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_broad": {
+      "ok": true,
+      "shape": [
+        1000,
+        32
+      ]
+    },
+    "synthetic_16ch": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "synthetic_16ch"
+  ]
+}

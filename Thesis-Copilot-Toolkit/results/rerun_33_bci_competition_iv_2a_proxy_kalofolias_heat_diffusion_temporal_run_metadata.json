@@ -1,13 +1,11 @@
 {
   "tag": "rerun_33_bci_competition_iv_2a_proxy_kalofolias_heat_diffusion_temporal",
-  "timestamp": "2026-04-14T01:48:34.412574+00:00",
+  "timestamp": "2026-04-14T23:31:09.895133+00:00",
   "description": "Rerun combo: bci_competition_iv_2a_proxy kalofolias heat_diffusion_temporal mr=0.1",
   "objective": "Auto-generated rerun",
   "fase": "Rerun",
   "datasets": [
-    "bci_iv2a_real_s1",
-    "bci_iv2a_real_s2",
-    "bci_iv2a_real_s3"
+    "bci_competition_iv_2a_proxy"
   ],
   "graphs": [
     "kalofolias"
@@ -19,7 +17,7 @@
     "heat_diffusion_temporal"
   ],
   "n_methods": 1,
-  "n_rows": 18,
+  "n_rows": 2,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,
@@ -28,7 +26,7 @@
     "p_value": 1.0
   },
   "best_method": "heat_diffusion_temporal",
-  "best_mae": 8.757421490369378e-07,
+  "best_mae": 0.10619911616958322,
   "engine_version": "v9",
   "data_availability": {
     "physionet_real": {
@@ -59,6 +57,13 @@
         25
       ]
     },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
     "iv100hz_mat": {
       "ok": true,
       "shape": [
@@ -79,12 +84,52 @@
         5085,
         80
       ]
+    },
+    "bci_competition_iv_2a_proxy": {
+      "ok": true,
+      "shape": [
+        75000,
+        22
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_beta": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "synthetic_broad": {
+      "ok": true,
+      "shape": [
+        1000,
+        32
+      ]
+    },
+    "synthetic_16ch": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    },
+    "physionet_eegmmidb": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
     }
   },
   "blocked_requested_datasets": [],
   "requested_datasets": [
-    "bci_iv2a_real_s1",
-    "bci_iv2a_real_s2",
-    "bci_iv2a_real_s3"
+    "bci_competition_iv_2a_proxy"
   ]
 }

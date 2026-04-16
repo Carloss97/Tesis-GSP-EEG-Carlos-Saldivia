@@ -1,0 +1,106 @@
+{
+  "tag": "it150_009",
+  "timestamp": "2026-04-15T00:45:32.922415+00:00",
+  "description": "Bulk normalized run it150_009 dataset=synthetic_alpha graph=knn miss=[0.1] mode=base",
+  "objective": "Auto-generated bulk normalized run",
+  "fase": "BulkRun",
+  "datasets": [
+    "synthetic_alpha"
+  ],
+  "graphs": [
+    "knn__k3"
+  ],
+  "missing_ratios": [
+    "0.1"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 14,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.23258715362132307,
+    "inst_median_mae": 0.056775068770061554,
+    "gain_pct": -309.66423935706473,
+    "p_value": 0.7136197136197137
+  },
+  "best_method": "trss",
+  "best_mae": 0.03493582494691874,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "mne_sample": {
+      "ok": true,
+      "shape": [
+        18000,
+        60
+      ]
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    },
+    "synthetic_alpha": {
+      "ok": true,
+      "shape": [
+        1000,
+        16
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "synthetic_alpha"
+  ]
+}

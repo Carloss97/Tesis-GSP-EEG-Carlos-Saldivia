@@ -1,0 +1,96 @@
+{
+  "tag": "it150_112",
+  "timestamp": "2026-04-15T00:42:25.536347+00:00",
+  "description": "Bulk normalized run it150_112 dataset=bci_iv2a_real_s2 graph=knn miss=[0.2] mode=base",
+  "objective": "Auto-generated bulk normalized run",
+  "fase": "BulkRun",
+  "datasets": [
+    "bci_iv2a_real_s2"
+  ],
+  "graphs": [
+    "knn__k5"
+  ],
+  "missing_ratios": [
+    "0.2"
+  ],
+  "methods": [
+    "graph_time_tikhonov",
+    "mean",
+    "nearest",
+    "temporal_laplacian",
+    "tikhonov",
+    "trss",
+    "tv"
+  ],
+  "n_methods": 7,
+  "n_rows": 42,
+  "qa": {
+    "status": "NO-GO",
+    "tv_median_mae": 0.11657370776875002,
+    "inst_median_mae": 0.02828181964637979,
+    "gain_pct": -312.186023481951,
+    "p_value": 0.9130500522671939
+  },
+  "best_method": "trss",
+  "best_mae": 0.023393104014367908,
+  "engine_version": "v9",
+  "data_availability": {
+    "physionet_real": {
+      "ok": true,
+      "shape": [
+        20000,
+        64
+      ]
+    },
+    "bci_iv2a_real_s1": {
+      "ok": true,
+      "shape": [
+        672528,
+        25
+      ]
+    },
+    "bci_iv2a_real_s2": {
+      "ok": true,
+      "shape": [
+        677169,
+        25
+      ]
+    },
+    "bci_iv2a_real_s3": {
+      "ok": true,
+      "shape": [
+        660530,
+        25
+      ]
+    },
+    "mne_sample": {
+      "ok": false,
+      "reason": "fname does not exist: \"C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\MNE-eegbci-data\\MNE-sample-data\\MEG\\sample\\sample_audvis_raw.fif\""
+    },
+    "iv100hz_mat": {
+      "ok": true,
+      "shape": [
+        298458,
+        118
+      ]
+    },
+    "iris_graph_signal": {
+      "ok": true,
+      "shape": [
+        150,
+        5
+      ]
+    },
+    "movielens_graph_signal": {
+      "ok": true,
+      "shape": [
+        5085,
+        80
+      ]
+    }
+  },
+  "blocked_requested_datasets": [],
+  "requested_datasets": [
+    "bci_iv2a_real_s2"
+  ]
+}

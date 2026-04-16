@@ -1,0 +1,22 @@
+# Integration Log: scr_01075
+Started: 2026-04-16T13:24:43.565438+00:00
+Description: Screening scr_01075 ds=iris_graph_signal graph=aew miss=3ch mode=lambda
+
+## Dataset: iris_graph_signal | rows=24
+  Graph: aew built OK
+    tv | MR=0.2 | seed=0 | MAE=9.9374e-02 | t=0.0552s
+    graph_time_tikhonov | MR=0.2 | seed=0 | MAE=1.5542e-01 | t=0.0026s
+    trss | MR=0.2 | seed=0 | MAE=7.9994e-02 | t=0.0027s
+    temporal_laplacian | MR=0.2 | seed=0 | MAE=3.5451e-01 | t=7.7594s
+    tv | MR=0.2 | seed=1 | MAE=1.2154e-01 | t=0.2162s
+    graph_time_tikhonov | MR=0.2 | seed=1 | MAE=1.6816e-01 | t=0.0039s
+    trss | MR=0.2 | seed=1 | MAE=9.3000e-02 | t=0.0045s
+    temporal_laplacian | MR=0.2 | seed=1 | MAE=3.5463e-01 | t=11.2662s
+    tv | MR=0.2 | seed=0 | MAE=1.0269e-01 | t=0.0861s
+    graph_time_tikhonov | MR=0.2 | seed=0 | MAE=1.6334e-01 | t=0.0027s
+    trss | MR=0.2 | seed=0 | MAE=7.8141e-02 | t=0.0038s
+    temporal_laplacian | MR=0.2 | seed=0 | MAE=3.7020e-01 | t=7.4622s
+
+Completed: 2026-04-16T13:24:43.566140+00:00
+Total rows: 24
+INS-13 disclaimer: Results validated in Python proxy only. Do NOT claim 1:1 MATLAB/GSPBox equivalence.

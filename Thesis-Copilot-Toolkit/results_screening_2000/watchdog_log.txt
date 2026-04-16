@@ -1,0 +1,118 @@
+2026-04-16 02:44:09 WATCHDOG START. initial_count=59
+2026-04-16 02:44:09 IDLE: count=59 idle_sec=0
+2026-04-16 02:49:09 PROGRESS: count=104
+2026-04-16 02:54:09 PROGRESS: count=151
+2026-04-16 02:59:09 PROGRESS: count=198
+2026-04-16 03:04:09 PROGRESS: count=248
+2026-04-16 03:09:09 PROGRESS: count=297
+2026-04-16 03:14:09 PROGRESS: count=348
+2026-04-16 03:19:09 PROGRESS: count=400
+2026-04-16 03:24:09 PROGRESS: count=445
+2026-04-16 03:29:09 PROGRESS: count=469
+2026-04-16 03:34:09 PROGRESS: count=491
+2026-04-16 03:39:09 PROGRESS: count=514
+2026-04-16 03:44:09 PROGRESS: count=536
+2026-04-16 03:49:10 PROGRESS: count=560
+2026-04-16 03:54:10 PROGRESS: count=583
+2026-04-16 03:59:10 PROGRESS: count=606
+2026-04-16 04:04:10 PROGRESS: count=630
+2026-04-16 04:09:10 PROGRESS: count=654
+2026-04-16 04:14:10 PROGRESS: count=678
+2026-04-16 04:19:10 PROGRESS: count=701
+2026-04-16 04:24:10 PROGRESS: count=724
+2026-04-16 04:29:10 PROGRESS: count=748
+2026-04-16 04:34:10 PROGRESS: count=771
+2026-04-16 04:39:10 PROGRESS: count=794
+2026-04-16 04:44:10 PROGRESS: count=818
+2026-04-16 04:49:10 PROGRESS: count=841
+2026-04-16 04:54:10 PROGRESS: count=864
+2026-04-16 04:59:10 PROGRESS: count=887
+2026-04-16 05:04:10 PROGRESS: count=907
+2026-04-16 05:09:10 PROGRESS: count=928
+2026-04-16 05:14:10 PROGRESS: count=948
+2026-04-16 05:19:10 PROGRESS: count=969
+2026-04-16 05:24:10 PROGRESS: count=990
+2026-04-16 05:29:10 PROGRESS: count=1011
+2026-04-16 05:34:10 PROGRESS: count=1031
+2026-04-16 05:39:10 PROGRESS: count=1052
+2026-04-16 05:44:10 PROGRESS: count=1073
+2026-04-16 05:49:10 PROGRESS: count=1093
+2026-04-16 05:54:10 PROGRESS: count=1114
+2026-04-16 05:59:10 PROGRESS: count=1134
+2026-04-16 06:04:10 PROGRESS: count=1155
+2026-04-16 06:09:10 PROGRESS: count=1169
+2026-04-16 06:14:10 IDLE: count=1169 idle_sec=300
+2026-04-16 06:19:10 IDLE: count=1169 idle_sec=600
+2026-04-16 06:24:10 IDLE: count=1169 idle_sec=900
+2026-04-16 06:29:10 IDLE: count=1169 idle_sec=1200
+2026-04-16 06:34:10 IDLE: count=1169 idle_sec=1500
+2026-04-16 06:39:10 IDLE: count=1169 idle_sec=1800
+2026-04-16 06:44:10 IDLE: count=1169 idle_sec=2100
+2026-04-16 06:49:10 IDLE: count=1169 idle_sec=2400
+2026-04-16 06:54:10 IDLE: count=1169 idle_sec=2700
+2026-04-16 06:59:10 IDLE: count=1169 idle_sec=3000
+2026-04-16 07:04:10 IDLE: count=1169 idle_sec=3300
+2026-04-16 07:09:10 IDLE: count=1169 idle_sec=3600
+2026-04-16 07:09:10 STALLED for 3600s — attempting restart #1
+2026-04-16 07:09:10 STARTED: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\.venv\Scripts\python.exe C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_screening_2000.py --light-profile --n 2000
+2026-04-16 07:15:10 IDLE: count=1169 idle_sec=360
+2026-04-16 07:20:10 IDLE: count=1169 idle_sec=660
+2026-04-16 07:25:10 IDLE: count=1169 idle_sec=960
+2026-04-16 07:30:10 IDLE: count=1169 idle_sec=1260
+2026-04-16 07:35:10 IDLE: count=1169 idle_sec=1560
+2026-04-16 07:40:10 IDLE: count=1169 idle_sec=1860
+2026-04-16 07:45:10 IDLE: count=1169 idle_sec=2160
+2026-04-16 07:50:10 IDLE: count=1169 idle_sec=2460
+2026-04-16 07:55:10 IDLE: count=1169 idle_sec=2760
+2026-04-16 08:00:10 IDLE: count=1169 idle_sec=3060
+2026-04-16 08:05:10 IDLE: count=1169 idle_sec=3360
+2026-04-16 08:10:10 IDLE: count=1169 idle_sec=3660
+2026-04-16 08:10:10 STALLED for 3660s — attempting restart #2
+2026-04-16 08:10:10 STARTED: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\.venv\Scripts\python.exe C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_screening_2000.py --light-profile --n 2000
+2026-04-16 08:16:10 IDLE: count=1169 idle_sec=360
+2026-04-16 08:21:10 IDLE: count=1169 idle_sec=660
+2026-04-16 08:26:10 IDLE: count=1169 idle_sec=960
+2026-04-16 08:31:10 IDLE: count=1169 idle_sec=1260
+2026-04-16 08:36:10 IDLE: count=1169 idle_sec=1560
+2026-04-16 08:41:10 IDLE: count=1169 idle_sec=1860
+2026-04-16 08:46:11 IDLE: count=1169 idle_sec=2160
+2026-04-16 08:51:11 IDLE: count=1169 idle_sec=2460
+2026-04-16 08:56:11 IDLE: count=1169 idle_sec=2760
+2026-04-16 09:01:11 IDLE: count=1169 idle_sec=3060
+2026-04-16 09:06:11 IDLE: count=1169 idle_sec=3360
+2026-04-16 09:11:11 IDLE: count=1169 idle_sec=3660
+2026-04-16 09:11:11 STALLED for 3660s — attempting restart #3
+2026-04-16 09:11:11 STARTED: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\.venv\Scripts\python.exe C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_screening_2000.py --light-profile --n 2000
+2026-04-16 09:17:11 IDLE: count=1169 idle_sec=360
+2026-04-16 09:22:11 IDLE: count=1169 idle_sec=660
+2026-04-16 09:27:11 IDLE: count=1169 idle_sec=960
+2026-04-16 09:32:11 IDLE: count=1169 idle_sec=1260
+2026-04-16 09:37:11 IDLE: count=1169 idle_sec=1560
+2026-04-16 09:42:11 IDLE: count=1169 idle_sec=1860
+2026-04-16 09:47:11 IDLE: count=1169 idle_sec=2160
+2026-04-16 09:52:12 IDLE: count=1169 idle_sec=2460
+2026-04-16 09:57:12 IDLE: count=1169 idle_sec=2760
+2026-04-16 10:02:12 IDLE: count=1169 idle_sec=3060
+2026-04-16 10:07:12 IDLE: count=1169 idle_sec=3361
+2026-04-16 10:12:12 IDLE: count=1169 idle_sec=3661
+2026-04-16 10:12:12 STALLED for 3661s — attempting restart #4
+2026-04-16 10:12:12 STARTED: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\.venv\Scripts\python.exe C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_screening_2000.py --light-profile --n 2000
+2026-04-16 10:18:12 IDLE: count=1169 idle_sec=360
+2026-04-16 10:23:12 IDLE: count=1169 idle_sec=660
+2026-04-16 10:28:12 IDLE: count=1169 idle_sec=960
+2026-04-16 10:33:13 IDLE: count=1169 idle_sec=1260
+2026-04-16 10:38:13 IDLE: count=1169 idle_sec=1560
+2026-04-16 10:43:13 IDLE: count=1169 idle_sec=1860
+2026-04-16 10:48:13 IDLE: count=1169 idle_sec=2161
+2026-04-16 10:53:13 IDLE: count=1169 idle_sec=2461
+2026-04-16 10:58:13 IDLE: count=1169 idle_sec=2761
+2026-04-16 11:03:13 IDLE: count=1169 idle_sec=3061
+2026-04-16 11:08:14 IDLE: count=1169 idle_sec=3361
+2026-04-16 11:13:14 IDLE: count=1169 idle_sec=3661
+2026-04-16 11:13:14 STALLED for 3661s — attempting restart #5
+2026-04-16 11:13:14 STARTED: C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\.venv\Scripts\python.exe C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_screening_2000.py --light-profile --n 2000
+2026-04-16 11:19:14 IDLE: count=1169 idle_sec=360
+2026-04-16 11:24:14 IDLE: count=1169 idle_sec=660
+2026-04-16 11:29:14 IDLE: count=1169 idle_sec=960
+2026-04-16 11:34:14 IDLE: count=1169 idle_sec=1260
+2026-04-16 11:39:15 IDLE: count=1169 idle_sec=1560
