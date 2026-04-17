@@ -90,6 +90,19 @@ Estos archivos contienen los CSVs, metadatos y reportes B1–B4 generados durant
 - Ejecucion B2 full-scale por lotes completada (Tickets `MET-02`, `INS-13.A`, `INS-13.B`, `STAT-01`) con consolidacion publication-ready.
 - Cierre B3/B4 completado (Tickets `STAT-02`, `REP-01`, `REP-02`, `DOC-01`, `RPL-01`, `RPL-02`, `REL-01`) con paquete final de submission.
 
+## Política de normalización y disponibilidad de datasets
+
+Para evitar comparaciones inválidas entre ejecuciones, el repositorio introduce una
+política de normalización y trazabilidad. Resumen:
+
+- Las ejecuciones normalizadas deben almacenarse separadamente (convención: `results_normalized_<timestamp>/`
+	o añadir sufijo `_norm` al `iteration_tag`).
+- Cada `*_run_metadata.json` debe incluir los campos `"normalization"` (o `null`) y `"missing_mode"` (`"random"` o `"nearby"`).
+- Las etapas de agregado/postprocesado deben filtrar por el mismo valor de `normalization` antes de comparar o correr tests estadísticos.
+- El orquestador y los runners preferirán datasets locales (`physionet_real`, `bci_iv2a_real_s1..3`, `mne_sample`) cuando estén disponibles; los proxies son fallback.
+
+Consulte `docs/normalization_and_dataset_policy.md` para ejemplos, plantillas de metadatos y comandos recomendados.
+
 ## Estado de validacion paper-faithful
 - [x] PRT-01: protocolo realista final de canales faltantes (estado: ✓ done)
 - [x] MET-01: benchmark final integra MAE, RMSE, DTW y SNR en salida consolidada

@@ -78,6 +78,27 @@ TBL_DIR.mkdir(parents=True, exist_ok=True)
 
 raw_df   = pd.read_csv(RESULTS / f"{tag}_raw.csv")
 stats_df = pd.read_csv(RESULTS / f"{tag}_stats.csv")
+# Load run metadata for normalization and missing_mode traceability
+import json
+meta_path = RESULTS / f"{tag}_run_metadata.json"
+if meta_path.exists():
+    with open(meta_path, "r") as mf:
+        meta = json.load(mf)
+else:
+    meta = {}
+
+normalization = meta.get("normalization", None)
+missing_mode = meta.get("missing_mode", "random")
+
+# Ensure stats CSV matches the run's normalization; fail if mixed
+if "normalization" in stats_df.columns:
+    norms = pd.unique(stats_df["normalization"].dropna())
+    if len(norms) > 1:
+        raise RuntimeError(f"Mixed normalization values in stats CSV: {norms}. Aborting to avoid invalid comparisons.")
+else:
+    # Propagate metadata for downstream traceability
+    stats_df["normalization"] = normalization
+    stats_df["missing_mode"] = missing_mode
 sig_df   = pd.read_csv(RESULTS / f"{tag}_significance.csv")
 scenario_col = "scenario_label" if "scenario_label" in stats_df.columns else "missing_ratio"
 
@@ -91,6 +112,7 @@ FIG_SIZE = (10, 5)
 DPI      = 150
 
 sns.set_theme(style="whitegrid", font_scale=1.1)
+norm_suffix = f" (normalized: {normalization})" if normalization else ""
 ```
 
 ### Step 1 — fig01: MAE by method (bar + CI95)

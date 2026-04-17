@@ -1203,6 +1203,9 @@ def main() -> None:
         "datasets": sorted(df["dataset"].unique().tolist()),
         "n_rows": len(df),
     }
+    # include normalization and missing_mode fields to satisfy metadata contract
+    meta.setdefault("normalization", None)
+    meta.setdefault("missing_mode", None)
     meta_path = RESULTS_DIR / "canonical_run_metadata.json"
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2)

@@ -54,7 +54,10 @@ Optional (if present): `scenario_label`, `seed`, `dtw`, `error`, `best_params`, 
   "error_rate": <float>,
   "datasets_covered": ["<name>"],
   "graphs_used": ["knn_k3", "knn_k5", "nnk_k4", ...],
-  "methods_used": ["tikhonov", "bgsrp", "trss", "tv", ...]
+  "methods_used": ["tikhonov", "bgsrp", "trss", "tv", ...],
+  "normalization": null,
+  "missing_mode": "random",
+  "command": "<exact command line executed>"
 }
 ```
 
@@ -67,6 +70,9 @@ Optional (if present): `scenario_label`, `seed`, `dtw`, `error`, `best_params`, 
    - `10pct` → 0.10, `20pct` → 0.20, `30pct` → 0.30, `40pct` → 0.40
   - `1ch` → 1 missing electrode, `2ch` → 2, `3ch` → 3
    - `"all"` → [0.10, 0.20, 0.30, 0.40]
+  - Scenario strings may include a qualifier to express the removal mode: `_random` or `_nearby` (example: `2ch_nearby`, `2ch_random`). If omitted, default is `_random`.
+  - The Runner must record the resolved `missing_mode` in the metadata JSON under `"missing_mode"`.
+  - To request normalization, set environment variables: `NORMALIZE_DATASETS=1` and `NORM_METHOD=<method>` (e.g., `rms`). When requested, the Runner SHOULD write normalized outputs to a separate results folder (convention: `results_normalized_<timestamp>/` or append `_norm` to `iteration_tag`) and set metadata `"normalization"` to the chosen method name.
 3. Expand `seeds` range string (e.g. `"0-29"`) to integer list `[0, 1, ..., 29]`.
 
 ### Step 2 — Run the canonical experiment

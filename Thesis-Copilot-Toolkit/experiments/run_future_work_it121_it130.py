@@ -596,6 +596,9 @@ def _write_artifacts(it: IterDef, df: pd.DataFrame, availability: Dict[str, Any]
         "engine_version": "v9",
         "data_availability": availability,
     }
+    # Ensure required metadata fields exist for downstream agents and integration
+    meta.setdefault("normalization", None)
+    meta.setdefault("missing_mode", None)
     if extra_meta:
         meta.update(extra_meta)
     (RESULTS / f"{it.tag}_run_metadata.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")

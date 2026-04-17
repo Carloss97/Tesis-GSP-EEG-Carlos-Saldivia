@@ -49,6 +49,10 @@ Notas y recomendaciones
 - Los umbrales afectan cobertura: umbrales más estrictos (p.ej. 0.05) reducen el número de combos seleccionados. Revisa `filtered_selections_compact.md` para una vista legible.
 - Si quieres que ejecute automáticamente versiones con ambos cutoffs (0.05 y 0.20) y te deje los CSV/MD separados, indícamelo y lo automatizo.
 
+## Nota sobre normalización en análisis de selecciones
+
+Al generar agregados y filtros (B1–B4), asegúrate de agrupar/filtrar solo ejecuciones que compartan el mismo valor de `normalization` en su `*_run_metadata.json`. No mezcles ejecuciones normalizadas y no-normalizadas en la misma agregación; esto invalida comparaciones de MAE/RMSE. Consulte `../docs/normalization_and_dataset_policy.md`.
+
 Archivos relevantes (ubicación relativa)
 - `experiments/analysis_it05_it20_multicriteria_agg.csv`
 - `experiments/filtered_threshold_median.csv`

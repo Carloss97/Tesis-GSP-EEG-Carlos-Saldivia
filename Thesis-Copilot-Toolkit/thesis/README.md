@@ -39,3 +39,7 @@ Cuando se extraiga la tesis de referencia en `Referencias/Tesis_Borrador_Tomas_B
 - Se agregaron paginas de cover/title/approval en `usm/frontmatter/`.
 - La portada intenta usar primero `usm/assets/logo_usm/logo_usm.pdf` o `logo_usm.png`.
 - Si el logo local no existe, usa como respaldo el logo de la tesis extraida en `Referencias/Tesis_Borrador_Tomas_Bernal/Figures/UTFSM.pdf`.
+
+## Nota sobre normalización de resultados
+
+Al integrar resultados en la tesis, asegúrese de no mezclar ejecuciones normalizadas y no-normalizadas. Consulte `../docs/normalization_and_dataset_policy.md` para la convención de nombres y los campos de metadatos obligatorios (`normalization`, `missing_mode`).

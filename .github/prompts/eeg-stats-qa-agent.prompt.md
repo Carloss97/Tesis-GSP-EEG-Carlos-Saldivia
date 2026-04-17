@@ -51,6 +51,21 @@ tag = "<iteration_tag>"
 
 df = pd.read_csv(RESULTS / f"{tag}_raw.csv")
 
+# Load run metadata and enforce normalization/missing_mode policy
+import json
+meta_path = RESULTS / f"{tag}_run_metadata.json"
+if meta_path.exists():
+    with open(meta_path, "r") as mf:
+        meta = json.load(mf)
+else:
+    raise FileNotFoundError(f"Missing run metadata: {meta_path}")
+
+normalization = meta.get("normalization", None)
+missing_mode = meta.get("missing_mode", "random")
+
+# If normalization is set, the Stats agent must only aggregate this run's normalized outputs
+print(f"[Stats QA] normalization={normalization}, missing_mode={missing_mode}")
+
 # Drop errored rows
 if "error" in df.columns:
     df_clean = df[df["error"].isna()].copy()
@@ -95,6 +110,9 @@ for (method, scenario), grp in df_clean.groupby(["method", scenario_col]):
         })
 
 stats_df = pd.DataFrame(rows)
+# propagate normalization and missing_mode into stats CSV for traceability
+stats_df["normalization"] = normalization
+stats_df["missing_mode"] = missing_mode
 stats_df.to_csv(RESULTS / f"{tag}_stats.csv", index=False)
 ```
 

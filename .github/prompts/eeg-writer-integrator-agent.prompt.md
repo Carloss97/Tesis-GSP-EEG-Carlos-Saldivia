@@ -58,6 +58,36 @@ tag     = "<iteration_tag>"
 FIG_SRC = RESULTS / f"{tag}_figures"
 TBL_SRC = RESULTS / f"{tag}_tables"
 
+# Load run metadata and guard against mixing normalized vs non-normalized integrated runs
+import json
+meta_path = RESULTS / f"{tag}_run_metadata.json"
+if not meta_path.exists():
+  raise FileNotFoundError(f"Missing run metadata: {meta_path}")
+with open(meta_path, "r") as mf:
+  meta = json.load(mf)
+
+current_norm = meta.get("normalization", None)
+
+# Check previously integrated iterations for normalization mismatch
+integrated_logs = sorted(RESULTS.glob("*_integration_log.md"))
+integrated_norms = set()
+for log in integrated_logs:
+  prev_tag = log.name.replace("_integration_log.md", "")
+  prev_meta = RESULTS / f"{prev_tag}_run_metadata.json"
+  if prev_meta.exists():
+    try:
+      with open(prev_meta, "r") as pf:
+        pm = json.load(pf)
+        integrated_norms.add(pm.get("normalization", None))
+    except Exception:
+      continue
+
+if integrated_norms and any((n != current_norm) for n in integrated_norms):
+  raise RuntimeError(
+    "Detected previously integrated iterations with a different 'normalization' value. "
+    "Manual confirmation required to avoid mixing normalized and non-normalized results."
+  )
+
 PAPER_FIGS  = ROOT / "paper" / "ieee" / "figures"
 PAPER_TBLS  = ROOT / "paper" / "ieee" / "tables"
 THESIS_FIGS = ROOT / "thesis" / "usm" / "figures"

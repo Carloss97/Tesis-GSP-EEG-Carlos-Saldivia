@@ -43,3 +43,7 @@ Siguientes pasos sugeridos:
 
 - Revisar iteraciones con artefactos faltantes y usar el motor `v9` para re-ejecutarlas.
 - El script también puede adaptarse para ejecutar automáticamente los reruns (no implementado por defecto).
+
+## Nota de normalización al estandarizar
+
+El proceso de estandarización respeta el campo `normalization` en los `metadata.json`. Las ejecuciones normalizadas y no-normalizadas se deben almacenar en entradas separadas dentro de `standardized_results/` para evitar mezclas en agregados y comparativas. Consulte `../docs/normalization_and_dataset_policy.md`.

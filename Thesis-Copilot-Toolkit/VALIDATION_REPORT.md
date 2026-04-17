@@ -87,6 +87,18 @@ Evidencia de artefactos:
 - `results/opt_benchmark_b1_protocol_summary.csv`
 - `results/opt_benchmark_b1_protocol_config.json`
 
+### 2.9 Normalization & dataset availability (discovery)
+
+Issue discovered: some aggregation and ranking steps accidentally mixed normalized and non-normalized runs which produced non-comparable MAE/RMSE numbers across datasets. To prevent this class of error the repository now follows an explicit policy:
+
+- Normalized runs MUST be stored separately (convention: `results_normalized_<timestamp>/` or append `_norm` to the `iteration_tag`).
+- Every run metadata file (`*_run_metadata.json`) must include a `"normalization"` field (either `null` or the normalization method name, e.g., `"rms"`).
+- Aggregation and postprocessing scripts must only compare runs that share the same `normalization` value.
+- The orchestrator and Runner prefer local real datasets when available (`physionet_real`, `bci_iv2a_real_s1..3`, `mne_sample`). Proxies/synthetic datasets are fallback only.
+
+This discovery motivated updates to the AGENT_ITERATION_GUIDE and to the orchestrator prompt guidance; see `AGENT_ITERATION_GUIDE.md` and `docs/normalization_and_dataset_policy.md` for actionable examples and metadata templates.
+
+
 ### 2.8 Estado INS-13 estricto (MATLAB/GSPBox)
 
 Se ejecuto una comparacion cross-stack directa en escenario controlado para acotar la brecha BGSRP.

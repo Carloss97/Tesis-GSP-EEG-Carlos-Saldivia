@@ -22,10 +22,12 @@ Emit a structured iteration report and enforce the Go/No-Go gate before any manu
 | Field | Type | Example |
 |-------|------|---------|
 | `dataset` | string | `synthetic_alpha`, `physionet_eegmmidb`, `all` |
-| `scenarios` | list | `["10pct","20pct","30pct"]`, `["1ch","2ch"]` or `"all"` |
+| `scenarios` | list | `["10pct","20pct","30pct"]`, `["1ch_random","2ch_nearby"]` or `"all"` |
 | `seeds` | range | `0-29` (10–30 seeds recommended) |
 | `iteration_tag` | string | `it01`, `it02_tv_focus` |
 | `objective` | string | Short free-text goal for this iteration |
+| `normalize` (optional) | bool or env | `true` or set `NORMALIZE_DATASETS=1` (writes to `results_normalized_*`) |
+| `missing_mode` (optional) | string | `random` (default) or `nearby` (spatially-adjacent removals) |
 
 ## Strict Execution Order
 
@@ -45,6 +47,8 @@ Phase 4 ── Integrator Agent   (eeg-writer-integrator-agent.prompt.md)   ← 
 **Entry contract (inputs the orchestrator passes):**
 - `iteration_tag`, `dataset`, `scenarios`, `seeds`
 - Working directory: `Thesis-Copilot-Toolkit/`
+
+Note: the orchestrator may include `normalize` and `missing_mode` in the inputs; the Runner must record these in `*_run_metadata.json` (fields: `normalization`, `missing_mode`).
 
 **Exit contract (artefacts the Runner must produce):**
 - `results/<iteration_tag>_raw.csv` — one row per (dataset, graph, method, scenario, seed)

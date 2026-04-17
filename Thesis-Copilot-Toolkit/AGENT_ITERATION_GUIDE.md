@@ -19,6 +19,40 @@ This guide describes how to run iterative experiments using the five-agent orche
 
 All prompt files live in `.github/prompts/`.
 
+## 1.1 Data normalization & dataset availability (policy)
+
+During development we found two operational issues that must be explicit in the guide so results remain comparable and reproducible:
+
+- Mixing normalized runs with non-normalized runs produces non-comparable metrics (example: MAE in µV vs. normalized RMS-based error). To avoid invalid comparisons, normalized executions MUST be isolated and clearly labeled.
+
+- Local real datasets are available in most environments (`physionet_real`, `bci_iv2a_real_s1`, `bci_iv2a_real_s2`, `bci_iv2a_real_s3`, `mne_sample`). The orchestrator and runner should prefer these keys; proxies and synthetic datasets are FALLBACK only.
+
+Policy (conventions):
+
+- Naming / storage:
+        - Keep original (raw) runs in `results/` and place normalized runs in a separate folder prefixed `results_normalized_<timestamp>/` or append `_norm` to the `iteration_tag` (example: `it123_norm`).
+        - Do NOT mix normalized and non-normalized CSVs when aggregating or computing comparisons.
+
+- Metadata:
+        - Every run metadata file (`*_run_metadata.json`) MUST include a `"normalization"` field set to either `null` (no normalization) or the method name (e.g., `"rms"`).
+        - When a missing-channel policy mode is applied, the metadata MUST include `"missing_mode"`: one of `"random"` or `"nearby"`.
+
+- Execution flags (convention):
+        - Use environment variables to request normalized runs: `NORMALIZE_DATASETS=1` and `NORM_METHOD=rms` (or other supported method). The Runner will then write outputs to the normalized results folder.
+        - Use the orchestrator's availability check (or `base_mod.load_data_availability()`) to detect local real datasets and avoid proxies whenever possible.
+
+- Scenarios and missing-channel patterns (supported formats):
+        - Fractional: `0.1`, `0.2` (representing 10 %, 20 % missing channels)
+        - Absolute counts: `"1ch"`, `"2ch"`, `"3ch"` (remove exactly N electrodes)
+        - Mode qualifiers: combine with `_random` or `_nearby` (example: `"2ch_random"`, `"3ch_nearby"`). If the qualifier is omitted the default is `random`.
+        - Runner implementations MUST record the `missing_mode` in the run metadata and support both random and spatially-adjacent (`nearby`) removals.
+
+Rationale and impact:
+
+- This policy ensures that statistical summaries, pairwise tests and ranking operations compare homogeneous groups (same normalization and same missing-mode). It also documents the presence of real, local datasets so the pipeline does not silently use proxies.
+
+See `docs/normalization_and_dataset_policy.md` for concrete examples, recommended commands and metadata templates.
+
 ---
 
 ## 2. Required Iteration Fields

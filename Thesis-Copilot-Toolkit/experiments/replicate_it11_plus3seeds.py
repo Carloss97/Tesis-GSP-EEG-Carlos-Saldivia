@@ -277,6 +277,9 @@ def main():
         'graphs': sorted(df['graph'].unique().tolist()),
         'seeds': seeds,
     }
+    # Provide standard metadata keys required by integration and prompts
+    meta_out.setdefault('normalization', None)
+    meta_out.setdefault('missing_mode', None)
     (RESULTS / f"{TAG}_run_metadata.json").write_text(json.dumps(meta_out, ensure_ascii=False, indent=2), encoding='utf-8')
 
     # Figures

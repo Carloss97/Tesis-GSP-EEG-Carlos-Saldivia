@@ -50,3 +50,7 @@ latexmk -pdf -interaction=nonstopmode ieee/main.tex
 - Resultados con comparativas y pruebas de robustez.
 - Referencias completas y consistentes con BibTeX.
 - Revision gramatical en ingles tecnico.
+
+## Nota sobre normalización de resultados
+
+Cuando integre resultados en el manuscrito, verifique que no se mezclen ejecuciones normalizadas y no-normalizadas. Consulte `../docs/normalization_and_dataset_policy.md` para la convención de nombres y metadatos (`normalization`, `missing_mode`).

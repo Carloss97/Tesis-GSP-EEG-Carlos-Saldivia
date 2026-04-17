@@ -37,6 +37,10 @@ Para mantener trazabilidad en los informes y en la selección, se usan las sigui
 
 > Estas etiquetas son agrupaciones lógicas para el informe; los nombres concretos de métodos provienen de las columnas `graph` y `method` en los CSV de `results/`.
 
+## Nota sobre normalización en el análisis
+
+Antes de agregar resultados o calcular rankings multicriterio, verifique el campo `normalization` en cada `*_run_metadata.json`. Solo agregue y compare ejecuciones que compartan el mismo valor de `normalization` (o `null`). Mezclar normalizaciones diferentes conducirá a comparaciones no válidas de métricas absolutas. Consulte `../docs/normalization_and_dataset_policy.md` para la convención de metadatos y ejemplos.
+
 ## Umbrales y cortes referenciados ("<5" y "<20")
 En informes y cortes rápidos se usan filtros por error/MAE y por cobertura:
 - `<5` y `<20` se usan como ejemplos de umbrales para candidaturas (p. ej. seleccionar combos con MAE < 0.05 o < 0.20 según la métrica y la escala del dataset). En este análisis se priorizaron comparaciones relativas (ordenamiento por métricas) más que umbrales hard-coded, pero los scripts dejan fácil parametrización para aplicar dichos cortes.
