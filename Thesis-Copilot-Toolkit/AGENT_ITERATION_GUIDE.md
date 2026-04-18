@@ -302,7 +302,9 @@ Primary metric for ranking: **MAE**.
 ## 14. Method Families
 
 **TV/Time** (temporal-graph methods):
-`graph_time_tikhonov`, `trss`, `tv`
+`graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`
+
+Rationale: `temporal_laplacian` implements a product-graph spatio-temporal Laplacian regularizer (combines spatial Laplacian and temporal Laplacian) and is recommended for time-varying signals. See Jiang et al., 2021 (spatio-temporal / product-graph imputation) and Giraldo et al., 2022 (GraphTRSS / Sobolev temporal smoothness) for theoretical and empirical support.
 
 **Instant** (graph-only, no temporal structure):
 `tikhonov`, `gsp`, `bgsrp`, `spline`, `idw`, `nearest`, `knn_k3`, `knn_k5`, `nnk_k4`, ...

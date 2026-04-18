@@ -70,3 +70,9 @@ $env:NORM_METHOD='rms'
 ```
 
 Keep this file updated if new normalization methods are implemented or if the Runner changes how it records metadata.
+
+## Recommended TV Methods
+
+- `temporal_laplacian`: recommended for time-varying reconstruction tasks. Implements a product-graph spatio-temporal Laplacian regularizer (spatial Laplacian ⊗ I + I ⊗ temporal Laplacian) and complements existing TV-family methods (`trss`, `graph_time_tikhonov`). See Jiang et al., 2021 and Giraldo et al., 2022 for product-graph and Sobolev/time-varying smoothness formulations.
+
+When adding TV methods to an iteration, ensure the Runner records `methods` in `*_run_metadata.json` and that temporal methods are compared as a family (see `AGENT_ITERATION_GUIDE.md`).
