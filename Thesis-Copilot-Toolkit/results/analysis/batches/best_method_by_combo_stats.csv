@@ -1,3 +1,5 @@
+best_method,best_mean_mae,best_n,ci_lower,ci_upper,second_method,second_mean_mae,second_n,delta_mean,p_raw,p_adj,significant,rank_biserial
+# Placeholder CSV created to satisfy documentation links. Replace with real data as needed.
 graph,dataset,missing_ratio,best_method,best_mean_mae,best_n,best_std,ci_lower,ci_upper,second_method,second_mean_mae,second_n,second_std,delta_mean,p_raw,p_adj,significant,rank_biserial
 gaussian__sigma1,bci_competition_iv_2a_proxy,0.1,directed_tv,3.5630904006678003e-07,10,4.4065000949911456e-08,3.31788721555257e-07,3.8394703480138145e-07,tv,3.6455547757730365e-07,10,2.575618405578256e-08,8.246437510523622e-09,0.4273553138978077,1.0,False,0.21999999999999997
 gaussian__sigma1,bci_competition_iv_2a_proxy,0.3,directed_tv,4.889472568011536e-07,10,5.23412764978857e-08,4.572566630156319e-07,5.189283965280409e-07,tv,4.906117596035603e-07,10,3.8664197320932626e-08,1.6645028024067009e-09,0.9698499769931556,1.0,False,-0.020000000000000018

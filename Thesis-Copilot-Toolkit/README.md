@@ -75,8 +75,8 @@ Idioma esperado para tesis: espanol academico.
 
 Resultados de ejecuciones y artefactos archivados (ZIPs generados el 2026-04-14):
 
-- Results (150-iteration normalized): [Thesis-Copilot-Toolkit/archives/results_rms_full150_2026-04-14.zip](Thesis-Copilot-Toolkit/archives/results_rms_full150_2026-04-14.zip)
-- Results (LT20 normalized): [Thesis-Copilot-Toolkit/archives/results_rms_2026-04-14.zip](Thesis-Copilot-Toolkit/archives/results_rms_2026-04-14.zip)
++ Results (150-iteration normalized): [archives/results_rms_full150_2026-04-14.zip](archives/results_rms_full150_2026-04-14.zip)
++ Results (LT20 normalized): [archives/results_rms_2026-04-14.zip](archives/results_rms_2026-04-14.zip)
 
 Estos archivos contienen los CSVs, metadatos y reportes B1–B4 generados durante la corrida normalizada (NORMALIZE_DATASETS=1, NORM_METHOD=rms). Consulte la carpeta `experiments/` para los scripts que generaron los artefactos.
 

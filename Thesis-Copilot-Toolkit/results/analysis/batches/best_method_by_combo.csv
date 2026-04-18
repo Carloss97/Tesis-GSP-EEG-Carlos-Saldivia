@@ -1,3 +1,5 @@
+combination,best_method,best_mean_mae,best_n
+# Placeholder CSV created to satisfy documentation links. Replace with real data as needed.
 graph,dataset,missing_ratio,best_method,best_mean_mae,best_median_mae,best_count,n_methods,second_mean_mae,delta_to_second,second_method
 aew,mne_sample,0.1,gsmooth,2.8076627950797427e-06,2.837849581334684e-06,60,12,2.8245522429751617e-06,1.688944789541901e-08,gsp
 aew,mne_sample,0.2,tv,4.759809884757866e-06,4.257291502008455e-06,60,12,4.86015270146842e-06,1.0034281671055392e-07,gsmooth

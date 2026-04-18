@@ -77,33 +77,19 @@ Se ha calculado la media de MAE por método para cada combinación (graph, datas
 seleccionando el *mejor* (menor MAE) y el segundo mejor para comparar. Para cada combinación se
 incluye:
 
-- `best_method`, `best_mean_mae`, `best_n`, `ci_lower`, `ci_upper`
-- `second_method`, `second_mean_mae`, `second_n`
-- `delta_mean` (segundo - mejor)
-- `p_raw`, `p_adj` (p-valor de Mann–Whitney y p ajustado por Holm), `significant`
-- `rank_biserial` (efecto, rango-biserial)
 
 Resumen rápido:
 
-- Combinaciones evaluadas: 315
-- Combinaciones con mejora significativa (p_adj < 0.05): 129
-- Top métodos reportados como "mejor": `trss` (107), `tv` (54), `heat_diffusion_temporal` (34), `directed_tv` (31), `mean` (28)
 
 Archivos con resultados completos:
 
-- Tabla completa (CSV): [Thesis-Copilot-Toolkit/results/analysis/batches/best_method_by_combo_stats.csv](Thesis-Copilot-Toolkit/results/analysis/batches/best_method_by_combo_stats.csv)
-- Tabla resumen (mejor por combinación): [Thesis-Copilot-Toolkit/results/analysis/batches/best_method_by_combo.csv](Thesis-Copilot-Toolkit/results/analysis/batches/best_method_by_combo.csv)
-- Libro Excel con todas las hojas (descargable): [Thesis-Copilot-Toolkit/results/analysis/batches/summary_report.xlsx](Thesis-Copilot-Toolkit/results/analysis/batches/summary_report.xlsx)
-- Dashboard interactivo (index): [Thesis-Copilot-Toolkit/results/analysis/batches/interactive/index.html](Thesis-Copilot-Toolkit/results/analysis/batches/interactive/index.html)
+ - Tabla completa (CSV): [best_method_by_combo_stats.csv](best_method_by_combo_stats.csv)
+ - Tabla resumen (mejor por combinación): [best_method_by_combo.csv](best_method_by_combo.csv)
+ - Libro Excel con todas las hojas (descargable): [summary_report.xlsx](summary_report.xlsx)
+ - Dashboard interactivo (index): [interactive/index.html](interactive/index.html)
 
 Notas:
 
-- Los IC95 se calcularon por bootstrap sobre la media del MAE (2000 repeticiones cuando hay suficiente muestra).
-- La prueba usada para comparar mejor vs segundo fue Mann–Whitney U (no paramétrica). Los p-valores se ajustaron con Holm.
-- Para combinaciones con muestras pequeñas (n < 3) no se reportaron p-valores.
 
 Si quieres, puedo:
 
-- Exportar únicamente las 129 combinaciones significativas a un XLSX separado.
-- Añadir una figura (heatmap) que muestre solo combinaciones significativas por `best_method`.
-- Subir `summary_report.xlsx` a un servicio (Google Drive, transfer.sh, etc.) y devolver un enlace descargable.

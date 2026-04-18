@@ -47,8 +47,8 @@ Apply these rules per the [GFM spec](https://github.github.com/gfm/) when writin
 - **Code spans**: Backtick-delimited inline code. Line endings convert to spaces. Leading and trailing space stripped when both present. Backslash escapes are literal inside code spans.
 - **Emphasis and strong emphasis**: `*`/`_` for `<em>`, `**`/`__` for `<strong>`. `_` is not allowed for intraword emphasis. Left-flanking / right-flanking delimiter run rules apply. Delimiter run length sum must not be a multiple of 3 when one delimiter can both open and close (unless both lengths are multiples of 3).
 - **Strikethrough** *(extension)*: `~~text~~` — one or two tildes. Does not span across paragraphs. Three or more tildes do not create strikethrough.
-- **Links**: Inline `[text](url "title")` or reference `[text][label]` / `[text][]` / `[text]`. Link text may contain inlines but not other links. Destination in `<…>` allows spaces. No whitespace between link text and `(` or `[`.
-- **Images**: `![alt](src "title")` — same syntax as links prefixed with `!`. Alt text is the plain-string content of the description.
+- **Links**: Inline `[text](https://example.com "title")` or reference `[text][label]` / `[text][]` / `[text]`. Link text may contain inlines but not other links. Destination in `<…>` allows spaces. No whitespace between link text and `(` or `[`.
+- **Images**: `![alt](https://example.com/image.png "title")` — same syntax as links prefixed with `!`. Alt text is the plain-string content of the description.
 - **Autolinks**: `<URI>` or `<email>` in angle brackets. Scheme must be 2–32 characters starting with an ASCII letter.
 - **Autolinks** *(extension)*: Bare `http://`, `https://`, `www.` URLs and bare email addresses auto-link without angle brackets. Trailing punctuation excluded; parentheses balanced.
 - **Raw HTML**: Open/close tags, comments (`<!-- -->`), processing instructions (`<? ?>`), declarations (`<!…>`), CDATA (`<![CDATA[…]]>`) are passed through.
@@ -64,5 +64,5 @@ Apply these rules per the [GFM spec](https://github.github.com/gfm/) when writin
 - [ ] Task list items have a space between `-` and `[ ]` or `[x]`.
 - [ ] Emphasis uses `*` for intraword; `_` only at word boundaries.
 - [ ] Strikethrough uses exactly `~~` (not 3+ tildes).
-- [ ] Links use `[text](url)` or reference syntax with no whitespace before `(` or `[`.
+- [ ] Links use `[text](https://example.com)` or reference syntax with no whitespace before `(` or `[`.
 - [ ] No disallowed raw HTML tags (`<script>`, `<style>`, `<title>`, `<textarea>`, `<xmp>`, `<iframe>`, `<noembed>`, `<noframes>`, `<plaintext>`).
