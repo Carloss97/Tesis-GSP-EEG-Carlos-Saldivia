@@ -1,3 +1,5 @@
+**Aviso de artefacto histórico:** Este archivo contiene resultados que hacen referencia a métodos/datasets ahora excluidos de ejecuciones activas. Ver [Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md](Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md).
+
 # Stats QA Report — it18_directed_tv_vs_trss
 
 **Overall: PASS**

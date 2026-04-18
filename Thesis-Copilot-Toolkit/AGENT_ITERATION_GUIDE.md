@@ -1,4 +1,5 @@
 <!-- markdownlint-disable-file -->
+**Aviso de artefacto histórico:** Este archivo de guía puede mencionar iteraciones y resultados que incluyen métodos/datasets ahora excluidos de ejecuciones activas. Consulte [Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md](Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md) para más información.
 # AGENT_ITERATION_GUIDE
 
 **Operational guide for repeating EEG-GSP experiment cycles without breaking editorial consistency.**

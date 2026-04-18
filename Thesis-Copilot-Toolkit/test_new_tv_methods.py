@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Aviso de artefacto histórico: este script de pruebas menciona métodos/datasets que han sido excluidos de ejecuciones activas. Ver Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md
 """Test script for new TV-based interpolation methods."""
 
 import os

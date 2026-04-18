@@ -1,3 +1,5 @@
+**Aviso de artefacto histórico:** Este archivo hace referencia a iteraciones y resultados que pueden incluir métodos/datasets actualmente excluidos de ejecuciones activas. Ver [Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md](Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md) para contexto.
+
 # Iterations Comprehensive Report
 ## Tesis GSP-EEG: Validación de Métodos de Interpolación EEG basados en GSP
 

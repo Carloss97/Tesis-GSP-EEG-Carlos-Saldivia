@@ -1,3 +1,5 @@
+**Aviso de artefacto histórico:** Este archivo contiene selecciones históricas que incluyen métodos ahora excluidos de ejecuciones activas. Ver [Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md](Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md).
+
 # SELECTIONS — cutoff 0.2 (no physionet)
 
 - Median filter matches: 68

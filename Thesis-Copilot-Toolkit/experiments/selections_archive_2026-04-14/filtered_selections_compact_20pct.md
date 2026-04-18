@@ -1,4 +1,6 @@
-﻿# Filtered selections (compact) - 20% cutoff
+﻿**Aviso de artefacto histórico:** Este archivo contiene selecciones históricas que incluyen métodos ahora excluidos de ejecuciones activas. Ver [Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md](Thesis-Copilot-Toolkit/docs/HISTORICAL_ARTIFACTS_NOTICE.md).
+
+# Filtered selections (compact) - 20% cutoff
 
 ## Filter A - median_mae < 0.2 AND datasets_count >= 3
 - aew__k4_sigma_corr0_5_sigma_dist1|heat_diffusion_temporal: median=0.132588 datasets=4
@@ -28,7 +30,7 @@
 - gaussian__sigma1|heat_diffusion_temporal: median=0.131566 datasets=4
     - physionet_eegmmidb: mae=2E-06 (seed=1)
     - physionet_eegmmidb: mae=5E-06 (seed=1)
-    - physionet_eegmmidb: mae=9E-06 (seed=1)
+    - physionet_eegmmidb: mae=1E-05 (seed=1)
     - physionet_eegmmidb: mae=1.3E-05 (seed=1)
     - synthetic_alpha: mae=0.064894 (seed=1)
 - kalofolias|mean: median=0.129792 datasets=4
