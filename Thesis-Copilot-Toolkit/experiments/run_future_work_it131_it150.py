@@ -49,6 +49,13 @@ def _build_iteration_defs(base) -> Dict[str, object]:
         "iv100hz_mat",
     ]
 
+    # Runtime exclusions (2026-04-18): keep historical artifacts but avoid scheduling
+    # these methods/datasets for new runs unless explicitly reviewed.
+    EXCLUDED_METHODS = {"heat_diffusion_temporal", "wavelet_temporal", "directed_tv"}
+    EXCLUDED_DATASETS = {"iv100hz_mat"}
+    # Filter the default real dataset list to avoid the excluded datasets
+    real = [d for d in real if d not in EXCLUDED_DATASETS]
+
     defs = [
         IterDef("it131", "it131_heatdiff_trss_directed_tv_real", "Compare heat-diffusion, TRSS and directed-TV on real EEG", "Phase 19: Focused real-data comparison", "Compare `heat_diffusion_temporal`, `trss`, and `directed_tv` on clinical/BCI datasets.", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3}), ("gaussian", {"sigma": 1.0}), ("kalofolias", {})], missing_list=[0.1, 0.2, 0.3], methods=["heat_diffusion_temporal", "trss", "directed_tv", "tv", "mean"]),
 
@@ -90,6 +97,13 @@ def _build_iteration_defs(base) -> Dict[str, object]:
 
         IterDef("it150", "it150_decision_matrix_update", "Update decision matrix after focused experiments", "Phase 23: Decision update", "Aggregate focused experiments and emit conditional decision matrix for final recommendation", ["physionet_real", "bci_iv2a_real_s1", "bci_iv2a_real_s2"], seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.2]),
     ]
+
+    # Remove excluded methods from per-iteration method lists to avoid accidental reruns.
+    for it in defs:
+        if getattr(it, "methods", None):
+            it.methods = [m for m in it.methods if m not in EXCLUDED_METHODS]
+        if getattr(it, "datasets", None):
+            it.datasets = [d for d in it.datasets if d not in EXCLUDED_DATASETS]
 
     return {it.key: it for it in defs}
 

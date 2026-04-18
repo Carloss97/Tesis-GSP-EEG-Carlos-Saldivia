@@ -127,7 +127,7 @@ Run the following key contrasts using Mann-Whitney U (unpaired) or Wilcoxon sign
 | `mae_tv_family_vs_instant` | mae | tv_time family | instant family | Wilcoxon |
 | `rmse_trss_vs_tikhonov` | rmse | trss | tikhonov | Mann-Whitney U |
 
-TV/Time methods (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `directed_tv`
+TV/Time methods (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`
 Instant methods: all others
 
 Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
@@ -135,7 +135,7 @@ Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
 ```python
 from scipy.stats import mannwhitneyu, wilcoxon
 
-TV_TIME = {"graph_time_tikhonov", "trss", "tv", "temporal_laplacian", "directed_tv"}
+TV_TIME = {"graph_time_tikhonov", "trss", "tv", "temporal_laplacian"}
 alpha = 0.05
 n_tests = 4  # increment dynamically if dtw is available
 bonferroni_alpha = alpha / n_tests
@@ -269,7 +269,7 @@ lines += [
     "",
     "## Interpretation Note",
     "",
-    "- TV/Time family (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `directed_tv`.",
+    "- TV/Time family (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`.",
     "- Bonferroni-adjusted alpha: {:.4f}.".format(bonferroni_alpha),
     "- INS-13 status: proxy Python-only — do not claim 1:1 MATLAB/GSPBox equivalence.",
 ]

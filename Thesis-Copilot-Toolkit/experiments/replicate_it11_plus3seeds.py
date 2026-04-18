@@ -61,7 +61,7 @@ def _stats(df: pd.DataFrame) -> pd.DataFrame:
 
 def _significance(df: pd.DataFrame) -> pd.DataFrame:
     INSTANT_METHODS = ['mean', 'nearest', 'tikhonov']
-    TV_METHODS = ['tv', 'trss', 'graph_time_tikhonov', 'temporal_laplacian', 'directed_tv', 'wavelet_temporal']
+    TV_METHODS = ['tv', 'trss', 'graph_time_tikhonov', 'temporal_laplacian', 'directed_tv']
     tv = df[df['method'].isin(TV_METHODS)]['mae'].to_numpy()
     inst = df[df['method'].isin(INSTANT_METHODS)]['mae'].to_numpy()
     if len(tv) == 0 or len(inst) == 0:

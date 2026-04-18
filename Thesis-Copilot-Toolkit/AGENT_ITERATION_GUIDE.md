@@ -584,3 +584,22 @@ Estado operativo acordado:
 - `it120` exhaustivo se intentó por última vez y se da por **perdido** en esta ventana por runtime prolongado.
 - `it121–it130` (incluyendo el bloque pendiente `it123–it130`) quedó ejecutado con artefactos completos.
 - No quedan pendientes operativos del ciclo; `it120` queda cerrado con perfil controlado (NO-GO, `p=0.0535`).
+
+## 17. Runtime exclusions and historical artifacts
+
+Fecha: 2026-04-18
+
+Nota breve: durante la revisión operativa se decidió excluir temporalmente ciertos métodos y un dataset de las ejecuciones automáticas para evitar reruns accidentales y concentrar recursos en métodos validados.
+
+- Métodos excluidos de ejecuciones activas: `heat_diffusion_temporal`, `wavelet_temporal`.
+- Método sujeto a revisión y excluido en esta fase: `directed_tv`.
+- Dataset excluido de ejecuciones automáticas: `iv100hz_mat` (100 Hz MAT files).
+
+Razón: estos métodos aparecen en artefactos históricos y planes previos; mantenerlos en el repositorio para trazabilidad, pero evitar su re-ejecución sin revisión científica adicional.
+
+Acciones recomendadas:
+
+- Los archivos de planificación (`experiments/run_future_work_*.py`, `experiments/propose_mapping_run_summary.json`, y orquestador/prompts) deben respetar estas exclusiones por defecto. Si un investigador necesita re-ejecutarlos, añadir una nota explicando la justificación y forzar explícitamente el método en la invocación.
+- Añadir un archivo de aviso en `docs/HISTORICAL_ARTIFACTS_NOTICE.md` (creado automáticamente) que documente porqué estas entradas permanecen en el repo y cómo tratarlas.
+
+Referencias (BibTeX keys): `Jiang2021`, `Giraldo2022`.

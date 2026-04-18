@@ -57,6 +57,12 @@ def interpolate_signals(
         reconstructed = interpolate_mean(signals)
         return {"reconstructed": reconstructed, "info": {"method": "mean"}}
 
+    if method == "ica":
+        n_components = kwargs.get("n_components", None)
+        random_state = kwargs.get("random_state", 0)
+        reconstructed = interpolate_ica(signals, n_components=n_components, random_state=random_state)
+        return {"reconstructed": reconstructed, "info": {"method": "ica", "n_components": n_components}}
+
     if method == "random":
         reconstructed = interpolate_random(signals)
         return {"reconstructed": reconstructed, "info": {"method": "random"}}
@@ -336,6 +342,57 @@ def interpolate_random(signals: np.ndarray, random_state: int = 42) -> np.ndarra
         reconstructed[i, ~observed] = rng.uniform(low, high, size=np.sum(~observed))
 
     return reconstructed
+
+
+def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random_state: int = 0) -> np.ndarray:
+    """
+    ICA-based reconstruction baseline.
+
+    Strategy:
+    - Impute missing entries with channel-wise mean.
+    - Fit FastICA across time (samples x channels).
+    - Inverse-transform to obtain reconstructed signals and use reconstructed
+      values for the originally-missing entries.
+
+    This is a pragmatic baseline that provides a source-separation reconstruction
+    without requiring external training data.
+    """
+    try:
+        from sklearn.decomposition import FastICA
+    except Exception:
+        raise ImportError("scikit-learn is required for ICA interpolation. Install scikit-learn.")
+
+    y = signals.astype(float)
+    mask = ~np.isnan(y)
+    n_t, n_ch = y.shape
+
+    # Impute missing values with column mean for ICA fitting
+    col_mean = _nanmean_no_warn(y, axis=0)
+    x = y.copy()
+    miss = ~mask
+    x[miss] = np.take(col_mean, np.where(miss)[1])
+
+    # Determine number of components
+    if n_components is None:
+        comp = min(n_ch, max(1, n_ch - 1))
+    else:
+        comp = int(min(int(n_components), n_ch))
+    comp = max(1, min(comp, n_ch))
+    if n_t <= comp:
+        comp = max(1, min(n_t - 1, n_ch)) if n_t > 1 else 1
+
+    try:
+        ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=500, tol=1e-4)
+        S = ica.fit_transform(x)
+        X_rec = ica.inverse_transform(S)
+        reconstructed = y.copy()
+        reconstructed[miss] = X_rec[miss]
+        return reconstructed
+    except Exception:
+        # Safe fallback: fill missing with column mean
+        reconstructed = y.copy()
+        reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
+        return reconstructed
 
 
 def interpolate_idw(signals: np.ndarray, positions: np.ndarray = None, power: float = 2.0) -> np.ndarray:

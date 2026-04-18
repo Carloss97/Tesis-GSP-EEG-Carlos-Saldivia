@@ -36,9 +36,7 @@ ACTIVE_METHODS = [
     "sobolev_temporal",
     "tv",
     "temporal_laplacian",
-    "heat_diffusion_temporal",
     "spline_temporal",
-    "wavelet_temporal",
     "directed_tv",
     "adaptive_temporal",
 ]
@@ -65,9 +63,7 @@ GRAPH_BASED = {
     "sobolev_temporal",
     "tv",
     "temporal_laplacian",
-    "heat_diffusion_temporal",
     "spline_temporal",
-    "wavelet_temporal",
     "directed_tv",
     "adaptive_temporal",
 }
@@ -85,9 +81,7 @@ METHOD_PARAMS = {
     "sobolev_temporal": {"alpha": 0.8, "beta": 0.1, "n_iter": 40, "lr": 0.03},
     "tv": {"lam": 0.2, "n_iter": 20, "eps": 1e-5},
     "temporal_laplacian": {"alpha": 0.5, "beta": 0.1},
-    "heat_diffusion_temporal": {"alpha": 0.5, "beta": 0.1, "n_iter": 20},
     "spline_temporal": {"alpha": 0.5, "s_temporal": 1.0},
-    "wavelet_temporal": {"alpha": 0.5, "wavelet_level": 2},
     "directed_tv": {"alpha": 0.5, "beta": 0.1, "n_iter": 20, "eps": 1e-5},
     "adaptive_temporal": {"alpha": 0.5, "beta": 0.1, "gamma": 0.8, "n_iter": 20},
 }

@@ -289,19 +289,10 @@ TV_TIME_METHOD_GRIDS: List[Tuple[str, List[Dict]]] = [
         {"alpha": 0.5, "beta": 0.5},
         {"alpha": 0.7, "beta": 0.3},
     ]),
-    ("heat_diffusion_temporal", [
-        {"alpha": 0.3, "beta": 0.3, "n_iter": 10},
-        {"alpha": 0.5, "beta": 0.5, "n_iter": 15},
-    ]),
     ("spline_temporal", [
         {"alpha": 0.3},
         {"alpha": 0.5},
         {"alpha": 0.7},
-    ]),
-    ("wavelet_temporal", [
-        {"alpha": 0.3, "wavelet_level": 1},
-        {"alpha": 0.5, "wavelet_level": 1},
-        {"alpha": 0.7, "wavelet_level": 2},
     ]),
     ("directed_tv", [
         {"alpha": 0.3, "beta": 0.1, "n_iter": 15},
@@ -318,7 +309,7 @@ GRAPH_BASED = {
     "gsp", "tikhonov", "bgsrp", "gsmooth", "puy", "sobolev",
     "graph_time_tikhonov", "trss", "tv",
     "temporal_laplacian", "heat_diffusion_temporal", "spline_temporal",
-    "wavelet_temporal", "directed_tv", "adaptive_temporal",
+    "directed_tv", "adaptive_temporal",
 }
 POSITION_BASED = {"idw", "spherical_spline", "rbfi_tps", "rbfi_mq", "spline_surface"}
 
