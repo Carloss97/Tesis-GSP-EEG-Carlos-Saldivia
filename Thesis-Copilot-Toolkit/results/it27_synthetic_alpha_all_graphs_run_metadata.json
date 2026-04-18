@@ -57,5 +57,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Full alpha band analysis across all 8 graph construction methods."
+  "note": "Full alpha band analysis across all 8 graph construction methods.",
+  "normalization": null,
+  "missing_mode": null
 }

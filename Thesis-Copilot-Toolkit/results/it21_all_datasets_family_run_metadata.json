@@ -60,5 +60,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Previous attempt (it05) used best-method G2 and failed. Family median comparison pools 2816 rows for stronger statistical power."
+  "note": "Previous attempt (it05) used best-method G2 and failed. Family median comparison pools 2816 rows for stronger statistical power.",
+  "normalization": null,
+  "missing_mode": null
 }

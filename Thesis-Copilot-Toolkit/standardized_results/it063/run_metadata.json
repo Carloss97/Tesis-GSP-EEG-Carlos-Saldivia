@@ -1,8 +1,8 @@
 {
   "tag": "it63_mne_sample_high_mr",
   "timestamp": "2026-04-05T16:07:28.346625",
-  "description": "MNE Sample proxy, escenario de alta tasa de p\u00e9rdida (30-40%)",
-  "objective": "Robustez de m\u00e9todos TV ante alta p\u00e9rdida en se\u00f1ales auditivas densas",
+  "description": "MNE Sample proxy, escenario de alta tasa de pérdida (30-40%)",
+  "objective": "Robustez de métodos TV ante alta pérdida en señales auditivas densas",
   "fase": "Fase 5: Datasets Externos Proxy",
   "datasets": [
     "mne_sample_proxy"
@@ -28,5 +28,7 @@
   },
   "best_method": "trss",
   "best_mae": 2.005584053287657e-07,
-  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos con características estadísticas calibradas.",
+  "normalization": null,
+  "missing_mode": null
 }

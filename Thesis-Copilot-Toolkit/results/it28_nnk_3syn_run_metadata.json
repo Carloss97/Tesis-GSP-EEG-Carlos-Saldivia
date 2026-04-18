@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "NNK learns non-negative edge weights via convex optimization. k=4 neighbors. TV family shows 12-17% RMSE gain."
+  "note": "NNK learns non-negative edge weights via convex optimization. k=4 neighbors. TV family shows 12-17% RMSE gain.",
+  "normalization": null,
+  "missing_mode": null
 }

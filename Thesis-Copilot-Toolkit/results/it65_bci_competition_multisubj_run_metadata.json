@@ -2,7 +2,7 @@
   "tag": "it65_bci_competition_multisubj",
   "timestamp": "2026-04-05T16:07:32.671623",
   "description": "BCI Competition IV 2a proxy, 9 sujetos, kNN-k3",
-  "objective": "Generalizaci\u00f3n multi-sujeto de m\u00e9todos TV en BCI proxy (N=9)",
+  "objective": "Generalización multi-sujeto de métodos TV en BCI proxy (N=9)",
   "fase": "Fase 5: Datasets Externos Proxy",
   "datasets": [
     "bci_competition_iv_2a_proxy"
@@ -38,5 +38,7 @@
   },
   "best_method": "tv",
   "best_mae": 4.499216239232944e-07,
-  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos con características estadísticas calibradas.",
+  "normalization": null,
+  "missing_mode": null
 }

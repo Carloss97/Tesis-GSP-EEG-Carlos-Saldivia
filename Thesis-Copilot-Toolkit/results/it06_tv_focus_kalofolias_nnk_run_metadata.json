@@ -47,7 +47,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it06_tv_focus_kalofolias_nnk_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it06_tv_focus_kalofolias_nnk_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -57,5 +57,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "Graph focus: kalofolias (learnable graph) and NNK (non-negative kernel). Highlights graph construction effect."
+  "note": "Graph focus: kalofolias (learnable graph) and NNK (non-negative kernel). Highlights graph construction effect.",
+  "normalization": null,
+  "missing_mode": null
 }

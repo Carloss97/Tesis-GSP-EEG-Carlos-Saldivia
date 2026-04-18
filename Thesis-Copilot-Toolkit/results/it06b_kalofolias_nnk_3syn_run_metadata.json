@@ -48,7 +48,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it06b_kalofolias_nnk_3syn_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it06b_kalofolias_nnk_3syn_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -58,5 +58,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "Kalofolias (learnable graph by Kalofolias et al.) and NNK (non-negative kernel) graph construction methods. n=2 graphs \u00d7 3 datasets = 6 per group."
+  "note": "Kalofolias (learnable graph by Kalofolias et al.) and NNK (non-negative kernel) graph construction methods. n=2 graphs × 3 datasets = 6 per group.",
+  "normalization": null,
+  "missing_mode": null
 }

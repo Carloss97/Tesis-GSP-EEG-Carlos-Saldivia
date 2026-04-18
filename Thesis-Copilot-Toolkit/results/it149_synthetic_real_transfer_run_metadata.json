@@ -88,5 +88,7 @@
     "physionet_real",
     "synthetic_alpha",
     "synthetic_beta"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

@@ -48,7 +48,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it07_graph_focus_knn_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it07_graph_focus_knn_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -58,5 +58,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "KNN graphs are most commonly used in practice. Focuses on nearest-neighbor topology."
+  "note": "KNN graphs are most commonly used in practice. Focuses on nearest-neighbor topology.",
+  "normalization": null,
+  "missing_mode": null
 }

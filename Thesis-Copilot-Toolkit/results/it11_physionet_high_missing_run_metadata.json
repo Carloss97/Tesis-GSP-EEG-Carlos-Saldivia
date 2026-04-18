@@ -54,5 +54,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "At 40% missing channels, TV/Time median MAE beats instant median on physionet. Limited to single scenario."
+  "note": "At 40% missing channels, TV/Time median MAE beats instant median on physionet. Limited to single scenario.",
+  "normalization": null,
+  "missing_mode": null
 }

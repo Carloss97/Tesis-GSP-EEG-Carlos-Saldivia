@@ -60,7 +60,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it09_tikhonov_rbfi_focus_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it09_tikhonov_rbfi_focus_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -70,5 +70,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "Classic spatial interpolation methods (Tikhonov, RBF, spherical spline) are strong baselines. This iteration quantifies their gap with temporal-graph methods."
+  "note": "Classic spatial interpolation methods (Tikhonov, RBF, spherical spline) are strong baselines. This iteration quantifies their gap with temporal-graph methods.",
+  "normalization": null,
+  "missing_mode": null
 }

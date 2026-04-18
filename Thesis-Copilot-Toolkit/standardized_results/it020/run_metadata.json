@@ -55,5 +55,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Alpha band TV family achieves 22-25% RMSE gain at high missing rates. directed_tv is best at mr=0.3."
+  "note": "Alpha band TV family achieves 22-25% RMSE gain at high missing rates. directed_tv is best at mr=0.3.",
+  "normalization": null,
+  "missing_mode": null
 }

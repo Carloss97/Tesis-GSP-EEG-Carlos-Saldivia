@@ -96,5 +96,7 @@
     "bci_iv2a_real_s2",
     "bci_iv2a_real_s3",
     "iv100hz_mat"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

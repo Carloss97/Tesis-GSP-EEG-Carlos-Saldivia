@@ -49,5 +49,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Best physionet graphs at mr=40%: gaussian 16.7%, nnk 15.8%, knn_k3 16.0%. All three pooled."
+  "note": "Best physionet graphs at mr=40%: gaussian 16.7%, nnk 15.8%, knn_k3 16.0%. All three pooled.",
+  "normalization": null,
+  "missing_mode": null
 }

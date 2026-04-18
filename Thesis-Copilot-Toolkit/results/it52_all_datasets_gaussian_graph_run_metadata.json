@@ -1,6 +1,6 @@
 {
   "tag": "it52_all_datasets_gaussian_graph",
-  "description": "All 4 datasets \u2014 Gaussian sigma=1 graph only",
+  "description": "All 4 datasets — Gaussian sigma=1 graph only",
   "date": "2026-04-05",
   "datasets": [
     "synthetic_alpha",
@@ -21,5 +21,7 @@
     "QA-05": "PASS",
     "QA-06": "PASS",
     "QA-07": "PASS"
-  }
+  },
+  "normalization": null,
+  "missing_mode": null
 }

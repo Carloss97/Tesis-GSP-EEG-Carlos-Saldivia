@@ -1,8 +1,8 @@
 {
   "tag": "it69_mne_bci_high_mr",
   "timestamp": "2026-04-05T16:07:42.080563",
-  "description": "MNE Sample + BCI Competition proxy, alta p\u00e9rdida (30-40%)",
-  "objective": "Robustez TV ante alta p\u00e9rdida en ambos datasets proxy externos",
+  "description": "MNE Sample + BCI Competition proxy, alta pérdida (30-40%)",
+  "objective": "Robustez TV ante alta pérdida en ambos datasets proxy externos",
   "fase": "Fase 5: Datasets Externos Proxy",
   "datasets": [
     "mne_sample_proxy",
@@ -29,5 +29,7 @@
   },
   "best_method": "tv",
   "best_mae": 3.5357173148106166e-07,
-  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos con características estadísticas calibradas.",
+  "normalization": null,
+  "missing_mode": null
 }

@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Retry of it16 with 3 datasets. VKNNG adapts k per node. n=3 per group. TV family shows 14-21% RMSE family gain."
+  "note": "Retry of it16 with 3 datasets. VKNNG adapts k per node. n=3 per group. TV family shows 14-21% RMSE family gain.",
+  "normalization": null,
+  "missing_mode": null
 }

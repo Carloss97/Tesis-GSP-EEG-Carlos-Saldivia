@@ -1,6 +1,6 @@
 {
   "tag": "it60_broad_all_graphs_high_mr",
-  "description": "Synthetic broadband \u2014 all 8 graphs \u00d7 high missing rates 30%+40%",
+  "description": "Synthetic broadband — all 8 graphs × high missing rates 30%+40%",
   "date": "2026-04-05",
   "datasets": [
     "synthetic_broad"
@@ -18,5 +18,7 @@
     "QA-05": "PASS",
     "QA-06": "PASS",
     "QA-07": "PASS"
-  }
+  },
+  "normalization": null,
+  "missing_mode": null
 }

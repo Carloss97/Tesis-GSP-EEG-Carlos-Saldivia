@@ -40,5 +40,7 @@
   "best_mae": 0.16769805032536686,
   "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos cuando los reales no están disponibles.",
   "engine_version": "v7e",
-  "include_instant_vs_full": true
+  "include_instant_vs_full": true,
+  "normalization": null,
+  "missing_mode": null
 }

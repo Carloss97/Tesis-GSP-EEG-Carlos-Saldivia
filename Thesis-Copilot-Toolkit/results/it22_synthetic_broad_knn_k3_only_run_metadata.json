@@ -50,5 +50,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "KNN k=3 (3 nearest neighbors) on broadband EEG. n=1 per (method, scenario) \u2014 uses family median stats with min_n=1."
+  "note": "KNN k=3 (3 nearest neighbors) on broadband EEG. n=1 per (method, scenario) — uses family median stats with min_n=1.",
+  "normalization": null,
+  "missing_mode": null
 }

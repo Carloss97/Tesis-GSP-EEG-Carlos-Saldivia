@@ -58,5 +58,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Tests TV family on narrow frequency bands only. Gains 14-21% family RMSE."
+  "note": "Tests TV family on narrow frequency bands only. Gains 14-21% family RMSE.",
+  "normalization": null,
+  "missing_mode": null
 }

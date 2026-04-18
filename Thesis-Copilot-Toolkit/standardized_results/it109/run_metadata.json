@@ -88,5 +88,7 @@
   "blocked_requested_datasets": [],
   "requested_datasets": [
     "iv100hz_mat"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

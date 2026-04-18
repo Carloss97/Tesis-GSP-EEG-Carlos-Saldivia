@@ -57,5 +57,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Compares aew, gaussian, kalofolias, knn_k3, knn_k5, knng, nnk, vknng on broadband EEG."
+  "note": "Compares aew, gaussian, kalofolias, knn_k3, knn_k5, knng, nnk, vknng on broadband EEG.",
+  "normalization": null,
+  "missing_mode": null
 }

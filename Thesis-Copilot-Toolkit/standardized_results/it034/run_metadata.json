@@ -49,5 +49,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Best graphs for physionet at 40% missing: gaussian shows 16.7% RMSE gain. kalofolias: 5.2%."
+  "note": "Best graphs for physionet at 40% missing: gaussian shows 16.7% RMSE gain. kalofolias: 5.2%.",
+  "normalization": null,
+  "missing_mode": null
 }

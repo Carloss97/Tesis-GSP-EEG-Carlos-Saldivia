@@ -1,8 +1,8 @@
 {
   "tag": "it70_all_five_datasets",
   "timestamp": "2026-04-05T16:07:44.227926",
-  "description": "Los 5 datasets (3 sint\u00e9ticos + MNE proxy + BCI proxy), kNN-k3",
-  "objective": "An\u00e1lisis exhaustivo final con todos los datasets disponibles",
+  "description": "Los 5 datasets (3 sintéticos + MNE proxy + BCI proxy), kNN-k3",
+  "objective": "Análisis exhaustivo final con todos los datasets disponibles",
   "fase": "Fase 5: Datasets Externos Proxy",
   "datasets": [
     "synthetic_broad",
@@ -34,5 +34,7 @@
   },
   "best_method": "directed_tv",
   "best_mae": 0.002751957323034419,
-  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos con características estadísticas calibradas.",
+  "normalization": null,
+  "missing_mode": null
 }

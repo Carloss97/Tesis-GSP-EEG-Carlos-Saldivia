@@ -88,5 +88,7 @@
     "bci_iv2a_real_s2",
     "bci_iv2a_real_s3",
     "physionet_real"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

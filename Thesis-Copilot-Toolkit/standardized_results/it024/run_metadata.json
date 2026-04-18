@@ -57,5 +57,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Full physionet analysis with family-level G1/G2. At 40% missing, TV family MAE median (1.5e-5) beats instant (2.0e-5)."
+  "note": "Full physionet analysis with family-level G1/G2. At 40% missing, TV family MAE median (1.5e-5) beats instant (2.0e-5).",
+  "normalization": null,
+  "missing_mode": null
 }

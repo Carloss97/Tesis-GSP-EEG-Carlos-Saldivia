@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Compares RBF-kernel (Gaussian), learned-smooth (Kalofolias), and non-negative-kernel (NNK) graph constructions."
+  "note": "Compares RBF-kernel (Gaussian), learned-smooth (Kalofolias), and non-negative-kernel (NNK) graph constructions.",
+  "normalization": null,
+  "missing_mode": null
 }

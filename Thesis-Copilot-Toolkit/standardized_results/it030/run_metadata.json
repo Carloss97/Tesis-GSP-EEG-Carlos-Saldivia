@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Comparison of KNN k=5 vs k=3 (it22b). Denser connectivity. TV shows 18-22% RMSE gain."
+  "note": "Comparison of KNN k=5 vs k=3 (it22b). Denser connectivity. TV shows 18-22% RMSE gain.",
+  "normalization": null,
+  "missing_mode": null
 }

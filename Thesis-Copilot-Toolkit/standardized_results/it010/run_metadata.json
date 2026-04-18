@@ -57,5 +57,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Alpha band EEG. Family-level comparison: TV family RMSE median gains 18-25% over instant family across all scenarios."
+  "note": "Alpha band EEG. Family-level comparison: TV family RMSE median gains 18-25% over instant family across all scenarios.",
+  "normalization": null,
+  "missing_mode": null
 }

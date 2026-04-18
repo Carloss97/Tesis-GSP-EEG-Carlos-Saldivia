@@ -55,5 +55,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Beta band TV family advantage at mild degradation. Complements it19 (high missing on beta)."
+  "note": "Beta band TV family advantage at mild degradation. Complements it19 (high missing on beta).",
+  "normalization": null,
+  "missing_mode": null
 }

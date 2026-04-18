@@ -53,5 +53,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Kalofolias on all datasets: synthetic 8-25% gain, physionet ~5% (marginal). Family-level pooling stabilizes."
+  "note": "Kalofolias on all datasets: synthetic 8-25% gain, physionet ~5% (marginal). Family-level pooling stabilizes.",
+  "normalization": null,
+  "missing_mode": null
 }

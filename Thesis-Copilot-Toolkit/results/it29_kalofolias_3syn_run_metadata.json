@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Kalofolias (2016) graph learning via smooth signal assumption. TV shows 8-25% gain (strongest at mr=0.4)."
+  "note": "Kalofolias (2016) graph learning via smooth signal assumption. TV shows 8-25% gain (strongest at mr=0.4).",
+  "normalization": null,
+  "missing_mode": null
 }

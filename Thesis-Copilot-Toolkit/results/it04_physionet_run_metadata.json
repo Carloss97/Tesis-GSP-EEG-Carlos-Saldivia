@@ -58,7 +58,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it04_physionet_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it04_physionet_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -68,5 +68,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "Real EEG dataset. Tiny absolute values (MAE ~1e-5). Performance closely matched."
+  "note": "Real EEG dataset. Tiny absolute values (MAE ~1e-5). Performance closely matched.",
+  "normalization": null,
+  "missing_mode": null
 }

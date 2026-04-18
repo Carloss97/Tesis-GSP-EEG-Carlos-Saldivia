@@ -94,5 +94,7 @@
     "physionet_real",
     "bci_iv2a_real_s1",
     "iris_graph_signal"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

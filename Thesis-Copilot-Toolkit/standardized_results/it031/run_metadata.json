@@ -55,5 +55,7 @@
     "tv"
   ],
   "g2_mode": "family_median",
-  "note": "Focuses on the 3 consistently best TV methods. Reduces noise from weaker TV variants (graph_time_tikhonov, temporal_laplacian)."
+  "note": "Focuses on the 3 consistently best TV methods. Reduces noise from weaker TV variants (graph_time_tikhonov, temporal_laplacian).",
+  "normalization": null,
+  "missing_mode": null
 }

@@ -56,5 +56,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "20% missing is the most common practical scenario. TV family achieves 23% RMSE gain."
+  "note": "20% missing is the most common practical scenario. TV family achieves 23% RMSE gain.",
+  "normalization": null,
+  "missing_mode": null
 }

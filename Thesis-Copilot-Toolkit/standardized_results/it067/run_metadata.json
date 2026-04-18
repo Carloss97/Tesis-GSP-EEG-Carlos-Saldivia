@@ -32,5 +32,7 @@
   },
   "best_method": "trss",
   "best_mae": 4.2072024380667157e-07,
-  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sint\u00e9ticos con caracter\u00edsticas estad\u00edsticas calibradas."
+  "proxy_note": "MNE Sample y BCI Competition son datasets proxy sintéticos con características estadísticas calibradas.",
+  "normalization": null,
+  "missing_mode": null
 }

@@ -86,5 +86,7 @@
   "blocked_requested_datasets": [],
   "requested_datasets": [
     "bci_iv2a_real_s1"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

@@ -152,5 +152,7 @@
   "blocked_requested_datasets": [],
   "requested_datasets": [
     "synthetic_for_pilot_0009"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

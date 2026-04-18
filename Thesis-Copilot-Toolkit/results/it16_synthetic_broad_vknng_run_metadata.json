@@ -50,5 +50,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "best_method",
-  "note": "VKNNG adapts k per node (kmin=2, kmax=8). TV family shows 15-21% gain. Best for non-uniform EEG sensor layouts."
+  "note": "VKNNG adapts k per node (kmin=2, kmax=8). TV family shows 15-21% gain. Best for non-uniform EEG sensor layouts.",
+  "normalization": null,
+  "missing_mode": null
 }

@@ -131,5 +131,7 @@
   "blocked_requested_datasets": [],
   "requested_datasets": [
     "bci_competition_iv_2a_proxy"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

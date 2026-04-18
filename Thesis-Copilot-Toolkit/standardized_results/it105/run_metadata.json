@@ -92,5 +92,7 @@
   "requested_datasets": [
     "physionet_real",
     "bci_iv2a_real_s1"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

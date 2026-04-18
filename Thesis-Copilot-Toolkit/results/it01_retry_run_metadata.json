@@ -59,6 +59,8 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it01_retry_raw.csv",
-  "note": "Pseudo-seeds = graph construction methods (8 variants). DTW not available in canonical run."
+  "command": "Filtered canonical_final_raw.csv → it01_retry_raw.csv",
+  "note": "Pseudo-seeds = graph construction methods (8 variants). DTW not available in canonical run.",
+  "normalization": null,
+  "missing_mode": null
 }

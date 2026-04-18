@@ -53,5 +53,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Comprehensive analysis of symmetric KNN topologies across all missing rates and bands."
+  "note": "Comprehensive analysis of symmetric KNN topologies across all missing rates and bands.",
+  "normalization": null,
+  "missing_mode": null
 }

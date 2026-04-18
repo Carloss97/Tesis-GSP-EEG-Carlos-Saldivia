@@ -56,5 +56,7 @@
     "tv"
   ],
   "g2_mode": "family_median",
-  "note": "Focuses on the 4 strongest TV/Time methods. Excludes weaker temporal methods for cleaner analysis."
+  "note": "Focuses on the 4 strongest TV/Time methods. Excludes weaker temporal methods for cleaner analysis.",
+  "normalization": null,
+  "missing_mode": null
 }

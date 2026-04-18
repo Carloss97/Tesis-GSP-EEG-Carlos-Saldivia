@@ -53,5 +53,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Gaussian graph: sigma=1 RBF kernel. AEW: adaptive edge weights combining correlation and distance. 13-22% TV family gain."
+  "note": "Gaussian graph: sigma=1 RBF kernel. AEW: adaptive edge weights combining correlation and distance. 13-22% TV family gain.",
+  "normalization": null,
+  "missing_mode": null
 }

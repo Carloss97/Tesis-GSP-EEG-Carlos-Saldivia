@@ -56,5 +56,7 @@
   "blocked_real_datasets": [
     "mne_real",
     "bci_iv2a_real"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

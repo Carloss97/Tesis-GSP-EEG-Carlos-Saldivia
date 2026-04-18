@@ -61,7 +61,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it05_all_datasets_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it05_all_datasets_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -71,5 +71,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "Combined benchmark. TV family shows 8-13% MAE gain in pooled analysis."
+  "note": "Combined benchmark. TV family shows 8-13% MAE gain in pooled analysis.",
+  "normalization": null,
+  "missing_mode": null
 }

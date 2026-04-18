@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "KNN k=3 is the most conservative nearest-neighbor graph. Retry of it22 with 3 datasets for statistical power."
+  "note": "KNN k=3 is the most conservative nearest-neighbor graph. Retry of it22 with 3 datasets for statistical power.",
+  "normalization": null,
+  "missing_mode": null
 }

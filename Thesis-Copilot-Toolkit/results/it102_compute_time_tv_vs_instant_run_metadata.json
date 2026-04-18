@@ -50,5 +50,7 @@
       "ok": false,
       "reason": "Local BCI IV 2a file not found at C:\\Users\\sarlo\\OneDrive\\Escritorio\\Proyectos\\Tesis-GSP-EEG-Carlos-Saldivia\\datasets\\BCI_IV_2a\\A01T.gdf."
     }
-  }
+  },
+  "normalization": null,
+  "missing_mode": null
 }

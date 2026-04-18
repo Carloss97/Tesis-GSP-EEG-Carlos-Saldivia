@@ -55,5 +55,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Beta band shows directed_tv best at 40% missing (MAE=0.2555). High missing is most impactful regime."
+  "note": "Beta band shows directed_tv best at 40% missing (MAE=0.2555). High missing is most impactful regime.",
+  "normalization": null,
+  "missing_mode": null
 }

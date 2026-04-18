@@ -53,5 +53,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "VKNNG adapts k per node; KNNG uses Gaussian kernel weights. Both achieve 21-24% TV family gain."
+  "note": "VKNNG adapts k per node; KNNG uses Gaussian kernel weights. Both achieve 21-24% TV family gain.",
+  "normalization": null,
+  "missing_mode": null
 }

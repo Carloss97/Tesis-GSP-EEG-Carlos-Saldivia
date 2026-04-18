@@ -52,5 +52,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "family_median",
-  "note": "Retry of it15 with 3 datasets for statistical power. n=3 per (method, scenario). Gaussian sigma=1 RBF graph achieves 19-23% TV family gain."
+  "note": "Retry of it15 with 3 datasets for statistical power. n=3 per (method, scenario). Gaussian sigma=1 RBF graph achieves 19-23% TV family gain.",
+  "normalization": null,
+  "missing_mode": null
 }

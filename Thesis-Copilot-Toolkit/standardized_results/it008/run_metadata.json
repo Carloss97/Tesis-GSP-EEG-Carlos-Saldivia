@@ -58,7 +58,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it08_high_missing_synthetic_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it08_high_missing_synthetic_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -68,5 +68,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "TV methods show greatest advantage under high missing-channel rates. Family RMSE gain exceeds 20% at these scenarios."
+  "note": "TV methods show greatest advantage under high missing-channel rates. Family RMSE gain exceeds 20% at these scenarios.",
+  "normalization": null,
+  "missing_mode": null
 }

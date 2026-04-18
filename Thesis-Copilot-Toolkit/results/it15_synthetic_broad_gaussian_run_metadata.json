@@ -50,5 +50,7 @@
     "wavelet_temporal"
   ],
   "g2_mode": "best_method",
-  "note": "Gaussian graph with sigma=1 shows strong TV advantage (16-22%). Single graph enables per-method best analysis."
+  "note": "Gaussian graph with sigma=1 shows strong TV advantage (16-22%). Single graph enables per-method best analysis.",
+  "normalization": null,
+  "missing_mode": null
 }

@@ -1,6 +1,6 @@
 {
   "tag": "it44_physionet_allruns_allsubj",
-  "description": "Physionet 9 subjects \u00d7 3 runs pooled, knn_k3",
+  "description": "Physionet 9 subjects × 3 runs pooled, knn_k3",
   "date": "2026-04-05",
   "datasets": [
     "physionet_eegmmidb"
@@ -18,5 +18,7 @@
     "QA-05": "PASS",
     "QA-06": "PASS",
     "QA-07": "FAIL"
-  }
+  },
+  "normalization": null,
+  "missing_mode": null
 }

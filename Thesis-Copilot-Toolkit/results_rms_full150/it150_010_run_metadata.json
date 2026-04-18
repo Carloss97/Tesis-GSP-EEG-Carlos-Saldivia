@@ -109,5 +109,7 @@
   "blocked_requested_datasets": [],
   "requested_datasets": [
     "synthetic_beta"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }

@@ -48,7 +48,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "command": "Filtered canonical_final_raw.csv \u2192 it07b_knn_3syn_raw.csv",
+  "command": "Filtered canonical_final_raw.csv → it07b_knn_3syn_raw.csv",
   "tv_time_methods": [
     "directed_tv",
     "graph_time_tikhonov",
@@ -58,5 +58,7 @@
     "tv",
     "wavelet_temporal"
   ],
-  "note": "KNN graphs are widely used in practice. n=2 graphs \u00d7 3 datasets = 6 per group. TV family shows 16-24% family RMSE gain."
+  "note": "KNN graphs are widely used in practice. n=2 graphs × 3 datasets = 6 per group. TV family shows 16-24% family RMSE gain.",
+  "normalization": null,
+  "missing_mode": null
 }

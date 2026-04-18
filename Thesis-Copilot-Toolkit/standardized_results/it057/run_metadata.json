@@ -1,6 +1,6 @@
 {
   "tag": "it57_3syn_mr40_only",
-  "description": "Alpha+Beta+Broad synthetic \u2014 mr=40% only",
+  "description": "Alpha+Beta+Broad synthetic — mr=40% only",
   "date": "2026-04-05",
   "datasets": [
     "synthetic_alpha",
@@ -20,5 +20,7 @@
     "QA-05": "PASS",
     "QA-06": "PASS",
     "QA-07": "PASS"
-  }
+  },
+  "normalization": null,
+  "missing_mode": null
 }

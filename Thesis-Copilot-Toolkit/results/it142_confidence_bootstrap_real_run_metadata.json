@@ -92,5 +92,7 @@
     "physionet_real",
     "bci_iv2a_real_s1",
     "iv100hz_mat"
-  ]
+  ],
+  "normalization": null,
+  "missing_mode": null
 }
