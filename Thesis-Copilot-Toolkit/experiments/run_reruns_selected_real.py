@@ -21,9 +21,9 @@ loader.exec_module(mod)
 IterDef = mod.IterDef
 
 _defs = []
-_defs.append(IterDef('rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv', 'rerun_0_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv', 'Rerun combo: bci_competition_iv_2a_proxy gaussian__sigma1 directed_tv mr=0.1', 'Rerun', 'Auto-generated rerun', ['bci_competition_iv_2a_proxy'], seeds=list(range(6)), graph_specs=[('gaussian', {'sigma': 1.0})], missing_list=[0.1], methods=['directed_tv']))
-_defs.append(IterDef('rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv', 'rerun_1_bci_competition_iv_2a_proxy_gaussian__sigma1_directed_tv', 'Rerun combo: bci_competition_iv_2a_proxy gaussian__sigma1 directed_tv mr=0.3', 'Rerun', 'Auto-generated rerun', ['bci_competition_iv_2a_proxy'], seeds=list(range(6)), graph_specs=[('gaussian', {'sigma': 1.0})], missing_list=[0.3], methods=['directed_tv']))
-_defs.append(IterDef('rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv', 'rerun_2_bci_competition_iv_2a_proxy_knn__k3_directed_tv', 'Rerun combo: bci_competition_iv_2a_proxy knn__k3 directed_tv mr=0.1', 'Rerun', 'Auto-generated rerun', ['bci_competition_iv_2a_proxy'], seeds=list(range(6)), graph_specs=[('knn', {'k': 3})], missing_list=[0.1], methods=['directed_tv']))
+_defs.append(IterDef('rerun_0_bci_iv2a_real_s1_gaussian__sigma1_directed_tv', 'rerun_0_bci_iv2a_real_s1_gaussian__sigma1_directed_tv', 'Rerun combo: bci_iv2a_real_s1 gaussian__sigma1 directed_tv mr=0.1', 'Rerun', 'Auto-generated rerun', ['bci_iv2a_real_s1'], seeds=list(range(6)), graph_specs=[('gaussian', {'sigma': 1.0})], missing_list=[0.1], methods=['directed_tv']))
+_defs.append(IterDef('rerun_1_bci_iv2a_real_s1_gaussian__sigma1_directed_tv', 'rerun_1_bci_iv2a_real_s1_gaussian__sigma1_directed_tv', 'Rerun combo: bci_iv2a_real_s1 gaussian__sigma1 directed_tv mr=0.3', 'Rerun', 'Auto-generated rerun', ['bci_iv2a_real_s1'], seeds=list(range(6)), graph_specs=[('gaussian', {'sigma': 1.0})], missing_list=[0.3], methods=['directed_tv']))
+_defs.append(IterDef('rerun_2_bci_iv2a_real_s1_knn__k3_directed_tv', 'rerun_2_bci_iv2a_real_s1_knn__k3_directed_tv', 'Rerun combo: bci_iv2a_real_s1 knn__k3 directed_tv mr=0.1', 'Rerun', 'Auto-generated rerun', ['bci_iv2a_real_s1'], seeds=list(range(6)), graph_specs=[('knn', {'k': 3})], missing_list=[0.1], methods=['directed_tv']))
 _defs.append(IterDef('rerun_3_mne_sample_knn__k3_directed_tv', 'rerun_3_mne_sample_knn__k3_directed_tv', 'Rerun combo: mne_sample knn__k3 directed_tv mr=0.1', 'Rerun', 'Auto-generated rerun', ['mne_sample'], seeds=list(range(6)), graph_specs=[('knn', {'k': 3})], missing_list=[0.1], methods=['directed_tv']))
 _defs.append(IterDef('rerun_4_mne_sample_knn__k3_directed_tv', 'rerun_4_mne_sample_knn__k3_directed_tv', 'Rerun combo: mne_sample knn__k3 directed_tv mr=0.2', 'Rerun', 'Auto-generated rerun', ['mne_sample'], seeds=list(range(6)), graph_specs=[('knn', {'k': 3})], missing_list=[0.2], methods=['directed_tv']))
 _defs.append(IterDef('rerun_5_mne_sample_knn__k3_directed_tv', 'rerun_5_mne_sample_knn__k3_directed_tv', 'Rerun combo: mne_sample knn__k3 directed_tv mr=0.4', 'Rerun', 'Auto-generated rerun', ['mne_sample'], seeds=list(range(6)), graph_specs=[('knn', {'k': 3})], missing_list=[0.4], methods=['directed_tv']))
@@ -72,8 +72,16 @@ _defs.append(IterDef('rerun_47_synthetic_beta_nnk__k4_heat_diffusion_temporal', 
 _defs.append(IterDef('rerun_48_synthetic_beta_nnk__k4_heat_diffusion_temporal', 'rerun_48_synthetic_beta_nnk__k4_heat_diffusion_temporal', 'Rerun combo: synthetic_beta nnk__k4 heat_diffusion_temporal mr=0.4', 'Rerun', 'Auto-generated rerun', ['synthetic_beta'], seeds=list(range(6)), graph_specs=[('nnk', {'k': 4})], missing_list=[0.4], methods=['heat_diffusion_temporal']))
 _defs.append(IterDef('rerun_49_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_heat_diffusion_temporal', 'rerun_49_synthetic_broad_aew__k4_sigma_corr0_5_sigma_dist1_heat_diffusion_temporal', 'Rerun combo: synthetic_broad aew__k4_sigma_corr0_5_sigma_dist1 heat_diffusion_temporal mr=0.2', 'Rerun', 'Auto-generated rerun', ['synthetic_broad'], seeds=list(range(6)), graph_specs=[('aew', {'k': 4})], missing_list=[0.2], methods=['heat_diffusion_temporal']))
 
-# (file continues with all remaining IterDef entries, identical to the original generated
-# runner but with every 'mne_sample_proxy' occurrence replaced by 'mne_sample')
+# Normalize dataset keys to enforce real data usage:
+# Replace any auto-generated proxy tokens with the canonical real dataset key.
+for idx, it in enumerate(list(_defs)):
+    try:
+        ds_list = [d.replace('bci_competition_iv_2a_proxy', 'bci_iv2a_real_s1') if isinstance(d, str) else d for d in it.datasets]
+        if ds_list != list(it.datasets):
+            _defs[idx] = replace(it, datasets=ds_list)
+    except Exception:
+        # defensive: skip problematic entries
+        continue
 
 def main():
     keys = [d.key for d in _defs]

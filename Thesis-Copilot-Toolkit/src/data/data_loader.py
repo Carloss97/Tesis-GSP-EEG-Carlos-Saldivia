@@ -6,6 +6,12 @@ Funciones generales para cargar y preprocesar datasets de EEG para el pipeline e
 from typing import Tuple, Dict, Any, List
 
 import numpy as np
+import os
+
+# Global preference: if True, pipeline will require real datasets and will
+# not silently fall back to proxies. Set environment variable
+# ALWAYS_USE_REAL_DATA=0 to allow proxies as fallback (not recommended).
+ALWAYS_USE_REAL_DATA = os.environ.get("ALWAYS_USE_REAL_DATA", "1") not in ("0", "false", "False", "no", "NO")
 
 
 # Simulación de canales faltantes (enmascaramiento aleatorio)
@@ -204,7 +210,25 @@ def load_bci_competition_iv_2a(subject: int = 1) -> Dict[str, Any]:
             f"https://www.bbci.de/competition/iv/ y defina BCI_IV_2A_PATH. "
             f"Nota proxy: {BCI_IV_2A_PROXY_NOTE}"
         )
-    raw = mne.io.read_raw_gdf(fname, preload=True, verbose=False)
+    try:
+        raw = mne.io.read_raw_gdf(fname, preload=True, verbose=False)
+    except OverflowError as exc:
+        # Known issue: some GDF event-table encodings trigger an
+        # "Python integer ... out of bounds for uint8" OverflowError
+        # inside MNE's GDF parser. We surface a clearer message here
+        # and point to the diagnostic/patch scripts included in the repo.
+        raise RuntimeError(
+            "MNE failed parsing GDF (OverflowError).\n"
+            "This repository includes diagnostic scripts to inspect and patch MNE:\n"
+            "  - experiments/inspect_gdf_header.py  (inspect header & try pyedflib)\n"
+            "  - experiments/patch_mne_gdf_event_fix.py (in-memory patch for quick tests)\n"
+            "  - experiments/patch_site_mne_gdf.py (apply persistent patch to site-packages)\n"
+            "Recommended actions: ensure BCI_IV_2A_PATH points to the downloaded .gdf files,\n"
+            "run the inspect script to confirm the file, then apply the in-repo patch if needed.\n"
+            "Long-term: submit a targeted fix to the MNE project and revert local patches."
+        ) from exc
+    except Exception as exc:
+        raise RuntimeError(f"Failed reading GDF file '{fname}': {exc}") from exc
     raw.pick('eeg')
     signals = raw.get_data().T
     ch_names = raw.info['ch_names']
