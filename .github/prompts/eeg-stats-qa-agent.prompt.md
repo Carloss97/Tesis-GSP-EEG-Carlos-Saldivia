@@ -122,12 +122,12 @@ Run the following key contrasts using Mann-Whitney U (unpaired) or Wilcoxon sign
 
 | test_id | metric | group_a | group_b | test |
 |---------|--------|---------|---------|------|
-| `mae_trss_vs_tikhonov` | mae | trss | tikhonov | Mann-Whitney U |
-| `mae_bgsrp_vs_tikhonov` | mae | bgsrp | tikhonov | Mann-Whitney U |
+| `mae_trss_vs_baselines` | mae | trss | canonical_baselines | Mann-Whitney U |
+| `mae_bgsrp_vs_baselines` | mae | bgsrp | canonical_baselines | Mann-Whitney U |
 | `mae_tv_family_vs_instant` | mae | tv_time family | instant family | Wilcoxon |
 | `rmse_trss_vs_tikhonov` | rmse | trss | tikhonov | Mann-Whitney U |
 
-TV/Time methods (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`
+TV/Time methods (v6/v7) allowed: `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `sobolev_temporal` (exclude: `directed_tv`, `heat_diffusion_temporal`, `wavelet_temporal`)
 Instant methods: all others
 
 Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
@@ -135,10 +135,12 @@ Apply Bonferroni correction for multiple comparisons (alpha = 0.05 / n_tests).
 ```python
 from scipy.stats import mannwhitneyu, wilcoxon
 
-TV_TIME = {"graph_time_tikhonov", "trss", "tv", "temporal_laplacian"}
+TV_EXCLUDED = {"directed_tv", "heat_diffusion_temporal", "wavelet_temporal"}
+TV_TIME = {"graph_time_tikhonov", "trss", "tv", "temporal_laplacian", "sobolev_temporal"}
+BASELINE_METHODS = ["linear", "ica", "spherical_spline", "rbfi_tps"]
 alpha = 0.05
-n_tests = 4  # increment dynamically if dtw is available
-bonferroni_alpha = alpha / n_tests
+n_tests = 0
+bonferroni_alpha = alpha  # adjusted later based on n_tests
 
 sig_rows = []
 
@@ -154,22 +156,28 @@ def mwu(a_vals, b_vals, test_id, metric, group_a, group_b):
             "group_b": group_b, "statistic": stat, "p_value": p, "decision": decision}
 
 for metric in ["mae", "rmse"]:
-    if {"trss", "tikhonov"}.issubset(set(df_clean["method"].unique())):
+    methods_set = set(df_clean["method"].unique())
+    if "trss" in methods_set and any(b in methods_set for b in BASELINE_METHODS):
         a = df_clean[df_clean["method"] == "trss"][metric]
-        b = df_clean[df_clean["method"] == "tikhonov"][metric]
-        sig_rows.append(mwu(a, b, f"{metric}_trss_vs_tikhonov", metric, "trss", "tikhonov"))
+        b = df_clean[df_clean["method"].isin(BASELINE_METHODS)][metric]
+        sig_rows.append(mwu(a, b, f"{metric}_trss_vs_baselines", metric, "trss", "baselines"))
+        n_tests += 1
 
 for metric in ["mae"]:
     a = df_clean[df_clean["method"].isin(TV_TIME)][metric]
     b = df_clean[~df_clean["method"].isin(TV_TIME)][metric]
     sig_rows.append(mwu(a, b, f"{metric}_tv_family_vs_instant", metric, "tv_time", "instant"))
+    n_tests += 1
 
 if "dtw" in df_clean.columns:
-    n_tests += 1
-    bonferroni_alpha = alpha / n_tests
     a = df_clean[df_clean["method"].isin(TV_TIME)]["dtw"]
     b = df_clean[~df_clean["method"].isin(TV_TIME)]["dtw"]
     sig_rows.append(mwu(a, b, "dtw_tv_family_vs_instant", "dtw", "tv_time", "instant"))
+    n_tests += 1
+
+# finalize Bonferroni alpha
+if n_tests > 0:
+    bonferroni_alpha = alpha / n_tests
 
 sig_df = pd.DataFrame(sig_rows)
 sig_df.to_csv(RESULTS / f"{tag}_significance.csv", index=False)
@@ -269,7 +277,7 @@ lines += [
     "",
     "## Interpretation Note",
     "",
-    "- TV/Time family (v6/v7): `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`.",
+    "- TV/Time family (v6/v7) allowed: `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `sobolev_temporal` (exclude: `directed_tv`, `heat_diffusion_temporal`, `wavelet_temporal`).",
     "- Bonferroni-adjusted alpha: {:.4f}.".format(bonferroni_alpha),
     "- INS-13 status: proxy Python-only — do not claim 1:1 MATLAB/GSPBox equivalence.",
 ]

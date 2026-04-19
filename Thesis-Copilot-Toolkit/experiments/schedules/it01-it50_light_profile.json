@@ -1,0 +1,101 @@
+{
+  "generated": "2026-04-19T17:55:45.754853Z",
+  "iterations": [
+    {
+      "key": "it17",
+      "tag": "it17",
+      "description": "Auto-generated schedule it17",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it48",
+      "tag": "it48",
+      "description": "Auto-generated schedule it48",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    }
+  ]
+}

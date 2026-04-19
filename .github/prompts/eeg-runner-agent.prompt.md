@@ -22,7 +22,7 @@ Produce a reproducible raw results CSV and run metadata JSON that satisfy the en
 | Field | Required | Description |
 |-------|----------|-------------|
 | `iteration_tag` | yes | Unique lowercase tag, e.g. `it01` |
-| `dataset` | yes | Dataset key de v6/v7 (`synthetic_*`, `physionet_eegmmidb`, `mne_sample_proxy`, `bci_competition_proxy`) o `all` |
+| `dataset` | yes | Dataset key de v6/v7 (`synthetic_*`, `physionet_real`, `mne_sample`, `bci_iv2a_real_s1`, `bci_iv2a_real_s2`, `bci_iv2a_real_s3`) o `all` |
 | `scenarios` | yes | Missing scenarios por ratio o por conteo, e.g. `["10pct","20pct","30pct"]` o `["1ch","2ch","3ch"]` o `"all"` |
 | `seeds` | yes | Integer range, e.g. `0-29` (produces 30 seeds: 0,1,...,29) |
 
@@ -175,10 +175,12 @@ Phase 1 exit: OK ✓  /  FAIL ✗
 | `synthetic_8ch` | Synthetic few-channel variant | 8 | Synthetic |
 | `synthetic_16ch` | Synthetic medium-channel variant | 16 | Synthetic |
 | `synthetic_32ch` | Synthetic high-channel variant | 32 | Synthetic |
-| `physionet_eegmmidb` | Motor imagery real, 64 ch | 64 | Real |
-| `mne_sample_proxy` | MNE Sample proxy | 60 | Proxy |
-| `bci_competition_proxy` | BCI Competition proxy | 22 | Proxy |
-| `bci_competition_proxy_s2` | BCI Competition proxy variant | 22 | Proxy |
+| `iris_graph_signal` | Iris (graph signal toy task) | 4 | Toy / non-EEG |
+| `physionet_real` | Motor imagery real (PhysioNet EEGMMI) | 64 | Real |
+| `mne_sample` | MNE Sample (local) | 60 | Real |
+| `bci_iv2a_real_s1` | BCI IV 2a (subject 1, local) | 22 | Real |
+| `bci_iv2a_real_s2` | BCI IV 2a (subject 2, local) | 22 | Real |
+| `bci_iv2a_real_s3` | BCI IV 2a (subject 3, local) | 22 | Real |
 | `all` | All available datasets | — | Mixed |
 
 ## Graph Methods Available
@@ -187,8 +189,11 @@ Phase 1 exit: OK ✓  /  FAIL ✗
 
 ## Interpolation Methods Available
 
-Instant: `tikhonov`, `gsp`, `bgsrp`, `spline`, `idw`, `nearest`
-TV/Time: `graph_time_tikhonov`, `trss`, `tv`
+Instant (baselines): `linear`, `ica`, `spherical_spline`, `rbfi_tps`
+
+GSP / graph-regularization (métodos a probar): `gsp`, `tikhonov`, `bgsrp`, `gsmooth`, `idw`
+
+TV/Time: `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `sobolev_temporal` (exclude: `directed_tv`, `heat_diffusion_temporal`, `wavelet_temporal`)
 
 ## Error Handling
 

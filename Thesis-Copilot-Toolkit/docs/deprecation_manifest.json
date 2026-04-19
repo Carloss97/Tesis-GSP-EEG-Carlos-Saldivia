@@ -1,0 +1,16 @@
+{
+  "deprecated_methods": {
+    "mean": { "status": "deprecated", "replacement": null, "category": "instant", "note": "Kept for historical artefacts only; removed from active runner defaults." },
+    "nearest": { "status": "deprecated", "replacement": null, "category": "instant", "note": "Kept for historical artefacts only; removed from active runner defaults." },
+    "mst": { "status": "deprecated", "replacement": ["knn","nnk","gaussian"], "category": "graph", "note": "Prefer knn/nnk/gaussian/kalofolias in new runs." },
+    "fully_connected_inverse_distance": { "status": "deprecated", "replacement": ["gaussian","idw"], "category": "graph", "note": "Prefer gaussian or idw instead of full inverse-distance graphs." }
+  },
+  "dataset_key_mapping": {
+    "mne_sample_proxy": "mne_sample",
+    "bci_competition_proxy": "bci_iv2a_real_s*"
+  },
+  "tv_family_policy": "Allow TV-family methods in active scheduling except specific excluded tokens. Experimental TV methods should be validated via light-profile pilots and a Decision Record before wide scheduling.",
+  "tv_family_exclusions": ["directed_tv", "heat_diffusion_temporal", "wavelet_temporal"],
+  "policy": "Do not rewrite historical results in-place. Create companion mapping JSON files under results/ if you need to annotate or adapt old artefacts. Update active runners and prompts to use canonical keys only.",
+  "generated": "2026-04-19"
+}
