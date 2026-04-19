@@ -198,7 +198,7 @@ def main():
         )
 
         if args.light_profile:
-            it = replace(it, seeds=list(range(min(4, len(it.seeds)))), methods=it.methods or ['trss', 'tikhonov', 'mean'])
+            it = replace(it, seeds=list(range(min(4, len(it.seeds)))), methods=it.methods or ['trss', 'tikhonov', 'linear'])
 
         try:
             print('[RUN]', it.key, 'dataset=', ds_key, 'graph=', graph_spec, 'methods=', it.methods)

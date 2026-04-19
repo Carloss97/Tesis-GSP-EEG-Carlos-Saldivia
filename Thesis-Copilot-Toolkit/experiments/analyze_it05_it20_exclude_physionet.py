@@ -62,7 +62,7 @@ def is_temporal(method):
     tokens = ['temporal','tv','wavelet','time','trss','directed_tv','heat_diffusion','graph_time']
     return any(t in m for t in tokens)
 
-baseline_methods = ['mean','nearest','linear']
+baseline_methods = ["linear", "ica", "spherical_spline", "rbfi_tps"]
 
 agg05['temporal'] = agg05['method'].apply(is_temporal)
 agg05['baseline'] = agg05['method'].isin(baseline_methods)

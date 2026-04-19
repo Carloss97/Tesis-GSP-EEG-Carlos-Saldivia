@@ -30,7 +30,10 @@ it = base_mod.IterDef(
     missing_list=['2ch'],
     seeds=[0],
     graph_specs=[('knn', {'k': 3})],
-    methods=['mean'],
+    methods=["linear", "ica", "spherical_spline", "rbfi_tps"],
+    # Use canonical baselines for confirmatory test
+    # NOTE: 'mean' and 'nearest' are deprecated for future iterations
+    # and replaced by the canonical baseline set below.
 )
 
 base_mod.RESULTS = ROOT / 'results_tmp_repro'

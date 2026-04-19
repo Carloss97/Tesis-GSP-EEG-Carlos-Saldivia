@@ -44,8 +44,6 @@ INTERPOLATORS = [
     'rbfi_tps',
     'rbfi_mq',
     'spline_surface',
-    'nearest',
-    'mean',
     'random',
     'idw',
 ]

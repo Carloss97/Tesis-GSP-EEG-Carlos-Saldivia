@@ -51,13 +51,14 @@ def _build_iteration_defs(base) -> Dict[str, object]:
 
     # Runtime exclusions (2026-04-18): keep historical artifacts but avoid scheduling
     # these methods/datasets for new runs unless explicitly reviewed.
-    EXCLUDED_METHODS = {"heat_diffusion_temporal", "wavelet_temporal", "directed_tv"}
+    # Also exclude legacy instant methods 'mean' and 'nearest' from scheduling.
+    EXCLUDED_METHODS = {"heat_diffusion_temporal", "wavelet_temporal", "directed_tv", "mean", "nearest"}
     EXCLUDED_DATASETS = {"iv100hz_mat"}
     # Filter the default real dataset list to avoid the excluded datasets
     real = [d for d in real if d not in EXCLUDED_DATASETS]
 
     defs = [
-        IterDef("it131", "it131_heatdiff_trss_directed_tv_real", "Compare heat-diffusion, TRSS and directed-TV on real EEG", "Phase 19: Focused real-data comparison", "Compare `heat_diffusion_temporal`, `trss`, and `directed_tv` on clinical/BCI datasets.", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3}), ("gaussian", {"sigma": 1.0}), ("kalofolias", {})], missing_list=[0.1, 0.2, 0.3], methods=["heat_diffusion_temporal", "trss", "directed_tv", "tv", "mean"]),
+        IterDef("it131", "it131_heatdiff_trss_directed_tv_real", "Compare heat-diffusion, TRSS and directed-TV on real EEG", "Phase 19: Focused real-data comparison", "Compare `heat_diffusion_temporal`, `trss`, and `directed_tv` on clinical/BCI datasets.", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3}), ("gaussian", {"sigma": 1.0}), ("kalofolias", {})], missing_list=[0.1, 0.2, 0.3], methods=["heat_diffusion_temporal", "trss", "directed_tv", "tv", "linear"]),
 
         IterDef("it132", "it132_trss_hyperparam_sweep", "TRSS hyperparameter sweep (lambda/alpha) on real data", "Phase 19: Hyperparam tuning", "Grid-search TRSS alpha/beta via lambda-mode proxy (TV-family grid)", ["physionet_real", "bci_iv2a_real_s1", "iv100hz_mat"], mode="lambda", seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], lambdas=[0.05, 0.1, 0.2, 0.4]),
 
@@ -67,17 +68,17 @@ def _build_iteration_defs(base) -> Dict[str, object]:
 
         IterDef("it135", "it135_physionet_long_seeds", "Physionet stability with extended seeds", "Phase 20: Stability", "Increase seeds for physionet to assess variability", ["physionet_real"], seeds=list(range(12)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["trss", "heat_diffusion_temporal", "tv"]),
 
-        IterDef("it136", "it136_runtime_profiling_real", "Runtime profiling for top methods on real datasets", "Phase 20: Practicality", "Collect runtime statistics for candidate methods", real, seeds=list(range(3)), graph_specs=[("knn", {"k": 3})], missing_list=[0.2], methods=["trss", "heat_diffusion_temporal", "tv", "mean"]),
+        IterDef("it136", "it136_runtime_profiling_real", "Runtime profiling for top methods on real datasets", "Phase 20: Practicality", "Collect runtime statistics for candidate methods", real, seeds=list(range(3)), graph_specs=[("knn", {"k": 3})], missing_list=[0.2], methods=["trss", "heat_diffusion_temporal", "tv", "linear"]),
 
         IterDef("it137", "it137_heatdiff_graph_variants", "Heat-diffusion across graph constructors", "Phase 20: Graph sensitivity", "Evaluate `heat_diffusion_temporal` with several graph constructors", real, seeds=list(range(5)), graph_specs=[("knn", {"k": 3}), ("knn", {"k": 5}), ("gaussian", {"sigma": 0.6}), ("gaussian", {"sigma": 1.0}), ("kalofolias", {})], missing_list=[0.2, 0.3], methods=["heat_diffusion_temporal"]),
 
-        IterDef("it138", "it138_tv_family_vs_instant_real", "TV-family vs Instant on real data", "Phase 20: Family comparison", "Compare TV/Time family against best instant methods on real datasets", real, seeds=list(range(5)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["trss", "tv", "graph_time_tikhonov", "mean", "nearest"]),
+        IterDef("it138", "it138_tv_family_vs_instant_real", "TV-family vs Instant on real data", "Phase 20: Family comparison", "Compare TV/Time family against best instant methods on real datasets", real, seeds=list(range(5)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["trss", "tv", "graph_time_tikhonov", "linear"]),
 
         IterDef("it139", "it139_adaptive_temporal_evaluation", "Adaptive temporal methods evaluation", "Phase 20: Temporal grid", "Test `adaptive_temporal`, `temporal_laplacian`, `sobolev_temporal` against heat-diffusion", real, seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2], methods=["adaptive_temporal", "temporal_laplacian", "sobolev_temporal", "heat_diffusion_temporal"]),
 
         IterDef("it140", "it140_puy_vs_trss_real", "Puy vs TRSS on real datasets", "Phase 20: Method contrast", "Compare `puy` with `trss` on clinical/BCI datasets", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["puy", "trss"]),
 
-        IterDef("it141", "it141_multiobjective_real_pareto", "Multiobjective Pareto on real datasets", "Phase 21: Multiobjective", "Collect MAE/RMSE/DTW/SNR/runtime for Pareto analysis", ["physionet_real", "bci_iv2a_real_s1"], seeds=list(range(5)), graph_specs=[("knn", {"k": 3}), ("gaussian", {"sigma": 1.0})], missing_list=[0.1, 0.2], methods=["trss", "tv", "heat_diffusion_temporal", "mean"]),
+        IterDef("it141", "it141_multiobjective_real_pareto", "Multiobjective Pareto on real datasets", "Phase 21: Multiobjective", "Collect MAE/RMSE/DTW/SNR/runtime for Pareto analysis", ["physionet_real", "bci_iv2a_real_s1"], seeds=list(range(5)), graph_specs=[("knn", {"k": 3}), ("gaussian", {"sigma": 1.0})], missing_list=[0.1, 0.2], methods=["trss", "tv", "heat_diffusion_temporal", "linear"]),
 
         IterDef("it142", "it142_confidence_bootstrap_real", "Bootstrap CI for key combos on real datasets", "Phase 21: CI stability", "Run with more seeds to enable bootstrap CI estimation per dataset", ["physionet_real", "bci_iv2a_real_s1", "iv100hz_mat"], seeds=list(range(10)), graph_specs=[("knn", {"k": 3})], missing_list=[0.2]),
 
@@ -134,7 +135,7 @@ def main():
                 it,
                 seeds=[0, 1],
                 missing_list=[0.2] if it.mode == "base" else it.missing_list,
-                methods=["mean", "tikhonov", "tv", "trss"] if it.mode in {"base", "noise"} else it.methods,
+                methods=list(base.BASELINE_METHODS) + ["tikhonov", "tv", "trss"] if it.mode in {"base", "noise"} else it.methods,
                 graph_specs=it.graph_specs[:1],
                 lambdas=it.lambdas[:3],
                 snr_levels=it.snr_levels[:3],

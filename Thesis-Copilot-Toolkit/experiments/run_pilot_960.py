@@ -61,7 +61,7 @@ def build_defs(seeds_count: int = 5) -> List[IterDef]:
         [0.1], [0.2], [0.3],
     ]
 
-    methods = ['mean', 'nearest', 'tv', 'trss']
+    methods = ["linear", "ica", "spherical_spline", "rbfi_tps", "tv", "trss"]
 
     seeds = list(range(seeds_count))
 

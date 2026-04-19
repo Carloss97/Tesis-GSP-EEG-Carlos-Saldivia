@@ -46,7 +46,7 @@ def build_defs(availability: dict) -> list[IterDef]:
         # nothing available: use synthetic placeholder (will be skipped but script stays safe)
         chosen = ['synthetic_16ch']
 
-    methods = ['mean', 'nearest', 'tikhonov', 'trss', 'graph_time_tikhonov', 'temporal_laplacian']
+    methods = ["linear", "ica", "spherical_spline", "rbfi_tps", "tikhonov", "trss", "graph_time_tikhonov", "temporal_laplacian"]
 
     it = IterDef(
         key='pilot_temporal_laplacian_001',
