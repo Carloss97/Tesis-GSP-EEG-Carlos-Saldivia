@@ -1,0 +1,260 @@
+{
+  "iterations": [
+    {
+      "key": "it10",
+      "tag": "it10",
+      "description": "Auto-generated schedule it10",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it20",
+      "tag": "it20",
+      "description": "Auto-generated schedule it20",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it30",
+      "tag": "it30",
+      "description": "Auto-generated schedule it30",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it40",
+      "tag": "it40",
+      "description": "Auto-generated schedule it40",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it50",
+      "tag": "it50",
+      "description": "Auto-generated schedule it50",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    }
+  ]
+}

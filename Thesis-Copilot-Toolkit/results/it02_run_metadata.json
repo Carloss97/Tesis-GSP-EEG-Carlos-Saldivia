@@ -1,6 +1,6 @@
 {
   "tag": "it02",
-  "timestamp": "2026-04-20T03:59:52.456728+00:00",
+  "timestamp": "2026-04-20T12:34:04.743702+00:00",
   "description": "Auto-generated schedule it02",
   "objective": "Measure improvement vs canonical baselines",
   "fase": "auto",
@@ -16,18 +16,12 @@
     "0.3"
   ],
   "methods": [
-    "bgsrp",
-    "gsmooth",
-    "gsp",
-    "ica",
-    "idw",
     "linear",
     "rbfi_tps",
-    "spherical_spline",
-    "tikhonov"
+    "spherical_spline"
   ],
-  "n_methods": 9,
-  "n_rows": 162,
+  "n_methods": 3,
+  "n_rows": 54,
   "qa": {
     "status": "NO-GO",
     "tv_median_mae": NaN,

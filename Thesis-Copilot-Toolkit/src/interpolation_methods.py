@@ -387,7 +387,7 @@ def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random
     try:
         with warnings.catch_warnings(record=True) as w:
             warnings.simplefilter("always")
-            ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=2000, tol=1e-4)
+            ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=10000, tol=1e-4)
             S = ica.fit_transform(x)
             X_rec = ica.inverse_transform(S)
 

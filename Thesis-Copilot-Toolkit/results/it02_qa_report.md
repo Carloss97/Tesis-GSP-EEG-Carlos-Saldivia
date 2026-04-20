@@ -3,8 +3,8 @@
 ## Status: NO-GO
 
 ## Summary
-- Total rows: 162
-- Methods tested: 9
+- Total rows: 54
+- Methods tested: 3
 - Graphs: 1
 - Missing scenarios: 3
 - Best method: linear (MAE=6.6250e-02)
@@ -26,4 +26,4 @@
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-20T03:59:52.456728+00:00
+Generated: 2026-04-20T12:34:04.743702+00:00

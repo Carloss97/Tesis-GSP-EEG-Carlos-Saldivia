@@ -3,8 +3,8 @@
 ## Status: NO-GO
 
 ## Summary
-- Total rows: 72
-- Methods tested: 4
+- Total rows: 54
+- Methods tested: 3
 - Graphs: 1
 - Missing scenarios: 3
 - Best method: rbfi_tps (MAE=2.9956e-02)
@@ -26,4 +26,4 @@
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-20T03:59:24.368168+00:00
+Generated: 2026-04-20T12:33:54.404827+00:00
