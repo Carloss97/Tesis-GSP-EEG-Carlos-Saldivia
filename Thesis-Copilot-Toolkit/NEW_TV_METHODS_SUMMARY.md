@@ -14,7 +14,7 @@ Se implementaron 7 nuevos métodos de interpolación basados en variación tempo
 | **spline_temporal** | "Localized Iterative Methods for Interpolation" | Narang et al. 2013 | Splines univariados temporales + regularización espacial Tikhonov |
 | **wavelet_temporal** | Graph Wavelet Transform | Shuman et al. 2013 | Transformada wavelet Haar discreta en tiempo + regularización espacial |
 | **directed_tv** | "Graph Signal Processing of Indefinite and Complex Graphs using Directed Variation" | Schultz & Villafane-Delgado 2020 | Total variation dirigida para grafos complejos/asimétricos |
-| **adaptive_temporal** | "Non-Negative Kernel Graphs for Time-Varying Signals Using Visibility Graphs" | Bozkurt & Ortega 2022 | Suavizado temporal adaptativo con matriz de coherencia local |
+| **visibility_graphs** | "Non-Negative Kernel Graphs for Time-Varying Signals Using Visibility Graphs" | Bozkurt & Ortega 2022 | Visibility graphs + NNK (Bozkurt & Ortega 2022): implemented as `visibility_nnk` graph constructor (visibility features → RBF kernel → NNK adjacency) plus optional `visibility_graphs` wrapper that runs `TRSS` on the constructed adjacency. |
 
 ### Rendimiento (MAE en datos sintéticos EEG)
 
@@ -22,7 +22,7 @@ Se implementaron 7 nuevos métodos de interpolación basados en variación tempo
 Ranking de desempeño:
 1. sobolev_temporal          MAE=0.4767 ← MEJOR
 2. heat_diffusion_temporal   MAE=0.4973
-3. adaptive_temporal         MAE=0.5228
+3. visibility_graphs         MAE=0.5228
 4. temporal_laplacian        MAE=0.5497
 5. wavelet_temporal          MAE=0.6265
 6. spline_temporal           MAE=0.8911
@@ -67,12 +67,19 @@ Ranking de desempeño:
 - `n_iter=50`: iteraciones IRLS
 - Versión "dirigida": soporta grafos asimétricos
 
-#### adaptive_temporal
+#### visibility_graphs / visibility_nnk
+
+`visibility_nnk` is implemented as a graph-construction method: it builds a channel-wise visibility feature matrix (degree / clustering statistics), computes an RBF kernel over those features and runs NNK to obtain an adaptive adjacency matrix. The pipeline is intentionally separated in two roles:
+
+- `visibility_nnk` (graph constructor): inputs `signals` (n_t, n_ch), params `k`, `use_hvg`, `reg`. Returns `adjacency` and `info`.
+- `visibility_graphs` (wrapper / interpolator): convenience wrapper that, when `adjacency` is not provided, calls `build_graph('visibility_nnk', signals=...)` and then runs `TRSS` (or `interpolate_trss`) on the resulting adjacency.
+
+This separation facilitates unit testing of the graph construction step, comparison with MATLAB fixtures, and re-use of the NNK adjacency with other temporal reconstructors.
 - `alpha=0.55`: regularización espacial
 - `beta=0.2`: regularización temporal
 - `gamma=0.05`: término de fidelidad adicional
 - `n_iter=100`: iteraciones
-- Matriz de coherencia adaptada localmente
+- Combina medidas de visibilidad (degree y clustering de visibility graphs) con NNK para construir similitud temporal y manejar delays
 
 ### Notas de implementación
 
@@ -112,7 +119,7 @@ reconstructed = result["reconstructed"]
 1. **sobolev_temporal** tiene mayor costo computacional (2da derivada) pero mejor MAE
 2. **heat_diffusion_temporal** buen equilibrio entre velocidad y precisión
 3. **temporal_laplacian** requiere inversión de matriz pero es exacto para sistemas pequeños
-4. **adaptive_temporal** promete mejor generalización en datos heterogéneos (ver Bozkurt & Ortega 2022)
+4. **visibility_graphs** promete mejor generalización en datos heterogéneos (ver Bozkurt & Ortega 2022)
 
 ### Validación completada
 

@@ -1,0 +1,1417 @@
+{
+  "generated_by": "validate_schedule.py",
+  "reason": "missing_nonbaseline_methods",
+  "iterations": [
+    {
+      "key": "it01_rerun_missing_nonbaseline",
+      "tag": "it01_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it02_rerun_missing_nonbaseline",
+      "tag": "it02_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it03_rerun_missing_nonbaseline",
+      "tag": "it03_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal, graph_time_tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal",
+        "graph_time_tikhonov"
+      ]
+    },
+    {
+      "key": "it04_rerun_missing_nonbaseline",
+      "tag": "it04_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s2"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it05_rerun_missing_nonbaseline",
+      "tag": "it05_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it07_rerun_missing_nonbaseline",
+      "tag": "it07_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it08_rerun_missing_nonbaseline",
+      "tag": "it08_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it10_rerun_missing_nonbaseline",
+      "tag": "it10_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it11_rerun_missing_nonbaseline",
+      "tag": "it11_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it13_rerun_missing_nonbaseline",
+      "tag": "it13_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it14_rerun_missing_nonbaseline",
+      "tag": "it14_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s2"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it15_rerun_missing_nonbaseline",
+      "tag": "it15_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal, graph_time_tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal",
+        "graph_time_tikhonov"
+      ]
+    },
+    {
+      "key": "it16_rerun_missing_nonbaseline",
+      "tag": "it16_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it17_rerun_missing_nonbaseline",
+      "tag": "it17_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it19_rerun_missing_nonbaseline",
+      "tag": "it19_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it20_rerun_missing_nonbaseline",
+      "tag": "it20_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it22_rerun_missing_nonbaseline",
+      "tag": "it22_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it23_rerun_missing_nonbaseline",
+      "tag": "it23_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it25_rerun_missing_nonbaseline",
+      "tag": "it25_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it26_rerun_missing_nonbaseline",
+      "tag": "it26_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it27_rerun_missing_nonbaseline",
+      "tag": "it27_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal, graph_time_tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal",
+        "graph_time_tikhonov"
+      ]
+    },
+    {
+      "key": "it28_rerun_missing_nonbaseline",
+      "tag": "it28_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it29_rerun_missing_nonbaseline",
+      "tag": "it29_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it30_rerun_missing_nonbaseline",
+      "tag": "it30_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal"
+      ]
+    },
+    {
+      "key": "it31_rerun_missing_nonbaseline",
+      "tag": "it31_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it32_rerun_missing_nonbaseline",
+      "tag": "it32_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it33_rerun_missing_nonbaseline",
+      "tag": "it33_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal, graph_time_tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal",
+        "graph_time_tikhonov"
+      ]
+    },
+    {
+      "key": "it34_rerun_missing_nonbaseline",
+      "tag": "it34_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s2"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it35_rerun_missing_nonbaseline",
+      "tag": "it35_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it37_rerun_missing_nonbaseline",
+      "tag": "it37_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it38_rerun_missing_nonbaseline",
+      "tag": "it38_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it40_rerun_missing_nonbaseline",
+      "tag": "it40_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it41_rerun_missing_nonbaseline",
+      "tag": "it41_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it43_rerun_missing_nonbaseline",
+      "tag": "it43_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov"
+      ]
+    },
+    {
+      "key": "it44_rerun_missing_nonbaseline",
+      "tag": "it44_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s2"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it45_rerun_missing_nonbaseline",
+      "tag": "it45_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: sobolev_temporal, graph_time_tikhonov",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "sobolev_temporal",
+        "graph_time_tikhonov"
+      ]
+    },
+    {
+      "key": "it46_rerun_missing_nonbaseline",
+      "tag": "it46_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it47_rerun_missing_nonbaseline",
+      "tag": "it47_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, tikhonov, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it49_rerun_missing_nonbaseline",
+      "tag": "it49_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp"
+      ]
+    },
+    {
+      "key": "it50_rerun_missing_nonbaseline",
+      "tag": "it50_missing_nonbaseline_rerun",
+      "description": "Rerun to produce missing non-baseline methods: gsp, bgsrp, gsmooth, idw",
+      "fase": "rerun",
+      "objective": "Produce stats rows for missing non-baseline methods required by confirmatory selection",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "pilot",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05
+      ],
+      "snr_levels": [
+        20.0
+      ],
+      "methods": [
+        "gsp",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    }
+  ]
+}

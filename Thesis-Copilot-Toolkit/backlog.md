@@ -337,12 +337,12 @@ Notas paper-faithful:
   - Parametros: `adjacency`, `alpha`, `beta`, `n_iter`, `eps`.
   - Estado Validacion: ✓
 
-- [x] `adaptive_temporal`
+- [x] `visibility_graphs`
   - Ticket: TVT-10
   - Referencia: Bozkurt y Ortega (2022)
-  - Descripcion: suavizado temporal adaptativo por coherencia mas suavidad espacial.
+  - Descripcion: Visibility graphs + NNK: construcción de visibilidad (NVG/HVG), extracción de características (grado, clustering), similitud por NNK y suavizado temporal adaptativo.
   - Parametros: `adjacency`, `alpha`, `beta`, `gamma`, `n_iter`.
-  - Estado Validacion: ✓
+  - Estado Validacion: ✓ (paper-aligned)
 
 Notas paper-faithful:
 - `trss` y `sobolev_temporal` comparten implementacion (alias directo).

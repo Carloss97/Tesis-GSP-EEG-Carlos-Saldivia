@@ -74,7 +74,7 @@ def _build_iteration_defs(base) -> Dict[str, object]:
 
         IterDef("it138", "it138_tv_family_vs_instant_real", "TV-family vs Instant on real data", "Phase 20: Family comparison", "Compare TV/Time family against best instant methods on real datasets", real, seeds=list(range(5)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["trss", "tv", "graph_time_tikhonov", "linear"]),
 
-        IterDef("it139", "it139_adaptive_temporal_evaluation", "Adaptive temporal methods evaluation", "Phase 20: Temporal grid", "Test `adaptive_temporal`, `temporal_laplacian`, `sobolev_temporal` against heat-diffusion", real, seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2], methods=["adaptive_temporal", "temporal_laplacian", "sobolev_temporal", "heat_diffusion_temporal"]),
+        IterDef("it139", "it139_visibility_graphs_evaluation", "Visibility graphs methods evaluation", "Phase 20: Temporal grid", "Test `visibility_graphs`, `temporal_laplacian`, `sobolev_temporal` against heat-diffusion", real, seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2], methods=["visibility_graphs", "temporal_laplacian", "sobolev_temporal", "heat_diffusion_temporal"]),
 
         IterDef("it140", "it140_puy_vs_trss_real", "Puy vs TRSS on real datasets", "Phase 20: Method contrast", "Compare `puy` with `trss` on clinical/BCI datasets", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2, 0.3], methods=["puy", "trss"]),
 
@@ -86,7 +86,7 @@ def _build_iteration_defs(base) -> Dict[str, object]:
 
         IterDef("it144", "it144_noise_robustness_real", "Noise robustness (non-gaussian) on real data", "Phase 21: Noise", "Stress-test selected methods under SNR variations", ["physionet_real", "iv100hz_mat"], mode="noise", seeds=list(range(4)), snr_levels=[25.0, 15.0, 5.0, 0.0, -5.0], graph_specs=[("knn", {"k": 3})], methods=["trss", "heat_diffusion_temporal", "tv"]),
 
-        IterDef("it145", "it145_temporal_methods_grid", "Temporal-methods grid on real datasets", "Phase 22: Temporal exploration", "Grid over temporal solvers (sobolev_temporal, heat_diffusion, adaptive)", real, seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2], methods=["sobolev_temporal", "heat_diffusion_temporal", "adaptive_temporal", "temporal_laplacian"]),
+        IterDef("it145", "it145_temporal_methods_grid", "Temporal-methods grid on real datasets", "Phase 22: Temporal exploration", "Grid over temporal solvers (sobolev_temporal, heat_diffusion, visibility_graphs)", real, seeds=list(range(4)), graph_specs=[("knn", {"k": 3})], missing_list=[0.1, 0.2], methods=["sobolev_temporal", "heat_diffusion_temporal", "visibility_graphs", "temporal_laplacian"]),
 
         IterDef("it146", "it146_directed_tv_low_missing", "Directed TV focused on low missing ratios", "Phase 22: Low-MR focus", "Assess directed-TV advantage under mild missingness", real, seeds=list(range(6)), graph_specs=[("knn", {"k": 3})], missing_list=[0.05, 0.1], methods=["directed_tv", "trss", "heat_diffusion_temporal"]),
 

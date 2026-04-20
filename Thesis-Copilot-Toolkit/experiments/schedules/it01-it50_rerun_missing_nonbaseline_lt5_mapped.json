@@ -1,0 +1,1131 @@
+{
+  "generated": "2026-04-20T13:31:07.915746Z",
+  "iterations": [
+    {
+      "key": "rr001",
+      "tag": "rr001_mne_sample_proxy_knn_k3_0_1_directed_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method directed_tv at combo mne_sample_proxy|knn__k3|0.1",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "directed_tv"
+      ]
+    },
+    {
+      "key": "rr002",
+      "tag": "rr002_mne_sample_proxy_knn_k3_0_2_directed_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method directed_tv at combo mne_sample_proxy|knn__k3|0.2",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "directed_tv"
+      ]
+    },
+    {
+      "key": "rr004",
+      "tag": "rr004_bci_competition_iv_2a_proxy_kalofolias_0_1_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo bci_competition_iv_2a_proxy|kalofolias|0.1",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr005",
+      "tag": "rr005_bci_competition_iv_2a_proxy_kalofolias_0_3_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo bci_competition_iv_2a_proxy|kalofolias|0.3",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr006",
+      "tag": "rr006_bci_competition_iv_2a_proxy_kalofolias_0_4_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo bci_competition_iv_2a_proxy|kalofolias|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr007",
+      "tag": "rr007_mne_sample_proxy_kalofolias_0_1_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo mne_sample_proxy|kalofolias|0.1",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr008",
+      "tag": "rr008_mne_sample_proxy_kalofolias_0_2_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo mne_sample_proxy|kalofolias|0.2",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr009",
+      "tag": "rr009_mne_sample_proxy_kalofolias_0_3_heat_diffusion_temporal",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method heat_diffusion_temporal at combo mne_sample_proxy|kalofolias|0.3",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "heat_diffusion_temporal"
+      ]
+    },
+    {
+      "key": "rr010",
+      "tag": "rr010_physionet_eegmmidb_gaussian_0_4_rbfi_tps",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method rbfi_tps at combo physionet_eegmmidb|gaussian|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "rr011",
+      "tag": "rr011_mne_sample_proxy_gaussian_sigma1_0_1_temporal_laplacian",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method temporal_laplacian at combo mne_sample_proxy|gaussian__sigma1|0.1",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "temporal_laplacian"
+      ]
+    },
+    {
+      "key": "rr012",
+      "tag": "rr012_mne_sample_proxy_gaussian_sigma1_0_3_temporal_laplacian",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method temporal_laplacian at combo mne_sample_proxy|gaussian__sigma1|0.3",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "temporal_laplacian"
+      ]
+    },
+    {
+      "key": "rr013",
+      "tag": "rr013_bci_competition_iv_2a_proxy_kalofolias_0_2_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_competition_iv_2a_proxy|kalofolias|0.2",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr014",
+      "tag": "rr014_bci_competition_proxy_kalofolias_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_competition_proxy|kalofolias|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr015",
+      "tag": "rr015_bci_iv2a_real_s1_gaussian_sigma1.0_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s1|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr016",
+      "tag": "rr016_bci_iv2a_real_s1_knn_k3_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s1|knn__k3|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr017",
+      "tag": "rr017_bci_iv2a_real_s2_gaussian_sigma1.0_0_1_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s2|gaussian__sigma1.0|0.1",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr018",
+      "tag": "rr018_bci_iv2a_real_s2_gaussian_sigma1.0_0_3_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s2|gaussian__sigma1.0|0.3",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr019",
+      "tag": "rr019_bci_iv2a_real_s2_gaussian_sigma1.0_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s2|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr020",
+      "tag": "rr020_bci_iv2a_real_s2_knn_k3_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo bci_iv2a_real_s2|knn__k3|0.4",
+      "datasets": [
+        "bci_iv2a_real_s1"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr021",
+      "tag": "rr021_iris_graph_signal_gaussian_sigma1.0_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo iris_graph_signal|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr022",
+      "tag": "rr022_iris_graph_signal_knn_k3_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo iris_graph_signal|knn__k3|0.4",
+      "datasets": [
+        "iris_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr023",
+      "tag": "rr023_iv100hz_mat_knn_k3_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo iv100hz_mat|knn__k3|0.4",
+      "datasets": [
+        "iv100hz_mat"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr024",
+      "tag": "rr024_mne_sample_proxy_kalofolias_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo mne_sample_proxy|kalofolias|0.4",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr025",
+      "tag": "rr025_physionet_eegmmidb_aew_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb|aew|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "aew",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr026",
+      "tag": "rr026_physionet_eegmmidb_gaussian_0_1_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb|gaussian|0.1",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr027",
+      "tag": "rr027_physionet_eegmmidb_knng_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb|knng|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr028",
+      "tag": "rr028_physionet_eegmmidb_nnk_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb|nnk|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "nnk",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr029",
+      "tag": "rr029_physionet_eegmmidb_vknng_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb|vknng|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "vknng",
+          {}
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr030",
+      "tag": "rr030_physionet_eegmmidb_real_gaussian_sigma1.0_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb_real|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr031",
+      "tag": "rr031_physionet_eegmmidb_real_knn_k3_0_4_trss",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method trss at combo physionet_eegmmidb_real|knn__k3|0.4",
+      "datasets": [
+        "physionet_real"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "trss"
+      ]
+    },
+    {
+      "key": "rr036",
+      "tag": "rr036_iv100hz_mat_gaussian_sigma1.0_0_4_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method tv at combo iv100hz_mat|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "iv100hz_mat"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "tv"
+      ]
+    },
+    {
+      "key": "rr037",
+      "tag": "rr037_mne_sample_proxy_gaussian_sigma1_0_2_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method tv at combo mne_sample_proxy|gaussian__sigma1|0.2",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.2
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "tv"
+      ]
+    },
+    {
+      "key": "rr038",
+      "tag": "rr038_movielens_graph_signal_gaussian_sigma1.0_0_4_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method tv at combo movielens_graph_signal|gaussian__sigma1.0|0.4",
+      "datasets": [
+        "movielens_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "tv"
+      ]
+    },
+    {
+      "key": "rr039",
+      "tag": "rr039_movielens_graph_signal_knn_k3_0_4_tv",
+      "description": "Rerun missing non-baseline coverage",
+      "fase": "rerun",
+      "objective": "Add runs for method tv at combo movielens_graph_signal|knn__k3|0.4",
+      "datasets": [
+        "movielens_graph_signal"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.4
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [],
+      "snr_levels": [],
+      "methods": [
+        "tv"
+      ]
+    }
+  ]
+}

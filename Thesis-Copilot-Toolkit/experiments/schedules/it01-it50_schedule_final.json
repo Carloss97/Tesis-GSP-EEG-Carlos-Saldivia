@@ -4,9 +4,9 @@
     {
       "key": "it01",
       "tag": "it01",
-      "description": "Auto-generated schedule it01",
+      "description": "it01 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -48,15 +48,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it02",
       "tag": "it02",
-      "description": "Auto-generated schedule it02",
+      "description": "it02 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -109,9 +112,9 @@
     {
       "key": "it03",
       "tag": "it03",
-      "description": "Auto-generated schedule it03",
+      "description": "it03 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -164,9 +167,9 @@
     {
       "key": "it04",
       "tag": "it04",
-      "description": "Auto-generated schedule it04",
+      "description": "it04 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s2"
       ],
@@ -206,15 +209,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it05",
       "tag": "it05",
-      "description": "Auto-generated schedule it05",
+      "description": "it05 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -267,9 +273,9 @@
     {
       "key": "it06",
       "tag": "it06",
-      "description": "Auto-generated schedule it06",
+      "description": "it06 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -322,9 +328,9 @@
     {
       "key": "it07",
       "tag": "it07",
-      "description": "Auto-generated schedule it07",
+      "description": "it07 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -366,15 +372,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it08",
       "tag": "it08",
-      "description": "Auto-generated schedule it08",
+      "description": "it08 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -425,9 +434,9 @@
     {
       "key": "it09",
       "tag": "it09",
-      "description": "Auto-generated schedule it09",
+      "description": "it09 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -480,9 +489,9 @@
     {
       "key": "it10",
       "tag": "it10",
-      "description": "Auto-generated schedule it10",
+      "description": "it10 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "iris_graph_signal"
       ],
@@ -524,15 +533,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it11",
       "tag": "it11",
-      "description": "Auto-generated schedule it11",
+      "description": "it11 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -585,9 +597,9 @@
     {
       "key": "it12",
       "tag": "it12",
-      "description": "Auto-generated schedule it12",
+      "description": "it12 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -638,9 +650,9 @@
     {
       "key": "it13",
       "tag": "it13",
-      "description": "Auto-generated schedule it13",
+      "description": "it13 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -682,15 +694,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it14",
       "tag": "it14",
-      "description": "Auto-generated schedule it14",
+      "description": "it14 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s2"
       ],
@@ -743,9 +758,9 @@
     {
       "key": "it15",
       "tag": "it15",
-      "description": "Auto-generated schedule it15",
+      "description": "it15 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -798,9 +813,9 @@
     {
       "key": "it16",
       "tag": "it16",
-      "description": "Auto-generated schedule it16",
+      "description": "it16 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -840,15 +855,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it17",
       "tag": "it17",
-      "description": "Auto-generated schedule it17",
+      "description": "it17 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -901,9 +919,9 @@
     {
       "key": "it18",
       "tag": "it18",
-      "description": "Auto-generated schedule it18",
+      "description": "it18 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -956,9 +974,9 @@
     {
       "key": "it19",
       "tag": "it19",
-      "description": "Auto-generated schedule it19",
+      "description": "it19 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -1000,15 +1018,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it20",
       "tag": "it20",
-      "description": "Auto-generated schedule it20",
+      "description": "it20 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "iris_graph_signal"
       ],
@@ -1059,9 +1080,9 @@
     {
       "key": "it21",
       "tag": "it21",
-      "description": "Auto-generated schedule it21",
+      "description": "it21 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -1114,9 +1135,9 @@
     {
       "key": "it22",
       "tag": "it22",
-      "description": "Auto-generated schedule it22",
+      "description": "it22 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -1158,15 +1179,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it23",
       "tag": "it23",
-      "description": "Auto-generated schedule it23",
+      "description": "it23 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1219,9 +1243,9 @@
     {
       "key": "it24",
       "tag": "it24",
-      "description": "Auto-generated schedule it24",
+      "description": "it24 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s2"
       ],
@@ -1272,9 +1296,9 @@
     {
       "key": "it25",
       "tag": "it25",
-      "description": "Auto-generated schedule it25",
+      "description": "it25 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1316,15 +1340,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it26",
       "tag": "it26",
-      "description": "Auto-generated schedule it26",
+      "description": "it26 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -1377,9 +1404,9 @@
     {
       "key": "it27",
       "tag": "it27",
-      "description": "Auto-generated schedule it27",
+      "description": "it27 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1432,9 +1459,9 @@
     {
       "key": "it28",
       "tag": "it28",
-      "description": "Auto-generated schedule it28",
+      "description": "it28 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -1474,15 +1501,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it29",
       "tag": "it29",
-      "description": "Auto-generated schedule it29",
+      "description": "it29 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -1535,9 +1565,9 @@
     {
       "key": "it30",
       "tag": "it30",
-      "description": "Auto-generated schedule it30",
+      "description": "it30 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "iris_graph_signal"
       ],
@@ -1590,9 +1620,9 @@
     {
       "key": "it31",
       "tag": "it31",
-      "description": "Auto-generated schedule it31",
+      "description": "it31 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -1634,15 +1664,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it32",
       "tag": "it32",
-      "description": "Auto-generated schedule it32",
+      "description": "it32 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -1693,9 +1726,9 @@
     {
       "key": "it33",
       "tag": "it33",
-      "description": "Auto-generated schedule it33",
+      "description": "it33 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1748,9 +1781,9 @@
     {
       "key": "it34",
       "tag": "it34",
-      "description": "Auto-generated schedule it34",
+      "description": "it34 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s2"
       ],
@@ -1792,15 +1825,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it35",
       "tag": "it35",
-      "description": "Auto-generated schedule it35",
+      "description": "it35 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1853,9 +1889,9 @@
     {
       "key": "it36",
       "tag": "it36",
-      "description": "Auto-generated schedule it36",
+      "description": "it36 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -1906,9 +1942,9 @@
     {
       "key": "it37",
       "tag": "it37",
-      "description": "Auto-generated schedule it37",
+      "description": "it37 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -1950,15 +1986,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it38",
       "tag": "it38",
-      "description": "Auto-generated schedule it38",
+      "description": "it38 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -2011,9 +2050,9 @@
     {
       "key": "it39",
       "tag": "it39",
-      "description": "Auto-generated schedule it39",
+      "description": "it39 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -2066,9 +2105,9 @@
     {
       "key": "it40",
       "tag": "it40",
-      "description": "Auto-generated schedule it40",
+      "description": "it40 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "iris_graph_signal"
       ],
@@ -2108,15 +2147,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it41",
       "tag": "it41",
-      "description": "Auto-generated schedule it41",
+      "description": "it41 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -2169,9 +2211,9 @@
     {
       "key": "it42",
       "tag": "it42",
-      "description": "Auto-generated schedule it42",
+      "description": "it42 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -2224,9 +2266,9 @@
     {
       "key": "it43",
       "tag": "it43",
-      "description": "Auto-generated schedule it43",
+      "description": "it43 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -2268,15 +2310,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it44",
       "tag": "it44",
-      "description": "Auto-generated schedule it44",
+      "description": "it44 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s2"
       ],
@@ -2327,9 +2372,9 @@
     {
       "key": "it45",
       "tag": "it45",
-      "description": "Auto-generated schedule it45",
+      "description": "it45 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -2382,9 +2427,9 @@
     {
       "key": "it46",
       "tag": "it46",
-      "description": "Auto-generated schedule it46",
+      "description": "it46 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -2426,15 +2471,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it47",
       "tag": "it47",
-      "description": "Auto-generated schedule it47",
+      "description": "it47 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "mne_sample"
       ],
@@ -2487,9 +2535,9 @@
     {
       "key": "it48",
       "tag": "it48",
-      "description": "Auto-generated schedule it48",
+      "description": "it48 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "physionet_real"
       ],
@@ -2540,9 +2588,9 @@
     {
       "key": "it49",
       "tag": "it49",
-      "description": "Auto-generated schedule it49",
+      "description": "it49 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "bci_iv2a_real_s1"
       ],
@@ -2584,15 +2632,18 @@
         "linear",
         "ica",
         "spherical_spline",
-        "rbfi_tps"
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "tv"
       ]
     },
     {
       "key": "it50",
       "tag": "it50",
-      "description": "Auto-generated schedule it50",
+      "description": "it50 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
       "fase": "auto",
-      "objective": "Measure improvement vs canonical baselines",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
       "datasets": [
         "iris_graph_signal"
       ],

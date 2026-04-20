@@ -309,7 +309,7 @@ GRAPH_BASED = {
     "gsp", "tikhonov", "bgsrp", "gsmooth", "puy", "sobolev",
     "graph_time_tikhonov", "trss", "tv",
     "temporal_laplacian", "heat_diffusion_temporal", "spline_temporal",
-    "directed_tv", "adaptive_temporal",
+    "directed_tv", "visibility_graphs",
 }
 POSITION_BASED = {"idw", "spherical_spline", "rbfi_tps", "rbfi_mq", "spline_surface"}
 

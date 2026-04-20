@@ -157,13 +157,13 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 ## Metodos activos
 
 ### Construccion de grafos
-`knn`, `knng`, `vknng`, `gaussian`, `epsilon_ball`, `mst`, `fully_connected_inverse_distance`, `nnk`, `aew`, `kalofolias`
+`knn`, `knng`, `vknng`, `gaussian`, `epsilon_ball`, `mst`, `fully_connected_inverse_distance`, `nnk`, `aew`, `kalofolias`, `visibility_nnk` (visibility-graph based graph constructor)
 
 ### Interpolacion por instante
 `linear`, `nearest`, `mean`, `random`, `idw`, `spherical_spline`, `rbfi_tps`, `rbfi_mq`, `spline_surface`, `gsp`, `tikhonov`, `gsmooth`, `bgsrp`, `puy`, `sobolev`
 
 ### Interpolacion TV/tiempo
-`graph_time_tikhonov`, `trss`, `sobolev_temporal`, `tv`, `temporal_laplacian`, `heat_diffusion_temporal`, `spline_temporal`, `wavelet_temporal`, `directed_tv`, `adaptive_temporal`
+`graph_time_tikhonov`, `trss`, `sobolev_temporal`, `tv`, `temporal_laplacian`, `heat_diffusion_temporal`, `spline_temporal`, `wavelet_temporal`, `directed_tv`, `visibility_graphs` (wrapper: uses `visibility_nnk` + `TRSS`)
 
 ## Artefactos de validacion disponibles
 

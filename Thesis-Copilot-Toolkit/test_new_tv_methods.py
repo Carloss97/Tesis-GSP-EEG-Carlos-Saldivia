@@ -55,7 +55,7 @@ def test_new_tv_methods():
         ("spline_temporal", {"alpha": 0.6, "s_temporal": 0.1}),
         ("wavelet_temporal", {"alpha": 0.65, "wavelet_level": 2}),
         ("directed_tv", {"alpha": 0.5, "beta": 0.15, "n_iter": 30, "eps": 1e-5}),
-        ("adaptive_temporal", {"alpha": 0.55, "beta": 0.2, "gamma": 0.05, "n_iter": 50}),
+        ("visibility_graphs", {"alpha": 0.55, "beta": 0.2, "gamma": 0.05, "n_iter": 50}),
     ]
     
     print("\n[4] Testing new TV methods...")

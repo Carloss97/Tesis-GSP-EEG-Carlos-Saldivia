@@ -112,7 +112,7 @@ def _learn_kalofolias_weights(
     return w
 
 
-def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, **kwargs) -> Dict[str, Any]:
+def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray = None, **kwargs) -> Dict[str, Any]:
     """
     Construye un grafo según el método especificado.
 
@@ -122,7 +122,14 @@ def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, 
     - signals: opcional, matriz (n_instantes, n_electrodos) para métodos data-driven.
     """
     method = method.lower()
-    n_nodes = positions.shape[0]
+    if positions is not None:
+        n_nodes = positions.shape[0]
+    elif signals is not None:
+        if np.asarray(signals).ndim != 2:
+            raise ValueError("'signals' debe tener forma (n_t, n_ch)")
+        n_nodes = np.asarray(signals).shape[1]
+    else:
+        raise ValueError("Se requiere 'positions' o 'signals' para construir el grafo.")
 
     if method == "knn":
         k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))
@@ -269,6 +276,129 @@ def build_graph(method: str, positions: np.ndarray, signals: np.ndarray = None, 
                 "b": b,
             },
         }
+
+    if method in {"visibility", "visibility_nnk", "visibility_graph"}:
+        # Build visibility-graph features per channel and run NNK over feature-kernel.
+        if signals is None:
+            raise ValueError("El método 'visibility_nnk' requiere 'signals' (n_t, n_ch).")
+
+        from scipy.spatial.distance import cdist
+        from pathlib import Path
+        import importlib.util
+        import sys
+
+        use_hvg = bool(kwargs.get("use_hvg", True))
+        k = int(kwargs.get("k", 4))
+        nnk_reg = float(kwargs.get("reg", 1e-6))
+
+        y = np.asarray(signals, dtype=float)
+        if y.ndim != 2:
+            raise ValueError("'signals' debe tener forma (n_t, n_ch)")
+        n_t, n_ch = y.shape
+
+        def _hvg_adjacency(series: np.ndarray) -> np.ndarray:
+            s = series.astype(float)
+            n = s.size
+            adj = np.zeros((n, n), dtype=bool)
+            for i in range(n):
+                si = s[i]
+                for j in range(i + 1, n):
+                    sj = s[j]
+                    mid = s[i + 1 : j]
+                    if mid.size == 0 or np.all(mid < min(si, sj)):
+                        adj[i, j] = True
+            adj = adj | adj.T
+            return adj.astype(int)
+
+        # 1) Features per channel from visibility graphs
+        F = np.zeros((n_ch, 4), dtype=float)
+        for ch in range(n_ch):
+            s = y[:, ch].copy()
+            if np.isnan(s).all():
+                s[:] = 0.0
+            else:
+                m = np.nanmean(s)
+                s[np.isnan(s)] = m
+
+            if use_hvg:
+                adj_t = _hvg_adjacency(s)
+            else:
+                adj_t = _hvg_adjacency(s)
+
+            deg = adj_t.sum(axis=0).astype(float)
+
+            clust = np.zeros(n_t, dtype=float)
+            for ti in range(n_t):
+                nbr = np.where(adj_t[ti] > 0)[0]
+                k_i = nbr.size
+                if k_i < 2:
+                    clust[ti] = 0.0
+                else:
+                    sub = adj_t[np.ix_(nbr, nbr)].astype(float)
+                    E = sub.sum() / 2.0
+                    clust[ti] = (2.0 * E) / (k_i * (k_i - 1))
+
+            F[ch, 0] = float(np.mean(deg))
+            F[ch, 1] = float(np.std(deg))
+            F[ch, 2] = float(np.nanmean(clust))
+            F[ch, 3] = float(np.nanstd(clust))
+
+        # 2) Kernel similarity over features (RBF)
+        dmat = cdist(F, F, metric="euclidean")
+        vals = dmat[np.triu_indices(n_ch, k=1)]
+        vals = vals[vals > 0]
+        sigma = float(np.median(vals)) if vals.size > 0 else 1.0
+        if not np.isfinite(sigma) or sigma <= 0:
+            sigma = 1.0
+        G = np.exp(-(dmat ** 2) / (2.0 * sigma ** 2))
+        np.fill_diagonal(G, np.max(G))
+
+        # 3) Candidate mask for NNK
+        knn_param = int(max(1, min(k, n_ch - 1)))
+        mask_rows = np.zeros((n_ch, knn_param), dtype=int)
+        for i in range(n_ch):
+            order = np.argsort(-G[i])
+            order = order[order != i]
+            if order.size < knn_param:
+                pad = np.arange(n_ch)[np.arange(n_ch) != i]
+                needed = knn_param - order.size
+                order = np.concatenate([order, pad[:needed]])
+            mask_rows[i] = order[:knn_param]
+
+        # 4) Try Code1201 PyNNK nnk_graph if available
+        repo_root = Path(__file__).resolve().parents[2]
+        pynnk_file = repo_root / "Code1201" / "PyNNK_graph_construction" / "graph_construction.py"
+        adjacency = None
+        backend = "internal"
+        if pynnk_file.exists():
+            try:
+                spec = importlib.util.spec_from_file_location("pynnk_gc", str(pynnk_file))
+                pynnk_gc = importlib.util.module_from_spec(spec)
+                sys.path.insert(0, str(pynnk_file.parent))
+                spec.loader.exec_module(pynnk_gc)
+                adjacency_sparse = pynnk_gc.nnk_graph(G, mask_rows, knn_param, reg=nnk_reg)
+                try:
+                    adjacency = adjacency_sparse.toarray()
+                except Exception:
+                    adjacency = np.asarray(adjacency_sparse)
+                adjacency = np.maximum(adjacency, adjacency.T)
+                np.fill_diagonal(adjacency, 0.0)
+                backend = "pynnk"
+            except Exception:
+                adjacency = None
+            finally:
+                try:
+                    if sys.path[0] == str(pynnk_file.parent):
+                        sys.path.pop(0)
+                except Exception:
+                    pass
+
+        if adjacency is None:
+            # Fallback: use internal NNLS-based local NNK on feature positions
+            sigma_feat = _estimate_kernel_sigma(F)
+            adjacency = _build_nnk_adjacency(positions=F, k=k, sigma=sigma_feat, reg=nnk_reg, weight_threshold=float(kwargs.get("weight_threshold", 1e-8)))
+
+        return {"adjacency": adjacency, "info": {"method": "visibility_nnk", "k": k, "backend": backend, "use_hvg": use_hvg}}
 
     if method == "nnk":
         k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))

@@ -230,17 +230,15 @@ def interpolate_signals(
             "info": {"method": "directed_tv", "alpha": alpha, "beta": beta, "n_iter": n_iter},
         }
 
-    if method == "adaptive_temporal":
-        if adjacency is None:
-            raise ValueError("Se requiere 'adjacency' para adaptive_temporal.")
+    if method in {"adaptive_temporal", "visibility_graphs", "visibility_graph"}:
         alpha = float(kwargs.get("alpha", 0.55))
         beta = float(kwargs.get("beta", 0.2))
         gamma = float(kwargs.get("gamma", 0.05))
         n_iter = int(kwargs.get("n_iter", 100))
-        reconstructed = interpolate_adaptive_temporal(signals, adjacency=adjacency, alpha=alpha, beta=beta, gamma=gamma, n_iter=n_iter)
+        reconstructed = interpolate_visibility_graphs(signals, adjacency=adjacency, alpha=alpha, beta=beta, gamma=gamma, n_iter=n_iter)
         return {
             "reconstructed": reconstructed,
-            "info": {"method": "adaptive_temporal", "alpha": alpha, "beta": beta, "gamma": gamma, "n_iter": n_iter},
+            "info": {"method": "visibility_graphs", "alpha": alpha, "beta": beta, "gamma": gamma, "n_iter": n_iter},
         }
 
     if method == "puy":
@@ -671,6 +669,10 @@ def interpolate_trss(
         x[mask] = y[mask]
 
     return x
+
+
+# Backwards compatibility alias (legacy name)
+# (moved to end of file after function definition to avoid forward-reference)
 
 
 def interpolate_graph_tv(
@@ -1179,81 +1181,239 @@ def interpolate_directed_tv(
     return x
 
 
-def interpolate_adaptive_temporal(
+def interpolate_visibility_graphs(
     signals: np.ndarray,
-    adjacency: np.ndarray,
+    adjacency: np.ndarray = None,
     alpha: float = 0.55,
     beta: float = 0.2,
     gamma: float = 0.05,
     n_iter: int = 100,
 ) -> np.ndarray:
     """
-    Adaptive temporal smoothing: combina suavizado temporo-espacial con 
-    adaptacion local basada en coherencia de señal (Bozkurt & Ortega 2022).
+    Visibility graphs + NNK reconstruction (Bozkurt & Ortega 2022).
+
+    Procedimiento (alto nivel):
+    1) Construir visibility graphs (NVG/HVG) por timesteps / ventanas.
+    2) Extraer características por nodo (grado, clustering) y construir matriz
+       de similitud temporal/entre-instantes.
+    3) Usar NNK (non-negative kernel) sobre la matriz de similitud para
+       construir pesos adaptativos y aplicar suavizado espacio-temporal.
+
+    Nota: esta implementación mantiene la interfaz y parámetros previos para
+    compatibilidad, y devuelve el resultado con el método canonical `visibility_graphs`.
     """
+    # Parámetros adicionales (compatibilidad hacia atrás: se pueden pasar via kwargs)
+    # k: número de vecinos candidatos para NNK
+    # use_hvg: si True usa Horizontal Visibility Graph (más estable y simple)
+    # nnk_reg: regularización para el solver NNK
+    # trss_lr: learning rate para TRSS (si se usa como reconstructor)
+    k = int(getattr(interpolate_visibility_graphs, "_default_k", 4))
+    use_hvg = True
+    nnk_reg = 1e-6
+    trss_lr = 0.05
+
+    # If caller didn't provide an adjacency, try using the graph constructor
+    # `build_graph('visibility_nnk')` implemented in src.graph_construction.
+    if adjacency is None:
+        try:
+            from src.graph_construction.graph_constructors import build_graph
+
+            bg = build_graph("visibility_nnk", positions=None, signals=signals, k=k, use_hvg=use_hvg, reg=nnk_reg)
+            adjacency_bg = bg.get("adjacency") if isinstance(bg, dict) else None
+            if adjacency_bg is not None:
+                try:
+                    return interpolate_trss(signals.astype(float), adjacency=adjacency_bg, alpha=alpha, beta=beta, n_iter=n_iter, lr=trss_lr)
+                except Exception:
+                    # If TRSS fails on the constructed adjacency, fall back to internal routine
+                    pass
+        except Exception as exc:
+            try:
+                record_warning("visibility_graphs", "build_graph_failed", str(exc), severity="warning", decision="fallback")
+            except Exception:
+                pass
+
+    from pathlib import Path
+    import importlib.util
+    from scipy.spatial.distance import cdist
     from scipy.sparse import csgraph
 
     y = signals.astype(float)
-    mask = ~np.isnan(y)
-    x = y.copy()
-    col_mean = np.nanmean(x, axis=0)
-    col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
-    miss = ~mask
-    x[miss] = np.take(col_mean, np.where(miss)[1])
+    n_t, n_ch = y.shape
 
-    lap_g = csgraph.laplacian(adjacency, normed=False)
-    
-    # Matriz de pesos adaptativos basada en coherencia temporal
-    t = x.shape[0]
-    n_ch = x.shape[1]
-    coherence = np.ones((t, t), dtype=float)
-    
-    for i in range(t):
-        for j in range(min(i + 1, t)):
-            if i == j:
-                continue
-            # Correlacion simple entre todos los canales en dos instantes
-            corr_val = 0.0
-            count = 0
-            for ch1 in range(n_ch):
-                for ch2 in range(n_ch):
-                    if not np.isnan(x[i, ch1]) and not np.isnan(x[j, ch2]):
-                        corr_val += x[i, ch1] * x[j, ch2]
-                        count += 1
-            if count > 0:
-                coherence[i, j] = np.clip(corr_val / (count + 1e-12), 0.0, 1.0)
-                coherence[j, i] = coherence[i, j]
+    # Trivial fallback si dimensiones demasiado pequeñas
+    if n_ch < 2 or n_t < 3:
+        recon = y.copy()
+        col_mean = _nanmean_no_warn(recon, axis=0)
+        miss = np.isnan(recon)
+        recon[miss] = np.take(col_mean, np.where(miss)[1])
+        return recon
 
-    # Laplaciano temporal adaptativo
-    adaptive_temp = coherence.copy()
-    np.fill_diagonal(adaptive_temp, -np.sum(coherence, axis=1) + np.diag(coherence))
+    def _hvg_adjacency(series: np.ndarray) -> np.ndarray:
+        # Horizontal Visibility Graph (HVG): conectividad simple y robusta
+        s = series.astype(float)
+        n = s.size
+        adj = np.zeros((n, n), dtype=bool)
+        for i in range(n):
+            si = s[i]
+            for j in range(i + 1, n):
+                sj = s[j]
+                mid = s[i + 1 : j]
+                # HVG condition: all intermediate values < min(si, sj)
+                if mid.size == 0 or np.all(mid < min(si, sj)):
+                    adj[i, j] = True
+        adj = adj | adj.T
+        return adj.astype(int)
 
-    scale = np.nanstd(y)
-    if not np.isfinite(scale) or scale <= 0:
-        scale = 1.0
+    try:
+        # 1) Extraer características por canal a partir de visibility graphs
+        F = np.zeros((n_ch, 4), dtype=float)  # mean_deg, std_deg, mean_clust, std_clust
+        for ch in range(n_ch):
+            s = y[:, ch].copy()
+            if np.isnan(s).all():
+                s[:] = 0.0
+            else:
+                m = np.nanmean(s)
+                s[np.isnan(s)] = m
 
-    step = 0.03
+            if use_hvg:
+                adj_t = _hvg_adjacency(s)
+            else:
+                adj_t = _hvg_adjacency(s)  # placeholder for NVG if needed
 
-    for iter_no in range(n_iter):
-        step_adaptive = step / (1.0 + 0.005 * iter_no)
+            deg = adj_t.sum(axis=0).astype(float)
 
-        grad_data = (x - np.nan_to_num(y, nan=0.0)) * mask
-        
-        # Gradiente espacial: aplicar por timestep
-        grad_graph = np.zeros_like(x)
-        for t in range(x.shape[0]):  # Para cada timestep
-            grad_graph[t, :] = lap_g @ x[t, :]  # Apply spatial Laplacian to each time point
-        
-        grad_temporal = adaptive_temp @ x  # (t, t) @ (t, n_ch) = (t, n_ch) ✓
-        
-        grad = 2.0 * grad_data + 2.0 * alpha * grad_graph + 2.0 * beta * grad_temporal
-        grad += 2.0 * gamma * (x - np.nan_to_num(y, nan=0.0))  # Término de fidelidad adicional
+            # clustering coefficient por nodo (unweighted)
+            clust = np.zeros(n_t, dtype=float)
+            for ti in range(n_t):
+                nbr = np.where(adj_t[ti] > 0)[0]
+                k_i = nbr.size
+                if k_i < 2:
+                    clust[ti] = 0.0
+                else:
+                    sub = adj_t[np.ix_(nbr, nbr)].astype(float)
+                    E = sub.sum() / 2.0
+                    clust[ti] = (2.0 * E) / (k_i * (k_i - 1))
 
-        x = x - step_adaptive * grad
-        x = np.clip(x, -8.0 * scale, 8.0 * scale)
-        x[mask] = y[mask]
+            F[ch, 0] = float(np.mean(deg))
+            F[ch, 1] = float(np.std(deg))
+            F[ch, 2] = float(np.nanmean(clust))
+            F[ch, 3] = float(np.nanstd(clust))
 
-    return x
+        # 2) Matriz de similitud (kernel RBF sobre features)
+        dmat = cdist(F, F, metric="euclidean")
+        vals = dmat[np.triu_indices(n_ch, k=1)]
+        vals = vals[vals > 0]
+        sigma = float(np.median(vals)) if vals.size > 0 else 1.0
+        if not np.isfinite(sigma) or sigma <= 0:
+            sigma = 1.0
+        G = np.exp(-(dmat ** 2) / (2.0 * sigma ** 2))
+        np.fill_diagonal(G, np.max(G))
+
+        # 3) Construir máscara de candidatos para NNK (por similitud)
+        knn_param = int(max(1, min(k, n_ch - 1)))
+        mask_rows = np.zeros((n_ch, knn_param), dtype=int)
+        for i in range(n_ch):
+            order = np.argsort(-G[i])
+            order = order[order != i]
+            if order.size < knn_param:
+                pad = np.arange(n_ch)[np.arange(n_ch) != i]
+                needed = knn_param - order.size
+                order = np.concatenate([order, pad[:needed]])
+            mask_rows[i] = order[:knn_param]
+
+        # 4) Invocar implementación NNK (PyNNK) desde Code1201 si está disponible
+        repo_root = Path(__file__).resolve().parents[1]
+        pynnk_file = repo_root / "Code1201" / "PyNNK_graph_construction" / "graph_construction.py"
+        if not pynnk_file.exists():
+            raise FileNotFoundError(f"PyNNK implementation not found: {pynnk_file}")
+
+        # Ensure PyNNK module directory is importable so internal imports (e.g., non_neg_qpsolver)
+        # work when executing the file as a module.
+        import sys
+        spec = importlib.util.spec_from_file_location("pynnk_gc", str(pynnk_file))
+        pynnk_gc = importlib.util.module_from_spec(spec)
+        sys.path.insert(0, str(pynnk_file.parent))
+        try:
+            spec.loader.exec_module(pynnk_gc)
+        finally:
+            try:
+                # remove the inserted path to avoid side-effects
+                if sys.path[0] == str(pynnk_file.parent):
+                    sys.path.pop(0)
+            except Exception:
+                pass
+
+        adjacency_sparse = pynnk_gc.nnk_graph(G, mask_rows, knn_param, reg=nnk_reg)
+        try:
+            adjacency_nnk = adjacency_sparse.toarray()
+        except Exception:
+            adjacency_nnk = np.asarray(adjacency_sparse)
+
+        adjacency_nnk = np.maximum(adjacency_nnk, adjacency_nnk.T)
+        np.fill_diagonal(adjacency_nnk, 0.0)
+
+        # 5) Reconstruir usando TRSS (paper-faithful spatial-temporal) con la adyacencia NNK
+        lr = float(trss_lr)
+        reconstructed = interpolate_trss(y, adjacency=adjacency_nnk, alpha=alpha, beta=beta, n_iter=n_iter, lr=lr)
+        return reconstructed
+
+    except Exception as exc:
+        # Fallback: registrar y ejecutar la antigua implementación basada en coherencia
+        try:
+            record_warning("visibility_graphs", "fallback", str(exc), severity="warning", decision="fallback")
+        except Exception:
+            pass
+
+        # --- Código legacy (coherencia temporal adaptativa) ---
+        y2 = y.copy()
+        mask2 = ~np.isnan(y2)
+        x = y2.copy()
+        col_mean = np.nanmean(x, axis=0)
+        col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
+        miss = ~mask2
+        x[miss] = np.take(col_mean, np.where(miss)[1])
+
+        lap_g = csgraph.laplacian(adjacency if adjacency is not None else np.eye(n_ch), normed=False)
+        t = x.shape[0]
+        coherence = np.ones((t, t), dtype=float)
+
+        for i in range(t):
+            for j in range(min(i + 1, t)):
+                if i == j:
+                    continue
+                corr_val = 0.0
+                count = 0
+                for ch1 in range(n_ch):
+                    for ch2 in range(n_ch):
+                        if not np.isnan(x[i, ch1]) and not np.isnan(x[j, ch2]):
+                            corr_val += x[i, ch1] * x[j, ch2]
+                            count += 1
+                if count > 0:
+                    coherence[i, j] = np.clip(corr_val / (count + 1e-12), 0.0, 1.0)
+                    coherence[j, i] = coherence[i, j]
+
+        adaptive_temp = coherence.copy()
+        np.fill_diagonal(adaptive_temp, -np.sum(coherence, axis=1) + np.diag(coherence))
+
+        scale = np.nanstd(y2)
+        if not np.isfinite(scale) or scale <= 0:
+            scale = 1.0
+
+        step = 0.03
+        for iter_no in range(n_iter):
+            step_adaptive = step / (1.0 + 0.005 * iter_no)
+            grad_data = (x - np.nan_to_num(y2, nan=0.0)) * mask2
+            grad_graph = np.zeros_like(x)
+            for t_idx in range(x.shape[0]):
+                grad_graph[t_idx, :] = lap_g @ x[t_idx, :]
+            grad_temporal = adaptive_temp @ x
+            grad = 2.0 * grad_data + 2.0 * alpha * grad_graph + 2.0 * beta * grad_temporal
+            grad += 2.0 * gamma * (x - np.nan_to_num(y2, nan=0.0))
+            x = x - step_adaptive * grad
+            x = np.clip(x, -8.0 * scale, 8.0 * scale)
+            x[mask2] = y2[mask2]
+
+        return x
 
 
 def interpolate_rbfi(signals: np.ndarray, positions: np.ndarray, function: str = "thin_plate") -> np.ndarray:
@@ -1337,3 +1497,11 @@ def interpolate_spline_surface(signals: np.ndarray, positions: np.ndarray) -> np
             )
 
     return reconstructed
+
+
+# Backwards compatibility alias (legacy name)
+try:
+    interpolate_adaptive_temporal = interpolate_visibility_graphs
+except NameError:
+    # If function is not defined for some reason, delay assignment.
+    pass

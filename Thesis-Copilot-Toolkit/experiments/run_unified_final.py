@@ -172,6 +172,7 @@ TV_TIME_METHODS: List[Tuple[str, Dict]] = [
     ("temporal_laplacian",  {"alpha": 0.5, "beta": 0.5}),
     ("spline_temporal",     {"alpha": 0.5}),
     ("directed_tv",         {"alpha": 0.5, "beta": 0.5, "n_iter": 10}),
+    ("visibility_graphs",   {"alpha": 0.55, "beta": 0.2, "gamma": 0.05, "n_iter": 50}),
 ]
 
 ALL_METHODS = INSTANT_METHODS + TV_TIME_METHODS
@@ -183,7 +184,7 @@ GRAPH_BASED = {
     "gsp", "tikhonov", "bgsrp", "gsmooth", "puy", "sobolev",
     "graph_time_tikhonov", "trss", "tv",
     "temporal_laplacian", "spline_temporal",
-    "directed_tv", "adaptive_temporal",
+    "directed_tv", "visibility_graphs",
 }
 POSITION_BASED = {"idw", "spherical_spline", "rbfi_tps", "rbfi_mq", "spline_surface"}
 

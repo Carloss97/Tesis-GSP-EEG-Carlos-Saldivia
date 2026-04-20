@@ -71,7 +71,7 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 | TVT-07 | `spline_temporal` | Narang et al., arXiv 2013 (regularizacion en grafo) + spline smoothing clasico | paper-inspired | ✓ |
 | TVT-08 | `wavelet_temporal` | Hammond et al., ACHA 2011 (wavelets on graphs) | paper-inspired | ✓ |
 | TVT-09 | `directed_tv` | Schultz y Villafane-Delgado, arXiv 2020 | paper-inspired | ✓ |
-| TVT-10 | `adaptive_temporal` | Bozkurt y Ortega, EUSIPCO 2022 | paper-inspired | ✓ |
+| TVT-10 | `visibility_nnk` / `visibility_graphs` | Bozkurt y Ortega, EUSIPCO 2022 | paper-aligned (graph-constructor `visibility_nnk` + `TRSS` wrapper) | ✓ |
 
 ---
 

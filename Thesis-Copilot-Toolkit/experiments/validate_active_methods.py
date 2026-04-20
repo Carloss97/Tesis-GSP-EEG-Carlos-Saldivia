@@ -38,7 +38,7 @@ ACTIVE_METHODS = [
     "temporal_laplacian",
     "spline_temporal",
     "directed_tv",
-    "adaptive_temporal",
+    "visibility_graphs",
 ]
 
 GRAPH_METHOD = "knng"
@@ -65,7 +65,7 @@ GRAPH_BASED = {
     "temporal_laplacian",
     "spline_temporal",
     "directed_tv",
-    "adaptive_temporal",
+    "visibility_graphs",
 }
 
 METHOD_PARAMS = {
@@ -83,7 +83,7 @@ METHOD_PARAMS = {
     "temporal_laplacian": {"alpha": 0.5, "beta": 0.1},
     "spline_temporal": {"alpha": 0.5, "s_temporal": 1.0},
     "directed_tv": {"alpha": 0.5, "beta": 0.1, "n_iter": 20, "eps": 1e-5},
-    "adaptive_temporal": {"alpha": 0.5, "beta": 0.1, "gamma": 0.8, "n_iter": 20},
+    "visibility_graphs": {"alpha": 0.5, "beta": 0.1, "gamma": 0.8, "n_iter": 20},
 }
 
 
