@@ -140,10 +140,15 @@ def root_mean_squared_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
     max_points = int(os.environ.get("B2_DTW_MAX_POINTS", "80"))
 
+    # Prefer the fast external library but fall back to a local DTW
+    # implementation when it's not installed. This prevents a missing
+    # optional dependency from aborting whole iterations.
+    use_lib = True
     try:
-        from dtaidistance import dtw
-    except ImportError as exc:
-        raise ImportError("Instale dtaidistance para usar DTW") from exc
+        from dtaidistance import dtw  # type: ignore
+    except Exception:
+        dtw = None
+        use_lib = False
 
     # Soporta entrada 1D (vector) o 2D (matriz)
     if y_true.ndim == 1:
@@ -152,7 +157,9 @@ def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
             return float("nan")
         a = _downsample_1d(y_true[mask], max_points=max_points)
         b = _downsample_1d(y_pred[mask], max_points=max_points)
-        return float(dtw.distance(a, b))
+        if use_lib and dtw is not None:
+            return float(dtw.distance(a, b))
+        return float(_dtw_distance_fallback(a, b, max_points))
     else:
         _, n_channels = y_true.shape
         dist = 0.0
@@ -163,9 +170,46 @@ def dtw_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
                 continue
             a = _downsample_1d(y_true[mask, d], max_points=max_points)
             b = _downsample_1d(y_pred[mask, d], max_points=max_points)
-            dist += dtw.distance(a, b)
+            if use_lib and dtw is not None:
+                dist += dtw.distance(a, b)
+            else:
+                dist += _dtw_distance_fallback(a, b, max_points)
             count += 1
         return float(dist / count) if count > 0 else float("nan")
+
+
+def _dtw_distance_fallback(x: np.ndarray, y: np.ndarray, max_points: int = 80) -> float:
+    """Deterministic bounded DTW fallback used when `dtaidistance` is not available.
+
+    This is a pragmatic, downsampled dynamic-programming implementation copied
+    from the lightweight evaluation helper to avoid optional-dependency failures.
+    """
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+
+    if x.size > max_points:
+        step_x = int(np.ceil(x.size / max_points))
+        x = x[::step_x]
+    if y.size > max_points:
+        step_y = int(np.ceil(y.size / max_points))
+        y = y[::step_y]
+
+    n = x.size
+    m = y.size
+    window = max(abs(n - m), int(0.15 * max(n, m)))
+
+    inf = np.inf
+    dp = np.full((n + 1, m + 1), inf, dtype=float)
+    dp[0, 0] = 0.0
+
+    for i in range(1, n + 1):
+        j_start = max(1, i - window)
+        j_end = min(m, i + window)
+        for j in range(j_start, j_end + 1):
+            cost = abs(x[i - 1] - y[j - 1])
+            dp[i, j] = cost + min(dp[i - 1, j], dp[i, j - 1], dp[i - 1, j - 1])
+
+    return float(dp[n, m])
 
 
 def snr(y_true: np.ndarray, y_pred: np.ndarray) -> float:

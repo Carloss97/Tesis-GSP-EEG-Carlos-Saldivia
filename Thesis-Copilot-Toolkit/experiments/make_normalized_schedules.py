@@ -16,9 +16,9 @@ OUT_B = ROOT / "experiments" / "schedules" / "it01-it50_schedule_phaseB_real_mne
 MAPPING: Dict[str, str] = {
     "synthetic_alpha": "physionet_real",
     "synthetic_beta": "bci_iv2a_real_s1",
-    "synthetic_broad": "iv100hz_mat",
+    "synthetic_broad": "mne_sample",
     "synthetic_8ch": "bci_iv2a_real_s2",
-    "synthetic_16ch": "iv100hz_mat",
+    "synthetic_16ch": "mne_sample",
     "synthetic_32ch": "physionet_real",
 }
 
@@ -41,12 +41,20 @@ def main() -> int:
 
     phase_a_iters = []
     phase_b_iters = []
-    for it in iterations:
+    for idx, it in enumerate(iterations, start=1):
         it_a = dict(it)
         it_b = dict(it)
 
         ds_list = it.get("datasets", [])
-        it_a["datasets"] = [_map_phase_a(d) for d in ds_list] or ["physionet_real"]
+        # Only normalize/replace synthetic tokens for the first 30 iterations (user rule).
+        if idx <= 30:
+            mapped = [_map_phase_a(d) for d in ds_list]
+        else:
+            mapped = list(ds_list)
+
+        # Explicitly exclude iv100hz_mat from generated Phase A schedules.
+        mapped = [d for d in mapped if d != "iv100hz_mat"]
+        it_a["datasets"] = mapped or ["physionet_real"]
         it_b["datasets"] = ["mne_sample"]
 
         phase_a_iters.append(it_a)

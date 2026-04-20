@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,7 +13,10 @@ spec = importlib.util.spec_from_file_location("run121130_base", str(PATH_RUN))
 mod = importlib.util.module_from_spec(spec)
 loader = spec.loader
 assert loader is not None
+# Ensure module is discoverable by dataclasses and subimports
+sys.modules[spec.name] = mod
 loader.exec_module(mod)
 
-availability = mod.load_data_availability()
-print(json.dumps(availability, indent=2, ensure_ascii=False))
+result = mod.load_data_availability()
+info = result.get("availability", result)
+print(json.dumps(info, indent=2, ensure_ascii=False))

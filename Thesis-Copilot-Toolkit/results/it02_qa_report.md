@@ -7,7 +7,7 @@
 - Methods tested: 9
 - Graphs: 1
 - Missing scenarios: 3
-- Best method: rbfi_tps (MAE=2.9956e-02)
+- Best method: linear (MAE=6.6250e-02)
 
 ## Statistical Test (Mann-Whitney U: TV < Instant)
 - TV median MAE:      nan
@@ -26,4 +26,4 @@
 - movielens_graph_signal: OK
 - physionet_real: OK
 
-Generated: 2026-04-20T00:32:15.786439+00:00
+Generated: 2026-04-20T03:59:52.456728+00:00
