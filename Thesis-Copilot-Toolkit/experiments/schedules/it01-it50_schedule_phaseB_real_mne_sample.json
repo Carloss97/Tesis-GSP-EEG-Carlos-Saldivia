@@ -1,0 +1,2647 @@
+{
+  "generated": "2026-04-20T00:28:02.592659+00:00",
+  "iterations": [
+    {
+      "key": "it01",
+      "tag": "it01",
+      "description": "Auto-generated schedule it01",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it02",
+      "tag": "it02",
+      "description": "Auto-generated schedule it02",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it03",
+      "tag": "it03",
+      "description": "Auto-generated schedule it03",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it04",
+      "tag": "it04",
+      "description": "Auto-generated schedule it04",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it05",
+      "tag": "it05",
+      "description": "Auto-generated schedule it05",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it06",
+      "tag": "it06",
+      "description": "Auto-generated schedule it06",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it07",
+      "tag": "it07",
+      "description": "Auto-generated schedule it07",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it08",
+      "tag": "it08",
+      "description": "Auto-generated schedule it08",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it09",
+      "tag": "it09",
+      "description": "Auto-generated schedule it09",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it10",
+      "tag": "it10",
+      "description": "Auto-generated schedule it10",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it11",
+      "tag": "it11",
+      "description": "Auto-generated schedule it11",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it12",
+      "tag": "it12",
+      "description": "Auto-generated schedule it12",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it13",
+      "tag": "it13",
+      "description": "Auto-generated schedule it13",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it14",
+      "tag": "it14",
+      "description": "Auto-generated schedule it14",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it15",
+      "tag": "it15",
+      "description": "Auto-generated schedule it15",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it16",
+      "tag": "it16",
+      "description": "Auto-generated schedule it16",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it17",
+      "tag": "it17",
+      "description": "Auto-generated schedule it17",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it18",
+      "tag": "it18",
+      "description": "Auto-generated schedule it18",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it19",
+      "tag": "it19",
+      "description": "Auto-generated schedule it19",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it20",
+      "tag": "it20",
+      "description": "Auto-generated schedule it20",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it21",
+      "tag": "it21",
+      "description": "Auto-generated schedule it21",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it22",
+      "tag": "it22",
+      "description": "Auto-generated schedule it22",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it23",
+      "tag": "it23",
+      "description": "Auto-generated schedule it23",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it24",
+      "tag": "it24",
+      "description": "Auto-generated schedule it24",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it25",
+      "tag": "it25",
+      "description": "Auto-generated schedule it25",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it26",
+      "tag": "it26",
+      "description": "Auto-generated schedule it26",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it27",
+      "tag": "it27",
+      "description": "Auto-generated schedule it27",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it28",
+      "tag": "it28",
+      "description": "Auto-generated schedule it28",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it29",
+      "tag": "it29",
+      "description": "Auto-generated schedule it29",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it30",
+      "tag": "it30",
+      "description": "Auto-generated schedule it30",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it31",
+      "tag": "it31",
+      "description": "Auto-generated schedule it31",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it32",
+      "tag": "it32",
+      "description": "Auto-generated schedule it32",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it33",
+      "tag": "it33",
+      "description": "Auto-generated schedule it33",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it34",
+      "tag": "it34",
+      "description": "Auto-generated schedule it34",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it35",
+      "tag": "it35",
+      "description": "Auto-generated schedule it35",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it36",
+      "tag": "it36",
+      "description": "Auto-generated schedule it36",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it37",
+      "tag": "it37",
+      "description": "Auto-generated schedule it37",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it38",
+      "tag": "it38",
+      "description": "Auto-generated schedule it38",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it39",
+      "tag": "it39",
+      "description": "Auto-generated schedule it39",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it40",
+      "tag": "it40",
+      "description": "Auto-generated schedule it40",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it41",
+      "tag": "it41",
+      "description": "Auto-generated schedule it41",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it42",
+      "tag": "it42",
+      "description": "Auto-generated schedule it42",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it43",
+      "tag": "it43",
+      "description": "Auto-generated schedule it43",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it44",
+      "tag": "it44",
+      "description": "Auto-generated schedule it44",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it45",
+      "tag": "it45",
+      "description": "Auto-generated schedule it45",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it46",
+      "tag": "it46",
+      "description": "Auto-generated schedule it46",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it47",
+      "tag": "it47",
+      "description": "Auto-generated schedule it47",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    },
+    {
+      "key": "it48",
+      "tag": "it48",
+      "description": "Auto-generated schedule it48",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "sobolev_temporal",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it49",
+      "tag": "it49",
+      "description": "Auto-generated schedule it49",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps"
+      ]
+    },
+    {
+      "key": "it50",
+      "tag": "it50",
+      "description": "Auto-generated schedule it50",
+      "fase": "auto",
+      "objective": "Measure improvement vs canonical baselines",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "gsmooth",
+        "idw"
+      ]
+    }
+  ],
+  "note": "Phase B: control using mne_sample only (auto-generated)"
+}

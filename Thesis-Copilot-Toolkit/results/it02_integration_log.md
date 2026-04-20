@@ -1,58 +1,22 @@
-# Integration Log — it02
+# Integration Log: it02
+Started: 2026-04-20T00:32:15.787438+00:00
+Description: Auto-generated schedule it02
 
-**Decision**: GO ✓
-**Date**: 2026-04-05
-**Iteration tag**: it02
-**Objective**: TV/Time methods on synthetic_broad — corrected per-scenario RMSE comparison (G2 median-based)
+## Dataset: mne_sample | rows=162
+  Graph: knn__k5 built OK
+    linear | MR=0.1 | seed=0 | MAE=1.6595e-02 | t=0.0025s
+    ica | MR=0.1 | seed=0 | MAE=6.4789e-02 | t=0.0090s
+    spherical_spline | MR=0.1 | seed=0 | MAE=1.4183e-02 | t=0.1546s
+    rbfi_tps | MR=0.1 | seed=0 | MAE=1.2265e-02 | t=0.0312s
+    gsp | MR=0.1 | seed=0 | MAE=1.2881e-02 | t=0.0074s
+    tikhonov | MR=0.1 | seed=0 | MAE=6.3400e-02 | t=0.0099s
+    bgsrp | MR=0.1 | seed=0 | MAE=1.2127e-01 | t=0.0627s
+    gsmooth | MR=0.1 | seed=0 | MAE=1.4754e-02 | t=0.0723s
+    idw | MR=0.1 | seed=0 | MAE=1.3152e-02 | t=0.0052s
+    linear | MR=0.1 | seed=1 | MAE=1.6477e-02 | t=0.0027s
+    ica | MR=0.1 | seed=1 | MAE=6.6183e-02 | t=0.0125s
+    spherical_spline | MR=0.1 | seed=1 | MAE=1.5050e-02 | t=0.1582s
 
-## Go/No-Go Criteria
-
-| Criterion | Result |
-|-----------|--------|
-| G1 MAE improvement | PASS |
-| G2 RMSE improvement | PASS |
-| G3 Significance | PASS |
-| G4 CI95 non-degenerate | PASS |
-| G5 QA gates | PASS |
-| G6 Mandatory artefacts | PASS |
-| G7 Error rate | PASS |
-
-## Artefacts Produced
-
-### Raw Results
-- `results/it02_raw.csv` (704 rows)
-- `results/it02_run_metadata.json`
-
-### Statistics
-- `results/it02_stats.csv`
-- `results/it02_significance.csv`
-- `results/it02_qa_report.md` (overall: PASS)
-
-### Figures (6)
-- `results/it02_figures/fig01_mae_by_method.pdf`
-- `results/it02_figures/fig02_rmse_boxplot.pdf`
-- `results/it02_figures/fig03_snr_heatmap.pdf`
-- `results/it02_figures/fig04_dtw_comparison.pdf`
-- `results/it02_figures/fig05_tv_vs_instant_family.pdf`
-- `results/it02_figures/fig06_scenario_sensitivity.pdf`
-
-### Tables (2)
-- `results/it02_tables/tbl01_main_comparison.tex`
-- `results/it02_tables/tbl02_significance.tex`
-
-### Manuscript Integration
-- Appended to: `paper/ieee/sections/results.tex`
-- Appended to: `thesis/usm/chapters/04_experimentos_y_resultados.tex`
-- Figures copied to: `paper/ieee/figures/` and `thesis/usm/figures/`
-- Tables copied to: `paper/ieee/tables/` and `thesis/usm/tables/`
-
-## Key Results
-
-- Best method: **directed_tv** (MAE = 0.0772)
-- Best instant baseline MAE: 0.0831
-- RMSE improvement (TV/Time vs instant): 5.9%
-- Significant contrast: mae_trss_vs_tikhonov (p=8.59e-05)
-
-## INS-13 Disclaimer
-
-Results validated in Python proxy only. Do NOT claim 1:1 MATLAB/GSPBox equivalence.
+Completed: 2026-04-20T00:32:15.788437+00:00
+Total rows: 162
+INS-13 disclaimer: Results validated in Python proxy only. Do NOT claim 1:1 MATLAB/GSPBox equivalence.

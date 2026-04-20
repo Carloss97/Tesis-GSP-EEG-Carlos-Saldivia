@@ -8,7 +8,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_alpha"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -58,7 +58,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_beta"
+        "bci_iv2a_real_s1"
       ],
       "mode": "base",
       "missing_list": [
@@ -113,7 +113,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_broad"
+        "physionet_real"
       ],
       "mode": "base",
       "missing_list": [
@@ -168,7 +168,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_8ch"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -216,7 +216,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_16ch"
+        "bci_iv2a_real_s2"
       ],
       "mode": "base",
       "missing_list": [
@@ -271,7 +271,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_32ch"
+        "bci_iv2a_real_s3"
       ],
       "mode": "base",
       "missing_list": [
@@ -534,7 +534,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_alpha"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -589,7 +589,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_beta"
+        "bci_iv2a_real_s1"
       ],
       "mode": "base",
       "missing_list": [
@@ -642,7 +642,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_broad"
+        "physionet_real"
       ],
       "mode": "base",
       "missing_list": [
@@ -692,7 +692,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_8ch"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -747,7 +747,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_16ch"
+        "bci_iv2a_real_s2"
       ],
       "mode": "base",
       "missing_list": [
@@ -802,7 +802,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_32ch"
+        "bci_iv2a_real_s3"
       ],
       "mode": "base",
       "missing_list": [
@@ -1063,7 +1063,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_alpha"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -1118,7 +1118,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_beta"
+        "bci_iv2a_real_s1"
       ],
       "mode": "base",
       "missing_list": [
@@ -1168,7 +1168,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_broad"
+        "physionet_real"
       ],
       "mode": "base",
       "missing_list": [
@@ -1223,7 +1223,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_8ch"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -1276,7 +1276,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_16ch"
+        "bci_iv2a_real_s2"
       ],
       "mode": "base",
       "missing_list": [
@@ -1326,7 +1326,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_32ch"
+        "bci_iv2a_real_s3"
       ],
       "mode": "base",
       "missing_list": [
@@ -1594,7 +1594,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_alpha"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -1644,7 +1644,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_beta"
+        "bci_iv2a_real_s1"
       ],
       "mode": "base",
       "missing_list": [
@@ -1697,7 +1697,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_broad"
+        "physionet_real"
       ],
       "mode": "base",
       "missing_list": [
@@ -1752,7 +1752,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_8ch"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -1802,7 +1802,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_16ch"
+        "bci_iv2a_real_s2"
       ],
       "mode": "base",
       "missing_list": [
@@ -1857,7 +1857,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_32ch"
+        "bci_iv2a_real_s3"
       ],
       "mode": "base",
       "missing_list": [
@@ -2118,7 +2118,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_alpha"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -2173,7 +2173,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_beta"
+        "bci_iv2a_real_s1"
       ],
       "mode": "base",
       "missing_list": [
@@ -2228,7 +2228,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_broad"
+        "physionet_real"
       ],
       "mode": "base",
       "missing_list": [
@@ -2278,7 +2278,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_8ch"
+        "mne_sample"
       ],
       "mode": "base",
       "missing_list": [
@@ -2331,7 +2331,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_16ch"
+        "bci_iv2a_real_s2"
       ],
       "mode": "base",
       "missing_list": [
@@ -2386,7 +2386,7 @@
       "fase": "auto",
       "objective": "Measure improvement vs canonical baselines",
       "datasets": [
-        "synthetic_32ch"
+        "bci_iv2a_real_s3"
       ],
       "mode": "base",
       "missing_list": [

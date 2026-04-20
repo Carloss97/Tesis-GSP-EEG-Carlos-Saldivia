@@ -99,6 +99,26 @@ def _add_noise_to_snr(x: np.ndarray, snr_db: float, seed: int) -> np.ndarray:
     return x + noise
 
 
+def _normalize_signals(x: np.ndarray, method: str = "zscore") -> Tuple[np.ndarray, Dict[str, Any]]:
+    """Normalize signals per-channel and return normalization metadata.
+
+    Returns (x_norm, meta) where meta is JSON-serializable.
+    """
+    if method is None or method == "none":
+        return x.copy(), {"method": "none"}
+
+    if method == "zscore":
+        means = np.nanmean(x, axis=0)
+        stds = np.nanstd(x, axis=0)
+        stds_safe = np.where(stds <= 0, 1.0, stds)
+        x_norm = (x - means) / stds_safe
+        meta = {"method": "zscore", "means": means.tolist(), "stds": stds.tolist()}
+        return x_norm, meta
+
+    # fallback: no-op
+    return x.copy(), {"method": "none"}
+
+
 def _bci_dataset(subject: int, data_root: Path) -> Dict[str, Any]:
     os.environ["BCI_IV_2A_PATH"] = str(data_root)
     d = load_bci_competition_iv_2a(subject=subject)
@@ -289,9 +309,30 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         kwargs.update({"alpha": 0.5, "beta": 0.1})
                     elif method == "temporal_laplacian":
                         kwargs.update({"alpha": 0.5, "beta": 0.5})
+                    # ensure reproducible ICA per-seed
+                    if method == "ica":
+                        kwargs["random_state"] = int(seed)
 
                     t0 = time.perf_counter()
-                    rec = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)["reconstructed"]
+                    error_msg = ""
+                    try:
+                        rec_info = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)
+                        rec = rec_info["reconstructed"]
+                        info_dict = rec_info.get("info", {})
+                        warn_list = info_dict.get("warnings", [])
+                        if not info_dict.get("error") and warn_list:
+                            error_msg = "; ".join([f"{w.get('category')}: {w.get('message')}" for w in warn_list])
+                        else:
+                            error_msg = info_dict.get("error", "") or ""
+                    except Exception as exc:
+                        # fallback: fill missing with channel mean and record error
+                        col_mean = np.nanmean(signals, axis=0)
+                        rec = masked.copy()
+                        miss_idx = np.where(np.isnan(rec))
+                        if miss_idx[0].size > 0:
+                            rec[miss_idx] = np.take(col_mean, miss_idx[1])
+                        error_msg = f"interp_exception: {exc}"
+
                     elapsed = time.perf_counter() - t0
                     met = evaluate_signals(signals, rec, metrics=["mae", "rmse", "snr", "dtw"])
 
@@ -306,7 +347,7 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "params": json.dumps(kwargs, ensure_ascii=False),
-                        "error": "",
+                        "error": error_msg,
                         "n_missing_ch": int(n_missing),
                         "time_sec": float(elapsed),
                     })
@@ -337,7 +378,24 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         kwargs = {"alpha": lam, "beta": 0.5}
 
                     t0 = time.perf_counter()
-                    rec = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)["reconstructed"]
+                    error_msg = ""
+                    try:
+                        rec_info = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)
+                        rec = rec_info["reconstructed"]
+                        info_dict = rec_info.get("info", {})
+                        warn_list = info_dict.get("warnings", [])
+                        if not info_dict.get("error") and warn_list:
+                            error_msg = "; ".join([f"{w.get('category')}: {w.get('message')}" for w in warn_list])
+                        else:
+                            error_msg = info_dict.get("error", "") or ""
+                    except Exception as exc:
+                        col_mean = np.nanmean(signals, axis=0)
+                        rec = masked.copy()
+                        miss_idx = np.where(np.isnan(rec))
+                        if miss_idx[0].size > 0:
+                            rec[miss_idx] = np.take(col_mean, miss_idx[1])
+                        error_msg = f"interp_exception: {exc}"
+
                     elapsed = time.perf_counter() - t0
                     met = evaluate_signals(signals, rec, metrics=["mae", "rmse", "snr", "dtw"])
                     rows.append({
@@ -351,7 +409,7 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "params": json.dumps(kwargs, ensure_ascii=False),
-                        "error": "",
+                        "error": error_msg,
                         "n_missing_ch": int(round(0.2 * signals.shape[1])),
                         "time_sec": float(elapsed),
                         "lambda": float(lam),
@@ -386,8 +444,29 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                     elif method == "temporal_laplacian":
                         kwargs.update({"alpha": 0.5, "beta": 0.5})
 
+                    # ensure reproducible ICA per-seed
+                    if method == "ica":
+                        kwargs["random_state"] = int(seed)
+
                     t0 = time.perf_counter()
-                    rec = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)["reconstructed"]
+                    error_msg = ""
+                    try:
+                        rec_info = interpolate_signals(method, masked, adjacency=adj, positions=positions, **kwargs)
+                        rec = rec_info["reconstructed"]
+                        info_dict = rec_info.get("info", {})
+                        warn_list = info_dict.get("warnings", [])
+                        if not info_dict.get("error") and warn_list:
+                            error_msg = "; ".join([f"{w.get('category')}: {w.get('message')}" for w in warn_list])
+                        else:
+                            error_msg = info_dict.get("error", "") or ""
+                    except Exception as exc:
+                        col_mean = np.nanmean(noisy, axis=0)
+                        rec = masked.copy()
+                        miss_idx = np.where(np.isnan(rec))
+                        if miss_idx[0].size > 0:
+                            rec[miss_idx] = np.take(col_mean, miss_idx[1])
+                        error_msg = f"interp_exception: {exc}"
+
                     elapsed = time.perf_counter() - t0
                     met = evaluate_signals(noisy, rec, metrics=["mae", "rmse", "snr", "dtw"])
                     rows.append({
@@ -401,7 +480,7 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "params": json.dumps(kwargs, ensure_ascii=False),
-                        "error": "",
+                        "error": error_msg,
                         "n_missing_ch": int(round(0.2 * signals.shape[1])),
                         "time_sec": float(elapsed),
                         "snr_initial_db": float(snr0),
@@ -657,13 +736,17 @@ def _run_iteration(
     frames: List[pd.DataFrame] = []
     blocked: List[str] = []
 
+    norm_by_dataset: Dict[str, Any] = {}
     for ds_key in it.datasets:
         if not availability.get(ds_key, {}).get("ok"):
             blocked.append(ds_key)
             continue
 
         d = data[ds_key]
-        x = _sample_segment(np.asarray(d["signals"], dtype=float), n_times=320, max_ch=24)
+        x_raw = _sample_segment(np.asarray(d["signals"], dtype=float), n_times=320, max_ch=24)
+        x, norm_meta = _normalize_signals(x_raw, method="zscore")
+        norm_by_dataset[ds_key] = norm_meta
+
         pos = np.asarray(d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != np.asarray(d["signals"]).shape[1]:
             pos = _safe_positions(np.asarray(d["signals"]).shape[1])
@@ -690,6 +773,7 @@ def _run_iteration(
     extra_meta: Dict[str, Any] = {
         "blocked_requested_datasets": blocked,
         "requested_datasets": it.datasets,
+        "normalization": norm_by_dataset,
     }
     if operational_close_profile:
         extra_meta["execution_profile"] = {

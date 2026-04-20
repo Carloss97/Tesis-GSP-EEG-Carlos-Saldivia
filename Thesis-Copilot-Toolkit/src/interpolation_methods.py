@@ -1,7 +1,7 @@
 """Interpolation methods for EEG reconstruction with missing channels."""
 
 import warnings
-from typing import Any, Dict
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 from scipy.interpolate import Rbf, SmoothBivariateSpline
@@ -60,8 +60,11 @@ def interpolate_signals(
     if method == "ica":
         n_components = kwargs.get("n_components", None)
         random_state = kwargs.get("random_state", 0)
-        reconstructed = interpolate_ica(signals, n_components=n_components, random_state=random_state)
-        return {"reconstructed": reconstructed, "info": {"method": "ica", "n_components": n_components}}
+        reconstructed, warn_list = interpolate_ica(signals, n_components=n_components, random_state=random_state)
+        info: Dict[str, Any] = {"method": "ica", "n_components": n_components, "random_state": int(random_state)}
+        if warn_list:
+            info["warnings"] = warn_list
+        return {"reconstructed": reconstructed, "info": info}
 
     if method == "random":
         reconstructed = interpolate_random(signals)
@@ -344,7 +347,7 @@ def interpolate_random(signals: np.ndarray, random_state: int = 42) -> np.ndarra
     return reconstructed
 
 
-def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random_state: int = 0) -> np.ndarray:
+def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random_state: int = 0) -> Tuple[np.ndarray, List[Dict[str, str]]]:
     """
     ICA-based reconstruction baseline.
 
@@ -382,17 +385,36 @@ def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random
         comp = max(1, min(n_t - 1, n_ch)) if n_t > 1 else 1
 
     try:
-        ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=500, tol=1e-4)
-        S = ica.fit_transform(x)
-        X_rec = ica.inverse_transform(S)
+        with warnings.catch_warnings(record=True) as w:
+            warnings.simplefilter("always")
+            ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=2000, tol=1e-4)
+            S = ica.fit_transform(x)
+            X_rec = ica.inverse_transform(S)
+
+        # collect any warnings (e.g., ConvergenceWarning)
+        warn_list: List[Dict[str, str]] = []
+        for ww in w:
+            cat = getattr(ww, 'category', None)
+            cat_name = cat.__name__ if cat is not None else 'Warning'
+            msg = str(ww.message)
+            warn_list.append({"category": cat_name, "message": msg})
+            try:
+                record_warning("ica", cat_name, msg, severity="warning", decision="investigate", context={"n_components": comp, "n_t": n_t, "n_ch": n_ch, "random_state": int(random_state)})
+            except Exception:
+                pass
+
         reconstructed = y.copy()
         reconstructed[miss] = X_rec[miss]
-        return reconstructed
-    except Exception:
-        # Safe fallback: fill missing with column mean
+        return reconstructed, warn_list
+    except Exception as exc:
+        # Safe fallback: fill missing with column mean and record error
+        try:
+            record_warning("ica", "Exception", str(exc), severity="error", decision="fallback", context={"n_components": comp, "n_t": n_t, "n_ch": n_ch, "random_state": int(random_state)})
+        except Exception:
+            pass
         reconstructed = y.copy()
         reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
-        return reconstructed
+        return reconstructed, [{"category": "Exception", "message": str(exc)}]
 
 
 def interpolate_idw(signals: np.ndarray, positions: np.ndarray = None, power: float = 2.0) -> np.ndarray:
