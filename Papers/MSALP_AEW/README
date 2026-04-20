@@ -9,3 +9,11 @@ Main files:
 [test_run1.m]: A test script for running the method using synthetic data shown in the above paper.
 [AEW.m]: Optimizing edge weights for label propagation
 [HGF.m]: Label propagation by the harmonic Gaussian field model
+
+Python port:
+- A paper-aligned Python port of AEW is available in the toolkit at
+	`Thesis-Copilot-Toolkit/src/graph_construction/aew.py` and is used by the
+	`build_graph(..., method='aew')` dispatcher (see `Thesis-Copilot-Toolkit/src/graph_construction/graph_constructors.py`).
+	The port follows the MATLAB implementation and includes `generate_nngraph`
+	heuristics and the AEW optimizer. Use the Python port for reproducible
+	experiments and CI-friendly smoke tests.

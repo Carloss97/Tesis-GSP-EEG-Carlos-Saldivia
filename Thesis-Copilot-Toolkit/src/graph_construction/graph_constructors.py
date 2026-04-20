@@ -284,37 +284,70 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         return {"adjacency": adjacency, "info": {"method": "fully_connected_inverse_distance"}}
 
     if method == "aew":
-        # Adaptive Edge Weighting: mezcla cercanía espacial y similitud en señal.
+        # Adaptive Edge Weighting (paper-aligned): run AEW optimizer.
+        # AEW expects `signals` as (n_t, n_ch) => columns are nodes/features.
         if signals is None:
             raise ValueError("El método 'aew' requiere 'signals'.")
-        k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))
-        sigma_dist = float(kwargs.get("sigma_dist", 1.0))
-        sigma_corr = float(kwargs.get("sigma_corr", 0.5))
 
-        dists = cdist(positions, positions)
-        conn = kneighbors_graph(
-            positions,
-            n_neighbors=k,
-            mode="connectivity",
-            include_self=False,
-        )
-        conn = _symmetrize(_as_dense(conn), mode="max")
-
-        spatial_w = np.exp(-(dists**2) / (2.0 * sigma_dist**2))
-        corr = np.corrcoef(signals.T)
-        corr = np.nan_to_num(corr, nan=0.0)
-        signal_w = np.exp(-(1.0 - np.abs(corr)) / max(sigma_corr, 1e-12))
-        adjacency = conn * spatial_w * signal_w
-        np.fill_diagonal(adjacency, 0.0)
-        return {
-            "adjacency": adjacency,
-            "info": {
-                "method": "aew",
-                "k": k,
-                "sigma_dist": sigma_dist,
-                "sigma_corr": sigma_corr,
-            },
+        # Map kwargs to AEW parameters
+        param = {
+            "max_iter": int(kwargs.get("max_iter", 50)),
+            "k": int(kwargs.get("k", 5)),
+            "sigma": kwargs.get("sigma", "median"),
+            "tol": float(kwargs.get("tol", 1e-4)),
+            "beta": float(kwargs.get("beta", 0.1)),
+            "rho": float(kwargs.get("rho", 1e-3)),
+            "max_beta_p": int(kwargs.get("max_beta_p", 8)),
         }
+
+        # prepare X as (d, n) where columns are nodes (features per node)
+        y = np.asarray(signals, dtype=float)
+        if y.ndim != 2:
+            raise ValueError("'signals' debe tener forma (n_t, n_ch)")
+        X = y  # shape (n_t, n_ch) => (d, n)
+
+        # local import to avoid top-level dependency
+        try:
+            from .aew import AEW
+
+            W_opt, W0 = AEW(X, param)
+            adjacency = np.maximum(W_opt, W_opt.T)
+            np.fill_diagonal(adjacency, 0.0)
+            return {
+                "adjacency": adjacency,
+                "info": {"method": "aew", "k": param["k"], "max_iter": param["max_iter"], "backend": "aew_python"},
+            }
+        except Exception:
+            # Fallback: keep lightweight mixture heuristic from earlier implementation
+            k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))
+            sigma_dist = float(kwargs.get("sigma_dist", 1.0))
+            sigma_corr = float(kwargs.get("sigma_corr", 0.5))
+
+            dists = cdist(positions, positions)
+            conn = kneighbors_graph(
+                positions,
+                n_neighbors=k,
+                mode="connectivity",
+                include_self=False,
+            )
+            conn = _symmetrize(_as_dense(conn), mode="max")
+
+            spatial_w = np.exp(-(dists**2) / (2.0 * sigma_dist**2))
+            corr = np.corrcoef(signals.T)
+            corr = np.nan_to_num(corr, nan=0.0)
+            signal_w = np.exp(-(1.0 - np.abs(corr)) / max(sigma_corr, 1e-12))
+            adjacency = conn * spatial_w * signal_w
+            np.fill_diagonal(adjacency, 0.0)
+            return {
+                "adjacency": adjacency,
+                "info": {
+                    "method": "aew",
+                    "k": k,
+                    "sigma_dist": sigma_dist,
+                    "sigma_corr": sigma_corr,
+                    "backend": "aew_fallback",
+                },
+            }
 
     if method == "kalofolias":
         # Implementacion interna del modelo con prior log-degree (sin dependencia MATLAB).

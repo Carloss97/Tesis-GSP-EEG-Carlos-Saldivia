@@ -31,7 +31,7 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 | GRA-06 | `mst` | Ortega et al., arXiv 2018 (survey) | baseline clasico | ✓ |
 | GRA-07 | `fully_connected_inverse_distance` | metodo geometrico clasico | N/A (sin paper unico) | ⚠ |
 | GRA-08 | `nnk` | Shekkizhar y Ortega, ICASSP 2020 / arXiv 2023 | paper-aligned | ✓✓ |
-| GRA-09 | `aew` | Karasuyama y Mamitsuka, ML 2017 | implementacion inspirada | ✓ |
+| GRA-09 | `aew` | Karasuyama y Mamitsuka, ML 2017 | paper-aligned | ✓✓ |
 | GRA-10 | `kalofolias` | Kalofolias 2016; Kalofolias et al. ICASSP 2017 | aproximacion numerica | ✓ |
 
 ---
