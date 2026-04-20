@@ -93,3 +93,13 @@ Este archivo mapea cada metodo activo con su fuente principal y estado de alinea
 - `results/bgsrp_vs_narang_check_summary.csv`
 - `results/graphtrss_main_figure_summary.csv`
 - `tests/test_paper_faithful.py`
+
+---
+
+## Pull Request: visibility_nnk (draft)
+
+- **Branch**: `experiment/visibility-nnk-pr` (draft)
+- **Summary**: Añade el constructor `visibility_nnk` (HVG/NVG → features → RBF kernel → NNK adjacency), soporte NVG/HVG, `prune_delay`, tests unitarios y generador de fixtures sintéticos para reproducibilidad. Integra `interpolate_visibility_graphs()` como wrapper que construye la adyacencia si no se proporciona.
+- **Files touched**: `src/graph_construction/graph_constructors.py`, `src/interpolation_methods.py`, `Thesis-Copilot-Toolkit/tests/test_visibility_graphs.py`, `Thesis-Copilot-Toolkit/tests/test_visibility_fixtures.py`, `Thesis-Copilot-Toolkit/tools/generate_visibility_fixtures.py`, `Thesis-Copilot-Toolkit/README_VISIBILITY.md`, `Thesis-Copilot-Toolkit/PR_DRAFT.md`
+- **Notes**: For strict paper-faithful validation the test fixtures should be replaced with MATLAB-produced files in `tests/fixtures/visibility/` (see `tools/generate_visibility_fixtures.py` for synthetic generation). After PR creation, mark the PR ready when MATLAB fixtures are attached or agreed tolerances are confirmed.
+- **PR URL**: (to be populated after push / PR creation)

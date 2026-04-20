@@ -69,6 +69,72 @@ def _build_nnk_adjacency(
     return adjacency
 
 
+def hvg_adjacency(series: np.ndarray) -> np.ndarray:
+    """Horizontal Visibility Graph (HVG) adjacency (unweighted).
+
+    Condition: two nodes i<j are connected if all intermediate values
+    are strictly less than min(s[i], s[j]).
+    """
+    s = np.asarray(series, dtype=float)
+    n = s.size
+    adj = np.zeros((n, n), dtype=bool)
+    for i in range(n):
+        si = s[i]
+        for j in range(i + 1, n):
+            sj = s[j]
+            mid = s[i + 1 : j]
+            if mid.size == 0 or np.all(mid < min(si, sj)):
+                adj[i, j] = True
+    adj = adj | adj.T
+    return adj.astype(int)
+
+
+def nvg_adjacency(series: np.ndarray) -> np.ndarray:
+    """Natural Visibility Graph (NVG) adjacency (unweighted).
+
+    Condition: two nodes i<j are connected if every intermediate
+    point k satisfies s[k] < s[i] + (s[j]-s[i])*(k-i)/(j-i).
+    """
+    s = np.asarray(series, dtype=float)
+    n = s.size
+    adj = np.zeros((n, n), dtype=int)
+    for i in range(n):
+        si = s[i]
+        for j in range(i + 1, n):
+            sj = s[j]
+            k_idx = np.arange(i + 1, j)
+            if k_idx.size == 0:
+                adj[i, j] = 1
+                continue
+            # linearly interpolate between si and sj
+            numer = (sj - si) * (k_idx - i)
+            denom = (j - i)
+            line = si + numer / float(denom)
+            if np.all(s[k_idx] < line):
+                adj[i, j] = 1
+    adj = adj | adj.T
+    return adj.astype(int)
+
+
+def prune_delay(adjacency: np.ndarray, max_delay: int) -> np.ndarray:
+    """Prune edges in `adjacency` whose temporal lag exceeds `max_delay`.
+
+    This is a lightweight port of the common `pruneDelay` idea: remove
+    visibility edges that connect timestamps farther apart than allowed.
+    """
+    a = np.asarray(adjacency).copy()
+    if a.ndim != 2 or a.shape[0] != a.shape[1]:
+        raise ValueError("adjacency must be a square matrix")
+    n = a.shape[0]
+    if max_delay is None or max_delay < 0:
+        return a
+    for i in range(n):
+        for j in range(n):
+            if a[i, j] != 0 and abs(j - i) > int(max_delay):
+                a[i, j] = 0
+    return a
+
+
 def _learn_kalofolias_weights(
     z: np.ndarray,
     a: float = 1.0,
@@ -297,18 +363,8 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         n_t, n_ch = y.shape
 
         def _hvg_adjacency(series: np.ndarray) -> np.ndarray:
-            s = series.astype(float)
-            n = s.size
-            adj = np.zeros((n, n), dtype=bool)
-            for i in range(n):
-                si = s[i]
-                for j in range(i + 1, n):
-                    sj = s[j]
-                    mid = s[i + 1 : j]
-                    if mid.size == 0 or np.all(mid < min(si, sj)):
-                        adj[i, j] = True
-            adj = adj | adj.T
-            return adj.astype(int)
+            # delegate to module-level implementation
+            return hvg_adjacency(series)
 
         # 1) Features per channel from visibility graphs
         F = np.zeros((n_ch, 4), dtype=float)
@@ -321,9 +377,9 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
                 s[np.isnan(s)] = m
 
             if use_hvg:
-                adj_t = _hvg_adjacency(s)
+                adj_t = hvg_adjacency(s)
             else:
-                adj_t = _hvg_adjacency(s)
+                adj_t = nvg_adjacency(s)
 
             deg = adj_t.sum(axis=0).astype(float)
 
