@@ -42,14 +42,14 @@ def clean_text(s, remove_terms):
 def choose_graphs_for_dataset(dataset):
     # heuristic: iris is small, skip heavy graphs
     if dataset == 'iris':
-        return ['knn', 'knn_gaussian']
-    return ['knn', 'knn_gaussian', 'kaliofolias', 'nnk']
+        return ['knn', 'knng']
+    return ['knn', 'knng', 'kaliofolias', 'nnk']
 
 
 def params_for_graph(graph):
     if graph == 'knn':
         return [{'k': 3}, {'k': 5}]
-    if graph == 'knn_gaussian':
+    if graph == 'knng':
         return [{'sigma': 1.0, 'k': 5}, {'sigma': 2.0, 'k': 7}]
     if graph == 'nnk':
         return [{'k': 3}, {'k': 5}]

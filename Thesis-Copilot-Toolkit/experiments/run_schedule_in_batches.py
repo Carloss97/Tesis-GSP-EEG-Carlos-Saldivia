@@ -18,6 +18,7 @@ import math
 import os
 import subprocess
 import sys
+import importlib.util
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
@@ -43,6 +44,16 @@ def partition(lst: List[Any], n: int) -> List[List[Any]]:
         parts.append(lst[start : start + size])
         start += size
     return parts
+
+
+def _load_module(path: Path, name: str):
+    spec = importlib.util.spec_from_file_location(name, str(path))
+    mod = importlib.util.module_from_spec(spec)
+    loader = spec.loader
+    assert loader is not None
+    sys.modules[spec.name] = mod
+    loader.exec_module(mod)
+    return mod
 
 
 def write_batch_file(batch_dir: Path, base_name: str, idx: int, iterations: List[Dict[str, Any]]) -> Path:
@@ -89,6 +100,13 @@ def main(argv: List[str] | None = None) -> int:
     if not args.schedule.exists():
         print(f"Schedule not found: {args.schedule}")
         return 2
+
+    # Normalize schedule file in-place to canonical method names (idempotent)
+    try:
+        norm_mod = _load_module(ROOT / "experiments" / "normalize_schedule_methods.py", "normalize_schedule_methods")
+        norm_mod.normalize_file(args.schedule)
+    except Exception as exc:
+        print(f"Schedule normalization failed: {exc}")
 
     sched = json.loads(args.schedule.read_text(encoding="utf-8"))
     iterations = sched.get("iterations", [])

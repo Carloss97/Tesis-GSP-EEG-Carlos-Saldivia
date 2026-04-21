@@ -42,13 +42,13 @@ def expand_method_names(methods, mappings, remove_methods):
 def build_param_space():
     return {
         'knn': [{'k': 3}, {'k': 5}, {'k': 7}, {'k': 9}],
-        'knn_gaussian': [
+        'knng': [
             {'k': 3, 'sigma': 0.5},
             {'k': 3, 'sigma': 1.0},
             {'k': 5, 'sigma': 1.0},
             {'k': 7, 'sigma': 2.0}
         ],
-        'vknn_gaussian': [
+        'vknng': [
             {'k': 5, 'sigma': 1.0, 'alpha': 0.5},
             {'k': 5, 'sigma': 2.0, 'alpha': 1.0},
             {'k': 7, 'sigma': 1.0, 'alpha': 0.5}

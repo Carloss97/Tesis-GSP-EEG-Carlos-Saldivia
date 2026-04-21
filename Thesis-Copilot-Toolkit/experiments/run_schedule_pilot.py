@@ -43,6 +43,12 @@ def main(argv: List[str] | None = None) -> int:
     if not args.schedule.exists():
         print(f"Schedule not found: {args.schedule}")
         return 2
+    # Normalize schedule file in-place to canonical method names (idempotent)
+    try:
+        norm_mod = _load_module(ROOT / "experiments" / "normalize_schedule_methods.py", "normalize_schedule_methods")
+        norm_mod.normalize_file(args.schedule)
+    except Exception as exc:
+        print(f"Schedule normalization failed: {exc}")
 
     sched = json.loads(args.schedule.read_text(encoding="utf-8"))
     iters = sched.get("iterations", [])
@@ -74,12 +80,23 @@ def main(argv: List[str] | None = None) -> int:
             mapped_graph_specs = []
             for g in raw_graph_specs:
                 # Expecting entries like [method, params]
-                if isinstance(g, list) and len(g) == 2 and g[0] == "e-nn":
-                    method = "epsilon_ball"
+                if isinstance(g, list) and len(g) == 2:
+                    method_raw = str(g[0])
                     params = dict(g[1]) if isinstance(g[1], dict) else {}
-                    # Normalize parameter name: radius -> epsilon
-                    if "radius" in params:
-                        params["epsilon"] = params.pop("radius")
+                    # Small alias map for legacy names and shorthands (defensive)
+                    alias_map = {
+                        "e-nn": "epsilon_ball",
+                        "knn_gaussian": "knng",
+                        "vknn_gaussian": "vknng",
+                    }
+                    method_key = method_raw.lower()
+                    method = alias_map.get(method_key, method_raw)
+
+                    # Normalize parameters for known shorthands
+                    if method == "epsilon_ball":
+                        if "radius" in params:
+                            params["epsilon"] = params.pop("radius")
+
                     mapped_graph_specs.append([method, params])
                 else:
                     mapped_graph_specs.append(g)

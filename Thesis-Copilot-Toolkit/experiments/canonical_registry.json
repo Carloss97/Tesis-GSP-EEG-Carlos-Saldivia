@@ -8,8 +8,8 @@
   "graph_constructors": [
     "e-nn",
     "knn",
-    "knn_gaussian",
-    "vknn_gaussian",
+    "knng",
+    "vknng",
     "nnk",
     "aew",
     "kaliofolias",
@@ -37,7 +37,7 @@
     "rbfi_tps"
   ],
   "mappings": {
-    "gaussian": "knn_gaussian",
+    "gaussian": "knng",
     "kalofolias": "kaliofolias",
     "sobolev_temporal": "trss",
     "rbfi": "rbfi_tps"

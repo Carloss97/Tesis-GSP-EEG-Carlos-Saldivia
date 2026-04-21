@@ -126,9 +126,11 @@ def AEW(X: np.ndarray, param: dict) -> Tuple[np.ndarray, np.ndarray]:
     ex = False
     beta_p = 0
 
+    EPS = 1e-12
     for it in range(max_iter):
         D = np.sum(W, axis=1)
-        D_safe = np.where(D == 0, 1e-12, D)
+        # avoid zeros/nans/infs in degrees
+        D_safe = np.where((~np.isfinite(D)) | (D <= EPS), EPS, D)
 
         # compute d_W
         for i in range(n):
@@ -145,23 +147,45 @@ def AEW(X: np.ndarray, param: dict) -> Tuple[np.ndarray, np.ndarray]:
             idx = W_idx[i]
             if idx.size == 0:
                 continue
-            sum_d_W[i, :] = d_W[i, idx, :].sum(axis=0)
+            # sum derivatives for node i
+            sum_row = d_W[i, idx, :].sum(axis=0)
+            # sanitize
+            sum_row = np.nan_to_num(sum_row, nan=0.0, posinf=0.0, neginf=0.0)
+            sum_d_W[i, :] = sum_row
             D_i = D_safe[i]
-            term1 = d_W[i, idx, :] / D_i
-            term2 = (W[i, idx] / (D_i ** 2))[:, None] * sum_d_W[i, :][None, :]
-            d_WDi[i, idx, :] = term1 - term2
+            # protect against tiny denom and squared denom
+            denom = D_i
+            denom_sq = denom * denom
+            if not np.isfinite(denom_sq) or denom_sq <= EPS:
+                denom_sq = EPS
+            # safe division
+            with np.errstate(divide='ignore', invalid='ignore'):
+                term1 = d_W[i, idx, :] / denom
+                term2 = (W[i, idx] / denom_sq)[:, None] * sum_d_W[i, :][None, :]
+                row_val = term1 - term2
+            # replace any non-finite values with zeros to keep gradients stable
+            row_val = np.nan_to_num(row_val, nan=0.0, posinf=0.0, neginf=0.0)
+            d_WDi[i, idx, :] = row_val
 
         Xest = (np.diag(1.0 / D_safe) @ W @ Xori.T).T
         err = Xori - Xest
         sqerr = np.sum(err ** 2)
 
         # gradient assembly (MATLAB uses column-major reshapes)
+        # sanitize d_WDi to avoid NaNs/Infs propagating
+        d_WDi = np.nan_to_num(d_WDi, nan=0.0, posinf=0.0, neginf=0.0)
         M = np.reshape(d_WDi, (n * n, d), order="F")
         T = err.T @ Xori
         vec_T = np.reshape(T, (n * n,), order="F")
+        vec_T = np.nan_to_num(vec_T, nan=0.0, posinf=0.0, neginf=0.0)
         grad_raw = - (M.T @ vec_T)
+        # replace non-finite values and guard the norm
+        grad_raw = np.nan_to_num(grad_raw, nan=0.0, posinf=0.0, neginf=0.0)
         normg = np.linalg.norm(grad_raw)
-        grad = grad_raw / (normg + 1e-16)
+        if (not np.isfinite(normg)) or (normg <= EPS):
+            grad = np.zeros_like(grad_raw)
+        else:
+            grad = grad_raw / normg
 
         print(f"AEW iter={it+1}, MSE={sqerr/(d*n):.6e}")
 

@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 from scipy.io import loadmat
 from scipy.stats import mannwhitneyu
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -272,9 +273,24 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
     rows: List[Dict[str, Any]] = []
 
     for graph_method, graph_params in graph_specs:
-        gobj = build_graph(graph_method, positions, signals=signals, **graph_params)
+        # Debug: log incoming graph spec to trace alias issues with types
+        try:
+            print(f"[DBG iter_rows] graph_method={graph_method!r} (type={type(graph_method).__name__}), graph_params={graph_params!r} (type={type(graph_params).__name__})", file=sys.stderr)
+        except Exception:
+            pass
+        # Accept legacy aliases coming from schedules (e.g., 'knn_gaussian')
+        gm = graph_method.lower() if isinstance(graph_method, str) else graph_method
+        if gm == "knn_gaussian":
+            gm = "knng"
+        if gm == "vknn_gaussian":
+            gm = "vknng"
+        try:
+            print(f"[DBG iter_rows] mapped gm={gm!r} (type={type(gm).__name__}), params={graph_params!r}", file=sys.stderr)
+        except Exception:
+            pass
+        gobj = build_graph(gm, positions, signals=signals, **(graph_params or {}))
         adj = np.asarray(gobj["adjacency"])
-        graph_tag = _graph_tag(graph_method, graph_params)
+        graph_tag = _graph_tag(gm, graph_params)
 
         for miss in missing_list:
             for seed in seeds:
@@ -738,16 +754,35 @@ def _run_iteration(
 
     norm_by_dataset: Dict[str, Any] = {}
     for ds_key in it.datasets:
-        if not availability.get(ds_key, {}).get("ok"):
+        # Resolve dataset family/variant to actual availability keys.
+        resolved_keys: list[str] = []
+        # Exact match available?
+        if availability.get(ds_key, {}).get("ok"):
+            resolved_keys = [ds_key]
+        else:
+            # Try combining with dataset_variant if present in the iteration definition
+            variant = getattr(it, "dataset_variant", None)
+            if variant:
+                cand = f"{ds_key}_{variant}"
+                if availability.get(cand, {}).get("ok"):
+                    resolved_keys = [cand]
+        # Fallback: find any availability keys that start with the family name and are ok
+        if not resolved_keys:
+            for k, v in availability.items():
+                if k.startswith(f"{ds_key}_") and v.get("ok"):
+                    resolved_keys.append(k)
+
+        if not resolved_keys:
             blocked.append(ds_key)
             continue
 
-        d = data[ds_key]
-        x_raw = _sample_segment(np.asarray(d["signals"], dtype=float), n_times=320, max_ch=24)
-        x, norm_meta = _normalize_signals(x_raw, method="zscore")
-        norm_by_dataset[ds_key] = norm_meta
+        for actual_key in resolved_keys:
+            d = data[actual_key]
+            x_raw = _sample_segment(np.asarray(d["signals"], dtype=float), n_times=320, max_ch=24)
+            x, norm_meta = _normalize_signals(x_raw, method="zscore")
+            norm_by_dataset[actual_key] = norm_meta
 
-        pos = np.asarray(d.get("positions"), dtype=float)
+            pos = np.asarray(d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != np.asarray(d["signals"]).shape[1]:
             pos = _safe_positions(np.asarray(d["signals"]).shape[1])
         pos = np.nan_to_num(pos, nan=0.0, posinf=0.0, neginf=0.0)
@@ -756,6 +791,13 @@ def _run_iteration(
             pos = pos[idx]
 
         ds_name = d.get("dataset", ds_key)
+        try:
+            print(f"[DBG it_def] key={it.key!r} graph_specs={it.graph_specs!r}", file=sys.stderr)
+            for idx, gs in enumerate(it.graph_specs):
+                print(f"[DBG it_def] graph_specs[{idx}] type={type(gs).__name__} repr={gs!r}", file=sys.stderr)
+        except Exception:
+            pass
+
         if it.mode == "lambda":
             df = _iter_rows_lambda_grid(ds_name, x, pos, lambdas=it.lambdas, seeds=it.seeds, graph_specs=it.graph_specs)
         elif it.mode == "noise":
