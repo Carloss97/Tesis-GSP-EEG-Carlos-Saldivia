@@ -1,0 +1,1216 @@
+{
+  "generated": "2026-04-21T07:52:14.077458Z",
+  "iterations": [
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS001",
+      "tag": "itS001",
+      "description": "Auto-suggested itS001 — dataset=mne_sample graph=knn",
+      "datasets": [
+        "mne_sample"
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS002",
+      "tag": "itS002",
+      "description": "Auto-suggested itS002 — dataset=mne_sample graph=knn",
+      "datasets": [
+        "mne_sample"
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS003",
+      "tag": "itS003",
+      "description": "Auto-suggested itS003 — dataset=mne_sample graph=knn_gaussian",
+      "datasets": [
+        "mne_sample"
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0,
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS004",
+      "tag": "itS004",
+      "description": "Auto-suggested itS004 — dataset=mne_sample graph=knn_gaussian",
+      "datasets": [
+        "mne_sample"
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 2.0,
+            "k": 7
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS005",
+      "tag": "itS005",
+      "description": "Auto-suggested itS005 — dataset=mne_sample graph=kaliofolias",
+      "datasets": [
+        "mne_sample"
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS006",
+      "tag": "itS006",
+      "description": "Auto-suggested itS006 — dataset=bci/iv2a_real_s1 graph=knn",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS007",
+      "tag": "itS007",
+      "description": "Auto-suggested itS007 — dataset=bci/iv2a_real_s1 graph=knn",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS008",
+      "tag": "itS008",
+      "description": "Auto-suggested itS008 — dataset=bci/iv2a_real_s1 graph=knn_gaussian",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0,
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS009",
+      "tag": "itS009",
+      "description": "Auto-suggested itS009 — dataset=bci/iv2a_real_s1 graph=knn_gaussian",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 2.0,
+            "k": 7
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS010",
+      "tag": "itS010",
+      "description": "Auto-suggested itS010 — dataset=bci/iv2a_real_s1 graph=kaliofolias",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS011",
+      "tag": "itS011",
+      "description": "Auto-suggested itS011 — dataset=bci/iv2a_real_s2 graph=knn",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s2",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS012",
+      "tag": "itS012",
+      "description": "Auto-suggested itS012 — dataset=bci/iv2a_real_s2 graph=knn",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s2",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS013",
+      "tag": "itS013",
+      "description": "Auto-suggested itS013 — dataset=bci/iv2a_real_s2 graph=knn_gaussian",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s2",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0,
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS014",
+      "tag": "itS014",
+      "description": "Auto-suggested itS014 — dataset=bci/iv2a_real_s2 graph=knn_gaussian",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s2",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 2.0,
+            "k": 7
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS015",
+      "tag": "itS015",
+      "description": "Auto-suggested itS015 — dataset=bci/iv2a_real_s2 graph=kaliofolias",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s2",
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS016",
+      "tag": "itS016",
+      "description": "Auto-suggested itS016 — dataset=physionet/real graph=knn",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS017",
+      "tag": "itS017",
+      "description": "Auto-suggested itS017 — dataset=physionet/real graph=knn",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS018",
+      "tag": "itS018",
+      "description": "Auto-suggested itS018 — dataset=physionet/real graph=knn_gaussian",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0,
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS019",
+      "tag": "itS019",
+      "description": "Auto-suggested itS019 — dataset=physionet/real graph=knn_gaussian",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 2.0,
+            "k": 7
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS020",
+      "tag": "itS020",
+      "description": "Auto-suggested itS020 — dataset=physionet/real graph=kaliofolias",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS021",
+      "tag": "itS021",
+      "description": "Auto-suggested itS021 — dataset=iris/graph_signal graph=knn",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS022",
+      "tag": "itS022",
+      "description": "Auto-suggested itS022 — dataset=iris/graph_signal graph=knn",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS023",
+      "tag": "itS023",
+      "description": "Auto-suggested itS023 — dataset=iris/graph_signal graph=knn_gaussian",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0,
+            "k": 5
+          }
+        ]
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ]
+    },
+    {
+      "fase": "auto",
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "key": "itS024",
+      "tag": "itS024",
+      "description": "Auto-suggested itS024 — dataset=iris/graph_signal graph=knn_gaussian",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 2.0,
+            "k": 7
+          }
+        ]
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov"
+      ]
+    }
+  ]
+}
