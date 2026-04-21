@@ -61,6 +61,21 @@ def build_param_space():
     }
 
 
+def scenario_groups():
+    # Balanced groups: percentage-based and few-electrode, each with random/nearby variants
+    percent_random = [f"{p}pct_random" for p in (10, 20, 30, 40)]
+    percent_nearby = [f"{p}pct_nearby" for p in (10, 20, 30, 40)]
+    few_random = [f"{n}ch_random" for n in (1, 2, 3)]
+    few_nearby = [f"{n}ch_nearby" for n in (1, 2, 3)]
+
+    return {
+        'percent_random': {'labels': percent_random, 'missing_list': [0.10, 0.20, 0.30, 0.40], 'mode': 'random'},
+        'percent_nearby': {'labels': percent_nearby, 'missing_list': [0.10, 0.20, 0.30, 0.40], 'mode': 'nearby'},
+        'few_random': {'labels': few_random, 'missing_counts': [1, 2, 3], 'mode': 'random'},
+        'few_nearby': {'labels': few_nearby, 'missing_counts': [1, 2, 3], 'mode': 'nearby'},
+    }
+
+
 def main():
     registry_path = 'Thesis-Copilot-Toolkit/experiments/canonical_registry.json'
     analysis_path = 'Thesis-Copilot-Toolkit/experiments/schedules/analysis_report.json'
@@ -105,85 +120,105 @@ def main():
     for (dataset, variant) in dataset_variants:
         for graph in registry.get('graph_constructors', []):
             params_list = param_space.get(graph, [{}])
-            # if graph is visibility_nnk restrict to TV-only
+            groups = scenario_groups()
             for params in params_list:
-                # if visibility_nnk as graph, only create TV iteration
-                if graph == 'visibility_nnk':
-                    methods = list(dict.fromkeys(methods_tv))
+                for gname, ginfo in groups.items():
+                    scenarios = ginfo.get('labels', [])
+                    missing_list_grp = ginfo.get('missing_list')
+                    missing_counts_grp = ginfo.get('missing_counts')
+                    missing_mode = ginfo.get('mode', 'random')
+
+                    # visibility_nnk: TV-only, otherwise produce instant + TV
+                    if graph == 'visibility_nnk':
+                        methods = list(dict.fromkeys(methods_tv))
+                        key = f"itX{idx:04d}"
+                        it = {
+                            'key': key,
+                            'tag': key,
+                            'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph} params={params} ({gname}, TV methods)",
+                            'fase': 'auto',
+                            'objective': 'Exhaustive coverage (TV methods only for visibility graph).',
+                            'datasets': [dataset],
+                            'dataset_variant': variant if variant else None,
+                            'mode': 'base',
+                            'scenarios': scenarios,
+                            'missing_mode': missing_mode,
+                            'seeds': defaults['seeds'],
+                            'graph_specs': [[graph, params]],
+                            'lambdas': defaults['lambdas'],
+                            'snr_levels': defaults['snr_levels'],
+                            'methods': methods
+                        }
+                        if missing_list_grp:
+                            it['missing_list'] = missing_list_grp
+                        if missing_counts_grp:
+                            it['missing_counts'] = missing_counts_grp
+                        iterations.append(it)
+                        graph_counts[graph] += 1
+                        for m in methods:
+                            method_counts[m] += 1
+                        idx += 1
+                        continue
+
+                    # Instant iteration
+                    inst_methods = list(dict.fromkeys(baselines + methods_instant))
                     key = f"itX{idx:04d}"
-                    it = {
+                    it_inst = {
                         'key': key,
                         'tag': key,
-                        'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph}",
+                        'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph} params={params} ({gname}, instant methods)",
                         'fase': 'auto',
-                        'objective': 'Exhaustive coverage (TV methods only for visibility graph).',
+                        'objective': 'Exhaustive coverage (instantaneous methods).',
                         'datasets': [dataset],
                         'dataset_variant': variant if variant else None,
                         'mode': 'base',
-                        'missing_list': defaults['missing_list'],
+                        'scenarios': scenarios,
+                        'missing_mode': missing_mode,
                         'seeds': defaults['seeds'],
                         'graph_specs': [[graph, params]],
                         'lambdas': defaults['lambdas'],
                         'snr_levels': defaults['snr_levels'],
-                        'methods': methods
+                        'methods': inst_methods
                     }
-                    iterations.append(it)
+                    if missing_list_grp:
+                        it_inst['missing_list'] = missing_list_grp
+                    if missing_counts_grp:
+                        it_inst['missing_counts'] = missing_counts_grp
+                    iterations.append(it_inst)
                     graph_counts[graph] += 1
-                    for m in methods:
+                    for m in inst_methods:
                         method_counts[m] += 1
                     idx += 1
-                    continue
 
-                # otherwise produce two iterations: instant-family and tv-family
-                # Instant iteration
-                inst_methods = list(dict.fromkeys(baselines + methods_instant))
-                key = f"itX{idx:04d}"
-                it_inst = {
-                    'key': key,
-                    'tag': key,
-                    'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph} params={params} (instant methods)",
-                    'fase': 'auto',
-                    'objective': 'Exhaustive coverage (instantaneous methods).',
-                    'datasets': [dataset],
-                    'dataset_variant': variant if variant else None,
-                    'mode': 'base',
-                    'missing_list': defaults['missing_list'],
-                    'seeds': defaults['seeds'],
-                    'graph_specs': [[graph, params]],
-                    'lambdas': defaults['lambdas'],
-                    'snr_levels': defaults['snr_levels'],
-                    'methods': inst_methods
-                }
-                iterations.append(it_inst)
-                graph_counts[graph] += 1
-                for m in inst_methods:
-                    method_counts[m] += 1
-                idx += 1
-
-                # TV iteration
-                tv_methods_list = list(dict.fromkeys(methods_tv))
-                key = f"itX{idx:04d}"
-                it_tv = {
-                    'key': key,
-                    'tag': key,
-                    'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph} params={params} (TV methods)",
-                    'fase': 'auto',
-                    'objective': 'Exhaustive coverage (TV methods).',
-                    'datasets': [dataset],
-                    'dataset_variant': variant if variant else None,
-                    'mode': 'base',
-                    'missing_list': defaults['missing_list'],
-                    'seeds': defaults['seeds'],
-                    'graph_specs': [[graph, params]],
-                    'lambdas': defaults['lambdas'],
-                    'snr_levels': defaults['snr_levels'],
-                    'methods': tv_methods_list
-                }
-                iterations.append(it_tv)
-                graph_counts[graph] += 1
-                for m in tv_methods_list:
-                    method_counts[m] += 1
-                idx += 1
+                    # TV iteration
+                    tv_methods_list = list(dict.fromkeys(methods_tv))
+                    key = f"itX{idx:04d}"
+                    it_tv = {
+                        'key': key,
+                        'tag': key,
+                        'description': f"Exhaustive {key} — dataset={dataset}{('/'+variant) if variant else ''} graph={graph} params={params} ({gname}, TV methods)",
+                        'fase': 'auto',
+                        'objective': 'Exhaustive coverage (TV methods).',
+                        'datasets': [dataset],
+                        'dataset_variant': variant if variant else None,
+                        'mode': 'base',
+                        'scenarios': scenarios,
+                        'missing_mode': missing_mode,
+                        'seeds': defaults['seeds'],
+                        'graph_specs': [[graph, params]],
+                        'lambdas': defaults['lambdas'],
+                        'snr_levels': defaults['snr_levels'],
+                        'methods': tv_methods_list
+                    }
+                    if missing_list_grp:
+                        it_tv['missing_list'] = missing_list_grp
+                    if missing_counts_grp:
+                        it_tv['missing_counts'] = missing_counts_grp
+                    iterations.append(it_tv)
+                    graph_counts[graph] += 1
+                    for m in tv_methods_list:
+                        method_counts[m] += 1
+                    idx += 1
 
     schedule = {'generated': datetime.utcnow().isoformat() + 'Z', 'iterations': iterations}
     save(schedule, out_schedule)
