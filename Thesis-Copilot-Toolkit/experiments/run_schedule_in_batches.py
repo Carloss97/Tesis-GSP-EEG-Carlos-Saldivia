@@ -75,14 +75,56 @@ def run_batch(batch_file: Path, stop_on_error: bool, light_profile: bool) -> Tup
         cmd.append("--light-profile")
 
     print(f"Starting: {' '.join(cmd)}")
-    proc = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
 
+    # Prepare logs and read batch size for skip ratio heuristics
     logs = RESULTS_DIR / "batch_logs"
     logs.mkdir(parents=True, exist_ok=True)
     log_file = logs / f"{batch_file.stem}.log"
-    log_file.write_text(proc.stdout or "", encoding="utf-8")
+    try:
+        payload = json.loads(batch_file.read_text(encoding="utf-8"))
+        total_iters = len(payload.get("iterations", []))
+    except Exception:
+        total_iters = 0
 
-    return batch_file.name, proc.returncode
+    # thresholds
+    MIN_SKIP_COUNT = 3
+    SKIP_RATIO_THRESHOLD = 0.2 if total_iters > 0 else 0.5
+
+    # Run pilot and stream stdout to monitor skips/errors in real time
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    skipped = 0
+    errors_found = 0
+    try:
+        # iterate lines as they are produced
+        assert proc.stdout is not None
+        with open(log_file, "w", encoding="utf-8") as lf:
+            for raw_line in proc.stdout:
+                lf.write(raw_line)
+                lf.flush()
+                line = raw_line.strip()
+                # simple heuristics to detect problems
+                if "[SKIPPED]" in line or "Skipped:" in line or "SKIPPED" in line:
+                    skipped += 1
+                    # if many skips relative to batch size, stop this batch
+                    if skipped >= MIN_SKIP_COUNT or (total_iters > 0 and (skipped / total_iters) >= SKIP_RATIO_THRESHOLD):
+                        print(f"Stopping {batch_file.name}: detected {skipped} skipped iterations (threshold exceeded)")
+                        proc.kill()
+                        break
+                if "Traceback" in line or line.startswith("Exception") or "Error" in line:
+                    errors_found += 1
+                    print(f"Stopping {batch_file.name}: detected error line: {line}")
+                    proc.kill()
+                    break
+        proc.wait()
+    except Exception as exc:
+        try:
+            proc.kill()
+        except Exception:
+            pass
+        with open(log_file, "a", encoding="utf-8") as lf:
+            lf.write(f"\n[RUNNER ERROR] {exc}\n")
+
+    return batch_file.name, (proc.returncode if proc.returncode is not None else -1)
 
 
 def main(argv: List[str] | None = None) -> int:

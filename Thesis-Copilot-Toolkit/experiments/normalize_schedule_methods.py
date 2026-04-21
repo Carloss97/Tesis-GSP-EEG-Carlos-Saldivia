@@ -29,13 +29,19 @@ def normalize_iteration(it: dict) -> bool:
                 new_gs.append(["vknng", g[1]])
                 changed = True
                 continue
+            if m == "kaliofolias":
+                new_gs.append(["kalofolias", g[1]])
+                changed = True
+                continue
         new_gs.append(g)
     if changed:
         it["graph_specs"] = new_gs
     # Normalize textual description hints that may contain legacy aliases
     desc = it.get("description", "")
     if isinstance(desc, str) and desc:
-        new_desc = desc.replace("graph=knn_gaussian", "graph=knng").replace("graph=vknn_gaussian", "graph=vknng")
+        new_desc = desc.replace("graph=knn_gaussian", "graph=knng") \
+                        .replace("graph=vknn_gaussian", "graph=vknng") \
+                        .replace("graph=kaliofolias", "graph=kalofolias")
         if new_desc != desc:
             it["description"] = new_desc
             changed = True

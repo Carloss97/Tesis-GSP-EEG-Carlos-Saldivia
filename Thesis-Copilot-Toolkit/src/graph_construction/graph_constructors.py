@@ -193,6 +193,7 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
     except Exception:
         pass
 
+
     # Normalize to string lower-case safely
     if isinstance(method, str):
         method = method.lower()
@@ -204,6 +205,9 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         method = "knng"
     if method == "vknn_gaussian":
         method = "vknng"
+    # Alias for legacy typo/variant
+    if method == "kaliofolias":
+        method = "kalofolias"
 
     # Debug: trace unexpected method names during pilot runs
     if method not in {"knn", "knng", "vknng", "gaussian", "epsilon_ball", "mst", "fully_connected_inverse_distance", "aew", "kalofolias", "visibility", "visibility_nnk", "visibility_graph", "nnk", "vknng", "vknn"}:

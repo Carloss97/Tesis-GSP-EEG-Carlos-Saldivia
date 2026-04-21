@@ -7836,7 +7836,7 @@
     {
       "key": "itX0137",
       "tag": "itX0137",
-      "description": "Exhaustive itX0137 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "description": "Exhaustive itX0137 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -7858,7 +7858,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -7896,7 +7896,7 @@
     {
       "key": "itX0138",
       "tag": "itX0138",
-      "description": "Exhaustive itX0138 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "description": "Exhaustive itX0138 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -7918,7 +7918,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -7952,7 +7952,7 @@
     {
       "key": "itX0139",
       "tag": "itX0139",
-      "description": "Exhaustive itX0139 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0139 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -7974,7 +7974,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8012,7 +8012,7 @@
     {
       "key": "itX0140",
       "tag": "itX0140",
-      "description": "Exhaustive itX0140 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0140 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8034,7 +8034,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8068,7 +8068,7 @@
     {
       "key": "itX0141",
       "tag": "itX0141",
-      "description": "Exhaustive itX0141 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (few_random, instant methods)",
+      "description": "Exhaustive itX0141 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8089,7 +8089,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8126,7 +8126,7 @@
     {
       "key": "itX0142",
       "tag": "itX0142",
-      "description": "Exhaustive itX0142 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (few_random, TV methods)",
+      "description": "Exhaustive itX0142 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8147,7 +8147,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8180,7 +8180,7 @@
     {
       "key": "itX0143",
       "tag": "itX0143",
-      "description": "Exhaustive itX0143 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0143 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8201,7 +8201,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8238,7 +8238,7 @@
     {
       "key": "itX0144",
       "tag": "itX0144",
-      "description": "Exhaustive itX0144 — dataset=mne_sample graph=kaliofolias params={'alpha': 0.1} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0144 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8259,7 +8259,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -8292,7 +8292,7 @@
     {
       "key": "itX0145",
       "tag": "itX0145",
-      "description": "Exhaustive itX0145 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (percent_random, instant methods)",
+      "description": "Exhaustive itX0145 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8314,7 +8314,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8352,7 +8352,7 @@
     {
       "key": "itX0146",
       "tag": "itX0146",
-      "description": "Exhaustive itX0146 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (percent_random, TV methods)",
+      "description": "Exhaustive itX0146 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8374,7 +8374,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8408,7 +8408,7 @@
     {
       "key": "itX0147",
       "tag": "itX0147",
-      "description": "Exhaustive itX0147 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0147 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8430,7 +8430,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8468,7 +8468,7 @@
     {
       "key": "itX0148",
       "tag": "itX0148",
-      "description": "Exhaustive itX0148 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0148 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8490,7 +8490,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8524,7 +8524,7 @@
     {
       "key": "itX0149",
       "tag": "itX0149",
-      "description": "Exhaustive itX0149 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (few_random, instant methods)",
+      "description": "Exhaustive itX0149 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8545,7 +8545,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8582,7 +8582,7 @@
     {
       "key": "itX0150",
       "tag": "itX0150",
-      "description": "Exhaustive itX0150 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (few_random, TV methods)",
+      "description": "Exhaustive itX0150 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8603,7 +8603,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8636,7 +8636,7 @@
     {
       "key": "itX0151",
       "tag": "itX0151",
-      "description": "Exhaustive itX0151 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0151 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -8657,7 +8657,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -8694,7 +8694,7 @@
     {
       "key": "itX0152",
       "tag": "itX0152",
-      "description": "Exhaustive itX0152 — dataset=mne_sample graph=kaliofolias params={'alpha': 1.0} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0152 — dataset=mne_sample graph=kalofolias params={'alpha': 1.0} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -8715,7 +8715,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17028,7 +17028,7 @@
     {
       "key": "itX0297",
       "tag": "itX0297",
-      "description": "Exhaustive itX0297 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "description": "Exhaustive itX0297 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17050,7 +17050,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17088,7 +17088,7 @@
     {
       "key": "itX0298",
       "tag": "itX0298",
-      "description": "Exhaustive itX0298 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "description": "Exhaustive itX0298 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17110,7 +17110,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17144,7 +17144,7 @@
     {
       "key": "itX0299",
       "tag": "itX0299",
-      "description": "Exhaustive itX0299 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0299 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17166,7 +17166,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17204,7 +17204,7 @@
     {
       "key": "itX0300",
       "tag": "itX0300",
-      "description": "Exhaustive itX0300 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0300 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17226,7 +17226,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17260,7 +17260,7 @@
     {
       "key": "itX0301",
       "tag": "itX0301",
-      "description": "Exhaustive itX0301 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (few_random, instant methods)",
+      "description": "Exhaustive itX0301 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17281,7 +17281,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17318,7 +17318,7 @@
     {
       "key": "itX0302",
       "tag": "itX0302",
-      "description": "Exhaustive itX0302 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (few_random, TV methods)",
+      "description": "Exhaustive itX0302 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17339,7 +17339,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17372,7 +17372,7 @@
     {
       "key": "itX0303",
       "tag": "itX0303",
-      "description": "Exhaustive itX0303 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0303 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17393,7 +17393,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17430,7 +17430,7 @@
     {
       "key": "itX0304",
       "tag": "itX0304",
-      "description": "Exhaustive itX0304 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 0.1} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0304 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 0.1} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17451,7 +17451,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -17484,7 +17484,7 @@
     {
       "key": "itX0305",
       "tag": "itX0305",
-      "description": "Exhaustive itX0305 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (percent_random, instant methods)",
+      "description": "Exhaustive itX0305 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17506,7 +17506,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17544,7 +17544,7 @@
     {
       "key": "itX0306",
       "tag": "itX0306",
-      "description": "Exhaustive itX0306 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (percent_random, TV methods)",
+      "description": "Exhaustive itX0306 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17566,7 +17566,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17600,7 +17600,7 @@
     {
       "key": "itX0307",
       "tag": "itX0307",
-      "description": "Exhaustive itX0307 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0307 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17622,7 +17622,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17660,7 +17660,7 @@
     {
       "key": "itX0308",
       "tag": "itX0308",
-      "description": "Exhaustive itX0308 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0308 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17682,7 +17682,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17716,7 +17716,7 @@
     {
       "key": "itX0309",
       "tag": "itX0309",
-      "description": "Exhaustive itX0309 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (few_random, instant methods)",
+      "description": "Exhaustive itX0309 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17737,7 +17737,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17774,7 +17774,7 @@
     {
       "key": "itX0310",
       "tag": "itX0310",
-      "description": "Exhaustive itX0310 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (few_random, TV methods)",
+      "description": "Exhaustive itX0310 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17795,7 +17795,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17828,7 +17828,7 @@
     {
       "key": "itX0311",
       "tag": "itX0311",
-      "description": "Exhaustive itX0311 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0311 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -17849,7 +17849,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -17886,7 +17886,7 @@
     {
       "key": "itX0312",
       "tag": "itX0312",
-      "description": "Exhaustive itX0312 — dataset=bci/iv2a_real_s1 graph=kaliofolias params={'alpha': 1.0} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0312 — dataset=bci/iv2a_real_s1 graph=kalofolias params={'alpha': 1.0} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -17907,7 +17907,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26220,7 +26220,7 @@
     {
       "key": "itX0457",
       "tag": "itX0457",
-      "description": "Exhaustive itX0457 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "description": "Exhaustive itX0457 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26242,7 +26242,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26280,7 +26280,7 @@
     {
       "key": "itX0458",
       "tag": "itX0458",
-      "description": "Exhaustive itX0458 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "description": "Exhaustive itX0458 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26302,7 +26302,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26336,7 +26336,7 @@
     {
       "key": "itX0459",
       "tag": "itX0459",
-      "description": "Exhaustive itX0459 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0459 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26358,7 +26358,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26396,7 +26396,7 @@
     {
       "key": "itX0460",
       "tag": "itX0460",
-      "description": "Exhaustive itX0460 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0460 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26418,7 +26418,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26452,7 +26452,7 @@
     {
       "key": "itX0461",
       "tag": "itX0461",
-      "description": "Exhaustive itX0461 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (few_random, instant methods)",
+      "description": "Exhaustive itX0461 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26473,7 +26473,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26510,7 +26510,7 @@
     {
       "key": "itX0462",
       "tag": "itX0462",
-      "description": "Exhaustive itX0462 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (few_random, TV methods)",
+      "description": "Exhaustive itX0462 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26531,7 +26531,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26564,7 +26564,7 @@
     {
       "key": "itX0463",
       "tag": "itX0463",
-      "description": "Exhaustive itX0463 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0463 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26585,7 +26585,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26622,7 +26622,7 @@
     {
       "key": "itX0464",
       "tag": "itX0464",
-      "description": "Exhaustive itX0464 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 0.1} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0464 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 0.1} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26643,7 +26643,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -26676,7 +26676,7 @@
     {
       "key": "itX0465",
       "tag": "itX0465",
-      "description": "Exhaustive itX0465 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (percent_random, instant methods)",
+      "description": "Exhaustive itX0465 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26698,7 +26698,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26736,7 +26736,7 @@
     {
       "key": "itX0466",
       "tag": "itX0466",
-      "description": "Exhaustive itX0466 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (percent_random, TV methods)",
+      "description": "Exhaustive itX0466 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26758,7 +26758,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26792,7 +26792,7 @@
     {
       "key": "itX0467",
       "tag": "itX0467",
-      "description": "Exhaustive itX0467 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0467 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26814,7 +26814,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26852,7 +26852,7 @@
     {
       "key": "itX0468",
       "tag": "itX0468",
-      "description": "Exhaustive itX0468 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0468 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26874,7 +26874,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26908,7 +26908,7 @@
     {
       "key": "itX0469",
       "tag": "itX0469",
-      "description": "Exhaustive itX0469 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (few_random, instant methods)",
+      "description": "Exhaustive itX0469 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -26929,7 +26929,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -26966,7 +26966,7 @@
     {
       "key": "itX0470",
       "tag": "itX0470",
-      "description": "Exhaustive itX0470 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (few_random, TV methods)",
+      "description": "Exhaustive itX0470 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -26987,7 +26987,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -27020,7 +27020,7 @@
     {
       "key": "itX0471",
       "tag": "itX0471",
-      "description": "Exhaustive itX0471 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0471 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -27041,7 +27041,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -27078,7 +27078,7 @@
     {
       "key": "itX0472",
       "tag": "itX0472",
-      "description": "Exhaustive itX0472 — dataset=bci/iv2a_real_s2 graph=kaliofolias params={'alpha': 1.0} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0472 — dataset=bci/iv2a_real_s2 graph=kalofolias params={'alpha': 1.0} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -27099,7 +27099,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -35412,7 +35412,7 @@
     {
       "key": "itX0617",
       "tag": "itX0617",
-      "description": "Exhaustive itX0617 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "description": "Exhaustive itX0617 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -35434,7 +35434,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35472,7 +35472,7 @@
     {
       "key": "itX0618",
       "tag": "itX0618",
-      "description": "Exhaustive itX0618 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "description": "Exhaustive itX0618 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -35494,7 +35494,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35528,7 +35528,7 @@
     {
       "key": "itX0619",
       "tag": "itX0619",
-      "description": "Exhaustive itX0619 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0619 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -35550,7 +35550,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35588,7 +35588,7 @@
     {
       "key": "itX0620",
       "tag": "itX0620",
-      "description": "Exhaustive itX0620 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0620 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -35610,7 +35610,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35644,7 +35644,7 @@
     {
       "key": "itX0621",
       "tag": "itX0621",
-      "description": "Exhaustive itX0621 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (few_random, instant methods)",
+      "description": "Exhaustive itX0621 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -35665,7 +35665,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35702,7 +35702,7 @@
     {
       "key": "itX0622",
       "tag": "itX0622",
-      "description": "Exhaustive itX0622 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (few_random, TV methods)",
+      "description": "Exhaustive itX0622 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -35723,7 +35723,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35756,7 +35756,7 @@
     {
       "key": "itX0623",
       "tag": "itX0623",
-      "description": "Exhaustive itX0623 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0623 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -35777,7 +35777,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35814,7 +35814,7 @@
     {
       "key": "itX0624",
       "tag": "itX0624",
-      "description": "Exhaustive itX0624 — dataset=physionet/real graph=kaliofolias params={'alpha': 0.1} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0624 — dataset=physionet/real graph=kalofolias params={'alpha': 0.1} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -35835,7 +35835,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -35868,7 +35868,7 @@
     {
       "key": "itX0625",
       "tag": "itX0625",
-      "description": "Exhaustive itX0625 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (percent_random, instant methods)",
+      "description": "Exhaustive itX0625 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -35890,7 +35890,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -35928,7 +35928,7 @@
     {
       "key": "itX0626",
       "tag": "itX0626",
-      "description": "Exhaustive itX0626 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (percent_random, TV methods)",
+      "description": "Exhaustive itX0626 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -35950,7 +35950,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -35984,7 +35984,7 @@
     {
       "key": "itX0627",
       "tag": "itX0627",
-      "description": "Exhaustive itX0627 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0627 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -36006,7 +36006,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -36044,7 +36044,7 @@
     {
       "key": "itX0628",
       "tag": "itX0628",
-      "description": "Exhaustive itX0628 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0628 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -36066,7 +36066,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -36100,7 +36100,7 @@
     {
       "key": "itX0629",
       "tag": "itX0629",
-      "description": "Exhaustive itX0629 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (few_random, instant methods)",
+      "description": "Exhaustive itX0629 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -36121,7 +36121,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -36158,7 +36158,7 @@
     {
       "key": "itX0630",
       "tag": "itX0630",
-      "description": "Exhaustive itX0630 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (few_random, TV methods)",
+      "description": "Exhaustive itX0630 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -36179,7 +36179,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -36212,7 +36212,7 @@
     {
       "key": "itX0631",
       "tag": "itX0631",
-      "description": "Exhaustive itX0631 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0631 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -36233,7 +36233,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -36270,7 +36270,7 @@
     {
       "key": "itX0632",
       "tag": "itX0632",
-      "description": "Exhaustive itX0632 — dataset=physionet/real graph=kaliofolias params={'alpha': 1.0} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0632 — dataset=physionet/real graph=kalofolias params={'alpha': 1.0} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -36291,7 +36291,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -44604,7 +44604,7 @@
     {
       "key": "itX0777",
       "tag": "itX0777",
-      "description": "Exhaustive itX0777 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "description": "Exhaustive itX0777 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -44626,7 +44626,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44664,7 +44664,7 @@
     {
       "key": "itX0778",
       "tag": "itX0778",
-      "description": "Exhaustive itX0778 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "description": "Exhaustive itX0778 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -44686,7 +44686,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44720,7 +44720,7 @@
     {
       "key": "itX0779",
       "tag": "itX0779",
-      "description": "Exhaustive itX0779 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0779 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -44742,7 +44742,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44780,7 +44780,7 @@
     {
       "key": "itX0780",
       "tag": "itX0780",
-      "description": "Exhaustive itX0780 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0780 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -44802,7 +44802,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44836,7 +44836,7 @@
     {
       "key": "itX0781",
       "tag": "itX0781",
-      "description": "Exhaustive itX0781 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (few_random, instant methods)",
+      "description": "Exhaustive itX0781 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -44857,7 +44857,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44894,7 +44894,7 @@
     {
       "key": "itX0782",
       "tag": "itX0782",
-      "description": "Exhaustive itX0782 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (few_random, TV methods)",
+      "description": "Exhaustive itX0782 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -44915,7 +44915,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -44948,7 +44948,7 @@
     {
       "key": "itX0783",
       "tag": "itX0783",
-      "description": "Exhaustive itX0783 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0783 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -44969,7 +44969,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -45006,7 +45006,7 @@
     {
       "key": "itX0784",
       "tag": "itX0784",
-      "description": "Exhaustive itX0784 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 0.1} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0784 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 0.1} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -45027,7 +45027,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 0.1
           }
@@ -45060,7 +45060,7 @@
     {
       "key": "itX0785",
       "tag": "itX0785",
-      "description": "Exhaustive itX0785 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (percent_random, instant methods)",
+      "description": "Exhaustive itX0785 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (percent_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -45082,7 +45082,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45120,7 +45120,7 @@
     {
       "key": "itX0786",
       "tag": "itX0786",
-      "description": "Exhaustive itX0786 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (percent_random, TV methods)",
+      "description": "Exhaustive itX0786 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (percent_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -45142,7 +45142,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45176,7 +45176,7 @@
     {
       "key": "itX0787",
       "tag": "itX0787",
-      "description": "Exhaustive itX0787 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
+      "description": "Exhaustive itX0787 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (percent_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -45198,7 +45198,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45236,7 +45236,7 @@
     {
       "key": "itX0788",
       "tag": "itX0788",
-      "description": "Exhaustive itX0788 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
+      "description": "Exhaustive itX0788 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (percent_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -45258,7 +45258,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45292,7 +45292,7 @@
     {
       "key": "itX0789",
       "tag": "itX0789",
-      "description": "Exhaustive itX0789 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (few_random, instant methods)",
+      "description": "Exhaustive itX0789 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (few_random, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -45313,7 +45313,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45350,7 +45350,7 @@
     {
       "key": "itX0790",
       "tag": "itX0790",
-      "description": "Exhaustive itX0790 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (few_random, TV methods)",
+      "description": "Exhaustive itX0790 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (few_random, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -45371,7 +45371,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45404,7 +45404,7 @@
     {
       "key": "itX0791",
       "tag": "itX0791",
-      "description": "Exhaustive itX0791 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (few_nearby, instant methods)",
+      "description": "Exhaustive itX0791 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (few_nearby, instant methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (instantaneous methods).",
       "datasets": [
@@ -45425,7 +45425,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
@@ -45462,7 +45462,7 @@
     {
       "key": "itX0792",
       "tag": "itX0792",
-      "description": "Exhaustive itX0792 — dataset=iris/graph_signal graph=kaliofolias params={'alpha': 1.0} (few_nearby, TV methods)",
+      "description": "Exhaustive itX0792 — dataset=iris/graph_signal graph=kalofolias params={'alpha': 1.0} (few_nearby, TV methods)",
       "fase": "auto",
       "objective": "Exhaustive coverage (TV methods).",
       "datasets": [
@@ -45483,7 +45483,7 @@
       ],
       "graph_specs": [
         [
-          "kaliofolias",
+          "kalofolias",
           {
             "alpha": 1.0
           }
