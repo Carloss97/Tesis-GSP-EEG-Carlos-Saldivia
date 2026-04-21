@@ -1,0 +1,29 @@
+{
+  "generated": "2026-04-21T11:08:05.753798Z",
+  "num_iterations": 800,
+  "graph_counts": {
+    "e-nn": 80,
+    "knn": 160,
+    "knn_gaussian": 160,
+    "vknn_gaussian": 120,
+    "nnk": 80,
+    "aew": 80,
+    "kaliofolias": 80,
+    "visibility_nnk": 40
+  },
+  "method_counts": {
+    "linear": 380,
+    "ica": 380,
+    "spherical_spline": 380,
+    "rbfi_tps": 380,
+    "idw": 380,
+    "tikhonov": 380,
+    "bgsrp": 380,
+    "sobolev": 380,
+    "trss": 420,
+    "tv": 420,
+    "temporal_laplacian": 420,
+    "visibility_nnk": 420
+  },
+  "out_schedule": "Thesis-Copilot-Toolkit/experiments/schedules/it_exhaustive_from_registry.json"
+}

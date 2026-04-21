@@ -1,0 +1,2317 @@
+{
+  "generated": "2026-04-21T15:20:32.049207Z",
+  "iterations": [
+    {
+      "key": "itX0681",
+      "tag": "itX0681",
+      "description": "Exhaustive itX0681 — dataset=iris/graph_signal graph=knn params={'k': 9} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0682",
+      "tag": "itX0682",
+      "description": "Exhaustive itX0682 — dataset=iris/graph_signal graph=knn params={'k': 9} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0683",
+      "tag": "itX0683",
+      "description": "Exhaustive itX0683 — dataset=iris/graph_signal graph=knn params={'k': 9} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0684",
+      "tag": "itX0684",
+      "description": "Exhaustive itX0684 — dataset=iris/graph_signal graph=knn params={'k': 9} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0685",
+      "tag": "itX0685",
+      "description": "Exhaustive itX0685 — dataset=iris/graph_signal graph=knn params={'k': 9} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0686",
+      "tag": "itX0686",
+      "description": "Exhaustive itX0686 — dataset=iris/graph_signal graph=knn params={'k': 9} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0687",
+      "tag": "itX0687",
+      "description": "Exhaustive itX0687 — dataset=iris/graph_signal graph=knn params={'k': 9} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0688",
+      "tag": "itX0688",
+      "description": "Exhaustive itX0688 — dataset=iris/graph_signal graph=knn params={'k': 9} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0689",
+      "tag": "itX0689",
+      "description": "Exhaustive itX0689 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0690",
+      "tag": "itX0690",
+      "description": "Exhaustive itX0690 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0691",
+      "tag": "itX0691",
+      "description": "Exhaustive itX0691 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0692",
+      "tag": "itX0692",
+      "description": "Exhaustive itX0692 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0693",
+      "tag": "itX0693",
+      "description": "Exhaustive itX0693 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0694",
+      "tag": "itX0694",
+      "description": "Exhaustive itX0694 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0695",
+      "tag": "itX0695",
+      "description": "Exhaustive itX0695 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0696",
+      "tag": "itX0696",
+      "description": "Exhaustive itX0696 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0697",
+      "tag": "itX0697",
+      "description": "Exhaustive itX0697 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0698",
+      "tag": "itX0698",
+      "description": "Exhaustive itX0698 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0699",
+      "tag": "itX0699",
+      "description": "Exhaustive itX0699 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0700",
+      "tag": "itX0700",
+      "description": "Exhaustive itX0700 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0701",
+      "tag": "itX0701",
+      "description": "Exhaustive itX0701 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0702",
+      "tag": "itX0702",
+      "description": "Exhaustive itX0702 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0703",
+      "tag": "itX0703",
+      "description": "Exhaustive itX0703 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0704",
+      "tag": "itX0704",
+      "description": "Exhaustive itX0704 — dataset=iris/graph_signal graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0705",
+      "tag": "itX0705",
+      "description": "Exhaustive itX0705 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0706",
+      "tag": "itX0706",
+      "description": "Exhaustive itX0706 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0707",
+      "tag": "itX0707",
+      "description": "Exhaustive itX0707 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0708",
+      "tag": "itX0708",
+      "description": "Exhaustive itX0708 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0709",
+      "tag": "itX0709",
+      "description": "Exhaustive itX0709 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0710",
+      "tag": "itX0710",
+      "description": "Exhaustive itX0710 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0711",
+      "tag": "itX0711",
+      "description": "Exhaustive itX0711 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0712",
+      "tag": "itX0712",
+      "description": "Exhaustive itX0712 — dataset=iris/graph_signal graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0713",
+      "tag": "itX0713",
+      "description": "Exhaustive itX0713 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0714",
+      "tag": "itX0714",
+      "description": "Exhaustive itX0714 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0715",
+      "tag": "itX0715",
+      "description": "Exhaustive itX0715 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0716",
+      "tag": "itX0716",
+      "description": "Exhaustive itX0716 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0717",
+      "tag": "itX0717",
+      "description": "Exhaustive itX0717 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0718",
+      "tag": "itX0718",
+      "description": "Exhaustive itX0718 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0719",
+      "tag": "itX0719",
+      "description": "Exhaustive itX0719 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0720",
+      "tag": "itX0720",
+      "description": "Exhaustive itX0720 — dataset=iris/graph_signal graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "iris"
+      ],
+      "dataset_variant": "graph_signal",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

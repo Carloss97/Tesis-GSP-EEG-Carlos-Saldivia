@@ -1,0 +1,2661 @@
+{
+  "generated": "2026-04-21T07:22:59.456941Z",
+  "iterations": [
+    {
+      "key": "it01",
+      "tag": "it01",
+      "description": "it01 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it02",
+      "tag": "it02",
+      "description": "it02 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it03",
+      "tag": "it03",
+      "description": "it03 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it04",
+      "tag": "it04",
+      "description": "it04 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s2"
+    },
+    {
+      "key": "it05",
+      "tag": "it05",
+      "description": "it05 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ]
+    },
+    {
+      "key": "it06",
+      "tag": "it06",
+      "description": "it06 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it07",
+      "tag": "it07",
+      "description": "it07 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it08",
+      "tag": "it08",
+      "description": "it08 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it09",
+      "tag": "it09",
+      "description": "it09 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it10",
+      "tag": "it10",
+      "description": "it10 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "iris"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "graph_signal"
+    },
+    {
+      "key": "it11",
+      "tag": "it11",
+      "description": "it11 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it12",
+      "tag": "it12",
+      "description": "it12 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it13",
+      "tag": "it13",
+      "description": "it13 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it14",
+      "tag": "it14",
+      "description": "it14 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "iv2a_real_s2"
+    },
+    {
+      "key": "it15",
+      "tag": "it15",
+      "description": "it15 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it16",
+      "tag": "it16",
+      "description": "it16 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it17",
+      "tag": "it17",
+      "description": "it17 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ]
+    },
+    {
+      "key": "it18",
+      "tag": "it18",
+      "description": "it18 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it19",
+      "tag": "it19",
+      "description": "it19 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it20",
+      "tag": "it20",
+      "description": "it20 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "iris"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "graph_signal"
+    },
+    {
+      "key": "it21",
+      "tag": "it21",
+      "description": "it21 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it22",
+      "tag": "it22",
+      "description": "it22 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it23",
+      "tag": "it23",
+      "description": "it23 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ]
+    },
+    {
+      "key": "it24",
+      "tag": "it24",
+      "description": "it24 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s2"
+    },
+    {
+      "key": "it25",
+      "tag": "it25",
+      "description": "it25 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it26",
+      "tag": "it26",
+      "description": "it26 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it27",
+      "tag": "it27",
+      "description": "it27 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it28",
+      "tag": "it28",
+      "description": "it28 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it29",
+      "tag": "it29",
+      "description": "it29 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it30",
+      "tag": "it30",
+      "description": "it30 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "iris"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "graph_signal"
+    },
+    {
+      "key": "it31",
+      "tag": "it31",
+      "description": "it31 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it32",
+      "tag": "it32",
+      "description": "it32 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it33",
+      "tag": "it33",
+      "description": "it33 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it34",
+      "tag": "it34",
+      "description": "it34 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s2"
+    },
+    {
+      "key": "it35",
+      "tag": "it35",
+      "description": "it35 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ]
+    },
+    {
+      "key": "it36",
+      "tag": "it36",
+      "description": "it36 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it37",
+      "tag": "it37",
+      "description": "it37 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it38",
+      "tag": "it38",
+      "description": "it38 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "gsp",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it39",
+      "tag": "it39",
+      "description": "it39 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it40",
+      "tag": "it40",
+      "description": "it40 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "iris"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "graph_signal"
+    },
+    {
+      "key": "it41",
+      "tag": "it41",
+      "description": "it41 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it42",
+      "tag": "it42",
+      "description": "it42 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it43",
+      "tag": "it43",
+      "description": "it43 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ]
+    },
+    {
+      "key": "it44",
+      "tag": "it44",
+      "description": "it44 — Evaluate bci_iv2a_real_s2; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "iv2a_real_s2"
+    },
+    {
+      "key": "it45",
+      "tag": "it45",
+      "description": "it45 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ]
+    },
+    {
+      "key": "it46",
+      "tag": "it46",
+      "description": "it46 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it47",
+      "tag": "it47",
+      "description": "it47 — Evaluate mne_sample; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "mne_sample"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn_gaussian",
+          {
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ]
+    },
+    {
+      "key": "it48",
+      "tag": "it48",
+      "description": "it48 — Evaluate physionet_real; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "physionet"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "kaliofolias",
+          {}
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "trss",
+        "graph_time_tikhonov",
+        "temporal_laplacian",
+        "tv"
+      ],
+      "dataset_variant": "real"
+    },
+    {
+      "key": "it49",
+      "tag": "it49",
+      "description": "it49 — Evaluate bci_iv2a_real_s1; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "bci"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 3
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "tv"
+      ],
+      "dataset_variant": "iv2a_real_s1"
+    },
+    {
+      "key": "it50",
+      "tag": "it50",
+      "description": "it50 — Evaluate iris_graph_signal; compare baselines and candidate temporal/spatial methods",
+      "fase": "auto",
+      "objective": "Compare candidate methods (trss, tv, tikhonov, graph_time_tikhonov, temporal_laplacian, gsp, bgsrp) vs canonical baselines; ensure at least 3 non-baseline methods are present.",
+      "datasets": [
+        "iris"
+      ],
+      "mode": "base",
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "tikhonov",
+        "bgsrp",
+        "idw"
+      ],
+      "dataset_variant": "graph_signal"
+    }
+  ]
+}

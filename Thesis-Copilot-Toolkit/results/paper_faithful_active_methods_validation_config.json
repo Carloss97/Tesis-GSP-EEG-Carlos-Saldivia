@@ -25,12 +25,10 @@
     "sobolev_temporal",
     "tv",
     "temporal_laplacian",
-    "heat_diffusion_temporal",
     "spline_temporal",
-    "wavelet_temporal",
     "directed_tv",
-    "adaptive_temporal"
+    "visibility_graphs"
   ],
-  "passes": 25,
+  "passes": 23,
   "fails": 0
 }

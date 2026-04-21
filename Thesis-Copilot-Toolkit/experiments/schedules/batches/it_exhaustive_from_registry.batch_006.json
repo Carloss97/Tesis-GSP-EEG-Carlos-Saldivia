@@ -1,0 +1,2317 @@
+{
+  "generated": "2026-04-21T15:20:32.030209Z",
+  "iterations": [
+    {
+      "key": "itX0201",
+      "tag": "itX0201",
+      "description": "Exhaustive itX0201 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0202",
+      "tag": "itX0202",
+      "description": "Exhaustive itX0202 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0203",
+      "tag": "itX0203",
+      "description": "Exhaustive itX0203 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0204",
+      "tag": "itX0204",
+      "description": "Exhaustive itX0204 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0205",
+      "tag": "itX0205",
+      "description": "Exhaustive itX0205 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0206",
+      "tag": "itX0206",
+      "description": "Exhaustive itX0206 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0207",
+      "tag": "itX0207",
+      "description": "Exhaustive itX0207 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0208",
+      "tag": "itX0208",
+      "description": "Exhaustive itX0208 — dataset=bci/iv2a_real_s1 graph=knn params={'k': 9} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0209",
+      "tag": "itX0209",
+      "description": "Exhaustive itX0209 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0210",
+      "tag": "itX0210",
+      "description": "Exhaustive itX0210 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0211",
+      "tag": "itX0211",
+      "description": "Exhaustive itX0211 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0212",
+      "tag": "itX0212",
+      "description": "Exhaustive itX0212 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0213",
+      "tag": "itX0213",
+      "description": "Exhaustive itX0213 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0214",
+      "tag": "itX0214",
+      "description": "Exhaustive itX0214 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0215",
+      "tag": "itX0215",
+      "description": "Exhaustive itX0215 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0216",
+      "tag": "itX0216",
+      "description": "Exhaustive itX0216 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0217",
+      "tag": "itX0217",
+      "description": "Exhaustive itX0217 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0218",
+      "tag": "itX0218",
+      "description": "Exhaustive itX0218 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0219",
+      "tag": "itX0219",
+      "description": "Exhaustive itX0219 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0220",
+      "tag": "itX0220",
+      "description": "Exhaustive itX0220 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0221",
+      "tag": "itX0221",
+      "description": "Exhaustive itX0221 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0222",
+      "tag": "itX0222",
+      "description": "Exhaustive itX0222 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0223",
+      "tag": "itX0223",
+      "description": "Exhaustive itX0223 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0224",
+      "tag": "itX0224",
+      "description": "Exhaustive itX0224 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0225",
+      "tag": "itX0225",
+      "description": "Exhaustive itX0225 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0226",
+      "tag": "itX0226",
+      "description": "Exhaustive itX0226 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0227",
+      "tag": "itX0227",
+      "description": "Exhaustive itX0227 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0228",
+      "tag": "itX0228",
+      "description": "Exhaustive itX0228 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0229",
+      "tag": "itX0229",
+      "description": "Exhaustive itX0229 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0230",
+      "tag": "itX0230",
+      "description": "Exhaustive itX0230 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0231",
+      "tag": "itX0231",
+      "description": "Exhaustive itX0231 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0232",
+      "tag": "itX0232",
+      "description": "Exhaustive itX0232 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0233",
+      "tag": "itX0233",
+      "description": "Exhaustive itX0233 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0234",
+      "tag": "itX0234",
+      "description": "Exhaustive itX0234 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0235",
+      "tag": "itX0235",
+      "description": "Exhaustive itX0235 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0236",
+      "tag": "itX0236",
+      "description": "Exhaustive itX0236 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0237",
+      "tag": "itX0237",
+      "description": "Exhaustive itX0237 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0238",
+      "tag": "itX0238",
+      "description": "Exhaustive itX0238 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0239",
+      "tag": "itX0239",
+      "description": "Exhaustive itX0239 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0240",
+      "tag": "itX0240",
+      "description": "Exhaustive itX0240 — dataset=bci/iv2a_real_s1 graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "bci"
+      ],
+      "dataset_variant": "iv2a_real_s1",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

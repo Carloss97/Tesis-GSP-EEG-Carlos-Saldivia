@@ -1,0 +1,47 @@
+{
+  "datasets": [
+    "mne_sample",
+    "physionet",
+    "bci",
+    "iris"
+  ],
+  "graph_constructors": [
+    "e-nn",
+    "knn",
+    "knng",
+    "vknng",
+    "nnk",
+    "aew",
+    "kaliofolias",
+    "visibility_nnk"
+  ],
+  "methods_instantaneous": [
+    "linear",
+    "idw",
+    "spherical_spline",
+    "rbfi",
+    "tikhonov",
+    "bgsrp",
+    "sobolev"
+  ],
+  "methods_tv": [
+    "trss",
+    "tv",
+    "temporal_laplacian",
+    "visibility_nnk"
+  ],
+  "baselines": [
+    "linear",
+    "ica",
+    "spherical_spline",
+    "rbfi_tps"
+  ],
+  "mappings": {
+    "gaussian": "knng",
+    "kalofolias": "kaliofolias",
+    "sobolev_temporal": "trss",
+    "rbfi": "rbfi_tps"
+  },
+  "remove_methods": ["gsp", "gsmooth", "graph_time_tikhonov"],
+  "notes": "Canonical registry generated from session-approved plan. 'visibility_nnk' restricted to TV methods."
+}

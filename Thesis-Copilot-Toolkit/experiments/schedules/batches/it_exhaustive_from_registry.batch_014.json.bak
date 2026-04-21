@@ -1,0 +1,2317 @@
+{
+  "generated": "2026-04-21T15:20:32.043209Z",
+  "iterations": [
+    {
+      "key": "itX0521",
+      "tag": "itX0521",
+      "description": "Exhaustive itX0521 — dataset=physionet/real graph=knn params={'k': 9} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0522",
+      "tag": "itX0522",
+      "description": "Exhaustive itX0522 — dataset=physionet/real graph=knn params={'k': 9} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0523",
+      "tag": "itX0523",
+      "description": "Exhaustive itX0523 — dataset=physionet/real graph=knn params={'k': 9} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0524",
+      "tag": "itX0524",
+      "description": "Exhaustive itX0524 — dataset=physionet/real graph=knn params={'k': 9} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0525",
+      "tag": "itX0525",
+      "description": "Exhaustive itX0525 — dataset=physionet/real graph=knn params={'k': 9} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0526",
+      "tag": "itX0526",
+      "description": "Exhaustive itX0526 — dataset=physionet/real graph=knn params={'k': 9} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0527",
+      "tag": "itX0527",
+      "description": "Exhaustive itX0527 — dataset=physionet/real graph=knn params={'k': 9} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0528",
+      "tag": "itX0528",
+      "description": "Exhaustive itX0528 — dataset=physionet/real graph=knn params={'k': 9} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knn",
+          {
+            "k": 9
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0529",
+      "tag": "itX0529",
+      "description": "Exhaustive itX0529 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0530",
+      "tag": "itX0530",
+      "description": "Exhaustive itX0530 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0531",
+      "tag": "itX0531",
+      "description": "Exhaustive itX0531 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0532",
+      "tag": "itX0532",
+      "description": "Exhaustive itX0532 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0533",
+      "tag": "itX0533",
+      "description": "Exhaustive itX0533 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0534",
+      "tag": "itX0534",
+      "description": "Exhaustive itX0534 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0535",
+      "tag": "itX0535",
+      "description": "Exhaustive itX0535 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0536",
+      "tag": "itX0536",
+      "description": "Exhaustive itX0536 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 0.5} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0537",
+      "tag": "itX0537",
+      "description": "Exhaustive itX0537 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0538",
+      "tag": "itX0538",
+      "description": "Exhaustive itX0538 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0539",
+      "tag": "itX0539",
+      "description": "Exhaustive itX0539 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0540",
+      "tag": "itX0540",
+      "description": "Exhaustive itX0540 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0541",
+      "tag": "itX0541",
+      "description": "Exhaustive itX0541 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0542",
+      "tag": "itX0542",
+      "description": "Exhaustive itX0542 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0543",
+      "tag": "itX0543",
+      "description": "Exhaustive itX0543 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0544",
+      "tag": "itX0544",
+      "description": "Exhaustive itX0544 — dataset=physionet/real graph=knng params={'k': 3, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0545",
+      "tag": "itX0545",
+      "description": "Exhaustive itX0545 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0546",
+      "tag": "itX0546",
+      "description": "Exhaustive itX0546 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0547",
+      "tag": "itX0547",
+      "description": "Exhaustive itX0547 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0548",
+      "tag": "itX0548",
+      "description": "Exhaustive itX0548 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0549",
+      "tag": "itX0549",
+      "description": "Exhaustive itX0549 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0550",
+      "tag": "itX0550",
+      "description": "Exhaustive itX0550 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0551",
+      "tag": "itX0551",
+      "description": "Exhaustive itX0551 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0552",
+      "tag": "itX0552",
+      "description": "Exhaustive itX0552 — dataset=physionet/real graph=knng params={'k': 5, 'sigma': 1.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 5,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0553",
+      "tag": "itX0553",
+      "description": "Exhaustive itX0553 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0554",
+      "tag": "itX0554",
+      "description": "Exhaustive itX0554 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0555",
+      "tag": "itX0555",
+      "description": "Exhaustive itX0555 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0556",
+      "tag": "itX0556",
+      "description": "Exhaustive itX0556 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (percent_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "10pct_nearby",
+        "20pct_nearby",
+        "30pct_nearby",
+        "40pct_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0557",
+      "tag": "itX0557",
+      "description": "Exhaustive itX0557 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (few_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0558",
+      "tag": "itX0558",
+      "description": "Exhaustive itX0558 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (few_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_random",
+        "2ch_random",
+        "3ch_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0559",
+      "tag": "itX0559",
+      "description": "Exhaustive itX0559 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "key": "itX0560",
+      "tag": "itX0560",
+      "description": "Exhaustive itX0560 — dataset=physionet/real graph=knng params={'k': 7, 'sigma': 2.0} (few_nearby, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "physionet"
+      ],
+      "dataset_variant": "real",
+      "mode": "base",
+      "scenarios": [
+        "1ch_nearby",
+        "2ch_nearby",
+        "3ch_nearby"
+      ],
+      "missing_mode": "nearby",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 7,
+            "sigma": 2.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_counts": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

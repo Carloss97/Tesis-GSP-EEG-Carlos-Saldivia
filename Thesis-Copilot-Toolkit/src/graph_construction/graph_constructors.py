@@ -2,6 +2,7 @@
 
 from typing import Any, Dict
 
+import sys
 import numpy as np
 from scipy.spatial.distance import cdist
 from scipy.optimize import nnls
@@ -187,7 +188,29 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
     - positions: matriz (n_electrodos, 2|3).
     - signals: opcional, matriz (n_instantes, n_electrodos) para métodos data-driven.
     """
-    method = method.lower()
+    try:
+        print(f"[DBG build_graph] received method={method!r} (type={type(method).__name__})", file=sys.stderr)
+    except Exception:
+        pass
+
+    # Normalize to string lower-case safely
+    if isinstance(method, str):
+        method = method.lower()
+    else:
+        method = str(method).lower()
+
+    # Backwards-compatibility aliases used in the canonical registry
+    if method == "knn_gaussian":
+        method = "knng"
+    if method == "vknn_gaussian":
+        method = "vknng"
+
+    # Debug: trace unexpected method names during pilot runs
+    if method not in {"knn", "knng", "vknng", "gaussian", "epsilon_ball", "mst", "fully_connected_inverse_distance", "aew", "kalofolias", "visibility", "visibility_nnk", "visibility_graph", "nnk", "vknng", "vknn"}:
+        try:
+            print(f"[DEBUG build_graph] incoming method -> {method!r}", file=sys.stderr)
+        except Exception:
+            pass
     if positions is not None:
         n_nodes = positions.shape[0]
     elif signals is not None:
@@ -381,7 +404,6 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         if signals is None:
             raise ValueError("El método 'visibility_nnk' requiere 'signals' (n_t, n_ch).")
 
-        from scipy.spatial.distance import cdist
         from pathlib import Path
         import importlib.util
         import sys

@@ -1,0 +1,53 @@
+{
+  "generated": "2026-04-21T07:52:14.081972Z",
+  "dataset_variants": [
+    {
+      "dataset": "mne_sample",
+      "variant": null
+    },
+    {
+      "dataset": "bci",
+      "variant": "iv2a_real_s1"
+    },
+    {
+      "dataset": "bci",
+      "variant": "iv2a_real_s2"
+    },
+    {
+      "dataset": "physionet",
+      "variant": "real"
+    },
+    {
+      "dataset": "iris",
+      "variant": "graph_signal"
+    }
+  ],
+  "original_iterations": 50,
+  "compact_iterations": 24,
+  "expanded_iterations": 64,
+  "graph_counts": {
+    "knn": 26,
+    "knn_gaussian": 12,
+    "kaliofolias": 12
+  },
+  "method_counts": {
+    "linear": 50,
+    "ica": 50,
+    "spherical_spline": 50,
+    "rbfi_tps": 50,
+    "tikhonov": 34,
+    "tv": 33,
+    "bgsrp": 17,
+    "idw": 17,
+    "trss": 16,
+    "temporal_laplacian": 16
+  },
+  "cleaned_schedule": "Thesis-Copilot-Toolkit/experiments/schedules/it01-it50_schedule_final_canonical_cleaned.json",
+  "compact_schedule": "Thesis-Copilot-Toolkit/experiments/schedules/it01-it24_schedule_suggested_compact.json",
+  "expanded_schedule": "Thesis-Copilot-Toolkit/experiments/schedules/it01-it064_schedule_suggested_expanded.json",
+  "notes": [
+    "Compact schedule tries a smaller, alternating coverage per dataset.",
+    "Expanded schedule exhaustively combines chosen graphs, parameter sweeps, and both method families.",
+    "Recommendation: run compact first as pilot, then run expanded for full coverage if resources allow."
+  ]
+}
