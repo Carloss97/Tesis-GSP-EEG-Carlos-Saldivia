@@ -381,7 +381,6 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         if signals is None:
             raise ValueError("El método 'visibility_nnk' requiere 'signals' (n_t, n_ch).")
 
-        from scipy.spatial.distance import cdist
         from pathlib import Path
         import importlib.util
         import sys

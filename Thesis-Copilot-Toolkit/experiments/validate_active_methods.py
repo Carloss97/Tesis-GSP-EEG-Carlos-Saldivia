@@ -4,6 +4,11 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
+
+# Ensure repository package `src` is importable when running scripts from
+# the experiments folder or other working directories.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import numpy as np
 import pandas as pd

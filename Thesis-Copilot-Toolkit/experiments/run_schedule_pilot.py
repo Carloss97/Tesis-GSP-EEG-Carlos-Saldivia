@@ -69,6 +69,21 @@ def main(argv: List[str] | None = None) -> int:
         key = d.get("key")
         print(f"--- Running pilot iteration: {key}")
         try:
+            # Prepare and map graph_specs (support shorthand mappings)
+            raw_graph_specs = d.get("graph_specs", [])
+            mapped_graph_specs = []
+            for g in raw_graph_specs:
+                # Expecting entries like [method, params]
+                if isinstance(g, list) and len(g) == 2 and g[0] == "e-nn":
+                    method = "epsilon_ball"
+                    params = dict(g[1]) if isinstance(g[1], dict) else {}
+                    # Normalize parameter name: radius -> epsilon
+                    if "radius" in params:
+                        params["epsilon"] = params.pop("radius")
+                    mapped_graph_specs.append([method, params])
+                else:
+                    mapped_graph_specs.append(g)
+
             # Construct base.IterDef instance from dict
             it = base.IterDef(
                 key=d.get("key"),
@@ -80,7 +95,7 @@ def main(argv: List[str] | None = None) -> int:
                 mode=d.get("mode", "base"),
                 missing_list=d.get("missing_list", [0.2]),
                 seeds=d.get("seeds", [0, 1]),
-                graph_specs=[tuple(g) if isinstance(g, list) and len(g) == 2 else g for g in d.get("graph_specs", [])],
+                graph_specs=[tuple(g) if isinstance(g, list) and len(g) == 2 else g for g in mapped_graph_specs],
                 lambdas=d.get("lambdas", []),
                 snr_levels=d.get("snr_levels", []),
                 methods=d.get("methods", None),
