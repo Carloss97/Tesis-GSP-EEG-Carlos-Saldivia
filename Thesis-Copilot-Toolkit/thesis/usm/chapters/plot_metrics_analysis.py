@@ -74,6 +74,11 @@ def _ensure_core_columns(df):
     df["Grafo"] = df["Grafo"].fillna("N/A")
     df["Metodo"] = df["Metodo"].fillna("N/A")
 
+    # Garantizar que las métricas sean numéricas para evitar errores de cálculo en mean/median
+    for metric in METRIC_COLUMNS:
+        if metric in df.columns:
+            df[metric] = pd.to_numeric(df[metric], errors="coerce")
+
     if "Familia" not in df.columns:
         df["Familia"] = df["Metodo"].apply(_canonical_family)
     else:
@@ -98,11 +103,11 @@ def _filter_extremes(data, metric):
     return data[(data[metric] >= q_low) & (data[metric] <= q_high)]
 
 
-def _plot_family_metric_grid(df_dataset, dataset_name, metrics, output_dir):
+def _plot_family_metric_grid(df_dataset, dataset_name, dataset_metrics, output_dir):
     fig, axes = plt.subplots(2, 3, figsize=(18, 10))
     fig.suptitle(f"Desempeño promedio por familia - Dataset: {dataset_name}", fontsize=16)
 
-    for index, metric in enumerate(metrics):
+    for index, metric in enumerate(dataset_metrics):
         ax = axes[index // 3, index % 3]
         df_metric_filtered = _filter_extremes(df_dataset, metric)
         sns.barplot(
@@ -121,7 +126,7 @@ def _plot_family_metric_grid(df_dataset, dataset_name, metrics, output_dir):
         ax.set_ylabel(f"{metric_label} ({'Menor' if metric in LOWER_IS_BETTER else 'Mayor'} es mejor)")
         ax.tick_params(axis="x", rotation=25)
 
-    for index in range(len(metrics), 6):
+    for index in range(len(dataset_metrics), 6):
         axes[index // 3, index % 3].axis("off")
 
     plt.tight_layout()
@@ -129,11 +134,11 @@ def _plot_family_metric_grid(df_dataset, dataset_name, metrics, output_dir):
     plt.close(fig)
 
 
-def _plot_family_dispersion_grid(df_dataset, dataset_name, metrics, output_dir):
+def _plot_family_dispersion_grid(df_dataset, dataset_name, dataset_metrics, output_dir):
     fig, axes = plt.subplots(2, 3, figsize=(18, 10))
     fig.suptitle(f"Dispersión por familia - Dataset: {dataset_name}", fontsize=16)
 
-    for index, metric in enumerate(metrics):
+    for index, metric in enumerate(dataset_metrics):
         ax = axes[index // 3, index % 3]
         df_metric_filtered = _filter_extremes(df_dataset, metric)
         sns.boxplot(
@@ -150,7 +155,7 @@ def _plot_family_dispersion_grid(df_dataset, dataset_name, metrics, output_dir):
         ax.set_ylabel(metric_label)
         ax.tick_params(axis="x", rotation=25)
 
-    for index in range(len(metrics), 6):
+    for index in range(len(dataset_metrics), 6):
         axes[index // 3, index % 3].axis("off")
 
     plt.tight_layout()
@@ -197,13 +202,22 @@ def _plot_metric_comparison(df_dataset, dataset_name, metric, output_dir):
 
 
 def _export_summary_tables(df, metrics, output_dir):
-    print("\nExportando tablas de resumen a CSV...")
+    # Guardar en una carpeta dedicada a las tablas para mayor claridad
+    tables_dir = output_dir.parent / "tablas_resumen"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+    print(f"\nExportando tablas de resumen a CSV en: {tables_dir} ...")
 
     summary_combinaciones = df.groupby(["Dataset", "Familia", "Combinacion"], as_index=False).agg(
         n_rows=("Metodo", "size"),
         **{metric: (metric, "median") for metric in metrics},
     )
-    summary_combinaciones.to_csv(output_dir / "resumen_combinaciones_mediana.csv", index=False)
+    summary_combinaciones.to_csv(tables_dir / "resumen_combinaciones_mediana.csv", index=False)
+
+    summary_combinaciones_mean = df.groupby(["Dataset", "Familia", "Combinacion"], as_index=False).agg(
+        n_rows=("Metodo", "size"),
+        **{metric: (metric, "mean") for metric in metrics},
+    )
+    summary_combinaciones_mean.to_csv(tables_dir / "resumen_combinaciones_medias.csv", index=False)
 
     family_agg = {"n_rows": ("Metodo", "size")}
     for metric in metrics:
@@ -212,7 +226,53 @@ def _export_summary_tables(df, metrics, output_dir):
         family_agg[f"{metric}_std"] = (metric, "std")
 
     summary_familias = df.groupby(["Dataset", "Familia"], as_index=False).agg(**family_agg)
-    summary_familias.to_csv(output_dir / "resumen_familias_stats.csv", index=False)
+    summary_familias.to_csv(tables_dir / "resumen_familias_stats.csv", index=False)
+
+    # Top 5 recomendaciones (excluyendo Baseline)
+    df_no_baseline = df[df["Familia"] != "Baseline"]
+    recommendations = []
+    
+    # Sistema de puntuación ponderada (Priorizando dinámica sobre amplitud pura)
+    target_weights = {
+        "LSD": 0.35,
+        "COHERENCE_MEAN": 0.25,
+        "DTW": 0.20,
+        "MAE": 0.15,
+        "RMSE": 0.05,
+        "SNR": 0.0
+    }
+
+    for dataset in df_no_baseline["Dataset"].unique():
+        df_ds = df_no_baseline[df_no_baseline["Dataset"] == dataset]
+        grouped = df_ds.groupby(["Familia", "Grafo", "Metodo", "Combinacion"], as_index=False)[metrics].mean()
+        
+        # Identificar qué métricas existen en este dataset específico
+        dataset_metrics = [m for m in metrics if grouped[m].notna().any()]
+        if not dataset_metrics:
+            continue
+        
+        # Calcular Score Compuesto (0 a 1) normalizando las métricas (Min-Max Scaling)
+        score = pd.Series(0.0, index=grouped.index)
+        active_weights_sum = sum(target_weights.get(m, 0.1) for m in dataset_metrics)
+        
+        for m in dataset_metrics:
+            c_min, c_max = grouped[m].min(), grouped[m].max()
+            w = target_weights.get(m, 0.1) / active_weights_sum
+            if c_max > c_min:
+                norm = (c_max - grouped[m]) / (c_max - c_min) if m in LOWER_IS_BETTER else (grouped[m] - c_min) / (c_max - c_min)
+            else:
+                norm = pd.Series(1.0, index=grouped.index) # Sin varianza todos ganan
+            score += norm.fillna(0.0) * w
+            
+        grouped.insert(4, "Composite_Score", score.round(4))
+        grouped = grouped.sort_values(by="Composite_Score", ascending=False).head(5)
+        grouped.insert(0, "Dataset", dataset)
+        grouped.insert(0, "Rank", range(1, len(grouped) + 1))
+        recommendations.append(grouped)
+        
+    if recommendations:
+        df_recs = pd.concat(recommendations, ignore_index=True)
+        df_recs.to_csv(tables_dir / "top5_combinaciones_recomendadas_gsp.csv", index=False)
 
 
 def load_all_iterations(results_dir):
@@ -236,6 +296,9 @@ def load_all_iterations(results_dir):
     df_concat = _rename_columns(df_concat)
     df_concat = _ensure_core_columns(df_concat)
 
+    # Ignorar resultados que utilicen visibility_NNK
+    df_concat = df_concat[~df_concat["Combinacion"].str.contains("visibility_nnk", case=False, na=False)]
+
     return df_concat
 
 
@@ -256,22 +319,32 @@ def generate_metric_plots(results_dir=DEFAULT_RESULTS_DIR, output_dir=DEFAULT_OU
     datasets = [dataset for dataset in pd.unique(df["Dataset"]) if pd.notna(dataset)]
     print(f"Análisis encontrado para los siguientes datasets: {datasets}")
 
+    # Exportar tablas ANTES de graficar asegura que los CSV salgan aunque falle algún gráfico
+    _export_summary_tables(df, metrics, output_path)
+
     for dataset_name in datasets:
         print(f"\n--- Generando gráficos para el dataset: {dataset_name} ---")
         df_dataset = df[df["Dataset"] == dataset_name].copy()
         if df_dataset.empty:
             continue
 
+        dataset_metrics = [m for m in metrics if df_dataset[m].notna().any()]
+        if not dataset_metrics:
+            print(f"No hay métricas válidas para el dataset {dataset_name}. Omitiendo gráficos.")
+            continue
+
         safe_dataset = _safe_name(dataset_name)
 
-        _plot_family_metric_grid(df_dataset, safe_dataset, metrics, output_path)
-        _plot_family_dispersion_grid(df_dataset, safe_dataset, metrics, output_path)
+        try:
+            _plot_family_metric_grid(df_dataset, safe_dataset, dataset_metrics, output_path)
+            _plot_family_dispersion_grid(df_dataset, safe_dataset, dataset_metrics, output_path)
 
-        for metric in metrics:
-            _plot_metric_comparison(df_dataset, safe_dataset, metric, output_path)
+            for metric in dataset_metrics:
+                _plot_metric_comparison(df_dataset, safe_dataset, metric, output_path)
+        except Exception as e:
+            print(f"Error al generar gráficos para el dataset {dataset_name}: {e}. Omitiendo gráficos para este dataset.")
 
-    _export_summary_tables(df, metrics, output_path)
-    print(f"\nGráficos generados exitosamente en {output_path}")
+    print(f"\nProceso finalizado. Gráficos generados en {output_path}")
 
 
 def simulate_dummy_data():
