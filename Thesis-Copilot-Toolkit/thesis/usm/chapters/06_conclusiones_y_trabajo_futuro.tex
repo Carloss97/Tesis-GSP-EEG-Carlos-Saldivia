@@ -14,8 +14,9 @@ La hipotesis de trabajo planteada fue:
 La evidencia acumulada en las fases \ResPhase\ permite responder esta hipotesis de forma matizada:
 
 \begin{itemize}
-\item Los metodos GSP son \textbf{competitivos} frente a baselines clasicos: en MAE y RMSE las diferencias son peque\~nas (Baseline: MAE~$\approx$~\ResBaselineMAE\ vs.\ GSP: MAE~$\approx$~\ResGSPMAE), y la diferencia entre familias es estadisticamente significativa ($p = $\StatFamilyMAEpval).
+\item Los metodos GSP son \textbf{competitivos} frente a baselines clasicos: en MAE las diferencias son peque\~nas (Baseline: MAE~$\approx$~\ResBaselineMAE\ vs.\ GSP: MAE~$\approx$~\ResGSPMAE). Sin embargo, el analisis de \textbf{RMSE revela mayor susceptibilidad a outliers} en los metodos sobre grafos debido a la inestabilidad de la matriz Laplaciana ante grandes perdidas regionales.
 \item Los metodos TV/Tiempo presentan una \textbf{ventaja clara en DTW}: \ResTVDTW\ frente a \ResBaselineDTW\ del Baseline, lo que indica mejor preservacion de la dinamica temporal. Esta diferencia es estadisticamente significativa ($p = $\StatFamilyDTWpval).
+\item En terminos de \textbf{SNR}, los metodos GSP y TV/Tiempo logran un rendimiento global comparable o superior a los baselines, aunque con una mayor varianza inter-sujeto e inter-escenario, evidenciando la alta sensibilidad a los hiperparametros.
 \item La hipotesis se \textbf{confirma parcialmente}: los metodos basados en grafo no siempre dominan en todas las metricas, pero si en las que capturan dimension temporal, que es la mas relevante para analisis de senales EEG.
 \item La superioridad no es universal ni libre de condiciones: el ranking depende del escenario espacial, del nivel de perdida y de la metrica usada. Esto es una conclusion real, no una debilidad.
 \end{itemize}

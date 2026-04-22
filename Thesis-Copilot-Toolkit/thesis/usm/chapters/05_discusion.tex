@@ -6,14 +6,16 @@ En esta etapa del trabajo, la evidencia de la fase \ResPhase\ sugiere que los me
 
 Se identifican tres puntos criticos para el cierre final:
 \begin{itemize}
-\item \textbf{Sensibilidad al protocolo de mascara}: una misma familia puede mejorar o empeorar segun region y severidad de perdida. Por ejemplo, TV/Tiempo lidera en DTW con \ResTVDTW\ frente a Baseline \ResBaselineDTW, pero la ventaja en MAE no es consistente en todos los escenarios.
-\item \textbf{Sensibilidad a hiperparametros}: incluso con pipeline congelado, algunos metodos muestran dispersion no despreciable en SNR y DTW entre corridas repetidas.
+\item \textbf{Sensibilidad al protocolo de mascara}: una misma familia puede mejorar o empeorar segun region y severidad de perdida. Por ejemplo, TV/Tiempo lidera en DTW con \ResTVDTW\ frente a Baseline \ResBaselineDTW, pero la ventaja en metricas de amplitud pura como MAE y RMSE no es consistente en todos los escenarios.
+\item \textbf{Sensibilidad a hiperparametros y generacion de outliers}: incluso con pipeline congelado, los metodos GSP muestran una dispersion no despreciable en SNR. Mas aun, la discrepancia observada entre el MAE (que se mantiene estable) y el RMSE (que presenta picos) sugiere que bajo ciertas topologias mal condicionadas, el Laplaciano genera errores locales de gran magnitud.
 \item \textbf{Brecha de equivalencia BGSRP}: la implementacion Python es un \BGSRPStatus. Hasta no cerrar esta equivalencia, los resultados BGSRP deben interpretarse como indicativos.
 \end{itemize}
 
 \section{Interpretacion de la hipotesis}
 
 Los datos apoyan una lectura matizada de la hipotesis de trabajo. En terminos estadisticos, el contraste de familias instantaneo vs.\ TV/Tiempo \StatFamilyResult\ tanto en MAE ($p = $\StatFamilyMAEpval) como en DTW ($p = $\StatFamilyDTWpval). Esto confirma que la diferencia no es ruido. Sin embargo, la magnitud de la diferencia en MAE es pequena (alrededor de 2--4\% entre familias), mientras que en DTW es mas pronunciada (alrededor de 6\% entre TV/Tiempo y Baseline).
+
+Al incorporar el analisis de RMSE y SNR, la narrativa se clarifica: los baselines clasicos operan como interpoladores geometricos conservadores, minimizando el error absoluto (MAE) pero destruyendo parte de la dinamica temporal. Por su parte, la regularizacion en grafos temporales (TV/Tiempo) preserva la morfologia de la onda (dominando en DTW y promediando mejores SNR globales), pero a costa de introducir ligeros desfases o sensibilidades que el RMSE castiga fuertemente.
 
 La conclusion mas honesta es: los metodos GSP y TV/Tiempo son competitivos, con ventaja real en preservacion temporal, pero sin dominio absoluto en todos los criterios.
 
@@ -27,10 +29,3 @@ Las limitaciones principales del trabajo en esta etapa son:
 \end{enumerate}
 
 En el cierre B3/B4 se adopta una decision Go para revision del paquete de envio, pero con la limitacion INS-13 declarada explicitamente en el checklist final de submission (\code{results/b3_b4_submission_checklist\.md}).
-
-
-
-
-
-
-
