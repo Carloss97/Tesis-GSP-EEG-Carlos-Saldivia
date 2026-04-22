@@ -1,0 +1,356 @@
+{
+  "generated": "2026-04-21T11:08:05.716800Z",
+  "source": "Thesis-Copilot-Toolkit\\experiments\\schedules\\it_exhaustive_from_registry.json",
+  "iterations": [
+    {
+      "key": "itX0001",
+      "tag": "itX0001",
+      "description": "Exhaustive itX0001 — dataset=mne_sample graph=e-nn params={'radius': 0.5} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "epsilon_ball",
+          {
+            "epsilon": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0002",
+      "tag": "itX0002",
+      "description": "Exhaustive itX0002 — dataset=mne_sample graph=e-nn params={'radius': 0.5} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "epsilon_ball",
+          {
+            "epsilon": 0.5
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0057",
+      "tag": "itX0057",
+      "description": "Exhaustive itX0057 — dataset=mne_sample graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0058",
+      "tag": "itX0058",
+      "description": "Exhaustive itX0058 — dataset=mne_sample graph=knng params={'k': 3, 'sigma': 1.0} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "knng",
+          {
+            "k": 3,
+            "sigma": 1.0
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0137",
+      "tag": "itX0137",
+      "description": "Exhaustive itX0137 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_random, instant methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (instantaneous methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {
+            "alpha": 0.1
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "linear",
+        "ica",
+        "spherical_spline",
+        "rbfi_tps",
+        "idw",
+        "tikhonov",
+        "bgsrp",
+        "sobolev"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    },
+    {
+      "key": "itX0138",
+      "tag": "itX0138",
+      "description": "Exhaustive itX0138 — dataset=mne_sample graph=kalofolias params={'alpha': 0.1} (percent_random, TV methods)",
+      "fase": "auto",
+      "objective": "Exhaustive coverage (TV methods).",
+      "datasets": [
+        "mne_sample"
+      ],
+      "dataset_variant": null,
+      "mode": "base",
+      "scenarios": [
+        "10pct_random",
+        "20pct_random",
+        "30pct_random",
+        "40pct_random"
+      ],
+      "missing_mode": "random",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "graph_specs": [
+        [
+          "kalofolias",
+          {
+            "alpha": 0.1
+          }
+        ]
+      ],
+      "lambdas": [
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "snr_levels": [
+        20.0,
+        10.0,
+        5.0,
+        0.0
+      ],
+      "methods": [
+        "trss",
+        "tv",
+        "temporal_laplacian",
+        "visibility_nnk"
+      ],
+      "missing_list": [
+        0.1,
+        0.2,
+        0.3,
+        0.4
+      ]
+    }
+  ]
+}

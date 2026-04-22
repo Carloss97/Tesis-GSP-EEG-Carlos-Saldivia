@@ -108,7 +108,7 @@ The Orchestrator evaluates seven criteria after Phase 3:
 | G3 | ≥ 1 contrast significant (Bonferroni α = 0.05/n) | p < adjusted α |
 | G4 | All CI95 widths finite and positive | `ci95_hi > ci95_lo` |
 | G5 | No QA gate marked FAIL | 0 failures in QA report |
-| G6 | All mandatory figures + 2 tables present | v6: 9 figs + 2 tables, v7: 11 figs + 2 tables |
+| G6 | All mandatory figures + 2 tables present | For each dataset: 8 figures (6 combinations + 2 family summaries) + 2 tables |
 | G7 | Error rate < 10 % | `error_rate < 0.10` |
 
 **Go** = all 7 criteria pass.
@@ -154,20 +154,17 @@ All paths relative to `Thesis-Copilot-Toolkit/`:
 ### Engine v7 (it71–it82): Nuevas figuras y artefactos
 Cada iteración GO debe producir y citar los siguientes artefactos en el manuscrito:
 
-#### Figuras (11 obligatorias)
+#### Figuras (8 por dataset)
 | Key | Description |
 |-----|-------------|
-| fig01_mae_by_method | Bar plot: MAE mean ± CI95 per method |
-| fig02_rmse_boxplot | Box plot: RMSE distribution across seeds |
-| fig03_snr_heatmap | Heatmap: mean SNR (method × missing_ratio) |
-| fig04_dtw_comparison | Bar plot: DTW top-10 methods |
-| fig05_tv_vs_instant_family | Grouped line: TV/Time vs Instant — MAE and RMSE |
-| fig06_scenario_sensitivity | Line plot: MAE vs missing_ratio for top-5 methods |
-| fig07_signal_reconstruction | Signal real vs. reconstruction per interpolated electrode |
-| fig08_temporal_error | Temporal error — MAE per time instant |
-| fig09_topomap | 2D topomap of per-electrode reconstruction error |
-| fig10_instant_vs_full | Instantaneous vs. full-signal reconstruction side-by-side (nuevo v7) |
-| fig11_graph_topology | Graph topology comparison — same data, different graph structures (nuevo v7) |
+| `<dataset>_familia_metricas_promedio` | Family means for MAE/RMSE/DTW/SNR/LSD/coherence_mean |
+| `<dataset>_familia_metricas_dispersion` | Family dispersion for MAE/RMSE/DTW/SNR/LSD/coherence_mean |
+| `<dataset>_combinacion_detallada_mae` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_rmse` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_dtw` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_snr` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_lsd` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_coherence_mean` | Ordered combination distribution (graph|method) |
 
 #### Tablas (2)
 | Key | Description |
@@ -181,7 +178,7 @@ Cada iteración GO debe producir y citar los siguientes artefactos en el manuscr
 
 #### Artefactos por iteración (GO):
 - _raw.csv, _stats.csv, _significance.csv, _qa_report.md, _run_metadata.json, _integration_log.md
-- 11 figuras PDF en paper/ieee/figures/ por iteración
+- 8 figuras por dataset en `results/<tag>_figures/`, copiadas a paper/thesis con prefijo de iteración
 
 
 
@@ -222,7 +219,7 @@ objective     = Confirm TV/Time advantage on alpha band with 25 seeds
 #    → it02_tv_focus_qa_report.md
 
 # 4. Orchestrator runs Phase 3 (Viz/Tables)
-#    → it02_tv_focus_figures/fig01_mae_by_method.pdf  ...fig11
+#    → it02_tv_focus_figures/<dataset>_familia_metricas_promedio.pdf  + 7 figuras adicionales por dataset
 #    → it02_tv_focus_tables/tbl01_main_comparison.tex
 #    → it02_tv_focus_tables/tbl02_significance.tex
 
@@ -295,8 +292,14 @@ The Runner Agent filters and renames the output to `results/<tag>_raw.csv`.
 | RMSE | Root mean squared error | Lower |
 | SNR | Signal-to-noise ratio (dB) | Higher |
 | DTW | Dynamic time warping distance | Lower |
+| LSD | Log spectral distance | Lower |
+| coherence_mean | Mean magnitude-squared coherence | Higher |
 
 Primary metric for ranking: **MAE**.
+
+### Plotting helper for thesis analysis
+
+`thesis/usm/chapters/plot_metrics_analysis.py` now reads `results/it*_raw.csv` from the repository root, not from the current working directory. For each dataset it writes six metric-specific combination plots (`MAE`, `RMSE`, `DTW`, `SNR`, `LSD`, `COHERENCE_MEAN`) plus two family comparison figures, and it exports `resumen_combinaciones_mediana.csv` and `resumen_familias_stats.csv` with the extended metric set.
 
 ---
 
@@ -322,17 +325,14 @@ results/
 ├── <tag>_significance.csv         ← Stats QA: pairwise p-values
 ├── <tag>_qa_report.md             ← Stats QA: gate verdict
 ├── <tag>_figures/
-│   ├── fig01_mae_by_method.pdf
-│   ├── fig02_rmse_boxplot.pdf
-│   ├── fig03_snr_heatmap.pdf
-│   ├── fig04_dtw_comparison.pdf
-│   ├── fig05_tv_vs_instant_family.pdf
-│   ├── fig06_scenario_sensitivity.pdf
-│   ├── fig07_signal_reconstruction.pdf
-│   ├── fig08_temporal_error.pdf
-│   ├── fig09_topomap.pdf
-│   ├── fig10_instant_vs_full.pdf
-│   └── fig11_graph_topology.pdf
+│   ├── <dataset>_familia_metricas_promedio.pdf
+│   ├── <dataset>_familia_metricas_dispersion.pdf
+│   ├── <dataset>_combinacion_detallada_mae.pdf
+│   ├── <dataset>_combinacion_detallada_rmse.pdf
+│   ├── <dataset>_combinacion_detallada_dtw.pdf
+│   ├── <dataset>_combinacion_detallada_snr.pdf
+│   ├── <dataset>_combinacion_detallada_lsd.pdf
+│   └── <dataset>_combinacion_detallada_coherence_mean.pdf
 ├── <tag>_tables/
 │   ├── tbl01_main_comparison.tex
 │   └── tbl02_significance.tex

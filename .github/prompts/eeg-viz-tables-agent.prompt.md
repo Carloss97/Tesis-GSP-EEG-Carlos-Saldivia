@@ -31,23 +31,18 @@ All outputs go to:
 - Figures: `Thesis-Copilot-Toolkit/results/<tag>_figures/`
 - Tables: `Thesis-Copilot-Toolkit/results/<tag>_tables/`
 
-### Mandatory Figures (v6/v7)
-
-Baseline v6: fig01–fig09. Extended v7: fig01–fig11.
+### Mandatory Figures (dataset-aligned)
 
 | File | Content |
 |------|---------|
-| `fig01_mae_by_method.pdf` | Bar plot — MAE mean ± CI95 per method, grouped by dataset |
-| `fig02_rmse_boxplot.pdf` | Box-and-whisker — RMSE distribution per method across seeds |
-| `fig03_snr_heatmap.pdf` | Heatmap — mean SNR (method × scenario) |
-| `fig04_dtw_comparison.pdf` | Bar plot — DTW mean ± std when available; alternate metric summary otherwise |
-| `fig05_tv_vs_instant_family.pdf` | Grouped bar — TV/Time family vs Instant family, MAE and RMSE |
-| `fig06_scenario_sensitivity.pdf` | Line plot — MAE vs scenario for top-5 methods |
-| `fig07_signal_reconstruction.pdf` | Signal real vs reconstrucción por electrodo interpolado |
-| `fig08_temporal_error.pdf` | Error temporal — MAE por instante |
-| `fig09_topomap.pdf` | Topomap 2D de error por electrodo |
-| `fig10_instant_vs_full.pdf` | Instantaneous vs full-signal reconstruction side-by-side |
-| `fig11_graph_topology.pdf` | Graph topology comparison on same data |
+| `<dataset>_familia_metricas_promedio.pdf` | 2x3 family means for MAE/RMSE/DTW/SNR/LSD/coherence_mean |
+| `<dataset>_familia_metricas_dispersion.pdf` | 2x3 family dispersion for MAE/RMSE/DTW/SNR/LSD/coherence_mean |
+| `<dataset>_combinacion_detallada_mae.pdf` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_rmse.pdf` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_dtw.pdf` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_snr.pdf` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_lsd.pdf` | Ordered combination distribution (graph|method) |
+| `<dataset>_combinacion_detallada_coherence_mean.pdf` | Ordered combination distribution (graph|method) |
 
 ### Mandatory Tables (2)
 
@@ -364,19 +359,25 @@ print("[tbl02] saved")
 ### Step 9 — Validate all artefacts and emit summary
 
 ```python
-required_figs = [
-    "fig01_mae_by_method.pdf", "fig02_rmse_boxplot.pdf", "fig03_snr_heatmap.pdf",
-    "fig04_dtw_comparison.pdf", "fig05_tv_vs_instant_family.pdf", "fig06_scenario_sensitivity.pdf",
-    "fig07_signal_reconstruction.pdf", "fig08_temporal_error.pdf", "fig09_topomap.pdf",
-]
-required_figs_v7 = [
-    "fig10_instant_vs_full.pdf", "fig11_graph_topology.pdf",
+required_suffixes = [
+    "familia_metricas_promedio.pdf",
+    "familia_metricas_dispersion.pdf",
+    "combinacion_detallada_mae.pdf",
+    "combinacion_detallada_rmse.pdf",
+    "combinacion_detallada_dtw.pdf",
+    "combinacion_detallada_snr.pdf",
+    "combinacion_detallada_lsd.pdf",
+    "combinacion_detallada_coherence_mean.pdf",
 ]
 required_tbls = ["tbl01_main_comparison.tex", "tbl02_significance.tex"]
-
-is_v7_iteration = tag.startswith("it7") or tag.startswith("it8")
-required_all = required_figs + required_figs_v7 if is_v7_iteration else required_figs
-missing_figs = [f for f in required_all if not (FIG_DIR / f).exists()]
+datasets = sorted(raw_df["dataset"].dropna().unique()) if "dataset" in raw_df.columns else []
+missing_figs = []
+for ds in datasets:
+    ds_name = str(ds).replace("/", "_").replace(" ", "_")
+    for suf in required_suffixes:
+        fname = f"{ds_name}_{suf}"
+        if not (FIG_DIR / fname).exists():
+            missing_figs.append(fname)
 missing_tbls = [t for t in required_tbls if not (TBL_DIR / t).exists()]
 
 status = "OK" if not missing_figs and not missing_tbls else "FAIL"

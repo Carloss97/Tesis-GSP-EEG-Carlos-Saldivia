@@ -151,9 +151,30 @@ def main(argv: List[str] | None = None) -> int:
         print(f"Schedule normalization failed: {exc}")
 
     sched = json.loads(args.schedule.read_text(encoding="utf-8"))
-    iterations = sched.get("iterations", [])
-    if not iterations:
+    raw_iterations = sched.get("iterations", [])
+    if not raw_iterations:
         print("Schedule contains no iterations.")
+        return 0
+
+    iterations: List[Dict[str, Any]] = []
+    skipped_invalid: List[Dict[str, Any]] = []
+    for idx, it in enumerate(raw_iterations, start=1):
+        if not isinstance(it, dict):
+            skipped_invalid.append({"index": idx, "reason": "not_an_object"})
+            continue
+        if not it.get("tag"):
+            skipped_invalid.append({"index": idx, "reason": "missing_tag", "key": it.get("key")})
+            continue
+        if not it.get("datasets"):
+            skipped_invalid.append({"index": idx, "reason": "missing_datasets", "key": it.get("key") or it.get("tag")})
+            continue
+        iterations.append(it)
+
+    if skipped_invalid:
+        print(f"Skipped invalid iterations during batching: {len(skipped_invalid)}")
+
+    if not iterations:
+        print("No valid iterations left after validation.")
         return 0
 
     n_batches = min(args.n_batches, len(iterations))
@@ -172,6 +193,7 @@ def main(argv: List[str] | None = None) -> int:
     summary: Dict[str, Any] = {
         "created_batches": [str(p) for p in batch_files],
         "n_batches": len(batch_files),
+        "skipped_invalid_iterations": skipped_invalid,
         "generated": datetime.utcnow().isoformat() + "Z",
     }
 

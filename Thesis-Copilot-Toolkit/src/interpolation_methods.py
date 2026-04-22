@@ -239,15 +239,23 @@ def interpolate_signals(
             "info": {"method": "directed_tv", "alpha": alpha, "beta": beta, "n_iter": n_iter},
         }
 
-    if method in {"adaptive_temporal", "visibility_graphs", "visibility_graph"}:
+    if method in {"adaptive_temporal", "visibility_graphs", "visibility_graph", "visibility_nnk"}:
         alpha = float(kwargs.get("alpha", 0.55))
         beta = float(kwargs.get("beta", 0.2))
-        gamma = float(kwargs.get("gamma", 0.05))
+        # Support legacy visibility_nnk parameters from schedules.
+        gamma = float(kwargs.get("gamma", kwargs.get("visibility_threshold", 0.05)))
         n_iter = int(kwargs.get("n_iter", 100))
         reconstructed = interpolate_visibility_graphs(signals, adjacency=adjacency, alpha=alpha, beta=beta, gamma=gamma, n_iter=n_iter)
         return {
             "reconstructed": reconstructed,
-            "info": {"method": "visibility_graphs", "alpha": alpha, "beta": beta, "gamma": gamma, "n_iter": n_iter},
+            "info": {
+                "method": "visibility_graphs",
+                "requested_method": method,
+                "alpha": alpha,
+                "beta": beta,
+                "gamma": gamma,
+                "n_iter": n_iter,
+            },
         }
 
     if method == "puy":
@@ -392,27 +400,71 @@ def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random
         comp = max(1, min(n_t - 1, n_ch)) if n_t > 1 else 1
 
     try:
-        with warnings.catch_warnings(record=True) as w:
-            warnings.simplefilter("always")
-            ica = FastICA(n_components=comp, random_state=int(random_state), max_iter=10000, tol=1e-4)
-            S = ica.fit_transform(x)
-            X_rec = ica.inverse_transform(S)
+        # Retry strategy for unstable FastICA convergence.
+        attempts = [
+            {"n_components": comp, "max_iter": 10000, "tol": 1e-4},
+            {"n_components": max(1, comp - 1), "max_iter": 20000, "tol": 1e-3},
+        ]
 
-        # collect any warnings (e.g., ConvergenceWarning)
-        warn_list: List[Dict[str, str]] = []
-        for ww in w:
-            cat = getattr(ww, 'category', None)
-            cat_name = cat.__name__ if cat is not None else 'Warning'
-            msg = str(ww.message)
-            warn_list.append({"category": cat_name, "message": msg})
-            try:
-                record_warning("ica", cat_name, msg, severity="warning", decision="investigate", context={"n_components": comp, "n_t": n_t, "n_ch": n_ch, "random_state": int(random_state)})
-            except Exception:
-                pass
+        selected_warns: List[Dict[str, str]] = []
+        x_rec_selected = None
+
+        for attempt in attempts:
+            with warnings.catch_warnings(record=True) as w:
+                warnings.simplefilter("always")
+                ica = FastICA(
+                    n_components=int(attempt["n_components"]),
+                    random_state=int(random_state),
+                    max_iter=int(attempt["max_iter"]),
+                    tol=float(attempt["tol"]),
+                )
+                s_comp = ica.fit_transform(x)
+                x_rec_try = ica.inverse_transform(s_comp)
+
+            warn_list: List[Dict[str, str]] = []
+            has_convergence_warning = False
+            for ww in w:
+                cat = getattr(ww, "category", None)
+                cat_name = cat.__name__ if cat is not None else "Warning"
+                msg = str(ww.message)
+                warn_list.append({"category": cat_name, "message": msg})
+                if "ConvergenceWarning" in cat_name or "did not converge" in msg:
+                    has_convergence_warning = True
+                try:
+                    record_warning(
+                        "ica",
+                        cat_name,
+                        msg,
+                        severity="warning",
+                        decision="investigate",
+                        context={
+                            "n_components": int(attempt["n_components"]),
+                            "n_t": n_t,
+                            "n_ch": n_ch,
+                            "random_state": int(random_state),
+                            "max_iter": int(attempt["max_iter"]),
+                            "tol": float(attempt["tol"]),
+                        },
+                    )
+                except Exception:
+                    pass
+
+            selected_warns = warn_list
+            x_rec_selected = x_rec_try
+            if not has_convergence_warning:
+                break
+
+        if x_rec_selected is None:
+            raise RuntimeError("ICA reconstruction failed without output matrix")
+
+        # If convergence warning persists after retries, use a deterministic fallback.
+        if any(("ConvergenceWarning" in w.get("category", "") or "did not converge" in w.get("message", "")) for w in selected_warns):
+            reconstructed = interpolate_linear(y)
+            return reconstructed, [{"category": "ConvergenceWarning", "message": "FastICA no convergio tras reintentos; se aplico fallback lineal."}]
 
         reconstructed = y.copy()
-        reconstructed[miss] = X_rec[miss]
-        return reconstructed, warn_list
+        reconstructed[miss] = x_rec_selected[miss]
+        return reconstructed, selected_warns
     except Exception as exc:
         # Safe fallback: fill missing with column mean and record error
         try:

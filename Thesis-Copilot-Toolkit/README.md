@@ -6,7 +6,7 @@ El uso de tecnicas de interpolacion basadas en grafos (GSP) permite reconstruir 
 ## Objetivos
 1. Implementar y comparar metodos de construccion de grafos para EEG.
 2. Implementar y comparar metodos de interpolacion (GSP, baselines clasicos y metodos temporales).
-3. Evaluar desempeno con MAE, RMSE, DTW y SNR.
+3. Evaluar desempeno con MAE, RMSE, DTW, SNR, LSD y coherence_mean.
 4. Consolidar resultados para paper cientifico y tesis.
 
 ## Pipeline general
@@ -14,8 +14,9 @@ El uso de tecnicas de interpolacion basadas en grafos (GSP) permite reconstruir 
 2. Construccion de grafo
 3. Simulacion de canales faltantes
 4. Reconstruccion/interpolacion
-5. Evaluacion cuantitativa y ranking
-6. Analisis y reporte
+5. Evaluacion cuantitativa, ranking y trazabilidad de la señal reconstruida
+6. Ejecucion por lotes de schedules exhaustivos con `run_schedule_in_batches.py`
+7. Analisis y reporte
 
 ## Estructura
 - `experiments/`: scripts de experimentacion
@@ -26,6 +27,10 @@ El uso de tecnicas de interpolacion basadas en grafos (GSP) permite reconstruir 
 - `backlog.md`: estado de tareas y metodos
 - `REFERENCES.md`: referencias por metodo
 - `VALIDATION_REPORT.md`: estado paper-faithful
+
+El flujo `it_exhaustive_from_registry` se ejecuta mediante `experiments/run_schedule_in_batches.py`, que divide el schedule en batches y delega la ejecucion al runner piloto con normalizacion de aliases para `kalofolias`.
+
+La guia de analisis `thesis/usm/chapters/plot_metrics_analysis.py` lee `results/it*_raw.csv` desde la raiz del repositorio y genera, por dataset, seis graficas por combinacion de metodos mas dos graficas por familia. Los CSV de resumen incluyen `LSD` y `COHERENCE_MEAN`.
 
 ## Estructura documental de investigacion (abril 2026)
 

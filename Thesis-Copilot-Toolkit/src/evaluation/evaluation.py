@@ -19,6 +19,7 @@ def evaluate_signals(
     metrics: list | None = None,
     normalize: bool | None = None,
     norm_method: str | None = None,
+    sfreq: float | None = None,
 ) -> Dict[str, Any]:
     """Evaluate metrics between `original` and `reconstructed`.
 
@@ -26,7 +27,7 @@ def evaluate_signals(
     controls behavior (0/1). `norm_method` defaults to env `NORM_METHOD` or 'rms'.
     """
     if metrics is None:
-        metrics = ["mae", "rmse", "dtw", "snr"]
+        metrics = ["mae", "rmse", "dtw", "snr", "lsd", "coherence_mean"]
 
     # env-driven defaults
     if normalize is None:
@@ -53,6 +54,10 @@ def evaluate_signals(
             results["dtw"] = dtw_distance(orig_n, rec_n)
         elif key == "snr":
             results["snr"] = snr(orig_n, rec_n)
+        elif key == "lsd":
+            results["lsd"] = log_spectral_distance(orig_n, rec_n)
+        elif key == "coherence_mean":
+            results["coherence_mean"] = coherence_mean(orig_n, rec_n, sfreq=sfreq)
     return results
 
 
@@ -234,3 +239,126 @@ def snr(y_true: np.ndarray, y_pred: np.ndarray) -> float:
                 continue
             snr_vals.append(10.0 * np.log10(np.var(signal) / noise_var))
         return float(np.mean(snr_vals)) if snr_vals else float("nan")
+
+
+def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """Average log spectral distance (LSD) across channels/signals."""
+    eps = 1e-12
+
+    if y_true.ndim == 1:
+        mask = ~np.isnan(y_true)
+        if np.sum(mask) < 2:
+            return float("nan")
+        x = y_true[mask]
+        y = y_pred[mask]
+        x_mag = np.abs(np.fft.rfft(x)) + eps
+        y_mag = np.abs(np.fft.rfft(y)) + eps
+        lx = np.log(x_mag)
+        ly = np.log(y_mag)
+        return float(np.sqrt(np.mean((lx - ly) ** 2)))
+
+    _, n_ch = y_true.shape
+    vals = []
+    for ch in range(n_ch):
+        mask = ~np.isnan(y_true[:, ch])
+        if np.sum(mask) < 2:
+            continue
+        x = y_true[mask, ch]
+        y = y_pred[mask, ch]
+        x_mag = np.abs(np.fft.rfft(x)) + eps
+        y_mag = np.abs(np.fft.rfft(y)) + eps
+        lx = np.log(x_mag)
+        ly = np.log(y_mag)
+        vals.append(float(np.sqrt(np.mean((lx - ly) ** 2))))
+    return float(np.mean(vals)) if vals else float("nan")
+
+
+def coherence_mean(y_true: np.ndarray, y_pred: np.ndarray, sfreq: float | None = None) -> float:
+    """Weighted mean EEG coherence across canonical frequency bands.
+
+    For non-EEG/non-specified datasets (`sfreq` is None), returns NaN by design.
+    """
+    if sfreq is None or not np.isfinite(float(sfreq)) or float(sfreq) <= 0:
+        return float("nan")
+
+    try:
+        from scipy.signal import coherence as scipy_coherence, welch
+    except Exception:
+        return float("nan")
+
+    bands = [
+        ("delta", 0.5, 4.0),
+        ("theta", 4.0, 8.0),
+        ("alpha", 8.0, 13.0),
+        ("beta", 13.0, 30.0),
+        ("gamma", 30.0, 45.0),
+    ]
+
+    def _weighted_band_coh(x: np.ndarray, y: np.ndarray) -> float:
+        n = int(len(x))
+        if n < 64:
+            return float("nan")
+
+        # Force multiple Welch segments; single-segment coherence often collapses to ~1.
+        nperseg = int(min(max(64, n // 8), 256))
+        if nperseg >= n:
+            return float("nan")
+        noverlap = nperseg // 2
+        step = max(1, nperseg - noverlap)
+        n_segments = 1 + (n - nperseg) // step
+        if n_segments < 2:
+            return float("nan")
+
+        f, coh = scipy_coherence(x, y, fs=float(sfreq), nperseg=nperseg, noverlap=noverlap)
+        fp, pxx = welch(x, fs=float(sfreq), nperseg=nperseg, noverlap=noverlap)
+
+        band_vals = []
+        band_weights = []
+        for _, lo, hi in bands:
+            mask_c = (f >= lo) & (f < hi)
+            mask_p = (fp >= lo) & (fp < hi)
+            if not np.any(mask_c):
+                continue
+            cval = float(np.nanmean(coh[mask_c]))
+            if not np.isfinite(cval):
+                continue
+            pwr = float(np.nansum(pxx[mask_p])) if np.any(mask_p) else 0.0
+            band_vals.append(cval)
+            band_weights.append(max(0.0, pwr))
+
+        if not band_vals:
+            return float("nan")
+        w = np.asarray(band_weights, dtype=float)
+        v = np.asarray(band_vals, dtype=float)
+        if np.nansum(w) <= 0:
+            return float(np.nanmean(v))
+        return float(np.nansum(v * w) / np.nansum(w))
+
+    if y_true.ndim == 1:
+        mask = ~np.isnan(y_true)
+        n = int(np.sum(mask))
+        if n < 64:
+            return float("nan")
+        x = y_true[mask]
+        y = y_pred[mask]
+        try:
+            return _weighted_band_coh(x, y)
+        except Exception:
+            return float("nan")
+
+    _, n_ch = y_true.shape
+    vals = []
+    for ch in range(n_ch):
+        mask = ~np.isnan(y_true[:, ch])
+        n = int(np.sum(mask))
+        if n < 64:
+            continue
+        x = y_true[mask, ch]
+        y = y_pred[mask, ch]
+        try:
+            cval = _weighted_band_coh(x, y)
+            if np.isfinite(cval):
+                vals.append(float(cval))
+        except Exception:
+            continue
+    return float(np.mean(vals)) if vals else float("nan")

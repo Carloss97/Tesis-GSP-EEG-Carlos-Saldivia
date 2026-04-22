@@ -55,6 +55,10 @@ Note: the orchestrator may include `normalize` and `missing_mode` in the inputs;
 - `results/<iteration_tag>_run_metadata.json` — reproducibility metadata
 - Console summary with total rows, datasets covered, missing/errored combinations
 
+The raw CSV should carry the extended metric set used by the current pipeline (`mae`, `rmse`, `snr`, `dtw`, `lsd`, `coherence_mean`) and the serialized reconstructed signal when available.
+
+When `run_schedule_in_batches.py` is used, the orchestrator must expect canonical graph names in the batch files and allow the pilot runner to normalize legacy aliases before execution.
+
 **Failure condition:** If the CSV is missing or has fewer rows than `(|datasets| × |graphs| × |methods| × |scenarios| × |seeds|) × 0.80`, halt and report Phase 1 failure.
 
 ### Phase 2 — Stats QA Agent
@@ -63,7 +67,7 @@ Note: the orchestrator may include `normalize` and `missing_mode` in the inputs;
 - `results/<iteration_tag>_raw.csv` from Phase 1
 
 **Exit contract:**
-- `results/<iteration_tag>_stats.csv` — per-(method, scenario) mean ± std, CI95 for MAE, RMSE, SNR (and DTW if available)
+- `results/<iteration_tag>_stats.csv` — per-(method, scenario) mean ± std, CI95 for MAE, RMSE, SNR, LSD, coherence_mean (and DTW if available)
 - `results/<iteration_tag>_significance.csv` — Wilcoxon/Mann-Whitney p-values for key contrasts
 - `results/<iteration_tag>_qa_report.md` — checklist of QA tests passed/failed
 
@@ -78,17 +82,14 @@ Note: the orchestrator may include `normalize` and `missing_mode` in the inputs;
 
 **Exit contract:**
 All artefacts saved under `results/<iteration_tag>_figures/` and `results/<iteration_tag>_tables/`:
-- `fig01_mae_by_method.pdf`
-- `fig02_rmse_boxplot.pdf`
-- `fig03_snr_heatmap.pdf`
-- `fig04_dtw_comparison.pdf` (or alternate fig04 when DTW is unavailable)
-- `fig05_tv_vs_instant_family.pdf`
-- `fig06_scenario_sensitivity.pdf`
-- `fig07_signal_reconstruction.pdf`
-- `fig08_temporal_error.pdf`
-- `fig09_topomap.pdf`
-- `fig10_instant_vs_full.pdf` (v7)
-- `fig11_graph_topology.pdf` (v7)
+- `<dataset>_familia_metricas_promedio.pdf` (2x3 family means for MAE/RMSE/DTW/SNR/LSD/coherence_mean)
+- `<dataset>_familia_metricas_dispersion.pdf` (2x3 family dispersion for the same metrics)
+- `<dataset>_combinacion_detallada_mae.pdf`
+- `<dataset>_combinacion_detallada_rmse.pdf`
+- `<dataset>_combinacion_detallada_dtw.pdf`
+- `<dataset>_combinacion_detallada_snr.pdf`
+- `<dataset>_combinacion_detallada_lsd.pdf`
+- `<dataset>_combinacion_detallada_coherence_mean.pdf`
 - `tbl01_main_comparison.tex` — LaTeX table: method vs scenario, MAE/RMSE/SNR
 - `tbl02_significance.tex` — LaTeX table: key pairwise p-values
 
@@ -118,7 +119,7 @@ Evaluate after Phase 3. Decision is **Go** only when ALL criteria pass:
 | G3 | At least one key contrast significant | p < 0.05 Bonferroni-adjusted | `_significance.csv` |
 | G4 | CI95 widths are finite and non-degenerate | all CI widths > 0 | `_stats.csv` |
 | G5 | No QA gate marked FAIL | 0 failures | `_qa_report.md` |
-| G6 | All mandatory figures and tables present | v6: 9 figs + 2 tables, v7: 11 figs + 2 tables (fig04 can be DTW or alternate) | Phase 3 artefacts |
+| G6 | All mandatory figures and tables present | For each dataset: 8 figures (6 combinations + 2 family summaries) + 2 tables per iteration | Phase 3 artefacts |
 | G7 | Fewer than 10 % of combinations errored | < 10 % error rate | `_run_metadata.json` |
 
 ### Verdict emission

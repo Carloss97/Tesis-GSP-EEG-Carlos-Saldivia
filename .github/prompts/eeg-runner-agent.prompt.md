@@ -37,6 +37,8 @@ Produce a reproducible raw results CSV and run metadata JSON that satisfy the en
 
 Core required: `dataset`, `graph`, `method`, `missing_ratio`, `mae`, `rmse`, `snr`
 
+Recommended for the current batch pipeline: `dtw`, `lsd`, `coherence_mean`, `reconstructed_signal`
+
 Optional (if present): `scenario_label`, `seed`, `dtw`, `error`, `best_params`, `family`, `n_missing`, `missing_indices`
 
 ### Required metadata JSON fields
@@ -187,13 +189,15 @@ Phase 1 exit: OK ✓  /  FAIL ✗
 
 `knn_k3`, `knn_k5`, `knng_k4`, `vknng_k4`, `gaussian`, `nnk_k4`, `aew_k4`, `kalofolias`
 
+When schedules are expanded in batches, keep `kalofolias` canonical and normalize legacy `kaliofolias` only at schedule import time.
+
 ## Interpolation Methods Available
 
 Instant (baselines): `linear`, `ica`, `spherical_spline`, `rbfi_tps`
 
-GSP / graph-regularization (métodos a probar): `gsp`, `tikhonov`, `bgsrp`, `gsmooth`, `idw`
+GSP / graph-regularization (métodos a probar): `tikhonov`, `bgsrp`, `gsmooth`, `idw`
 
-TV/Time: `graph_time_tikhonov`, `trss`, `tv`, `temporal_laplacian`, `sobolev_temporal` (exclude: `directed_tv`, `heat_diffusion_temporal`, `wavelet_temporal`)
+TV/Time: `trss`, `tv`, `temporal_laplacian`, `sobolev_temporal` (exclude: `directed_tv`, `heat_diffusion_temporal`, `wavelet_temporal`)
 
 ## Error Handling
 

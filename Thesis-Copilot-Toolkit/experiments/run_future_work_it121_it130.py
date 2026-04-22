@@ -134,7 +134,12 @@ def _bci_dataset(subject: int, data_root: Path) -> Dict[str, Any]:
     pos = np.asarray(d.get("positions"), dtype=float)
     if pos.ndim != 2 or pos.shape[0] != x.shape[1]:
         pos = _safe_positions(x.shape[1])
-    return {"signals": x, "positions": pos, "dataset": f"bci_iv2a_real_s{subject}"}
+    return {
+        "signals": x,
+        "positions": pos,
+        "dataset": f"bci_iv2a_real_s{subject}",
+        "sfreq": float(d.get("info", {}).get("sfreq", np.nan)),
+    }
 
 
 def _mat_first_2d_numeric(obj: Any) -> np.ndarray | None:
@@ -202,6 +207,12 @@ def _load_movielens(u_data_path: Path) -> Dict[str, Any]:
     return {"signals": x, "positions": pos, "dataset": "movielens_graph_signal"}
 
 
+def _is_eeg_dataset_name(name: str) -> bool:
+    n = str(name).lower()
+    eeg_tokens = ["eeg", "mne", "physionet", "bci", "iv100hz"]
+    return any(tok in n for tok in eeg_tokens)
+
+
 def load_data_availability() -> Dict[str, Any]:
     ds_root = ROOT / "datasets"
     info: Dict[str, Any] = {
@@ -223,7 +234,12 @@ def load_data_availability() -> Dict[str, Any]:
         pos = np.asarray(d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != x.shape[1]:
             pos = _safe_positions(x.shape[1])
-        data["physionet_real"] = {"signals": x, "positions": pos, "dataset": "physionet_eegmmidb_real"}
+        data["physionet_real"] = {
+            "signals": x,
+            "positions": pos,
+            "dataset": "physionet_eegmmidb_real",
+            "sfreq": float(d.get("info", {}).get("sfreq", np.nan)),
+        }
         info["physionet_real"] = {"ok": True, "shape": list(x.shape)}
     except Exception as exc:
         info["physionet_real"] = {"ok": False, "reason": str(exc)}
@@ -235,7 +251,12 @@ def load_data_availability() -> Dict[str, Any]:
         pos = np.asarray(mne_d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != x.shape[1]:
             pos = _safe_positions(x.shape[1])
-        data["mne_sample"] = {"signals": x, "positions": pos, "dataset": "mne_sample"}
+        data["mne_sample"] = {
+            "signals": x,
+            "positions": pos,
+            "dataset": "mne_sample",
+            "sfreq": float(mne_d.get("info", {}).get("sfreq", np.nan)),
+        }
         info["mne_sample"] = {"ok": True, "shape": list(x.shape)}
     except Exception as exc:
         info["mne_sample"] = {"ok": False, "reason": str(exc)}
@@ -252,6 +273,7 @@ def load_data_availability() -> Dict[str, Any]:
 
     try:
         mat_d = _load_mat_100hz(ds_root / "100Hz" / "data_set_IVa_aa.mat")
+        mat_d["sfreq"] = 100.0
         data["iv100hz_mat"] = mat_d
         info["iv100hz_mat"] = {"ok": True, "shape": list(np.asarray(mat_d["signals"]).shape)}
     except Exception as exc:
@@ -276,7 +298,7 @@ def load_data_availability() -> Dict[str, Any]:
 
 def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarray, *,
                     missing_list: List[Any], seeds: List[int], graph_specs: List[Tuple[str, Dict[str, Any]]],
-                    methods: List[str]) -> pd.DataFrame:
+                    methods: List[str], sfreq: float | None = None, is_eeg: bool = True) -> pd.DataFrame:
     rows: List[Dict[str, Any]] = []
 
     for graph_method, graph_params in graph_specs:
@@ -357,7 +379,15 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(signals, rec, metrics=CORE_METRICS)
+                    met = evaluate_signals(
+                        signals,
+                        rec,
+                        metrics=CORE_METRICS,
+                        sfreq=(sfreq if is_eeg else None),
+                    )
+                    coh_val = met.get("coherence_mean", np.nan)
+                    if not is_eeg:
+                        coh_val = np.nan
 
                     rows.append({
                         "dataset": dataset_name,
@@ -370,7 +400,7 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "lsd": float(met.get("lsd", np.nan)),
-                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
+                        "coherence_mean": float(coh_val) if np.isfinite(coh_val) else np.nan,
                         "params": json.dumps(kwargs, ensure_ascii=False),
                         "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
@@ -381,7 +411,8 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
 
 
 def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np.ndarray, *,
-                           lambdas: List[float], seeds: List[int], graph_specs: List[Tuple[str, Dict[str, Any]]]) -> pd.DataFrame:
+                           lambdas: List[float], seeds: List[int], graph_specs: List[Tuple[str, Dict[str, Any]]],
+                           sfreq: float | None = None, is_eeg: bool = True) -> pd.DataFrame:
     rows: List[Dict[str, Any]] = []
     tv_methods = ["tv", "graph_time_tikhonov", "trss", "temporal_laplacian"]
 
@@ -423,7 +454,15 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(signals, rec, metrics=CORE_METRICS)
+                    met = evaluate_signals(
+                        signals,
+                        rec,
+                        metrics=CORE_METRICS,
+                        sfreq=(sfreq if is_eeg else None),
+                    )
+                    coh_val = met.get("coherence_mean", np.nan)
+                    if not is_eeg:
+                        coh_val = np.nan
                     rows.append({
                         "dataset": dataset_name,
                         "graph": graph_tag,
@@ -435,7 +474,7 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "lsd": float(met.get("lsd", np.nan)),
-                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
+                        "coherence_mean": float(coh_val) if np.isfinite(coh_val) else np.nan,
                         "params": json.dumps(kwargs, ensure_ascii=False),
                         "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
@@ -448,7 +487,7 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
 
 def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarray, *,
                      snr_levels: List[float], seeds: List[int], graph_specs: List[Tuple[str, Dict[str, Any]]],
-                     methods: List[str]) -> pd.DataFrame:
+                     methods: List[str], sfreq: float | None = None, is_eeg: bool = True) -> pd.DataFrame:
     rows: List[Dict[str, Any]] = []
 
     for graph_method, graph_params in graph_specs:
@@ -497,7 +536,15 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(noisy, rec, metrics=CORE_METRICS)
+                    met = evaluate_signals(
+                        noisy,
+                        rec,
+                        metrics=CORE_METRICS,
+                        sfreq=(sfreq if is_eeg else None),
+                    )
+                    coh_val = met.get("coherence_mean", np.nan)
+                    if not is_eeg:
+                        coh_val = np.nan
                     rows.append({
                         "dataset": dataset_name,
                         "graph": graph_tag,
@@ -509,7 +556,7 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
                         "lsd": float(met.get("lsd", np.nan)),
-                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
+                        "coherence_mean": float(coh_val) if np.isfinite(coh_val) else np.nan,
                         "params": json.dumps(kwargs, ensure_ascii=False),
                         "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
@@ -572,79 +619,133 @@ def _write_figures(tag: str, df: pd.DataFrame):
     rfig = RESULTS / f"{tag}_figures"
     rfig.mkdir(parents=True, exist_ok=True)
 
-    method_stats = df.groupby("method", as_index=False)["mae"].mean().sort_values("mae")
+    metric_specs: List[Tuple[str, str, bool]] = [
+        ("mae", "MAE", True),
+        ("rmse", "RMSE", True),
+        ("dtw", "DTW", True),
+        ("snr", "SNR", False),
+        ("lsd", "LSD", True),
+        ("coherence_mean", "coherence_mean", False),
+    ]
 
-    for i in range(1, 12):
-        fig, ax = plt.subplots(figsize=(6.0, 3.6))
-        if i == 1:
-            ax.barh(method_stats["method"], method_stats["mae"])
-            ax.set_title("MAE by method")
-        elif i == 2:
-            ax.boxplot([df[df["method"] == m]["rmse"].values for m in method_stats["method"]], tick_labels=method_stats["method"], vert=False)
-            ax.set_title("RMSE by method")
-        elif i == 3:
-            piv = df.pivot_table(index="method", columns="missing_ratio", values="snr", aggfunc="mean")
-            im = ax.imshow(piv.values, aspect="auto")
-            ax.set_yticks(range(len(piv.index)))
-            ax.set_yticklabels(piv.index, fontsize=6)
-            ax.set_xticks(range(len(piv.columns)))
-            ax.set_xticklabels([str(c) for c in piv.columns], fontsize=7)
-            ax.set_title("SNR heatmap")
-            fig.colorbar(im, ax=ax, fraction=0.046)
-        elif i == 4:
-            ax.scatter(df["mae"], df["rmse"], s=8, alpha=0.5)
-            ax.set_title("MAE vs RMSE")
-        elif i == 5:
-            fam = df.copy()
-            fam["family"] = np.where(fam["method"].isin(TV_METHODS), "TV", "Instant")
-            g = fam.groupby(["family", "missing_ratio"], as_index=False)["mae"].median()
-            for f in g["family"].unique():
-                s = g[g["family"] == f]
-                ax.plot(s["missing_ratio"].astype(str), s["mae"], marker="o", label=f)
-            ax.legend(fontsize=7)
-            ax.set_title("TV vs Instant")
-        elif i == 6:
-            top = method_stats["method"].head(5)
-            for m in top:
-                s = df[df["method"] == m].groupby("missing_ratio", as_index=False)["mae"].mean()
-                ax.plot(s["missing_ratio"].astype(str), s["mae"], marker="o", label=m)
-            ax.legend(fontsize=6)
-            ax.set_title("Scenario sensitivity")
-        elif i == 7:
-            y = np.sin(np.linspace(0, 4 * np.pi, 200))
-            ax.plot(y, label="real")
-            ax.plot(y + np.random.default_rng(7).normal(0, 0.08, len(y)), label="recon")
-            ax.legend(fontsize=7)
-            ax.set_title("Signal reconstruction")
-        elif i == 8:
-            e = np.abs(np.random.default_rng(8).normal(0.2, 0.07, 200))
-            ax.plot(e)
-            ax.set_title("Temporal error")
-        elif i == 9:
-            pts = np.random.default_rng(9).normal(0, 1, (64, 2))
-            vals = np.random.default_rng(10).uniform(0, 1, 64)
-            sc = ax.scatter(pts[:, 0], pts[:, 1], c=vals, s=18)
-            fig.colorbar(sc, ax=ax, fraction=0.046)
-            ax.set_title("Topomap proxy")
-        elif i == 10:
-            x = np.linspace(0, 2 * np.pi, 200)
-            ax.plot(x, np.sin(x), label="instant")
-            ax.plot(x, np.sin(x) * 0.95, label="full")
-            ax.legend(fontsize=7)
-            ax.set_title("Instant vs full")
-        else:
-            pts = np.random.default_rng(11).normal(0, 1, (30, 2))
-            ax.scatter(pts[:, 0], pts[:, 1], s=12)
-            ax.set_title("Graph topology")
+    baseline_methods = {"linear", "ica", "spherical_spline", "rbfi_tps", "rbfi"}
 
-        ax.grid(alpha=0.2)
+    def _sanitize_name(value: Any) -> str:
+        return str(value).replace("/", "_").replace(" ", "_")
+
+    def _family_for_method(method_name: str) -> str:
+        m = str(method_name).lower()
+        if m in baseline_methods or "spline" in m:
+            return "Baseline"
+        if m in TV_METHODS:
+            return "TV/Tiempo"
+        return "GSP Instantáneo"
+
+    def _filter_extremes(local_df: pd.DataFrame, metric_col: str) -> pd.DataFrame:
+        if metric_col not in local_df.columns or local_df[metric_col].isnull().all():
+            return local_df
+        q_low, q_high = local_df[metric_col].quantile(0.05), local_df[metric_col].quantile(0.95)
+        return local_df[(local_df[metric_col] >= q_low) & (local_df[metric_col] <= q_high)]
+
+    generated: List[str] = []
+
+    for dataset_name in sorted(df["dataset"].dropna().unique().tolist()):
+        ddf = df[df["dataset"] == dataset_name].copy()
+        if ddf.empty:
+            continue
+
+        dname = _sanitize_name(dataset_name)
+        ddf["family"] = ddf["method"].apply(_family_for_method)
+        ddf["combination"] = ddf["dataset"].astype(str) + " | " + ddf["graph"].astype(str) + " | " + ddf["method"].astype(str)
+
+        # Family mean comparison grid (2x3)
+        fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+        fig.suptitle(f"Average performance by family - dataset: {dataset_name}", fontsize=14)
+        for idx, (col, label, lower_is_better) in enumerate(metric_specs):
+            ax = axes[idx // 3, idx % 3]
+            if col not in ddf.columns:
+                ax.axis("off")
+                continue
+            fdf = _filter_extremes(ddf, col)
+            grp = (
+                fdf.groupby("family", as_index=False)[col]
+                .mean()
+                .sort_values(col, ascending=lower_is_better)
+            )
+            ax.bar(grp["family"], grp[col], color=["#5b8db8", "#7bbf6a", "#e07b54"][: len(grp)])
+            ax.set_title(label)
+            ax.set_ylabel(f"{label} ({'lower' if lower_is_better else 'higher'} is better)")
+            ax.tick_params(axis="x", rotation=20)
+            ax.grid(alpha=0.2)
         fig.tight_layout()
-        short_name = f"fig{i:02d}.pdf"
-        pref_name = f"{tag}_fig{i:02d}.pdf"
-        fig.savefig(rfig / short_name)
-        fig.savefig(PAPER_FIGS / pref_name)
-        fig.savefig(THESIS_FIGS / pref_name)
+        out_name = f"{dname}_familia_metricas_promedio.pdf"
+        fig.savefig(rfig / out_name)
         plt.close(fig)
+        generated.append(out_name)
+
+        # Family dispersion grid (2x3)
+        fig, axes = plt.subplots(2, 3, figsize=(18, 10))
+        fig.suptitle(f"Family dispersion by metric - dataset: {dataset_name}", fontsize=14)
+        for idx, (col, label, _) in enumerate(metric_specs):
+            ax = axes[idx // 3, idx % 3]
+            if col not in ddf.columns:
+                ax.axis("off")
+                continue
+            fdf = _filter_extremes(ddf, col)
+            grouped = [
+                fdf[fdf["family"] == fam][col].dropna().values
+                for fam in ["Baseline", "GSP Instantáneo", "TV/Tiempo"]
+                if not fdf[fdf["family"] == fam].empty
+            ]
+            labels = [
+                fam
+                for fam in ["Baseline", "GSP Instantáneo", "TV/Tiempo"]
+                if not fdf[fdf["family"] == fam].empty
+            ]
+            if grouped:
+                ax.boxplot(grouped, tick_labels=labels, showfliers=False)
+                ax.tick_params(axis="x", rotation=20)
+            ax.set_title(label)
+            ax.grid(alpha=0.2)
+        fig.tight_layout()
+        out_name = f"{dname}_familia_metricas_dispersion.pdf"
+        fig.savefig(rfig / out_name)
+        plt.close(fig)
+        generated.append(out_name)
+
+        # Per-metric ordered combinations (6 files)
+        for col, label, lower_is_better in metric_specs:
+            if col not in ddf.columns:
+                continue
+            fdf = _filter_extremes(ddf, col)
+            if fdf.empty:
+                continue
+            med = fdf.groupby("combination", as_index=False)[col].median().sort_values(col, ascending=lower_is_better)
+            order = med["combination"].tolist()
+            series = [fdf[fdf["combination"] == c][col].dropna().values for c in order]
+            fig_h = max(6.0, 0.28 * len(order))
+            fig, ax = plt.subplots(figsize=(14, fig_h))
+            ax.boxplot(series, tick_labels=order, vert=False, showfliers=False)
+            ax.set_title(f"{label} distribution by graph-method combination - dataset: {dataset_name}")
+            ax.set_xlabel(f"{label} ({'lower' if lower_is_better else 'higher'} is better)")
+            ax.set_ylabel("Combination (graph | method)")
+            cleaned_labels = [txt.replace(f"{dataset_name} | ", "") for txt in order]
+            ax.set_yticklabels(cleaned_labels, fontsize=8)
+            ax.grid(alpha=0.2)
+            fig.tight_layout()
+            out_name = f"{dname}_combinacion_detallada_{col}.pdf"
+            fig.savefig(rfig / out_name)
+            plt.close(fig)
+            generated.append(out_name)
+
+    for short_name in sorted(set(generated)):
+        src = rfig / short_name
+        if not src.exists():
+            continue
+        pref_name = f"{tag}_{short_name}"
+        src_bytes = src.read_bytes()
+        (PAPER_FIGS / pref_name).write_bytes(src_bytes)
+        (THESIS_FIGS / pref_name).write_bytes(src_bytes)
 
 
 def _write_artifacts(it: IterDef, df: pd.DataFrame, availability: Dict[str, Any], extra_meta: Dict[str, Any] | None = None):
@@ -798,6 +899,12 @@ def _run_iteration(
             x, norm_meta = _normalize_signals(x_raw, method="zscore")
             norm_by_dataset[actual_key] = norm_meta
 
+            sfreq = d.get("sfreq")
+            try:
+                sfreq = float(sfreq) if sfreq is not None else None
+            except Exception:
+                sfreq = None
+
             pos = np.asarray(d.get("positions"), dtype=float)
         if pos.ndim != 2 or pos.shape[0] != np.asarray(d["signals"]).shape[1]:
             pos = _safe_positions(np.asarray(d["signals"]).shape[1])
@@ -807,6 +914,7 @@ def _run_iteration(
             pos = pos[idx]
 
         ds_name = d.get("dataset", ds_key)
+        is_eeg = _is_eeg_dataset_name(actual_key) or _is_eeg_dataset_name(ds_name)
         try:
             print(f"[DBG it_def] key={it.key!r} graph_specs={it.graph_specs!r}", file=sys.stderr)
             for idx, gs in enumerate(it.graph_specs):
@@ -815,11 +923,40 @@ def _run_iteration(
             pass
 
         if it.mode == "lambda":
-            df = _iter_rows_lambda_grid(ds_name, x, pos, lambdas=it.lambdas, seeds=it.seeds, graph_specs=it.graph_specs)
+            df = _iter_rows_lambda_grid(
+                ds_name,
+                x,
+                pos,
+                lambdas=it.lambdas,
+                seeds=it.seeds,
+                graph_specs=it.graph_specs,
+                sfreq=sfreq,
+                is_eeg=is_eeg,
+            )
         elif it.mode == "noise":
-            df = _iter_rows_noise(ds_name, x, pos, snr_levels=it.snr_levels, seeds=it.seeds, graph_specs=it.graph_specs, methods=methods)
+            df = _iter_rows_noise(
+                ds_name,
+                x,
+                pos,
+                snr_levels=it.snr_levels,
+                seeds=it.seeds,
+                graph_specs=it.graph_specs,
+                methods=methods,
+                sfreq=sfreq,
+                is_eeg=is_eeg,
+            )
         else:
-            df = _iter_rows_base(ds_name, x, pos, missing_list=it.missing_list, seeds=it.seeds, graph_specs=it.graph_specs, methods=methods)
+            df = _iter_rows_base(
+                ds_name,
+                x,
+                pos,
+                missing_list=it.missing_list,
+                seeds=it.seeds,
+                graph_specs=it.graph_specs,
+                methods=methods,
+                sfreq=sfreq,
+                is_eeg=is_eeg,
+            )
 
         if not df.empty:
             frames.append(df)

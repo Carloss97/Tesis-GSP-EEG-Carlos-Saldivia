@@ -173,21 +173,21 @@ Bonferroni-adjusted).
 
 \\input{{tables/{tag}_tbl01_main_comparison}}
 
-Figures~\\ref{{fig:{tag}_fig01}} through~\\ref{{fig:{tag}_fig11}} illustrate the
-per-method and per-scenario distributions of all four metrics.
+Figures generated for iteration \\texttt{{{tag}}} follow the dataset-aligned contract
+(family summary + per-metric ordered combinations for MAE/RMSE/DTW/SNR/LSD/coherence\\_mean).
 
 \\begin{{figure}}[ht]
   \\centering
-  \\includegraphics[width=\\linewidth]{{figures/{tag}_fig01_mae_by_method}}
-  \\caption{{MAE by method (mean $\\pm$ CI95). TV/Time methods in orange; Instant in blue.
+  \\includegraphics[width=\\linewidth]{{figures/{tag}_mne_sample_familia_metricas_promedio}}
+  \\caption{{Family-level summary metrics (MAE/RMSE/DTW/SNR/LSD/coherence\\_mean).
     Iteration: \\texttt{{{tag}}}.}}
   \\label{{fig:{tag}_fig01}}
 \\end{{figure}}
 
 \\begin{{figure}}[ht]
   \\centering
-  \\includegraphics[width=\\linewidth]{{figures/{tag}_fig05_tv_vs_instant_family}}
-  \\caption{{TV/Time vs.\\ Instant method family — MAE and RMSE across missing-ratio scenarios.
+  \\includegraphics[width=\\linewidth]{{figures/{tag}_mne_sample_combinacion_detallada_mae}}
+  \\caption{{Ordered method-graph combinations by MAE distribution.
     Iteration: \\texttt{{{tag}}}.}}
   \\label{{fig:{tag}_fig05}}
 \\end{{figure}}
@@ -227,21 +227,21 @@ corrección de Bonferroni).
 
 \\input{{tables/{tag}_tbl01_main_comparison}}
 
-Las Figuras~\\ref{{fig:{tag}_fig01}} a~\\ref{{fig:{tag}_fig11}} ilustran las distribuciones
-de todas las métricas por método y escenario.
+Las figuras de la iteración \\texttt{{{tag}}} siguen el contrato alineado por dataset
+(resumen por familia + comparaciones ordenadas por combinación método-grafo para MAE/RMSE/DTW/SNR/LSD/coherence\\_mean).
 
 \\begin{{figure}}[ht]
   \\centering
-  \\includegraphics[width=\\linewidth]{{figures/{tag}_fig01_mae_by_method}}
-  \\caption{{MAE por método (media $\\pm$ IC95). Métodos TV/Tiempo en naranja; Instantáneos en azul.
+  \\includegraphics[width=\\linewidth]{{figures/{tag}_mne_sample_familia_metricas_promedio}}
+  \\caption{{Resumen por familia para las métricas MAE/RMSE/DTW/SNR/LSD/coherence\\_mean.
     Iteración: \\texttt{{{tag}}}.}}
   \\label{{fig:{tag}_fig01}}
 \\end{{figure}}
 
 \\begin{{figure}}[ht]
   \\centering
-  \\includegraphics[width=\\linewidth]{{figures/{tag}_fig06_scenario_sensitivity}}
-  \\caption{{Sensibilidad al porcentaje de canales faltantes — MAE para los 5 mejores métodos.
+  \\includegraphics[width=\\linewidth]{{figures/{tag}_mne_sample_combinacion_detallada_mae}}
+  \\caption{{Comparación ordenada de combinaciones método-grafo por distribución de MAE.
     Iteración: \\texttt{{{tag}}}.}}
   \\label{{fig:{tag}_fig06}}
 \\end{{figure}}
@@ -332,7 +332,7 @@ print(f"[Integrator] Log saved: {tag}_integration_log.md")
 
 Before reporting completion, verify:
 
-- [ ] All 11 figures copied to `paper/ieee/figures/` and `thesis/usm/figures/`
+- [ ] All dataset-aligned figures copied to `paper/ieee/figures/` and `thesis/usm/figures/`
 - [ ] Both `.tex` tables copied to `paper/ieee/tables/` and `thesis/usm/tables/`
 - [ ] `results.tex` contains new `\subsection` block with `\label{sec:results_<tag>}`
 - [ ] `04_experimentos_y_resultados.tex` contains new `\subsection` block with `\label{sec:resultados_<tag>}`

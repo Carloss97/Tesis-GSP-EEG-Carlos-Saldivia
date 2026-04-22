@@ -72,8 +72,28 @@ def main(argv: List[str] | None = None) -> int:
     failed: List[Dict[str, Any]] = []
     completed: List[str] = []
 
-    for d in iters:
-        key = d.get("key")
+    for idx, d in enumerate(iters, start=1):
+        if not isinstance(d, dict):
+            failed.append({"iteration": f"index_{idx}", "error": "malformed_iteration: expected object"})
+            print(f"[SKIPPED] index_{idx}: malformed iteration entry")
+            if args.stop_on_error:
+                break
+            continue
+
+        key = d.get("key") or d.get("tag") or f"index_{idx}"
+        if not d.get("tag"):
+            failed.append({"iteration": key, "error": "missing_required_field: tag"})
+            print(f"[SKIPPED] {key}: missing field 'tag'")
+            if args.stop_on_error:
+                break
+            continue
+        if not d.get("datasets"):
+            failed.append({"iteration": key, "error": "missing_required_field: datasets"})
+            print(f"[SKIPPED] {key}: missing field 'datasets'")
+            if args.stop_on_error:
+                break
+            continue
+
         print(f"--- Running pilot iteration: {key}")
         try:
             # Prepare and map graph_specs (support shorthand mappings)
@@ -145,6 +165,7 @@ def main(argv: List[str] | None = None) -> int:
     if failed:
         out = base.RESULTS / "pilot_skipped_iterations.json"
         out.write_text(json.dumps(failed, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Detailed skip report: {out}")
 
     print("Pilot completed. Success:", completed)
     if failed:

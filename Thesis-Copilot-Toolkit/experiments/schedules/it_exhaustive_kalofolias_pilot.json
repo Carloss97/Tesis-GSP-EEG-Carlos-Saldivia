@@ -1,0 +1,480 @@
+{
+    "generated":  "2026-04-22T11:22:47.1575996Z",
+    "source":  "it_exhaustive_from_registry",
+    "tags":  [
+                 "itX0137",
+                 "itX0138",
+                 "itX0297",
+                 "itX0298",
+                 "itX0617",
+                 "itX0618",
+                 "itX0777",
+                 "itX0778"
+             ],
+    "iterations":  [
+                       {
+                           "key":  "itX0137",
+                           "tag":  "itX0137",
+                           "description":  "Exhaustive itX0137 — dataset=mne_sample graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, instant methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (instantaneous methods).",
+                           "datasets":  [
+                                            "mne_sample"
+                                        ],
+                           "dataset_variant":  null,
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "linear",
+                                           "ica",
+                                           "spherical_spline",
+                                           "rbfi_tps",
+                                           "idw",
+                                           "tikhonov",
+                                           "bgsrp",
+                                           "sobolev"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0138",
+                           "tag":  "itX0138",
+                           "description":  "Exhaustive itX0138 — dataset=mne_sample graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, TV methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (TV methods).",
+                           "datasets":  [
+                                            "mne_sample"
+                                        ],
+                           "dataset_variant":  null,
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "trss",
+                                           "tv",
+                                           "temporal_laplacian",
+                                           "visibility_nnk"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0297",
+                           "tag":  "itX0297",
+                           "description":  "Exhaustive itX0297 — dataset=bci/iv2a_real_s1 graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, instant methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (instantaneous methods).",
+                           "datasets":  [
+                                            "bci"
+                                        ],
+                           "dataset_variant":  "iv2a_real_s1",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "linear",
+                                           "ica",
+                                           "spherical_spline",
+                                           "rbfi_tps",
+                                           "idw",
+                                           "tikhonov",
+                                           "bgsrp",
+                                           "sobolev"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0298",
+                           "tag":  "itX0298",
+                           "description":  "Exhaustive itX0298 — dataset=bci/iv2a_real_s1 graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, TV methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (TV methods).",
+                           "datasets":  [
+                                            "bci"
+                                        ],
+                           "dataset_variant":  "iv2a_real_s1",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "trss",
+                                           "tv",
+                                           "temporal_laplacian",
+                                           "visibility_nnk"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0617",
+                           "tag":  "itX0617",
+                           "description":  "Exhaustive itX0617 — dataset=physionet/real graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, instant methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (instantaneous methods).",
+                           "datasets":  [
+                                            "physionet"
+                                        ],
+                           "dataset_variant":  "real",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "linear",
+                                           "ica",
+                                           "spherical_spline",
+                                           "rbfi_tps",
+                                           "idw",
+                                           "tikhonov",
+                                           "bgsrp",
+                                           "sobolev"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0618",
+                           "tag":  "itX0618",
+                           "description":  "Exhaustive itX0618 — dataset=physionet/real graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, TV methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (TV methods).",
+                           "datasets":  [
+                                            "physionet"
+                                        ],
+                           "dataset_variant":  "real",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "trss",
+                                           "tv",
+                                           "temporal_laplacian",
+                                           "visibility_nnk"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0777",
+                           "tag":  "itX0777",
+                           "description":  "Exhaustive itX0777 — dataset=iris/graph_signal graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, instant methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (instantaneous methods).",
+                           "datasets":  [
+                                            "iris"
+                                        ],
+                           "dataset_variant":  "graph_signal",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "linear",
+                                           "ica",
+                                           "spherical_spline",
+                                           "rbfi_tps",
+                                           "idw",
+                                           "tikhonov",
+                                           "bgsrp",
+                                           "sobolev"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       },
+                       {
+                           "key":  "itX0778",
+                           "tag":  "itX0778",
+                           "description":  "Exhaustive itX0778 — dataset=iris/graph_signal graph=kalofolias params={\u0027alpha\u0027: 0.1} (percent_random, TV methods)",
+                           "fase":  "auto",
+                           "objective":  "Exhaustive coverage (TV methods).",
+                           "datasets":  [
+                                            "iris"
+                                        ],
+                           "dataset_variant":  "graph_signal",
+                           "mode":  "base",
+                           "scenarios":  [
+                                             "10pct_random",
+                                             "20pct_random",
+                                             "30pct_random",
+                                             "40pct_random"
+                                         ],
+                           "missing_mode":  "random",
+                           "seeds":  [
+                                         0,
+                                         1,
+                                         2
+                                     ],
+                           "graph_specs":  [
+                                               [
+                                                   "kalofolias",
+                                                   {
+                                                       "alpha":  0.1
+                                                   }
+                                               ]
+                                           ],
+                           "lambdas":  [
+                                           0.05,
+                                           0.1,
+                                           0.2,
+                                           0.4
+                                       ],
+                           "snr_levels":  [
+                                              20.0,
+                                              10.0,
+                                              5.0,
+                                              0.0
+                                          ],
+                           "methods":  [
+                                           "trss",
+                                           "tv",
+                                           "temporal_laplacian",
+                                           "visibility_nnk"
+                                       ],
+                           "missing_list":  [
+                                                0.1,
+                                                0.2,
+                                                0.3,
+                                                0.4
+                                            ]
+                       }
+                   ]
+}
