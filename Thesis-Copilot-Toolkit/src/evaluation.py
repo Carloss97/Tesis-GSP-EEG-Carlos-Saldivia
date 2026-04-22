@@ -16,7 +16,7 @@ def evaluate_signals(original: np.ndarray, reconstructed: np.ndarray, metrics: l
     Retorna un diccionario con los valores de cada métrica.
     """
     if metrics is None:
-        metrics = ['mae', 'rmse', 'dtw', 'snr']
+        metrics = ['mae', 'rmse', 'dtw', 'snr', 'lsd', 'coherence_mean']
     results = {}
     for metric in metrics:
         if metric == 'mae':
@@ -27,7 +27,53 @@ def evaluate_signals(original: np.ndarray, reconstructed: np.ndarray, metrics: l
             results['dtw'] = dtw_distance(original, reconstructed)
         elif metric == 'snr':
             results['snr'] = snr(original, reconstructed)
+        elif metric == 'lsd':
+            results['lsd'] = log_spectral_distance(original, reconstructed)
+        elif metric == 'coherence_mean':
+            results['coherence_mean'] = coherence_mean(original, reconstructed)
     return results
+
+
+def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """Average log spectral distance (LSD) over channels."""
+    _, n_ch = y_true.shape
+    values = []
+    for ch in range(n_ch):
+        mask = ~np.isnan(y_true[:, ch])
+        if np.sum(mask) < 2:
+            continue
+        x = y_true[mask, ch]
+        y = y_pred[mask, ch]
+        x_mag = np.abs(np.fft.rfft(x)) + 1e-12
+        y_mag = np.abs(np.fft.rfft(y)) + 1e-12
+        lx = np.log(x_mag)
+        ly = np.log(y_mag)
+        values.append(float(np.sqrt(np.mean((lx - ly) ** 2))))
+    return float(np.mean(values)) if values else np.nan
+
+
+def coherence_mean(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    """Average magnitude-squared coherence over channels."""
+    try:
+        from scipy.signal import coherence as scipy_coherence
+    except Exception:
+        return np.nan
+
+    _, n_ch = y_true.shape
+    values = []
+    for ch in range(n_ch):
+        mask = ~np.isnan(y_true[:, ch])
+        n = int(np.sum(mask))
+        if n < 4:
+            continue
+        x = y_true[mask, ch]
+        y = y_pred[mask, ch]
+        try:
+            _, coh = scipy_coherence(x, y, nperseg=min(256, n))
+            values.append(float(np.nanmean(coh)))
+        except Exception:
+            continue
+    return float(np.mean(values)) if values else np.nan
 
 
 def mean_absolute_error(y_true: np.ndarray, y_pred: np.ndarray) -> float:

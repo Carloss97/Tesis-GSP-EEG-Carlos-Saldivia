@@ -18,7 +18,9 @@
 - WHEN se ejecuta la interpolación, THE SYSTEM SHALL reconstruir los canales faltantes y guardar los resultados.
 
 ## 5. Evaluación y comparación
-- WHEN se dispone de señales originales y reconstruidas, THE SYSTEM SHALL calcular métricas de desempeño (MAE, DTW, RMSE, SNR).
+- WHEN se dispone de señales originales y reconstruidas, THE SYSTEM SHALL calcular métricas de desempeño (MAE, DTW, RMSE, SNR, LSD, coherence_mean).
+- WHEN se exporta el archivo raw CSV de una iteración, THE SYSTEM SHALL incluir las columnas `lsd` y `coherence_mean` por corrida.
+- WHEN se exporta el archivo raw CSV de una iteración, THE SYSTEM SHALL incluir la señal reconstruida serializada (`reconstructed_signal`) para trazabilidad experimento-a-señal.
 - WHEN se calculan las métricas, THE SYSTEM SHALL generar tablas y figuras comparativas y un ranking automatizado de métodos.
 
 ## 6. Análisis y reporte

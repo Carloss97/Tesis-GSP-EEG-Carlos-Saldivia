@@ -38,6 +38,7 @@ def main(argv: List[str] | None = None) -> int:
     parser.add_argument("--schedule", type=Path, default=SCHEDULE_DEFAULT)
     parser.add_argument("--tags", nargs="*", default=None, help="Optional subset of iteration keys to run (e.g. it17 it48)")
     parser.add_argument("--stop-on-error", action="store_true")
+    parser.add_argument("--light-profile", action="store_true", help="Use operational-close profile in base runner")
     args = parser.parse_args(argv)
 
     if not args.schedule.exists():
@@ -88,6 +89,7 @@ def main(argv: List[str] | None = None) -> int:
                         "e-nn": "epsilon_ball",
                         "knn_gaussian": "knng",
                         "vknn_gaussian": "vknng",
+                        "kaliofolias": "kalofolias",
                     }
                     method_key = method_raw.lower()
                     method = alias_map.get(method_key, method_raw)
@@ -96,6 +98,19 @@ def main(argv: List[str] | None = None) -> int:
                     if method == "epsilon_ball":
                         if "radius" in params:
                             params["epsilon"] = params.pop("radius")
+
+                    # Normalize legacy graph parameters to current constructor signatures.
+                    if method == "aew":
+                        if "alpha" in params and "beta" not in params:
+                            params["beta"] = params.pop("alpha")
+                        params.setdefault("k", 4)
+                        params.setdefault("sigma", "median")
+
+                    if method == "kalofolias":
+                        if "alpha" in params and "a" not in params:
+                            params["a"] = params.pop("alpha")
+                        params.setdefault("a", 1.0)
+                        params.setdefault("b", 1.0)
 
                     mapped_graph_specs.append([method, params])
                 else:
@@ -118,7 +133,7 @@ def main(argv: List[str] | None = None) -> int:
                 methods=d.get("methods", None),
             )
 
-            base._run_iteration(it, availability, data, operational_close_profile=False)
+            base._run_iteration(it, availability, data, operational_close_profile=bool(args.light_profile))
             completed.append(key)
             print(f"[OK] {key}")
         except Exception as exc:

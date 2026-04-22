@@ -20,6 +20,11 @@
 
 ## Fase 5: Evaluación y comparación
 - Implementar cálculo de métricas (MAE, DTW, RMSE, SNR).
+- [x] Extender evaluación con LSD (Log Spectral Distance).
+- [x] Extender evaluación con coherence_mean (Magnitude-Squared Coherence promedio).
+- [x] Integrar LSD/coherence_mean en el runner de schedules it_exhaustive.
+- [x] Incluir `reconstructed_signal` serializada en `*_raw.csv`.
+- [x] Verificar robustez de mapeo de `kalofolias` para corridas por schedule/batches.
 - Automatizar generación de tablas, figuras y ranking.
 
 ## Fase 6: Análisis y reporte

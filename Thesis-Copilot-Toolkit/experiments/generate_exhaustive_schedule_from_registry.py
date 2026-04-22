@@ -55,6 +55,8 @@ def build_param_space():
         ],
         'nnk': [{'k': 3}, {'k': 5}],
         'aew': [{'alpha': 0.1}, {'alpha': 0.5}],
+        'kalofolias': [{'alpha': 0.1}, {'alpha': 1.0}],
+        # Legacy alias support
         'kaliofolias': [{'alpha': 0.1}, {'alpha': 1.0}],
         'e-nn': [{'radius': 0.5}, {'radius': 1.0}],
         'visibility_nnk': [{'k': 3, 'visibility_threshold': 0.5}, {'k': 5, 'visibility_threshold': 0.8}]
@@ -119,6 +121,9 @@ def main():
 
     for (dataset, variant) in dataset_variants:
         for graph in registry.get('graph_constructors', []):
+            graph = mappings.get(graph, graph)
+            if graph == 'kaliofolias':
+                graph = 'kalofolias'
             params_list = param_space.get(graph, [{}])
             groups = scenario_groups()
             for params in params_list:

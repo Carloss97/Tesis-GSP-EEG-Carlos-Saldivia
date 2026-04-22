@@ -12,7 +12,7 @@
     "vknng",
     "nnk",
     "aew",
-    "kaliofolias",
+    "kalofolias",
     "visibility_nnk"
   ],
   "methods_instantaneous": [
@@ -38,7 +38,7 @@
   ],
   "mappings": {
     "gaussian": "knng",
-    "kalofolias": "kaliofolias",
+    "kaliofolias": "kalofolias",
     "sobolev_temporal": "trss",
     "rbfi": "rbfi_tps"
   },

@@ -39,6 +39,7 @@ THESIS_FIGS = ROOT / "thesis" / "usm" / "figures"
 INSTANT_METHODS = ["mean", "nearest", "tikhonov"]
 TV_METHODS = ["tv", "trss", "graph_time_tikhonov", "temporal_laplacian"]
 METHODS = INSTANT_METHODS + TV_METHODS
+CORE_METRICS = ["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"]
 
 
 @dataclass
@@ -98,6 +99,12 @@ def _add_noise_to_snr(x: np.ndarray, snr_db: float, seed: int) -> np.ndarray:
     noise_pow = sig_pow / (10 ** (snr_db / 10.0))
     noise = rng.normal(0.0, np.sqrt(noise_pow), size=x.shape)
     return x + noise
+
+
+def _serialize_reconstructed_signal(x: np.ndarray) -> str:
+    """Serialize reconstructed signal matrix as JSON for raw CSV traceability."""
+    arr = np.asarray(x, dtype=float)
+    return json.dumps(arr.tolist(), ensure_ascii=False)
 
 
 def _normalize_signals(x: np.ndarray, method: str = "zscore") -> Tuple[np.ndarray, Dict[str, Any]]:
@@ -350,7 +357,7 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(signals, rec, metrics=["mae", "rmse", "snr", "dtw"])
+                    met = evaluate_signals(signals, rec, metrics=CORE_METRICS)
 
                     rows.append({
                         "dataset": dataset_name,
@@ -362,7 +369,10 @@ def _iter_rows_base(dataset_name: str, signals: np.ndarray, positions: np.ndarra
                         "rmse": float(met["rmse"]),
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
+                        "lsd": float(met.get("lsd", np.nan)),
+                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
                         "params": json.dumps(kwargs, ensure_ascii=False),
+                        "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
                         "n_missing_ch": int(n_missing),
                         "time_sec": float(elapsed),
@@ -413,7 +423,7 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(signals, rec, metrics=["mae", "rmse", "snr", "dtw"])
+                    met = evaluate_signals(signals, rec, metrics=CORE_METRICS)
                     rows.append({
                         "dataset": dataset_name,
                         "graph": graph_tag,
@@ -424,7 +434,10 @@ def _iter_rows_lambda_grid(dataset_name: str, signals: np.ndarray, positions: np
                         "rmse": float(met["rmse"]),
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
+                        "lsd": float(met.get("lsd", np.nan)),
+                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
                         "params": json.dumps(kwargs, ensure_ascii=False),
+                        "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
                         "n_missing_ch": int(round(0.2 * signals.shape[1])),
                         "time_sec": float(elapsed),
@@ -484,7 +497,7 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                         error_msg = f"interp_exception: {exc}"
 
                     elapsed = time.perf_counter() - t0
-                    met = evaluate_signals(noisy, rec, metrics=["mae", "rmse", "snr", "dtw"])
+                    met = evaluate_signals(noisy, rec, metrics=CORE_METRICS)
                     rows.append({
                         "dataset": dataset_name,
                         "graph": graph_tag,
@@ -495,7 +508,10 @@ def _iter_rows_noise(dataset_name: str, signals: np.ndarray, positions: np.ndarr
                         "rmse": float(met["rmse"]),
                         "snr": float(met["snr"]),
                         "dtw": float(met["dtw"]),
+                        "lsd": float(met.get("lsd", np.nan)),
+                        "coherence_mean": float(met.get("coherence_mean", np.nan)),
                         "params": json.dumps(kwargs, ensure_ascii=False),
+                        "reconstructed_signal": _serialize_reconstructed_signal(rec),
                         "error": error_msg,
                         "n_missing_ch": int(round(0.2 * signals.shape[1])),
                         "time_sec": float(elapsed),

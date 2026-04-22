@@ -2,7 +2,6 @@
 
 from typing import Any, Dict
 
-import sys
 import numpy as np
 from scipy.spatial.distance import cdist
 from scipy.optimize import nnls
@@ -188,12 +187,6 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
     - positions: matriz (n_electrodos, 2|3).
     - signals: opcional, matriz (n_instantes, n_electrodos) para métodos data-driven.
     """
-    try:
-        print(f"[DBG build_graph] received method={method!r} (type={type(method).__name__})", file=sys.stderr)
-    except Exception:
-        pass
-
-
     # Normalize to string lower-case safely
     if isinstance(method, str):
         method = method.lower()
@@ -209,12 +202,6 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
     if method == "kaliofolias":
         method = "kalofolias"
 
-    # Debug: trace unexpected method names during pilot runs
-    if method not in {"knn", "knng", "vknng", "gaussian", "epsilon_ball", "mst", "fully_connected_inverse_distance", "aew", "kalofolias", "visibility", "visibility_nnk", "visibility_graph", "nnk", "vknng", "vknn"}:
-        try:
-            print(f"[DEBUG build_graph] incoming method -> {method!r}", file=sys.stderr)
-        except Exception:
-            pass
     if positions is not None:
         n_nodes = positions.shape[0]
     elif signals is not None:
@@ -331,39 +318,63 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         y = np.asarray(signals, dtype=float)
         if y.ndim != 2:
             raise ValueError("'signals' debe tener forma (n_t, n_ch)")
-        X = y  # shape (n_t, n_ch) => (d, n)
+        y = np.nan_to_num(y, nan=0.0, posinf=0.0, neginf=0.0)
+        y_mean = np.mean(y, axis=0, keepdims=True)
+        y_std = np.std(y, axis=0, keepdims=True)
+        y_std = np.where(y_std <= 1e-12, 1.0, y_std)
+        X = (y - y_mean) / y_std  # shape (n_t, n_ch) => (d, n)
 
         # local import to avoid top-level dependency
         try:
             from .aew import AEW
 
             W_opt, W0 = AEW(X, param)
-            adjacency = np.maximum(W_opt, W_opt.T)
+            adjacency = np.asarray(W_opt, dtype=float)
+            adjacency = np.nan_to_num(adjacency, nan=0.0, posinf=0.0, neginf=0.0)
+            adjacency = np.maximum(adjacency, adjacency.T)
+            adjacency = np.maximum(adjacency, 0.0)
             np.fill_diagonal(adjacency, 0.0)
+
+            # Optional pruning to remove tiny unstable weights.
+            q = float(kwargs.get("edge_quantile", 0.0))
+            if 0.0 < q < 1.0:
+                vals = adjacency[np.triu_indices_from(adjacency, k=1)]
+                vals = vals[vals > 0]
+                if vals.size > 0:
+                    thr = float(np.quantile(vals, q))
+                    adjacency[adjacency < thr] = 0.0
+
             return {
                 "adjacency": adjacency,
                 "info": {"method": "aew", "k": param["k"], "max_iter": param["max_iter"], "backend": "aew_python"},
             }
-        except Exception:
+        except Exception as exc:
             # Fallback: keep lightweight mixture heuristic from earlier implementation
             k = min(int(kwargs.get("k", 5)), max(1, n_nodes - 1))
             sigma_dist = float(kwargs.get("sigma_dist", 1.0))
             sigma_corr = float(kwargs.get("sigma_corr", 0.5))
 
-            dists = cdist(positions, positions)
-            conn = kneighbors_graph(
-                positions,
-                n_neighbors=k,
-                mode="connectivity",
-                include_self=False,
-            )
-            conn = _symmetrize(_as_dense(conn), mode="max")
+            if positions is not None:
+                dists = cdist(positions, positions)
+                conn = kneighbors_graph(
+                    positions,
+                    n_neighbors=k,
+                    mode="connectivity",
+                    include_self=False,
+                )
+                conn = _symmetrize(_as_dense(conn), mode="max")
+                spatial_w = np.exp(-(dists**2) / (2.0 * sigma_dist**2))
+            else:
+                conn = np.ones((n_nodes, n_nodes), dtype=float) - np.eye(n_nodes, dtype=float)
+                spatial_w = conn.copy()
 
-            spatial_w = np.exp(-(dists**2) / (2.0 * sigma_dist**2))
             corr = np.corrcoef(signals.T)
             corr = np.nan_to_num(corr, nan=0.0)
             signal_w = np.exp(-(1.0 - np.abs(corr)) / max(sigma_corr, 1e-12))
             adjacency = conn * spatial_w * signal_w
+            adjacency = np.nan_to_num(adjacency, nan=0.0, posinf=0.0, neginf=0.0)
+            adjacency = np.maximum(adjacency, adjacency.T)
+            adjacency = np.maximum(adjacency, 0.0)
             np.fill_diagonal(adjacency, 0.0)
             return {
                 "adjacency": adjacency,
@@ -373,6 +384,7 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
                     "sigma_dist": sigma_dist,
                     "sigma_corr": sigma_corr,
                     "backend": "aew_fallback",
+                    "fallback_reason": str(exc),
                 },
             }
 
@@ -393,6 +405,11 @@ def build_graph(method: str, positions: np.ndarray = None, signals: np.ndarray =
         tol = float(kwargs.get("tol", 1e-6))
 
         adjacency = _learn_kalofolias_weights(z=z, a=a, b=b, max_iter=max_iter, lr=lr, tol=tol)
+        adjacency = np.asarray(adjacency, dtype=float)
+        adjacency = np.nan_to_num(adjacency, nan=0.0, posinf=0.0, neginf=0.0)
+        adjacency = np.maximum(adjacency, adjacency.T)
+        adjacency = np.maximum(adjacency, 0.0)
+        np.fill_diagonal(adjacency, 0.0)
         return {
             "adjacency": adjacency,
             "info": {

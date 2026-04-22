@@ -283,15 +283,25 @@ def run_benchmark() -> pd.DataFrame:
 
                 for method, extra in ALL_METHODS:
                     label = _method_label(method, extra)
-                    metrics = _run_one(
-                        signals_clean, signals_missing, adjacency, positions, method, extra
-                    )
+                    # Run interpolation and get reconstructed signal and metrics
+                    try:
+                        with warnings.catch_warnings():
+                            warnings.simplefilter("ignore")
+                            result = interpolate_signals(method, signals_missing, adjacency=adjacency, positions=positions, **extra)
+                        rec = result["reconstructed"]
+                        metrics = evaluate_signals(signals_clean, rec)
+                    except Exception:
+                        metrics = None
+                        rec = None
                     done += 1
                     if done % 500 == 0:
                         print(f"  [{done}/{total_combos}] {ds_name} / {g_label} / {label} / mr={missing_ratio}")
 
-                    if metrics is None:
+                    if metrics is None or rec is None:
                         continue
+
+                    # Serialize reconstructed signal as a string (flattened, comma-separated)
+                    rec_serialized = np.array2string(rec, separator=',', max_line_width=1000000, precision=6, suppress_small=True)
 
                     rows.append({
                         "dataset":       ds_name,
@@ -305,6 +315,9 @@ def run_benchmark() -> pd.DataFrame:
                         "rmse":          metrics.get("rmse", np.nan),
                         "dtw":           metrics.get("dtw",  np.nan),
                         "snr":           metrics.get("snr",  np.nan),
+                        "lsd":           metrics.get("lsd",  np.nan),
+                        "coherence_mean":metrics.get("coherence_mean", np.nan),
+                        "reconstructed_signal": rec_serialized,
                     })
 
     print(f"[unified] Completado. Filas: {len(rows)}")

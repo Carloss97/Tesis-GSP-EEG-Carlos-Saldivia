@@ -25,6 +25,21 @@ La arquitectura documental y la trazabilidad de resultados están alineadas con 
 - Modularizar el código para facilitar cambios y pruebas.
 - Mantener versiones fijas de dependencias críticas.
 
+## Actualización técnica (it_exhaustive / abril 2026)
+
+### Flujo de métricas extendido
+- El runner base de schedules (`experiments/run_future_work_it121_it130.py`) calcula ahora `mae`, `rmse`, `snr`, `dtw`, `lsd` y `coherence_mean` usando `src/evaluation.py`.
+- `lsd` se implementa como distancia espectral logarítmica promedio por canal.
+- `coherence_mean` se implementa como promedio de Magnitude-Squared Coherence por canal (SciPy/Welch).
+
+### Esquema raw CSV
+- Cada fila de `*_raw.csv` incluye columnas nuevas: `lsd`, `coherence_mean`, `reconstructed_signal`.
+- `reconstructed_signal` se serializa en JSON para preservar trazabilidad de la reconstrucción por corrida (dataset-grafo-método-seed).
+
+### Robustez de Kalofolias
+- Se consolidó aliasing defensivo para `kaliofolias -> kalofolias` en normalización de schedule y en el runner piloto.
+- El runner piloto acepta `--light-profile` para compatibilidad con ejecución por lotes (`run_schedule_in_batches.py`) y evitar fallas por argumento no reconocido.
+
 ## Arquitectura documental (paper y tesis)
 
 ### Componentes

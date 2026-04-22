@@ -177,10 +177,19 @@ def interpolate_signals(
             raise ValueError("Se requiere 'adjacency' para temporal_laplacian.")
         alpha = float(kwargs.get("alpha", 0.7))
         beta = float(kwargs.get("beta", 0.25))
-        reconstructed = interpolate_temporal_laplacian(signals, adjacency=adjacency, alpha=alpha, beta=beta)
+        n_iter = int(kwargs.get("n_iter", 120))
+        lr = float(kwargs.get("lr", 0.05))
+        reconstructed = interpolate_temporal_laplacian(
+            signals,
+            adjacency=adjacency,
+            alpha=alpha,
+            beta=beta,
+            n_iter=n_iter,
+            lr=lr,
+        )
         return {
             "reconstructed": reconstructed,
-            "info": {"method": "temporal_laplacian", "alpha": alpha, "beta": beta},
+            "info": {"method": "temporal_laplacian", "alpha": alpha, "beta": beta, "n_iter": n_iter, "lr": lr},
         }
 
     if method == "heat_diffusion_temporal":
@@ -520,16 +529,25 @@ def interpolate_bgsrp(
 ) -> np.ndarray:
     from scipy.sparse import csgraph
 
-    laplacian = csgraph.laplacian(adjacency, normed=False)
+    a = np.asarray(adjacency, dtype=float)
+    a = np.nan_to_num(a, nan=0.0, posinf=0.0, neginf=0.0)
+    a = np.maximum(a, a.T)
+    np.fill_diagonal(a, 0.0)
+
+    laplacian = csgraph.laplacian(a, normed=False)
     evals, evecs = np.linalg.eigh(laplacian)
 
     # RKHS BGSRP usa base bandlimited excluyendo componente DC.
     n_nodes = evecs.shape[0]
+    if n_nodes < 3:
+        return np.nan_to_num(signals, nan=0.0)
     n = int(np.clip(bandwidth, 2, n_nodes - 1))
     u_n = evecs[:, 1:n]
     mu_n = evals[1:n]
+    mu_n = np.nan_to_num(mu_n, nan=reg, posinf=reg, neginf=reg)
     if not strict_matlab:
         mu_n = np.maximum(mu_n, reg)
+    mu_n = np.where(np.abs(mu_n) < reg, reg, mu_n)
     phi_n = np.diag(1.0 / mu_n)
 
     reconstructed = signals.copy()
@@ -563,9 +581,18 @@ def interpolate_bgsrp(
             # Termino constante z de la formulacion original.
             z = -np.sum(g_vec[x0] - y0) / float(ell)
             x_rec = g_vec + z
+            x_rec = np.nan_to_num(x_rec, nan=0.0, posinf=0.0, neginf=0.0)
+            x_rec[observed] = y[observed]
+
+            scale = np.nanstd(y)
+            if not np.isfinite(scale) or scale <= 0:
+                scale = 1.0
+            x_rec = np.clip(x_rec, -8.0 * scale, 8.0 * scale)
             reconstructed[i] = x_rec
-        except np.linalg.LinAlgError:
-            reconstructed[i, ~observed] = np.nanmean(y)
+        except Exception:
+            y_fallback = y.copy()
+            y_fallback[~observed] = _nanmean_no_warn(y)
+            reconstructed[i] = np.nan_to_num(y_fallback, nan=0.0)
 
     return reconstructed
 
@@ -901,53 +928,62 @@ def interpolate_temporal_laplacian(
     adjacency: np.ndarray,
     alpha: float = 0.7,
     beta: float = 0.25,
+    n_iter: int = 120,
+    lr: float = 0.05,
+    clip_factor: float = 8.0,
 ) -> np.ndarray:
     """
     Product graph: combined spatial-temporal Laplacian.
     Interpola resolviendo min ||x - y||_M + alpha * x'Lx + beta * x'L_t x
     donde L_t es el Laplaciano temporal.
     """
-    from scipy.sparse import csgraph, eye, kron
+    from scipy.sparse import csgraph
 
     y = signals.astype(float)
     mask = ~np.isnan(y)
     n_t, n_ch = y.shape
 
-    # Laplacianos espacial y temporal
-    lap_g = csgraph.laplacian(adjacency, normed=False)
-    
-    # Laplaciano temporal simple (primeras diferencias)
+    a = np.asarray(adjacency, dtype=float)
+    a = np.nan_to_num(a, nan=0.0, posinf=0.0, neginf=0.0)
+    a = np.maximum(a, a.T)
+    np.fill_diagonal(a, 0.0)
+    lap_g = csgraph.laplacian(a, normed=False)
+
+    # Laplaciano temporal (primeras diferencias)
     l_temp = np.zeros((n_t, n_t), dtype=float)
-    for i in range(n_t - 1):
-        l_temp[i, i] += 1.0
-        l_temp[i, i + 1] -= 1.0
-        l_temp[i + 1, i] -= 1.0
-        l_temp[i + 1, i + 1] += 1.0
+    if n_t > 1:
+        idx = np.arange(n_t - 1)
+        l_temp[idx, idx] += 1.0
+        l_temp[idx, idx + 1] -= 1.0
+        l_temp[idx + 1, idx] -= 1.0
+        l_temp[idx + 1, idx + 1] += 1.0
 
-    # Producto Kronecker: L_space ⊗ I_t + I_space ⊗ L_t
-    eye_t = eye(n_t, dtype=float)
-    eye_g = eye(n_ch, dtype=float)
-    
-    l_spatial = kron(lap_g, eye_t)
-    l_temporal = kron(eye_g, l_temp)
-    l_combined = alpha * l_spatial + beta * l_temporal
+    reconstructed = y.copy()
+    col_mean = _nanmean_no_warn(y, axis=0)
+    miss = ~mask
+    reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
 
-    x_flat = y.ravel()
-    mask_flat = mask.ravel()
-    m = np.diag(mask_flat.astype(float))
-    b = np.nan_to_num(x_flat, nan=0.0)
+    norm_lg = np.linalg.norm(lap_g, ord=2)
+    norm_lt = np.linalg.norm(l_temp, ord=2)
+    lipschitz = 2.0 * (1.0 + alpha * norm_lg + beta * norm_lt)
+    step = min(lr, 1.0 / max(lipschitz, 1e-8))
 
-    a = m + l_combined
-    try:
-        x_flat = np.linalg.solve(a, m @ b)
-        return x_flat.reshape(n_t, n_ch)
-    except np.linalg.LinAlgError:
-        reconstructed = y.copy()
-        col_mean = np.nanmean(y, axis=0)
-        col_mean = np.where(np.isnan(col_mean), 0.0, col_mean)
-        miss = ~mask
-        reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
-        return reconstructed
+    scale = np.nanstd(y)
+    if not np.isfinite(scale) or scale <= 0:
+        scale = 1.0
+    bound = float(clip_factor) * scale
+
+    y_safe = np.nan_to_num(y, nan=0.0)
+    for _ in range(max(1, int(n_iter))):
+        grad_data = (reconstructed - y_safe) * mask
+        grad_spatial = reconstructed @ lap_g
+        grad_temporal = l_temp @ reconstructed
+        grad = 2.0 * grad_data + 2.0 * alpha * grad_spatial + 2.0 * beta * grad_temporal
+        reconstructed = reconstructed - step * grad
+        reconstructed = np.clip(reconstructed, -bound, bound)
+        reconstructed[mask] = y[mask]
+
+    return reconstructed
 
 
 def interpolate_heat_diffusion_temporal(
