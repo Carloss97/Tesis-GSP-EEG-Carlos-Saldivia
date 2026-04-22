@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-mne_sample,kalofolias,heat_diffusion_temporal,0.3,0,0.33690795418106806,0.6993034294529983,3.153662077164473,3.769882486816176,{},,7,0.050031300001137424
-mne_sample,kalofolias,heat_diffusion_temporal,0.3,1,0.34102559576573455,0.7106313527812232,3.0239406543961587,3.928584052877245,{},,7,0.04991860000154702

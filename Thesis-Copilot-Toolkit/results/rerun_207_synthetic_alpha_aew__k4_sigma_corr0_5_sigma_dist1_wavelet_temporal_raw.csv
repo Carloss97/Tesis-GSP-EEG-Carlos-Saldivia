@@ -1,2 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-physionet_eegmmidb_real,aew,wavelet_temporal,0.3,0,1.1894391141375772e-05,2.542476145378917e-05,5.790447783676197,0.00014126071589584894,{},,7,0.00656170000002021

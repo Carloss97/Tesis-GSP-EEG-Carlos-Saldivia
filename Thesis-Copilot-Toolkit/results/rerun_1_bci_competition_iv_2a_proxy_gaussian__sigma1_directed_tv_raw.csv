@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-bci_competition_iv_2a_proxy,gaussian__sigma1.0,directed_tv,0.3,0,0.24547905404739467,0.5299654640942563,5.550750428536425,3.1530091796412205,{},,7,0.5552945000017644
-bci_competition_iv_2a_proxy,gaussian__sigma1.0,directed_tv,0.3,1,0.2414812936240058,0.5221715001850794,5.677275977671644,3.2303125013745815,{},,7,0.5782184999989113

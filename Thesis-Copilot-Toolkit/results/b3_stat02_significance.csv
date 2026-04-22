@@ -1,7 +1,0 @@
-test_id,metric,group_a,group_b,n_a,n_b,statistic,p_value,effect_size,effect_size_name,decision_alpha_0_05,notes
-STAT-02_mae_trss_vs_bgsrp_mwu,mae,trss,bgsrp,3680,2760,2540362.0,6.111368891088274e-259,0.4997711877756774,rank_biserial,reject_H0,Unpaired two-sided Mann-Whitney U
-STAT-02_mae_trss_vs_tikhonov_mwu,mae,trss,tikhonov,3680,2760,2794655.0,4.687807186811473e-210,0.4496977394454946,rank_biserial,reject_H0,Unpaired two-sided Mann-Whitney U
-STAT-02_mae_bgsrp_vs_gsp_mwu,mae,bgsrp,gsp,2760,920,1904400.0,1.5893023264899253e-114,-0.5,rank_biserial,reject_H0,Unpaired two-sided Mann-Whitney U
-STAT-02_mae_family_wilcoxon,mae,tv_time,instant,280,280,792.0,4.769630703710377e-44,-1.9337873706699943e-06,median_delta(tv_time-instant),reject_H0,Paired by dataset/scenario/missing/graph/seed
-STAT-02_dtw_family_wilcoxon,dtw,tv_time,instant,280,280,10165.0,2.403495923470857e-12,-8.833643984637313e-06,median_delta(tv_time-instant),reject_H0,Paired by dataset/scenario/missing/graph/seed
-STAT-02_mae_trss_vs_gsp_mwu,mae,trss,gsp,3680,920,1693660.5,0.9809566220799211,-0.0005083293950851608,rank_biserial,fail_to_reject_H0,Unpaired two-sided Mann-Whitney U

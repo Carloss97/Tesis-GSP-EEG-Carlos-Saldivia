@@ -1,2 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-physionet_eegmmidb_real,knn__k5,heat_diffusion_temporal,0.4,0,1.1670447672790258e-05,2.4457909221708333e-05,6.849789359480307,0.00014016209099542584,{},,10,0.04291110000485787

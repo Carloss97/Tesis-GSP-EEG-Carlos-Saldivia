@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-synthetic_beta,kalofolias,directed_tv,0.4,0,0.32509672946169904,0.5931474472357309,4.535288723136063,3.234591654840092,{},,6,0.37519269999756943
-synthetic_beta,kalofolias,directed_tv,0.4,1,0.32181979558200374,0.5882687919617299,4.608800144540524,3.2255023194079024,{},,6,0.3799460000009276

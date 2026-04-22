@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-movielens_graph_signal,gaussian__sigma1.0,tv,0.4,0,0.08342023303185965,0.6923733298978046,-inf,4.506777575234414,"{""lam"": 0.2, ""n_iter"": 30}",,10,0.20602379999945697
-movielens_graph_signal,gaussian__sigma1.0,tv,0.4,1,0.08057889112058517,0.6852243854854798,-inf,3.7783492370572294,"{""lam"": 0.2, ""n_iter"": 30}",,10,0.2004704999999376

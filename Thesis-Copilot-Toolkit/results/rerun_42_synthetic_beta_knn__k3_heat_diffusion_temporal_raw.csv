@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-synthetic_beta,knn__k3,heat_diffusion_temporal,0.3,0,0.3317369120385375,0.7751745275732773,2.2533637030352383,4.699563788211787,{},,5,0.05391490000329213
-synthetic_beta,knn__k3,heat_diffusion_temporal,0.3,1,0.33472153598643445,0.779138119094709,2.2699241904806113,5.112469434300722,{},,5,0.05296169999928679

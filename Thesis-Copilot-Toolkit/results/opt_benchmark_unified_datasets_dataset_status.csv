@@ -1,5 +1,0 @@
-dataset,status,n_channels,n_times,reason
-synthetic,ok,22.0,260.0,
-mne_sample,ok,59.0,166800.0,
-physionet_eegmmidb,ok,64.0,9760.0,
-bci_competition_iv_2a,skipped,,,Archivo ./datasets/BCI_IV_2a/A01T.gdf no encontrado. Descargue el dataset y defina BCI_IV_2A_PATH.

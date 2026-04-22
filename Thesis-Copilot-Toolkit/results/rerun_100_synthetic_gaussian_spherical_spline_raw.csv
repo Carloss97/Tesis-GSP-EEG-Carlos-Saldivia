@@ -1,2 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-physionet_eegmmidb_real,gaussian__sigma1,spherical_spline,0.4,0,7.869349390231608e-06,1.879875271169714e-05,10.848707762344807,0.00012199014018086105,{},,10,0.2774031000008108

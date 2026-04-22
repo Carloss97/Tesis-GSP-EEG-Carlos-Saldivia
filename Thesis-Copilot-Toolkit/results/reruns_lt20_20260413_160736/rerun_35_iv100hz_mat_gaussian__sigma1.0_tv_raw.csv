@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-iv100hz_mat,gaussian__sigma1.0,tv,0.4,0,60.82796381071826,160.99143479210548,11.346479926946097,719.6566130647353,"{""lam"": 0.2, ""n_iter"": 30}",,10,0.1972272000002704
-iv100hz_mat,gaussian__sigma1.0,tv,0.4,1,62.50939036734103,170.8991715899558,10.563881924581422,752.635351172325,"{""lam"": 0.2, ""n_iter"": 30}",,10,0.19523060000028636

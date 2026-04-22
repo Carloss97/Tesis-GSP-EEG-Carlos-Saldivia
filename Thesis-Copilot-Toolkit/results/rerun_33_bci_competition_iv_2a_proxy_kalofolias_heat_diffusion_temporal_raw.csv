@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-bci_competition_iv_2a_proxy,kalofolias,heat_diffusion_temporal,0.1,0,0.10570369565586668,0.39629873870486604,8.157807932544602,2.047303332530618,{},,2,0.04788840000401251
-bci_competition_iv_2a_proxy,kalofolias,heat_diffusion_temporal,0.1,1,0.10669453668329976,0.4020521081754185,8.039906983054449,1.9389569917666891,{},,2,0.04747510000015609

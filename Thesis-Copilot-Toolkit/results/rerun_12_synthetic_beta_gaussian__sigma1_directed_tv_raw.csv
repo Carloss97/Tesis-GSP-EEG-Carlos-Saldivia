@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-synthetic_beta,gaussian__sigma1.0,directed_tv,0.3,0,0.2919764423001766,0.6702086073243713,3.4996945131462764,3.99372945979859,{},,5,0.4430709000007482
-synthetic_beta,gaussian__sigma1.0,directed_tv,0.3,1,0.2879897152780504,0.6681529543005055,3.5237410909724356,4.004079364173987,{},,5,0.45070409999607364

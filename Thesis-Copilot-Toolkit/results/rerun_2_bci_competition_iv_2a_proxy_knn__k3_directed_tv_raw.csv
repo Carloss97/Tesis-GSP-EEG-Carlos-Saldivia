@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-bci_competition_iv_2a_proxy,knn__k3,directed_tv,0.1,0,0.08109153287338573,0.3041758185950468,10.437743576124769,1.634908017697905,{},,2,0.4437569000001531
-bci_competition_iv_2a_proxy,knn__k3,directed_tv,0.1,1,0.0825311705794378,0.3084285161914008,10.307022807721012,1.6347604297568914,{},,2,0.4789336999965599

@@ -1,7 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,0,0.03270339735041946,0.3147087605443626,-inf,1.258242212138861,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.21012009999867587
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,1,0.036242772390402786,0.39318367194419557,-inf,2.1149209930328863,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.21172350000051665
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,2,0.033709748726456566,0.37368459246735125,-inf,2.319076298534003,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.20161000000007334
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,3,0.03671196961283095,0.3995406301311235,-inf,2.098018037655715,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.20421520000127202
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,4,0.0408303744566126,0.45305779311173905,-inf,3.6134807509639444,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.2103679000010743
-movielens_graph_signal,gaussian__sigma1.0,tv,0.2,5,0.03727065826589268,0.46243064736934825,-inf,1.952510088499413,"{""lam"": 0.2, ""n_iter"": 30}",,5,0.20627479999893694

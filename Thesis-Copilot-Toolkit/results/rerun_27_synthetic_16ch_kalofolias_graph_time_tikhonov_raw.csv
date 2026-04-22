@@ -1,3 +1,0 @@
-dataset,graph,method,missing_ratio,seed,mae,rmse,snr,dtw,params,error,n_missing_ch,time_sec
-synthetic_16ch,kalofolias,graph_time_tikhonov,0.4,0,0.6384129831679195,0.7958238892034583,2.2140048158741457,3.7779688288264897,"{""alpha"": 0.5, ""beta"": 0.1}",,6,0.010348800002248026
-synthetic_16ch,kalofolias,graph_time_tikhonov,0.4,1,0.6396296541743733,0.7969395860522362,2.1669971601617135,3.9219812300471295,"{""alpha"": 0.5, ""beta"": 0.1}",,6,0.010840499999176245
