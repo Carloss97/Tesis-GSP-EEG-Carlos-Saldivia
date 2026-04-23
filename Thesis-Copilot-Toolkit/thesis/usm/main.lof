@@ -3,8 +3,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparación de rendimiento global en la base de datos PhysioNet luego de la optimización con Optuna. Los métodos de regularización temporal (TRSS, Tikhonov) dominan los primeros lugares.}}{12}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gráfico de radar multi-métrica para la base de datos MNE Sample bajo un escenario de 40\% de pérdida de canales aleatorios. TRSS maximiza el rendimiento en todos los ejes.}}{13}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Curva de degradación SNR para la base de datos BCI IV 2a ante una proporción creciente de canales faltantes aleatorios. TRSS demuestra una robustez notable frente a la degradación extrema.}}{14}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparación de rendimiento global en la base de datos PhysioNet luego de la optimización con Optuna. Los métodos de regularización temporal (TRSS, Tikhonov) dominan los primeros lugares.}}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gráfico de radar multi-métrica para la base de datos MNE Sample bajo un escenario de 40\% de pérdida de canales aleatorios. TRSS maximiza el rendimiento en todos los ejes.}}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Curva de degradación SNR para la base de datos BCI IV 2a ante una proporción creciente de canales faltantes aleatorios. TRSS demuestra una robustez notable frente a la degradación extrema.}}{15}{figure.caption.14}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Reconstrucción de Potenciales Relacionados a Eventos (ERP) para la base de datos MNE Sample bajo un escenario de pérdida del 40\% de canales agrupados (\textit {nearby}). TRSS preserva la integridad morfológica y la latencia de los componentes de forma superior a los baselines geométricos exhaustivamente optimizados.}}{17}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparación de la Densidad Espectral de Potencia (PSD). La regularización temporal mantiene con alta fidelidad la distribución espectral a través de las bandas fisiológicas críticas (alfa, beta).}}{18}{figure.caption.16}%
 \addvspace {10\p@ }

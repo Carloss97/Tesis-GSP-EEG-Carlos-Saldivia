@@ -32,9 +32,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Hyperparameter Optimization (Optuna)}{2}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental Setup}{2}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Datasets}{2}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Masking Protocol}{2}{subsection.4.2}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Final REP-01 summary (B1+B2 consolidated, phase Optuna Multi-Dataset Validation).}}{3}{table.1}\protected@file@percent }
 \newlabel{tab:b3_rep01_summary}{{I}{3}{Final REP-01 summary (B1+B2 consolidated, phase \ResPhase )}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Masking Protocol}{3}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Reproducibility}{3}{subsection.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Results}{3}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Family-Level Summary}{3}{subsection.5.1}\protected@file@percent }
@@ -43,17 +43,19 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}BGSRP Status}{3}{subsection.5.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-E}}Optuna Multi-Dataset Validation}{3}{subsection.5.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-E}1}Overall Performance Crossover}{3}{subsubsection.5.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) dominate the top rankings.}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:global_physionet}{{1}{3}{Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) dominate the top rankings}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-E}2}Spatial and Temporal Fidelity}{3}{subsubsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-E}3}Robustness to Degradation}{3}{subsubsection.5.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) dominate the top rankings.}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:global_physionet}{{1}{4}{Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) dominate the top rankings}{figure.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Radar chart showing multi-metric performance on the MNE Sample dataset under a 40\% random missing channel scenario. TRSS maximizes performance across all axes.}}{4}{figure.2}\protected@file@percent }
 \newlabel{fig:radar_mne}{{2}{4}{Radar chart showing multi-metric performance on the MNE Sample dataset under a 40\% random missing channel scenario. TRSS maximizes performance across all axes}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-E}3}Robustness to Degradation}{4}{subsubsection.5.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{4}{section.6}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness.}}{4}{figure.3}\protected@file@percent }
 \newlabel{fig:degradation_bci}{{3}{4}{SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness}{figure.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{4}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Reproducibility Statement}{4}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{4}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Physiological and Temporal Fidelity (ERP \& PSD)}{4}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 40\% nearby missing channels scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines.}}{4}{figure.4}\protected@file@percent }
+\newlabel{fig:erp_optimized}{{4}{4}{Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 40\% nearby missing channels scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Multi-Dataset Generalization}{4}{subsection.6.2}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{bibliography/references}
 \bibcite{shuman2013}{1}
@@ -67,5 +69,10 @@
 \bibcite{kalofolias2016}{9}
 \bibcite{perrin1989}{10}
 \bibcite{akiba2019optuna}{11}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta).}}{5}{figure.5}\protected@file@percent }
+\newlabel{fig:psd_optimized}{{5}{5}{Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta)}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Concluding Remarks on Optimization}{5}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Reproducibility Statement}{5}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{5}{section.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{References}{5}{section*.1}\protected@file@percent }
 \gdef \@abspage@last{5}

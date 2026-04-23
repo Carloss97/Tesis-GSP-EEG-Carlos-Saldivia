@@ -1,19 +1,19 @@
 \section{Introduction}
 
-Electroencephalography (EEG) recordings frequently exhibit missing channels due to contact issues, amplifier saturation, movement artifacts, or quality-control rejection. In practical studies, this is not a minor inconvenience: missing channels can distort spatial interpretations, degrade biomarkers, and reduce the reliability of downstream decoding pipelines. Because of that, channel interpolation has been studied for decades, from classical spatial interpolation to graph-based reconstruction.
+Electroencephalography (EEG) recordings frequently exhibit missing channels due to contact issues, amplifier saturation, movement artifacts, or quality-control rejection. In practical studies, this is not a minor inconvenience: missing channels can distort spatial interpretations, degrade clinical biomarkers like Event-Related Potentials (ERPs), and reduce the reliability of downstream Brain-Computer Interface (BCI) decoding pipelines. Because of that, channel interpolation has been studied for decades, from classical spatial interpolation to graph-based reconstruction.
 
 Graph Signal Processing (GSP) provides a natural framework for this problem by representing electrodes as graph vertices and modeling inter-channel relationships through weighted edges. The general perspective is consistent with the graph-signal literature associated with Ortega and collaborators \cite{shuman2013,ortega2018}, where smoothness, bandlimitedness, and spectral structure are used to replace purely geometric interpolation with graph-constrained estimation.
 
-Even though many methods have been proposed in the literature \cite{narang2013,puy2018,zhang2024bgsrp}, in practice it is still difficult to compare them fairly in a single reproducible pipeline. Different papers use different masks, datasets, and evaluation conventions, so conclusions are often hard to transfer to real EEG workflows. This thesis-paper track tries to reduce that gap with a unified benchmark and publication-ready artifacts.
+Even though many methods have been proposed in the literature \cite{narang2013,puy2018,zhang2024bgsrp}, in practice it is still difficult to compare them fairly. Different papers use different masks, datasets, and evaluation conventions, and frequently evaluate novel methods against unoptimized baseline configurations, inflating performance claims. This study aims to reduce that gap with a unified benchmark and rigorous hyperparameter optimization.
 
 The main contributions of this manuscript are:
 \begin{itemize}
 \item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation across multiple datasets (PhysioNet, BCI Competition IV 2a, and MNE Sample).
 \item A cross-family comparison including geometric baselines (Spherical Spline, TPS), independent component analysis (ICA), and advanced graph-based interpolation with temporal regularization (TRSS, Tikhonov).
-\item Extensive hyperparameter optimization using Optuna to fairly benchmark methods under varying conditions (nearby vs. random missing channels).
-\item A publication-oriented artifact set with frozen configurations, raw outputs, and summary tables.
+\item Extensive hyperparameter optimization using the Optuna framework to fairly benchmark all methods---including classical baselines---under varying conditions (nearby vs. random missing channels).
+\item A physiological analysis demonstrating the superiority of temporal regularization in preserving Event-Related Potentials (ERPs) and Power Spectral Density (PSD) dynamics under severe channel loss.
 \end{itemize}
 
-At the current \ResPhase\ stage, we evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions (\ResScenariosNames~scenarios, \ResMissingLevels~missing channels) with repeated runs and consolidated variability statistics.
+We evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions (\ResScenariosNames~scenarios, \ResMissingLevels~missing channels) with repeated runs and consolidated variability statistics.
 
-This manuscript builds upon a robust multi-dataset validation framework. While strict BGSRP equivalence against the original MATLAB/GSPBox environment was originally an objective, our current focus highlights the superior performance of temporal regularization methods like TRSS under fully optimized hyperparameter configurations.
+This manuscript builds upon a robust multi-dataset validation framework. Our central hypothesis and evaluation highlight the superior performance of temporal regularization methods like TRSS under fully optimized hyperparameter configurations, setting a new benchmark for temporal and spectral fidelity in EEG signal reconstruction.

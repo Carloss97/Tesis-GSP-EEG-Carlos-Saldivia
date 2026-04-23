@@ -14,28 +14,28 @@ La hipotesis de trabajo planteada fue:
 La evidencia acumulada en las fases \ResPhase\ permite responder esta hipotesis de forma matizada:
 
 \begin{itemize}
-\item Los métodos de regularización temporal (TV/Tiempo), particularmente \textbf{TRSS} y \textbf{Tikhonov}, superan ampliamente a los \textit{baselines} geométricos (como \textit{Spherical Spline}) cuando sus hiperparámetros son optimizados con Optuna. TRSS logró un MAE promedio extraordinario de \ResTVMAE\ y un SNR superior a \ResTVSNR~dB, comparado con el MAE de \ResBaselineMAE\ y SNR de \ResBaselineSNR~dB de los métodos clásicos.
-\item La superioridad estadística se confirma transversalmente en múltiples bases de datos reales y sintéticas (PhysioNet, BCI Competition IV 2a, MNE Sample), con un valor p significativo ($p < 0.05$) en las pruebas de contraste de familias.
-\item La regularización temporal preserva con gran fidelidad la dinámica de la señal, evidenciado por valores excepcionalmente bajos de DTW (\ResTVDTW) en comparación con los métodos puramente espaciales o independientes (como ICA).
-\item La hipótesis de trabajo se \textbf{confirma plenamente}: la incorporación de la estructura del grafo combinada con restricciones de suavidad temporal permite una reconstrucción de canales EEG significativamente más precisa, robusta y fiel a la dinámica original que los métodos de la literatura clásica.
+\item Los métodos de regularización temporal (TV/Tiempo), particularmente \textbf{TRSS} y \textbf{Tikhonov}, superan ampliamente a los \textit{baselines} geométricos (como \textit{Spherical Spline}) incluso cuando estos últimos son exhaustivamente optimizados con Optuna. TRSS logró un MAE promedio de \ResTVMAE\ y un SNR superior a \ResTVSNR~dB, comparado con el MAE de \ResBaselineMAE\ y SNR de \ResBaselineSNR~dB de los métodos clásicos.
+\item La superioridad estadística se confirma transversalmente en múltiples bases de datos reales y sintéticas (PhysioNet, BCI Competition IV 2a, MNE Sample), con un valor $p$ significativo ($p < 0.05$) en las pruebas de contraste de familias.
+\item \textbf{Fidelidad Fisiológica y Temporal:} La regularización temporal preserva de manera excepcional la dinámica de la señal. Esto se evidencia no solo por valores bajos de DTW (\ResTVDTW), sino por la exitosa recuperación de la morfología de los Potenciales Relacionados a Eventos (ERPs) y la correcta distribución de la Densidad Espectral de Potencia (PSD) bajo escenarios de pérdida severa.
+\item La hipótesis de trabajo se \textbf{confirma plenamente}: la incorporación de la estructura del grafo combinada con restricciones de suavidad temporal permite una reconstrucción de canales EEG significativamente más precisa, robusta y fiel a la dinámica original (clínica y BCI) que los métodos de la literatura clásica.
 \end{itemize}
 
 \subsection{Aportes principales}
 
 \begin{itemize}
-\item Un pipeline modular y reproducible con evaluación a gran escala utilizando \textbf{Optuna} para la optimización justa de hiperparámetros entre todas las familias de métodos.
-\item Evaluación exhaustiva sobre múltiples datasets reales de alta relevancia (PhysioNet, MNE Sample, BCI IV 2a), confirmando la generalización espacial y temporal de los métodos.
-\item Un protocolo de enmascaramiento diversificado (\ResNScenarios~escenarios: \ResScenariosNames) y niveles de pérdida discretos (1 a 3 canales) y proporcionales (\ResMissingLevels), aumentando el realismo frente a la pérdida aleatoria.
-\item Transparencia metodológica y entrega de un conjunto de artefactos reproducibles (tablas, figuras, metadatos) orientados a publicación científica.
+\item Un \textit{pipeline} modular y reproducible con evaluación a gran escala utilizando \textbf{Optuna} para la optimización justa de hiperparámetros entre todas las familias de métodos, evadiendo el sesgo común de comparar contra \textit{baselines} no optimizados.
+\item Evaluación exhaustiva sobre múltiples datasets reales (PhysioNet, MNE Sample, BCI IV 2a), confirmando la generalización espacial y la relevancia clínica de las señales reconstruidas (ERPs).
+\item Un protocolo de enmascaramiento diversificado (\ResNScenarios~escenarios: \ResScenariosNames) y proporcionales (\ResMissingLevels), demostrando que TRSS evita las fallas catastróficas observadas en otros modelos ante la pérdida agrupada de sensores.
+\item Transparencia metodológica y entrega de un conjunto de artefactos reproducibles (tablas, figuras de ERPs y mapas de error) orientados a publicación científica.
 \end{itemize}
 
 \section{Trabajo futuro}
 
 Como trabajo futuro se propone:
 \begin{itemize}
-\item Integración de los algoritmos de regularización temporal (como TRSS) en pipelines en tiempo real para aplicaciones de \textit{Brain-Computer Interfaces} (BCI), donde la tolerancia a latencias y la eficiencia computacional son críticas.
-\item Explorar la generalización de estas arquitecturas hacia otros dominios de bioseñales o problemas de \textit{Graph Signal Processing} (GSP) más genéricos.
-\item Investigar híbridos entre modelos profundos (Deep Learning) y regularización por grafos para reducir la dependencia en la selección de hiperparámetros.
+\item \textbf{Integración BCI en Tiempo Real:} Implementar los algoritmos de regularización temporal optimizados (como TRSS) en flujos de trabajo \textit{online} de \textit{Brain-Computer Interfaces}, donde la tolerancia a latencias y la fiel preservación de ERPs (como el P300) son determinantes para el rendimiento de clasificación.
+\item \textbf{Validación Clínica Descendente:} Analizar cuantitativamente el impacto de la reconstrucción con TRSS sobre tareas posteriores (\textit{downstream tasks}), tales como decodificación de imaginería motora o diagnóstico basado en conectividad funcional.
+\item \textbf{Modelos Híbridos:} Explorar el entrenamiento de arquitecturas de aprendizaje profundo (\textit{Deep Learning}) informadas por grafos (\textit{Graph Neural Networks}) para eludir el elevado costo computacional de la optimización de hiperparámetros o inversiones matriciales en tiempo de inferencia.
 \end{itemize}
 
-En resumen, la presente validación \textit{multi-dataset} deja una base técnica rigurosa que demuestra el estado del arte de la interpolación de EEG, cristalizada en artefactos listos para su difusión académica.
+En resumen, la presente validación \textit{multi-dataset} deja una base técnica rigurosa que demuestra el estado del arte de la interpolación de EEG, cristalizada en artefactos listos para su inmediata difusión académica e implementación práctica.

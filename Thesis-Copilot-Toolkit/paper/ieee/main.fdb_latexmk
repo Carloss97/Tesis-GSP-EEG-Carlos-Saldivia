@@ -1,17 +1,19 @@
 # Fdb version 4
-["bibtex main"] 1776976308.44304 "main.aux" "main.bbl" "main" 1776976310.25382 0
+["bibtex main"] 1776986338.8449 "main.aux" "main.bbl" "main" 1776986341.39368 0
   "./bibliography/references.bib" 1776976147 4403 0697dedb77496961533bae59f5f93462 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1776976309 6356 bb4b07e63cb3148c7c8bd719ec1a25b6 "pdflatex"
+  "main.aux" 1776986340 8005 350d22cb98d2fc64c60df100dcd6140e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776976308.6683 "main.tex" "main.pdf" "main" 1776976310.25425 0
+["pdflatex"] 1776986339.07252 "main.tex" "main.pdf" "main" 1776986341.39411 0
+  "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1776985617 422626 55bdc196caca81143b74e80d92d2f753 ""
+  "../../results_optuna_baselines/psd_optimized_baselines_nearby_0_4_ratio.png" 1776985616 108824 91b992ebfc35ddd0259d593f9cab0852 ""
   "../../results_optuna_final/degradation_bci_iv_random_ratio.png" 1776972857 174295 bf32bbb64257a92b680de8baebc1029c ""
   "../../results_optuna_final/global_comparison_physionet.png" 1776969830 119533 c80c5f48ab5bfb62788876dc92f89bc4 ""
   "../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png" 1776973491 220928 d663bfc1b95fca6a58d3dab27fb6a09c ""
-  "../../shared/results_data.tex" 1776975183 3866 49ab26012ede6072335c41dbfd13768f ""
+  "../../shared/results_data.tex" 1776980650 3866 49ab26012ede6072335c41dbfd13768f ""
   "C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775773128 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/sarlo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775592608 13333848 4cb83b3387ed3ce0f29a76ab195f51c6 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -129,15 +131,15 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-english.trsl" 1644048522 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "main.aux" 1776976309 6356 bb4b07e63cb3148c7c8bd719ec1a25b6 "pdflatex"
-  "main.bbl" 1776976308 3614 f022a2667f959e4e37f30472967f9c48 "bibtex main"
-  "main.out" 1776976309 3785 3d6f84116811ceb6447a32edb78b5971 "pdflatex"
+  "main.aux" 1776986340 8005 350d22cb98d2fc64c60df100dcd6140e "pdflatex"
+  "main.bbl" 1776986339 3614 f022a2667f959e4e37f30472967f9c48 "bibtex main"
+  "main.out" 1776986340 4543 30e17fe536ba675586cd154067032b9f "pdflatex"
   "main.tex" 1775706387 2215 6e66a3068088cd476cc56cf058faa43c ""
-  "sections/abstract.tex" 1775628551 1144 17c0c29026c901036bfe6224e39e8652 ""
-  "sections/conclusion.tex" 1776975237 1476 f6a13a0ee2ffbbaee5ab32346a21db0e ""
-  "sections/discussion.tex" 1775706387 1589 b24ca0a36c810dcad2e745f5d155f11a ""
+  "sections/abstract.tex" 1776986223 1320 b83cb4717219bc31aef4f5ebb29f71a4 ""
+  "sections/conclusion.tex" 1776986251 1696 925c8a8c1a7774bef968673cbccc38b4 ""
+  "sections/discussion.tex" 1776986072 3415 31931a7b3c0a3ce53a77450e7ed980f9 ""
   "sections/experiments.tex" 1776976096 1647 e44c3d6a59c2efac3b2ab1f9180fe5b7 ""
-  "sections/introduction.tex" 1776975150 2813 8081277794e4dac4af3e952fa8298127 ""
+  "sections/introduction.tex" 1776986238 3019 549c5309681608d1136dffe3f517c52a ""
   "sections/methods.tex" 1776976083 5085 f5ea2a01c79a02379d484bbc31ef2f3c ""
   "sections/related_work.tex" 1775628551 1635 6a9a1e8f70f159c6b41e1e7c5cc6b665 ""
   "sections/reproducibility.tex" 1775706387 916 d8abaae763c0033a8af00995adb7aa56 ""

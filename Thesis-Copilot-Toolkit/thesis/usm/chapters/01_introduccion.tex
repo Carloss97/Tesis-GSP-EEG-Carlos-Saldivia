@@ -19,20 +19,21 @@ Objetivos especificos:
 \item Implementar y consolidar una coleccion de metodos de construccion de grafos e interpolacion en un pipeline modular, evaluando datasets reales de alta densidad (PhysioNet, BCI Competition IV 2a, MNE Sample).
 \item Definir protocolos de canales faltantes con escenarios por distribucion (\textit{nearby} vs \textit{random}) y niveles de perdida.
 \item Ejecutar optimizacion de hiperparametros con Optuna para garantizar comparaciones justas entre baselines geometricos, estadisticos y de regularizacion temporal.
-\item Evaluar desempeno con MAE, RMSE, DTW y SNR, incluyendo estadisticos de variabilidad.
-\item Generar artefactos trazables para redaccion de paper y tesis.
+\item Evaluar el desempeño cuantitativo utilizando MAE, RMSE, DTW y SNR, junto con estadísticos de variabilidad.
+\item Demostrar el impacto fisiológico de los métodos de reconstrucción evaluando la preservación de Potenciales Relacionados a Eventos (ERP) y la Densidad Espectral de Potencia (PSD).
+\item Generar artefactos trazables para la redacción de publicaciones científicas y la presente tesis.
 \end{itemize}
 
 Hipotesis de trabajo:
 \begin{quote}
-El uso de tecnicas de interpolacion basadas en grafos permite reconstruir senales EEG de manera mas precisa y robusta que metodos clasicos en escenarios realistas de canales faltantes.
+El uso de tecnicas de interpolacion basadas en grafos con regularización temporal permite reconstruir senales EEG de manera mas precisa, preservando características fisiológicas dinámicas de forma mucho más robusta que los métodos geométricos clásicos en escenarios realistas de canales faltantes.
 \end{quote}
 
-Al cierre de la fase actual, esta hipotesis cuenta con evidencia fuertemente favorable en multiples escenarios y datasets, destacando metodos como TRSS y Tikhonov al ser optimizados correctamente frente a baselines como ICA o \textit{Spherical Spline}.
+Al cierre de la fase actual, esta hipotesis cuenta con evidencia fuertemente favorable en multiples escenarios y datasets, destacando métodos como TRSS y Tikhonov frente a \textit{baselines} como \textit{Spherical Spline} o ICA.
 
-\section{Alcance actual (fase de validacion multi-dataset con Optuna)}
+\section{Alcance de la investigación}
 
-Hasta esta etapa se completaron corridas a gran escala con optimizacion de hiperparametros (Optuna) sobre tres datasets representativos (PhysioNet, MNE Sample, BCI IV 2a), consolidacion estadistica \textit{publication-ready} y ranking final por escenarios. Esto permite redactar una version tecnicamente solida y demostrativa de resultados. La busqueda inicial de equivalencia estricta 1:1 con MATLAB/GSPBox (metodo BGSRP) paso a ser un objetivo secundario tras corroborar las enormes mejoras obtenidas al combinar GSP con regularizacion temporal nativa en Python (TRSS).
+El alcance del trabajo abarca la ejecución de corridas a gran escala con optimización de hiperparámetros (Optuna) sobre tres bases de datos representativas (PhysioNet, MNE Sample y BCI IV 2a), logrando una consolidación estadística robusta y orientada a publicación. A diferencia de estudios previos que comparan métodos novedosos contra \textit{baselines} en su configuración por defecto, el \textit{pipeline} aquí implementado somete a todas las familias de interpolación a las mismas reglas de optimización. Esto permite establecer que las enormes mejoras obtenidas al combinar GSP con regularización temporal nativa en Python (TRSS) representan ventajas estructurales y teóricas reales, validables tanto en métricas de error como en la fidelidad fisiológica (ERP y PSD).
 
 \section{Estructura de la tesis}
 
