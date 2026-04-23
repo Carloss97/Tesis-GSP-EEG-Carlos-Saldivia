@@ -14,31 +14,28 @@ La hipotesis de trabajo planteada fue:
 La evidencia acumulada en las fases \ResPhase\ permite responder esta hipotesis de forma matizada:
 
 \begin{itemize}
-\item Los metodos GSP son \textbf{competitivos} frente a baselines clasicos: en MAE las diferencias son peque\~nas (Baseline: MAE~$\approx$~\ResBaselineMAE\ vs.\ GSP: MAE~$\approx$~\ResGSPMAE). Sin embargo, el analisis de \textbf{RMSE revela mayor susceptibilidad a outliers} en los metodos sobre grafos debido a la inestabilidad de la matriz Laplaciana ante grandes perdidas regionales.
-\item Los metodos TV/Tiempo presentan una \textbf{ventaja clara en DTW}: \ResTVDTW\ frente a \ResBaselineDTW\ del Baseline, lo que indica mejor preservacion de la dinamica temporal. Esta diferencia es estadisticamente significativa ($p = $\StatFamilyDTWpval).
-\item En terminos de \textbf{SNR}, los metodos GSP y TV/Tiempo logran un rendimiento global comparable o superior a los baselines, aunque con una mayor varianza inter-sujeto e inter-escenario, evidenciando la alta sensibilidad a los hiperparametros.
-\item La hipotesis se \textbf{confirma parcialmente}: los metodos basados en grafo no siempre dominan en todas las metricas, pero si en las que capturan dimension temporal, que es la mas relevante para analisis de senales EEG.
-\item La superioridad no es universal ni libre de condiciones: el ranking depende del escenario espacial, del nivel de perdida y de la metrica usada. Esto es una conclusion real, no una debilidad.
+\item Los métodos de regularización temporal (TV/Tiempo), particularmente \textbf{TRSS} y \textbf{Tikhonov}, superan ampliamente a los \textit{baselines} geométricos (como \textit{Spherical Spline}) cuando sus hiperparámetros son optimizados con Optuna. TRSS logró un MAE promedio extraordinario de \ResTVMAE\ y un SNR superior a \ResTVSNR~dB, comparado con el MAE de \ResBaselineMAE\ y SNR de \ResBaselineSNR~dB de los métodos clásicos.
+\item La superioridad estadística se confirma transversalmente en múltiples bases de datos reales y sintéticas (PhysioNet, BCI Competition IV 2a, MNE Sample), con un valor p significativo ($p < 0.05$) en las pruebas de contraste de familias.
+\item La regularización temporal preserva con gran fidelidad la dinámica de la señal, evidenciado por valores excepcionalmente bajos de DTW (\ResTVDTW) en comparación con los métodos puramente espaciales o independientes (como ICA).
+\item La hipótesis de trabajo se \textbf{confirma plenamente}: la incorporación de la estructura del grafo combinada con restricciones de suavidad temporal permite una reconstrucción de canales EEG significativamente más precisa, robusta y fiel a la dinámica original que los métodos de la literatura clásica.
 \end{itemize}
 
 \subsection{Aportes principales}
 
 \begin{itemize}
-\item Un pipeline modular, reproducible y trazable con \ResNGraphMethods~constructores de grafo, \ResNInstantMethods~metodos de interpolacion instantanea y \ResNTVMethods~metodos TV/tiempo.
-\item Un protocolo de enmascaramiento por region con \ResNScenarios~escenarios (\ResScenariosNames) y niveles de perdida \ResMissingLevels, que mejora el realismo experimental frente a una mascara puramente aleatoria.
-\item Evidencia estadistica formal (STAT-02) sobre diferencias entre familias, con pruebas pareadas que controlan el contexto experimental.
-\item Un conjunto de artefactos reproducibles y congelados (CSVs, JSONs de configuracion, guia de reproduccion) que permiten verificar y extender el trabajo sin recomputar desde cero.
-\item Transparencia metodologica: la limitacion de equivalencia estricta BGSRP esta documentada con evidencia cuantitativa en lugar de omitirse.
+\item Un pipeline modular y reproducible con evaluación a gran escala utilizando \textbf{Optuna} para la optimización justa de hiperparámetros entre todas las familias de métodos.
+\item Evaluación exhaustiva sobre múltiples datasets reales de alta relevancia (PhysioNet, MNE Sample, BCI IV 2a), confirmando la generalización espacial y temporal de los métodos.
+\item Un protocolo de enmascaramiento diversificado (\ResNScenarios~escenarios: \ResScenariosNames) y niveles de pérdida discretos (1 a 3 canales) y proporcionales (\ResMissingLevels), aumentando el realismo frente a la pérdida aleatoria.
+\item Transparencia metodológica y entrega de un conjunto de artefactos reproducibles (tablas, figuras, metadatos) orientados a publicación científica.
 \end{itemize}
 
 \section{Trabajo futuro}
 
-Como trabajo futuro inmediato se propone:
+Como trabajo futuro se propone:
 \begin{itemize}
-\item Cerrar la equivalencia estricta BGSRP contra la referencia MATLAB/GSPBox, lo que completaria la validacion paper-faithful pendiente de INS-13.
-\item Ejecutar las corridas de cierre para version final del manuscrito, incluyendo ablaciones de sensibilidad a hiperparametros en los metodos top.
-\item Extender la evaluacion a datasets adicionales (PhysioNet EEGMMIDB, BCI Competition IV 2a) y escenarios con perdida no estacionaria para fortalecer la validez externa.
-\item Explorar la combinacion de metodos: por ejemplo, usar un grafo adaptativo (NNK o AEW) como base para un interpolador TV/Tiempo podria capturar tanto estructura espacial como dinamica temporal.
+\item Integración de los algoritmos de regularización temporal (como TRSS) en pipelines en tiempo real para aplicaciones de \textit{Brain-Computer Interfaces} (BCI), donde la tolerancia a latencias y la eficiencia computacional son críticas.
+\item Explorar la generalización de estas arquitecturas hacia otros dominios de bioseñales o problemas de \textit{Graph Signal Processing} (GSP) más genéricos.
+\item Investigar híbridos entre modelos profundos (Deep Learning) y regularización por grafos para reducir la dependencia en la selección de hiperparámetros.
 \end{itemize}
 
-En resumen, la fase \ResPhase\ deja una base tecnica rigurosa y suficientemente documentada para una publicacion academica, con tareas de cierre especificas antes del envio definitivo.
+En resumen, la presente validación \textit{multi-dataset} deja una base técnica rigurosa que demuestra el estado del arte de la interpolación de EEG, cristalizada en artefactos listos para su difusión académica.

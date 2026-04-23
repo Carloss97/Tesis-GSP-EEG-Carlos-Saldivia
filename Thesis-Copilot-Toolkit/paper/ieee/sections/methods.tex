@@ -46,4 +46,8 @@ The four-metric combination is essential in EEG: MAE and RMSE capture pointwise 
 
 \subsection{Statistical Analysis}
 
-Family-level differences are tested with Wilcoxon paired tests (STAT-02, $\alpha = 0.05$) over shared scenario-contexts. Method-level pairwise contrasts use Mann-Whitney U. All statistical tests are computed on the B2 full-scale batched raw outputs prior to mean aggregation.
+Family-level differences are tested with Wilcoxon paired tests ($\alpha = 0.05$) over shared scenario-contexts. Method-level pairwise contrasts use Mann-Whitney U. All statistical tests are computed on the full-scale batched raw outputs prior to mean aggregation.
+
+\subsection{Hyperparameter Optimization (Optuna)}
+
+A crucial aspect of our methodology is ensuring a fair comparison between families. Advanced methods like TRSS and Tikhonov depend heavily on hyperparameters (e.g., temporal smoothness weight $\beta$, Laplacian regularization weight $\alpha$, and graph sparsity $k$). We utilize the Optuna framework \cite{akiba2019optuna} to systematically optimize these parameters for each method, dataset, and missing-channel scenario. This prevents the common bias of comparing a finely-tuned novel algorithm against default-configured baselines.

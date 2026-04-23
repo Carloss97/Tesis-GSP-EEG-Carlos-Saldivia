@@ -1,10 +1,19 @@
-﻿\chapter{Metodologia}
+\chapter{Metodologia}
 
-Este capitulo describe el pipeline experimental completo usado en la etapa \ResPhase. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, sin ajustar cada metodo de forma independiente para maximizar solo su mejor caso. En otras palabras, se priorizo una comparacion honesta antes que una optimizacion excesiva de un metodo particular.
+Este capitulo describe el pipeline experimental completo usado en la etapa de validación \textit{multi-dataset} con Optuna. La idea central fue mantener un protocolo reproducible y comparable entre familias de metodos, garantizando una competencia justa. Para evitar el sesgo común de comparar un método novedoso altamente ajustado contra baselines con configuración por defecto, se incorporó una optimización formal de hiperparámetros.
 
-La metodologia se organizo como una secuencia fija: (i) carga y estandarizacion de los datos, (ii) construccion del grafo, (iii) simulacion de canales faltantes, (iv) interpolacion o reconstruccion, y (v) evaluacion cuantitativa y consolidacion de resultados. Esta estructura permite rastrear cada resultado desde el dato de entrada hasta la tabla final del manuscrito.
+La metodologia se organizo como una secuencia fija: (i) carga y estandarizacion de múltiples bases de datos, (ii) construccion del grafo, (iii) simulacion de canales faltantes bajo modos espaciales, (iv) optimización con Optuna e interpolacion, y (v) evaluacion cuantitativa y consolidacion de resultados. Esta estructura permite rastrear cada resultado desde el dato de entrada hasta la tabla final del manuscrito.
 
-De forma practica, el pipeline se implemento de modo que cada corrida genere artefactos intermedios reutilizables. Esto fue importante para la tesis, porque permitio separar lo experimental de lo editorial: primero se consolida evidencia, y luego se redacta sobre esa evidencia.
+De forma practica, el pipeline se implemento de modo que cada corrida genere artefactos intermedios reutilizables, separando el cómputo intensivo de la generación de figuras y tablas finales.
+
+\section{Bases de Datos (Datasets)}
+
+Para asegurar la validez externa y generalización de los resultados, se utilizaron tres datasets con características dispares:
+\begin{itemize}
+\item \textbf{PhysioNet EEG Motor Movement/Imagery Dataset}: Datos reales de 64 canales, capturando una alta densidad espacial en un escenario de imaginería motora clínica.
+\item \textbf{BCI Competition IV 2a}: Un estándar en la literatura de BCI, con 22 canales y un enfoque en clasificación de tareas motoras.
+\item \textbf{MNE Sample Dataset}: Un dataset de 60 canales orientado a potenciales evocados (auditivos y visuales), proveyendo una dinámica temporal distinta a los ritmos motores.
+\end{itemize}
 
 \section{Construccion de grafos}
 
@@ -19,9 +28,13 @@ En la fase \ResPhase\ se retuvieron solo los metodos que mostraron estabilidad n
 
 \section{Simulacion de canales faltantes}
 
-Se trabajaron \ResNScenarios~escenarios por region de electrodos (\ResScenariosNames) con niveles de perdida de \ResMissingLevels. Este diseno intenta aproximar situaciones mas realistas que una mascara completamente aleatoria.
+Se trabajaron \ResNScenarios~modos de falla espacial (\ResScenariosNames) combinados con dos enfoques de degradación:
+\begin{itemize}
+\item \textbf{Por proporción (ratio)}: 10\%, 20\%, 30\%, y 40\% de los canales.
+\item \textbf{Por conteo discreto (count)}: Fallas focalizadas de 1, 2 o 3 canales específicos.
+\end{itemize}
 
-Para la tesis, este punto era importante porque un EEG real no falla siempre de manera uniforme. A veces se pierden grupos completos de canales, a veces solo algunos sensores perifericos, y otras veces la perdida tiene un patron que responde a la calidad del montaje. La version actual del protocolo queda congelada en los artefactos de resultados y se usa tanto en el paper como en la tesis.
+El modo \textit{random} asume fallas independientes (e.g., mal contacto puntual), mientras que el modo \textit{nearby} simula fallos correlacionados espacialmente (e.g., un cable o amplificador que afecta una zona completa). Este diseno aproxima situaciones mucho mas realistas que una mascara puramente aleatoria.
 
 \section{Interpolacion y reconstruccion}
 
@@ -33,13 +46,15 @@ Las comparaciones se organizaron por familias:
 
 Para la evaluacion se usaron MAE, RMSE, DTW y SNR con agregacion estadistica (media, desviacion estandar e intervalo de confianza aproximado) sobre corridas repetidas.
 
-Desde el punto de vista de implementacion, cada metodo recibe exactamente la misma entrada y la misma mascara. Esa homogeneidad fue una prioridad del trabajo.
+\section{Optimización de Hiperparámetros (Optuna)}
+
+Dado que metodos avanzados como \code{trss} y \code{tikhonov} dependen critícamente de hiperparametros (peso temporal $\beta$, factor de penalización espacial $\alpha$, y densidad del grafo $k$), se integró el framework Optuna. Esto permite explorar sistemáticamente el espacio de hiperparámetros para encontrar la mejor combinación por métrica y escenario, asegurando que los \textit{baselines} y los métodos propuestos entreguen su máximo potencial teórico.
 
 \section{Consolidacion y reporte}
 
-La fase B2 incorporo una consolidacion estadistica por escenario y familia de metodos. Los resultados se resumieron con tablas de ranking, tablas top-k y archivos de configuracion congelada.
+La consolidacion estadistica abarca tablas de resumen (\textit{pivot tables}), gráficos de dispersión (pareto front), curvas de degradación y mapas de calor (Heatmaps) que integran el rendimiento óptimo a lo largo de los escenarios. 
 
-Para el tratamiento de INS-13/BGSRP se adopto una politica de redaccion prudente: la implementacion Python se reporta como \BGSRPStatus. Esa distincion no es solo editorial; es parte de la validez metodologica del trabajo.
+La política de redacción sobre la equivalencia con MATLAB/GSPBox (\BGSRPStatus) se mantiene como antecedente histórico, volcando ahora el esfuerzo hacia el despliegue nativo y robusto en Python.
 
 
 

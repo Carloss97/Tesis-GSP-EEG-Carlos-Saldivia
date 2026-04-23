@@ -1,17 +1,24 @@
 \section{Experimental Setup}
 
-Experiments follow a fixed pipeline: data loading, graph construction, missing-channel simulation, reconstruction, and quantitative evaluation.
+Experiments follow a fixed pipeline: data loading, graph construction, missing-channel simulation, hyperparameter optimization, reconstruction, and quantitative evaluation.
 
-For B2, we ran the benchmark in batches and then consolidated the outputs into publication-oriented artifacts. The implementation uses the scripts \iterid{experiments/run_b2_batched.py} and \iterid{experiments/consolidate_b2_publication.py}.
+For the final validation phase, we executed a comprehensive benchmark across multiple domains to ensure generalizability. 
+
+\subsection{Datasets}
+We evaluate the methods on three distinct, publicly available datasets:
+\begin{itemize}
+\item \emph{PhysioNet EEG Motor Movement/Imagery Dataset}: Real 64-channel EEG data representing actual clinical-grade recordings.
+\item \emph{BCI Competition IV 2a}: A standard 22-channel motor imagery benchmark dataset.
+\item \emph{MNE Sample Dataset}: A 60-channel dataset capturing auditory and visual evoked potentials.
+\end{itemize}
 
 \subsection{Masking Protocol}
-Masking includes scenario-driven patterns and missing ratios of 0.10, 0.20, 0.30, and 0.40. In the current stage we use realistic region-based scenarios (frontal band, occipital band, temporal lateral, and midline central) over the available EEG sample set.
+Masking simulates both systematic and sporadic sensor failures. We use two spatial modes: \emph{random} (electrodes fail independently) and \emph{nearby} (spatially clustered failures). For each mode, we vary the degradation severity using \emph{ratios} (10\%, 20\%, 30\%, 40\% of total channels) and discrete \emph{counts} (1, 2, or 3 specific channels missing).
 
 \subsection{Reproducibility}
-All scripts and output artifacts are tracked in versioned folders and frozen configurations. The most relevant B2 outputs are:
+All scripts, hyperparameter configurations, and output artifacts are tracked in versioned folders. The most relevant outputs from the Optuna phase are:
 \begin{itemize}
-\item \iterid{results/opt_benchmark_b2_full_scale_summary.csv}
-\item \iterid{results/b2_publication_ranking_final.csv}
-\item \iterid{results/b2_publication_topk_by_family_scenario.csv}
-\item \iterid{results/b2_publication_bgsrp_gap_residual.csv}
+\item \iterid{results\_optuna\_final/optuna\_best\_results.csv}
+\item \iterid{results\_optuna\_final/optuna\_summary\_pivot.csv}
+\item Extensive visual artifacts including heatmaps, radar charts, and spatial topography degradation curves.
 \end{itemize}

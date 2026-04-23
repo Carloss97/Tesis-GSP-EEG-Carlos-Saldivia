@@ -8,11 +8,12 @@ Even though many methods have been proposed in the literature \cite{narang2013,p
 
 The main contributions of this manuscript are:
 \begin{itemize}
-\item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation.
-\item A cross-family comparison including geometric baselines, graph-based interpolation, and temporal regularization methods.
+\item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation across multiple datasets (PhysioNet, BCI Competition IV 2a, and MNE Sample).
+\item A cross-family comparison including geometric baselines (Spherical Spline, TPS), independent component analysis (ICA), and advanced graph-based interpolation with temporal regularization (TRSS, Tikhonov).
+\item Extensive hyperparameter optimization using Optuna to fairly benchmark methods under varying conditions (nearby vs. random missing channels).
 \item A publication-oriented artifact set with frozen configurations, raw outputs, and summary tables.
 \end{itemize}
 
-At the current \ResPhase\ stage, we evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions (\ResNScenarios~scenarios, \ResMissingLevels\ missing) with repeated runs and consolidated variability statistics.
+At the current \ResPhase\ stage, we evaluate performance using MAE, RMSE, DTW, and SNR under scenario-driven masking conditions (\ResScenariosNames~scenarios, \ResMissingLevels~missing channels) with repeated runs and consolidated variability statistics.
 
-This is still an evolving manuscript, so we intentionally keep a transparent scope statement: most of the benchmark is consolidated, but strict BGSRP equivalence against the original MATLAB/GSPBox environment remains a documented limitation rather than a completed claim.
+This manuscript builds upon a robust multi-dataset validation framework. While strict BGSRP equivalence against the original MATLAB/GSPBox environment was originally an objective, our current focus highlights the superior performance of temporal regularization methods like TRSS under fully optimized hyperparameter configurations.

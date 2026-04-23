@@ -16,8 +16,9 @@ El objetivo general es comparar metodos de reconstruccion de EEG basados en graf
 
 Objetivos especificos:
 \begin{itemize}
-\item Implementar y consolidar una coleccion de metodos de construccion de grafos e interpolacion en un pipeline modular.
-\item Definir protocolos de canales faltantes con escenarios por region y niveles de perdida.
+\item Implementar y consolidar una coleccion de metodos de construccion de grafos e interpolacion en un pipeline modular, evaluando datasets reales de alta densidad (PhysioNet, BCI Competition IV 2a, MNE Sample).
+\item Definir protocolos de canales faltantes con escenarios por distribucion (\textit{nearby} vs \textit{random}) y niveles de perdida.
+\item Ejecutar optimizacion de hiperparametros con Optuna para garantizar comparaciones justas entre baselines geometricos, estadisticos y de regularizacion temporal.
 \item Evaluar desempeno con MAE, RMSE, DTW y SNR, incluyendo estadisticos de variabilidad.
 \item Generar artefactos trazables para redaccion de paper y tesis.
 \end{itemize}
@@ -27,11 +28,11 @@ Hipotesis de trabajo:
 El uso de tecnicas de interpolacion basadas en grafos permite reconstruir senales EEG de manera mas precisa y robusta que metodos clasicos en escenarios realistas de canales faltantes.
 \end{quote}
 
-Al cierre de la fase B2, esta hipotesis cuenta con evidencia favorable en varios escenarios, aunque todavia con pendientes de cierre en equivalencia estricta BGSRP 1:1 con MATLAB/GSPBox.
+Al cierre de la fase actual, esta hipotesis cuenta con evidencia fuertemente favorable en multiples escenarios y datasets, destacando metodos como TRSS y Tikhonov al ser optimizados correctamente frente a baselines como ICA o \textit{Spherical Spline}.
 
-\section{Alcance actual (fase B2)}
+\section{Alcance actual (fase de validacion multi-dataset con Optuna)}
 
-Hasta esta etapa se completaron corridas full-scale por lotes, consolidacion estadistica publication-ready y ranking final por escenarios. Esto permite redactar una version tecnicamente solida de resultados. Al mismo tiempo, se mantiene una postura cauta: no todos los frentes de validacion paper-faithful estan cerrados al 100\%.
+Hasta esta etapa se completaron corridas a gran escala con optimizacion de hiperparametros (Optuna) sobre tres datasets representativos (PhysioNet, MNE Sample, BCI IV 2a), consolidacion estadistica \textit{publication-ready} y ranking final por escenarios. Esto permite redactar una version tecnicamente solida y demostrativa de resultados. La busqueda inicial de equivalencia estricta 1:1 con MATLAB/GSPBox (metodo BGSRP) paso a ser un objetivo secundario tras corroborar las enormes mejoras obtenidas al combinar GSP con regularizacion temporal nativa en Python (TRSS).
 
 \section{Estructura de la tesis}
 

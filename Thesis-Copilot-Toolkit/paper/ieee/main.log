@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  9 APR 2026 01:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  23 APR 2026 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -528,8 +528,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-(sections/related_work.tex
+)
+Underfull \hbox (badness 1406) in paragraph at lines 13--14
+[]\T1/ptm/m/n/10 Extensive hy-per-pa-ram-e-ter op-ti-miza-tion us-ing Op-tuna
+ []
+
+) (sections/related_work.tex
 Underfull \hbox (badness 4995) in paragraph at lines 5--6
 []\T1/ptm/m/n/10 More re-cent meth-ods in-clude RKHS-based re-cov-ery
  []
@@ -557,48 +561,22 @@ Underfull \hbox (badness 1406) in paragraph at lines 12--13
 re-gres-
  []
 
-) (sections/experiments.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-[]\T1/ptm/m/n/10 For B2, we ran the bench-mark in batches and
+) (sections/experiments.tex [2]
+Overfull \hbox (56.09729pt too wide) in paragraph at lines 21--22
+[]\T1/pcr/m/n/10 results\_optuna\_final/optuna\_best\_results.csv 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-\T1/ptm/m/n/10 then con-sol-i-dated the out-puts into publication-
+Overfull \hbox (62.09729pt too wide) in paragraph at lines 22--23
+[]\T1/pcr/m/n/10 results\_optuna\_final/optuna\_summary\_pivot.csv 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-\T1/ptm/m/n/10 oriented ar-ti-facts. The im-ple-men-ta-tion uses the
+Underfull \hbox (badness 2119) in paragraph at lines 23--24
+[]\T1/ptm/m/n/10 Extensive vi-sual ar-ti-facts in-clud-ing heatmaps, radar
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-\T1/ptm/m/n/10 scripts \T1/pcr/m/n/10 experiments/run_b2_batched.py \T1/ptm/m/n
-/10 and
- []
-
-
-Overfull \hbox (50.09729pt too wide) in paragraph at lines 13--14
-[]\T1/pcr/m/n/10 results/opt_benchmark_b2_full_scale_summary.csv 
- []
-
-
-Overfull \hbox (8.09729pt too wide) in paragraph at lines 14--15
-[]\T1/pcr/m/n/10 results/b2_publication_ranking_final.csv 
- []
-
-
-Overfull \hbox (68.09729pt too wide) in paragraph at lines 15--16
-[]\T1/pcr/m/n/10 results/b2_publication_topk_by_family_scenario.csv 
- []
-
-
-Overfull \hbox (38.09729pt too wide) in paragraph at lines 16--17
-[]\T1/pcr/m/n/10 results/b2_publication_bgsrp_gap_residual.csv 
- []
-
-) (sections/results.tex [2]
+) (sections/results.tex
 Underfull \hbox (badness 10000) in paragraph at lines 34--35
 []\T1/ptm/m/n/10 Full per-scenario rank-ings are avail-able in
  []
@@ -610,8 +588,28 @@ Overfull \hbox (50.5pt too wide) in paragraph at lines 34--35
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 38--39
-[]\T1/ptm/m/n/10 The BGSRP method is cur-rently treated as a proxy
+Underfull \hbox (badness 1400) in paragraph at lines 34--35
+\T1/ptm/m/n/10 miss-ing data (10%, 20%, 30%, 40% y 1 a 3 canales
+ []
+
+
+Underfull \hbox (badness 6927) in paragraph at lines 38--39
+\T1/ptm/m/n/10 en múlti-ples datasets EEG (Phy-s-ioNet, BCI IV 2a,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+\T1/ptm/m/n/10 MNE Sam-ple) con op-ti-mización de hiper-parámet-ros
+ []
+
+
+Underfull \hbox (badness 5105) in paragraph at lines 38--39
+\T1/ptm/m/n/10 global de méto-dos con reg-u-lar-ización tem-po-ral como
+ []
+
+
+Underfull \hbox (badness 2762) in paragraph at lines 38--39
+\T1/ptm/m/n/10 TRSS y Tikhonov.. The resid-ual gap is quan-ti-fied in
  []
 
 
@@ -619,539 +617,60 @@ Overfull \hbox (18.0pt too wide) in paragraph at lines 38--39
 \T1/pcr/m/n/10 results/b2_publication_bgsrp_gap_residual.csv
  []
 
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 42.
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--42
- \T1/ptm/m/it/10 E. It-er-a-tion \T1/pcr/m/sl/10 it02\T1/ptm/m/it/10 : TV/Time 
-meth-ods on
- []
-
-
-Underfull \hbox (badness 6978) in paragraph at lines 42--42
-\T1/pcr/m/sl/10 synthetic_broad \T1/ptm/m/it/10 ^^V cor-rected per-scenario RMS
-E
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--49
-[]\T1/ptm/m/n/10 The canon-i-cal bench-mark was ex-e-cuted on the
- []
-
-
-Underfull \hbox (badness 7685) in paragraph at lines 45--49
-\T1/pcr/m/n/10 synthetic_broad \T1/ptm/m/n/10 dataset (broad-band 1--40Hz, 16
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
-[]\T1/ptm/m/n/10 Statistical sig-nif-i-cance con-firmed via
- []
-
-<figures/it02_fig01_mae_by_method.pdf, id=203, 722.7pt x 361.35pt>
-File: figures/it02_fig01_mae_by_method.pdf Graphic file (type pdf)
-<use figures/it02_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it02_fig01_mae_by_method.pdf  used on input li
-ne 67.
-(pdftex.def)             Requested size: 252.0pt x 126.00021pt.
-<figures/it02_fig06_scenario_sensitivity.pdf, id=204, 722.7pt x 361.35pt>
-File: figures/it02_fig06_scenario_sensitivity.pdf Graphic file (type pdf)
-<use figures/it02_fig06_scenario_sensitivity.pdf>
-Package pdftex.def Info: figures/it02_fig06_scenario_sensitivity.pdf  used on i
-nput line 75.
-(pdftex.def)             Requested size: 252.0pt x 126.00021pt.
-(tables/it02_tbl01_main_comparison.tex) (tables/it02_tbl02_significance.tex
-Overfull \hbox (8.25017pt too wide) in paragraph at lines 9--20
- [][] 
- []
-
+<../../results_optuna_final/global_comparison_physionet.png, id=160, 1150.0566p
+t x 853.2678pt>
+File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
+type png)
+<use ../../results_optuna_final/global_comparison_physionet.png>
+Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
+.png  used on input line 49.
+(pdftex.def)             Requested size: 252.0pt x 186.96434pt.
+<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=163
+, 628.749pt x 547.3248pt>
+File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
+aphic file (type png)
+<use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
+Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
+e_random_0.4.png  used on input line 59.
+(pdftex.def)             Requested size: 252.0pt x 219.36867pt.
+[3 <../../results_optuna_final/global_comparison_physionet.png>]
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=174, 1148.6
+112pt x 427.3566pt>
+File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
+le (type png)
+<use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
+Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
+atio.png  used on input line 69.
+(pdftex.def)             Requested size: 252.0pt x 93.7579pt.
 )
-Underfull \hbox (badness 1845) in paragraph at lines 90--94
-[]\T1/ptm/m/n/10 The bench-mark was ex-e-cuted on \T1/pcr/m/n/10 synthetic_beta
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
-[]\T1/ptm/m/n/10 Significant con-trast: \T1/pcr/m/n/10 mae_trss_vs_tikhonov
- []
-
-<figures/it03_synthetic_beta_fig01_mae_by_method.pdf, id=205, 722.7pt x 361.35p
-t>
-File: figures/it03_synthetic_beta_fig01_mae_by_method.pdf Graphic file (type pd
-f)
-<use figures/it03_synthetic_beta_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it03_synthetic_beta_fig01_mae_by_method.pdf  u
-sed on input line 104.
-(pdftex.def)             Requested size: 252.0pt x 126.00021pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-\T1/ptm/m/n/8 Fig. 3.  []MAE mean $\OMS/cmsy/m/n/8 ^^F$ \T1/ptm/m/n/8 CI95 per 
-method ^^V it-er-a-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-\T1/pcr/m/n/8 it03_synthetic_beta\T1/ptm/m/n/8 . Or-ange: TV/Time fam-ily; blue
-: In-stant
- []
-
-(tables/it03_synthetic_beta_tbl01_main_comparison.tex)
-(tables/it03_synthetic_beta_tbl02_significance.tex
-Overfull \hbox (8.25017pt too wide) in paragraph at lines 8--19
- [][] 
- []
-
-) [3 <./figures/it02_fig01_mae_by_method.pdf> <./figures/it02_fig06_scenario_se
-nsitivity.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
-[]\T1/ptm/m/n/10 Significant con-trast: \T1/pcr/m/n/10 mae_trss_vs_tikhonov
- []
-
-<figures/it05b_synthetic_three_fig01_mae_by_method.pdf, id=317, 722.7pt x 361.3
-5pt>
-File: figures/it05b_synthetic_three_fig01_mae_by_method.pdf Graphic file (type 
-pdf)
-<use figures/it05b_synthetic_three_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it05b_synthetic_three_fig01_mae_by_method.pdf 
- used on input line 133.
-(pdftex.def)             Requested size: 252.0pt x 126.00021pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-\T1/ptm/m/n/8 Fig. 4.  []MAE mean $\OMS/cmsy/m/n/8 ^^F$ \T1/ptm/m/n/8 CI95 per 
-method ^^V it-er-a-tion
- []
-
-
-Underfull \hbox (badness 3229) in paragraph at lines 135--135
-\T1/pcr/m/n/8 it05b_synthetic_three\T1/ptm/m/n/8 . Or-ange: TV/Time fam-ily; bl
-ue: In-stant
- []
-
-(tables/it05b_synthetic_three_tbl01_main_comparison.tex)
-(tables/it05b_synthetic_three_tbl02_significance.tex
-Overfull \hbox (8.25017pt too wide) in paragraph at lines 8--19
- [][] 
- []
-
-)
-Underfull \hbox (badness 1377) in paragraph at lines 148--148
- \T1/ptm/m/it/10 H. It-er-a-tion \T1/pcr/m/sl/10 it48_physionet_multisubj_high_
-mr\T1/ptm/m/it/10 :
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 156--158
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.0000, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 1648) in paragraph at lines 159--160
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_trss_vs_tikhonov \T1/ptm/m/n
-/10 (p=4.12e-
- []
-
-<figures/it48_physionet_multisubj_high_mr_fig01_mae_by_method.pdf, id=318, 462.
-52798pt x 363.52313pt>
-File: figures/it48_physionet_multisubj_high_mr_fig01_mae_by_method.pdf Graphic 
-file (type pdf)
-<use figures/it48_physionet_multisubj_high_mr_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it48_physionet_multisubj_high_mr_fig01_mae_by_
-method.pdf  used on input line 164.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--165
-\T1/ptm/m/n/8 Fig. 5.  []MAE mean $\OMS/cmsy/m/n/8 ^^F$ \T1/ptm/m/n/8 CI95 ---
- []
-
-(tables/it48_physionet_multisubj_high_mr_tbl01_main_comparison.tex)
-(tables/it48_physionet_multisubj_high_mr_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 175--175
- \T1/ptm/m/it/10 I. It-er-a-tion \T1/pcr/m/sl/10 it49_physionet_multisubj_low_m
-r\T1/ptm/m/it/10 :
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <./figures/it03_synthetic_beta_fig01_mae_by_method.pdf> <./figures/it05b_sy
-nthetic_three_fig01_mae_by_method.pdf> <./figures/it48_physionet_multisubj_high
-_mr_fig01_mae_by_method.pdf>]
-Underfull \hbox (badness 1648) in paragraph at lines 186--187
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_trss_vs_tikhonov \T1/ptm/m/n
-/10 (p=1.12e-
- []
-
-<figures/it49_physionet_multisubj_low_mr_fig01_mae_by_method.pdf, id=476, 462.5
-2798pt x 363.52313pt>
-File: figures/it49_physionet_multisubj_low_mr_fig01_mae_by_method.pdf Graphic f
-ile (type pdf)
-<use figures/it49_physionet_multisubj_low_mr_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it49_physionet_multisubj_low_mr_fig01_mae_by_m
-ethod.pdf  used on input line 191.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it49_physionet_multisubj_low_mr_tbl01_main_comparison.tex)
-(tables/it49_physionet_multisubj_low_mr_tbl02_significance.tex)
-Underfull \hbox (badness 2384) in paragraph at lines 202--202
- \T1/ptm/m/it/10 J. It-er-a-tion \T1/pcr/m/sl/10 it51_all_datasets_strong_tv\T1
-/ptm/m/it/10 : All 4
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad\T1
-/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--208
-\T1/pcr/m/n/10 physionet_eegmmidb \T1/ptm/m/n/10 across 4 sce-nario(s) (10%,
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 210--212
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.1595, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 1648) in paragraph at lines 213--214
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_trss_vs_tikhonov \T1/ptm/m/n
-/10 (p=4.52e-
- []
-
-<figures/it51_all_datasets_strong_tv_fig01_mae_by_method.pdf, id=477, 462.52798
-pt x 363.52313pt>
-File: figures/it51_all_datasets_strong_tv_fig01_mae_by_method.pdf Graphic file 
-(type pdf)
-<use figures/it51_all_datasets_strong_tv_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it51_all_datasets_strong_tv_fig01_mae_by_metho
-d.pdf  used on input line 218.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it51_all_datasets_strong_tv_tbl01_main_comparison.tex)
-(tables/it51_all_datasets_strong_tv_tbl02_significance.tex)
-Underfull \hbox (badness 2111) in paragraph at lines 229--229
- \T1/ptm/m/it/10 K. It-er-a-tion \T1/pcr/m/sl/10 it52_all_datasets_gaussian_gra
-ph\T1/ptm/m/it/10 :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad\T1
-/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--235
-\T1/pcr/m/n/10 physionet_eegmmidb \T1/ptm/m/n/10 across 4 sce-nario(s) (10%,
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 237--239
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.1595, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 rmse_tv_family_vs_instant
- []
-
-[5 <./figures/it49_physionet_multisubj_low_mr_fig01_mae_by_method.pdf> <./figur
-es/it51_all_datasets_strong_tv_fig01_mae_by_method.pdf>]
-<figures/it52_all_datasets_gaussian_graph_fig01_mae_by_method.pdf, id=558, 462.
-52798pt x 363.52313pt>
-File: figures/it52_all_datasets_gaussian_graph_fig01_mae_by_method.pdf Graphic 
-file (type pdf)
-<use figures/it52_all_datasets_gaussian_graph_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it52_all_datasets_gaussian_graph_fig01_mae_by_
-method.pdf  used on input line 245.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--246
-\T1/ptm/m/n/8 Fig. 8.  []MAE mean $\OMS/cmsy/m/n/8 ^^F$ \T1/ptm/m/n/8 CI95 ---
- []
-
-(tables/it52_all_datasets_gaussian_graph_tbl01_main_comparison.tex)
-(tables/it52_all_datasets_gaussian_graph_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad\T1
-/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--262
-\T1/pcr/m/n/10 physionet_eegmmidb \T1/ptm/m/n/10 across 4 sce-nario(s) (10%,
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 264--266
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.1595, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 rmse_tv_family_vs_instant
- []
-
-<figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf, id=559, 462.52798pt x 3
-63.52313pt>
-File: figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf Graphic file (type 
-pdf)
-<use figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf 
- used on input line 272.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it53_all_datasets_nnk_tbl01_main_comparison.tex)
-(tables/it53_all_datasets_nnk_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 283--283
- \T1/ptm/m/it/10 M. It-er-a-tion \T1/pcr/m/sl/10 it54_all_datasets_high_mr\T1/p
-tm/m/it/10 : All 4
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad\T1
-/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
-\T1/pcr/m/n/10 physionet_eegmmidb \T1/ptm/m/n/10 across 2 sce-nario(s) (10%,
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 291--293
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.2263, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_tv_family_vs_instant
- []
-
-<figures/it54_all_datasets_high_mr_fig01_mae_by_method.pdf, id=560, 462.52798pt
- x 363.52313pt>
-File: figures/it54_all_datasets_high_mr_fig01_mae_by_method.pdf Graphic file (t
-ype pdf)
-<use figures/it54_all_datasets_high_mr_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it54_all_datasets_high_mr_fig01_mae_by_method.
-pdf  used on input line 299.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it54_all_datasets_high_mr_tbl01_main_comparison.tex)
-(tables/it54_all_datasets_high_mr_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 310--310
- \T1/ptm/m/it/10 N. It-er-a-tion \T1/pcr/m/sl/10 it55_all_datasets_low_mr\T1/pt
-m/m/it/10 : All 4
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--316
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--316
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad\T1
-/ptm/m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 313--316
-\T1/pcr/m/n/10 physionet_eegmmidb \T1/ptm/m/n/10 across 2 sce-nario(s) (10%,
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 318--320
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.0927, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 rmse_tv_family_vs_instant
- []
-
-<figures/it55_all_datasets_low_mr_fig01_mae_by_method.pdf, id=561, 462.52798pt 
-x 363.52313pt>
-File: figures/it55_all_datasets_low_mr_fig01_mae_by_method.pdf Graphic file (ty
-pe pdf)
-<use figures/it55_all_datasets_low_mr_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it55_all_datasets_low_mr_fig01_mae_by_method.p
-df  used on input line 326.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it55_all_datasets_low_mr_tbl01_main_comparison.tex)
-(tables/it55_all_datasets_low_mr_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 340--343
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--343
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad \T
-1/ptm/m/n/10 across 1
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 rmse_tv_family_vs_instant
- []
-
-<figures/it56_3syn_mr10_only_fig01_mae_by_method.pdf, id=571, 462.52798pt x 363
-.52313pt>
-File: figures/it56_3syn_mr10_only_fig01_mae_by_method.pdf Graphic file (type pd
-f)
-<use figures/it56_3syn_mr10_only_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it56_3syn_mr10_only_fig01_mae_by_method.pdf  u
-sed on input line 353.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it56_3syn_mr10_only_tbl01_main_comparison.tex)
-(tables/it56_3syn_mr10_only_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
-[]\T1/ptm/m/n/10 Benchmark ex-e-cuted on \T1/pcr/m/n/10 synthetic_alpha\T1/ptm/
-m/n/10 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
-\T1/pcr/m/n/10 synthetic_beta\T1/ptm/m/n/10 , \T1/pcr/m/n/10 synthetic_broad \T
-1/ptm/m/n/10 across 1
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 372--374
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 mean \T1/ptm/m/n/10 MAE=0.2611, in
--stant base-line
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_tv_family_vs_instant
- []
-
-<figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf, id=572, 462.52798pt x 363
-.52313pt>
-File: figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf Graphic file (type pd
-f)
-<use figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf  u
-sed on input line 380.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it57_3syn_mr40_only_tbl01_main_comparison.tex)
-(tables/it57_3syn_mr40_only_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
- \T1/ptm/m/it/10 Q. It-er-a-tion \T1/pcr/m/sl/10 it58_broad_low_missing\T1/ptm/
-m/it/10 : Syn-thetic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--403
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 rmse_tv_family_vs_instant
- []
-
-<figures/it58_broad_low_missing_fig01_mae_by_method.pdf, id=573, 462.52798pt x 
-363.52313pt>
-File: figures/it58_broad_low_missing_fig01_mae_by_method.pdf Graphic file (type
- pdf)
-<use figures/it58_broad_low_missing_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it58_broad_low_missing_fig01_mae_by_method.pdf
-  used on input line 407.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it58_broad_low_missing_tbl01_main_comparison.tex)
-(tables/it58_broad_low_missing_tbl02_significance.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 418--418
- \T1/ptm/m/it/10 R. It-er-a-tion \T1/pcr/m/sl/10 it59_broad_high_missing\T1/ptm
-/m/it/10 : Syn-thetic
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 426--428
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 heat_diffusion_temporal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 429--430
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_tv_family_vs_instant
- []
-
-<figures/it59_broad_high_missing_fig01_mae_by_method.pdf, id=574, 462.52798pt x
- 363.52313pt>
-File: figures/it59_broad_high_missing_fig01_mae_by_method.pdf Graphic file (typ
-e pdf)
-<use figures/it59_broad_high_missing_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it59_broad_high_missing_fig01_mae_by_method.pd
-f  used on input line 434.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it59_broad_high_missing_tbl01_main_comparison.tex)
-(tables/it59_broad_high_missing_tbl02_significance.tex)
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-45.
-
-(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 453--455
-[]\T1/ptm/m/n/10 Best method: \T1/pcr/m/n/10 heat_diffusion_temporal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 456--457
-[]\T1/ptm/m/n/10 Key con-trast: \T1/pcr/m/n/10 mae_tv_family_vs_instant
- []
-
-<figures/it60_broad_all_graphs_high_mr_fig01_mae_by_method.pdf, id=575, 462.527
-98pt x 363.52313pt>
-File: figures/it60_broad_all_graphs_high_mr_fig01_mae_by_method.pdf Graphic fil
-e (type pdf)
-<use figures/it60_broad_all_graphs_high_mr_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it60_broad_all_graphs_high_mr_fig01_mae_by_met
-hod.pdf  used on input line 461.
-(pdftex.def)             Requested size: 252.0pt x 198.06348pt.
-(tables/it60_broad_all_graphs_high_mr_tbl01_main_comparison.tex)
-(tables/it60_broad_all_graphs_high_mr_tbl02_significance.tex))
-(sections/discussion.tex [7 <./figures/it52_all_datasets_gaussian_graph_fig01_m
-ae_by_method.pdf>]
+(sections/discussion.tex
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
-[]\T1/ptm/m/n/10 An im-por-tant lim-i-ta-tion re-mains: proxy con-
+[]\T1/ptm/m/n/10 An im-por-tant lim-i-ta-tion re-mains: val-i-dación en
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
-\T1/ptm/m/n/10 tro-lado en Python; equiv-a-len-cia es-tricta 1:1 con
+\T1/ptm/m/n/10 múlti-ples datasets EEG (Phy-s-ioNet, BCI IV 2a,
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 9--10
-\T1/ptm/m/n/10 MAT-LAB/GSPBox pen-di-ente. The cur-rent ar-ti-fact
+\T1/ptm/m/n/10 MNE Sam-ple) con op-ti-mización de hiper-parámet-ros
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+\T1/ptm/m/n/10 (Op-tuna) com-ple-tada, de-mostrando su-pe-ri-or-i-dad
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+\T1/ptm/m/n/10 es-tadís-tica global de méto-dos con reg-u-lar-ización
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 9--10
+\T1/ptm/m/n/10 tem-po-ral como TRSS y Tikhonov.. The cur-rent ar-ti-fact
  []
 
 
@@ -1174,78 +693,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--1
 []\T1/ptm/m/n/10 The strict BGSRP 1:1 equiv-a-lence against
  []
 
-
-Underfull \hbox (badness 2142) in paragraph at lines 7--8
-[]\T1/ptm/m/n/10 At the method level, TRSS sig-nif-i-cantly out-per-forms
- []
-
-) [8 <./figures/it53_all_datasets_nnk_fig01_mae_by_method.pdf>] (main.bbl
+[4 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png> <..
+/../results_optuna_final/degradation_bci_iv_random_ratio.png>]) (main.bbl
 Underfull \hbox (badness 1448) in paragraph at lines 55--59
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
  []
 
-)
-
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
-
-[9 <./figures/it54_all_datasets_high_mr_fig01_mae_by_method.pdf>]
-Overfull \vbox (102.55066pt too high) has occurred while \output is active []
-
-
-[10 <./figures/it57_3syn_mr40_only_fig01_mae_by_method.pdf> <./figures/it58_bro
-ad_low_missing_fig01_mae_by_method.pdf> <./figures/it59_broad_high_missing_fig0
-1_mae_by_method.pdf>] [11
-
-] [12
-
-] (main.aux)
+) [5] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 87A9FD34F5C36441D90C3A532F67412D;11135.
+(rerunfilecheck)             Checksum: 3D6F84116811CEB6447A32EDB78B5971;3785.
  ) 
 Here is how much of TeX's memory you used:
- 15796 strings out of 467867
- 329838 string characters out of 5418335
- 777730 words of memory out of 5000000
- 44266 multiletter control sequences out of 15000+600000
- 748601 words of font info for 175 fonts, out of 8000000 for 9000
+ 15360 strings out of 467867
+ 307310 string characters out of 5418335
+ 690081 words of memory out of 5000000
+ 43989 multiletter control sequences out of 15000+600000
+ 743354 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,80p,1000b,1115s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,80p,1000b,1073s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sarlo/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/sarlo/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/s
-arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/
-Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.p
-fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmr9.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/sarlo/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Use
-rs/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/U
-sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C
-:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C
-:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><
-C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><
-C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-
-Output written on main.pdf (12 pages, 521096 bytes).
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sarlo/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/s
+arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:
+/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courie
+r/ucrr8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
+s/utmb8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
+s/utmbi8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/tim
+es/utmr8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on main.pdf (5 pages, 674311 bytes).
 PDF statistics:
- 960 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
- 361 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 262 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

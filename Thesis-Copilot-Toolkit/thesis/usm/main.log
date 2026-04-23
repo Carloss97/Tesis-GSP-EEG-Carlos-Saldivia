@@ -1,12 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  9 APR 2026 01:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  23 APR 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Th
-esis-Copilot-Toolkit/thesis/usm/main.tex
-
-(c:/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/The
-sis-Copilot-Toolkit/thesis/usm/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
@@ -669,40 +666,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [7
 
 
-] [8])
+])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [9] (main.lof
+ [8] (main.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [10
+ [9
 
 ] (main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [11
-
-])
+)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [12] (chapters/01_introduccion.tex
+ [10
+
+] (chapters/01_introduccion.tex
 Cap\'{\i }tulo 1.
 [1
 
 
-]
-Overfull \hbox (18.08463pt too wide) in paragraph at lines 34--35
-[]\T1/cmr/m/n/10.95 Hasta es-ta eta-pa se com-ple-ta-ron co-rri-das full-scale 
-por lo-tes, con-so-li-da-cion es-ta-dis-ti-ca publication-
- []
-
-) (chapters/02_marco_teorico.tex [2]
+]) (chapters/02_marco_teorico.tex [2]
 Cap\'{\i }tulo 2.
 [3
 
@@ -710,416 +701,83 @@ Cap\'{\i }tulo 2.
 Cap\'{\i }tulo 3.
 [6
 
-]) (chapters/04_experimentos_y_resultados.tex [7]
+] [7]) (chapters/04_experimentos_y_resultados.tex [8]
 Cap\'{\i }tulo 4.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8
-
-] [9]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 81.
-<figures/it02_fig01_mae_by_method.pdf, id=732, 722.7pt x 361.35pt>
-File: figures/it02_fig01_mae_by_method.pdf Graphic file (type pdf)
-<use figures/it02_fig01_mae_by_method.pdf>
-Package pdftex.def Info: figures/it02_fig01_mae_by_method.pdf  used on input li
-ne 105.
-(pdftex.def)             Requested size: 455.30124pt x 227.6517pt.
-<figures/it02_fig05_tv_vs_instant_family.pdf, id=733, 867.24pt x 361.35pt>
-File: figures/it02_fig05_tv_vs_instant_family.pdf Graphic file (type pdf)
-<use figures/it02_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it02_fig05_tv_vs_instant_family.pdf  used on i
-nput line 113.
-(pdftex.def)             Requested size: 455.30124pt x 189.7116pt.
- [10]
-<figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf, id=742, 867.24pt x
- 361.35pt>
-File: figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf Graphic file (
-type pdf)
-<use figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it03_synthetic_beta_fig05_tv_vs_instant_family
-.pdf  used on input line 147.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- [11 <./figures/it02_fig01_mae_by_method.pdf>]
-<figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf, id=800, 867.24pt
- x 361.35pt>
-File: figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf Graphic file
- (type pdf)
-<use figures/it05b_synthetic_three_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it05b_synthetic_three_fig05_tv_vs_instant_fami
-ly.pdf  used on input line 176.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- [12 <./figures/it02_fig05_tv_vs_instant_family.pdf>]
-<figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf, id=845, 867.
-24pt x 361.35pt>
-File: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf Graphic 
-file (type pdf)
-<use figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_
-family.pdf  used on input line 205.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- [13 <./figures/it03_synthetic_beta_fig05_tv_vs_instant_family.pdf> <./figures/
-it05b_synthetic_three_fig05_tv_vs_instant_family.pdf>]
-<figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf, id=940, 867.24pt x 361.
-35pt>
-File: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf Graphic file (type 
-pdf)
-<use figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf 
- used on input line 234.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- [14 <./figures/it06b_kalofolias_nnk_3syn_fig05_tv_vs_instant_family.pdf>]
-<figures/it08_high_missing_synthetic_fig05_tv_vs_instant_family.pdf, id=993, 86
-7.24pt x 361.35pt>
-File: figures/it08_high_missing_synthetic_fig05_tv_vs_instant_family.pdf Graphi
-c file (type pdf)
-<use figures/it08_high_missing_synthetic_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it08_high_missing_synthetic_fig05_tv_vs_instan
-t_family.pdf  used on input line 263.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
-
-Overfull \hbox (10.65742pt too wide) in paragraph at lines 276--276
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it09_tikhonov_rbfi_focus\T1/cmr/bx/
-n/12 : TV/Time vs clas-sic spa-tial methods:
- []
-
-[15 <./figures/it07b_knn_3syn_fig05_tv_vs_instant_family.pdf> <./figures/it08_h
-igh_missing_synthetic_fig05_tv_vs_instant_family.pdf>]
-<figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf, id=1085, 867.
-24pt x 361.35pt>
-File: figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf Graphic f
-ile (type pdf)
-<use figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf>
-Package pdftex.def Info: figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_f
-amily.pdf  used on input line 292.
-(pdftex.def)             Requested size: 409.76833pt x 170.73877pt.
- [16 <./figures/it09_tikhonov_rbfi_focus_fig05_tv_vs_instant_family.pdf>] [17] 
-[18] [19]
-Overfull \hbox (13.29843pt too wide) in paragraph at lines 536--536
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it16b_vknng_3syn\T1/cmr/bx/n/12 : V
-KNNG (va-ria-ble k-NN, alpha=1, kmin=2,
- []
-
-[20]
-Overfull \hbox (4.2618pt too wide) in paragraph at lines 620--620
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it25_alpha_beta_two_bands\T1/cmr/bx
-/n/12 : Two-band analy-sis (alpha 8-13Hz
- []
-
-[21] [22]
-Overfull \hbox (0.29745pt too wide) in paragraph at lines 704--704
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it29_kalofolias_3syn\T1/cmr/bx/n/12
- : Ka-lo-fo-lias graph lear-ning on 3 synthe-
- []
-
-[23] [24] [25]
-Overfull \hbox (19.60814pt too wide) in paragraph at lines 935--935
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it41_physionet_multisubject_run4\T1
-/cmr/bx/n/12 : Phy-sio-net 9 sub-jects, run=4
- []
-
-[26]
-Overfull \hbox (1.66252pt too wide) in paragraph at lines 977--977
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it43_physionet_run12_allsubj\T1/cmr
-/bx/n/12 : Phy-sio-net 9 sub-jects, run=12
- []
-
-[27]
-Overfull \hbox (3.54668pt too wide) in paragraph at lines 1061--1061
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it47_physionet_multisubj_best3graph
-s\T1/cmr/bx/n/12 : Phy-sio-net 9 sub-jects,
- []
-
-[28]
-Overfull \hbox (23.35722pt too wide) in paragraph at lines 1082--1082
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it48_physionet_multisubj_high_mr\T1
-/cmr/bx/n/12 : Phy-sio-net 9 sub-jects, run=4,
- []
-
-
-Overfull \hbox (17.18373pt too wide) in paragraph at lines 1103--1103
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it49_physionet_multisubj_low_mr\T1/
-cmr/bx/n/12 : Phy-sio-net 9 sub-jects, run=4,
- []
-
-
-Overfull \hbox (13.42757pt too wide) in paragraph at lines 1124--1124
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it51_all_datasets_strong_tv\T1/cmr/
-bx/n/12 : All 4 da-ta-sets -- strong TV/Time
- []
-
-[29] [30]
-Overfull \hbox (19.17522pt too wide) in paragraph at lines 1229--1229
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it56_3syn_mr10_only\T1/cmr/bx/n/12 
-: Alpha+Beta+Broad synthe-tic -- mr=10$ $%
- []
-
-[31]
-Overfull \hbox (19.17522pt too wide) in paragraph at lines 1250--1250
-[]\T1/cmr/bx/n/12 Iteración \T1/cmtt/m/n/12 it57_3syn_mr40_only\T1/cmr/bx/n/12 
-: Alpha+Beta+Broad synthe-tic -- mr=40$ $%
- []
-
-[32] [33]) (chapters/05_discusion.tex [34]
-Cap\'{\i }tulo 5.
-[35
+[9
 
 ]
-Overfull \hbox (125.65207pt too wide) in paragraph at lines 29--30
+Overfull \hbox (118.32747pt too wide) in paragraph at lines 53--54
+[]\T1/cmr/m/n/10.95 Los ran-kings com-ple-tos por es-ce-na-rio es-tan dis-po-ni
+-bles en \T1/cmtt/m/n/10.95 results/b2_publication_topk_by_family_scenario.csv\
+T1/cmr/m/n/10.95 .
+ []
+
+
+Overfull \hbox (72.34848pt too wide) in paragraph at lines 59--60
+[]\T1/cmr/m/n/10.95 Para BGSRP se man-tie-ne la no-ta de cau-te-la: el ar-chi-v
+o \T1/cmtt/m/n/10.95 results/b2_publication_bgsrp_gap_residual.csv
+ []
+
+
+Overfull \hbox (228.68684pt too wide) in paragraph at lines 63--64
+[]\T1/cmr/m/n/10.95 La co-rri-da B2 no ge-ne-ro en-tra-das en el re-gis-tro de 
+war-nings con-so-li-da-do (\T1/cmtt/m/n/10.95 results/opt_benchmark_b2_full_sca
+le_warnings_registry.csv\T1/cmr/m/n/10.95 ),
+ []
+
+[10]
+<../../results_optuna_final/global_comparison_physionet.png, id=367, 1150.0566p
+t x 853.2678pt>
+File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
+type png)
+<use ../../results_optuna_final/global_comparison_physionet.png>
+Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
+.png  used on input line 89.
+(pdftex.def)             Requested size: 455.30124pt x 337.79875pt.
+<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=370
+, 628.749pt x 547.3248pt>
+File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
+aphic file (type png)
+<use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
+Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
+e_random_0.4.png  used on input line 99.
+(pdftex.def)             Requested size: 455.30124pt x 396.3535pt.
+ [11]
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=378, 1148.6
+112pt x 427.3566pt>
+File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
+le (type png)
+<use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
+Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
+atio.png  used on input line 109.
+(pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
+) (chapters/05_discusion.tex [12 <../../results_optuna_final/global_comparison_
+physionet.png>] [13 <../../results_optuna_final/radar_multimetric_mne_sample_ra
+ndom_0.4.png>] [14 <../../results_optuna_final/degradation_bci_iv_random_ratio.
+png>]
+Cap\'{\i }tulo 5.
+[15
+
+]) (chapters/06_conclusiones_y_trabajo_futuro.tex
+Overfull \hbox (125.65207pt too wide) in paragraph at lines 31--1
 \T1/cmr/m/n/10.95 mi-ta-cion INS-13 de-cla-ra-da ex-pli-ci-ta-men-te en el chec
 -klist fi-nal de sub-mis-sion (\T1/cmtt/m/n/10.95 results/b3_b4_submission_chec
-klist\.md\T1/cmr/m/n/10.95 ). 
+klist\.md\T1/cmr/m/n/10.95 ).
  []
 
-) (chapters/06_conclusiones_y_trabajo_futuro.tex [36]
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--1
+
+ []
+
+[16]
 Cap\'{\i }tulo 6.
-[37
+[17
 
-]) (chapters/appendix_detailed_tables.tex [38]
-Ap\'{e}ndice A.
-[39
-
-
-] (tables/it02_tbl01_main_comparison.tex) [40
-
-]
-(tables/it02_tbl02_significance.tex) [41
-
-]
-(tables/it03_synthetic_beta_tbl01_main_comparison.tex) [42
-
-]
-(tables/it05b_synthetic_three_tbl01_main_comparison.tex) [43
-
-]
-(tables/it06b_kalofolias_nnk_3syn_tbl01_main_comparison.tex) [44
-
-]
-(tables/it07b_knn_3syn_tbl01_main_comparison.tex) [45
-
-]
-(tables/it08_high_missing_synthetic_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.7: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Ite-ra-
-tion
- []
-
-) [46
-
-] (tables/it09_tikhonov_rbfi_focus_tbl01_main_comparison.tex) [47
-
-]
-(tables/it10_synthetic_alpha_tbl01_main_comparison.tex) [48
-
-]
-(tables/it12_vknng_knng_3syn_tbl01_main_comparison.tex) [49
-
-]
-(tables/it13_gaussian_aew_3syn_tbl01_main_comparison.tex) [50
-
-]
-(tables/it11_physionet_high_missing_tbl01_main_comparison.tex) [51
-
-]
-(tables/it14_low_missing_synthetic_tbl01_main_comparison.tex
-Overfull \hbox (37.86752pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [52
-
-] (tables/it17_synthetic_broad_all_graphs_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.14: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Iter
- []
-
-) [53
-
-] (tables/it18_directed_tv_vs_trss_tbl01_main_comparison.tex) [54
-
-]
-(tables/it19_synthetic_beta_high_missing_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.16: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Ite-ra
--tion
- []
-
-
-Overfull \hbox (32.86751pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [55
-
-] (tables/it20_synthetic_alpha_high_missing_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.17: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Iter
- []
-
-
-Overfull \hbox (32.86751pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [56
-
-] (tables/it21_all_datasets_family_tbl01_main_comparison.tex
-Overfull \hbox (407.42436pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [57
-
-] (tables/it15b_gaussian_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [58
-
-] (tables/it16b_vknng_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [59
-
-] (tables/it22b_knn_k3_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [60
-
-] (tables/it23b_knng_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [61
-
-] (tables/it24_physionet_all_scenarios_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.23: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Ite-ra
--tion
- []
-
-
-Overfull \hbox (404.64658pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [62
-
-] (tables/it25_alpha_beta_two_bands_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [63
-
-] (tables/it26_synthetic_beta_all_graphs_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [64
-
-] (tables/it27_synthetic_alpha_all_graphs_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.26: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Iter
- []
-
-
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [65
-
-] (tables/it28_nnk_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [66
-
-] (tables/it29_kalofolias_3syn_tbl01_main_comparison.tex
-Overfull \hbox (427.42442pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [67
-
-] (tables/it30_knn_k5_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [68
-
-] (tables/it31_strong_tv_3syn_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [69
-
-] (tables/it32_3syn_mr20_only_tbl01_main_comparison.tex) [70
-
-]
-(tables/it33_3syn_mr30_only_tbl01_main_comparison.tex) [71
-
-]
-(tables/it35_all4_kalofolias_tbl01_main_comparison.tex
-Overfull \hbox (439.38281pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [72
-
-] (tables/it36_3syn_beta_low_missing_tbl01_main_comparison.tex
-Overfull \hbox (37.86752pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [73
-
-] (tables/it37_3syn_alpha_low_missing_tbl01_main_comparison.tex
-Overfull \hbox (37.86752pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [74
-
-] (tables/it38_broad_gaussian_kalofolias_nnk_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.36: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Iter
- []
-
-
-Overfull \hbox (423.36888pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-) [75
-
-] (tables/it39_physionet_gaussian_nnk_knn_tbl01_main_comparison.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--5
-[]\T1/cmr/m/n/10.95 Tabla A.37: |EEG re-cons-truc-tion ^^V MAE/RMSE/SNR. Iter
- []
-
-) [76
-
-] (tables/it40_3syn_all_mr_analysis_tbl01_main_comparison.tex
-Overfull \hbox (412.42438pt too wide) in paragraph at lines 8--37
- [][] 
- []
-
-)) (main.bbl [77
-
-]) [78
+]) (main.bbl [18]) [19
 
 ] (main.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -1130,51 +788,44 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A1CF96AD6D97AA322B0F140D863B5AF0;14955.
+(rerunfilecheck)             Checksum: 1A574FFDF57BCA56498E3BA5EC662A13;7402.
  ) 
 Here is how much of TeX's memory you used:
- 19024 strings out of 467867
- 391022 string characters out of 5418335
- 787249 words of memory out of 5000000
- 47261 multiletter control sequences out of 15000+600000
- 652674 words of font info for 104 fonts, out of 8000000 for 9000
+ 18363 strings out of 467867
+ 361171 string characters out of 5418335
+ 743728 words of memory out of 5000000
+ 46888 multiletter control sequences out of 15000+600000
+ 646003 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,83p,734b,1383s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
-1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcbx1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ectt1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\sarlo\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\sarlo\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\sarlo\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\sarlo\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\
-sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\
-Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk
-> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2
-488.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecrm1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecrm1440.pk><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
-/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (92 pages, 767607 bytes).
+ 80i,11n,83p,721b,1381s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
+1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecti1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx2074.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecxc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\sarlo\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sarlo\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\sarlo\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\sarlo\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\
+sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/U
+sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.
+pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmbx8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sarlo/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/sarlo/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users
+/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb>
+Output written on main.pdf (31 pages, 799601 bytes).
 PDF statistics:
- 2138 PDF objects out of 2487 (max. 8388607)
- 253 named destinations out of 1000 (max. 500000)
- 825 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 927 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 352 words of extra memory for PDF output out of 10000 (max. 10000000)
 
