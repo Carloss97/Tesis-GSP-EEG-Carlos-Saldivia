@@ -110,7 +110,7 @@ def optimize_case(ds_name, data, mode, stype, val):
     
     signals_missing = simulate_mask(signals_clean, positions, val, mode, random_state=42)
     
-    methods = ["spherical_spline", "rbfi_tps", "ica"]
+    methods = ["spherical_spline", "rbfi_tps"]
     results = []
     
     for m in methods:
