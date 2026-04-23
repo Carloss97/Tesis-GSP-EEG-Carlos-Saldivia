@@ -282,11 +282,14 @@ def interpolate_signals(
             raise ValueError("Se requieren 'positions' para interpoladores espaciales.")
 
         if method == "spherical_spline":
-            reconstructed = interpolate_spherical_spline(signals, positions=positions)
+            eps = float(kwargs.get("eps", 1e-6))
+            reconstructed = interpolate_spherical_spline(signals, positions=positions, eps=eps)
         elif method == "rbfi_tps":
-            reconstructed = interpolate_rbfi(signals, positions=positions, function="thin_plate")
+            smooth = float(kwargs.get("smooth", 0.0))
+            reconstructed = interpolate_rbfi(signals, positions=positions, function="thin_plate", smooth=smooth)
         elif method == "rbfi_mq":
-            reconstructed = interpolate_rbfi(signals, positions=positions, function="multiquadric")
+            smooth = float(kwargs.get("smooth", 0.0))
+            reconstructed = interpolate_rbfi(signals, positions=positions, function="multiquadric", smooth=smooth)
         else:
             reconstructed = interpolate_spline_surface(signals, positions=positions)
 
@@ -853,7 +856,7 @@ def interpolate_sobolev(
     return reconstructed
 
 
-def _rbf_per_row(signals: np.ndarray, positions: np.ndarray, function: str) -> np.ndarray:
+def _rbf_per_row(signals: np.ndarray, positions: np.ndarray, function: str, smooth: float = 0.0) -> np.ndarray:
     x = positions[:, 0]
     y = positions[:, 1]
     z = positions[:, 2] if positions.shape[1] > 2 else np.zeros_like(x)
@@ -866,14 +869,14 @@ def _rbf_per_row(signals: np.ndarray, positions: np.ndarray, function: str) -> n
             reconstructed[i, ~observed] = np.nanmean(row)
             continue
         try:
-            rbf = Rbf(x[observed], y[observed], z[observed], row[observed], function=function)
+            rbf = Rbf(x[observed], y[observed], z[observed], row[observed], function=function, smooth=smooth)
             reconstructed[i, ~observed] = rbf(x[~observed], y[~observed], z[~observed])
         except Exception:
             reconstructed[i, ~observed] = np.nanmean(row)
     return reconstructed
 
 
-def interpolate_spherical_spline(signals: np.ndarray, positions: np.ndarray) -> np.ndarray:
+def interpolate_spherical_spline(signals: np.ndarray, positions: np.ndarray, eps: float = 1e-6) -> np.ndarray:
     # Implementacion tipo Perrin et al. para spherical splines EEG.
     pos = positions.copy().astype(float)
     norm = np.linalg.norm(pos, axis=1, keepdims=True)
@@ -885,7 +888,6 @@ def interpolate_spherical_spline(signals: np.ndarray, positions: np.ndarray) -> 
 
     m_order = 4
     n_terms = 50
-    eps = 1e-6
 
     g_matrix = _perrin_g(cos_matrix, m=m_order, n_terms=n_terms)
     a = np.zeros((n_channels + 4, n_channels + 4), dtype=float)
@@ -1504,8 +1506,8 @@ def interpolate_visibility_graphs(
         return x
 
 
-def interpolate_rbfi(signals: np.ndarray, positions: np.ndarray, function: str = "thin_plate") -> np.ndarray:
-    return _rbf_per_row(signals, positions, function=function)
+def interpolate_rbfi(signals: np.ndarray, positions: np.ndarray, function: str = "thin_plate", smooth: float = 0.0) -> np.ndarray:
+    return _rbf_per_row(signals, positions, function=function, smooth=smooth)
 
 
 def interpolate_spline_surface(signals: np.ndarray, positions: np.ndarray) -> np.ndarray:
