@@ -55,7 +55,7 @@ def evaluate_signals(
         elif key == "snr":
             results["snr"] = snr(orig_n, rec_n)
         elif key == "lsd":
-            results["lsd"] = log_spectral_distance(orig_n, rec_n)
+            results["lsd"] = log_spectral_distance(orig_n, rec_n, sfreq=sfreq)
         elif key == "coherence_mean":
             results["coherence_mean"] = coherence_mean(orig_n, rec_n, sfreq=sfreq)
     return results
@@ -241,9 +241,16 @@ def snr(y_true: np.ndarray, y_pred: np.ndarray) -> float:
         return float(np.mean(snr_vals)) if snr_vals else float("nan")
 
 
-def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray, sfreq: float | None = None) -> float:
     """Average log spectral distance (LSD) across channels/signals."""
     eps = 1e-12
+
+    n_pts = y_true.shape[0] if y_true.ndim == 1 else y_true.shape[0]
+    if sfreq is not None and np.isfinite(float(sfreq)) and float(sfreq) > 0:
+        freqs = np.fft.rfftfreq(n_pts, d=1.0/float(sfreq))
+        f_mask = (freqs >= 0.5) & (freqs <= 45.0)
+    else:
+        f_mask = slice(None)
 
     if y_true.ndim == 1:
         mask = ~np.isnan(y_true)
@@ -251,8 +258,16 @@ def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
             return float("nan")
         x = y_true[mask]
         y = y_pred[mask]
-        x_mag = np.abs(np.fft.rfft(x)) + eps
-        y_mag = np.abs(np.fft.rfft(y)) + eps
+        
+        # Recalculate mask if we removed nans
+        if sfreq is not None and np.isfinite(float(sfreq)) and float(sfreq) > 0:
+            freqs_m = np.fft.rfftfreq(len(x), d=1.0/float(sfreq))
+            f_mask_m = (freqs_m >= 0.5) & (freqs_m <= 45.0)
+        else:
+            f_mask_m = slice(None)
+            
+        x_mag = np.abs(np.fft.rfft(x))[f_mask_m] + eps
+        y_mag = np.abs(np.fft.rfft(y))[f_mask_m] + eps
         lx = np.log(x_mag)
         ly = np.log(y_mag)
         return float(np.sqrt(np.mean((lx - ly) ** 2)))
@@ -265,8 +280,15 @@ def log_spectral_distance(y_true: np.ndarray, y_pred: np.ndarray) -> float:
             continue
         x = y_true[mask, ch]
         y = y_pred[mask, ch]
-        x_mag = np.abs(np.fft.rfft(x)) + eps
-        y_mag = np.abs(np.fft.rfft(y)) + eps
+        
+        if sfreq is not None and np.isfinite(float(sfreq)) and float(sfreq) > 0:
+            freqs_m = np.fft.rfftfreq(len(x), d=1.0/float(sfreq))
+            f_mask_m = (freqs_m >= 0.5) & (freqs_m <= 45.0)
+        else:
+            f_mask_m = slice(None)
+            
+        x_mag = np.abs(np.fft.rfft(x))[f_mask_m] + eps
+        y_mag = np.abs(np.fft.rfft(y))[f_mask_m] + eps
         lx = np.log(x_mag)
         ly = np.log(y_mag)
         vals.append(float(np.sqrt(np.mean((lx - ly) ** 2))))

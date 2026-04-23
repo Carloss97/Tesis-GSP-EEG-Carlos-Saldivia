@@ -231,7 +231,30 @@ def load_bci_competition_iv_2a(subject: int = 1) -> Dict[str, Any]:
         raise RuntimeError(f"Failed reading GDF file '{fname}': {exc}") from exc
     raw.pick('eeg')
     signals = raw.get_data().T
+    
+    # BCI IV 2A channels have prefixes "EEG-" and sometimes are just numbers.
+    # We will rename known ones and assign a standard montage.
     ch_names = raw.info['ch_names']
+    mapping = {}
+    
+    # Approx standard mapping for BCI IV 2A (22 channels)
+    # Based on standard BCI IV 2a ELOC
+    bci_standard = [
+        "Fz", "FC3", "FC1", "FCz", "FC2", "FC4",
+        "C5", "C3", "C1", "Cz", "C2", "C4", "C6",
+        "CP3", "CP1", "CPz", "CP2", "CP4",
+        "P1", "Pz", "P2", "POz"
+    ]
+    
+    for i, ch in enumerate(ch_names):
+        if i < len(bci_standard):
+            mapping[ch] = bci_standard[i]
+        else:
+            mapping[ch] = ch.replace('EEG-', '')
+            
+    raw.rename_channels(mapping)
+    ch_names = raw.info['ch_names']
+    
     try:
         montage = mne.channels.make_standard_montage('standard_1005')
         raw.set_montage(montage, on_missing='ignore')
@@ -239,7 +262,19 @@ def load_bci_competition_iv_2a(subject: int = 1) -> Dict[str, Any]:
     except Exception:
         montage = mne.channels.make_standard_montage('standard_1005')
         pos_dict = montage.get_positions()['ch_pos']
-    positions = np.array([pos_dict.get(ch, np.zeros(3)) for ch in ch_names])
+        
+    # Extract positions, replace missing with uniform generic random or zero to avoid NaN
+    rng = np.random.default_rng(42)
+    pos_list = []
+    for ch in ch_names:
+        p = pos_dict.get(ch, None)
+        if p is None or np.any(np.isnan(p)):
+            # fallback generic
+            p = rng.normal(size=3)
+            p = p / np.linalg.norm(p) * 0.09 # radius 9cm
+        pos_list.append(p)
+        
+    positions = np.array(pos_list)
     info = {
         'sfreq': raw.info['sfreq'],
         'ch_names': ch_names,
