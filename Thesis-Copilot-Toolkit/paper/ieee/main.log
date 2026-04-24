@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -621,16 +621,16 @@ Underfull \hbox (badness 1688) in paragraph at lines 3--4
 []\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
  []
 
-<../../results_optuna_final/global_comparison_physionet.png, id=197, 1150.0566p
+<../../results_optuna_final/global_comparison_physionet.png, id=198, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
 <use ../../results_optuna_final/global_comparison_physionet.png>
 Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
-(pdftex.def)             Requested size: 252.0pt x 186.96434pt.
+(pdftex.def)             Requested size: 252.0pt x 187.04247pt.
 [4 <../../results_optuna_final/global_comparison_physionet.png>]
-<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=210
+<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=211
 , 628.749pt x 546.843pt>
 File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
 aphic file (type png)
@@ -639,7 +639,7 @@ Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
 e_random_0.4.png  used on input line 54.
 (pdftex.def)             Requested size: 252.0pt x 219.17555pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=212, 1004.0712pt x 569.4876pt>
+d=213, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
@@ -648,7 +648,7 @@ Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
 _nearby_1_0_count.png  used on input line 67.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=214, 1004.0712pt x 569.4876pt>
+d=215, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
@@ -659,7 +659,7 @@ _nearby_0_4_ratio.png  used on input line 78.
  [5 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png> <.
 ./../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=229, 743.4174pt x 452.892pt>
+d=230, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
@@ -667,7 +667,7 @@ g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
 _nearby_1_0_count.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=232, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=233, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
@@ -750,18 +750,19 @@ arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
 Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
 fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppData/Local
-/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sarlo/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarlo/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sarlo/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sarlo/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 1512017 bytes).
+sfonts/cm/cmsy5.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sarlo/App
+Data/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarlo/App
+Data/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sarlo/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sarlo/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 1522822 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
+ 361 PDF objects out of 1000 (max. 8388607)
  68 named destinations out of 1000 (max. 500000)
  271 words of extra memory for PDF output out of 10000 (max. 10000000)
 

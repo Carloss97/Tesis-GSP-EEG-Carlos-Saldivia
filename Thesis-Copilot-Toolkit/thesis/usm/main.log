@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,16 +763,16 @@ nal.csv\T1/cmr/m/n/10.95 ).
 [24
 
 ] [25]
-<../../results_optuna_final/global_comparison_physionet.png, id=984, 1150.0566p
+<../../results_optuna_final/global_comparison_physionet.png, id=984, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
 <use ../../results_optuna_final/global_comparison_physionet.png>
 Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 81.
-(pdftex.def)             Requested size: 455.30124pt x 337.79875pt.
+(pdftex.def)             Requested size: 455.30124pt x 337.94197pt.
 
-Underfull \vbox (badness 7649) has occurred while \output is active []
+Underfull \vbox (badness 7613) has occurred while \output is active []
 
  [26 <../../results_optuna_final/global_comparison_physionet.png>]
 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=992
@@ -833,14 +833,14 @@ c file (type png)
 Package pdftex.def Info: ../../results_optuna_final/degradation_mne_sample_near
 by_ratio.png  used on input line 150.
 (pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
-<../../results_optuna_final/heatmap_performance_mne_sample.png, id=1016, 919.75
-62pt x 711.1368pt>
+<../../results_optuna_final/heatmap_performance_mne_sample.png, id=1016, 940.95
+54pt x 711.1368pt>
 File: ../../results_optuna_final/heatmap_performance_mne_sample.png Graphic fil
 e (type png)
 <use ../../results_optuna_final/heatmap_performance_mne_sample.png>
 Package pdftex.def Info: ../../results_optuna_final/heatmap_performance_mne_sam
 ple.png  used on input line 161.
-(pdftex.def)             Requested size: 455.30124pt x 352.03008pt.
+(pdftex.def)             Requested size: 455.30124pt x 344.09795pt.
 <../../results_optuna_final/heatmap_performance_bci_iv.png, id=1017, 919.7562pt
  x 711.1368pt>
 File: ../../results_optuna_final/heatmap_performance_bci_iv.png Graphic file (t
@@ -857,14 +857,14 @@ File: ../../results_optuna_final/heatmap_performance_physionet.png Graphic file
 Package pdftex.def Info: ../../results_optuna_final/heatmap_performance_physion
 et.png  used on input line 175.
 (pdftex.def)             Requested size: 455.30124pt x 351.84561pt.
-<../../results_optuna_final/tradeoff_scatter_mne_sample.png, id=1020, 712.5822p
-t x 569.4876pt>
+<../../results_optuna_final/tradeoff_scatter_mne_sample.png, id=1020, 717.882pt
+ x 569.4876pt>
 File: ../../results_optuna_final/tradeoff_scatter_mne_sample.png Graphic file (
 type png)
 <use ../../results_optuna_final/tradeoff_scatter_mne_sample.png>
 Package pdftex.def Info: ../../results_optuna_final/tradeoff_scatter_mne_sample
 .png  used on input line 188.
-(pdftex.def)             Requested size: 455.30124pt x 363.87991pt.
+(pdftex.def)             Requested size: 455.30124pt x 361.18613pt.
  [29 <../../results_optuna_final/radar_multimetric_physionet_random_0.4.png>]
 <../../results_optuna_final/tradeoff_scatter_bci_iv.png, id=1026, 713.064pt x 5
 69.4876pt>
@@ -958,7 +958,7 @@ Cap\'{\i }tulo 6.
 
 Overfull \hbox (1.111pt too wide) in paragraph at lines 17--18
 []\T1/cmr/bx/n/10.95 Superioridad cuan-ti-ta-ti-va: \T1/cmr/m/n/10.95 TRSS lo-g
-ró un MAE pro-me-dio de 0.61 y un SNR de 29.83 dB,
+ró un MAE pro-me-dio de 2.26 y un SNR de 25.95 dB,
  []
 
 [50
@@ -1039,7 +1039,7 @@ r8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (77 pages, 4439487 bytes).
+Output written on main.pdf (77 pages, 4302963 bytes).
 PDF statistics:
  1981 PDF objects out of 2073 (max. 8388607)
  311 named destinations out of 1000 (max. 500000)
