@@ -75,7 +75,7 @@ def get_best_pareto_trial(study: optuna.study.Study) -> optuna.trial.FrozenTrial
     best_idx = np.argmin(dists)
     return best_trials[best_idx]
 
-def objective(trial, method, signals_clean, signals_missing, positions, sfreq):
+def objective(trial, method, sig_clean_train, sig_clean_test, sig_missing_train, sig_missing_test, positions, sfreq):
     if method == "spherical_spline":
         eps = trial.suggest_float("eps", 1e-8, 1e-2, log=True)
         kwargs = {"positions": positions, "eps": eps}
@@ -85,19 +85,31 @@ def objective(trial, method, signals_clean, signals_missing, positions, sfreq):
         kwargs = {"positions": positions, "smooth": smooth}
         
     elif method == "ica":
-        n_ch = signals_clean.shape[1]
+        n_ch = sig_clean_train.shape[1]
         n_components = trial.suggest_int("n_components", 1, n_ch)
         kwargs = {"n_components": n_components, "random_state": 42}
         
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         try:
-            res = interpolate_signals(method, signals_missing, **kwargs)
-            sig_rec = res["reconstructed"]
-            metrics = evaluate_signals(signals_clean, sig_rec, sfreq=sfreq)
-            if np.isnan(metrics["mae"]) or np.isinf(metrics["mae"]):
+            # Optimize on TRAIN slice
+            res_train = interpolate_signals(method, sig_missing_train, **kwargs)
+            metrics_train = evaluate_signals(sig_clean_train, res_train["reconstructed"], sfreq=sfreq, metrics=["mae", "lsd"])
+            
+            # Record performance on TEST slice (will be used for final CSV attributes if needed)
+            res_test = interpolate_signals(method, sig_missing_test, **kwargs)
+            metrics_test = evaluate_signals(sig_clean_test, res_test["reconstructed"], sfreq=sfreq)
+            
+            trial.set_user_attr("test_mae", metrics_test["mae"])
+            trial.set_user_attr("test_lsd", metrics_test["lsd"])
+            trial.set_user_attr("test_snr", metrics_test["snr"])
+            trial.set_user_attr("test_rmse", metrics_test["rmse"])
+            trial.set_user_attr("test_dtw", metrics_test["dtw"])
+            trial.set_user_attr("test_coherence_mean", metrics_test["coherence_mean"])
+
+            if np.isnan(metrics_train["mae"]) or np.isinf(metrics_train["mae"]):
                 return float("inf"), float("inf")
-            return metrics["mae"], metrics["lsd"]
+            return metrics_train["mae"], metrics_train["lsd"]
         except Exception:
             return float("inf"), float("inf")
 
@@ -105,10 +117,18 @@ def optimize_case(ds_name, data, mode, stype, val):
     print(f"\n>> {ds_name} | {mode} | {stype}={val}")
     
     sfreq = data["info"].get("sfreq", 250.0)
-    signals_clean = data["signals"][:500] # 500 muestras para agilizar
+    signals_full = data["signals"][:1000] # Use 1000 samples for better split
     positions = data["positions"]
     
-    signals_missing = simulate_mask(signals_clean, positions, val, mode, random_state=42)
+    # Split temporal data (70% train for optimization, 30% test for reporting)
+    n_split = int(0.7 * len(signals_full))
+    sig_clean_train = signals_full[:n_split]
+    sig_clean_test = signals_full[n_split:]
+
+    # Simulate mask on full and split
+    signals_missing_full = simulate_mask(signals_full, positions, val, mode, random_state=42)
+    sig_missing_train = signals_missing_full[:n_split]
+    sig_missing_test = signals_missing_full[n_split:]
     
     methods = ["spherical_spline", "rbfi_tps"]
     results = []
@@ -117,24 +137,24 @@ def optimize_case(ds_name, data, mode, stype, val):
         sampler = optuna.samplers.NSGAIISampler(seed=42)
         study = optuna.create_study(directions=["minimize", "minimize"], sampler=sampler)
         
-        study.optimize(lambda t: objective(t, m, signals_clean, signals_missing, positions, sfreq),
+        study.optimize(lambda t: objective(t, m, sig_clean_train, sig_clean_test, sig_missing_train, sig_missing_test, positions, sfreq),
                        n_trials=10, n_jobs=1, show_progress_bar=False)
         
         try:
             best_t = get_best_pareto_trial(study)
+            # Fetch the TEST metrics stored in the best trial
+            final_metrics = {
+                "mae": best_t.user_attrs["test_mae"],
+                "lsd": best_t.user_attrs["test_lsd"],
+                "snr": best_t.user_attrs["test_snr"],
+                "rmse": best_t.user_attrs["test_rmse"],
+                "dtw": best_t.user_attrs["test_dtw"],
+                "coherence_mean": best_t.user_attrs["test_coherence_mean"]
+            }
             p = best_t.params
-        except ValueError:
+        except (ValueError, KeyError):
             p = {}
-            
-        # Evaluar mejor modelo completo
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            kwargs = p.copy()
-            if m in ["spherical_spline", "rbfi_tps"]:
-                kwargs["positions"] = positions
-            
-            res = interpolate_signals(m, signals_missing, **kwargs)
-            final_metrics = evaluate_signals(signals_clean, res["reconstructed"], sfreq=sfreq)
+            final_metrics = {"mae": np.nan, "lsd": np.nan, "snr": np.nan, "rmse": np.nan, "dtw": np.nan, "coherence_mean": np.nan}
             
         results.append({
             "dataset": ds_name,

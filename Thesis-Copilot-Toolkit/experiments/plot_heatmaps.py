@@ -33,17 +33,17 @@ def main():
         pivot_lsd = df_ds.pivot(index="method", columns="scenario", values="lsd").reindex(methods)
         
         fig, axes = plt.subplots(2, 1, figsize=(14, 10))
-        fig.suptitle(f"Heatmap de Rendimiento - {ds.upper()}", fontsize=16, fontweight='bold')
+        fig.suptitle(f"Performance Heatmap - {ds.upper()}", fontsize=16, fontweight='bold')
         
         sns.heatmap(pivot_mae, annot=True, fmt=".2e", cmap="YlOrRd", ax=axes[0], cbar_kws={'label': 'MAE'})
-        axes[0].set_title("Mean Absolute Error (MAE) - Menor es Mejor")
-        axes[0].set_ylabel("Método")
+        axes[0].set_title("Mean Absolute Error (MAE) - Lower is Better")
+        axes[0].set_ylabel("Method")
         axes[0].set_xlabel("")
         
         sns.heatmap(pivot_lsd, annot=True, fmt=".3f", cmap="YlGnBu", ax=axes[1], cbar_kws={'label': 'LSD'})
-        axes[1].set_title("Log Spectral Distance (LSD) - Menor es Mejor")
-        axes[1].set_ylabel("Método")
-        axes[1].set_xlabel("Escenario")
+        axes[1].set_title("Log Spectral Distance (LSD) - Lower is Better")
+        axes[1].set_ylabel("Method")
+        axes[1].set_xlabel("Scenario")
         
         plt.tight_layout()
         out_path = RESULTS_DIR / f"heatmap_performance_{ds}.png"

@@ -44,7 +44,7 @@ def main():
                 
                 fig, axes = plt.subplots(1, 2, figsize=(16, 6))
                 title_suffix = f"({ds.upper()}) | Mode: {mode.capitalize()} | Type: {t.capitalize()}"
-                fig.suptitle(f"Curvas de Degradación Progresiva {title_suffix}", fontsize=16, fontweight='bold')
+                fig.suptitle(f"Progressive Degradation Curves {title_suffix}", fontsize=16, fontweight='bold')
                 
                 # MAE
                 sns.lineplot(data=df_sub, x="missing_val", y="mae", hue="method", hue_order=method_order,
@@ -76,9 +76,9 @@ def main():
         plt.figure(figsize=(10, 8))
         sns.scatterplot(data=df_ds, x="mae", y="lsd", hue="method", style="missing_mode", 
                         palette=palette, s=150, alpha=0.8, edgecolor='k')
-        plt.title(f"Trade-off Multi-Objetivo (MAE vs LSD) - {ds.upper()}", fontsize=14, fontweight='bold')
-        plt.xlabel("MAE (Error Temporal) -> Menor es mejor")
-        plt.ylabel("LSD (Error Frecuencial) -> Menor es mejor")
+        plt.title(f"Multi-Objective Trade-off (MAE vs LSD) - {ds.upper()}", fontsize=14, fontweight='bold')
+        plt.xlabel("MAE (Temporal Error) -> Lower is Better")
+        plt.ylabel("LSD (Spectral Error) -> Lower is Better")
         plt.grid(True, linestyle='--', alpha=0.5)
         
         # Add an annotation for Pareto Front ideally

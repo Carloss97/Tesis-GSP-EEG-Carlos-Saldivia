@@ -83,7 +83,7 @@ def main():
             ax.set_ylim(0, 1.05)
             ax.set_yticklabels([])
             
-            plt.title(f"Radar Chart Multimétrica (Borde Exterior = Mejor)\n{ds_name.upper()} | {mode.capitalize()} {val}", fontsize=14, fontweight="bold", y=1.08)
+            plt.title(f"Multi-Metric Radar Chart (Outer Edge = Better)\n{ds_name.upper()} | {mode.capitalize()} {val}", fontsize=14, fontweight="bold", y=1.08)
             plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
             
             out_path = RESULTS_DIR / f"radar_multimetric_{ds_name}_{mode}_{val}.png"

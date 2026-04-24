@@ -4,6 +4,8 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{shuman2013,ortega2018}
 \citation{narang2013,puy2018,zhang2024bgsrp}
+\citation{banville2021uncovering}
+\citation{defferrard2016}
 \citation{perrin1989}
 \citation{jager2016}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
@@ -19,65 +21,73 @@
 \citation{kalofolias2016}
 \citation{kalofolias2016}
 \citation{perrin1989}
-\citation{giraldo2022}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Graph Signal Processing (GSP)}{2}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Temporal Regularization and the Benchmarking Gap}{2}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {III}Methods}{2}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Graph Construction}{2}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Interpolation Families}{2}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-B}0a}Geometric/Spline Baselines}{2}{paragraph.3.2.0.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-B}0b}Instant GSP Methods (Tikhonov)}{2}{paragraph.3.2.0.2}\protected@file@percent }
-\newlabel{eq:tikhonov}{{1}{2}{Instant GSP Methods (Tikhonov)}{equation.1}{}}
+\citation{giraldo2022}
 \citation{akiba2019optuna}
-\citation{schalk2004bci2000}
-\citation{tangermann2012bci}
-\citation{gramfort2013meg}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-B}0b}Instant GSP Methods (Tikhonov)}{3}{paragraph.3.2.0.2}\protected@file@percent }
+\newlabel{eq:tikhonov}{{1}{3}{Instant GSP Methods (Tikhonov)}{equation.1}{}}
 \@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-B}0c}Temporal Regularization Methods (TRSS)}{3}{paragraph.3.2.0.3}\protected@file@percent }
 \newlabel{eq:sobolev}{{2}{3}{Temporal Regularization Methods (TRSS)}{equation.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Evaluation Metrics}{3}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Hyperparameter Optimization (Optuna)}{3}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental Setup}{3}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Datasets and Preprocessing}{3}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Masking Protocol (Missing Channel Simulation)}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Sensitivity Analysis of $\alpha $ and $\beta $}{3}{subsection.3.5}\protected@file@percent }
+\newlabel{eq:lipschitz}{{3}{3}{Sensitivity Analysis of $\alpha $ and $\beta $}{equation.3}{}}
+\citation{schalk2004bci2000}
+\citation{tangermann2012bci}
+\citation{gramfort2013meg}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experimental Setup}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Datasets and Preprocessing}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Masking Protocol (Missing Channel Simulation)}{4}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Reproducibility}{4}{subsection.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Results}{4}{section.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Overall Performance and the Baseline Crossover}{4}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Multi-Metric Evaluation: Spatial vs. Temporal Fidelity}{4}{subsection.5.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) significantly dominate the top rankings in terms of Signal-to-Noise Ratio (SNR).}}{4}{figure.1}\protected@file@percent }
 \newlabel{fig:global_physionet}{{1}{4}{Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) significantly dominate the top rankings in terms of Signal-to-Noise Ratio (SNR)}{figure.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Radar chart showing multi-metric performance on the MNE Sample dataset under a severe 40\% random missing channel scenario. The axes represent inverted normalized metrics (larger area is better). TRSS maximizes performance across all axes, particularly DTW.}}{4}{figure.2}\protected@file@percent }
-\newlabel{fig:radar_mne}{{2}{4}{Radar chart showing multi-metric performance on the MNE Sample dataset under a severe 40\% random missing channel scenario. The axes represent inverted normalized metrics (larger area is better). TRSS maximizes performance across all axes, particularly DTW}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Mean $\pm $ SD of key metrics across all scenarios per dataset. Best values in \textbf  {bold}.}}{5}{table.1}\protected@file@percent }
+\newlabel{tab:main_results}{{I}{5}{Mean $\pm $ SD of key metrics across all scenarios per dataset. Best values in \textbf {bold}}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Multi-Metric Evaluation: Spatial vs. Temporal Fidelity}{5}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Physiological Relevance: Event-Related Potentials (ERP) and PSD}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Radar chart showing multi-metric performance on the MNE Sample dataset under a severe 40\% random missing channel scenario. The axes represent inverted normalized metrics (larger area is better). TRSS maximizes performance across all axes, particularly DTW.}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:radar_mne}{{2}{5}{Radar chart showing multi-metric performance on the MNE Sample dataset under a severe 40\% random missing channel scenario. The axes represent inverted normalized metrics (larger area is better). TRSS maximizes performance across all axes, particularly DTW}{figure.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 1 missing channel scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines.}}{5}{figure.3}\protected@file@percent }
 \newlabel{fig:erp_optimized}{{3}{5}{Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 1 missing channel scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As the spatial information collapses, geometric baselines diverge entirely, while TRSS leverages temporal priors to retain the correct neurophysiological trajectory.}}{5}{figure.4}\protected@file@percent }
-\newlabel{fig:erp_optimized_severe}{{4}{5}{ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As the spatial information collapses, geometric baselines diverge entirely, while TRSS leverages temporal priors to retain the correct neurophysiological trajectory}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta).}}{5}{figure.5}\protected@file@percent }
-\newlabel{fig:psd_optimized}{{5}{5}{Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta)}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Robustness to Extreme Degradation}{5}{subsection.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness, decaying smoothly where classical baselines crash.}}{5}{figure.6}\protected@file@percent }
-\newlabel{fig:degradation_bci}{{6}{5}{SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness, decaying smoothly where classical baselines crash}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As the spatial information collapses, geometric baselines diverge entirely, while TRSS leverages temporal priors to retain the correct neurophysiological trajectory.}}{6}{figure.4}\protected@file@percent }
+\newlabel{fig:erp_optimized_severe}{{4}{6}{ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As the spatial information collapses, geometric baselines diverge entirely, while TRSS leverages temporal priors to retain the correct neurophysiological trajectory}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta).}}{6}{figure.5}\protected@file@percent }
+\newlabel{fig:psd_optimized}{{5}{6}{Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta)}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Robustness to Extreme Degradation}{6}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness, decaying smoothly where classical baselines crash.}}{6}{figure.6}\protected@file@percent }
+\newlabel{fig:degradation_bci}{{6}{6}{SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness, decaying smoothly where classical baselines crash}{figure.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Physiological and Temporal Fidelity (ERP \& PSD)}{6}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Multi-Dataset Generalization}{6}{subsection.6.2}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{bibliography/references}
 \bibcite{shuman2013}{1}
 \bibcite{ortega2018}{2}
 \bibcite{narang2013}{3}
 \bibcite{puy2018}{4}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Discussion}{6}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Physiological and Temporal Fidelity (ERP \& PSD)}{6}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Multi-Dataset Generalization}{6}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Concluding Remarks on Optimization}{6}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VII}Reproducibility Statement}{6}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{6}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{6}{section*.1}\protected@file@percent }
 \bibcite{zhang2024bgsrp}{5}
-\bibcite{perrin1989}{6}
-\bibcite{jager2016}{7}
-\bibcite{giraldo2022}{8}
-\bibcite{shekkizhar2020}{9}
-\bibcite{kalofolias2016}{10}
-\bibcite{akiba2019optuna}{11}
-\bibcite{schalk2004bci2000}{12}
-\bibcite{tangermann2012bci}{13}
-\bibcite{gramfort2013meg}{14}
-\gdef \@abspage@last{7}
+\bibcite{banville2021uncovering}{6}
+\bibcite{defferrard2016}{7}
+\bibcite{perrin1989}{8}
+\bibcite{jager2016}{9}
+\bibcite{giraldo2022}{10}
+\bibcite{shekkizhar2020}{11}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Positioning Against Deep Learning Approaches}{7}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Limitations}{7}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Concluding Remarks on Fair Benchmarking}{7}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Code Availability}{7}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Conclusion}{7}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{section*.1}\protected@file@percent }
+\bibcite{kalofolias2016}{12}
+\bibcite{akiba2019optuna}{13}
+\bibcite{schalk2004bci2000}{14}
+\bibcite{tangermann2012bci}{15}
+\bibcite{gramfort2013meg}{16}
+\gdef \@abspage@last{8}

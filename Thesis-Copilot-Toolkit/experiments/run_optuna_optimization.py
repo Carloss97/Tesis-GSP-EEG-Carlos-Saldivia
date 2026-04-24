@@ -40,25 +40,26 @@ os.environ["EEGBCI_LOCAL_PATH"] = str(ROOT / "datasets" / "MNE-eegbci-data")
 # ---------------------------------------------------------------------------
 def get_physionet():
     data = load_physionet_eegmmidb(subject=1, run=4)
-    data["signals"] = data["signals"][:1000]
+    data["signals"] = data["signals"][:1500]
     data["info"]["name"] = "physionet"
     return data
 
 def get_bci_iv():
     data = load_bci_competition_iv_2a(subject=1)
-    data["signals"] = data["signals"][:1000]
+    data["signals"] = data["signals"][:1500]
     data["info"]["name"] = "bci_iv"
     return data
 
 def get_mne_sample():
     data = load_mne_sample_dataset()
-    data["signals"] = data["signals"][:1000]
+    data["signals"] = data["signals"][:1500]
     data["info"]["name"] = "mne_sample"
     return data
 
 DATASETS: Dict[str, Any] = {
     "physionet": get_physionet,
     "mne_sample": get_mne_sample,
+    "bci_iv": get_bci_iv,
 }
 # Opcional: bci_iv falla a veces por MNE GDF overflow, así que lo manejamos con try-except
 
@@ -91,7 +92,7 @@ def simulate_mask(signals: np.ndarray, positions: np.ndarray, missing_val: float
 # ---------------------------------------------------------------------------
 # Optuna Objectives
 # ---------------------------------------------------------------------------
-def objective_tikhonov(trial: optuna.Trial, signals_clean, positions, signals_missing, sfreq):
+def objective_tikhonov(trial: optuna.Trial, sig_clean_train, sig_clean_test, positions, sig_missing_train, sig_missing_test, sfreq):
     k = trial.suggest_int("k", 3, 10)
     sigma = trial.suggest_float("sigma", 0.1, 3.0, log=True)
     alpha = trial.suggest_float("alpha", 0.001, 10.0, log=True)
@@ -99,26 +100,27 @@ def objective_tikhonov(trial: optuna.Trial, signals_clean, positions, signals_mi
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            graph = build_graph("knng", positions, signals=signals_clean, k=k, sigma=sigma)
+            # Build graph and interpolate ONLY on train slice for the trial evaluation
+            graph = build_graph("knng", positions, signals=sig_clean_train, k=k, sigma=sigma)
             adjacency = graph["adjacency"].toarray() if hasattr(graph["adjacency"], "toarray") else np.asarray(graph["adjacency"])
-            result = interpolate_signals("tikhonov", signals_missing, adjacency=adjacency, alpha=alpha)
             
-        metrics = evaluate_signals(signals_clean, result["reconstructed"], 
-                                   metrics=["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"], sfreq=sfreq)
-        
-        for m, v in metrics.items():
+            # Optimization objective: minimize error on TRAIN slice
+            res_train = interpolate_signals("tikhonov", sig_missing_train, adjacency=adjacency, alpha=alpha)
+            metrics_train = evaluate_signals(sig_clean_train, res_train["reconstructed"], metrics=["mae", "lsd"], sfreq=sfreq)
+            
+            # Reporting/Final evaluation: calculate all metrics on TEST slice
+            res_test = interpolate_signals("tikhonov", sig_missing_test, adjacency=adjacency, alpha=alpha)
+            metrics_test = evaluate_signals(sig_clean_test, res_test["reconstructed"], 
+                                           metrics=["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"], sfreq=sfreq)
+            
+        for m, v in metrics_test.items():
             trial.set_user_attr(m, v)
         
-        # Objetivo multi-criterio: minimizar MAE y LSD
-        mae = metrics.get("mae", float('inf'))
-        lsd = metrics.get("lsd", float('inf'))
-        if np.isnan(mae): mae = float('inf')
-        if np.isnan(lsd): lsd = float('inf')
-        return mae, lsd
+        return metrics_train["mae"], metrics_train["lsd"]
     except Exception:
         raise optuna.TrialPruned()
 
-def objective_trss(trial: optuna.Trial, signals_clean, positions, signals_missing, sfreq):
+def objective_trss(trial: optuna.Trial, sig_clean_train, sig_clean_test, positions, sig_missing_train, sig_missing_test, sfreq):
     k = trial.suggest_int("k", 3, 10)
     sigma = trial.suggest_float("sigma", 0.1, 3.0, log=True)
     alpha = trial.suggest_float("alpha", 0.01, 5.0, log=True)
@@ -127,23 +129,22 @@ def objective_trss(trial: optuna.Trial, signals_clean, positions, signals_missin
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            graph = build_graph("knng", positions, signals=signals_clean, k=k, sigma=sigma)
+            graph = build_graph("knng", positions, signals=sig_clean_train, k=k, sigma=sigma)
             adjacency = graph["adjacency"].toarray() if hasattr(graph["adjacency"], "toarray") else np.asarray(graph["adjacency"])
-            result = interpolate_signals("trss", signals_missing, adjacency=adjacency, 
-                                         alpha=alpha, beta=beta, lr=0.05, n_iter=80)
             
-        metrics = evaluate_signals(signals_clean, result["reconstructed"], 
-                                   metrics=["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"], sfreq=sfreq)
-        
-        for m, v in metrics.items():
+            # Optimization objective: minimize error on TRAIN slice
+            res_train = interpolate_signals("trss", sig_missing_train, adjacency=adjacency, alpha=alpha, beta=beta, lr=0.05, n_iter=80)
+            metrics_train = evaluate_signals(sig_clean_train, res_train["reconstructed"], metrics=["mae", "lsd"], sfreq=sfreq)
+
+            # Reporting: calculate metrics on TEST slice
+            res_test = interpolate_signals("trss", sig_missing_test, adjacency=adjacency, alpha=alpha, beta=beta, lr=0.05, n_iter=80)
+            metrics_test = evaluate_signals(sig_clean_test, res_test["reconstructed"], 
+                                           metrics=["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"], sfreq=sfreq)
+            
+        for m, v in metrics_test.items():
             trial.set_user_attr(m, v)
             
-        # Objetivo multi-criterio: minimizar MAE y LSD
-        mae = metrics.get("mae", float('inf'))
-        lsd = metrics.get("lsd", float('inf'))
-        if np.isnan(mae): mae = float('inf')
-        if np.isnan(lsd): lsd = float('inf')
-        return mae, lsd
+        return metrics_train["mae"], metrics_train["lsd"]
     except Exception:
         raise optuna.TrialPruned()
 
@@ -189,15 +190,23 @@ def run_optuna_benchmark() -> pd.DataFrame:
         positions = ds["positions"]
         sfreq = ds["info"].get("sfreq", 250.0)
 
+        # Split temporal data (70% train for optimization, 30% test for reporting)
+        n_split = int(0.7 * len(signals_clean))
+        sig_clean_train = signals_clean[:n_split]
+        sig_clean_test = signals_clean[n_split:]
+
         for mode in MODES:
             for scen in SCENARIOS:
                 val = scen["val"]
                 scen_type = scen["type"]
                 print(f"\n>> {ds_name} | {mode} | {scen_type}={val}")
                 
-                signals_missing = simulate_mask(signals_clean, positions, val, mode, random_state=42)
+                # Apply mask to entire signal, then split
+                signals_missing_full = simulate_mask(signals_clean, positions, val, mode, random_state=42)
+                sig_missing_train = signals_missing_full[:n_split]
+                sig_missing_test = signals_missing_full[n_split:]
 
-                # 1. BASELINES
+                # 1. BASELINES (evaluated on TEST slice for consistency)
                 for method in BASELINES:
                     try:
                         with warnings.catch_warnings():
@@ -205,9 +214,10 @@ def run_optuna_benchmark() -> pd.DataFrame:
                             kwargs = {}
                             if method in ["spherical_spline", "rbfi_tps"]:
                                 kwargs["positions"] = positions
-                            result = interpolate_signals(method, signals_missing, **kwargs)
+                            # Run on test slice directly (baselines don't have Optuna tuning in this script)
+                            result_test = interpolate_signals(method, sig_missing_test, **kwargs)
                         
-                        metrics = evaluate_signals(signals_clean, result["reconstructed"], 
+                        metrics = evaluate_signals(sig_clean_test, result_test["reconstructed"], 
                                                    metrics=["mae", "rmse", "snr", "dtw", "lsd", "coherence_mean"], sfreq=sfreq)
                         if metrics:
                             rows.append({
@@ -220,12 +230,12 @@ def run_optuna_benchmark() -> pd.DataFrame:
                                 "params": "default",
                                 **metrics
                             })
-                    except Exception as e:
+                    except Exception:
                         pass
 
                 # 2. OPTUNA TIKHONOV
                 study_tik = optuna.create_study(directions=["minimize", "minimize"])
-                study_tik.optimize(lambda t: objective_tikhonov(t, signals_clean, positions, signals_missing, sfreq), 
+                study_tik.optimize(lambda t: objective_tikhonov(t, sig_clean_train, sig_clean_test, positions, sig_missing_train, sig_missing_test, sfreq), 
                                    n_trials=N_TRIALS)
                 bt_tik = get_best_pareto_trial(study_tik)
                 if bt_tik is not None:
@@ -247,7 +257,7 @@ def run_optuna_benchmark() -> pd.DataFrame:
 
                 # 3. OPTUNA TRSS
                 study_trss = optuna.create_study(directions=["minimize", "minimize"])
-                study_trss.optimize(lambda t: objective_trss(t, signals_clean, positions, signals_missing, sfreq), 
+                study_trss.optimize(lambda t: objective_trss(t, sig_clean_train, sig_clean_test, positions, sig_missing_train, sig_missing_test, sfreq), 
                                     n_trials=N_TRIALS)
                 bt_trss = get_best_pareto_trial(study_trss)
                 if bt_trss is not None:

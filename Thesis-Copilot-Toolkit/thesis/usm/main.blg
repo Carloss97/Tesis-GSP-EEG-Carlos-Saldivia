@@ -31,49 +31,51 @@ Warning--empty journal in krishnan_learning_2026
 Warning--empty year in krishnan_learning_2026
 Warning--empty journal in calazans_machine_2024
 Warning--empty year in calazans_machine_2024
+Warning--empty journal in miri_spectral_2024
+Warning--empty year in miri_spectral_2024
 Warning--empty journal in jiang_graph-based_2021
 Warning--empty year in jiang_graph-based_2021
 
 Done.
-You've used 29 entries,
+You've used 27 entries,
             4087 wiz_defined-function locations,
-            983 strings with 13876 characters,
-and the built_in function-call counts, 23433 in all, are:
-= -- 1827
-> -- 666
-< -- 193
-+ -- 364
+            973 strings with 13653 characters,
+and the built_in function-call counts, 22303 in all, are:
+= -- 1732
+> -- 658
+< -- 184
++ -- 358
 - -- 130
-* -- 1191
-:= -- 3393
-add.period$ -- 60
-call.type$ -- 29
-change.case$ -- 31
-chr.to.int$ -- 438
+* -- 1153
+:= -- 3219
+add.period$ -- 56
+call.type$ -- 27
+change.case$ -- 29
+chr.to.int$ -- 414
 cite$ -- 49
-duplicate$ -- 1644
-empty$ -- 1750
-format.name$ -- 151
-if$ -- 5400
+duplicate$ -- 1556
+empty$ -- 1637
+format.name$ -- 150
+if$ -- 5129
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 315
-newline$ -- 146
-num.names$ -- 29
-pop$ -- 806
+int.to.str$ -- 27
+missing$ -- 302
+newline$ -- 140
+num.names$ -- 27
+pop$ -- 772
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1757
+skip$ -- 1664
 stack$ -- 0
-substring$ -- 1111
-swap$ -- 1362
-text.length$ -- 47
+substring$ -- 1053
+swap$ -- 1301
+text.length$ -- 46
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 29
-warning$ -- 20
-while$ -- 102
-width$ -- 31
-write$ -- 325
-(There were 20 warnings)
+type$ -- 27
+warning$ -- 22
+while$ -- 96
+width$ -- 29
+write$ -- 308
+(There were 22 warnings)

@@ -110,9 +110,9 @@ def main():
         plt.semilogy(f_rbfi, p_rbfi_v, label=f'RBFI TPS (Opt, smooth={p_rbfi["smooth"]:.2f})', color='orange', linestyle=':', alpha=0.8, linewidth=2)
         plt.semilogy(f_trss, p_trss_v, label='TRSS (GSP Opt)', color='blue', linestyle='-.', alpha=1.0, linewidth=2.5)
             
-        plt.title(f'PSD Comparison con Baselines Optimizados ({mode.capitalize()} {scen_val} {scen_type})', fontsize=15, fontweight='bold')
-        plt.xlabel('Frecuencia (Hz)', fontsize=12)
-        plt.ylabel('Densidad Espectral de Potencia (V^2/Hz)', fontsize=12)
+        plt.title(f'PSD Comparison with Optimized Baselines ({mode.capitalize()} {scen_val} {scen_type})', fontsize=15, fontweight='bold')
+        plt.xlabel('Frequency (Hz)', fontsize=12)
+        plt.ylabel('Power Spectral Density (V^2/Hz)', fontsize=12)
         plt.xlim(0.5, 45.0)
         plt.grid(True, which="both", ls="-", alpha=0.2)
         plt.legend(fontsize=12, loc='upper right')
@@ -135,16 +135,16 @@ def main():
         ]
         
         fig, axes = plt.subplots(3, 1, figsize=(14, 8), sharex=True, sharey=True)
-        fig.suptitle(f"ERP / Time Series (Canal Missing #{target_ch}) con Baselines Optimizados", fontsize=16, fontweight="bold")
+        fig.suptitle(f"ERP / Time Series (Missing Channel #{target_ch}) with Optimized Baselines", fontsize=16, fontweight="bold")
         gt_signal = signals_clean[:N_SAMPLES, target_ch]
         
         for ax, (m_name, m_sig, m_color) in zip(axes, methods_data):
             ax.plot(time_axis, gt_signal, label="Ground Truth", color="black", linestyle="--", linewidth=2.5, alpha=0.8, zorder=2)
             ax.plot(time_axis, m_sig[:N_SAMPLES, target_ch], label=m_name, color=m_color, linestyle="-", linewidth=2.5, alpha=0.9, zorder=1)
-            ax.set_ylabel("Amplitud (µV)", fontsize=10)
+            ax.set_ylabel("Amplitude (µV)", fontsize=10)
             ax.grid(True, linestyle=":", alpha=0.7)
             ax.legend(fontsize=10, loc="upper right")
-        axes[-1].set_xlabel("Tiempo (segundos)", fontsize=14)
+        axes[-1].set_xlabel("Time (seconds)", fontsize=14)
         plt.xlim(0, 1.5)
         plt.tight_layout()
         

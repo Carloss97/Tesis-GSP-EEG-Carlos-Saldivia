@@ -64,4 +64,19 @@ To prevent the pervasive literature bias of comparing finely-tuned novel algorit
 \item \textbf{Tikhonov}: $\alpha \in [10^{-3}, 10^{2}]$ (log scale), $k \in [3, 20]$.
 \item \textbf{Spherical Splines / RBF}: stiffness/smoothness parameters tuned extensively across continuous ranges.
 \end{itemize}
-Optimization was executed using the Tree-structured Parzen Estimator (TPE) algorithm, targeting the minimization of MAE over $100$ trials for every specific dataset and missing-channel scenario combination.
+Optimization was executed using the Tree-structured Parzen Estimator (TPE) algorithm, targeting the minimization of MAE over $100$ trials for every specific dataset and missing-channel scenario combination. 
+
+To ensure the validity of the results and prevent data leakage, we implemented a strict temporal train/test split for every trial. The first 70\% of each signal segment was designated as the \emph{Optimization Set}, used by Optuna to evaluate the objective function and tune hyperparameters ($\alpha, \beta, k, \dots$). The remaining 30\% of the samples were reserved as a completely isolated \emph{Test Set}. All metrics reported in the Results and Discussion sections of this manuscript correspond exclusively to the performance measured on this unseen Test Set, providing a rigorous assessment of the model's generalization capabilities to future time samples.
+
+\subsection{Sensitivity Analysis of $\alpha$ and $\beta$}
+
+The TRSS objective (Eq.~\ref{eq:sobolev}) contains two competing regularization terms controlled by $\alpha$ (spatial smoothness) and $\beta$ (temporal smoothness). Their interaction admits an intuitive interpretation as a two-dimensional low-pass filter: $\alpha$ controls the spatial bandwidth on the graph (suppressing high-frequency graph harmonics), while $\beta$ controls the temporal bandwidth (penalizing rapid sample-to-sample variations).
+
+The gradient descent step size is bounded by the Lipschitz constant of the composite gradient:
+\begin{equation}
+  L = 2\left(1 + \alpha \|\mathbf{L}\|_2 + \beta \|\mathbf{L}_t\|_2 \|\mathbf{L}\|_2\right),
+  \label{eq:lipschitz}
+\end{equation}
+where $\|\mathbf{L}\|_2$ and $\|\mathbf{L}_t\|_2$ are the spectral norms of the graph and temporal Laplacians, respectively. The adaptive step size $\eta = \min(\text{lr}, 1/L)$ ensures convergence regardless of the $\alpha/\beta$ ratio.
+
+Practically, the ratio $\beta/\alpha$ determines the relative importance of temporal vs. spatial priors. When $\beta \gg \alpha$, the algorithm prioritizes temporal continuity, which is beneficial when spatial information is severely degraded (e.g., 40\% nearby loss). When $\beta \to 0$, TRSS reduces to standard Tikhonov on graphs (Eq.~\ref{eq:tikhonov}). The relationship to sampling frequency $f_s$ is implicit: since $\Delta_t$ operates on consecutive samples, higher $f_s$ implies smaller physical time steps, requiring proportionally larger $\beta$ to achieve equivalent temporal smoothing in physical units. This coupling is automatically resolved by Optuna's per-scenario optimization.

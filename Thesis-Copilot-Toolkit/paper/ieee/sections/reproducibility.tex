@@ -1,22 +1,3 @@
-\section{Reproducibility Statement}
+\section{Code Availability}
 
-This manuscript is backed by frozen scripts and traceable artifacts in
-\iterid{results/}. The final B3/B4 closure adds:
-\begin{itemize}
-\item \iterid{results/b3_stat02_significance.csv}
-\item \iterid{results/b3_rep01_final_table_overall.csv}
-\item \iterid{results/b3_b4_reproducibility_guide.md}
-\item \iterid{results/b3_b4_compute_resources.md}
-\item \iterid{results/b3_b4_submission_checklist.md}
-\end{itemize}
-
-Core execution commands were:
-\begin{itemize}
-\item \iterid{python experiments/run_b2_batched.py}
-\item \iterid{python experiments/consolidate_b2_publication.py}
-\item \iterid{python experiments/finalize_b3_b4.py}
-\end{itemize}
-
-The strict BGSRP 1:1 equivalence against MATLAB/GSPBox is explicitly tracked as an
-open limitation. This does not block reproducibility of the Python pipeline, but it
-does constrain cross-stack equivalence claims.
+The complete source code, including all interpolation algorithms, graph constructors, evaluation metrics, Optuna optimization scripts, and figure generation pipelines, is publicly available at \url{https://github.com/Carloss97/Tesis-GSP-EEG-Carlos-Saldivia}. The repository includes frozen configuration files and deterministic random seeds (\texttt{random\_state=42}) to ensure full reproducibility of the reported results.

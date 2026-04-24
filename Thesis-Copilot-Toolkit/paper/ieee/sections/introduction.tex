@@ -6,6 +6,8 @@ Graph Signal Processing (GSP) provides a natural framework for this problem by r
 
 Even though many methods have been proposed in the literature \cite{narang2013,puy2018,zhang2024bgsrp}, in practice it is still difficult to compare them fairly. Different papers use different masks, datasets, and evaluation conventions, and frequently evaluate novel methods against unoptimized baseline configurations, inflating performance claims. This study aims to reduce that gap with a unified benchmark and rigorous hyperparameter optimization.
 
+Recent advances in deep learning have also been applied to EEG reconstruction, including convolutional autoencoders \cite{banville2021uncovering}, graph neural networks \cite{defferrard2016}, and transformer architectures. While these data-driven approaches can achieve competitive performance, they require large labeled training datasets, are prone to domain shift across subjects and recording setups, and lack the theoretical convergence guarantees offered by model-based optimization. In contrast, GSP methods such as TRSS are \emph{training-free}: they operate directly on the test signal using only the electrode topology and physically motivated smoothness priors, making them immediately applicable to any EEG montage without prior training. This fundamental distinction motivates our focus on model-based methods in this work, while acknowledging deep learning as a complementary and promising research direction.
+
 The main contributions of this manuscript are:
 \begin{itemize}
 \item A unified and reproducible pipeline that covers graph construction, missing-channel simulation, reconstruction, and quantitative evaluation across multiple datasets (PhysioNet, BCI Competition IV 2a, and MNE Sample).

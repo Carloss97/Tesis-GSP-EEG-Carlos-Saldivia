@@ -195,16 +195,13 @@ S.~Shekkizhar and A.~Ortega, ``Graph construction from data by non-negative
   kernel regression,'' in \emph{2020 IEEE International Conference on
   Acoustics, Speech and Signal Processing (ICASSP)}, 2020, pp. 3892--3896.
 
-\bibitem{shekkizhar_neighborhood_2023}
+\bibitem{miri_spectral_2024}
 \BIBentryALTinterwordspacing
-------, ``Neighborhood and graph constructions using non-negative kernel
-  regression.'' [Online]. Available: \url{http://arxiv.org/abs/1910.09383}
+M.~Miri, V.~Abootalebi, H.~Saeedi-Sourck, D.~Van De~Ville, and H.~Behjat,
+  ``Spectral representation of {EEG} data using learned graphs with application
+  to motor imagery decoding,'' vol.~87, p. 105537. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1746809423009709}
 \BIBentrySTDinterwordspacing
-
-\bibitem{kalofolias2016}
-V.~Kalofolias, ``How to learn a graph from smooth signals,'' in
-  \emph{Proceedings of the 19th International Conference on Artificial
-  Intelligence and Statistics (AISTATS)}, 2016, pp. 920--929.
 
 \bibitem{jiang_graph-based_2021}
 \BIBentryALTinterwordspacing
@@ -213,10 +210,5 @@ X.~Jiang, Z.~Tian, and K.~Li, ``A graph-based approach for missing sensor data
   Sensors Journal. [Online]. Available:
   \url{https://ieeexplore.ieee.org/document/9520399/?arnumber=9520399}
 \BIBentrySTDinterwordspacing
-
-\bibitem{zhang2024bgsrp}
-Q.~Zhang \emph{et~al.}, ``Recovery of bandlimited graph signals based on the
-  reproducing kernel {Hilbert} space,'' \emph{Digital Signal Processing}, vol.
-  151, p. 104565, 2024.
 
 \end{thebibliography}

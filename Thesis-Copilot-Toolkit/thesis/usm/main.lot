@@ -2,7 +2,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres datasets experimentales.}}{15}{table.caption.8}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Espacios de búsqueda de hiperparámetros por método.}}{19}{table.caption.9}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Resumen final REP-01 (B1+B2 consolidados, fase ResPhase).}}{18}{table.caption.8}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST).}}{25}{table.caption.10}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt {optuna\_best\_results.csv}).}}{25}{table.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{55}{table.caption.32}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv}).}}{56}{table.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

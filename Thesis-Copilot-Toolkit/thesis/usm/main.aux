@@ -67,84 +67,182 @@
 \citation{calazans_machine_2024}
 \@writefile{toc}{\contentsline {section}{\numberline {2.5}Definición de las Métricas de Rendimiento}{11}{section.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.6}Brechas en el Estado del Arte}{11}{section.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Metodología}{13}{chapter.3}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Arquitectura General del Pipeline}{13}{section.3.1}\protected@file@percent }
 \citation{tangermann2012bci}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Metodologia}{13}{chapter.3}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Bases de Datos (Datasets)}{13}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Bases de Datos Experimentales}{14}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)}{14}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}BCI Competition IV Dataset 2a}{14}{subsection.3.2.2}\protected@file@percent }
 \citation{gramfort2013meg}
-\citation{qiao_data-driven_2018}
 \citation{tamaru_optimizing_2024}
-\citation{shekkizhar2020}
-\citation{shekkizhar_neighborhood_2023}
-\citation{kalofolias2016}
-\citation{kalofolias_how_2016}
-\citation{jiang_graph-based_2021}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Construccion de grafos}{14}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Simulacion de canales faltantes}{14}{section.3.3}\protected@file@percent }
-\citation{perrin1989}
-\citation{jager_reconstruction_2016}
-\citation{zhang2024bgsrp}
-\citation{giraldo2022}
-\citation{krishnan_learning_2026}
-\citation{yan_signal_2026}
-\citation{akiba2019optuna}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Interpolacion y reconstruccion}{15}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Optimización de Hiperparámetros (Optuna)}{15}{section.3.5}\protected@file@percent }
-\citation{gramfort2013meg}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Implementación del Pipeline y Transparencia}{16}{section.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Consolidacion y reporte}{16}{section.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Experimentos y Resultados}{17}{chapter.4}\protected@file@percent }
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Configuracion experimental}{17}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Resultados por familia}{17}{section.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Resumen final REP-01 (B1+B2 consolidados, fase ResPhase).}}{18}{table.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}MNE Sample Dataset}{15}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Resumen Comparativo de Datasets}{15}{subsection.3.2.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres datasets experimentales.}}{15}{table.caption.8}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{tab:tesis_rep01_final}{{4.1}{18}{Resumen final REP-01 (B1+B2 consolidados, fase ResPhase)}{table.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Analisis estadistico (STAT-02)}{18}{subsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Comportamiento por escenario}{18}{subsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Estado BGSRP (INS-13)}{18}{subsection.4.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Estabilidad operativa}{19}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Reproducibilidad}{19}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Validación Multi-Dataset con Optuna}{19}{subsection.4.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Cruce de Rendimiento Global}{19}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Fidelidad Espacial y Temporal}{19}{section*.11}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparación de rendimiento global en la base de datos PhysioNet luego de la optimización con Optuna. Los métodos de regularización temporal (TRSS, Tikhonov) dominan los primeros lugares.}}{20}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:global_physionet_tesis}{{4.1}{20}{Comparación de rendimiento global en la base de datos PhysioNet luego de la optimización con Optuna. Los métodos de regularización temporal (TRSS, Tikhonov) dominan los primeros lugares}{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Robustez ante la Degradación}{20}{section*.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Mapas de Calor de Desempeño General}{20}{section*.15}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Gráfico de radar multi-métrica para la base de datos MNE Sample bajo un escenario de 40\% de pérdida de canales aleatorios. TRSS maximiza el rendimiento en todos los ejes.}}{21}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:radar_mne_tesis}{{4.2}{21}{Gráfico de radar multi-métrica para la base de datos MNE Sample bajo un escenario de 40\% de pérdida de canales aleatorios. TRSS maximiza el rendimiento en todos los ejes}{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Análisis de Dispersión y Trade-offs (Frontera de Pareto)}{21}{section*.17}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Curva de degradación SNR para la base de datos BCI IV 2a ante una proporción creciente de canales faltantes aleatorios. TRSS demuestra una robustez notable frente a la degradación extrema.}}{22}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:degradation_bci_tesis}{{4.3}{22}{Curva de degradación SNR para la base de datos BCI IV 2a ante una proporción creciente de canales faltantes aleatorios. TRSS demuestra una robustez notable frente a la degradación extrema}{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Reconstrucción de Series de Tiempo (ERPs Fisiológicos)}{22}{section*.19}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Mapa de calor del RMSE para MNE Sample. Los tonos más oscuros (menor RMSE) se concentran consistentemente en las filas de TRSS y Tikhonov, destacando su superioridad frente a las splines en escenarios tanto \textit  {nearby} como \textit  {random}.}}{23}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:heatmap_mne}{{4.4}{23}{Mapa de calor del RMSE para MNE Sample. Los tonos más oscuros (menor RMSE) se concentran consistentemente en las filas de TRSS y Tikhonov, destacando su superioridad frente a las splines en escenarios tanto \textit {nearby} como \textit {random}}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Frontera de Pareto (MAE vs. DTW) para MNE Sample. TRSS empuja la frontera hacia el origen, demostrando ser el algoritmo óptimo bajo ambos criterios simultáneamente.}}{24}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:tradeoff_scatter}{{4.5}{24}{Frontera de Pareto (MAE vs. DTW) para MNE Sample. TRSS empuja la frontera hacia el origen, demostrando ser el algoritmo óptimo bajo ambos criterios simultáneamente}{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Serie de tiempo reconstruida de un ERP bajo un 40\% de pérdida \textit  {nearby}. La señal original (traza limpia) es seguida fielmente por la reconstrucción TRSS, manteniendo el registro de la fase, mientras que las oscilaciones de las splines decaen o se desfasadan notablemente.}}{25}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:erp_timeseries_40}{{4.6}{25}{Serie de tiempo reconstruida de un ERP bajo un 40\% de pérdida \textit {nearby}. La señal original (traza limpia) es seguida fielmente por la reconstrucción TRSS, manteniendo el registro de la fase, mientras que las oscilaciones de las splines decaen o se desfasadan notablemente}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discusion}{26}{chapter.5}\protected@file@percent }
+\newlabel{tab:datasets}{{3.1}{15}{Características de los tres datasets experimentales}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Construcción de Grafos}{15}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Grafos de Vecindad Geométrica}{15}{subsection.3.3.1}\protected@file@percent }
+\citation{shekkizhar2020}
+\citation{karasuyama_adaptive_2017}
+\citation{kalofolias_how_2016}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Grafos Densos / Globales}{16}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Grafos Adaptativos e Inferencia Basada en Datos}{16}{subsection.3.3.3}\protected@file@percent }
+\citation{perrin_spherical_1989}
+\citation{jager_reconstruction_2016}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Protocolo de Simulación de Canales Faltantes}{17}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Modo \textit  {Random} (Fallas Independientes)}{17}{subsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Modo \textit  {Nearby} (Fallas Contiguas)}{17}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Niveles de Degradación}{17}{subsection.3.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Métodos de Interpolación y Reconstrucción}{17}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Familia 1: Baselines Geométricos y Estadísticos}{17}{subsection.3.5.1}\protected@file@percent }
+\citation{zhang_recovery_2024}
+\citation{giraldo2022}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Familia 2: Métodos GSP Espaciales (Instantáneos)}{18}{subsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Familia 3: Métodos con Regularización Temporal}{18}{subsection.3.5.3}\protected@file@percent }
+\citation{akiba2019optuna}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Optimización de Hiperparámetros con Optuna}{19}{section.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Estrategia de Muestreo}{19}{subsection.3.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Espacios de Búsqueda por Familia}{19}{subsection.3.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Espacios de búsqueda de hiperparámetros por método.}}{19}{table.caption.9}\protected@file@percent }
+\newlabel{tab:hyperparams}{{3.2}{19}{Espacios de búsqueda de hiperparámetros por método}{table.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Protocolo de Ejecución}{20}{subsection.3.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.4}Validación Temporal y Prevención de Fuga de Datos (\textit  {Data Leakage})}{20}{subsection.3.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Evaluación Cuantitativa}{20}{section.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.1}Métricas de Error de Amplitud}{20}{subsection.3.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.2}Métricas de Fidelidad Temporal}{21}{subsection.3.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7.3}Métricas Espectrales}{21}{subsection.3.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}Consolidación Estadística y Generación de Artefactos}{21}{section.3.8}\protected@file@percent }
+\citation{gramfort2013meg}
+\citation{akiba2019optuna}
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}Stack Tecnológico e Infraestructura}{22}{section.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.10}Reproducibilidad y Transparencia}{22}{section.3.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Experimentos y Resultados}{24}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Fidelidad Fisiológica y Temporal (ERP y PSD)}{26}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Generalización Multi-Dataset}{26}{section.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Reconstrucción de Potenciales Relacionados a Eventos (ERP) para la base de datos MNE Sample bajo un escenario de pérdida de 1 electrodo. TRSS preserva la integridad morfológica y la latencia de los componentes de forma superior a los baselines geométricos exhaustivamente optimizados.}}{27}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:erp_optimized_tesis}{{5.1}{27}{Reconstrucción de Potenciales Relacionados a Eventos (ERP) para la base de datos MNE Sample bajo un escenario de pérdida de 1 electrodo. TRSS preserva la integridad morfológica y la latencia de los componentes de forma superior a los baselines geométricos exhaustivamente optimizados}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Comentarios Finales sobre la Optimización de Baselines}{27}{section.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Comparación de la Densidad Espectral de Potencia (PSD). La regularización temporal mantiene con alta fidelidad la distribución espectral a través de las bandas fisiológicas críticas (alfa, beta).}}{28}{figure.caption.22}\protected@file@percent }
-\newlabel{fig:psd_optimized_tesis}{{5.2}{28}{Comparación de la Densidad Espectral de Potencia (PSD). La regularización temporal mantiene con alta fidelidad la distribución espectral a través de las bandas fisiológicas críticas (alfa, beta)}{figure.caption.22}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{29}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Configuración Experimental}{24}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Ejecución del Pipeline}{24}{subsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Métricas Reportadas}{24}{subsection.4.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Resultados Globales Consolidados}{25}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Comparación por Familia de Métodos}{25}{subsection.4.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST).}}{25}{table.caption.10}\protected@file@percent }
+\newlabel{tab:global_families}{{4.1}{25}{Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST)}{table.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Tabla Detallada por Método y Dataset}{25}{subsection.4.2.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt  {optuna\_best\_results.csv}).}}{25}{table.caption.11}\protected@file@percent }
+\newlabel{tab:pivot_detail}{{4.2}{25}{MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt {optuna\_best\_results.csv})}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Visualización Global}{26}{subsection.4.2.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparación de rendimiento global en PhysioNet (64 canales). TRSS y Tikhonov dominan todas las métricas tras optimización con Optuna. El eje vertical muestra el MAE promedio optimizado.}}{26}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:global_physionet_tesis}{{4.1}{26}{Comparación de rendimiento global en PhysioNet (64 canales). TRSS y Tikhonov dominan todas las métricas tras optimización con Optuna. El eje vertical muestra el MAE promedio optimizado}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Análisis Multi-Métrica}{27}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Gráficos Radar}{27}{subsection.4.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Radar multi-métrica para MNE Sample (40\% random). TRSS maximiza simultáneamente todas las dimensiones de calidad: bajo MAE, bajo DTW, alto SNR, bajo LSD y alta Coherencia. Ningún otro método se aproxima al perímetro del polígono de TRSS.}}{27}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:radar_mne_tesis}{{4.2}{27}{Radar multi-métrica para MNE Sample (40\% random). TRSS maximiza simultáneamente todas las dimensiones de calidad: bajo MAE, bajo DTW, alto SNR, bajo LSD y alta Coherencia. Ningún otro método se aproxima al perímetro del polígono de TRSS}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Radar multi-métrica para BCI IV 2a bajo 40\% de pérdida \textit  {nearby}. El escenario más adverso para un dataset de baja densidad (22 canales). TRSS mantiene la superioridad incluso cuando la malla sensora pierde casi la mitad de su cobertura en una región contigua.}}{28}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:radar_bci_nearby}{{4.3}{28}{Radar multi-métrica para BCI IV 2a bajo 40\% de pérdida \textit {nearby}. El escenario más adverso para un dataset de baja densidad (22 canales). TRSS mantiene la superioridad incluso cuando la malla sensora pierde casi la mitad de su cobertura en una región contigua}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Robustez ante la Degradación Progresiva}{28}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Curvas de Degradación}{28}{subsection.4.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Radar multi-métrica para PhysioNet bajo 40\% de pérdida aleatoria. La alta densidad de electrodos (64 canales) favorece a todos los métodos, pero TRSS mantiene una ventaja clara en DTW y LSD.}}{29}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:radar_physionet}{{4.4}{29}{Radar multi-métrica para PhysioNet bajo 40\% de pérdida aleatoria. La alta densidad de electrodos (64 canales) favorece a todos los métodos, pero TRSS mantiene una ventaja clara en DTW y LSD}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Mapas de Calor de Desempeño}{29}{section.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Curva de degradación SNR para BCI IV 2a (modo \textit  {random}). TRSS mantiene un SNR aceptable ($> 25$~dB) incluso con un 40\% de canales perdidos, mientras que las splines caen por debajo de 15~dB.}}{30}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:degradation_bci_random}{{4.5}{30}{Curva de degradación SNR para BCI IV 2a (modo \textit {random}). TRSS mantiene un SNR aceptable ($> 25$~dB) incluso con un 40\% de canales perdidos, mientras que las splines caen por debajo de 15~dB}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Fronteras de Pareto: Trade-off MAE vs. DTW}{30}{section.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Análisis de Fidelidad Fisiológica}{30}{section.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.1}Preservación de Potenciales Relacionados a Eventos (ERPs)}{30}{subsection.4.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.2}Reconstrucción con Baselines Optimizados}{30}{subsection.4.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Curva de degradación SNR para BCI IV 2a (modo \textit  {nearby}). El escenario de falla contigua es drásticamente más difícil: las splines colapsan exponencialmente, mientras que TRSS demuestra una degradación mucho más lineal y contenida.}}{31}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:degradation_bci_nearby}{{4.6}{31}{Curva de degradación SNR para BCI IV 2a (modo \textit {nearby}). El escenario de falla contigua es drásticamente más difícil: las splines colapsan exponencialmente, mientras que TRSS demuestra una degradación mucho más lineal y contenida}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7.3}Preservación de la Densidad Espectral de Potencia (PSD)}{31}{subsection.4.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}Análisis Estadístico}{31}{section.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.1}Pruebas de Significancia}{31}{subsection.4.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Curva de degradación para PhysioNet (64 canales, modo \textit  {nearby}). Incluso en alta densidad, la pérdida contigua genera zonas ciegas que los métodos geométricos no logran rellenar fielmente.}}{32}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:degradation_physionet_nearby}{{4.7}{32}{Curva de degradación para PhysioNet (64 canales, modo \textit {nearby}). Incluso en alta densidad, la pérdida contigua genera zonas ciegas que los métodos geométricos no logran rellenar fielmente}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Curva de degradación para MNE Sample (60 canales, modo \textit  {nearby}). La caída abrupta de las splines a partir del 20\% contrasta con la estabilidad de TRSS.}}{32}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:degradation_mne_nearby}{{4.8}{32}{Curva de degradación para MNE Sample (60 canales, modo \textit {nearby}). La caída abrupta de las splines a partir del 20\% contrasta con la estabilidad de TRSS}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.2}Estabilidad Operativa del Pipeline}{32}{subsection.4.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.9}Síntesis de Hallazgos Experimentales}{32}{section.4.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Heatmap de RMSE para MNE Sample. Cada fila es un método; cada columna una combinación de modo/nivel. Los tonos oscuros (menor error) se concentran en TRSS y Tikhonov de forma consistente.}}{33}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:heatmap_mne}{{4.9}{33}{Heatmap de RMSE para MNE Sample. Cada fila es un método; cada columna una combinación de modo/nivel. Los tonos oscuros (menor error) se concentran en TRSS y Tikhonov de forma consistente}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Heatmap de RMSE para BCI IV 2a. Las columnas de alta degradación \textit  {nearby} exhiben un contraste cromático dramático entre las familias temporal y geométrica.}}{34}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:heatmap_bci}{{4.10}{34}{Heatmap de RMSE para BCI IV 2a. Las columnas de alta degradación \textit {nearby} exhiben un contraste cromático dramático entre las familias temporal y geométrica}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Heatmap de RMSE para PhysioNet. La alta densidad de canales suaviza las diferencias en escenarios benignos, pero la dominancia de TRSS emerge claramente en las columnas de alta degradación.}}{35}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:heatmap_physionet}{{4.11}{35}{Heatmap de RMSE para PhysioNet. La alta densidad de canales suaviza las diferencias en escenarios benignos, pero la dominancia de TRSS emerge claramente en las columnas de alta degradación}{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Frontera de Pareto MAE vs. DTW para MNE Sample. TRSS domina ambas dimensiones simultáneamente, posicionándose en la esquina inferior izquierda (mínimo error, mínima distorsión temporal).}}{36}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:tradeoff_scatter}{{4.12}{36}{Frontera de Pareto MAE vs. DTW para MNE Sample. TRSS domina ambas dimensiones simultáneamente, posicionándose en la esquina inferior izquierda (mínimo error, mínima distorsión temporal)}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Frontera de Pareto para BCI IV 2a. Los baselines geométricos forman un cluster alejado del origen, evidenciando un compromiso inherente entre precisión y fidelidad temporal que TRSS evita completamente.}}{37}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:tradeoff_bci}{{4.13}{37}{Frontera de Pareto para BCI IV 2a. Los baselines geométricos forman un cluster alejado del origen, evidenciando un compromiso inherente entre precisión y fidelidad temporal que TRSS evita completamente}{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Reconstrucción de ERP en MNE Sample con 10\% de pérdida \textit  {nearby}. En este escenario benigno, tanto TRSS como los baselines logran una reconstrucción razonable, aunque ya se observan desfases sutiles en las splines.}}{38}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:erp_10pct}{{4.14}{38}{Reconstrucción de ERP en MNE Sample con 10\% de pérdida \textit {nearby}. En este escenario benigno, tanto TRSS como los baselines logran una reconstrucción razonable, aunque ya se observan desfases sutiles en las splines}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Reconstrucción de ERP en MNE Sample con 40\% de pérdida \textit  {nearby}. Bajo degradación severa, las splines esféricas colapsan completamente: la amplitud del P300 se aplana y la fase se invierte. TRSS preserva fielmente la trayectoria fisiológica original.}}{39}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:erp_40pct}{{4.15}{39}{Reconstrucción de ERP en MNE Sample con 40\% de pérdida \textit {nearby}. Bajo degradación severa, las splines esféricas colapsan completamente: la amplitud del P300 se aplana y la fase se invierte. TRSS preserva fielmente la trayectoria fisiológica original}{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces Reconstrucción de ERP con baselines optimizados por Optuna (1 canal faltante \textit  {nearby}). Incluso en el escenario más benigno posible, TRSS logra una traza más fiel a la señal original.}}{40}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:erp_baselines_optimized}{{4.16}{40}{Reconstrucción de ERP con baselines optimizados por Optuna (1 canal faltante \textit {nearby}). Incluso en el escenario más benigno posible, TRSS logra una traza más fiel a la señal original}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Reconstrucción de ERP con baselines optimizados (40\% \textit  {nearby}). La optimización de hiperparámetros de las splines no previene su colapso ante degradación severa. TRSS mantiene la trayectoria correcta.}}{40}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:erp_baselines_severe}{{4.17}{40}{Reconstrucción de ERP con baselines optimizados (40\% \textit {nearby}). La optimización de hiperparámetros de las splines no previene su colapso ante degradación severa. TRSS mantiene la trayectoria correcta}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Comparación de PSD entre señal original, TRSS y baselines. TRSS reproduce fielmente el perfil espectral completo, preservando los picos en las bandas Alfa y Beta.}}{41}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:psd_best}{{4.18}{41}{Comparación de PSD entre señal original, TRSS y baselines. TRSS reproduce fielmente el perfil espectral completo, preservando los picos en las bandas Alfa y Beta}{figure.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces PSD con baselines optimizados (1 canal faltante). Los métodos geométricos introducen distorsiones espectrales a altas frecuencias (banda Beta y Gamma), mientras que TRSS preserva la distribución.}}{42}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:psd_baselines}{{4.19}{42}{PSD con baselines optimizados (1 canal faltante). Los métodos geométricos introducen distorsiones espectrales a altas frecuencias (banda Beta y Gamma), mientras que TRSS preserva la distribución}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces PSD bajo condiciones extremas de pérdida de canales. Las distorsiones espectrales de los métodos geométricos se amplifican dramáticamente, particularmente en las bandas de alta frecuencia.}}{43}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:psd_extreme}{{4.20}{43}{PSD bajo condiciones extremas de pérdida de canales. Las distorsiones espectrales de los métodos geométricos se amplifican dramáticamente, particularmente en las bandas de alta frecuencia}{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discusión}{44}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Conclusiones}{29}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Respuesta a la hipotesis de trabajo}{29}{subsection.6.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Aportes principales}{30}{subsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Trabajo futuro}{30}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Interpretación Teórica de la Superioridad Temporal}{44}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}La Inercia Neurofisiológica como Prior Matemático}{44}{subsection.5.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}La Doble Regularización como Filtro Espacio-Temporal}{45}{subsection.5.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}El Cruce de Rendimiento: Análisis Detallado}{45}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Comportamiento Asintótico bajo Degradación}{45}{subsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}El Papel de la Densidad Espacial}{45}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}El Impacto del Fair Benchmarking}{46}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}La Trampa de los Baselines sin Optimizar}{46}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}El Caso ICA: Promesa Teórica vs. Realidad Práctica}{46}{subsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Relevancia Clínica y Aplicaciones}{47}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Impacto en Sistemas BCI}{47}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Monitorización Clínica Continua}{47}{subsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Limitaciones del Estudio}{47}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Costo Computacional}{47}{subsection.5.5.1}\protected@file@percent }
+\citation{mortaheb_graph_2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Sensibilidad a los Hiperparámetros}{48}{subsection.5.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Simulación vs. Realidad}{48}{subsection.5.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}Alcance de los Datasets}{48}{subsection.5.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.5}Estado de BGSRP}{48}{subsection.5.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Comparación con el Estado del Arte Internacional}{48}{section.5.6}\protected@file@percent }
+\citation{mootoo_detecting_2023}
+\citation{miri_spectral_2024}
+\citation{jiang_graph-based_2021}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Reflexión Epistemológica}{49}{section.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{50}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Conclusiones}{50}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Validación de la Hipótesis de Trabajo}{50}{subsection.6.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Cumplimiento de los Objetivos Específicos}{51}{subsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Aportes Originales}{52}{subsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Trabajo Futuro}{52}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Integración BCI en Tiempo Real}{52}{subsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Validación Clínica Descendente}{53}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Modelos Híbridos GSP + Deep Learning}{53}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}Extensiones Metodológicas}{53}{subsection.6.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Reflexión Final}{54}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Tablas Detalladas de Resultados}{55}{appendix.Alph1}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Hiperparámetros Óptimos por Escenario}{55}{section.Alph1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{55}{table.caption.32}\protected@file@percent }
+\newlabel{tab:hyperparams_trss}{{A.1}{55}{Hiperparámetros óptimos de TRSS por dataset y escenario representativo}{table.caption.32}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Métricas Espectrales Detalladas}{55}{section.Alph1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt  {optuna\_summary\_pivot.csv}).}}{56}{table.caption.33}\protected@file@percent }
+\newlabel{tab:spectral_detail}{{A.2}{56}{LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv})}{table.caption.33}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Estructura del Repositorio}{57}{appendix.Alph2}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{IEEEtran}
 \bibdata{bibliography/references}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Instrucciones de Reproducción}{59}{appendix.Alph3}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{perrin1989}{1}
 \bibcite{shuman2013}{2}
 \bibcite{ortega2018}{3}
@@ -170,8 +268,6 @@
 \bibcite{tangermann2012bci}{23}
 \bibcite{gramfort2013meg}{24}
 \bibcite{shekkizhar2020}{25}
-\bibcite{shekkizhar_neighborhood_2023}{26}
-\bibcite{kalofolias2016}{27}
-\bibcite{jiang_graph-based_2021}{28}
-\bibcite{zhang2024bgsrp}{29}
-\gdef \@abspage@last{46}
+\bibcite{miri_spectral_2024}{26}
+\bibcite{jiang_graph-based_2021}{27}
+\gdef \@abspage@last{77}

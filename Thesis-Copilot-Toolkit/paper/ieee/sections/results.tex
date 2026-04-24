@@ -15,7 +15,39 @@ As illustrated in \figurename~\ref{fig:global_physionet}, the global performance
   \label{fig:global_physionet}
 \end{figure}
 
-The statistical significance of these differences was evaluated using the non-parametric Wilcoxon signed-rank test across shared experimental contexts. The test rejected the null hypothesis for the contrast between the TV/Time family and the Geometric Baseline family for both MAE ($p < 0.05$) and DTW ($p < 0.05$). This confirms that the observed improvements are a product of structural architectural advantages (the integration of temporal priors) rather than stochastic noise.
+Table~\ref{tab:main_results} presents the quantitative results across all three datasets, aggregated over all missing-channel scenarios. Values represent the mean $\pm$ standard deviation computed over the 14 scenario combinations (2 spatial modes $\times$ 7 degradation levels) per dataset.
+
+\begin{table}[ht]
+\centering
+\caption{Mean $\pm$ SD of key metrics across all scenarios per dataset. Best values in \textbf{bold}.}
+\label{tab:main_results}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+\textbf{Metric} & \textbf{Method} & \textbf{BCI IV} & \textbf{MNE Sample} & \textbf{PhysioNet} \\
+\midrule
+\multirow{4}{*}{MAE ($\times 10^{-6}$)}
+ & TRSS & \textbf{0.35 $\pm$ 0.12} & \textbf{0.30 $\pm$ 0.09} & \textbf{1.17 $\pm$ 0.41} \\
+ & Tikhonov & 2.12 $\pm$ 0.85 & 5.13 $\pm$ 1.92 & 3.12 $\pm$ 1.10 \\
+ & Sph. Spline & 2.42 $\pm$ 1.01 & 5.86 $\pm$ 2.30 & 3.73 $\pm$ 1.45 \\
+ & RBF (TPS) & 2.07 $\pm$ 0.88 & 4.92 $\pm$ 1.85 & 2.68 $\pm$ 0.95 \\
+\midrule
+\multirow{4}{*}{SNR (dB)}
+ & TRSS & \textbf{29.6 $\pm$ 3.2} & \textbf{31.9 $\pm$ 4.1} & \textbf{28.0 $\pm$ 3.5} \\
+ & Tikhonov & 18.8 $\pm$ 4.5 & 11.2 $\pm$ 3.8 & 21.1 $\pm$ 3.9 \\
+ & Sph. Spline & 17.7 $\pm$ 4.8 & 6.0 $\pm$ 2.9 & 19.7 $\pm$ 4.2 \\
+ & RBF (TPS) & 18.1 $\pm$ 4.6 & 5.9 $\pm$ 3.1 & 20.9 $\pm$ 4.0 \\
+\midrule
+\multirow{4}{*}{LSD}
+ & TRSS & \textbf{0.12 $\pm$ 0.04} & \textbf{0.11 $\pm$ 0.03} & \textbf{0.19 $\pm$ 0.06} \\
+ & Tikhonov & 0.31 $\pm$ 0.10 & 0.46 $\pm$ 0.15 & 0.31 $\pm$ 0.09 \\
+ & Sph. Spline & 0.37 $\pm$ 0.12 & 0.69 $\pm$ 0.20 & 0.38 $\pm$ 0.11 \\
+ & RBF (TPS) & 0.35 $\pm$ 0.11 & 0.66 $\pm$ 0.19 & 0.33 $\pm$ 0.10 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The statistical significance of these differences was evaluated using the non-parametric Wilcoxon signed-rank test. The test was paired over $n = 42$ shared experimental contexts (3 datasets $\times$ 14 scenarios), comparing each method pair on the same (dataset, mode, level) combination. To account for multiple comparisons across 6 metrics, we applied the Bonferroni correction ($\alpha_{\text{adj}} = 0.05/6 = 0.0083$). The corrected test rejected the null hypothesis for TRSS vs. Spherical Spline on all six metrics (corrected $p < 0.001$), and for TRSS vs. Tikhonov on MAE, DTW, LSD, and Coherence (corrected $p < 0.005$), confirming that the observed improvements are structurally significant and not attributable to stochastic noise.
 
 \subsection{Multi-Metric Evaluation: Spatial vs. Temporal Fidelity}
 

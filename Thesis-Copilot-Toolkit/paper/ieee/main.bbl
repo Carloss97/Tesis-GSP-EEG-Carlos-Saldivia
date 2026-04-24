@@ -46,6 +46,18 @@ Q.~Zhang \emph{et~al.}, ``Recovery of bandlimited graph signals based on the
   reproducing kernel {Hilbert} space,'' \emph{Digital Signal Processing}, vol.
   151, p. 104565, 2024.
 
+\bibitem{banville2021uncovering}
+H.~Banville, O.~Chehab, A.~Hyv{\"a}rinen, D.-A. Engemann, and A.~Gramfort,
+  ``Uncovering the structure of clinical {EEG} signals with self-supervised
+  learning,'' \emph{Journal of Neural Engineering}, vol.~18, no.~4, p. 046020,
+  2021.
+
+\bibitem{defferrard2016}
+M.~Defferrard, X.~Bresson, and P.~Vandergheynst, ``Convolutional neural
+  networks on graphs with fast localized spectral filtering,'' in
+  \emph{Advances in Neural Information Processing Systems (NeurIPS)}, vol.~29,
+  2016.
+
 \bibitem{perrin1989}
 F.~Perrin, J.~Pernier, O.~Bertrand, and J.~F. Echallier, ``Spherical splines
   for scalp potential and current density mapping,''

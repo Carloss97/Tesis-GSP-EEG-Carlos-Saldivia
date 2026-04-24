@@ -118,18 +118,18 @@ def main():
         ]
         
         fig, axes = plt.subplots(4, 1, figsize=(14, 10), sharex=True, sharey=True)
-        fig.suptitle(f"Reconstrucción Temporal (ERP) - Canal Missing #{target_ch}\n{ds_name.upper()} | {mode.capitalize()} | Pérdida {int(scen_val*100)}%", fontsize=16, fontweight="bold")
+        fig.suptitle(f"Temporal Reconstruction (ERP) - Missing Channel #{target_ch}\n{ds_name.upper()} | {mode.capitalize()} | {int(scen_val*100)}% Loss", fontsize=16, fontweight="bold")
         
         gt_signal = signals_clean[:N_SAMPLES, target_ch]
         
         for ax, (m_name, m_sig, m_color) in zip(axes, methods_data):
             ax.plot(time_axis, gt_signal, label="Ground Truth", color="black", linestyle="--", linewidth=2.5, alpha=0.8, zorder=2)
             ax.plot(time_axis, m_sig[:N_SAMPLES, target_ch], label=m_name, color=m_color, linestyle="-", linewidth=2.5, alpha=0.9, zorder=1)
-            ax.set_ylabel("Amplitud (µV)", fontsize=10)
+            ax.set_ylabel("Amplitude (µV)", fontsize=10)
             ax.grid(True, linestyle=":", alpha=0.7)
             ax.legend(fontsize=10, loc="upper right")
         
-        axes[-1].set_xlabel("Tiempo (segundos)", fontsize=14)
+        axes[-1].set_xlabel("Time (seconds)", fontsize=14)
         
         plt.xlim(0, 1.5)
         plt.tight_layout()

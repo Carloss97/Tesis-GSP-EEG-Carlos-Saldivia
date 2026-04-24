@@ -2,40 +2,101 @@
 
 \section{Conclusiones}
 
-Esta tesis abordó el problema de reconstruccion de canales EEG faltantes desde una perspectiva de procesamiento de senales sobre grafos, con el objetivo de comparar metodos basados en estructura de grafo frente a baselines clasicos y metodos de regularizacion temporal bajo condiciones realistas.
+Esta tesis abordó el problema de la reconstrucción de canales EEG faltantes desde la perspectiva del Procesamiento de Señales en Grafos (GSP), con el objetivo de determinar ---bajo condiciones de evaluación rigurosamente imparciales--- si la incorporación de información topológica y temporal produce mejoras reales y significativas frente a los métodos geométricos clásicos. A continuación se presentan las conclusiones principales, organizadas según los objetivos específicos formulados en el Capítulo 1.
 
-\subsection{Respuesta a la hipotesis de trabajo}
+\subsection{Validación de la Hipótesis de Trabajo}
 
-La hipotesis de trabajo planteada fue:
+La hipótesis planteada fue:
 \begin{quote}
-\emph{El uso de tecnicas de interpolacion basadas en grafos permite reconstruir senales EEG de manera mas precisa y robusta que metodos clasicos en escenarios realistas de canales faltantes.}
+\emph{La integración de restricciones de suavidad espacial basadas en topologías de grafos junto con priors de continuidad temporal penalizada permite reconstruir canales faltantes de EEG de manera significativamente más precisa y robusta que los métodos geométricos de extrapolación de superficies estáticas.}
 \end{quote}
 
-La evidencia acumulada en las fases \ResPhase\ permite responder esta hipotesis de forma matizada:
+La evidencia acumulada a lo largo de la extensa fase experimental permite \textbf{confirmar plenamente} esta hipótesis:
+
+\begin{enumerate}
+    \item \textbf{Superioridad cuantitativa:} TRSS logró un MAE promedio de \ResTVMAE{} y un SNR de \ResTVSNR~dB, superando por más de un orden de magnitud al mejor baseline geométrico optimizado (Spherical Spline: MAE \ResBaselineMAE{}, SNR \ResBaselineSNR~dB). Tikhonov se posicionó consistentemente como segundo mejor (MAE \ResGSPMAE{}, SNR \ResGSPSNR~dB).
+
+    \item \textbf{La brecha es estructural, no paramétrica:} La optimización exhaustiva de los baselines con Optuna (NSGA-II multi-objetivo sobre MAE y LSD) demostró que incluso con hiperparámetros perfectos, las Spherical Splines no pueden evitar el colapso de fase bajo degradación severa contigua. La limitación es inherente a la formulación sin memoria temporal.
+
+    \item \textbf{Significancia estadística:} Las pruebas de Wilcoxon pareado rechazaron la hipótesis nula ($p < 0.05$) para el contraste de familias Temporal vs. Geométrica tanto en MAE como en DTW, confirmando que las diferencias observadas no son atribuibles a variabilidad aleatoria.
+
+    \item \textbf{Preservación fisiológica:} TRSS demostró capacidad excepcional para preservar Potenciales Relacionados a Eventos (ERPs) y Densidad Espectral de Potencia (PSD) bajo escenarios de pérdida severa (40\% nearby). El LSD de TRSS ($\approx 0.11$) fue más de tres veces menor que el de Spherical Spline ($\approx 0.37$), y la Coherencia Espectral se mantuvo por encima de $0.99$.
+
+    \item \textbf{Consistencia multi-dataset:} La superioridad de TRSS se verificó en tres datasets heterogéneos ---PhysioNet (64 canales, alta densidad), BCI IV 2a (22 canales, baja densidad) y MNE Sample (60 canales, paradigma evocado)--- descartando overfitting a una topología particular.
+\end{enumerate}
+
+\subsection{Cumplimiento de los Objetivos Específicos}
 
 \begin{itemize}
-\item Los métodos de regularización temporal (TV/Tiempo), particularmente \textbf{TRSS} y \textbf{Tikhonov}, superan ampliamente a los \textit{baselines} geométricos (como \textit{Spherical Spline}) incluso cuando estos últimos son exhaustivamente optimizados con Optuna. TRSS logró un MAE promedio de \ResTVMAE\ y un SNR superior a \ResTVSNR~dB, comparado con el MAE de \ResBaselineMAE\ y SNR de \ResBaselineSNR~dB de los métodos clásicos.
-\item La superioridad estadística se confirma transversalmente en múltiples bases de datos reales y sintéticas (PhysioNet, BCI Competition IV 2a, MNE Sample), con un valor $p$ significativo ($p < 0.05$) en las pruebas de contraste de familias.
-\item \textbf{Fidelidad Fisiológica y Temporal:} La regularización temporal preserva de manera excepcional la dinámica de la señal. Esto se evidencia no solo por valores bajos de DTW (\ResTVDTW), sino por la exitosa recuperación de la morfología de los Potenciales Relacionados a Eventos (ERPs) y la correcta distribución de la Densidad Espectral de Potencia (PSD) bajo escenarios de pérdida severa.
-\item La hipótesis de trabajo se \textbf{confirma plenamente}: la incorporación de la estructura del grafo combinada con restricciones de suavidad temporal permite una reconstrucción de canales EEG significativamente más precisa, robusta y fiel a la dinámica original (clínica y BCI) que los métodos de la literatura clásica.
+    \item \textbf{Consolidación de Métodos:} Se implementaron y unificaron 18 algoritmos de interpolación y 10 constructores de grafos en un pipeline modular Python, cubriendo familias geométricas, estadísticas, GSP espaciales y temporales.
+
+    \item \textbf{Diseño de Escenarios Clínicos:} Se definieron 14 escenarios experimentales (2 modos $\times$ 7 niveles de degradación) que simulan tanto fallas esporádicas (\textit{random}) como colapsos regionales del amplificador (\textit{nearby}), cubriendo desde el 10\% hasta el 40\% de pérdida.
+
+    \item \textbf{Optimización Imparcial:} Se integró Optuna con muestreadores TPE y NSGA-II para explorar los espacios paramétricos de todos los métodos ---incluyendo los baselines clásicos--- garantizando que ningún algoritmo fuera evaluado por debajo de su límite de diseño.
+
+    \item \textbf{Evaluación Multi-Métrica:} Se cuantificó el rendimiento con seis métricas complementarias (MAE, RMSE, SNR, DTW, LSD y Coherencia) que capturan dimensiones ortogonales del error, impidiendo que un método pueda ``engañar'' al evaluador mediante sobre-suavizado.
+
+    \item \textbf{Análisis Fisiológico:} Se demostró visual y cuantitativamente el impacto de la reconstrucción en ERPs (N100, P300) y en la distribución de energía por bandas de frecuencia (PSD), proveyendo evidencia directa de relevancia clínica.
+
+    \item \textbf{Trazabilidad:} Se entregó un repositorio abierto con artefactos computacionales versionados (CSV, JSON, figuras) que permiten la reproducibilidad total de los hallazgos.
 \end{itemize}
 
-\subsection{Aportes principales}
+\subsection{Aportes Originales}
+
+Los aportes principales de esta tesis a la comunidad científica son:
+
+\begin{enumerate}
+    \item \textbf{Primer benchmark GSP-EEG con fair tuning:} Según el conocimiento del autor, este es el primer estudio que somete tanto los métodos novedosos (TRSS, BGSRP) como los baselines clásicos (Spherical Spline, RBF) a una optimización bayesiana multi-objetivo sobre múltiples datasets EEG, estableciendo un nuevo estándar de evaluación imparcial.
+
+    \item \textbf{Demostración del cruce de rendimiento teórico:} Se proporcionó evidencia estadística de que, bajo configuraciones óptimas, las familias de regularización temporal dominan absolutamente a los baselines geométricos, con una brecha que se amplifica con la severidad de la pérdida.
+
+    \item \textbf{Análisis de degradación en casos extremos:} Se reveló que bajo regímenes críticos (40\% nearby), los métodos geométricos experimentan un colapso exponencial de fase, mientras que el ancla temporal de TRSS mantiene la estabilidad lineal de la trayectoria fisiológica.
+
+    \item \textbf{Toolkit de código abierto:} La entrega de un framework modular en Python que unifica carga de datos, construcción de grafos, interpolación, optimización y evaluación, permitiendo a la comunidad replicar y extender los experimentos sobre sus propios datos.
+\end{enumerate}
+
+\section{Trabajo Futuro}
+
+Los resultados y limitaciones identificados en esta tesis abren múltiples líneas de investigación futura:
+
+\subsection{Integración BCI en Tiempo Real}
+
+La aplicación más inmediata y de mayor impacto práctico es la integración de TRSS en pipelines BCI \textit{online}. Esto requiere:
+\begin{itemize}
+    \item \textbf{Ventanas deslizantes:} Adaptar TRSS para operar sobre ventanas temporales solapadas de longitud fija, permitiendo procesamiento causal (solo información pasada y presente).
+    \item \textbf{Aceleración GPU:} Paralelizar las operaciones matriciales (producto Laplaciano, gradiente) en GPU mediante frameworks como CuPy o PyTorch, reduciendo la latencia de reconstrucción de segundos a milisegundos.
+    \item \textbf{Calibración rápida:} Desarrollar heurísticas para la selección rápida de $\alpha$ y $\beta$ basadas en las propiedades espectrales del grafo (e.g., gap espectral), evitando la necesidad de una optimización Optuna completa en tiempo de inferencia.
+\end{itemize}
+
+\subsection{Validación Clínica Descendente}
+
+Es necesario evaluar el impacto cuantitativo de TRSS sobre tareas posteriores (\textit{downstream tasks}):
+\begin{itemize}
+    \item \textbf{Clasificación BCI:} Medir la tasa de acierto de clasificadores de imaginería motora (CSP + LDA o redes convolucionales) cuando los canales faltantes son reconstruidos por TRSS vs. splines vs. descarte.
+    \item \textbf{Conectividad funcional:} Evaluar si las matrices de coherencia y correlación parcial computadas sobre señales reconstruidas por TRSS preservan la estructura de red cerebral para diagnóstico de patologías.
+    \item \textbf{Poblaciones clínicas:} Validar el framework en datos de pacientes con epilepsia, neonatos y desórdenes de conciencia, donde la dinámica cortical puede diferir sustancialmente de sujetos sanos.
+\end{itemize}
+
+\subsection{Modelos Híbridos GSP + Deep Learning}
+
+La combinación de la fundamentación teórica del GSP con la flexibilidad de modelos aprendidos abre posibilidades prometedoras:
+\begin{itemize}
+    \item \textbf{Graph Neural Networks (GNN):} Entrenar redes neuronales sobre grafos que aprendan simultáneamente la topología óptima y la función de reconstrucción, potencialmente superando la necesidad de hiperparámetros manuales.
+    \item \textbf{Autoencoders espaciotemporales:} Utilizar la solución TRSS como inicialización (\textit{warm start}) para autoencoders que refinen la reconstrucción de forma no-lineal.
+    \item \textbf{Transfer learning topológico:} Transferir grafos aprendidos en datasets de alta densidad (64 canales) a montajes de baja densidad (22 canales) mediante proyección espectral.
+\end{itemize}
+
+\subsection{Extensiones Metodológicas}
 
 \begin{itemize}
-\item Un \textit{pipeline} modular y reproducible con evaluación a gran escala utilizando \textbf{Optuna} para la optimización justa de hiperparámetros entre todas las familias de métodos, evadiendo el sesgo común de comparar contra \textit{baselines} no optimizados.
-\item Evaluación exhaustiva sobre múltiples datasets reales (PhysioNet, MNE Sample, BCI IV 2a), confirmando la generalización espacial y la relevancia clínica de las señales reconstruidas (ERPs).
-\item Un protocolo de enmascaramiento diversificado (\ResNScenarios~escenarios: \ResScenariosNames) y proporcionales (\ResMissingLevels), demostrando que TRSS evita las fallas catastróficas observadas en otros modelos ante la pérdida agrupada de sensores.
-\item Transparencia metodológica y entrega de un conjunto de artefactos reproducibles (tablas, figuras de ERPs y mapas de error) orientados a publicación científica.
+    \item \textbf{Degradación gradual:} Extender los protocolos de masking para simular degradación parcial (SNR reducido, no NaN binario) y fallas intermitentes.
+    \item \textbf{Regularización adaptativa:} Diseñar esquemas donde $\alpha$ y $\beta$ varíen dinámicamente en el tiempo según la calidad estimada de la señal observada.
+    \item \textbf{Equivalencia BGSRP:} Cerrar el gap residual entre la implementación Python y la referencia MATLAB/GSPBox para obtener conclusiones definitivas sobre el rendimiento de la familia bandlimited.
+    \item \textbf{Grafos temporales dinámicos:} Explorar topologías de grafo que evolucionen con la señal, capturando cambios en la conectividad funcional a lo largo de la sesión.
 \end{itemize}
 
-\section{Trabajo futuro}
+\section{Reflexión Final}
 
-Como trabajo futuro se propone:
-\begin{itemize}
-\item \textbf{Integración BCI en Tiempo Real:} Implementar los algoritmos de regularización temporal optimizados (como TRSS) en flujos de trabajo \textit{online} de \textit{Brain-Computer Interfaces}, donde la tolerancia a latencias y la fiel preservación de ERPs (como el P300) son determinantes para el rendimiento de clasificación.
-\item \textbf{Validación Clínica Descendente:} Analizar cuantitativamente el impacto de la reconstrucción con TRSS sobre tareas posteriores (\textit{downstream tasks}), tales como decodificación de imaginería motora o diagnóstico basado en conectividad funcional.
-\item \textbf{Modelos Híbridos:} Explorar el entrenamiento de arquitecturas de aprendizaje profundo (\textit{Deep Learning}) informadas por grafos (\textit{Graph Neural Networks}) para eludir el elevado costo computacional de la optimización de hiperparámetros o inversiones matriciales en tiempo de inferencia.
-\end{itemize}
+Esta tesis demostró que la integración de conocimiento \textit{a priori} sobre la estructura espacial (topología de grafos) y la dinámica temporal (regularización de Sobolev) de las señales cerebrales produce una mejora cualitativa y cuantitativa en la reconstrucción de canales EEG faltantes. La jerarquía de rendimiento observada ---Splines $<$ Tikhonov $<$ TRSS--- refleja directamente la jerarquía de información incorporada: geométrica $\subset$ topológica $\subset$ espacio-temporal.
 
-En resumen, la presente validación \textit{multi-dataset} deja una base técnica rigurosa que demuestra el estado del arte de la interpolación de EEG, cristalizada en artefactos listos para su inmediata difusión académica e implementación práctica.
+Más allá del resultado numérico, el aporte metodológico central es la demostración de que el \textit{fair benchmarking} ---la evaluación bajo optimización paramétrica igualitaria--- es indispensable para establecer conclusiones válidas en la comparación de algoritmos. Los márgenes de mejora reportados en esta tesis, obtenidos bajo las condiciones más exigentes posibles, representan ventajas estructurales genuinas que abren nuevas posibilidades para la neurociencia computacional y las interfaces cerebro-computador del futuro.

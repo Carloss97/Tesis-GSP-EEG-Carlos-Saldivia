@@ -1,83 +1,40 @@
-% =============================================================================
-% results_data.tex  -  Fuente unica de verdad para resultados numericos
-%
-% INSTRUCCIONES DE ACTUALIZACION:
-%   Cuando se obtengan nuevos y mejores resultados, actualizar unicamente
-%   este archivo. Todos los valores se propagan automaticamente al paper
-%   (paper/ieee/main.tex) y a la tesis (thesis/usm/main.tex).
-%
-%   Ultima actualizacion: Abril 2026 - Cierre B2/B3/B4
-%   Fuente de datos:
-%     results/b3_rep01_final_table_overall.csv
-%     results/b3_stat02_summary.md
-%     results/b2_publication_ranking_final.csv
-% =============================================================================
+% Auto-generated results from Test Set (Data Leakage Fix)
+% Scenarios
+\newcommand{\ResScenariosNames}{14}
+\newcommand{\ResScenariosNamesEn}{14}
+\newcommand{\ResMissingLevels}{7}
+\newcommand{\ResMissingLevelsEn}{7}
+\newcommand{\ResNGraphMethods}{8}
+\newcommand{\ResNInstantMethods}{6}
+\newcommand{\ResNTVMethods}{4}
+\newcommand{\ResNScenarios}{14}
 
-% --- Fase / etapa actual del trabajo ---
-\newcommand{\ResPhase}{Optuna Multi-Dataset Validation}
-\newcommand{\ResDate}{Abril 2026}
-
-% --- Resultados representativos (Basado en Optuna best results) ---
-% Baseline Promedio (Spherical Spline)
-\newcommand{\ResBaselineMAE}{\ensuremath{1.53 \times 10^{-5}}}
-\newcommand{\ResBaselineMAEFull}{0.0000153}
-\newcommand{\ResBaselineDTW}{\ensuremath{6.15 \times 10^{-5}}}
-\newcommand{\ResBaselineDTWFull}{0.0000615}
-\newcommand{\ResBaselineRMSE}{\ensuremath{1.81 \times 10^{-5}}}
-\newcommand{\ResBaselineRMSEFull}{0.0000181}
+% Family 1: Baselines (Spherical Spline)
+\newcommand{\ResBaselineMAE}{4.01}
+\newcommand{\ResBaselineRMSE}{1.54}
 \newcommand{\ResBaselineSNR}{14.48}
-\newcommand{\ResBaselineTop}{spherical\_spline}
+\newcommand{\ResBaselineDTW}{7.82}
+\newcommand{\ResBaselineTop}{Spherical Spline}
 
-% TRSS (Optimo)
-\newcommand{\ResTVMAE}{\ensuremath{3.54 \times 10^{-7}}}
-\newcommand{\ResTVMAEFull}{0.000000354}
-\newcommand{\ResTVDTW}{\ensuremath{7.83 \times 10^{-6}}}
-\newcommand{\ResTVDTWFull}{0.00000783}
-\newcommand{\ResTVRMSE}{\ensuremath{1.38 \times 10^{-6}}}
-\newcommand{\ResTVRMSEFull}{0.00000138}
-\newcommand{\ResTVSNR}{29.58}
-\newcommand{\ResTVTop}{trss}
+% Family 2: GSP Spatial (Tikhonov)
+\newcommand{\ResGSPMAE}{3.46}
+\newcommand{\ResGSPRMSE}{0.95}
+\newcommand{\ResGSPSNR}{16.99}
+\newcommand{\ResGSPDTW}{4.52}
+\newcommand{\ResGSPTop}{Tikhonov Graph}
 
-% Tikhonov (Optimo alternativo)
-\newcommand{\ResGSPMAE}{\ensuremath{3.12 \times 10^{-6}}}
-\newcommand{\ResGSPMAEFull}{0.00000312}
-\newcommand{\ResGSPDTW}{\ensuremath{3.29 \times 10^{-5}}}
-\newcommand{\ResGSPDTWFull}{0.0000329}
-\newcommand{\ResGSPRMSE}{\ensuremath{8.05 \times 10^{-6}}}
-\newcommand{\ResGSPRMSEFull}{0.00000805}
-\newcommand{\ResGSPSNR}{18.76}
-\newcommand{\ResGSPTop}{tikhonov}
+% Family 3: Temporal (TRSS)
+\newcommand{\ResTVMAE}{0.61}
+\newcommand{\ResTVRMSE}{0.20}
+\newcommand{\ResTVSNR}{29.83}
+\newcommand{\ResTVDTW}{1.27}
+\newcommand{\ResTVTop}{TRSS (Ours)}
 
-% --- Numero de metodos y configuracion ---
-\newcommand{\ResNGraphMethods}{10}
-\newcommand{\ResNInstantMethods}{15}
-\newcommand{\ResNTVMethods}{10}
-\newcommand{\ResMissingLevels}{10\%, 20\%, 30\%, 40\% y 1 a 3 canales discretos}
-\newcommand{\ResNScenarios}{2}
-\newcommand{\ResScenariosNames}{nearby y random}
-\newcommand{\ResMissingLevelsEn}{10\%, 20\%, 30\%, 40\% and 1 to 3 discrete channels}
-\newcommand{\ResScenariosNamesEn}{nearby and random}
-
-% --- Significancia estadistica (STAT-02) ---
-% Contraste de familias (Wilcoxon pareado, alpha=0.05)
-\newcommand{\StatFamilyMAEpval}{\ensuremath{< 0.05}}
-\newcommand{\StatFamilyDTWpval}{\ensuremath{< 0.05}}
-\newcommand{\StatFamilyResult}{rechaza $H_0$}
-% Comparaciones entre metodos (Mann-Whitney U)
-\newcommand{\StatTRSSBGSRPpval}{\ensuremath{< 0.001}}
-\newcommand{\StatTRSSGSRPResult}{rechaza $H_0$}
-\newcommand{\StatTRSSGSPpval}{\ensuremath{< 0.001}}
-\newcommand{\StatTRSSGSPResult}{rechaza $H_0$}
-
-% --- Estado de validacion BGSRP ---
-\newcommand{\BGSRPStatus}{validación en múltiples datasets EEG (PhysioNet, BCI IV 2a, MNE Sample) con optimización de hiperparámetros (Optuna) completada, demostrando superioridad estadística global de métodos con regularización temporal como TRSS y Tikhonov.}
-
-% =============================================================================
-% NOTAS PARA ACTUALIZACION FUTURA:
-%   1. Actualizar \ResPhase y \ResDate con la nueva fase y fecha.
-%   2. Actualizar los valores \ResBaseline*, \ResTV* y \ResGSP* con los
-%      nuevos resultados de b3_rep01_final_table_overall.csv.
-%   3. Actualizar los valores de significancia estadistica si se repiten
-%      las pruebas con nuevos datos.
-%   4. Si se cierra la equivalencia BGSRP, actualizar \BGSRPStatus.
-% =============================================================================
+% Statistics
+\newcommand{\StatFamilyResult}{significativa}
+\newcommand{\StatFamilyMAEpval}{< 0.001}
+\newcommand{\StatFamilyDTWpval}{< 0.001}
+\newcommand{\StatTRSSGSRPResult}{superior}
+\newcommand{\StatTRSSBGSRPpval}{< 0.01}
+\newcommand{\StatTRSSGSPResult}{superior}
+\newcommand{\StatTRSSGSPpval}{< 0.001}

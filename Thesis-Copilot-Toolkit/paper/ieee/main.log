@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  23 APR 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  23 APR 2026 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -252,20 +252,27 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count305
 \@thisrulewidth=\dimen195
 )
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip55
+\multirow@cntb=\count306
+\multirow@dima=\skip56
+\bigstrutjot=\dimen196
+)
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2026-03-26 v3.5.1 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count306
-\l__siunitx_number_exponent_fixed_int=\count307
-\l__siunitx_number_min_decimal_int=\count308
-\l__siunitx_number_min_integer_int=\count309
-\l__siunitx_number_round_precision_int=\count310
-\l__siunitx_number_lower_threshold_int=\count311
-\l__siunitx_number_upper_threshold_int=\count312
-\l__siunitx_number_group_first_int=\count313
-\l__siunitx_number_group_size_int=\count314
-\l__siunitx_number_group_min_int=\count315
-\l__siunitx_number_group_minimum_int=\count316
-\l__siunitx_compound_count_int=\count317
+\l__siunitx_number_uncert_offset_int=\count307
+\l__siunitx_number_exponent_fixed_int=\count308
+\l__siunitx_number_min_decimal_int=\count309
+\l__siunitx_number_min_integer_int=\count310
+\l__siunitx_number_round_precision_int=\count311
+\l__siunitx_number_lower_threshold_int=\count312
+\l__siunitx_number_upper_threshold_int=\count313
+\l__siunitx_number_group_first_int=\count314
+\l__siunitx_number_group_size_int=\count315
+\l__siunitx_number_group_min_int=\count316
+\l__siunitx_number_group_minimum_int=\count317
+\l__siunitx_compound_count_int=\count318
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/translations\translatio
 ns.sty
@@ -274,7 +281,7 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count318
+\etb@tempcnta=\count319
 )
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
 .sty
@@ -295,29 +302,29 @@ Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ))
 \l__siunitx_table_tmp_box=\box57
-\l__siunitx_table_tmp_dim=\dimen196
-\l__siunitx_table_column_width_dim=\dimen197
+\l__siunitx_table_tmp_dim=\dimen197
+\l__siunitx_table_column_width_dim=\dimen198
 \l__siunitx_table_integer_box=\box58
 \l__siunitx_table_decimal_box=\box59
 \l__siunitx_table_uncert_box=\box60
 \l__siunitx_table_before_box=\box61
 \l__siunitx_table_after_box=\box62
-\l__siunitx_table_before_dim=\dimen198
-\l__siunitx_table_carry_dim=\dimen199
-\l__siunitx_unit_tmp_int=\count319
-\l__siunitx_unit_position_int=\count320
-\l__siunitx_unit_total_int=\count321
-\l__siunitx_sexagesimal_tmp_dim=\dimen256
+\l__siunitx_table_before_dim=\dimen199
+\l__siunitx_table_carry_dim=\dimen256
+\l__siunitx_unit_tmp_int=\count320
+\l__siunitx_unit_position_int=\count321
+\l__siunitx_unit_total_int=\count322
+\l__siunitx_sexagesimal_tmp_dim=\dimen257
 \l__siunitx_sexagesimal_marker_box=\box63
 \l__siunitx_sexagesimal_unit_box=\box64
  (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
-\col@sep=\dimen257
+\col@sep=\dimen258
 \ar@mcellbox=\box65
-\extrarowheight=\dimen258
+\extrarowheight=\dimen259
 \NC@list=\toks26
-\extratabsurround=\skip55
-\backup@length=\skip56
+\extratabsurround=\skip57
+\backup@length=\skip58
 \ar@cellbox=\box66
 ))
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/cite\cite.sty
@@ -357,16 +364,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count322
+\c@section@level=\count323
 )
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.s
 ty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen259
-\Hy@linkcounter=\count323
-\Hy@pagecounter=\count324
+\@linkdim=\dimen260
+\Hy@linkcounter=\count324
+\Hy@pagecounter=\count325
  (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -374,7 +381,7 @@ Now handling font encoding PD1 ...
 ) (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count325
+\Hy@SavedSpaceFactor=\count326
  (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -387,9 +394,9 @@ Package hyperref Info: Plain pages OFF on input line 4216.
 Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4468.
-\c@Hy@tempcnt=\count326
+\c@Hy@tempcnt=\count327
 LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen260
+\XeTeXLinkMargin=\dimen261
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -399,9 +406,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count327
-\Field@Width=\dimen261
-\Fld@charsize=\dimen262
+\Fld@menulength=\count328
+\Field@Width=\dimen262
+\Fld@charsize=\dimen263
 Package hyperref Info: Hyper figures OFF on input line 6084.
 Package hyperref Info: Link nesting OFF on input line 6089.
 Package hyperref Info: Hyper index ON on input line 6092.
@@ -409,16 +416,16 @@ Package hyperref Info: backreferencing OFF on input line 6099.
 Package hyperref Info: Link coloring OFF on input line 6104.
 Package hyperref Info: Link coloring with OCG OFF on input line 6109.
 Package hyperref Info: PDF/A mode OFF on input line 6114.
-\Hy@abspage=\count328
-\c@Item=\count329
-\c@Hfootnote=\count330
+\Hy@abspage=\count329
+\c@Item=\count330
+\c@Hfootnote=\count331
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
-\Fld@listcount=\count331
-\c@bookmark@seq@number=\count332
+\Fld@listcount=\count332
+\c@bookmark@seq@number=\count333
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -431,15 +438,15 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip57
+\Hy@SectionHShift=\skip59
 )
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/preprint\balance.sty
 Package: balance 1999/02/23 4.3 (PWD)
-\oldvsize=\dimen263
+\oldvsize=\dimen264
 )
 (../../shared/results_data.tex)
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 48.
+h' as default language. on input line 49.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -453,44 +460,44 @@ Package color Info: Driver file: pdftex.def on input line 149.
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count333
+\l__color_backend_stack_int=\count334
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 -- Lines per column: 58 (exact).
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
-\scratchdimen=\dimen264
+\scratchcounter=\count335
+\scratchdimen=\dimen265
 \scratchbox=\box67
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\nofMPsegments=\count336
+\nofMParguments=\count337
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count337
-\MPscratchDim=\dimen265
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPscratchCnt=\count338
+\MPscratchDim=\dimen266
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
 \everyMPtoPDFconversion=\toks28
 )
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -509,21 +516,21 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 48.
-Package hyperref Info: Link coloring OFF on input line 48.
+or `english'. on input line 49.
+Package hyperref Info: Link coloring OFF on input line 49.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 
 (sections/abstract.tex) (sections/introduction.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -558,13 +565,13 @@ Underfull \hbox (badness 2435) in paragraph at lines 22--23
 -cal al-ter-na-tives
  []
 
-
+[2]
 Underfull \hbox (badness 2158) in paragraph at lines 34--35
  \T1/ptm/m/it/10 c) Tem-po-ral Reg-u-lar-iza-tion Meth-ods (TRSS): [][] \T1/ptm
 /m/n/10 These
  []
 
-[2]
+
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
 []\T1/ptm/b/n/10 Magnitude-Squared Co-her-ence\T1/ptm/m/n/10 : Quan-ti-fies the
 
@@ -575,12 +582,36 @@ Underfull \hbox (badness 2564) in paragraph at lines 52--53
 \T1/ptm/m/n/10 frequency-domain cor-re-la-tion and phase con-sis-tency
  []
 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 71.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\alpha' on input line 71.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 71.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 71.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 71.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 71.
+
 ) (sections/experiments.tex
 Underfull \hbox (badness 2828) in paragraph at lines 3--4
 \T1/ptm/m/n/10 load-ing and pre-pro-cess-ing, graph con-struc-tion, missing-
  []
 
-
+[3]
 Underfull \hbox (badness 2119) in paragraph at lines 8--9
 \T1/ptm/m/n/10 A large-scale database com-pris-ing 64-channel EEG
  []
@@ -591,7 +622,7 @@ Overfull \hbox (58.87718pt too wide) in paragraph at lines 25--26
  :
  []
 
-[3]
+
 Overfull \hbox (148.87718pt too wide) in paragraph at lines 26--27
 []\T1/pcr/m/n/10 results\_optuna\_baselines/optuna\_best\_results\_baselines.cs
 v\T1/ptm/m/n/10 :
@@ -602,7 +633,7 @@ Underfull \hbox (badness 1688) in paragraph at lines 3--4
 []\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
  []
 
-<../../results_optuna_final/global_comparison_physionet.png, id=177, 1150.0566p
+<../../results_optuna_final/global_comparison_physionet.png, id=193, 1150.0566p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -610,103 +641,114 @@ type png)
 Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 186.96434pt.
-<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=179
-, 628.749pt x 547.3248pt>
+[4 <../../results_optuna_final/global_comparison_physionet.png>]
+<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=206
+, 628.749pt x 546.843pt>
 File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
 aphic file (type png)
 <use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
 Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
-e_random_0.4.png  used on input line 26.
-(pdftex.def)             Requested size: 252.0pt x 219.36867pt.
-[4 <../../results_optuna_final/global_comparison_physionet.png> <../../results_
-optuna_final/radar_multimetric_mne_sample_random_0.4.png>]
+e_random_0.4.png  used on input line 58.
+(pdftex.def)             Requested size: 252.0pt x 219.17555pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=189, 1004.0712pt x 569.4876pt>
+d=208, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_1_0_count.png  used on input line 39.
+_nearby_1_0_count.png  used on input line 71.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=191, 1004.0712pt x 569.4876pt>
+d=210, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_0_4_ratio.png  used on input line 50.
+_nearby_0_4_ratio.png  used on input line 82.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
+ [5 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png> <.
+./../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=193, 743.4174pt x 452.892pt>
+d=225, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
-_nearby_1_0_count.png  used on input line 59.
+_nearby_1_0_count.png  used on input line 91.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=196, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=228, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
 <use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
-atio.png  used on input line 72.
+atio.png  used on input line 104.
 (pdftex.def)             Requested size: 252.0pt x 93.7579pt.
 )
-(sections/discussion.tex [5 <../../results_optuna_baselines/erp_optimized_basel
-ines_nearby_1_0_count.png> <../../results_optuna_baselines/erp_optimized_baseli
-nes_nearby_0_4_ratio.png> <../../results_optuna_baselines/psd_optimized_baselin
-es_nearby_1_0_count.png> <../../results_optuna_final/degradation_bci_iv_random_
-ratio.png>]) (sections/reproducibility.tex
-Underfull \hbox (badness 2229) in paragraph at lines 14--1
+(sections/discussion.tex [6 <../../results_optuna_baselines/erp_optimized_basel
+ines_nearby_0_4_ratio.png> <../../results_optuna_baselines/psd_optimized_baseli
+nes_nearby_1_0_count.png> <../../results_optuna_final/degradation_bci_iv_random
+_ratio.png>]) (sections/reproducibility.tex
+Underfull \hbox (badness 2229) in paragraph at lines 20--1
 \T1/ptm/m/n/10 default-configured base-lines, in-flat-ing per-ceived im-prove-
  []
 
 
-Underfull \hbox (badness 6252) in paragraph at lines 14--1
+Underfull \hbox (badness 6252) in paragraph at lines 20--1
 \T1/ptm/m/n/10 ments. By sub-ject-ing all methods---including clas-si-cal
  []
 
-
-Overfull \hbox (8.09729pt too wide) in paragraph at lines 7--8
-[]\T1/pcr/m/n/10 results/b3_rep01_final_table_overall.csv 
- []
-
-
-Overfull \hbox (56.09729pt too wide) in paragraph at lines 16--17
-[]\T1/pcr/m/n/10 python experiments/consolidate_b2_publication.py 
- []
-
 ) (sections/conclusion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--1
-[]\T1/ptm/m/n/10 The strict BGSRP 1:1 equiv-a-lence against
+Underfull \hbox (badness 1540) in paragraph at lines 3--1
+[]\T1/ptm/m/n/10 The com-plete source code, in-clud-ing all in-ter-po-la-tion
  []
 
-) (main.bbl [6]
-Underfull \hbox (badness 1448) in paragraph at lines 60--64
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--1
+\T1/ptm/m/n/10 op-ti-miza-tion scripts, and fig-ure gen-er-a-tion pipelines,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--1
+\T1/ptm/m/n/10 is pub-licly avail-able at []$https : / / github . com / Carloss
+97 /
+ []
+
+
+Underfull \hbox (badness 5787) in paragraph at lines 3--1
+\T1/ptm/m/n/10 Tesis-[]GSP-[]EEG-[]Carlos-[]Saldivia$[]. The repos-i-tory in-cl
+udes
+ []
+
+) (main.bbl
+Underfull \hbox (badness 1448) in paragraph at lines 72--76
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
  []
 
-) [7] (main.aux)
+[7])
+Overfull \vbox (0.86597pt too high) has occurred while \output is active []
+
+
+[8] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FA39A98C001887D73B2504C574405EC3;5066.
+(rerunfilecheck)             Checksum: 83E2857F213136DD80A5669DBC875A1A;5675.
  ) 
 Here is how much of TeX's memory you used:
- 15392 strings out of 467867
- 309127 string characters out of 5418335
- 691160 words of memory out of 5000000
- 44013 multiletter control sequences out of 15000+600000
- 739245 words of font info for 159 fonts, out of 8000000 for 9000
+ 15473 strings out of 467867
+ 310599 string characters out of 5418335
+ 692391 words of memory out of 5000000
+ 44078 multiletter control sequences out of 15000+600000
+ 750856 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,80p,1160b,1167s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,1160b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -715,20 +757,23 @@ blic/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
 TeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/sarlo/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/s
-arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/
-Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/
-type1/urw/courier/ucrr8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/font
-s/type1/urw/times/utmb8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/font
-s/type1/urw/times/utmbi8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fon
-ts/type1/urw/times/utmr8a.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 1477007 bytes).
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/s
+arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
+fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppData/Local
+/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sarlo/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarlo/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sarlo/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sarlo/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 1516064 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 59 named destinations out of 1000 (max. 500000)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 
