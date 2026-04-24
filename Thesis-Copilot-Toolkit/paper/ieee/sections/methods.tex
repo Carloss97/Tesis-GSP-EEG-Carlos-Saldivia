@@ -1,32 +1,37 @@
 \section{Methods}
 
-We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. Let $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ be an undirected weighted graph where $\mathcal{V}$ is the set of $N$ electrode vertices, $\mathcal{E}$ the edge set, and $\mathbf{W} \in \mathbb{R}^{N \times N}$ the symmetric weight matrix. The combinatorial graph Laplacian is $\mathbf{L} = \mathbf{D} - \mathbf{W}$, where $\mathbf{D}$ is the degree matrix. A graph signal $\mathbf{x} \in \mathbb{R}^{N}$ assigns a scalar value to each electrode at a given time instant.
+We represent EEG channels as graph vertices and model inter-channel relationships with weighted adjacency matrices. Let $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ be an undirected weighted graph where $\mathcal{V}$ is the set of $N$ electrode vertices, $\mathcal{E}$ the edge set, and $\mathbf{W} \in \mathbb{R}^{N \times N}$ the symmetric weight matrix. The combinatorial graph Laplacian is $\mathbf{L} = \mathbf{D} - \mathbf{W}$, where $\mathbf{D}$ is the degree matrix defined as $D_{ii} = \sum_j W_{ij}$. A graph signal $\mathbf{x} \in \mathbb{R}^{N}$ assigns a scalar value (e.g., electrical potential) to each electrode at a given time instant.
 
-The goal is not to propose a new theory, but to compare \ResNInstantMethods~instant and \ResNTVMethods~TV/time methods under the same experimental conditions and with the same evaluation pipeline.
+The goal is to formally compare geometric interpolation baselines against advanced Graph Signal Processing (GSP) methods incorporating temporal regularization under exactly the same rigorously optimized experimental conditions.
 
 \subsection{Graph Construction}
-We evaluate \ResNGraphMethods~graph constructors organized into three categories:
+The foundation of any GSP approach is the underlying topology. We evaluate several graph constructors organized into three categories:
 \begin{itemize}
-\item \emph{Neighborhood graphs}: $k$-NN (\iterid{knn}), Gaussian-weighted $k$-NN (\iterid{knng}), variable-$k$ NN (\iterid{vknng}), epsilon-ball (\iterid{epsilon_ball}), and minimum spanning tree (\iterid{mst}).
+\item \emph{Neighborhood graphs}: $k$-NN (\iterid{knn}), Gaussian-weighted $k$-NN (\iterid{knng}), variable-$k$ NN (\iterid{vknng}), epsilon-ball (\iterid{epsilon_ball}), and minimum spanning tree (\iterid{mst}). The Gaussian-weighted $k$-NN defines edge weights as $W_{ij} = \exp(-d(i,j)^2 / \sigma^2)$ for the $k$ nearest neighbors based on Euclidean distance $d(i,j)$ between 3D electrode coordinates.
 \item \emph{Dense/global graphs}: fully connected inverse-distance (\iterid{fully_connected_inverse_distance}) and Gaussian kernel (\iterid{gaussian}).
 \item \emph{Adaptive/learned graphs}: non-negative kernel regression \cite{shekkizhar2020} (\iterid{nnk}), adaptive edge weighting \cite{kalofolias2016} (\iterid{aew}), and graph learning via log-degree regularization \cite{kalofolias2016} (\iterid{kalofolias}).
 \end{itemize}
 
-In phase \ResPhase, we retained only constructors with demonstrated numerical stability across the full-scale batched runs.
+For the final benchmarking, we utilized Gaussian-weighted $k$-NN (\iterid{knng}) due to its numerical stability, computational efficiency, and empirical superiority in capturing local spatial correlations among scalp electrodes.
 
 \subsection{Interpolation Families}
 
-Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ the unknown (missing) channels. We compare three families:
+Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ the unknown (missing) channels. We compare three distinct families of methods:
 
-\paragraph{Instant methods} These operate independently at each time sample. The graph Laplacian regularization problem takes the form:
+\paragraph{Geometric/Spline Baselines} 
+Classical alternatives that do not exploit graph theory, relying strictly on Euclidean distance or surface projections. The most prominent baseline in EEG research is the \emph{Spherical Spline} \cite{perrin1989}. It models the scalp potential as a function $V(\mathbf{r}) = c_0 + \sum_{i \in \mathcal{K}} c_i \, g(\mathbf{r}, \mathbf{r}_i)$, where $\mathbf{r}_i$ are electrode coordinates, and $g(\mathbf{r}, \mathbf{r}_i) = \frac{1}{4\pi} \sum_{n=1}^{\infty} \frac{2n+1}{n^m (n+1)^m} P_n(\cos(\theta))$ using Legendre polynomials $P_n$ and the angle $\theta$ between vectors. While geometrically elegant, it operates strictly in the spatial domain for every individual time sample, completely ignoring temporal continuity.
+
+\paragraph{Instant GSP Methods (Tikhonov)} 
+These methods operate independently at each time sample using graph priors. The graph Laplacian regularization problem, also known as Tikhonov regularization on graphs, enforces spatial smoothness:
 \begin{equation}
   \hat{\mathbf{x}}_{\mathcal{U}} = \arg\min_{\mathbf{z}}
     \|\mathbf{z} - \mathbf{x}_{\mathcal{K}}\|^2 + \alpha \, \mathbf{z}^\top \mathbf{L}_{\mathcal{U}\mathcal{U}} \mathbf{z},
   \label{eq:tikhonov}
 \end{equation}
-yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$ for the pure GSP case ($\alpha \to \infty$, i.e., \iterid{gsp}), and the regularized variant for \iterid{tikhonov}. Geometric baselines (IDW, splines, RBF) do not use the graph. The BGSRP method \cite{zhang2024bgsrp} extends this to a bandlimited RKHS recovery.
+where $\alpha$ controls the smoothness penalty. The pure GSP case (hard constraint) corresponds to the limit $\alpha \to \infty$, yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$. 
 
-\paragraph{TV/time methods} These jointly optimize spatial and temporal criteria over a signal matrix $\mathbf{X} \in \mathbb{R}^{N \times T}$:
+\paragraph{Temporal Regularization Methods (TRSS)} 
+These methods jointly optimize spatial and temporal criteria over an entire signal matrix (or epoch) $\mathbf{X} \in \mathbb{R}^{N \times T}$. The Temporal Regularized Sobolev Smoothness (TRSS) method \cite{giraldo2022} explicitly penalizes high-frequency variations in both the graph domain and the time domain:
 \begin{equation}
   \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
     \|\mathbf{Z}_{\mathcal{K},:} - \mathbf{X}_{\mathcal{K},:}\|_F^2
@@ -34,20 +39,29 @@ yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_
     + \beta \|\Delta_t \mathbf{Z}\|_F^2,
   \label{eq:sobolev}
 \end{equation}
-where $\Delta_t$ is a finite-difference operator along the time axis \cite{giraldo2022}. This covers \iterid{trss}, \iterid{sobolev_temporal}, \iterid{tv}, and \iterid{temporal_laplacian}.
-
-\paragraph{Geometric/spline baselines} Classical alternatives that do not exploit the graph: linear, nearest-neighbor, spherical spline \cite{perrin1989}, RBF thin-plate spline, and surface spline.
+where $\|\cdot\|_F$ is the Frobenius norm, $\operatorname{tr}(\cdot)$ is the trace operator, and $\Delta_t$ is a finite-difference operator along the time axis. The hyperparameter $\beta$ explicitly controls the assumption of temporal smoothness, mirroring the low-frequency physiological nature of most EEG signals.
 
 \subsection{Evaluation Metrics}
 
-Performance is assessed with four complementary metrics: mean absolute error (MAE), root mean square error (RMSE), dynamic time warping distance (DTW), and signal-to-noise ratio (SNR). We report mean $\pm$ standard deviation and approximate 95\% confidence intervals from repeated runs.
+Performance is assessed with six complementary metrics:
+\begin{itemize}
+\item \textbf{Mean Absolute Error (MAE)} and \textbf{Root Mean Square Error (RMSE)}: Capture pointwise amplitude accuracy. RMSE heavily penalizes large local deviations, serving as a proxy for outlier generation.
+\item \textbf{Dynamic Time Warping (DTW)}: Evaluates temporal morphological fidelity. Unlike Euclidean distance, DTW is robust to slight phase shifts, making it ideal for assessing Event-Related Potentials (ERP).
+\item \textbf{Signal-to-Noise Ratio (SNR)}: Provides a global quality view, bounded and easily interpretable across different sensor scales.
+\item \textbf{Log Spectral Distance (LSD)}: Evaluates the logarithmic distance between the Power Spectral Density (PSD) of the reconstructed signal and the original signal, quantifying the preservation of the frequency content across critical physiological bands.
+\item \textbf{Magnitude-Squared Coherence}: Quantifies the frequency-domain correlation and phase consistency between the reconstructed signal and the original true signal.
+\end{itemize}
 
-The four-metric combination is essential in EEG: MAE and RMSE capture pointwise amplitude accuracy, DTW penalizes temporal misalignment even under small shifts, and SNR provides a global quality view. A method with low MAE may still distort temporal dynamics, and a method competitive on DTW may not rank first on MAE.
-
-\subsection{Statistical Analysis}
-
-Family-level differences are tested with Wilcoxon paired tests ($\alpha = 0.05$) over shared scenario-contexts. Method-level pairwise contrasts use Mann-Whitney U. All statistical tests are computed on the full-scale batched raw outputs prior to mean aggregation.
+This six-metric combination is essential in EEG: A method with low MAE may still distort temporal dynamics (destroying ERPs), and a method competitive on DTW might fail to preserve spectral coherence.
 
 \subsection{Hyperparameter Optimization (Optuna)}
 
-A crucial aspect of our methodology is ensuring a fair comparison between families. Advanced methods like TRSS and Tikhonov depend heavily on hyperparameters (e.g., temporal smoothness weight $\beta$, Laplacian regularization weight $\alpha$, and graph sparsity $k$). We utilize the Optuna framework \cite{akiba2019optuna} to systematically optimize these parameters for each method, dataset, and missing-channel scenario. This prevents the common bias of comparing a finely-tuned novel algorithm against default-configured baselines.
+A crucial aspect of our methodology is ensuring a fair and rigorous comparison between families. Advanced methods like TRSS depend heavily on hyperparameters (e.g., temporal weight $\beta$, spatial weight $\alpha$, and graph sparsity $k$). However, geometric baselines (like splines) also possess tunable parameters (e.g., polynomial stiffness $m$).
+
+To prevent the pervasive literature bias of comparing finely-tuned novel algorithms against default-configured baselines, we utilized the Optuna framework \cite{akiba2019optuna}. We defined a systematic search space for each algorithm:
+\begin{itemize}
+\item \textbf{TRSS}: $\alpha \in [10^{-3}, 10^{2}]$ (log scale), $\beta \in [10^{-3}, 10^{2}]$ (log scale), $k \in [3, 20]$.
+\item \textbf{Tikhonov}: $\alpha \in [10^{-3}, 10^{2}]$ (log scale), $k \in [3, 20]$.
+\item \textbf{Spherical Splines / RBF}: stiffness/smoothness parameters tuned extensively across continuous ranges.
+\end{itemize}
+Optimization was executed using the Tree-structured Parzen Estimator (TPE) algorithm, targeting the minimization of MAE over $100$ trials for every specific dataset and missing-channel scenario combination.

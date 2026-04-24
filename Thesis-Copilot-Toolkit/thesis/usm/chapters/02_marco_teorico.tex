@@ -1,72 +1,113 @@
-\chapter{Marco Teorico}
+\chapter{Marco Teórico}
 
-Este capitulo resume los fundamentos que sostienen la propuesta de tesis: EEG, grafos y procesamiento de senales sobre grafos. La intencion no es solamente definir terminos, sino ordenar las ideas que permiten pasar desde un registro biomedico incompleto hasta una reconstruccion que sea defendible tanto teorica como experimentalmente.
+Este capítulo establece los fundamentos conceptuales, neurofisiológicos y matemáticos que sustentan el desarrollo de esta tesis. En una primera instancia, se describe la naturaleza de la señal electroencefalográfica (EEG) y las dificultades inherentes a su captura. Posteriormente, se formaliza la teoría del Procesamiento de Señales en Grafos (GSP) como marco de resolución, detallando las arquitecturas de interpolación clásica frente a las estrategias espacio-temporales modernas. Finalmente, se definen rigurosamente las métricas utilizadas para evaluar la fidelidad de la reconstrucción.
 
-\section{EEG y reconstruccion}
+\section{Fundamentos Neurofisiológicos de la Electroencefalografía (EEG)}
 
-La electroencefalografia mide diferencias de potencial en el cuero cabelludo mediante un conjunto de electrodos. Su interpretacion depende de la ubicacion espacial de los sensores, de la calidad del contacto y de la estabilidad del registro. Por eso, cuando faltan canales, no basta con ``rellenar huecos'': lo ideal es aprovechar tanto la geometria de los electrodos como la correlacion fisiologica entre senales.
+El electroencefalograma es el registro de la actividad eléctrica del cerebro captada desde la superficie del cuero cabelludo. Esta señal refleja la suma espacio-temporal de los potenciales postsinápticos excitatorios e inhibitorios generados por decenas de miles de neuronas piramidales sincronizadas en la corteza cerebral. Debido a que las fuentes de estas corrientes eléctricas se encuentran separadas de los electrodos por diversas capas de tejido (piamadre, líquido cefalorraquídeo, cráneo y cuero cabelludo), la señal sufre un efecto de filtrado espacial y atenuación conocido como \textit{efecto de conducción de volumen} (volume conduction).
 
-La literatura de interpolacion EEG clasica parte de esta idea y propone distintos niveles de sofisticacion. La interpolacion espacial puede apoyarse en la distancia euclidiana, en splines esfericos \cite{perrin1989} o en modelos de regularizacion. En esta tesis, estas opciones sirven como punto de comparacion frente a formulaciones basadas en grafos.
+Este efecto provoca que el potencial eléctrico generado por una única fuente cortical se propague e irradie, siendo detectado por múltiples electrodos simultáneamente. Como resultado, las señales registradas en electrodos adyacentes presentan un alto grado de correlación espacial. Sin embargo, esta propagación no es perfectamente esférica ni homogénea debido a las anisotropías en la conductividad del cráneo. Por ello, si bien la distancia euclidiana entre electrodos es informativa, no es una representación perfecta de la conectividad funcional subyacente.
 
-Desde el punto de vista experimental, el problema de canales faltantes puede aparecer de distintas formas: perdida aleatoria, descarte por calidad, o ausencias concentradas en una region del casco. Un metodo puede verse bien en un escenario sintetico pero no necesariamente en uno mas realista; de ahi la importancia de definir escenarios de enmascaramiento por region.
+Las señales EEG se caracterizan por su naturaleza oscilatoria y transitoria. Clásicamente, la actividad continua se descompone en bandas de frecuencia (Delta, Theta, Alfa, Beta, Gamma), mientras que la actividad evocada o fásica se manifiesta como Potenciales Relacionados a Eventos (ERP, por sus siglas en inglés). Los ERPs, como el N100 o el P300, son fluctuaciones de voltaje transitorias y de fase bloqueada que reflejan el procesamiento cognitivo o sensorial. La preservación de la morfología y la latencia temporal de estos ERPs es crítica en aplicaciones clínicas y de interfaces cerebro-computador (BCI).
 
-\section{Procesamiento de senales sobre grafos}
+\section{El Problema de Canales Faltantes e Interpolación Clásica}
 
-El procesamiento de senales sobre grafos (GSP) generaliza herramientas clasicas al dominio de grafos \cite{shuman2013,ortega2018}. Formalmente, se define un grafo no dirigido con pesos $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$, donde $\mathcal{V}$ es el conjunto de $N$ nodos (electrodos), $\mathcal{E}$ el conjunto de aristas, y $\mathbf{W} \in \mathbb{R}^{N \times N}$ la matriz de adyacencia simetrica no negativa. Una senal sobre grafo es un vector $\mathbf{x} \in \mathbb{R}^N$ que asigna un valor escalar a cada nodo.
+En la práctica, la adquisición de datos EEG es altamente susceptible a la pérdida parcial de información. Los canales pueden resultar inutilizables por mala conductividad del gel, desprendimiento físico del electrodo, o saturación del amplificador por artefactos de movimiento. Matemáticamente, si la actividad cerebral medida se representa como un vector $\mathbf{x} \in \mathbb{R}^N$ para $N$ electrodos, un evento de desconexión implica que solo observamos un subconjunto de electrodos $\mathcal{K} \subset \{1, \dots, N\}$. El objetivo de la interpolación es estimar los valores en el conjunto de canales faltantes $\mathcal{U}$, tal que $\mathcal{K} \cup \mathcal{U} = \mathcal{V}$ y $\mathcal{K} \cap \mathcal{U} = \emptyset$.
 
-\subsection{Laplaciano de grafo}
+\subsection{Interpolación Geométrica y Estadística}
 
-El Laplaciano combinatorial es $\mathbf{L} = \mathbf{D} - \mathbf{W}$, donde $\mathbf{D} = \operatorname{diag}(\mathbf{W}\mathbf{1})$ es la matriz de grado. $\mathbf{L}$ es simetrica semidefinida positiva, por lo que admite descomposicion espectral $\mathbf{L} = \mathbf{U} \boldsymbol{\Lambda} \mathbf{U}^\top$, donde las columnas de $\mathbf{U}$ son los vectores propios (base de Fourier del grafo) y $\boldsymbol{\Lambda}$ contiene los valores propios $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_N$.
-
-La variacion total de la senal en el grafo es $\mathbf{x}^\top \mathbf{L} \mathbf{x} = \frac{1}{2}\sum_{(i,j)\in\mathcal{E}} w_{ij}(x_i - x_j)^2$, que mide cuanto varia la senal entre nodos vecinos. Una senal ``suave'' sobre el grafo tiene variacion total peque\~na, lo que justifica la formulacion de problemas de reconstruccion con regularizacion laplaciana.
-
-\subsection{Reconstruccion de senales sobre grafos}
-
-Dado que solo se observa $\mathbf{x}_\mathcal{K}$ (los canales conocidos), el objetivo es estimar $\mathbf{x}_\mathcal{U}$ (los canales faltantes). El problema de Tikhonov en grafo es:
+Clásicamente, el problema ha sido resuelto proyectando los valores conocidos mediante bases espaciales dependientes de la distancia euclidiana. El método estándar \textit{de facto} es la interpolación por \textbf{Splines Esféricos} (\textit{Spherical Splines}) \cite{perrin_spherical_1989}. Este método asume la topología de la cabeza como una esfera unitaria y proyecta el potencial en una ubicación faltante $\mathbf{r}$ como:
 \begin{equation}
-  \hat{\mathbf{x}}_\mathcal{U} = \arg\min_{\mathbf{z}}
-    \|\mathbf{z} - \mathbf{x}_\mathcal{K}\|^2 + \alpha \, \mathbf{z}^\top \mathbf{L}_{\mathcal{U}\mathcal{U}} \mathbf{z},
-  \label{eq:tikhonov_tesis}
+    V(\mathbf{r}) = c_0 + \sum_{i \in \mathcal{K}} c_i \, g(\mathbf{r}, \mathbf{r}_i),
 \end{equation}
-con solucion $\hat{\mathbf{x}}_\mathcal{U} = (\mathbf{L}_{\mathcal{U}\mathcal{U}} + \alpha^{-1}\mathbf{I})^{-1}\mathbf{x}_\mathcal{U}^{(0)}$ para datos inicializados, o la solucion del sistema lineal $\mathbf{L}_{\mathcal{U}\mathcal{U}}\hat{\mathbf{x}}_\mathcal{U} = -\mathbf{L}_{\mathcal{U}\mathcal{K}}\mathbf{x}_\mathcal{K}$ para el caso puro \cite{narang2013}.
+donde los coeficientes $c_i$ se obtienen resolviendo un sistema lineal sobre los canales conocidos, y $g(\cdot, \cdot)$ es una función de base que decae con la distancia angular entre los vectores posición de los electrodos. Análogamente, las Funciones de Base Radial (RBF) \cite{jager_reconstruction_2016} o la interpolación por vecinos más cercanos asumen suavidad espacial paramétrica en 3D. 
 
-\subsection{Reconstruccion bandlimited (BGSRP)}
+El problema central de las familias geométricas es que calculan la interpolación operando sobre cada instante de tiempo $t$ de forma aislada. Al carecer de \textit{memoria} temporal, son incapaces de preservar la fase de transitorios rápidos o la dinámica espectral subyacente, introduciendo discontinuidades y ruido artificial de alta frecuencia en el canal interpolado.
 
-El metodo BGSRP \cite{zhang2024bgsrp} plantea la reconstruccion como un problema en el espacio de Hilbert de nucleo reproductor (RKHS) de funciones bandlimited en grafo. Define el kernel $\kappa(i,j) = \sum_{l=1}^{B} u_l(i)u_l(j)$ usando los $B$ vectores propios de frecuencia mas baja, lo que permite formular la reconstruccion sin la componente DC y con regularizacion $\gamma$ sobre la norma RKHS.
+\section{Teoría de Grafos y Procesamiento de Señales en Grafos (GSP)}
 
-\subsection{Reconstruccion temporal (TRSS)}
+Para abandonar la restricción de la esfera euclidiana, el Procesamiento de Señales en Grafos (GSP) \cite{shuman_emerging_2013, ortega_graph_2018-1} propone modelar los electrodos y sus interacciones complejas como un grafo ponderado. 
 
-El metodo TRSS \cite{giraldo2022} extiende la regularizacion al dominio espacio-temporal. Para una matriz de senales $\mathbf{X} \in \mathbb{R}^{N\times T}$:
+Un grafo no dirigido se define como $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$, donde $\mathcal{V}$ es el conjunto de $N$ vértices (electrodos), $\mathcal{E}$ es el conjunto de aristas y $\mathbf{W} \in \mathbb{R}^{N \times N}$ es la matriz de adyacencia ponderada. El peso $W_{ij} \ge 0$ codifica la fuerza de la relación (física o funcional) entre el electrodo $i$ y el electrodo $j$. Una señal de EEG en un instante determinado se define como una "señal sobre el grafo" $\mathbf{x} \in \mathbb{R}^N$, una función que mapea cada vértice a un escalar (voltaje).
+
+\subsection{El Laplaciano del Grafo}
+
+El operador fundamental en GSP es el Laplaciano Combinatorial $\mathbf{L} = \mathbf{D} - \mathbf{W}$, donde $\mathbf{D}$ es la matriz diagonal de grados con $D_{ii} = \sum_j W_{ij}$. Al ser simétrica y semidefinida positiva, $\mathbf{L}$ posee un conjunto completo de autovectores reales ortonormales $\mathbf{U} = [\mathbf{u}_1, \dots, \mathbf{u}_N]$ y autovalores no negativos $\boldsymbol{\Lambda} = \text{diag}(\lambda_1, \dots, \lambda_N)$, tal que $\mathbf{L} = \mathbf{U} \boldsymbol{\Lambda} \mathbf{U}^\top$ con $0 = \lambda_1 \le \lambda_2 \dots \le \lambda_N$.
+
+La forma cuadrática del Laplaciano cuantifica la "variación total" o la suavidad espacial de la señal $\mathbf{x}$ sobre la topología de la red:
 \begin{equation}
-  \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
-    \|\mathbf{Z}_{\mathcal{K},:} - \mathbf{X}_{\mathcal{K},:}\|_F^2
-    + \alpha \operatorname{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})
-    + \beta \|\Delta_t \mathbf{Z}\|_F^2,
-  \label{eq:trss_tesis}
+    S(\mathbf{x}) = \mathbf{x}^\top \mathbf{L} \mathbf{x} = \frac{1}{2} \sum_{(i,j) \in \mathcal{E}} W_{ij} (x_i - x_j)^2.
+    \label{eq:smoothness}
 \end{equation}
-donde $\Delta_t$ es un operador de diferencias finitas temporales y los hiperparametros $\alpha$, $\beta$ controlan la suavidad espacial y temporal respectivamente.
+Un valor bajo de $S(\mathbf{x})$ indica que los valores de señal entre electrodos fuertemente conectados son muy similares, lo que representa una señal suave o de baja frecuencia en el dominio espacial.
 
-\section{Construccion de grafos para EEG}
+\subsection{Transformada de Fourier sobre Grafos (GFT)}
 
-La calidad de la reconstruccion depende directamente de que el grafo capture bien las relaciones entre electrodos. Se distinguen tres estrategias principales:
+Por analogía con el análisis de Fourier clásico, los autovectores de $\mathbf{L}$ conforman la base de Fourier del grafo, y los autovalores $\lambda_l$ actúan como las "frecuencias". La Transformada de Fourier sobre Grafos (GFT) de una señal $\mathbf{x}$ se define como su proyección sobre los autovectores:
+\begin{equation}
+    \hat{\mathbf{x}} = \mathbf{U}^\top \mathbf{x}.
+\end{equation}
+En el EEG, los componentes asociados a autovalores pequeños ($\lambda \approx 0$) representan patrones de actividad topográfica generalizada y sincrónica (ej., ritmo alfa global). Los autovalores grandes representan variaciones espaciales abruptas (ej., ruido electromagnético de alta frecuencia o actividad muscular aislada focal). Así, la interpolación espacial basada en GSP actúa intrínsecamente como un filtro paso-bajo direccional sobre la superficie del cráneo \cite{goerttler_understanding_2023}.
 
+\subsection{Construcción y Aprendizaje de Grafos}
+
+El éxito del GSP recae enteramente en la matriz $\mathbf{W}$. En neurofisiología, la topología puede diseñarse utilizando tres estrategias generales:
 \begin{itemize}
-\item \emph{Grafos de vecindad}: conectan electrodos que estan cerca en el espacio 3D del cuero cabelludo, como $k$-NN y variantes gaussianas.
-\item \emph{Grafos adaptativos basados en datos}: como NNK \cite{shekkizhar2020} y AEW, que combinan proximidad espacial con similitud de senal.
-\item \emph{Aprendizaje de grafos}: como el metodo de Kalofolias \cite{kalofolias2016}, que optimiza los pesos del grafo directamente a partir de datos.
+    \item \textbf{Grafos Geométricos:} Construidos \textit{a priori} usando la inversa de la distancia euclidiana entre las coordenadas 3D de los electrodos. Una variante popular es el Grafo K-Vecinos Más Cercanos Gaussianos ($k$-NN Gaussiano), donde $W_{ij} = \exp(-d(i,j)^2/\sigma^2)$ si $j$ está entre los $k$ vecinos de $i$, y $0$ en caso contrario. Tamaru et al. \cite{tamaru_optimizing_2024} han explorado variantes de $k$ dinámico para combatir irregularidades locales en la densidad de mallas.
+    \item \textbf{Grafos Funcionales o de Correlación:} Extraídos empíricamente de la covarianza de la señal temporal o modelos adaptativos como \textit{Adaptive Edge Weighting} \cite{karasuyama_adaptive_2017}.
+    \item \textbf{Aprendizaje de Grafos (Graph Learning):} Problemas de optimización inversos que buscan inferir la matriz $\mathbf{W}$ desde los datos pidiendo simultáneamente que la red resultante sea esparsa y que las señales observadas exhiban alta suavidad laplaciana \cite{kalofolias_how_2016, qiao_data-driven_2018}.
 \end{itemize}
 
-En esta tesis, la eleccion del grafo es un factor experimental: se evaluan \ResNGraphMethods~constructores y se reporta su impacto en la reconstruccion por familia de metodo.
+\section{Estrategias de Reconstrucción de Grafos}
 
-\section{Metricas de evaluacion}
+El problema de interpolación se formula como un problema inverso mal propuesto. Definimos una matriz diagonal de muestreo $\mathbf{S} \in \mathbb{R}^{N \times N}$ donde $S_{ii} = 1$ si $i \in \mathcal{K}$ (observado) y $0$ si $i \in \mathcal{U}$ (faltante). Observamos la señal parcial $\mathbf{y} = \mathbf{S} \mathbf{x}$.
 
-Para evaluar la calidad de la reconstruccion se usan cuatro metricas complementarias:
+\subsection{Regularización Tikhonov Espacial}
+El enfoque clásico de GSP es la regularización de Tikhonov sobre grafos \cite{narang_signal_2013}. Asumiendo ruido gaussiano, se busca recuperar $\mathbf{x}$ minimizando el error de los nodos conocidos más una penalización a la variación total (Ecuación \ref{eq:smoothness}):
+\begin{equation}
+    \hat{\mathbf{x}} = \arg\min_{\mathbf{z}} \| \mathbf{y} - \mathbf{S} \mathbf{z} \|_2^2 + \alpha (\mathbf{z}^\top \mathbf{L} \mathbf{z}).
+    \label{eq:tikhonov_general}
+\end{equation}
+donde el hiperparámetro $\alpha > 0$ controla el nivel de suavidad forzada (\textit{spatial smoothness}). 
+
+\subsection{Recuperación Bandlimited y Espacios RKHS (BGSRP)}
+Un enfoque alternativo, BGSRP (\textit{Bandlimited Graph Signal Recovery in RKHS}) \cite{zhang_recovery_2024}, asume que las señales EEG son estrictamente limitadas en banda (solo contienen frecuencias de grafo $\lambda \le \lambda_c$). Utilizando un Espacio de Hilbert de Núcleo Reproductor (RKHS), se reconstruye la señal proyectando sobre una matriz núcleo $\mathbf{K}$ ensamblada a partir de los primeros $B$ autovectores.
+
+\subsection{Regularización Espacio-Temporal (TRSS)}
+Todos los métodos anteriores reconstruyen una muestra temporal a la vez. Sin embargo, un EEG es una matriz continua $\mathbf{X} \in \mathbb{R}^{N \times T}$. La Regularización de Suavidad de Sobolev Temporal (TRSS, \textit{Temporal Regularized Sobolev Smoothness}) \cite{giraldo2022} revoluciona la interpolación minimizando simultáneamente los gradientes espaciales y las derivadas temporales:
+\begin{equation}
+    \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}} \| \mathbf{S}\mathbf{X} - \mathbf{S}\mathbf{Z} \|_F^2 + \alpha \, \text{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z}) + \beta \| \mathbf{Z}\mathbf{D}_t \|_F^2,
+    \label{eq:trss_obj}
+\end{equation}
+donde $\mathbf{D}_t$ es una matriz que actúa como operador de diferencias finitas temporales (i.e. penalizando cambios bruscos en el tiempo). Este \textit{prior} temporal, controlado por $\beta$, es excepcionalmente poderoso para el EEG, ya que refleja matemáticamente la inercia neurofisiológica de los generadores dipolares del cerebro.
+
+\section{Definición de las Métricas de Rendimiento}
+
+Para evaluar rigurosamente la calidad de la reconstrucción se han implementado métricas de error escalar, morfológico y espectral. Sean $\mathbf{x}$ el vector real de un canal en el tiempo de longitud $T$ y $\hat{\mathbf{x}}$ su reconstrucción:
 
 \begin{itemize}
-\item \textbf{MAE}: error absoluto medio entre la senal original y la reconstruida, sensible a errores de amplitud.
-\item \textbf{RMSE}: raiz del error cuadratico medio, penaliza errores grandes con mas fuerza.
-\item \textbf{DTW}: distancia de deformacion temporal dinamica, penaliza desalineacion temporal aunque los patrones sean similares en forma.
-\item \textbf{SNR}: relacion senal a ruido, da una medida global de calidad de la reconstruccion.
+    \item \textbf{Mean Absolute Error (MAE):} Error lineal promedio que refleja la desviación absoluta media, altamente intuitivo para bioseñales.
+    \begin{equation}
+        \text{MAE}(\mathbf{x}, \hat{\mathbf{x}}) = \frac{1}{T} \sum_{t=1}^T | x(t) - \hat{x}(t) |
+    \end{equation}
+    
+    \item \textbf{Root Mean Square Error (RMSE):} Medida de error cuadrática. Penaliza severamente grandes desviaciones aisladas (\textit{outliers}), sirviendo como proxy para inestabilidades en la interpolación.
+    \begin{equation}
+        \text{RMSE}(\mathbf{x}, \hat{\mathbf{x}}) = \sqrt{\frac{1}{T} \sum_{t=1}^T (x(t) - \hat{x}(t))^2}
+    \end{equation}
+
+    \item \textbf{Signal-to-Noise Ratio (SNR):} Cuantifica cuánta energía de la señal original es preservada frente a la energía del error residual, expresado en decibelios (dB). Un SNR alto indica una reconstrucción casi perfecta.
+    \begin{equation}
+        \text{SNR}(\mathbf{x}, \hat{\mathbf{x}}) = 10 \log_{10} \left( \frac{\sum x(t)^2}{\sum (x(t) - \hat{x}(t))^2} \right)
+    \end{equation}
+
+    \item \textbf{Dynamic Time Warping (DTW):} A diferencia del MAE o RMSE que comparan vectores punto a punto $\hat{x}(t)$ con $x(t)$, DTW busca la alineación temporal óptima de secuencias que minimice la distancia euclidiana. Es excepcionalmente valioso en EEG porque permite medir la fidelidad morfológica (la "forma" del ERP) sin ser excesivamente penalizado por minúsculos desfases de latencia de fase.
+
+    \item \textbf{Log Spectral Distance (LSD):} Mide la distancia entre las Densidades Espectrales de Potencia (PSD) de ambas señales en escala logarítmica. Esto asegura que la reconstrucción preserve no solo la forma en el tiempo, sino la distribución de energía en las bandas Alfa, Beta y Gamma, crucial para análisis de BCI.
+    
+    \item \textbf{Magnitude-Squared Coherence (Coherencia):} Una medida entre $0$ y $1$ que indica el nivel de correlación de fase lineal entre ambas señales a través de distintas frecuencias.
 \end{itemize}
 
-El uso de cuatro metricas responde a que cada una captura una dimension distinta del problema. Un buen MAE no garantiza buena preservacion temporal (DTW), y un buen SNR no implica necesariamente baja distorsion de fase.
+\section{Brechas en el Estado del Arte}
+
+Si bien estudios recientes han aplicado GSP para tareas avanzadas como extracción de características para desórdenes de conciencia \cite{mortaheb_graph_2019} o detección de Alzheimer \cite{mootoo_detecting_2023}, la aplicación de grafos dinámicos en la recuperación de señales \cite{yan_signal_2026, krishnan_learning_2026} ha puesto en evidencia una grave falla metodológica en la evaluación biomédica. Específicamente, en el problema de canales EEG, los \textit{baselines} como Splines Esféricos o RBF suelen ejecutarse con hiperparámetros estáticos o predeterminados por el software original, en tanto que los métodos nuevos sí se calibran. Esto enmascara el rendimiento asintótico real y entrega una ventaja desleal al nuevo algoritmo \cite{calazans_machine_2024}. Esta tesis viene a sanear dicho vacío, sometiendo tanto el estado del arte espacial como los modelos temporales TRSS a un proceso de sintonización bayesiana irrestricto, con un marco métrico fisiológico inusualmente riguroso y un fuerte énfasis en la mitigación de fallas contiguas (\textit{nearby masking}).

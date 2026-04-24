@@ -13,46 +13,67 @@ Database file #1: bibliography/references.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in perrin_spherical_1989
+Warning--empty year in perrin_spherical_1989
+Warning--empty journal in jager_reconstruction_2016
+Warning--empty year in jager_reconstruction_2016
+Warning--empty journal in shuman_emerging_2013
+Warning--empty year in shuman_emerging_2013
+Warning--empty journal in karasuyama_adaptive_2017
+Warning--empty year in karasuyama_adaptive_2017
+Warning--empty journal in qiao_data-driven_2018
+Warning--empty year in qiao_data-driven_2018
+Warning--empty year in narang_signal_2013
+Warning--empty journal in zhang_recovery_2024
+Warning--empty year in zhang_recovery_2024
+Warning--empty year in mortaheb_graph_2019
+Warning--empty journal in krishnan_learning_2026
+Warning--empty year in krishnan_learning_2026
+Warning--empty journal in calazans_machine_2024
+Warning--empty year in calazans_machine_2024
+Warning--empty journal in jiang_graph-based_2021
+Warning--empty year in jiang_graph-based_2021
 
 Done.
-You've used 8 entries,
+You've used 29 entries,
             4087 wiz_defined-function locations,
-            872 strings with 8878 characters,
-and the built_in function-call counts, 7335 in all, are:
-= -- 601
-> -- 168
-< -- 74
-+ -- 96
-- -- 26
-* -- 358
-:= -- 1050
-add.period$ -- 16
-call.type$ -- 8
-change.case$ -- 8
-chr.to.int$ -- 174
-cite$ -- 8
-duplicate$ -- 504
-empty$ -- 556
-format.name$ -- 33
-if$ -- 1717
+            983 strings with 13876 characters,
+and the built_in function-call counts, 23433 in all, are:
+= -- 1827
+> -- 666
+< -- 193
++ -- 364
+- -- 130
+* -- 1191
+:= -- 3393
+add.period$ -- 60
+call.type$ -- 29
+change.case$ -- 31
+chr.to.int$ -- 438
+cite$ -- 49
+duplicate$ -- 1644
+empty$ -- 1750
+format.name$ -- 151
+if$ -- 5400
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 80
-newline$ -- 47
-num.names$ -- 8
-pop$ -- 175
+int.to.str$ -- 29
+missing$ -- 315
+newline$ -- 146
+num.names$ -- 29
+pop$ -- 806
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 574
+skip$ -- 1757
 stack$ -- 0
-substring$ -- 426
-swap$ -- 440
-text.length$ -- 16
+substring$ -- 1111
+swap$ -- 1362
+text.length$ -- 47
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 8
-warning$ -- 0
-while$ -- 37
-width$ -- 9
-write$ -- 102
+type$ -- 29
+warning$ -- 20
+while$ -- 102
+width$ -- 31
+write$ -- 325
+(There were 20 warnings)

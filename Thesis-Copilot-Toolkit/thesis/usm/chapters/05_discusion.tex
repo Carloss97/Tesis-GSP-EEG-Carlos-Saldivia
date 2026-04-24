@@ -6,18 +6,18 @@ La exhaustiva optimización de hiperparámetros llevada a cabo mediante el frame
 
 Un hallazgo crítico de la fase de optimización es el profundo impacto de la regularización temporal sobre las características fisiológicas de la señal. Incluso cuando los métodos base geométricos (por ejemplo, Spherical Spline o RBFI) se optimizan exhaustivamente para minimizar su error espacial, operan fundamentalmente como suavizadores espaciales. En contraste, TRSS incorpora conocimiento previo sobre la suavidad temporal inherente a los generadores neuroeléctricos subyacentes.
 
-Esta ventaja es particularmente evidente en la preservación de los Potenciales Relacionados a Eventos (ERP) y la Densidad Espectral de Potencia (PSD). Como se observa en la Figura~\ref{fig:erp_optimized_tesis}, TRSS logra recuperar con precisión la amplitud y la latencia de los componentes del ERP (como el P300 o el N100) incluso bajo una pérdida contigua severa (40\% de canales faltantes agrupados o \textit{nearby}). Los baselines optimizados para los "mejores casos" espaciales sufren de distorsión de fase y atenuación de amplitud en el dominio del tiempo, lo cual compromete el análisis clínico posterior o las tareas de clasificación BCI.
+Esta ventaja es particularmente evidente en la preservación de los Potenciales Relacionados a Eventos (ERP) y la Densidad Espectral de Potencia (PSD). Como se observa en la Figura~\ref{fig:erp_optimized_tesis}, TRSS logra recuperar con precisión la amplitud y la latencia de los componentes del ERP (como el P300 o el N100) incluso bajo el escenario práctico de la pérdida de un solo canal (1 electrodo faltante). Los baselines optimizados para los "mejores casos" espaciales sufren de distorsión de fase y atenuación de amplitud en el dominio del tiempo, lo cual compromete el análisis clínico posterior o las tareas de clasificación BCI.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
-  \caption{Reconstrucción de Potenciales Relacionados a Eventos (ERP) para la base de datos MNE Sample bajo un escenario de pérdida del 40\% de canales agrupados (\textit{nearby}). TRSS preserva la integridad morfológica y la latencia de los componentes de forma superior a los baselines geométricos exhaustivamente optimizados.}
+  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png}
+  \caption{Reconstrucción de Potenciales Relacionados a Eventos (ERP) para la base de datos MNE Sample bajo un escenario de pérdida de 1 electrodo. TRSS preserva la integridad morfológica y la latencia de los componentes de forma superior a los baselines geométricos exhaustivamente optimizados.}
   \label{fig:erp_optimized_tesis}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_0_4_ratio.png}
+  \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png}
   \caption{Comparación de la Densidad Espectral de Potencia (PSD). La regularización temporal mantiene con alta fidelidad la distribución espectral a través de las bandas fisiológicas críticas (alfa, beta).}
   \label{fig:psd_optimized_tesis}
 \end{figure}

@@ -111,4 +111,43 @@ La Figura~\ref{fig:degradation_bci_tesis} muestra la curva de degradación para 
   \label{fig:degradation_bci_tesis}
 \end{figure}
 
-En conclusión, los resultados optimizados confirman que la combinación de topologías espaciales basadas en grafos con priors de suavidad temporal produce un marco de reconstrucción de EEG altamente eficaz y robusto, validando contundentemente la hipótesis central de este trabajo.
+\subsubsection{Mapas de Calor de Desempeño General}
+
+Para visualizar el comportamiento agregado a través de múltiples cortes de datos, la Figura~\ref{fig:heatmap_mne} presenta un mapa de calor (\textit{heatmap}) que consolida el RMSE de los distintos algoritmos según el modo de falla (\textit{count} vs \textit{ratio}) y la distribución (\textit{nearby} vs \textit{random}) en MNE Sample. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_final/heatmap_performance_mne_sample.png}
+  \caption{Mapa de calor del RMSE para MNE Sample. Los tonos más oscuros (menor RMSE) se concentran consistentemente en las filas de TRSS y Tikhonov, destacando su superioridad frente a las splines en escenarios tanto \textit{nearby} como \textit{random}.}
+  \label{fig:heatmap_mne}
+\end{figure}
+
+El mapa revela que la configuración \textit{nearby} penaliza fuertemente a las técnicas geométricas puras, las cuales exhiben colores claros (alto error). En contraste, la regularización temporal logra mantener una estabilidad cromática a lo largo de las columnas, comprobando empíricamente su capacidad de recuperar canales desde la memoria temporal de las señales adyacentes.
+
+\subsubsection{Análisis de Dispersión y Trade-offs (Frontera de Pareto)}
+
+En la práctica clínica, a menudo se busca un balance entre la preservación morfológica (DTW) y la minimización del error absoluto (MAE). La Figura~\ref{fig:tradeoff_scatter} ilustra el \textit{trade-off} entre estas dos métricas en la base de datos MNE Sample.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_final/tradeoff_scatter_mne_sample.png}
+  \caption{Frontera de Pareto (MAE vs. DTW) para MNE Sample. TRSS empuja la frontera hacia el origen, demostrando ser el algoritmo óptimo bajo ambos criterios simultáneamente.}
+  \label{fig:tradeoff_scatter}
+\end{figure}
+
+Los algoritmos ubicados más cerca del origen (esquina inferior izquierda) son los dominantes en el sentido de Pareto. Resulta evidente que TRSS y Tikhonov ocupan esta región privilegiada, mientras que los baselines y métodos GSP puramente espaciales (como \code{bgsrp} sin regularización temporal) muestran un gran compromiso: o mejoran el MAE sacrificando el DTW, o viceversa.
+
+\subsubsection{Reconstrucción de Series de Tiempo (ERPs Fisiológicos)}
+
+Más allá de los promedios globales, es mandatorio inspeccionar visualmente la traza reconstruida contra el \textit{Ground Truth}. La Figura~\ref{fig:erp_timeseries_40} expone una ventana de tiempo de un Potencial Relacionado a Eventos (ERP) bajo una pérdida severa del 40\% de canales agrupados.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png}
+  \caption{Serie de tiempo reconstruida de un ERP bajo un 40\% de pérdida \textit{nearby}. La señal original (traza limpia) es seguida fielmente por la reconstrucción TRSS, manteniendo el registro de la fase, mientras que las oscilaciones de las splines decaen o se desfasadan notablemente.}
+  \label{fig:erp_timeseries_40}
+\end{figure}
+
+Este análisis cualitativo es la prueba de fuego de la fidelidad fisiológica. A pesar de que Optuna minimiza el RMSE, la spline esférica simplemente ``aplana'' los picos del P300 debido a su naturaleza promediadora espacial sobre una región vacía del casco. TRSS, en cambio, anticipa la llegada del transiente basándose en la inercia temporal ($\|\Delta_t \mathbf{Z}\|_F^2$) y el soporte topológico de largo alcance de la red.
+
+En conclusión, los resultados cuantitativos cruzados con esta inspección morfológica cualitativa confirman que la combinación de topologías espaciales basadas en grafos con \textit{priors} de suavidad temporal produce un marco de reconstrucción altamente eficaz y robusto, validando contundentemente la hipótesis central de este trabajo clínico y computacional.

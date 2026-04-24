@@ -1,24 +1,28 @@
 \section{Experimental Setup}
 
-Experiments follow a fixed pipeline: data loading, graph construction, missing-channel simulation, hyperparameter optimization, reconstruction, and quantitative evaluation.
+Experiments follow a fixed, reproducible pipeline: data loading and preprocessing, graph construction, missing-channel simulation, systematic hyperparameter optimization, reconstruction, and quantitative evaluation.
 
-For the final validation phase, we executed a comprehensive benchmark across multiple domains to ensure generalizability. 
-
-\subsection{Datasets}
-We evaluate the methods on three distinct, publicly available datasets:
+\subsection{Datasets and Preprocessing}
+To ensure broad generalizability and to capture different spatial densities and temporal dynamics, we evaluate the methods on three distinct, publicly available datasets:
 \begin{itemize}
-\item \emph{PhysioNet EEG Motor Movement/Imagery Dataset}: Real 64-channel EEG data representing actual clinical-grade recordings.
-\item \emph{BCI Competition IV 2a}: A standard 22-channel motor imagery benchmark dataset.
-\item \emph{MNE Sample Dataset}: A 60-channel dataset capturing auditory and visual evoked potentials.
+\item \emph{PhysioNet EEG Motor Movement/Imagery Dataset} \cite{schalk2004bci2000}: A large-scale database comprising 64-channel EEG recordings sampled at 160 Hz. This dataset represents high-density, highly correlated clinical-grade recordings where spatial methods typically perform well.
+\item \emph{BCI Competition IV 2a} \cite{tangermann2012bci}: A standard 22-channel motor imagery benchmark dataset sampled at 250 Hz. Its lower spatial density makes it particularly challenging for pure geometric interpolation, serving as an excellent testbed for temporal regularization.
+\item \emph{MNE Sample Dataset} \cite{gramfort2013meg}: A 60-channel dataset capturing auditory and visual evoked potentials. This dataset is specifically utilized to evaluate the preservation of Event-Related Potentials (ERPs), requiring sub-millisecond precision and phase integrity.
 \end{itemize}
+All signals were band-pass filtered between $0.5$ and $40$ Hz to remove DC drifts and high-frequency muscle artifacts, following standard EEG processing pipelines.
 
-\subsection{Masking Protocol}
-Masking simulates both systematic and sporadic sensor failures. We use two spatial modes: \emph{random} (electrodes fail independently) and \emph{nearby} (spatially clustered failures). For each mode, we vary the degradation severity using \emph{ratios} (10\%, 20\%, 30\%, 40\% of total channels) and discrete \emph{counts} (1, 2, or 3 specific channels missing).
+\subsection{Masking Protocol (Missing Channel Simulation)}
+Masking simulates both systematic and sporadic sensor failures. In clinical and BCI environments, sensors often fail in clusters due to amplifier block issues or localized cap displacement. Therefore, we use two spatial modes:
+\begin{itemize}
+\item \emph{Random}: Electrodes are selected for removal following a uniform discrete distribution.
+\item \emph{Nearby}: A seed electrode is randomly selected, and its closest neighbors (based on 3D Euclidean distance) are sequentially removed, simulating a contiguous spatial block failure.
+\end{itemize}
+For each mode, we vary the degradation severity using \emph{ratios} (10\%, 20\%, 30\%, 40\% of total channels) and discrete \emph{counts} (1, 2, or 3 specific channels missing). Each scenario is simulated across multiple epochs to ensure statistical significance.
 
 \subsection{Reproducibility}
-All scripts, hyperparameter configurations, and output artifacts are tracked in versioned folders. The most relevant outputs from the Optuna phase are:
+To prevent the reproducibility crisis often observed in algorithmic benchmarking, all scripts, hyperparameter configurations, and output artifacts are tracked in versioned folders. The most relevant outputs from the Optuna optimization phase are publicly archived as:
 \begin{itemize}
-\item \iterid{results\_optuna\_final/optuna\_best\_results.csv}
-\item \iterid{results\_optuna\_final/optuna\_summary\_pivot.csv}
-\item Extensive visual artifacts including heatmaps, radar charts, and spatial topography degradation curves.
+\item \iterid{results\_optuna\_final/optuna\_best\_results.csv}: Contains the precise exact hyperparameter values (e.g., $\alpha, \beta, k, \sigma$) that yielded the minimum MAE for every method/scenario pair.
+\item \iterid{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}: Equivalent tracking for geometric baselines, proving that they were pushed to their theoretical performance limits.
+\item Extensive visual artifacts including heatmaps, multi-metric radar charts, and spatial topography degradation curves.
 \end{itemize}

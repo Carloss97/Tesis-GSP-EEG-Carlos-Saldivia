@@ -5,21 +5,7 @@ The comprehensive hyperparameter optimization conducted via the Optuna framework
 \subsection{Physiological and Temporal Fidelity (ERP \& PSD)}
 A critical finding from the optimization phase is the profound impact of temporal regularization on physiological signal features. Even when geometric baselines (e.g., Spherical Spline or RBFI) are exhaustively optimized to minimize their spatial error, they fundamentally operate as spatial smoothers. In contrast, TRSS incorporates prior knowledge of the temporal smoothness inherent in neuroelectric generators. 
 
-This advantage is most evident in the preservation of Event-Related Potentials (ERPs) and Power Spectral Density (PSD). As shown in \figurename~\ref{fig:erp_optimized}, TRSS accurately recovers the amplitude and latency of ERP components (such as the P300 or N100) even under severe contiguous channel loss (40\% nearby missing channels). Baselines optimized for spatial "best cases" suffer from phase distortion and amplitude attenuation in the time domain, compromising subsequent clinical or BCI downstream tasks.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
-  \caption{Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 40\% nearby missing channels scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines.}
-  \label{fig:erp_optimized}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_0_4_ratio.png}
-  \caption{Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta).}
-  \label{fig:psd_optimized}
-\end{figure}
+This advantage is most evident in the preservation of Event-Related Potentials (ERPs) and Power Spectral Density (PSD). As shown previously in the Results section (\figurename~\ref{fig:erp_optimized} and \figurename~\ref{fig:psd_optimized}), TRSS accurately recovers the amplitude and latency of ERP components (such as the P300 or N100) even under severe contiguous channel loss (40\% nearby missing channels). Baselines optimized for spatial "best cases" suffer from phase distortion and amplitude attenuation in the time domain, compromising subsequent clinical or BCI downstream tasks.
 
 \subsection{Multi-Dataset Generalization}
 The variance in performance across datasets underscores the importance of the Optuna optimization framework. In densely sampled, highly correlated configurations (PhysioNet, 64 channels), spatial models perform adequately. However, in lower-density setups or those with complex temporal dynamics (BCI IV 2a and MNE Sample), the temporal priors of TRSS provide a substantial buffer against catastrophic failure, particularly when nearby clusters of electrodes are lost. 
