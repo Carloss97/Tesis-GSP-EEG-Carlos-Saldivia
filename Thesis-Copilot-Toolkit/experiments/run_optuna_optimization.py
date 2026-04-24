@@ -40,19 +40,19 @@ os.environ["EEGBCI_LOCAL_PATH"] = str(ROOT / "datasets" / "MNE-eegbci-data")
 # ---------------------------------------------------------------------------
 def get_physionet():
     data = load_physionet_eegmmidb(subject=1, run=4)
-    data["signals"] = data["signals"][:1500]
+    data["signals"] = data["signals"][:2000]
     data["info"]["name"] = "physionet"
     return data
 
 def get_bci_iv():
     data = load_bci_competition_iv_2a(subject=1)
-    data["signals"] = data["signals"][:1500]
+    data["signals"] = data["signals"][:2000]
     data["info"]["name"] = "bci_iv"
     return data
 
 def get_mne_sample():
     data = load_mne_sample_dataset()
-    data["signals"] = data["signals"][:1500]
+    data["signals"] = data["signals"][:2000]
     data["info"]["name"] = "mne_sample"
     return data
 
@@ -190,10 +190,14 @@ def run_optuna_benchmark() -> pd.DataFrame:
         positions = ds["positions"]
         sfreq = ds["info"].get("sfreq", 250.0)
 
-        # Split temporal data (70% train for optimization, 30% test for reporting)
-        n_split = int(0.7 * len(signals_clean))
-        sig_clean_train = signals_clean[:n_split]
-        sig_clean_test = signals_clean[n_split:]
+        # Split temporal data (70% train / 30% test) with autocorrelation buffer gap
+        # Gap = 2 seconds of signal to decorrelate train/test boundary
+        gap_samples = int(2.0 * sfreq)  # ~2 seconds
+        n_total = len(signals_clean)
+        n_train_end = int(0.7 * n_total)
+        n_test_start = min(n_train_end + gap_samples, n_total - 1)
+        sig_clean_train = signals_clean[:n_train_end]
+        sig_clean_test = signals_clean[n_test_start:]
 
         for mode in MODES:
             for scen in SCENARIOS:
@@ -201,10 +205,10 @@ def run_optuna_benchmark() -> pd.DataFrame:
                 scen_type = scen["type"]
                 print(f"\n>> {ds_name} | {mode} | {scen_type}={val}")
                 
-                # Apply mask to entire signal, then split
+                # Apply mask to entire signal, then split (respecting the gap)
                 signals_missing_full = simulate_mask(signals_clean, positions, val, mode, random_state=42)
-                sig_missing_train = signals_missing_full[:n_split]
-                sig_missing_test = signals_missing_full[n_split:]
+                sig_missing_train = signals_missing_full[:n_train_end]
+                sig_missing_test = signals_missing_full[n_test_start:]
 
                 # 1. BASELINES (evaluated on TEST slice for consistency)
                 for method in BASELINES:

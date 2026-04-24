@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  23 APR 2026 21:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,24 +616,12 @@ Underfull \hbox (badness 2119) in paragraph at lines 8--9
 \T1/ptm/m/n/10 A large-scale database com-pris-ing 64-channel EEG
  []
 
-
-Overfull \hbox (58.87718pt too wide) in paragraph at lines 25--26
-[]\T1/pcr/m/n/10 results\_optuna\_final/optuna\_best\_results.csv\T1/ptm/m/n/10
- :
- []
-
-
-Overfull \hbox (148.87718pt too wide) in paragraph at lines 26--27
-[]\T1/pcr/m/n/10 results\_optuna\_baselines/optuna\_best\_results\_baselines.cs
-v\T1/ptm/m/n/10 :
- []
-
 ) (sections/results.tex
 Underfull \hbox (badness 1688) in paragraph at lines 3--4
 []\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
  []
 
-<../../results_optuna_final/global_comparison_physionet.png, id=193, 1150.0566p
+<../../results_optuna_final/global_comparison_physionet.png, id=197, 1150.0566p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -642,62 +630,62 @@ Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 186.96434pt.
 [4 <../../results_optuna_final/global_comparison_physionet.png>]
-<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=206
+<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=210
 , 628.749pt x 546.843pt>
 File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
 aphic file (type png)
 <use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
 Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
-e_random_0.4.png  used on input line 58.
+e_random_0.4.png  used on input line 54.
 (pdftex.def)             Requested size: 252.0pt x 219.17555pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=208, 1004.0712pt x 569.4876pt>
+d=212, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_1_0_count.png  used on input line 71.
+_nearby_1_0_count.png  used on input line 67.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=210, 1004.0712pt x 569.4876pt>
+d=214, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_0_4_ratio.png  used on input line 82.
+_nearby_0_4_ratio.png  used on input line 78.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
  [5 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png> <.
 ./../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=225, 743.4174pt x 452.892pt>
+d=229, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
-_nearby_1_0_count.png  used on input line 91.
+_nearby_1_0_count.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=228, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=232, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
 <use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
-atio.png  used on input line 104.
+atio.png  used on input line 100.
 (pdftex.def)             Requested size: 252.0pt x 93.7579pt.
 )
 (sections/discussion.tex [6 <../../results_optuna_baselines/erp_optimized_basel
 ines_nearby_0_4_ratio.png> <../../results_optuna_baselines/psd_optimized_baseli
 nes_nearby_1_0_count.png> <../../results_optuna_final/degradation_bci_iv_random
 _ratio.png>]) (sections/reproducibility.tex
-Underfull \hbox (badness 2229) in paragraph at lines 20--1
+Underfull \hbox (badness 2229) in paragraph at lines 23--1
 \T1/ptm/m/n/10 default-configured base-lines, in-flat-ing per-ceived im-prove-
  []
 
 
-Underfull \hbox (badness 6252) in paragraph at lines 20--1
+Underfull \hbox (badness 6252) in paragraph at lines 23--1
 \T1/ptm/m/n/10 ments. By sub-ject-ing all methods---including clas-si-cal
  []
 
@@ -723,14 +711,14 @@ Underfull \hbox (badness 5787) in paragraph at lines 3--1
 udes
  []
 
-) (main.bbl
+) (main.bbl [7]
 Underfull \hbox (badness 1448) in paragraph at lines 72--76
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
  []
 
-[7])
-Overfull \vbox (0.86597pt too high) has occurred while \output is active []
+)
+Overfull \vbox (0.77002pt too high) has occurred while \output is active []
 
 
 [8] (main.aux)
@@ -739,13 +727,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 83E2857F213136DD80A5669DBC875A1A;5675.
+(rerunfilecheck)             Checksum: B300D26FDFF0043009EC3147C118A099;5917.
  ) 
 Here is how much of TeX's memory you used:
- 15473 strings out of 467867
- 310599 string characters out of 5418335
- 692391 words of memory out of 5000000
- 44078 multiletter control sequences out of 15000+600000
+ 15475 strings out of 467867
+ 310629 string characters out of 5418335
+ 692448 words of memory out of 5000000
+ 44079 multiletter control sequences out of 15000+600000
  750856 words of font info for 164 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,80p,1160b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -771,9 +759,9 @@ al/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarlo/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sarlo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sarlo/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 1516064 bytes).
+Output written on main.pdf (8 pages, 1512017 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 68 named destinations out of 1000 (max. 500000)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -117,18 +117,21 @@ def optimize_case(ds_name, data, mode, stype, val):
     print(f"\n>> {ds_name} | {mode} | {stype}={val}")
     
     sfreq = data["info"].get("sfreq", 250.0)
-    signals_full = data["signals"][:1000] # Use 1000 samples for better split
+    signals_full = data["signals"][:1500]
     positions = data["positions"]
     
-    # Split temporal data (70% train for optimization, 30% test for reporting)
-    n_split = int(0.7 * len(signals_full))
-    sig_clean_train = signals_full[:n_split]
-    sig_clean_test = signals_full[n_split:]
+    # Split temporal data with autocorrelation buffer gap (~2 seconds)
+    gap_samples = int(2.0 * sfreq)
+    n_total = len(signals_full)
+    n_train_end = int(0.7 * n_total)
+    n_test_start = min(n_train_end + gap_samples, n_total - 1)
+    sig_clean_train = signals_full[:n_train_end]
+    sig_clean_test = signals_full[n_test_start:]
 
-    # Simulate mask on full and split
+    # Simulate mask on full and split (respecting the gap)
     signals_missing_full = simulate_mask(signals_full, positions, val, mode, random_state=42)
-    sig_missing_train = signals_missing_full[:n_split]
-    sig_missing_test = signals_missing_full[n_split:]
+    sig_missing_train = signals_missing_full[:n_train_end]
+    sig_missing_test = signals_missing_full[n_test_start:]
     
     methods = ["spherical_spline", "rbfi_tps"]
     results = []

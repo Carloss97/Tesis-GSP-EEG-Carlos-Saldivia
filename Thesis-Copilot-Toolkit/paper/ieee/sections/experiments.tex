@@ -20,9 +20,4 @@ Masking simulates both systematic and sporadic sensor failures. In clinical and 
 For each mode, we vary the degradation severity using \emph{ratios} (10\%, 20\%, 30\%, 40\% of total channels) and discrete \emph{counts} (1, 2, or 3 specific channels missing). Each scenario is simulated across multiple epochs to ensure statistical significance.
 
 \subsection{Reproducibility}
-To prevent the reproducibility crisis often observed in algorithmic benchmarking, all scripts, hyperparameter configurations, and output artifacts are tracked in versioned folders. The most relevant outputs from the Optuna optimization phase are publicly archived as:
-\begin{itemize}
-\item \iterid{results\_optuna\_final/optuna\_best\_results.csv}: Contains the precise exact hyperparameter values (e.g., $\alpha, \beta, k, \sigma$) that yielded the minimum MAE for every method/scenario pair.
-\item \iterid{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}: Equivalent tracking for geometric baselines, proving that they were pushed to their theoretical performance limits.
-\item Extensive visual artifacts including heatmaps, multi-metric radar charts, and spatial topography degradation curves.
-\end{itemize}
+To prevent the reproducibility crisis often observed in algorithmic benchmarking, all scripts, hyperparameter configurations, and output artifacts are tracked under version control in the public repository. The Optuna optimization phase produces structured CSV files containing: (i) the precise hyperparameter values (e.g., $\alpha, \beta, k, \sigma$) that yielded the minimum MAE for every method/scenario pair, and (ii) equivalent records for the geometric baselines, proving that they were pushed to their theoretical performance limits. Extensive visual artifacts including heatmaps, multi-metric radar charts, and degradation curves are also archived. All random seeds are fixed (\texttt{random\_state = 42}) to ensure deterministic replication.

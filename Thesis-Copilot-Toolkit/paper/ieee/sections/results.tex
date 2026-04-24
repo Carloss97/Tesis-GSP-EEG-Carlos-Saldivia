@@ -15,34 +15,30 @@ As illustrated in \figurename~\ref{fig:global_physionet}, the global performance
   \label{fig:global_physionet}
 \end{figure}
 
-Table~\ref{tab:main_results} presents the quantitative results across all three datasets, aggregated over all missing-channel scenarios. Values represent the mean $\pm$ standard deviation computed over the 14 scenario combinations (2 spatial modes $\times$ 7 degradation levels) per dataset.
+Table~\ref{tab:main_results} presents the quantitative results stratified by degradation severity and spatial failure mode. We partition the ratio-based scenarios into \emph{Mild} ($\leq 20\%$ channel loss) and \emph{Severe} ($30$--$40\%$ loss), and report separately for \emph{Random} (independent failures) and \emph{Nearby} (contiguous block failures). Values represent the mean $\pm$ standard deviation computed across the three datasets. This stratification prevents conflation of variance due to severity with method robustness.
 
 \begin{table}[ht]
 \centering
-\caption{Mean $\pm$ SD of key metrics across all scenarios per dataset. Best values in \textbf{bold}.}
+\caption{Mean $\pm$ SD of MAE ($\times 10^{-6}$) and SNR (dB) stratified by degradation severity and spatial failure mode. Best values per stratum in \textbf{bold}.}
 \label{tab:main_results}
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{llccc}
+\begin{tabular}{llcccc}
 \toprule
-\textbf{Metric} & \textbf{Method} & \textbf{BCI IV} & \textbf{MNE Sample} & \textbf{PhysioNet} \\
+ & & \multicolumn{2}{c}{\textbf{Mild ($\leq$20\%)}} & \multicolumn{2}{c}{\textbf{Severe (30--40\%)}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+\textbf{Mode} & \textbf{Method} & \textbf{MAE} & \textbf{SNR} & \textbf{MAE} & \textbf{SNR} \\
 \midrule
-\multirow{4}{*}{MAE ($\times 10^{-6}$)}
- & TRSS & \textbf{0.35 $\pm$ 0.12} & \textbf{0.30 $\pm$ 0.09} & \textbf{1.17 $\pm$ 0.41} \\
- & Tikhonov & 2.12 $\pm$ 0.85 & 5.13 $\pm$ 1.92 & 3.12 $\pm$ 1.10 \\
- & Sph. Spline & 2.42 $\pm$ 1.01 & 5.86 $\pm$ 2.30 & 3.73 $\pm$ 1.45 \\
- & RBF (TPS) & 2.07 $\pm$ 0.88 & 4.92 $\pm$ 1.85 & 2.68 $\pm$ 0.95 \\
+\multirow{4}{*}{\rotatebox{90}{Random}}
+ & TRSS & \textbf{0.48 $\pm$ 0.52} & \textbf{27.0 $\pm$ 4.1} & \textbf{1.41 $\pm$ 1.20} & \textbf{20.0 $\pm$ 2.8} \\
+ & Tikhonov & 2.62 $\pm$ 2.32 & 16.0 $\pm$ 6.3 & 6.43 $\pm$ 4.63 & 11.7 $\pm$ 4.4 \\
+ & Sph. Spline & 2.36 $\pm$ 1.82 & 14.5 $\pm$ 7.7 & 5.88 $\pm$ 3.78 & 9.3 $\pm$ 7.3 \\
+ & RBF (TPS) & 2.41 $\pm$ 2.08 & 14.5 $\pm$ 8.8 & 5.65 $\pm$ 4.07 & 9.8 $\pm$ 8.0 \\
 \midrule
-\multirow{4}{*}{SNR (dB)}
- & TRSS & \textbf{29.6 $\pm$ 3.2} & \textbf{31.9 $\pm$ 4.1} & \textbf{28.0 $\pm$ 3.5} \\
- & Tikhonov & 18.8 $\pm$ 4.5 & 11.2 $\pm$ 3.8 & 21.1 $\pm$ 3.9 \\
- & Sph. Spline & 17.7 $\pm$ 4.8 & 6.0 $\pm$ 2.9 & 19.7 $\pm$ 4.2 \\
- & RBF (TPS) & 18.1 $\pm$ 4.6 & 5.9 $\pm$ 3.1 & 20.9 $\pm$ 4.0 \\
-\midrule
-\multirow{4}{*}{LSD}
- & TRSS & \textbf{0.12 $\pm$ 0.04} & \textbf{0.11 $\pm$ 0.03} & \textbf{0.19 $\pm$ 0.06} \\
- & Tikhonov & 0.31 $\pm$ 0.10 & 0.46 $\pm$ 0.15 & 0.31 $\pm$ 0.09 \\
- & Sph. Spline & 0.37 $\pm$ 0.12 & 0.69 $\pm$ 0.20 & 0.38 $\pm$ 0.11 \\
- & RBF (TPS) & 0.35 $\pm$ 0.11 & 0.66 $\pm$ 0.19 & 0.33 $\pm$ 0.10 \\
+\multirow{4}{*}{\rotatebox{90}{Nearby}}
+ & TRSS & \textbf{0.55 $\pm$ 0.68} & \textbf{26.2 $\pm$ 5.1} & \textbf{1.78 $\pm$ 1.60} & \textbf{16.9 $\pm$ 2.1} \\
+ & Tikhonov & 2.53 $\pm$ 2.35 & 14.4 $\pm$ 6.4 & 6.91 $\pm$ 4.32 & 8.6 $\pm$ 3.4 \\
+ & Sph. Spline & 3.12 $\pm$ 2.56 & 11.2 $\pm$ 8.8 & 12.33 $\pm$ 9.58 & 0.8 $\pm$ 8.7 \\
+ & RBF (TPS) & 2.60 $\pm$ 2.26 & 12.5 $\pm$ 9.4 & 7.49 $\pm$ 5.42 & 4.9 $\pm$ 8.1 \\
 \bottomrule
 \end{tabular}}
 \end{table}

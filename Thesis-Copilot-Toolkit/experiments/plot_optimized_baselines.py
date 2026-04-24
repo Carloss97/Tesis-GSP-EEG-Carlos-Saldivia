@@ -106,13 +106,15 @@ def main():
         
         plt.figure(figsize=(12, 7))
         plt.semilogy(f_c, p_c, label='Ground Truth', color='black', linewidth=3)
-        plt.semilogy(f_ss, p_ss_v, label=f'Spherical Spline (Opt, eps={p_ss["eps"]:.1e})', color='magenta', linestyle='--', alpha=0.8, linewidth=2)
-        plt.semilogy(f_rbfi, p_rbfi_v, label=f'RBFI TPS (Opt, smooth={p_rbfi["smooth"]:.2f})', color='orange', linestyle=':', alpha=0.8, linewidth=2)
-        plt.semilogy(f_trss, p_trss_v, label='TRSS (GSP Opt)', color='blue', linestyle='-.', alpha=1.0, linewidth=2.5)
+        plt.semilogy(f_ss, p_ss_v, label='Spherical Spline (Optimized)', color='magenta', linestyle='--', alpha=0.8, linewidth=2)
+        plt.semilogy(f_rbfi, p_rbfi_v, label='RBFI TPS (Optimized)', color='orange', linestyle=':', alpha=0.8, linewidth=2)
+        plt.semilogy(f_trss, p_trss_v, label='TRSS (Optimized)', color='blue', linestyle='-.', alpha=1.0, linewidth=2.5)
             
-        plt.title(f'PSD Comparison with Optimized Baselines ({mode.capitalize()} {scen_val} {scen_type})', fontsize=15, fontweight='bold')
+        pct = int(scen_val * 100) if scen_type == 'ratio' else int(scen_val)
+        unit = '% Loss' if scen_type == 'ratio' else ' Channel(s) Missing'
+        plt.title(f'PSD Comparison - Optimized Methods ({mode.capitalize()}, {pct}{unit})', fontsize=15, fontweight='bold')
         plt.xlabel('Frequency (Hz)', fontsize=12)
-        plt.ylabel('Power Spectral Density (V^2/Hz)', fontsize=12)
+        plt.ylabel('Power Spectral Density (V\u00b2/Hz)', fontsize=12)
         plt.xlim(0.5, 45.0)
         plt.grid(True, which="both", ls="-", alpha=0.2)
         plt.legend(fontsize=12, loc='upper right')
@@ -129,13 +131,15 @@ def main():
         target_ch = nan_channels[0] if len(nan_channels)>0 else 0
         
         methods_data = [
-            ("TRSS (GSP Opt)", sig_trss, "blue"),
-            (f"Spherical Spline (Opt, eps={p_ss['eps']:.1e})", sig_ss, "magenta"),
-            (f"RBFI TPS (Opt, smooth={p_rbfi['smooth']:.2f})", sig_rbfi, "orange")
+            ("TRSS (Optimized)", sig_trss, "blue"),
+            ("Spherical Spline (Optimized)", sig_ss, "magenta"),
+            ("RBFI TPS (Optimized)", sig_rbfi, "orange")
         ]
         
         fig, axes = plt.subplots(3, 1, figsize=(14, 8), sharex=True, sharey=True)
-        fig.suptitle(f"ERP / Time Series (Missing Channel #{target_ch}) with Optimized Baselines", fontsize=16, fontweight="bold")
+        pct2 = int(scen_val * 100) if scen_type == 'ratio' else int(scen_val)
+        unit2 = '% Loss' if scen_type == 'ratio' else ' Channel(s) Missing'
+        fig.suptitle(f"ERP Reconstruction (Channel #{target_ch}) - {mode.capitalize()}, {pct2}{unit2}", fontsize=16, fontweight="bold")
         gt_signal = signals_clean[:N_SAMPLES, target_ch]
         
         for ax, (m_name, m_sig, m_color) in zip(axes, methods_data):

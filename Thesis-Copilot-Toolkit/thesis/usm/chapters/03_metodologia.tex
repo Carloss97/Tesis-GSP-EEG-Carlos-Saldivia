@@ -245,7 +245,8 @@ Para cada combinación (dataset $\times$ escenario de falla $\times$ método), O
 
 Un aspecto crítico en la optimización de hiperparámetros para señales temporales es evitar que el modelo ``vea'' los mismos datos durante la sintonización y la evaluación final. Para mitigar este riesgo, se implementó un esquema de validación cruzada temporal estricto:
 \begin{enumerate}
-    \item \textbf{Split Temporal}: Cada segmento de señal se divide cronológicamente en dos bloques: los primeros 70\% de las muestras constituyen el \textit{Optimization Set} (entrenamiento/validación interna), mientras que el 30\% restante se reserva como un \textit{Test Set} ciego.
+    \item \textbf{Split Temporal}: Cada segmento de señal se divide cronológicamente en dos bloques: los primeros 70\% de las muestras constituyen el \textit{Optimization Set} (entrenamiento/validación interna).
+    \item \textbf{Buffer de Autocorrelación}: Para contrarrestar la fuerte autocorrelación temporal inherente a señales EEG filtradas por banda pasante (0.5--40~Hz), se descarta un \textit{buffer gap} de 2~segundos ($2 \times f_s$ muestras) entre el final del \textit{Optimization Set} y el inicio del \textit{Test Set}. Esta ``zona muerta'' asegura que las muestras de test no sean trivialmente predecibles desde la frontera de optimización.
     \item \textbf{Optimización Aislada}: Optuna evalúa la función objetivo (minimización de MAE y LSD) exclusivamente sobre el \textit{Optimization Set}.
     \item \textbf{Reporte Final}: Una vez seleccionados los mejores parámetros por Optuna, las métricas finales reportadas en los capítulos de Resultados y Discusión se calculan únicamente sobre el \textit{Test Set}. 
 \end{enumerate}

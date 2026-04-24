@@ -1,16 +1,16 @@
 # Fdb version 4
-["bibtex main"] 1776995116.33255 "main.aux" "main.bbl" "main" 1776995122.65287 0
+["bibtex main"] 1777053738.38082 "main.aux" "main.bbl" "main" 1777053744.65934 0
   "./bibliography/references.bib" 1776988709 65063 70a4b73fced469966b360ebe2eaf4943 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1776995121 34134 388262133d9449a7b0ab76e297868f2e "pdflatex"
+  "main.aux" 1777053743 34134 0b39be0c6135ff4cc4bcf10df21f0c6c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776995116.60056 "main.tex" "main.pdf" "main" 1776995122.65343 0
-  "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1776994628 421670 831ea60117d736746a94869ba22c2973 ""
-  "../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png" 1776994633 397387 4eb8087d7f23b883f8f451b358257539 ""
-  "../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png" 1776994633 102453 f950454efdadc5fe4fbb2032573148f5 ""
+["pdflatex"] 1777053738.58145 "main.tex" "main.pdf" "main" 1777053744.65983 0
+  "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1777052957 415947 f200cd8853ac267e513254b56299b58c ""
+  "../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png" 1777052962 396105 ad0701e848905d20806e7757475e14fb ""
+  "../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png" 1777052961 100819 9ae56285e671ff6d194e117404058513 ""
   "../../results_optuna_final/best_psd_comparison.png" 1776969814 81010 2ff0c5ded627a57501ef7ca61d3af9ae ""
   "../../results_optuna_final/degradation_bci_iv_nearby_ratio.png" 1776994574 188872 5fc69742044d481fa22a49f4d7bb28b6 ""
   "../../results_optuna_final/degradation_bci_iv_random_ratio.png" 1776994575 175077 8f714537c24b657bb7fdccabea03dc2f ""
@@ -173,7 +173,7 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "chapters/01_introduccion.tex" 1776989904 15862 12c156be3b6f24f28574bac4a4115a13 ""
   "chapters/02_marco_teorico.tex" 1776990242 15122 7ad7163050348510192e4cc9702253bc ""
-  "chapters/03_metodologia.tex" 1776994548 24779 a4138578a3c67caa9cd966f94fd7e572 ""
+  "chapters/03_metodologia.tex" 1777053183 25152 8b214b473b3eba601601f4361da6ddf0 ""
   "chapters/04_experimentos_y_resultados.tex" 1776994652 21827 94af03bc1422748134f4755137d2a3b8 ""
   "chapters/05_discusion.tex" 1776992672 15208 847a073d77b6ea2ca3d83e13d1998efa ""
   "chapters/06_conclusiones_y_trabajo_futuro.tex" 1776992854 10546 46d341c457c335608f75bf133265e078 ""
@@ -186,13 +186,13 @@
   "frontmatter/approval_page.tex" 1775143592 778 7a6569c99555159d2791efd656a2a710 ""
   "frontmatter/cover_page.tex" 1775706387 1083 a140af910592e8e66d2f2e75726d2a67 ""
   "frontmatter/title_page.tex" 1775143592 545 9347982584e39ed8cab45b6c2eaef5c3 ""
-  "main.aux" 1776995121 34134 388262133d9449a7b0ab76e297868f2e "pdflatex"
-  "main.bbl" 1776995116 9610 f72cbf1af400cbe4eb43cc831ceec2cd "bibtex main"
-  "main.lof" 1776995121 5959 0b5b6dbcf106f1e8f1a76afa3de0b64b "pdflatex"
-  "main.lot" 1776995121 1197 c6f87575df7a3a21bc5e368c34d3ef0c "pdflatex"
-  "main.out" 1776995121 27282 437d10948a8e6fd61a0f350c7d60bf2c "pdflatex"
+  "main.aux" 1777053743 34134 0b39be0c6135ff4cc4bcf10df21f0c6c "pdflatex"
+  "main.bbl" 1777053738 9610 f72cbf1af400cbe4eb43cc831ceec2cd "bibtex main"
+  "main.lof" 1777053743 5959 0b5b6dbcf106f1e8f1a76afa3de0b64b "pdflatex"
+  "main.lot" 1777053743 1197 c6f87575df7a3a21bc5e368c34d3ef0c "pdflatex"
+  "main.out" 1777053743 27282 437d10948a8e6fd61a0f350c7d60bf2c "pdflatex"
   "main.tex" 1776992944 1088 4dd29278515b75e38c37db89bd36d313 ""
-  "main.toc" 1776995121 11713 438c231f9dfffc088d824e3698dc68d9 "pdflatex"
+  "main.toc" 1777053743 11713 dcd7db8fe904e3682e82d3ee64313735 "pdflatex"
   (generated)
   "main.aux"
   "main.lof"
