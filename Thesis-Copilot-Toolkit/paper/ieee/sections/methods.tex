@@ -24,8 +24,8 @@ Classical alternatives that do not exploit graph theory, relying strictly on Euc
 \paragraph{Instant GSP Methods (Tikhonov)} 
 These methods operate independently at each time sample using graph priors. The graph Laplacian regularization problem, also known as Tikhonov regularization on graphs, enforces spatial smoothness:
 \begin{equation}
-  \hat{\mathbf{x}}_{\mathcal{U}} = \arg\min_{\mathbf{x}_{\mathcal{U}}}
-    \|\mathbf{x}_{\mathcal{K}} - \mathbf{y}_{\mathcal{K}}\|_2^2 + \alpha \, \mathbf{x}^\top \mathbf{L} \mathbf{x},
+  \hat{\mathbf{x}} = \arg\min_{\mathbf{z} \in \mathbb{R}^N}
+    \|\mathbf{z}_{\mathcal{K}} - \mathbf{x}_{\mathcal{K}}\|_2^2 + \alpha \, \mathbf{z}^\top \mathbf{L} \mathbf{z},
   \label{eq:tikhonov}
 \end{equation}
 where $\alpha$ controls the smoothness penalty. The pure GSP case (hard constraint) corresponds to the limit $\alpha \to \infty$, yielding the closed-form solution $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$. 
