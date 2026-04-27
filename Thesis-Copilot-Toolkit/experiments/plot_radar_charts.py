@@ -16,10 +16,15 @@ ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = ROOT / "results_optuna_final"
 
 def main():
-    csv_path = RESULTS_DIR / "optuna_best_results.csv"
-    if not csv_path.exists(): return
-        
-    df = pd.read_csv(csv_path)
+    csv_main = RESULTS_DIR / "optuna_best_results.csv"
+    csv_base = ROOT / "results_optuna_baselines" / "optuna_best_results_baselines.csv"
+    
+    dfs = []
+    if csv_main.exists(): dfs.append(pd.read_csv(csv_main))
+    if csv_base.exists(): dfs.append(pd.read_csv(csv_base))
+    
+    if not dfs: return
+    df = pd.concat(dfs, ignore_index=True)
     datasets = df["dataset"].unique()
     
     # Let's plot for some extreme and less extreme scenarios
@@ -43,15 +48,17 @@ def main():
             df_case = df[(df["dataset"] == ds_name) & (df["missing_mode"] == mode) & (df["missing_type"] == stype) & (df["missing_val"] == val)]
             if df_case.empty: continue
             
+            # Deduplicate by method (keep the last one, which is the recalculated one)
             df_plot = df_case[df_case["method"].isin(methods)].copy()
+            df_plot = df_plot.drop_duplicates(subset=["method"], keep="last")
             df_plot.set_index("method", inplace=True)
             
             norm_data = {}
             for m in metrics:
-                vals = df_plot[m].values
-                mx = np.max(vals)
-                mn = np.min(vals)
-                # Scale between 0.1 and 1.0 so the worst method is visible (0.1) instead of 0.0
+                vals = df_plot[m].values.astype(float)
+                mx = np.nanmax(vals) if not np.all(np.isnan(vals)) else 1.0
+                mn = np.nanmin(vals) if not np.all(np.isnan(vals)) else 0.0
+                
                 if mx == mn: 
                     norm_data[m] = np.ones_like(vals)
                 else:
@@ -62,7 +69,7 @@ def main():
                         # Higher is better -> Best is 1.0, Worst is 0.1
                         norm_data[m] = 0.1 + 0.9 * ((vals - mn) / (mx - mn))
                     
-            df_norm = pd.DataFrame(norm_data, index=df_plot.index)
+            df_norm = pd.DataFrame(norm_data, index=df_plot.index).fillna(0.1)
             
             angles = np.linspace(0, 2*np.pi, len(metrics), endpoint=False).tolist()
             angles += angles[:1]
@@ -71,7 +78,8 @@ def main():
             
             for method in methods:
                 if method not in df_norm.index: continue
-                values = df_norm.loc[method].tolist()
+                # Access the underlying values array safely
+                values = df_norm.loc[method].values.tolist()
                 values += values[:1]
                 ax.plot(angles, values, color=colors.get(method, "black"), linewidth=2, label=method.upper())
                 ax.fill(angles, values, color=colors.get(method, "black"), alpha=0.1)
@@ -83,11 +91,12 @@ def main():
             ax.set_ylim(0, 1.05)
             ax.set_yticklabels([])
             
-            plt.title(f"Multi-Metric Radar Chart (Outer Edge = Better)\n{ds_name.upper()} | {mode.capitalize()} {val}", fontsize=14, fontweight="bold", y=1.08)
-            plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1))
+            plt.title(f"Multi-Metric Radar Chart (Outer Edge = Better)\n{ds_name.upper()} | {mode.capitalize()} {val}", fontsize=14, fontweight="bold", y=1.1)
+            plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1.15), fontsize=10)
             
             out_path = RESULTS_DIR / f"radar_multimetric_{ds_name}_{mode}_{val}.png"
-            plt.savefig(out_path, dpi=150, bbox_inches="tight")
+            # Use a smaller pad_inches to prevent clipping of labels on polar plots
+            plt.savefig(out_path, dpi=150, bbox_inches="tight", pad_inches=0.3)
             plt.close()
             print(f"Radar Chart generado: {out_path.name}")
 

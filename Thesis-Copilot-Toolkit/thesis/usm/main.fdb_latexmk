@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1777056020.74454 "main.aux" "main.bbl" "main" 1777056026.33815 0
+["bibtex main"] 1777306149.34141 "main.aux" "main.bbl" "main" 1777306155.32324 0
   "./bibliography/references.bib" 1776988709 65063 70a4b73fced469966b360ebe2eaf4943 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1777056025 34134 0b39be0c6135ff4cc4bcf10df21f0c6c "pdflatex"
+  "main.aux" 1777306154 35182 59886bd7e6f8cf373683db06b98937a1 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777056020.94086 "main.tex" "main.pdf" "main" 1777056026.33891 0
+["pdflatex"] 1777306149.6702 "main.tex" "main.pdf" "main" 1777306155.32378 0
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1777054603 459212 81e66d1fccab1e9876c2c9dd450844de ""
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png" 1777054608 396031 ebcdcf269820e9553deea92333a15928 ""
   "../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png" 1777054607 100772 20e7084763861e389d5be07e408b0da6 ""
@@ -23,9 +23,8 @@
   "../../results_optuna_final/heatmap_performance_bci_iv.png" 1777054472 302323 3f025fe374c2392c18b3d0ae08fd711b ""
   "../../results_optuna_final/heatmap_performance_mne_sample.png" 1777054473 233253 56ed573285568e48e373a0e756a343e5 ""
   "../../results_optuna_final/heatmap_performance_physionet.png" 1777054473 321670 08553975c2075868fa49fe3ae8dee5f3 ""
-  "../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png" 1777054464 229727 b4498259c4b08caff8be9bea23d83a0e ""
-  "../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png" 1777054465 159168 7096babf487ee66f70916e4547d3f63c ""
-  "../../results_optuna_final/radar_multimetric_physionet_random_0.4.png" 1777054465 237669 48a5a4d66aab10ca6eb0b0ee7ef9da0a ""
+  "../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png" 1777057994 213369 75dfa3038ffe1724ccb66ac74fe22b0e ""
+  "../../results_optuna_final/radar_multimetric_physionet_random_0.4.png" 1777057995 238779 ce39f3f1d4994bc26aa2a0880d040e94 ""
   "../../results_optuna_final/tradeoff_scatter_bci_iv.png" 1777054470 135292 4794f2afbcd59f43e6a9d309d7ec7b8a ""
   "../../results_optuna_final/tradeoff_scatter_mne_sample.png" 1777054470 53665 3d25b57ed01eada1c06facf1a5a9a3ed ""
   "../../shared/results_data.tex" 1777054555 1305 bdf3226fa7fc3c6e9becdedfcbafc2f6 ""
@@ -171,10 +170,10 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-spanish.trsl" 1644048522 5850 2ef40dd7b6b9ada125cd1d90b7f7b307 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "chapters/01_introduccion.tex" 1776989904 15862 12c156be3b6f24f28574bac4a4115a13 ""
-  "chapters/02_marco_teorico.tex" 1776990242 15122 7ad7163050348510192e4cc9702253bc ""
-  "chapters/03_metodologia.tex" 1777053183 25152 8b214b473b3eba601601f4361da6ddf0 ""
-  "chapters/04_experimentos_y_resultados.tex" 1776994652 21827 94af03bc1422748134f4755137d2a3b8 ""
+  "chapters/01_introduccion.tex" 1777305152 16333 e3627a1cedb9bd3a5dd85c708e932033 ""
+  "chapters/02_marco_teorico.tex" 1777306102 18428 32925c9daa2a4d04aa0563b2649ed907 ""
+  "chapters/03_metodologia.tex" 1777305226 25838 6898d18f2760b4d525796b23318fc72a ""
+  "chapters/04_experimentos_y_resultados.tex" 1777273068 22224 745aa900612bcfe189ac6f99bb2228dc ""
   "chapters/05_discusion.tex" 1776992672 15208 847a073d77b6ea2ca3d83e13d1998efa ""
   "chapters/06_conclusiones_y_trabajo_futuro.tex" 1776992854 10546 46d341c457c335608f75bf133265e078 ""
   "chapters/appendix_detailed_tables.tex" 1776992985 5537 9855650eaf12f4177e9f487a9e59d280 ""
@@ -186,13 +185,13 @@
   "frontmatter/approval_page.tex" 1775143592 778 7a6569c99555159d2791efd656a2a710 ""
   "frontmatter/cover_page.tex" 1775706387 1083 a140af910592e8e66d2f2e75726d2a67 ""
   "frontmatter/title_page.tex" 1775143592 545 9347982584e39ed8cab45b6c2eaef5c3 ""
-  "main.aux" 1777056025 34134 0b39be0c6135ff4cc4bcf10df21f0c6c "pdflatex"
-  "main.bbl" 1777056020 9610 f72cbf1af400cbe4eb43cc831ceec2cd "bibtex main"
-  "main.lof" 1777056025 5959 0b5b6dbcf106f1e8f1a76afa3de0b64b "pdflatex"
-  "main.lot" 1777056025 1197 c6f87575df7a3a21bc5e368c34d3ef0c "pdflatex"
-  "main.out" 1777056025 27282 437d10948a8e6fd61a0f350c7d60bf2c "pdflatex"
+  "main.aux" 1777306154 35182 59886bd7e6f8cf373683db06b98937a1 "pdflatex"
+  "main.bbl" 1777306149 14692 4353053ddc4e31261b08e0d26da30787 "bibtex main"
+  "main.lof" 1777306154 5632 044621ff1d42436e4827cee765a5a96b "pdflatex"
+  "main.lot" 1777306154 1464 67f9ce9a1e0c1a3252a306d683654daa "pdflatex"
+  "main.out" 1777306154 27360 a200606ba52a7834da525a1f0c383291 "pdflatex"
   "main.tex" 1776992944 1088 4dd29278515b75e38c37db89bd36d313 ""
-  "main.toc" 1777056025 11713 dcd7db8fe904e3682e82d3ee64313735 "pdflatex"
+  "main.toc" 1777306154 11729 3b3205b87044f3e0c301e38e2f45fffe "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

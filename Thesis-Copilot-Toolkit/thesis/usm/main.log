@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  27 APR 2026 12:09
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -674,17 +675,21 @@ LaTeX Info: Redefining \% on input line 1.
  [10] (main.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
  [11
 
 ])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [12] (main.lot
+
+[12] (main.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 
-Overfull \hbox (33.16774pt too wide) in paragraph at lines 14--14
+Overfull \hbox (33.16774pt too wide) in paragraph at lines 15--15
  [][] [][]\T1/cmr/m/n/10.95 LSD y Co-he-ren-cia pro-me-dio por mé-to-do y da-ta
 -set (va-lo-res de \T1/cmtt/m/n/10.95 optuna_summary_pivot.csv\T1/cmr/m/n/10.95
  ).[] [][]  
@@ -705,13 +710,13 @@ Cap\'{\i }tulo 1.
 Cap\'{\i }tulo 2.
 [7
 
-]
-Overfull \hbox (4.5151pt too wide) in paragraph at lines 27--27
+] [8]
+Overfull \hbox (4.5151pt too wide) in paragraph at lines 31--31
 []\T1/cmr/bx/n/14.4 Teoría de Gra-fos y Pro-ce-sa-mien-to de Se-ña-les en Gra-f
 os (GSP) 
  []
 
-[8] [9] [10]) (chapters/03_metodologia.tex [11] [12]
+[9] [10] [11]) (chapters/03_metodologia.tex [12] [13]
 Cap\'{\i }tulo 3.
 
 Overfull \hbox (10.60439pt too wide) in paragraph at lines 17--18
@@ -719,39 +724,39 @@ Overfull \hbox (10.60439pt too wide) in paragraph at lines 17--18
 -za-dos (ar-chi-vos CSV, JSON y ma-tri-ces NumPy),
  []
 
-[13
+[14
 
-] [14]
+] [15]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 80.
- [15]
-Overfull \hbox (201.10974pt too wide) in paragraph at lines 95--96
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 82.
+ [16]
+Overfull \hbox (201.10974pt too wide) in paragraph at lines 97--98
 []\T1/cmtt/m/n/10.95 mst \T1/cmr/m/n/10.95 (Mi-ni-mum Span-ning Tree): Ga-ran-t
 i-za co-nec-ti-vi-dad mí-ni-ma del gra-fo usan-do \T1/cmtt/m/n/10.95 scipy.spar
 se.csgraph.minimum_spanning_tree()\T1/cmr/m/n/10.95 . 
  []
 
-[16]
-Overfull \hbox (13.67065pt too wide) in paragraph at lines 158--159
+[17] [18]
+Overfull \hbox (13.67065pt too wide) in paragraph at lines 160--161
 []\T1/cmr/bx/n/10.95 ICA (In-de-pen-dent Com-po-nent Analy-sis)\T1/cmr/m/n/10.9
 5 : Ba-sa-do en \T1/cmtt/m/n/10.95 sklearn.decomposition.FastICA\T1/cmr/m/n/10.
 95 .
  []
 
-[17] [18] [19]
-Overfull \hbox (2.34749pt too wide) in paragraph at lines 241--242
+[19] [20]
+Overfull \hbox (2.34749pt too wide) in paragraph at lines 243--244
 []\T1/cmtt/m/n/10.95 results_optuna_baselines/optuna_best_results_baselines.csv
 \T1/cmr/m/n/10.95 : Equi-va-len-te pa-ra ba-
  []
 
-[20]
-Overfull \hbox (204.87108pt too wide) in paragraph at lines 291--292
+[21] [22]
+Overfull \hbox (204.87108pt too wide) in paragraph at lines 293--294
 []\T1/cmr/bx/n/10.95 Rankings por es-ce-na-rio\T1/cmr/m/n/10.95 : Cla-si-fi-ca-
 ción or-di-nal de mé-to-dos dis-po-ni-ble en \T1/cmtt/m/n/10.95 results/b2_publ
 ication_topk_by_family_scenario.csv\T1/cmr/m/n/10.95 . 
  []
 
-[21] [22]) (chapters/04_experimentos_y_resultados.tex [23]
+[23]) (chapters/04_experimentos_y_resultados.tex [24]
 Cap\'{\i }tulo 4.
 
 Overfull \hbox (147.11267pt too wide) in paragraph at lines 11--12
@@ -760,11 +765,11 @@ s ba-se de com-pa-ra-ción (\T1/cmtt/m/n/10.95 results/b2_publication_ranking_fi
 nal.csv\T1/cmr/m/n/10.95 ). 
  []
 
-[24
+[25
 
-] [25]
-<../../results_optuna_final/global_comparison_physionet.png, id=984, 1149.5748p
-t x 853.2678pt>
+] [26]
+<../../results_optuna_final/global_comparison_physionet.png, id=1022, 1149.5748
+pt x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
 <use ../../results_optuna_final/global_comparison_physionet.png>
@@ -774,186 +779,178 @@ Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 
 Underfull \vbox (badness 7613) has occurred while \output is active []
 
- [26 <../../results_optuna_final/global_comparison_physionet.png>]
-<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=992
-, 628.749pt x 546.843pt>
-File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
-aphic file (type png)
-<use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
-Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
-e_random_0.4.png  used on input line 94.
-(pdftex.def)             Requested size: 455.30124pt x 396.00461pt.
-<../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png, id=995, 62
-8.749pt x 546.843pt>
+ [27 <../../results_optuna_final/global_comparison_physionet.png>]
+<../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png, id=1032, 6
+13.3314pt x 584.4234pt>
 File: ../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png Graphi
 c file (type png)
 <use ../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png>
 Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_bci_iv_ne
-arby_0.4.png  used on input line 105.
-(pdftex.def)             Requested size: 455.30124pt x 396.00461pt.
- [27 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>]
-<../../results_optuna_final/radar_multimetric_physionet_random_0.4.png, id=1001
-, 628.749pt x 546.843pt>
+arby_0.4.png  used on input line 113.
+(pdftex.def)             Requested size: 455.30124pt x 433.84877pt.
+<../../results_optuna_final/radar_multimetric_physionet_random_0.4.png, id=1033
+, 613.3314pt x 584.4234pt>
 File: ../../results_optuna_final/radar_multimetric_physionet_random_0.4.png Gra
 phic file (type png)
 <use ../../results_optuna_final/radar_multimetric_physionet_random_0.4.png>
 Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_physionet
-_random_0.4.png  used on input line 112.
-(pdftex.def)             Requested size: 455.30124pt x 396.00461pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=1002, 1148.
+_random_0.4.png  used on input line 120.
+(pdftex.def)             Requested size: 455.30124pt x 433.84877pt.
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=1034, 1148.
 6112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
 <use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
-atio.png  used on input line 125.
+atio.png  used on input line 133.
 (pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
-<../../results_optuna_final/degradation_bci_iv_nearby_ratio.png, id=1003, 1148.
+<../../results_optuna_final/degradation_bci_iv_nearby_ratio.png, id=1035, 1148.
 6112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_nearby_ratio.png Graphic fi
 le (type png)
 <use ../../results_optuna_final/degradation_bci_iv_nearby_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_nearby_r
-atio.png  used on input line 132.
+atio.png  used on input line 140.
 (pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
- [28 <../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png>]
-<../../results_optuna_final/degradation_physionet_nearby_ratio.png, id=1014, 11
+<../../results_optuna_final/degradation_physionet_nearby_ratio.png, id=1040, 11
 48.6112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_physionet_nearby_ratio.png Graphic
  file (type png)
 <use ../../results_optuna_final/degradation_physionet_nearby_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_physionet_nearb
-y_ratio.png  used on input line 143.
+y_ratio.png  used on input line 151.
 (pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
-<../../results_optuna_final/degradation_mne_sample_nearby_ratio.png, id=1015, 1
+<../../results_optuna_final/degradation_mne_sample_nearby_ratio.png, id=1041, 1
 148.6112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_mne_sample_nearby_ratio.png Graphi
 c file (type png)
 <use ../../results_optuna_final/degradation_mne_sample_nearby_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_mne_sample_near
-by_ratio.png  used on input line 150.
+by_ratio.png  used on input line 158.
 (pdftex.def)             Requested size: 455.30124pt x 169.40067pt.
-<../../results_optuna_final/heatmap_performance_mne_sample.png, id=1016, 940.95
+<../../results_optuna_final/heatmap_performance_mne_sample.png, id=1042, 940.95
 54pt x 711.1368pt>
 File: ../../results_optuna_final/heatmap_performance_mne_sample.png Graphic fil
 e (type png)
 <use ../../results_optuna_final/heatmap_performance_mne_sample.png>
 Package pdftex.def Info: ../../results_optuna_final/heatmap_performance_mne_sam
-ple.png  used on input line 161.
+ple.png  used on input line 169.
 (pdftex.def)             Requested size: 455.30124pt x 344.09795pt.
-<../../results_optuna_final/heatmap_performance_bci_iv.png, id=1017, 919.7562pt
+<../../results_optuna_final/heatmap_performance_bci_iv.png, id=1043, 919.7562pt
  x 711.1368pt>
 File: ../../results_optuna_final/heatmap_performance_bci_iv.png Graphic file (t
 ype png)
 <use ../../results_optuna_final/heatmap_performance_bci_iv.png>
 Package pdftex.def Info: ../../results_optuna_final/heatmap_performance_bci_iv.
-png  used on input line 168.
+png  used on input line 176.
 (pdftex.def)             Requested size: 455.30124pt x 352.03008pt.
-<../../results_optuna_final/heatmap_performance_physionet.png, id=1018, 920.238
+<../../results_optuna_final/heatmap_performance_physionet.png, id=1044, 920.238
 pt x 711.1368pt>
 File: ../../results_optuna_final/heatmap_performance_physionet.png Graphic file
  (type png)
 <use ../../results_optuna_final/heatmap_performance_physionet.png>
 Package pdftex.def Info: ../../results_optuna_final/heatmap_performance_physion
-et.png  used on input line 175.
+et.png  used on input line 183.
 (pdftex.def)             Requested size: 455.30124pt x 351.84561pt.
-<../../results_optuna_final/tradeoff_scatter_mne_sample.png, id=1020, 717.882pt
+ [28]
+<../../results_optuna_final/tradeoff_scatter_mne_sample.png, id=1051, 717.882pt
  x 569.4876pt>
 File: ../../results_optuna_final/tradeoff_scatter_mne_sample.png Graphic file (
 type png)
 <use ../../results_optuna_final/tradeoff_scatter_mne_sample.png>
 Package pdftex.def Info: ../../results_optuna_final/tradeoff_scatter_mne_sample
-.png  used on input line 188.
+.png  used on input line 196.
 (pdftex.def)             Requested size: 455.30124pt x 361.18613pt.
- [29 <../../results_optuna_final/radar_multimetric_physionet_random_0.4.png>]
-<../../results_optuna_final/tradeoff_scatter_bci_iv.png, id=1026, 713.064pt x 5
+<../../results_optuna_final/tradeoff_scatter_bci_iv.png, id=1052, 713.064pt x 5
 69.4876pt>
 File: ../../results_optuna_final/tradeoff_scatter_bci_iv.png Graphic file (type
  png)
 <use ../../results_optuna_final/tradeoff_scatter_bci_iv.png>
 Package pdftex.def Info: ../../results_optuna_final/tradeoff_scatter_bci_iv.png
-  used on input line 195.
+  used on input line 203.
 (pdftex.def)             Requested size: 455.30124pt x 363.63661pt.
-<../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png, id=1027, 
+<../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png, id=1053, 
 1004.0712pt x 711.1368pt>
 File: ../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png Graph
 ic file (type png)
 <use ../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png>
 Package pdftex.def Info: ../../results_optuna_final/erp_timeseries_mne_sample_n
-earby_0.1.png  used on input line 210.
+earby_0.1.png  used on input line 218.
 (pdftex.def)             Requested size: 455.30124pt x 322.46094pt.
-<../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png, id=1028, 
+<../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png, id=1054, 
 1004.0712pt x 711.1368pt>
 File: ../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png Graph
 ic file (type png)
 <use ../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>
 Package pdftex.def Info: ../../results_optuna_final/erp_timeseries_mne_sample_n
-earby_0.4.png  used on input line 217.
+earby_0.4.png  used on input line 225.
 (pdftex.def)             Requested size: 455.30124pt x 322.46094pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=1032, 1004.0712pt x 569.4876pt>
+d=1058, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_1_0_count.png  used on input line 230.
+_nearby_1_0_count.png  used on input line 238.
 (pdftex.def)             Requested size: 455.30124pt x 258.23091pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=1033, 1004.0712pt x 569.4876pt>
+d=1059, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_0_4_ratio.png  used on input line 237.
+_nearby_0_4_ratio.png  used on input line 245.
 (pdftex.def)             Requested size: 455.30124pt x 258.23091pt.
- [30 <../../results_optuna_final/degradation_bci_iv_random_ratio.png>]
-<../../results_optuna_final/best_psd_comparison.png, id=1039, 629.7126pt x 407.
+<../../results_optuna_final/best_psd_comparison.png, id=1060, 629.7126pt x 407.
 6028pt>
 File: ../../results_optuna_final/best_psd_comparison.png Graphic file (type png
 )
 <use ../../results_optuna_final/best_psd_comparison.png>
 Package pdftex.def Info: ../../results_optuna_final/best_psd_comparison.png  us
-ed on input line 250.
+ed on input line 258.
 (pdftex.def)             Requested size: 455.30124pt x 294.71768pt.
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=1040, 743.4174pt x 452.892pt>
+d=1061, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
-_nearby_1_0_count.png  used on input line 257.
+_nearby_1_0_count.png  used on input line 265.
 (pdftex.def)             Requested size: 455.30124pt x 277.3694pt.
-<../../results_optuna_final/extreme_psd_multimethod.png, id=1041, 743.4174pt x 
+<../../results_optuna_final/extreme_psd_multimethod.png, id=1062, 743.4174pt x 
 453.8556pt>
 File: ../../results_optuna_final/extreme_psd_multimethod.png Graphic file (type
  png)
 <use ../../results_optuna_final/extreme_psd_multimethod.png>
 Package pdftex.def Info: ../../results_optuna_final/extreme_psd_multimethod.png
-  used on input line 264.
+  used on input line 272.
 (pdftex.def)             Requested size: 455.30124pt x 277.95955pt.
- [31 <../../results_optuna_final/degradation_bci_iv_nearby_ratio.png>] [32 <../
-../results_optuna_final/degradation_physionet_nearby_ratio.png> <../../results_
-optuna_final/degradation_mne_sample_nearby_ratio.png>] [33 <../../results_optun
-a_final/heatmap_performance_mne_sample.png>]) (chapters/05_discusion.tex [34 <.
-./../results_optuna_final/heatmap_performance_bci_iv.png>] [35 <../../results_o
-ptuna_final/heatmap_performance_physionet.png>] [36 <../../results_optuna_final
-/tradeoff_scatter_mne_sample.png>]
-[37 <../../results_optuna_final/tradeoff_scatter_bci_iv.png>] [38 <../../result
-s_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png>] [39 <../../results_op
-tuna_final/erp_timeseries_mne_sample_nearby_0.4.png>] [40 <../../results_optuna
-_baselines/erp_optimized_baselines_nearby_1_0_count.png> <../../results_optuna_
-baselines/erp_optimized_baselines_nearby_0_4_ratio.png>] [41 <../../results_opt
-una_final/best_psd_comparison.png>] [42 <../../results_optuna_baselines/psd_opt
-imized_baselines_nearby_1_0_count.png>] [43 <../../results_optuna_final/extreme
-_psd_multimethod.png>]
+ [29] [30])
+(chapters/05_discusion.tex [31] [32 <../../results_optuna_final/radar_multimetr
+ic_bci_iv_nearby_0.4.png>] [33 <../../results_optuna_final/radar_multimetric_ph
+ysionet_random_0.4.png>] [34 <../../results_optuna_final/degradation_bci_iv_ran
+dom_ratio.png> <../../results_optuna_final/degradation_bci_iv_nearby_ratio.png>
+] [35 <../../results_optuna_final/degradation_physionet_nearby_ratio.png> <../.
+./results_optuna_final/degradation_mne_sample_nearby_ratio.png>] [36 <../../res
+ults_optuna_final/heatmap_performance_mne_sample.png>] [37 <../../results_optun
+a_final/heatmap_performance_bci_iv.png>] [38 <../../results_optuna_final/heatma
+p_performance_physionet.png>] [39 <../../results_optuna_final/tradeoff_scatter_
+mne_sample.png>] [40 <../../results_optuna_final/tradeoff_scatter_bci_iv.png>]
+[41 <../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png>]
+[42 <../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>]
+[43 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
+g> <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png
+>] [44 <../../results_optuna_final/best_psd_comparison.png>] [45 <../../results
+_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png>] [46 <../../res
+ults_optuna_final/extreme_psd_multimethod.png>]
 Cap\'{\i }tulo 5.
-[44
+[47
 
-] [45] [46] [47] [48]) (chapters/06_conclusiones_y_trabajo_futuro.tex
-[49]
+] [48] [49] [50] [51]) (chapters/06_conclusiones_y_trabajo_futuro.tex
+[52]
 Cap\'{\i }tulo 6.
 
 Overfull \hbox (1.111pt too wide) in paragraph at lines 17--18
@@ -961,9 +958,9 @@ Overfull \hbox (1.111pt too wide) in paragraph at lines 17--18
 ró un MAE pro-me-dio de 2.26 y un SNR de 25.95 dB,
  []
 
-[50
+[53
 
-] [51] [52] [53]) (chapters/appendix_detailed_tables.tex [54]
+] [54] [55] [56]) (chapters/appendix_detailed_tables.tex [57]
 Ap\'{e}ndice A.
 
 Underfull \hbox (badness 10000) in paragraph at lines 39--39
@@ -971,9 +968,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--39
 a-ta-set (va-lo-res de
  []
 
-[55
+[58
 
-] [56]
+] [59]
 Ap\'{e}ndice B.
 
 Overfull \hbox (55.51813pt too wide) in paragraph at lines 58--59
@@ -982,15 +979,27 @@ Overfull \hbox (55.51813pt too wide) in paragraph at lines 58--59
 it/
  []
 
-[57
+[60
 
-] [58]
+] [61]
 Ap\'{e}ndice C.
-) (main.bbl [59
+) (main.bbl [62
 
-] [60
+] [63
 
-] [61]) [62] (main.aux
+]
+Underfull \hbox (badness 1661) in paragraph at lines 106--113
+\T1/cmr/m/n/10.95 ble: []$https : / / www . spiedigitallibrary . org / conferen
+ce-[]proceedings-[]of-[]spie / 12567 / 2669735 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--113
+\T1/cmr/m/n/10.95 Imputing-[]missing-[]electroencephalography-[]data-[]using-[]
+graph-[]signal-[]processing / 10 . 1117 / 12 .
+ []
+
+[64] [65]) [66] (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -999,13 +1008,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 437D10948A8E6FD61A0F350C7D60BF2C;27282.
+(rerunfilecheck)             Checksum: A200606BA52A7834DA525A1F0C383291;27360.
  ) 
 Here is how much of TeX's memory you used:
- 18852 strings out of 467867
- 375287 string characters out of 5418335
- 757752 words of memory out of 5000000
- 47157 multiletter control sequences out of 15000+600000
+ 18878 strings out of 467867
+ 375504 string characters out of 5418335
+ 763316 words of memory out of 5000000
+ 47165 multiletter control sequences out of 15000+600000
  648169 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,13n,83p,1173b,1410s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1039,9 +1048,9 @@ r8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (77 pages, 4302963 bytes).
+Output written on main.pdf (81 pages, 4174630 bytes).
 PDF statistics:
- 1981 PDF objects out of 2073 (max. 8388607)
- 311 named destinations out of 1000 (max. 500000)
- 1045 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2057 PDF objects out of 2073 (max. 8388607)
+ 329 named destinations out of 1000 (max. 500000)
+ 1040 words of extra memory for PDF output out of 10000 (max. 10000000)
 

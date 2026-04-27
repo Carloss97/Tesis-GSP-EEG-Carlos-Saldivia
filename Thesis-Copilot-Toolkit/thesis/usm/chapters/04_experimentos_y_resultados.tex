@@ -85,18 +85,26 @@ La Figura~\ref{fig:global_physionet_tesis} muestra la comparación de rendimient
 
 \section{Análisis Multi-Métrica}
 
-\subsection{Gráficos Radar}
+\subsection{Resumen Tabular Multi-Métrica}
 
-Los gráficos radar permiten visualizar simultáneamente las seis dimensiones de rendimiento para cada método. La Figura~\ref{fig:radar_mne_tesis} presenta este análisis para MNE Sample bajo un escenario severo de 40\% de pérdida aleatoria.
+Para facilitar la auditoría métrica en formato textual, la Figura radar principal se reemplaza por la Tabla~\ref{tab:multimetric_mne_familias_tesis}, que consolida las seis métricas sobre MNE Sample a nivel de familias de métodos, agregadas sobre los escenarios del registro exhaustivo.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png}
-  \caption{Radar multi-métrica para MNE Sample (40\% random). TRSS maximiza simultáneamente todas las dimensiones de calidad: bajo MAE, bajo DTW, alto SNR, bajo LSD y alta Coherencia. Ningún otro método se aproxima al perímetro del polígono de TRSS.}
-  \label{fig:radar_mne_tesis}
-\end{figure}
+\begin{table}[ht]
+\centering
+\caption{Resumen multi-métrica (medianas) por familia en MNE Sample, agregado sobre escenarios del registro exhaustivo. Menor es mejor en MAE, RMSE, DTW y LSD; mayor es mejor en SNR y Coherencia.}
+\label{tab:multimetric_mne_familias_tesis}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Familia} & \textbf{MAE} $\downarrow$ & \textbf{RMSE} $\downarrow$ & \textbf{DTW} $\downarrow$ & \textbf{SNR} $\uparrow$ & \textbf{LSD} $\downarrow$ & \textbf{Coherencia} $\uparrow$ \\
+\midrule
+Baseline & 0.0501 & 0.1405 & 0.8731 & 19.32 & 2.2534 & 0.9623 \\
+GSP Instantáneo & 0.0862 & 0.2081 & 1.2247 & 14.16 & 2.2394 & 0.8816 \\
+TV/Tiempo & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \textbf{20.83} & \textbf{2.2258} & \textbf{0.9763} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-Es crucial observar que TRSS no solo minimiza los errores ``duros'' (MAE, RMSE), sino que además logra la menor distancia espectral (LSD $\approx 0.11$) y la mayor coherencia ($\approx 0.994$). Esto confirma que la regularización temporal no solo mejora la precisión puntual, sino que preserva la estructura frecuencial completa de la señal.
+La tabla evidencia que la familia temporal no solo mejora errores de amplitud (MAE, RMSE), sino que también preserva mejor la forma temporal (DTW), la relación señal-ruido y la consistencia espectral (LSD/Coherencia). Esto refuerza que la ganancia no es marginal ni mono-métrica, sino estructuralmente multiobjetivo.
 
 Las Figuras~\ref{fig:radar_bci_nearby} y \ref{fig:radar_physionet} extienden este análisis a los otros datasets y modos de falla, confirmando la consistencia del patrón.
 

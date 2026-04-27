@@ -117,7 +117,7 @@ def optimize_case(ds_name, data, mode, stype, val):
     print(f"\n>> {ds_name} | {mode} | {stype}={val}")
     
     sfreq = data["info"].get("sfreq", 250.0)
-    signals_full = data["signals"][:1500]
+    signals_full = data["signals"][:5000]
     positions = data["positions"]
     
     # Split temporal data with autocorrelation buffer gap (~2 seconds)

@@ -54,6 +54,30 @@ T.~Akiba, S.~Sano, T.~Yanase, T.~Ohta, and M.~Koyama, ``Optuna: A
   of the 25th ACM SIGKDD International Conference on Knowledge Discovery \&
   Data Mining}, 2019, pp. 2623--2631.
 
+\bibitem{sharma_emerging_2024}
+\BIBentryALTinterwordspacing
+R.~Sharma and H.~K. Meena, ``Emerging trends in {EEG} signal processing: A
+  systematic review,'' vol.~5, no.~4, p. 415. [Online]. Available:
+  \url{https://link.springer.com/10.1007/s42979-024-02773-w}
+\BIBentrySTDinterwordspacing
+
+\bibitem{calazans_machine_2024}
+\BIBentryALTinterwordspacing
+M.~A.~A. Calazans, F.~A. B.~S. Ferreira, F.~A.~N. Santos, F.~Madeiro, and J.~B.
+  Lima, ``Machine learning and graph signal processing applied to healthcare: A
+  review,'' vol.~11, no.~7, p. 671. [Online]. Available:
+  \url{https://www.mdpi.com/2306-5354/11/7/671}
+\BIBentrySTDinterwordspacing
+
+\bibitem{li_graph_2023}
+\BIBentryALTinterwordspacing
+R.~Li, X.~Yuan, M.~Radfar, P.~Marendy, W.~Ni, T.~J. O'Brien, and
+  P.~Casillas-Espinosa, ``Graph signal processing, graph neural network and
+  graph learning on biological data: A systematic review,'' vol.~16, pp.
+  109--135. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9585532/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{perrin_spherical_1989}
 \BIBentryALTinterwordspacing
 F.~Perrin, J.~Pernier, O.~Bertrand, and J.~Echallier, ``Spherical splines for
@@ -70,6 +94,31 @@ J.~Jäger, A.~Klein, M.~Buhmann, and W.~Skrandies, ``Reconstruction of
   \url{https://linkinghub.elsevier.com/retrieve/pii/S1388245716000109}
 \BIBentrySTDinterwordspacing
 
+\bibitem{mazarguil_non-smooth_2022}
+\BIBentryALTinterwordspacing
+A.~Mazarguil, L.~Oudre, and N.~Vayatis, ``Non-smooth interpolation of graph
+  signals,'' vol. 196, p. 108480. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0165168422000275}
+\BIBentrySTDinterwordspacing
+
+\bibitem{weinstein_imputing_2023}
+\BIBentryALTinterwordspacing
+A.~Weinstein, ``Imputing missing electroencephalography data using graph signal
+  processing,'' in \emph{18th International Symposium on Medical Information
+  Processing and Analysis}, M.~G. Linguraru, L.~Rittner, N.~Lepore,
+  E.~Romero~Castro, J.~Brieva, and P.~Guevara, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax {SPIE}, p.~8. [Online]. Available:
+  \url{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12567/2669735/Imputing-missing-electroencephalography-data-using-graph-signal-processing/10.1117/12.2669735.full}
+\BIBentrySTDinterwordspacing
+
+\bibitem{jiang_graph-based_2021}
+\BIBentryALTinterwordspacing
+X.~Jiang, Z.~Tian, and K.~Li, ``A graph-based approach for missing sensor data
+  imputation,'' vol.~21, no.~20, pp. 23\,133--23\,144, conference Name: {IEEE}
+  Sensors Journal. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9520399/?arnumber=9520399}
+\BIBentrySTDinterwordspacing
+
 \bibitem{shuman_emerging_2013}
 \BIBentryALTinterwordspacing
 D.~I. Shuman, S.~K. Narang, P.~Frossard, A.~Ortega, and P.~Vandergheynst, ``The
@@ -84,6 +133,45 @@ A.~Ortega, P.~Frossard, J.~Kovačević, J.~M.~F. Moura, and P.~Vandergheynst,
   ``Graph signal processing: Overview, challenges and applications,'' issue:
   {arXiv}:1712.00468. [Online]. Available:
   \url{http://arxiv.org/abs/1712.00468}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ortega_introduction_2022}
+\BIBentryALTinterwordspacing
+A.~Ortega, \emph{Introduction to Graph Signal Processing}, 1st~ed.\hskip 1em
+  plus 0.5em minus 0.4em\relax Cambridge University Press. [Online]. Available:
+  \url{https://www.cambridge.org/core/product/identifier/9781108552349/type/book}
+\BIBentrySTDinterwordspacing
+
+\bibitem{leus_graph_2023}
+\BIBentryALTinterwordspacing
+G.~Leus, A.~G. Marques, J.~M. Moura, A.~Ortega, and D.~I. Shuman, ``Graph
+  signal processing: History, development, impact, and outlook,'' vol.~40,
+  no.~4, pp. 49--60. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10146241/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rui_dimensionality_2016}
+\BIBentryALTinterwordspacing
+L.~Rui, H.~Nejati, and N.-M. Cheung, ``Dimensionality reduction of brain
+  imaging data using graph signal processing,'' in \emph{2016 {IEEE}
+  International Conference on Image Processing ({ICIP})}, pp. 1329--1333.
+  [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/7532574/?arnumber=7532574}
+\BIBentrySTDinterwordspacing
+
+\bibitem{miri_spectral_2024}
+\BIBentryALTinterwordspacing
+M.~Miri, V.~Abootalebi, H.~Saeedi-Sourck, D.~Van De~Ville, and H.~Behjat,
+  ``Spectral representation of {EEG} data using learned graphs with application
+  to motor imagery decoding,'' vol.~87, p. 105537. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1746809423009709}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ortega_graph_2018}
+\BIBentryALTinterwordspacing
+A.~Ortega, P.~Frossard, J.~Kovačević, J.~M.~F. Moura, and P.~Vandergheynst,
+  ``Graph signal processing: Overview, challenges and applications.'' [Online].
+  Available: \url{http://arxiv.org/abs/1712.00468}
 \BIBentrySTDinterwordspacing
 
 \bibitem{goerttler_understanding_2023}
@@ -120,6 +208,27 @@ L.~Qiao, L.~Zhang, S.~Chen, and D.~Shen, ``Data-driven graph construction and
   \url{https://linkinghub.elsevier.com/retrieve/pii/S0925231218306696}
 \BIBentrySTDinterwordspacing
 
+\bibitem{kalofolias_large_2019}
+\BIBentryALTinterwordspacing
+V.~Kalofolias and N.~Perraudin, ``Large scale graph learning from smooth
+  signals.'' [Online]. Available: \url{http://arxiv.org/abs/1710.05654}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shekkizhar_graph_2020}
+\BIBentryALTinterwordspacing
+S.~Shekkizhar and A.~Ortega, ``Graph construction from data by non-negative
+  kernel regression,'' in \emph{{ICASSP} 2020 - 2020 {IEEE} International
+  Conference on Acoustics, Speech and Signal Processing ({ICASSP})}.\hskip 1em
+  plus 0.5em minus 0.4em\relax {IEEE}, pp. 3892--3896. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9054425/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shekkizhar_neighborhood_2023}
+\BIBentryALTinterwordspacing
+------, ``Neighborhood and graph constructions using non-negative kernel
+  regression.'' [Online]. Available: \url{http://arxiv.org/abs/1910.09383}
+\BIBentrySTDinterwordspacing
+
 \bibitem{narang_signal_2013}
 \BIBentryALTinterwordspacing
 S.~K. Narang, A.~Gadde, and A.~Ortega, ``Signal processing techniques for
@@ -129,12 +238,50 @@ S.~K. Narang, A.~Gadde, and A.~Ortega, ``Signal processing techniques for
   \url{http://ieeexplore.ieee.org/document/6638704/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{narang_localized_2013}
+\BIBentryALTinterwordspacing
+S.~K. Narang, A.~Gadde, E.~Sanou, and A.~Ortega, ``Localized iterative methods
+  for interpolation in graph structured data.'' [Online]. Available:
+  \url{http://arxiv.org/abs/1310.2646}
+\BIBentrySTDinterwordspacing
+
 \bibitem{zhang_recovery_2024}
 \BIBentryALTinterwordspacing
 Q.~Zhang, L.~Yang, Z.~Yang, and C.~Huang, ``Recovery of bandlimited graph
   signals based on the reproducing kernel hilbert space,'' vol. 151, p. 104565.
   [Online]. Available:
   \url{https://linkinghub.elsevier.com/retrieve/pii/S1051200424001908}
+\BIBentrySTDinterwordspacing
+
+\bibitem{morgenstern_theoretical_2025}
+\BIBentryALTinterwordspacing
+G.~Morgenstern and T.~Routtenberg, ``Theoretical guarantees for sparse graph
+  signal recovery,'' vol.~32, pp. 266--270, conference Name: {IEEE} Signal
+  Processing Letters. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10787248/?arnumber=10787248}
+\BIBentrySTDinterwordspacing
+
+\bibitem{zhao_generalized_2025}
+\BIBentryALTinterwordspacing
+Y.~Zhao, X.~Jian, F.~Ji, W.~P. Tay, and A.~Ortega, ``Generalized graph signal
+  reconstruction via the uncertainty principle,'' in \emph{{ICASSP} 2025 - 2025
+  {IEEE} International Conference on Acoustics, Speech and Signal Processing
+  ({ICASSP})}, pp. 1--5. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10889406/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{yan_signal_2026}
+\BIBentryALTinterwordspacing
+Y.~Yan, J.~Hou, Z.~Song, and E.~E. Kuruoglu, ``Signal processing over
+  time-varying graphs: A systematic review.'' [Online]. Available:
+  \url{http://arxiv.org/abs/2412.00462}
+\BIBentrySTDinterwordspacing
+
+\bibitem{krishnan_learning_2026}
+\BIBentryALTinterwordspacing
+S.~Krishnan, J.~Choi, and J.~Park, ``Learning time-varying graph signals via
+  koopman,'' vol.~12, pp. 16--30. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/11322857/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{mortaheb_graph_2019}
@@ -156,28 +303,6 @@ X.~S. Mootoo, A.~Fours, C.~Dinesh, M.~Ashkani, A.~Kiss, and M.~Faltyn,
   \url{http://medrxiv.org/lookup/doi/10.1101/2023.11.01.23297940}
 \BIBentrySTDinterwordspacing
 
-\bibitem{yan_signal_2026}
-\BIBentryALTinterwordspacing
-Y.~Yan, J.~Hou, Z.~Song, and E.~E. Kuruoglu, ``Signal processing over
-  time-varying graphs: A systematic review.'' [Online]. Available:
-  \url{http://arxiv.org/abs/2412.00462}
-\BIBentrySTDinterwordspacing
-
-\bibitem{krishnan_learning_2026}
-\BIBentryALTinterwordspacing
-S.~Krishnan, J.~Choi, and J.~Park, ``Learning time-varying graph signals via
-  koopman,'' vol.~12, pp. 16--30. [Online]. Available:
-  \url{https://ieeexplore.ieee.org/document/11322857/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{calazans_machine_2024}
-\BIBentryALTinterwordspacing
-M.~A.~A. Calazans, F.~A. B.~S. Ferreira, F.~A.~N. Santos, F.~Madeiro, and J.~B.
-  Lima, ``Machine learning and graph signal processing applied to healthcare: A
-  review,'' vol.~11, no.~7, p. 671. [Online]. Available:
-  \url{https://www.mdpi.com/2306-5354/11/7/671}
-\BIBentrySTDinterwordspacing
-
 \bibitem{tangermann2012bci}
 M.~Tangermann, K.-R. M{\"u}ller, A.~Aertsen, N.~Birbaumer, C.~Braun,
   C.~Brunner, R.~Leeb, C.~Mehring, K.~J. Miller, G.~R. M{\"u}ller-Putz
@@ -194,21 +319,5 @@ A.~Gramfort, M.~Luessi, E.~Larson, D.~A. Engemann, D.~Strohmeier, C.~Brodbeck,
 S.~Shekkizhar and A.~Ortega, ``Graph construction from data by non-negative
   kernel regression,'' in \emph{2020 IEEE International Conference on
   Acoustics, Speech and Signal Processing (ICASSP)}, 2020, pp. 3892--3896.
-
-\bibitem{miri_spectral_2024}
-\BIBentryALTinterwordspacing
-M.~Miri, V.~Abootalebi, H.~Saeedi-Sourck, D.~Van De~Ville, and H.~Behjat,
-  ``Spectral representation of {EEG} data using learned graphs with application
-  to motor imagery decoding,'' vol.~87, p. 105537. [Online]. Available:
-  \url{https://linkinghub.elsevier.com/retrieve/pii/S1746809423009709}
-\BIBentrySTDinterwordspacing
-
-\bibitem{jiang_graph-based_2021}
-\BIBentryALTinterwordspacing
-X.~Jiang, Z.~Tian, and K.~Li, ``A graph-based approach for missing sensor data
-  imputation,'' vol.~21, no.~20, pp. 23\,133--23\,144, conference Name: {IEEE}
-  Sensors Journal. [Online]. Available:
-  \url{https://ieeexplore.ieee.org/document/9520399/?arnumber=9520399}
-\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

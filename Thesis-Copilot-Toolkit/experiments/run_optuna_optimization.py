@@ -40,19 +40,19 @@ os.environ["EEGBCI_LOCAL_PATH"] = str(ROOT / "datasets" / "MNE-eegbci-data")
 # ---------------------------------------------------------------------------
 def get_physionet():
     data = load_physionet_eegmmidb(subject=1, run=4)
-    data["signals"] = data["signals"][:2000]
+    data["signals"] = data["signals"][:5000]
     data["info"]["name"] = "physionet"
     return data
 
 def get_bci_iv():
     data = load_bci_competition_iv_2a(subject=1)
-    data["signals"] = data["signals"][:2000]
+    data["signals"] = data["signals"][:5000]
     data["info"]["name"] = "bci_iv"
     return data
 
 def get_mne_sample():
     data = load_mne_sample_dataset()
-    data["signals"] = data["signals"][:2000]
+    data["signals"] = data["signals"][:5000]
     data["info"]["name"] = "mne_sample"
     return data
 

@@ -65,6 +65,8 @@ Al cierre de la extensa fase experimental de esta investigación, la evidencia a
 
 El alcance de este trabajo engloba la ejecución computacional a gran escala del \textit{pipeline} de evaluación cruzando múltiples datasets y escenarios de falla. A diferencia de las evaluaciones limitadas que abundan en el estado del arte, este trabajo consolida el análisis de miles de ensayos EEG bajo la optimización de decenas de miles de configuraciones paramétricas mediante Optuna.
 
+Para garantizar reproducibilidad y cobertura sistemática, la ejecución se ancla en un registro exhaustivo de corridas experimentales (\texttt{it\_exhaustive\_from\_registry.json}), que fija explícitamente combinaciones de datasets, modos de pérdida, semillas, grafos y familias de métodos. Este diseño evita evaluaciones ad-hoc y permite trazar cada afirmación cuantitativa reportada en los capítulos posteriores hasta su artefacto experimental correspondiente.
+
 Los principales aportes científicos y técnicos de esta tesis son:
 \begin{enumerate}
     \item \textbf{Demostración del Cruce de Desempeño Teórico:} Proporcionar evidencia estadística de que, una vez que los hiperparámetros están sintonizados, las familias de regularización temporal (TRSS y Tikhonov) dominan de forma absoluta a los \textit{baselines} geométricos (Spherical Splines) en fidelidad morfológica.

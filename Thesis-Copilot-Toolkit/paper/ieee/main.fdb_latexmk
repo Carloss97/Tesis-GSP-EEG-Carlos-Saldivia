@@ -1,19 +1,18 @@
 # Fdb version 4
-["bibtex main"] 1777056871.51782 "main.aux" "main.bbl" "main" 1777056874.45714 0
+["bibtex main"] 1777306133.67556 "main.aux" "main.bbl" "main" 1777306136.52173 0
   "./bibliography/references.bib" 1776993498 66254 3f338ed61bae4a3d362e4373cd899858 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1777056873 10156 8c17ce7d145f885e650793700fdc82d5 "pdflatex"
+  "main.aux" 1777306135 10519 e606cc0b4eecc6717b34059970060949 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777056871.75739 "main.tex" "main.pdf" "main" 1777056874.45757 0
+["pdflatex"] 1777306133.88233 "main.tex" "main.pdf" "main" 1777306136.52218 0
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1777054603 459212 81e66d1fccab1e9876c2c9dd450844de ""
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png" 1777054608 396031 ebcdcf269820e9553deea92333a15928 ""
   "../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png" 1777054607 100772 20e7084763861e389d5be07e408b0da6 ""
   "../../results_optuna_final/degradation_bci_iv_random_ratio.png" 1777054467 173571 f4ca1418451a60e6d02fed81cfaaea4e ""
   "../../results_optuna_final/global_comparison_physionet.png" 1777054463 116273 483d74ad6b3375647c4e41ba2a0dcc0c ""
-  "../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png" 1777054465 159168 7096babf487ee66f70916e4547d3f63c ""
   "../../shared/results_data.tex" 1777054555 1305 bdf3226fa7fc3c6e9becdedfcbafc2f6 ""
   "C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775773128 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/sarlo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775592608 13333848 4cb83b3387ed3ce0f29a76ab195f51c6 ""
@@ -141,19 +140,19 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-english.trsl" 1644048522 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "main.aux" 1777056873 10156 8c17ce7d145f885e650793700fdc82d5 "pdflatex"
-  "main.bbl" 1777056871 4934 ecc9d20e684c7b8bcf5ee0123995dc8c "bibtex main"
-  "main.out" 1777056873 5917 b300d26fdff0043009ec3147c118a099 "pdflatex"
+  "main.aux" 1777306135 10519 e606cc0b4eecc6717b34059970060949 "pdflatex"
+  "main.bbl" 1777306133 7572 a56d8702beb36937adf925ce6038dcfb "bibtex main"
+  "main.out" 1777306135 5917 b300d26fdff0043009ec3147c118a099 "pdflatex"
   "main.tex" 1777056571 2568 77cf4ee7eb485dda1e66c8983611515d ""
-  "sections/abstract.tex" 1776986223 1320 b83cb4717219bc31aef4f5ebb29f71a4 ""
+  "sections/abstract.tex" 1777272853 1549 509aefd9f0a519fe1daea7f5ee909173 ""
   "sections/conclusion.tex" 1776986251 1696 925c8a8c1a7774bef968673cbccc38b4 ""
   "sections/discussion.tex" 1777054544 5089 fc1907275ca3a44f750b602148e73141 ""
   "sections/experiments.tex" 1777052933 3195 3e818ef44694d755b42431a15a71119d ""
   "sections/introduction.tex" 1777055966 4005 bca369e452b04dc634c2598df15126b3 ""
   "sections/methods.tex" 1777056861 9976 dab8642f68c2ede29b8a00029bf30009 ""
-  "sections/related_work.tex" 1776987518 3674 0921ca525f6d5ec85605e152366bca76 ""
+  "sections/related_work.tex" 1777305277 4986 cb74fba950e2b1ac1d6861b145c456a3 ""
   "sections/reproducibility.tex" 1777056557 508 06b4d27aa159dfd37546a8a8bd65bb5b ""
-  "sections/results.tex" 1777052993 10731 f3ab1106942cc8346bd826f90a522f06 ""
+  "sections/results.tex" 1777273049 11192 cbeebba85827df06c892e0d6487eacc1 ""
   (generated)
   "main.aux"
   "main.log"

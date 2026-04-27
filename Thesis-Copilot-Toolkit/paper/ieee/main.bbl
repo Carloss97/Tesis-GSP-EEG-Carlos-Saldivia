@@ -68,11 +68,66 @@ F.~Perrin, J.~Pernier, O.~Bertrand, and J.~F. Echallier, ``Spherical splines
 M.~Jager, C.~Knoll, and F.~Bie{\ss}mann, ``Radial basis function interpolation
   of {EEG} signals,'' \emph{Clinical Neurophysiology}, 2016.
 
+\bibitem{morgenstern_theoretical_2025}
+\BIBentryALTinterwordspacing
+G.~Morgenstern and T.~Routtenberg, ``Theoretical guarantees for sparse graph
+  signal recovery,'' vol.~32, pp. 266--270, conference Name: {IEEE} Signal
+  Processing Letters. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/10787248/?arnumber=10787248}
+\BIBentrySTDinterwordspacing
+
+\bibitem{miri_spectral_2024}
+\BIBentryALTinterwordspacing
+M.~Miri, V.~Abootalebi, H.~Saeedi-Sourck, D.~Van De~Ville, and H.~Behjat,
+  ``Spectral representation of {EEG} data using learned graphs with application
+  to motor imagery decoding,'' vol.~87, p. 105537. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1746809423009709}
+\BIBentrySTDinterwordspacing
+
 \bibitem{giraldo2022}
 J.~H. Giraldo, A.~Mahmood, B.~Garcia-Garcia, D.~Thanou, and T.~Bouwmans,
   ``Reconstruction of time-varying graph signals via sobolev smoothness,''
   \emph{IEEE Transactions on Signal and Information Processing over Networks},
   vol.~8, pp. 201--214, 2022.
+
+\bibitem{yan_signal_2026}
+\BIBentryALTinterwordspacing
+Y.~Yan, J.~Hou, Z.~Song, and E.~E. Kuruoglu, ``Signal processing over
+  time-varying graphs: A systematic review.'' [Online]. Available:
+  \url{http://arxiv.org/abs/2412.00462}
+\BIBentrySTDinterwordspacing
+
+\bibitem{krishnan_learning_2026}
+\BIBentryALTinterwordspacing
+S.~Krishnan, J.~Choi, and J.~Park, ``Learning time-varying graph signals via
+  koopman,'' vol.~12, pp. 16--30. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/11322857/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{weinstein_imputing_2023}
+\BIBentryALTinterwordspacing
+A.~Weinstein, ``Imputing missing electroencephalography data using graph signal
+  processing,'' in \emph{18th International Symposium on Medical Information
+  Processing and Analysis}, M.~G. Linguraru, L.~Rittner, N.~Lepore,
+  E.~Romero~Castro, J.~Brieva, and P.~Guevara, Eds.\hskip 1em plus 0.5em minus
+  0.4em\relax {SPIE}, p.~8. [Online]. Available:
+  \url{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12567/2669735/Imputing-missing-electroencephalography-data-using-graph-signal-processing/10.1117/12.2669735.full}
+\BIBentrySTDinterwordspacing
+
+\bibitem{jiang_graph-based_2021}
+\BIBentryALTinterwordspacing
+X.~Jiang, Z.~Tian, and K.~Li, ``A graph-based approach for missing sensor data
+  imputation,'' vol.~21, no.~20, pp. 23\,133--23\,144, conference Name: {IEEE}
+  Sensors Journal. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/9520399/?arnumber=9520399}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mazarguil_non-smooth_2022}
+\BIBentryALTinterwordspacing
+A.~Mazarguil, L.~Oudre, and N.~Vayatis, ``Non-smooth interpolation of graph
+  signals,'' vol. 196, p. 108480. [Online]. Available:
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0165168422000275}
+\BIBentrySTDinterwordspacing
 
 \bibitem{shekkizhar2020}
 S.~Shekkizhar and A.~Ortega, ``Graph construction from data by non-negative

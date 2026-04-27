@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  24 APR 2026 14:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  27 APR 2026 12:08
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -536,9 +537,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-(sections/related_work.tex [1{C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdf
-tex/pdftex.map}{C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ba
-se/8r.enc}
+(sections/related_work.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/s
+arlo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 ]) (sections/methods.tex
@@ -559,13 +562,13 @@ Underfull \hbox (badness 1406) in paragraph at lines 12--13
 re-gres-
  []
 
-
+[2]
 Underfull \hbox (badness 2435) in paragraph at lines 22--23
  \T1/ptm/m/it/10 a) Ge-o-met-ric/Spline Base-lines: [][] \T1/ptm/m/n/10 Clas-si
 -cal al-ter-na-tives
  []
 
-[2]
+
 Underfull \hbox (badness 2158) in paragraph at lines 34--35
  \T1/ptm/m/it/10 c) Tem-po-ral Reg-u-lar-iza-tion Meth-ods (TRSS): [][] \T1/ptm
 /m/n/10 These
@@ -606,12 +609,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 71.
 
-) (sections/experiments.tex
+[3]) (sections/experiments.tex
 Underfull \hbox (badness 2828) in paragraph at lines 3--4
 \T1/ptm/m/n/10 load-ing and pre-pro-cess-ing, graph con-struc-tion, missing-
  []
 
-[3]
+
 Underfull \hbox (badness 2119) in paragraph at lines 8--9
 \T1/ptm/m/n/10 A large-scale database com-pris-ing 64-channel EEG
  []
@@ -621,7 +624,7 @@ Underfull \hbox (badness 1688) in paragraph at lines 3--4
 []\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
  []
 
-<../../results_optuna_final/global_comparison_physionet.png, id=198, 1149.5748p
+<../../results_optuna_final/global_comparison_physionet.png, id=211, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -629,57 +632,51 @@ type png)
 Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 187.04247pt.
-[4 <../../results_optuna_final/global_comparison_physionet.png>]
-<../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png, id=211
-, 628.749pt x 546.843pt>
-File: ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png Gr
-aphic file (type png)
-<use ../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png>
-Package pdftex.def Info: ../../results_optuna_final/radar_multimetric_mne_sampl
-e_random_0.4.png  used on input line 54.
-(pdftex.def)             Requested size: 252.0pt x 219.17555pt.
+[4]
+Underfull \vbox (badness 2556) has occurred while \output is active []
+
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=213, 1004.0712pt x 569.4876pt>
+d=225, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_1_0_count.png  used on input line 67.
+_nearby_1_0_count.png  used on input line 76.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
+ [5 <../../results_optuna_final/global_comparison_physionet.png> <../../results
+_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=215, 1004.0712pt x 569.4876pt>
+d=240, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
-_nearby_0_4_ratio.png  used on input line 78.
+_nearby_0_4_ratio.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
- [5 <../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png> <.
-./../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=230, 743.4174pt x 452.892pt>
+d=242, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
 g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
-_nearby_1_0_count.png  used on input line 87.
+_nearby_1_0_count.png  used on input line 96.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=233, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=245, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
 <use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
-atio.png  used on input line 100.
+atio.png  used on input line 109.
 (pdftex.def)             Requested size: 252.0pt x 93.7579pt.
-)
-(sections/discussion.tex [6 <../../results_optuna_baselines/erp_optimized_basel
-ines_nearby_0_4_ratio.png> <../../results_optuna_baselines/psd_optimized_baseli
-nes_nearby_1_0_count.png> <../../results_optuna_final/degradation_bci_iv_random
-_ratio.png>]) (sections/reproducibility.tex
+) (sections/discussion.tex
+[6 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png
+> <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png>
+ <../../results_optuna_final/degradation_bci_iv_random_ratio.png>])
+(sections/reproducibility.tex
 Underfull \hbox (badness 2229) in paragraph at lines 23--1
 \T1/ptm/m/n/10 default-configured base-lines, in-flat-ing per-ceived im-prove-
  []
@@ -690,14 +687,27 @@ Underfull \hbox (badness 6252) in paragraph at lines 23--1
  []
 
 ) (sections/conclusion.tex) (main.bbl [7]
-Underfull \hbox (badness 1448) in paragraph at lines 72--76
+Underfull \hbox (badness 1448) in paragraph at lines 88--92
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
  []
 
-)
-Overfull \vbox (0.77002pt too high) has occurred while \output is active []
 
+Underfull \hbox (badness 10000) in paragraph at lines 109--116
+\T1/ptm/m/n/8 spiedigitallibrary . org / conference-[]proceedings-[]of-[]spie /
+ 12567 / 2669735 /
+ []
+
+
+Overfull \hbox (23.51341pt too wide) in paragraph at lines 109--116
+\T1/ptm/m/n/8 Imputing-[]missing-[]electroencephalography-[]data-[]using-[]grap
+h-[]signal-[]processing /
+ []
+
+)
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
 
 [8] (main.aux)
  ***********
@@ -708,13 +718,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B300D26FDFF0043009EC3147C118A099;5917.
  ) 
 Here is how much of TeX's memory you used:
- 15473 strings out of 467867
- 310604 string characters out of 5418335
- 692377 words of memory out of 5000000
+ 15480 strings out of 467867
+ 310435 string characters out of 5418335
+ 692630 words of memory out of 5000000
  44078 multiletter control sequences out of 15000+600000
  749720 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,80p,1160b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,1389b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -738,9 +748,9 @@ o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarl
 o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sar
 lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sar
 lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 1518092 bytes).
+Output written on main.pdf (8 pages, 1394139 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 68 named destinations out of 1000 (max. 500000)
- 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

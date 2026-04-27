@@ -49,14 +49,23 @@ The statistical significance of these differences was evaluated using the non-pa
 
 Relying exclusively on amplitude error metrics like MAE can be deceiving in neurophysiological applications. A method might achieve a low MAE by simply heavily smoothing the signal towards zero, destroying the high-frequency dynamics required for downstream analysis.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/radar_multimetric_mne_sample_random_0.4.png}
-  \caption{Radar chart showing multi-metric performance on the MNE Sample dataset under a severe 40\% random missing channel scenario. The axes represent inverted normalized metrics (larger area is better). TRSS maximizes performance across all axes, particularly DTW.}
-  \label{fig:radar_mne}
-\end{figure}
+\begin{table}[ht]
+\centering
+\caption{Median multi-metric comparison by method family on MNE Sample (aggregated over exhaustive-registry scenarios). Lower is better for MAE, RMSE, DTW, and LSD; higher is better for SNR and Coherence.}
+\label{tab:multimetric_mne_families}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Family} & \textbf{MAE} $\downarrow$ & \textbf{RMSE} $\downarrow$ & \textbf{DTW} $\downarrow$ & \textbf{SNR} $\uparrow$ & \textbf{LSD} $\downarrow$ & \textbf{Coherence} $\uparrow$ \\
+\midrule
+Baseline & 0.0501 & 0.1405 & 0.8731 & 19.32 & 2.2534 & 0.9623 \\
+GSP spatial & 0.0862 & 0.2081 & 1.2247 & 14.16 & 2.2394 & 0.8816 \\
+Temporal (TRSS family) & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \textbf{20.83} & \textbf{2.2258} & \textbf{0.9763} \\
+\bottomrule
+\end{tabular}}
+\end{table}
 
-Figure~\ref{fig:radar_mne} presents a multi-metric radar chart for the MNE Sample dataset under a severe $40\%$ random channel loss. TRSS excels across all evaluated dimensions. While the margins in RMSE and MAE between TRSS and Tikhonov are narrow, TRSS separates itself definitively on the Dynamic Time Warping (DTW) axis (DTW $\approx$ \ResTVDTW). Since DTW measures the morphological similarity and phase alignment of time series, this result implies that TRSS reconstructs the actual "shape" of the brainwave, not merely its statistical mean.
+Table~\ref{tab:multimetric_mne_families} replaces the radar visualization with an explicit metric-by-metric summary, making cross-family trade-offs auditable in text form. Temporal regularization remains consistently dominant across all six metrics, with its most pronounced separation in DTW (morphological fidelity), where lower values indicate improved phase-aligned reconstruction. This behavior is consistent with the global trend already observed in Table~\ref{tab:main_results} and supports the interpretation that temporal priors improve not only pointwise error, but also waveform shape preservation.
 
 \subsection{Physiological Relevance: Event-Related Potentials (ERP) and PSD}
 

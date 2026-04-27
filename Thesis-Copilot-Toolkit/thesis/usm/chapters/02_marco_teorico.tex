@@ -6,6 +6,8 @@ Este capítulo establece los fundamentos conceptuales, neurofisiológicos y mate
 
 El electroencefalograma es el registro de la actividad eléctrica del cerebro captada desde la superficie del cuero cabelludo. Esta señal refleja la suma espacio-temporal de los potenciales postsinápticos excitatorios e inhibitorios generados por decenas de miles de neuronas piramidales sincronizadas en la corteza cerebral. Debido a que las fuentes de estas corrientes eléctricas se encuentran separadas de los electrodos por diversas capas de tejido (piamadre, líquido cefalorraquídeo, cráneo y cuero cabelludo), la señal sufre un efecto de filtrado espacial y atenuación conocido como \textit{efecto de conducción de volumen} (volume conduction).
 
+En paralelo al uso clínico tradicional, la literatura reciente en procesamiento de EEG ha enfatizado que los retos actuales no se reducen al filtrado de ruido, sino a la preservación simultánea de estructura espacial, dinámica temporal y contenido espectral en presencia de datos incompletos \cite{sharma_emerging_2024}. Esta necesidad ha impulsado la transición desde modelos puramente geométricos hacia marcos de señal sobre grafos con regularización física y estadística \cite{calazans_machine_2024, li_graph_2023}.
+
 Este efecto provoca que el potencial eléctrico generado por una única fuente cortical se propague e irradie, siendo detectado por múltiples electrodos simultáneamente. Como resultado, las señales registradas en electrodos adyacentes presentan un alto grado de correlación espacial. Sin embargo, esta propagación no es perfectamente esférica ni homogénea debido a las anisotropías en la conductividad del cráneo. Por ello, si bien la distancia euclidiana entre electrodos es informativa, no es una representación perfecta de la conectividad funcional subyacente.
 
 Las señales EEG se caracterizan por su naturaleza oscilatoria y transitoria. Clásicamente, la actividad continua se descompone en bandas de frecuencia (Delta, Theta, Alfa, Beta, Gamma), mientras que la actividad evocada o fásica se manifiesta como Potenciales Relacionados a Eventos (ERP, por sus siglas en inglés). Los ERPs, como el N100 o el P300, son fluctuaciones de voltaje transitorias y de fase bloqueada que reflejan el procesamiento cognitivo o sensorial. La preservación de la morfología y la latencia temporal de estos ERPs es crítica en aplicaciones clínicas y de interfaces cerebro-computador (BCI).
@@ -24,9 +26,13 @@ donde los coeficientes $c_i$ se obtienen resolviendo un sistema lineal sobre los
 
 El problema central de las familias geométricas es que calculan la interpolación operando sobre cada instante de tiempo $t$ de forma aislada. Al carecer de \textit{memoria} temporal, son incapaces de preservar la fase de transitorios rápidos o la dinámica espectral subyacente, introduciendo discontinuidades y ruido artificial de alta frecuencia en el canal interpolado.
 
+Esta limitación ha sido señalada también en estudios de interpolación no-suave sobre grafos, donde se evidencia que la hipótesis de suavidad global puede ser insuficiente para señales con transitorios locales marcados \cite{mazarguil_non-smooth_2022}. En el contexto específico de EEG, reportes aplicados han mostrado que incorporar estructura de grafo mejora la imputación frente a enfoques clásicos, pero con fuerte dependencia de la calidad del grafo y su parametrización \cite{weinstein_imputing_2023, jiang_graph-based_2021}.
+
 \section{Teoría de Grafos y Procesamiento de Señales en Grafos (GSP)}
 
-Para abandonar la restricción de la esfera euclidiana, el Procesamiento de Señales en Grafos (GSP) \cite{shuman_emerging_2013, ortega_graph_2018-1} propone modelar los electrodos y sus interacciones complejas como un grafo ponderado. 
+Para abandonar la restricción de la esfera euclidiana, el Procesamiento de Señales en Grafos (GSP) \cite{shuman_emerging_2013, ortega_graph_2018-1, ortega_introduction_2022, leus_graph_2023} propone modelar los electrodos y sus interacciones complejas como un grafo ponderado. 
+
+Desde una perspectiva histórica, esta transición no solo introduce nuevas herramientas matemáticas, sino también un cambio epistemológico: la señal ya no se interpreta como una función en una superficie continua idealizada, sino como una realización en una red irregular donde topología y señal se co-determinan. Esta visión ha demostrado utilidad en aplicaciones biomédicas para representación espectral, reducción de dimensionalidad y análisis de conectividad funcional \cite{rui_dimensionality_2016, miri_spectral_2024}.
 
 Un grafo no dirigido se define como $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$, donde $\mathcal{V}$ es el conjunto de $N$ vértices (electrodos), $\mathcal{E}$ es el conjunto de aristas y $\mathbf{W} \in \mathbb{R}^{N \times N}$ es la matriz de adyacencia ponderada. El peso $W_{ij} \ge 0$ codifica la fuerza de la relación (física o funcional) entre el electrodo $i$ y el electrodo $j$. Una señal de EEG en un instante determinado se define como una "señal sobre el grafo" $\mathbf{x} \in \mathbb{R}^N$, una función que mapea cada vértice a un escalar (voltaje).
 
@@ -40,6 +46,8 @@ La forma cuadrática del Laplaciano cuantifica la "variación total" o la suavid
     \label{eq:smoothness}
 \end{equation}
 Un valor bajo de $S(\mathbf{x})$ indica que los valores de señal entre electrodos fuertemente conectados son muy similares, lo que representa una señal suave o de baja frecuencia en el dominio espacial.
+
+En términos de marco conceptual general, la formulación moderna de señales sobre grafos y sus operadores espectrales se apoya también en revisiones fundacionales complementarias ampliamente citadas en la literatura reciente \cite{ortega_graph_2018}.
 
 \subsection{Transformada de Fourier sobre Grafos (GFT)}
 
@@ -58,6 +66,8 @@ El éxito del GSP recae enteramente en la matriz $\mathbf{W}$. En neurofisiolog�
     \item \textbf{Aprendizaje de Grafos (Graph Learning):} Problemas de optimización inversos que buscan inferir la matriz $\mathbf{W}$ desde los datos pidiendo simultáneamente que la red resultante sea esparsa y que las señales observadas exhiban alta suavidad laplaciana \cite{kalofolias_how_2016, qiao_data-driven_2018}.
 \end{itemize}
 
+Dentro de esta línea, los trabajos sobre aprendizaje de grafos de gran escala y selección de vecindad para señales sobre grafos han reforzado criterios prácticos de construcción topológica en escenarios con alta dimensionalidad y heterogeneidad de conectividad \cite{kalofolias_large_2019, shekkizhar_graph_2020, shekkizhar_neighborhood_2023}.
+
 \section{Estrategias de Reconstrucción de Grafos}
 
 El problema de interpolación se formula como un problema inverso mal propuesto. Definimos una matriz diagonal de muestreo $\mathbf{S} \in \mathbb{R}^{N \times N}$ donde $S_{ii} = 1$ si $i \in \mathcal{K}$ (observado) y $0$ si $i \in \mathcal{U}$ (faltante). Observamos la señal parcial $\mathbf{y} = \mathbf{S} \mathbf{x}$.
@@ -70,8 +80,12 @@ El enfoque clásico de GSP es la regularización de Tikhonov sobre grafos \cite{
 \end{equation}
 donde el hiperparámetro $\alpha > 0$ controla el nivel de suavidad forzada (\textit{spatial smoothness}). 
 
+Además de la formulación cerrada, existen variantes iterativas localizadas que reducen costo computacional y facilitan despliegue en redes de sensores de mayor escala \cite{narang_localized_2013}.
+
 \subsection{Recuperación Bandlimited y Espacios RKHS (BGSRP)}
-Un enfoque alternativo, BGSRP (\textit{Bandlimited Graph Signal Recovery in RKHS}) \cite{zhang_recovery_2024}, asume que las señales EEG son estrictamente limitadas en banda (solo contienen frecuencias de grafo $\lambda \le \lambda_c$). Utilizando un Espacio de Hilbert de Núcleo Reproductor (RKHS), se reconstruye la señal proyectando sobre una matriz núcleo $\mathbf{K}$ ensamblada a partir de los primeros $B$ autovectores.
+Un enfoque alternativo, BGSRP (\textit{Bandlimited Graph Signal Recovery in RKHS}) \cite{zhang_recovery_2024}, asume que las señales EEG son estrictamente limitadas en banda (solo contienen frecuencias de grafo $\lambda \le \lambda_c$). Utilizando un Espacio de Hilbert de Núcleo Reproductor (RKHS), se reconstruye la señal proyectando sobre una matriz núcleo $\mathbf{K}$ ensamblada a partir de los primeros $B$ autovectores. En paralelo, la literatura reciente también ha reforzado la base teórica de la recuperación sobre grafos con resultados de garantía de identificación y acotación de coherencia \cite{morgenstern_theoretical_2025}, además de extender los marcos de reconstrucción hacia formulaciones generalizadas vértice-tiempo \cite{zhao_generalized_2025}.
+
+En la misma línea, los desarrollos más recientes sobre grafos variables en el tiempo muestran que, cuando la estructura de dependencia evoluciona junto con la señal, los modelos con acoplamiento espacio-temporal explícito ofrecen mayor capacidad de generalización para tareas de reconstrucción y predicción \cite{yan_signal_2026, krishnan_learning_2026}. Esta evidencia respalda directamente el uso de regularización temporal en escenarios EEG con pérdida severa o contigua de canales.
 
 \subsection{Regularización Espacio-Temporal (TRSS)}
 Todos los métodos anteriores reconstruyen una muestra temporal a la vez. Sin embargo, un EEG es una matriz continua $\mathbf{X} \in \mathbb{R}^{N \times T}$. La Regularización de Suavidad de Sobolev Temporal (TRSS, \textit{Temporal Regularized Sobolev Smoothness}) \cite{giraldo2022} revoluciona la interpolación minimizando simultáneamente los gradientes espaciales y las derivadas temporales:

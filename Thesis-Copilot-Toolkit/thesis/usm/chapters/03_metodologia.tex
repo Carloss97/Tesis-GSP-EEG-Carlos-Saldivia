@@ -16,6 +16,8 @@ El flujo de trabajo se organiza como una secuencia determinista de seis etapas:
 
 Cada etapa genera artefactos intermedios serializados (archivos CSV, JSON y matrices NumPy), lo que permite desacoplar el cómputo intensivo de la generación de figuras y tablas finales. Esta modularidad garantiza la trazabilidad completa desde el dato crudo hasta cada cifra reportada en el manuscrito.
 
+Como capa final de control experimental, la cobertura de configuraciones se gobernó mediante el registro exhaustivo \texttt{it\_exhaustive\_from\_registry.json}, donde se define explícitamente el espacio combinatorio de datasets, constructores de grafo, escenarios de pérdida, semillas, hiperparámetros y familias de métodos. De esta forma, cada resultado reportado puede rastrearse en la cadena \textit{schedule $\rightarrow$ run $\rightarrow$ artifacts}, vinculando la definición de la corrida con sus salidas en \texttt{results/} (\texttt{itX*\_raw.csv}, \texttt{itX*\_stats.csv}, \texttt{itX*\_significance.csv}, \texttt{itX*\_run\_metadata.json}, figuras y reportes de QA).
+
 La implementación completa reside en un repositorio Python estructurado bajo el directorio \texttt{Thesis-Copilot-Toolkit/}, con los módulos principales organizados en:
 \begin{itemize}
     \item \texttt{src/data/data\_loader.py}: Cargadores unificados para los tres datasets.

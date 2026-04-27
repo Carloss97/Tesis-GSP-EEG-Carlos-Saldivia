@@ -10,8 +10,14 @@ Graph-based interpolation for missing data in structured signals represents a si
 
 The overarching GSP framework, as comprehensively detailed by Shuman \emph{et al.} \cite{shuman2013} and Ortega \emph{et al.} \cite{ortega2018}, establishes the intuition that a graph Laplacian can replace the traditional spatial derivative operator when data resides on an irregular manifold, such as the human scalp. More recent methods have expanded on this by integrating Reproducing Kernel Hilbert Spaces (RKHS) for continuous recovery, such as the BGSRP algorithm \cite{zhang2024bgsrp}.
 
+Recent theoretical advances further strengthen this line of work by providing explicit recovery guarantees and coherence bounds for sparse graph-signal recovery \cite{morgenstern_theoretical_2025}, while applied studies in biomedical signal processing have shown that graph spectral representations can improve robustness under non-stationary neurophysiological conditions \cite{miri_spectral_2024}. Together, these developments motivate evaluating interpolation methods not only by amplitude error, but also by temporal and spectral fidelity.
+
 \subsection{Temporal Regularization and the Benchmarking Gap}
 While static GSP methods successfully incorporate spatial topology, they still reconstruct signals frame-by-frame. Recent advancements in time-varying graph signals \cite{giraldo2022} address this by introducing Sobolev smoothness constraints across the time axis, jointly optimizing both spatial and temporal derivatives. 
+
+This direction is aligned with broader reviews on time-varying graph signal processing, which emphasize that explicit temporal modeling is crucial whenever graph-structured observations evolve dynamically \cite{yan_signal_2026, krishnan_learning_2026}.
+
+At the same time, practical evidence from EEG and sensor-imputation applications indicates that graph-aware interpolation consistently improves robustness over purely geometric methods, especially when channel loss is structured or severe \cite{weinstein_imputing_2023, jiang_graph-based_2021}. Complementary non-smooth graph interpolation studies also caution that over-smoothing can hide local transients, reinforcing the need for balanced spatiotemporal regularization \cite{mazarguil_non-smooth_2022}.
 
 Despite the proliferation of these advanced algorithms, the literature suffers from a substantial benchmarking gap. Novel methods are frequently evaluated against classical baselines (e.g., Spherical Splines) executed using their default software configurations, rather than being rigorously tuned for the specific dataset at hand. Furthermore, evaluations are often restricted to a single dataset or masking protocol, obscuring whether an algorithm is universally robust or merely overfitted to a specific experimental setup. 
 
