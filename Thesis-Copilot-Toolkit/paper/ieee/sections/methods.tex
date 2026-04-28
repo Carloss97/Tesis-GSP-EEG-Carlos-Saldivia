@@ -19,7 +19,11 @@ For the final benchmarking, we utilized Gaussian-weighted $k$-NN (\iterid{knng})
 Let $\mathcal{K}$ denote the set of known (observed) channels and $\mathcal{U}$ the unknown (missing) channels. We compare three distinct families of methods:
 
 \paragraph{Geometric/Spline Baselines} 
-Classical alternatives that do not exploit graph theory, relying strictly on Euclidean distance or surface projections. The most prominent baseline in EEG research is the \emph{Spherical Spline} \cite{perrin1989}. It models the scalp potential as a function $V(\mathbf{r}) = c_0 + \sum_{i \in \mathcal{K}} c_i \, g(\mathbf{r}, \mathbf{r}_i)$, where $\mathbf{r}_i$ are electrode coordinates, and $g(\mathbf{r}, \mathbf{r}_i) = \frac{1}{4\pi} \sum_{n=1}^{\infty} \frac{2n+1}{n^m (n+1)^m} P_n(\cos(\theta))$ using Legendre polynomials $P_n$ and the angle $\theta$ between vectors. While geometrically elegant, it operates strictly in the spatial domain for every individual time sample, completely ignoring temporal continuity.
+Classical alternatives that do not exploit graph theory rely strictly on Euclidean distance or surface projections. The most prominent baseline in EEG research is the \emph{Spherical Spline} \cite{perrin1989}. It represents the scalp potential with a spherical basis expansion over the known channels:
+\begin{equation}
+V(\mathbf{r}) = c_0 + \sum_{i \in \mathcal{K}} c_i \, g(\mathbf{r}, \mathbf{r}_i),
+\end{equation}
+where the coefficients $c_i$ are estimated from the observed electrodes and $g(\mathbf{r}, \mathbf{r}_i)$ is the spline kernel defined over electrode coordinates. While geometrically elegant, it operates strictly in the spatial domain for each time sample and therefore ignores temporal continuity.
 
 \paragraph{Instant GSP Methods (Tikhonov)} 
 These methods operate independently at each time sample using graph priors. The graph Laplacian regularization problem, also known as Tikhonov regularization on graphs, enforces spatial smoothness:
@@ -34,12 +38,12 @@ where $\alpha$ controls the smoothness penalty. The pure GSP case (hard constrai
 These methods jointly optimize spatial and temporal criteria over an entire signal matrix (or epoch) $\mathbf{X} \in \mathbb{R}^{N \times T}$. The Temporal Regularized Sobolev Smoothness (TRSS) method \cite{giraldo2022} explicitly penalizes high-frequency variations in both the graph domain and the time domain:
 \begin{equation}
   \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
-    \|\mathbf{Z}_{\mathcal{K},:} - \mathbf{X}_{\mathcal{K},:}\|_F^2
+    \|\mathbf{Z}_{\mathcal{K}, :} - \mathbf{X}_{\mathcal{K}, :}\|_F^2
     + \alpha \operatorname{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})
     + \beta \|\Delta_t \mathbf{Z}\|_F^2,
   \label{eq:sobolev}
 \end{equation}
-where $\|\cdot\|_F$ is the Frobenius norm, $\operatorname{tr}(\cdot)$ is the trace operator, and $\Delta_t$ is a finite-difference operator along the time axis. The hyperparameter $\beta$ explicitly controls the assumption of temporal smoothness, mirroring the low-frequency physiological nature of most EEG signals.
+Here, $\mathbf{Z}_{\mathcal{K}, :}$ denotes the submatrix formed by the observed channels indexed by $\mathcal{K}$ across all time samples; the colon means ``all columns''. The operator $\|\cdot\|_F$ is the Frobenius norm, $\operatorname{tr}(\cdot)$ is the trace operator, and $\Delta_t$ is a finite-difference operator along the time axis. The hyperparameter $\beta$ explicitly controls the assumption of temporal smoothness, mirroring the low-frequency physiological nature of most EEG signals.
 
 \subsection{Evaluation Metrics}
 
@@ -64,7 +68,7 @@ To prevent the pervasive literature bias of comparing finely-tuned novel algorit
 \item \textbf{Tikhonov}: $\alpha \in [10^{-3}, 10^{2}]$ (log scale), $k \in [3, 20]$.
 \item \textbf{Spherical Splines / RBF}: stiffness/smoothness parameters tuned extensively across continuous ranges.
 \end{itemize}
-Optimization was executed per-method with a stratified sampler configuration to ensure fair tuning across families. Graph-based and temporal methods (e.g., Tikhonov, TRSS) were optimized with Optuna's TPE sampler using 30 trials per dataset–scenario combination (see `experiments/run_optuna_optimization.py`, N_TRIALS=30). Geometric baseline methods (Spherical Spline, RBF, ICA) were tuned via a multi-objective NSGA-II sampler with 10 trials per combination, selecting Pareto-optimal solutions on MAE vs. LSD (see `experiments/run_optuna_baselines.py`, NSGAIISampler, n_trials=10).
+Optimization was executed per method with a stratified sampler configuration to ensure fair tuning across families. Graph-based and temporal methods (e.g., Tikhonov and TRSS) were optimized with Optuna's TPE sampler using 30 trials per dataset--scenario combination. Geometric baseline methods (Spherical Spline, RBF, and ICA) were tuned with a multi-objective NSGA-II sampler using 10 trials per combination, selecting Pareto-optimal solutions on MAE versus LSD. The implementation details are documented in the corresponding optimization scripts in the repository.
 
 To ensure the validity of the results and prevent data leakage, we implemented a strict temporal train/test split for every trial. The first 70\% of each signal segment was designated as the \emph{Optimization Set}, used by Optuna to evaluate the objective function and tune hyperparameters ($\alpha, \beta, k, \dots$). Critically, to account for the strong temporal autocorrelation inherent in band-pass filtered EEG signals (0.5--40~Hz), a \emph{buffer gap} of 2~seconds ($2 \times f_s$ samples) was discarded between the Optimization Set and the \emph{Test Set}. This dead zone ensures that the test samples are not trivially predictable from the optimization boundary. The remaining samples after the gap constitute the Test Set. All metrics reported herein correspond exclusively to this unseen Test Set.
 

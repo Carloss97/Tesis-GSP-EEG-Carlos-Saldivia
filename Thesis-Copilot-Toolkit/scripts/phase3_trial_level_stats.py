@@ -30,6 +30,35 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(WORK_DIR, exist_ok=True)
 
 
+METHOD_DISPLAY_NAMES = {
+    'sobolev': 'Sobolev',
+    'trss': 'TRSS',
+    'tikhonov': 'Tikhonov',
+    'spherical_spline': 'Spherical Spline',
+    'spherical_s': 'Spherical Spline',
+    'rbfi_tps': 'RBF (TPS)',
+    'temporal_laplacian': 'Temporal Laplacian',
+    'temporal_la': 'Temporal Laplacian',
+    'tv': 'Temporal Variation',
+    'idw': 'IDW',
+    'linear': 'Linear',
+    'ica': 'ICA',
+    'bgsrp': 'BGSRP',
+    'visibility_nnk': 'Visibility NNK',
+}
+
+
+def format_method_label(method_name):
+    """Return a LaTeX-safe display label for an internal method identifier."""
+    label = METHOD_DISPLAY_NAMES.get(method_name, method_name.replace('_', r'\_'))
+    wrapped_labels = {
+        'Temporal Laplacian': r'\shortstack{Temporal\\Laplacian}',
+        'Spherical Spline': r'\shortstack{Spherical\\Spline}',
+        'Temporal Variation': r'\shortstack{Temporal\\Variation}',
+    }
+    return wrapped_labels.get(label, label)
+
+
 def cliffs_delta(x, y):
     """
     Compute Cliff's delta effect size.
@@ -178,6 +207,7 @@ def generate_latex_table(df_results, metric='MAE', output_file=None):
                        r'Mann-Whitney test with Cliff delta effect size. '
                        r'Significant: $p < 0.05$ (*, **=0.01, ***=0.001).}')
     latex_lines.append(r'\label{tab:phase3_trial_level}')
+    latex_lines.append(r'\resizebox{\linewidth}{!}{%')
     latex_lines.append(r'\begin{tabular}{llrrrrrr}')
     latex_lines.append(r'\toprule')
     latex_lines.append(r'Method A & Method B & Med.~A & Med.~B & $p$ & $\delta$ & Winner & Diff \\')
@@ -185,13 +215,13 @@ def generate_latex_table(df_results, metric='MAE', output_file=None):
     
     sig_threshold = 0.05
     for _, row in df_results.head(30).iterrows():
-        m_a = row['method_a'][:11]  # truncate carefully
-        m_b = row['method_b'][:11]
+        m_a = format_method_label(row['method_a'])
+        m_b = format_method_label(row['method_b'])
         med_a = row['median_a']
         med_b = row['median_b']
         pval = row['p_value']
         delta = row['cliffs_delta']
-        winner = row['winner'][:11]
+        winner = format_method_label(row['winner'])
         benefit = row['benefit']
         
         # Significance marker
@@ -212,6 +242,7 @@ def generate_latex_table(df_results, metric='MAE', output_file=None):
     
     latex_lines.append(r'\bottomrule')
     latex_lines.append(r'\end{tabular}')
+        latex_lines.append(r'}')
     latex_lines.append(r'\footnotesize Note: Med.~=~median MAE; $\delta$~=~Cliff delta; Diff~=~absolute difference.')
     latex_lines.append(r'\end{table}')
     
@@ -241,14 +272,17 @@ def generate_summary(df_results, output_file=None):
     lines.append("TOP 10 MOST SIGNIFICANT PAIRWISE DIFFERENCES (by p-value)")
     lines.append("-" * 80)
     for i, (_, row) in enumerate(df_results.head(10).iterrows(), 1):
-        lines.append(f"\n{i}. {row['method_a']} vs {row['method_b']}")
-        lines.append(f"   Median {row['method_a']}: {row['median_a']:.6f} "
+        method_a = format_method_label(row['method_a'])
+        method_b = format_method_label(row['method_b'])
+        winner = format_method_label(row['winner'])
+        lines.append(f"\n{i}. {method_a} vs {method_b}")
+        lines.append(f"   Median {method_a}: {row['median_a']:.6f} "
                      f"({row['ci_a_lower']:.6f}–{row['ci_a_upper']:.6f})")
-        lines.append(f"   Median {row['method_b']}: {row['median_b']:.6f} "
+        lines.append(f"   Median {method_b}: {row['median_b']:.6f} "
                      f"({row['ci_b_lower']:.6f}–{row['ci_b_upper']:.6f})")
         lines.append(f"   p-value: {row['p_value']:.6f} {'***' if row['p_value'] < 0.001 else '**' if row['p_value'] < 0.01 else '*' if row['p_value'] < 0.05 else '(ns)'}")
         lines.append(f"   Cliff's delta: {row['cliffs_delta']:.4f}")
-        lines.append(f"   Winner: {row['winner']} (benefit: {row['benefit']:.6f})")
+        lines.append(f"   Winner: {winner} (benefit: {row['benefit']:.6f})")
     
     lines.append("\n" + "=" * 80)
     lines.append(f"Total pairwise comparisons: {len(df_results)}")

@@ -43,7 +43,7 @@ Table~\ref{tab:main_results} presents the quantitative results stratified by deg
 \end{tabular}}
 \end{table}
 
-The statistical significance of these differences was evaluated using the non-parametric Wilcoxon signed-rank test. The test was paired over $n = 42$ shared experimental contexts (3 datasets $\times$ 14 scenarios), comparing each method pair on the same (dataset, mode, level) combination. To account for multiple comparisons across 6 metrics, we applied the Bonferroni correction ($\alpha_{\text{adj}} = 0.05/6 = 0.0083$). The corrected test rejected the null hypothesis for TRSS vs. Spherical Spline on all six metrics (corrected $p < 0.001$), and for TRSS vs. Tikhonov on MAE, DTW, LSD, and Coherence (corrected $p < 0.005$), confirming that the observed improvements are structurally significant and not attributable to stochastic noise.
+To avoid mixing iteration-level summaries with inferential claims, the formal significance analysis is reported at the trial level in the subsection below.
 
 \subsection{Multi-Metric Evaluation: Spatial vs. Temporal Fidelity}
 

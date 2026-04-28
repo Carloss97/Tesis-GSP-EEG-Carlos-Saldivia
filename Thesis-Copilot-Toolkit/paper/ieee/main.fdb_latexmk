@@ -1,13 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1777306133.67556 "main.aux" "main.bbl" "main" 1777306136.52173 0
-  "./bibliography/references.bib" 1776993498 66254 3f338ed61bae4a3d362e4373cd899858 ""
+["bibtex main"] 1777361951.62312 "main.aux" "main.bbl" "main" 1777361954.39696 0
+  "./bibliography/references.bib" 1777343988 19776 15537ea63a594f67ab9bc84ea6b74c3b ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1777306135 10519 e606cc0b4eecc6717b34059970060949 "pdflatex"
+  "main.aux" 1777361953 11324 5015a7cc9860e9256a664f30027ccfbb "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777306133.88233 "main.tex" "main.pdf" "main" 1777306136.52218 0
+["pdflatex"] 1777361951.84273 "main.tex" "main.pdf" "main" 1777361954.39748 0
+  "../../results/tablas_resumen/phase3_trial_level_table.tex" 1777361763 3144 a14b0bb38cd07a63af44503043f70992 ""
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1777054603 459212 81e66d1fccab1e9876c2c9dd450844de ""
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png" 1777054608 396031 ebcdcf269820e9553deea92333a15928 ""
   "../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png" 1777054607 100772 20e7084763861e389d5be07e408b0da6 ""
@@ -58,6 +59,7 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1247596667 37912 07513ec114ac737ab54cea0152f4424b ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
+  "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
@@ -140,19 +142,19 @@
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/dicts/translations-basic-dictionary-english.trsl" 1644048522 5588 0c1628daf15f4411ff1f463114c634a3 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "main.aux" 1777306135 10519 e606cc0b4eecc6717b34059970060949 "pdflatex"
-  "main.bbl" 1777306133 7572 a56d8702beb36937adf925ce6038dcfb "bibtex main"
-  "main.out" 1777306135 5917 b300d26fdff0043009ec3147c118a099 "pdflatex"
+  "main.aux" 1777361953 11324 5015a7cc9860e9256a664f30027ccfbb "pdflatex"
+  "main.bbl" 1777361951 7855 2ace6928d5204fb25a207bc7fbaccc9f "bibtex main"
+  "main.out" 1777361953 6431 5d306caa53deb880d4f9a676ee841809 "pdflatex"
   "main.tex" 1777056571 2568 77cf4ee7eb485dda1e66c8983611515d ""
-  "sections/abstract.tex" 1777272853 1549 509aefd9f0a519fe1daea7f5ee909173 ""
-  "sections/conclusion.tex" 1776986251 1696 925c8a8c1a7774bef968673cbccc38b4 ""
-  "sections/discussion.tex" 1777054544 5089 fc1907275ca3a44f750b602148e73141 ""
+  "sections/abstract.tex" 1777343769 1531 9e4f6526297f0b857598baf7203b786d ""
+  "sections/conclusion.tex" 1777361923 2537 94def0fdcd182f3872ce5a4cd31bd013 ""
+  "sections/discussion.tex" 1777361923 5808 806f2362f07dbafee280be4137701678 ""
   "sections/experiments.tex" 1777052933 3195 3e818ef44694d755b42431a15a71119d ""
   "sections/introduction.tex" 1777055966 4005 bca369e452b04dc634c2598df15126b3 ""
-  "sections/methods.tex" 1777056861 9976 dab8642f68c2ede29b8a00029bf30009 ""
-  "sections/related_work.tex" 1777305277 4986 cb74fba950e2b1ac1d6861b145c456a3 ""
+  "sections/methods.tex" 1777346699 10512 b5e02f315d7c0e5276214776338f82f1 ""
+  "sections/related_work.tex" 1777306310 4986 cb74fba950e2b1ac1d6861b145c456a3 ""
   "sections/reproducibility.tex" 1777056557 508 06b4d27aa159dfd37546a8a8bd65bb5b ""
-  "sections/results.tex" 1777273049 11192 cbeebba85827df06c892e0d6487eacc1 ""
+  "sections/results.tex" 1777346699 12109 cae4f3d70d673aba75182e2b6bff24e6 ""
   (generated)
   "main.aux"
   "main.log"

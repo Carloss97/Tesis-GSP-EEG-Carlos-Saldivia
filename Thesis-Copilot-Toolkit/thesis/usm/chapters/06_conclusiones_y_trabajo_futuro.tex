@@ -18,8 +18,6 @@ La evidencia acumulada a lo largo de la extensa fase experimental permite \textb
 
     \item \textbf{La brecha es estructural, no paramétrica:} La optimización exhaustiva de los baselines con Optuna (NSGA-II multi-objetivo sobre MAE y LSD) demostró que incluso con hiperparámetros perfectos, las Spherical Splines no pueden evitar el colapso de fase bajo degradación severa contigua. La limitación es inherente a la formulación sin memoria temporal.
 
-    \item \textbf{Significancia estadística:} Las pruebas de Wilcoxon pareado rechazaron la hipótesis nula ($p < 0.05$) para el contraste de familias Temporal vs. Geométrica tanto en MAE como en DTW, confirmando que las diferencias observadas no son atribuibles a variabilidad aleatoria.
-
     \item \textbf{Preservación fisiológica:} TRSS demostró capacidad excepcional para preservar Potenciales Relacionados a Eventos (ERPs) y Densidad Espectral de Potencia (PSD) bajo escenarios de pérdida severa (40\% nearby). El LSD de TRSS ($\approx 0.11$) fue más de tres veces menor que el de Spherical Spline ($\approx 0.37$), y la Coherencia Espectral se mantuvo por encima de $0.99$.
 
     \item \textbf{Consistencia multi-dataset:} La superioridad de TRSS se verificó en tres datasets heterogéneos ---PhysioNet (64 canales, alta densidad), BCI IV 2a (22 canales, baja densidad) y MNE Sample (60 canales, paradigma evocado)--- descartando overfitting a una topología particular.
@@ -66,7 +64,7 @@ Los resultados y limitaciones identificados en esta tesis abren múltiples líne
 La aplicación más inmediata y de mayor impacto práctico es la integración de TRSS en pipelines BCI \textit{online}. Esto requiere:
 \begin{itemize}
     \item \textbf{Ventanas deslizantes:} Adaptar TRSS para operar sobre ventanas temporales solapadas de longitud fija, permitiendo procesamiento causal (solo información pasada y presente).
-    \item \textbf{Aceleración GPU:} Paralelizar las operaciones matriciales (producto Laplaciano, gradiente) en GPU mediante frameworks como CuPy o PyTorch, reduciendo la latencia de reconstrucción de segundos a milisegundos.
+    \item \textbf{Aceleración GPU:} Paralelizar las operaciones matriciales (producto Laplaciano, gradiente) en GPU mediante frameworks como CuPy o PyTorch, con el objetivo de reducir aún más la latencia medida en el microbenchmark local.
     \item \textbf{Calibración rápida:} Desarrollar heurísticas para la selección rápida de $\alpha$ y $\beta$ basadas en las propiedades espectrales del grafo (e.g., gap espectral), evitando la necesidad de una optimización Optuna completa en tiempo de inferencia.
 \end{itemize}
 

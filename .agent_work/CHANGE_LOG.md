@@ -378,6 +378,13 @@
 **Validation**: Final pass confirmed that Phase 5 and Phase 6 changes remained intact and publication-ready  
 **Status**: Complete ✓
 
+### 2026-04-27 PUBLICATION STRATEGY GUIDANCE
+**File**: `.agent_work/PUBLICATION_STRATEGY_GUIDE.md`  
+**Change**: Added a final publication strategy guide with submission-vs-acceptance advice and recommended last-mile improvements  
+**Reason**: Provide a durable decision aid for whether to submit now or invest in one more strengthening pass  
+**Validation**: Document created and aligned with the current Phase 7-ready state  
+**Status**: Complete ✓
+
 ---
 
 ## Final Status

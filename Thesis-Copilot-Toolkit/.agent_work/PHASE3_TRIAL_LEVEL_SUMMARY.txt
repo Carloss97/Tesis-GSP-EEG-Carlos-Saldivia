@@ -5,75 +5,75 @@ PHASE 3: TRIAL-LEVEL STATISTICAL ANALYSIS SUMMARY
 TOP 10 MOST SIGNIFICANT PAIRWISE DIFFERENCES (by p-value)
 --------------------------------------------------------------------------------
 
-1. sobolev vs temporal_laplacian
-   Median sobolev: 0.544017 (0.539809–0.549796)
-   Median temporal_laplacian: 0.080385 (0.077409–0.080843)
+1. Sobolev vs Temporal Laplacian
+   Median Sobolev: 0.544017 (0.539809–0.549796)
+   Median Temporal Laplacian: 0.080385 (0.077409–0.080683)
    p-value: 0.000000 ***
    Cliff's delta: 1.0000
-   Winner: temporal_laplacian (benefit: 0.463631)
+   Winner: Temporal Laplacian (benefit: 0.463631)
 
-2. sobolev vs trss
-   Median sobolev: 0.544017 (0.537117–0.549796)
-   Median trss: 0.074791 (0.070908–0.078186)
+2. Sobolev vs TRSS
+   Median Sobolev: 0.544017 (0.539809–0.549796)
+   Median TRSS: 0.074791 (0.070908–0.078186)
    p-value: 0.000000 ***
    Cliff's delta: 1.0000
-   Winner: trss (benefit: 0.469226)
+   Winner: TRSS (benefit: 0.469226)
 
-3. ica vs temporal_laplacian
-   Median ica: 0.182924 (0.168906–0.196943)
-   Median temporal_laplacian: 0.080385 (0.077409–0.080843)
+3. ICA vs Temporal Laplacian
+   Median ICA: 0.182924 (0.168906–0.196943)
+   Median Temporal Laplacian: 0.080385 (0.077409–0.080683)
    p-value: 0.000000 ***
    Cliff's delta: 0.9748
-   Winner: temporal_laplacian (benefit: 0.102539)
+   Winner: Temporal Laplacian (benefit: 0.102539)
 
-4. sobolev vs spherical_spline
-   Median sobolev: 0.544017 (0.539809–0.549796)
-   Median spherical_spline: 0.080915 (0.080915–0.080915)
+4. Sobolev vs Spherical Spline
+   Median Sobolev: 0.544017 (0.539809–0.549796)
+   Median Spherical Spline: 0.080915 (0.080915–0.080915)
    p-value: 0.000000 ***
    Cliff's delta: 1.0000
-   Winner: spherical_spline (benefit: 0.463102)
+   Winner: Spherical Spline (benefit: 0.463102)
 
-5. linear vs sobolev
-   Median linear: 0.075638 (0.075638–0.075638)
-   Median sobolev: 0.544017 (0.537117–0.549796)
+5. Linear vs Sobolev
+   Median Linear: 0.075638 (0.075638–0.075638)
+   Median Sobolev: 0.544017 (0.537117–0.549796)
    p-value: 0.000000 ***
    Cliff's delta: -1.0000
-   Winner: linear (benefit: 0.468378)
+   Winner: Linear (benefit: 0.468378)
 
-6. idw vs sobolev
-   Median idw: 0.080915 (0.080915–0.080915)
-   Median sobolev: 0.544017 (0.539809–0.549796)
+6. IDW vs Sobolev
+   Median IDW: 0.080915 (0.080915–0.080915)
+   Median Sobolev: 0.544017 (0.539809–0.549796)
    p-value: 0.000000 ***
    Cliff's delta: -1.0000
-   Winner: idw (benefit: 0.463102)
+   Winner: IDW (benefit: 0.463102)
 
-7. ica vs sobolev
-   Median ica: 0.182924 (0.168906–0.196943)
-   Median sobolev: 0.544017 (0.539809–0.549796)
+7. ICA vs Sobolev
+   Median ICA: 0.182924 (0.168906–0.196943)
+   Median Sobolev: 0.544017 (0.539809–0.549796)
    p-value: 0.000000 ***
    Cliff's delta: -1.0000
-   Winner: ica (benefit: 0.361092)
+   Winner: ICA (benefit: 0.361092)
 
-8. bgsrp vs sobolev
-   Median bgsrp: 0.093544 (0.086293–0.093987)
-   Median sobolev: 0.544017 (0.539809–0.549796)
+8. BGSRP vs Sobolev
+   Median BGSRP: 0.093544 (0.086293–0.094036)
+   Median Sobolev: 0.544017 (0.539809–0.549796)
    p-value: 0.000000 ***
    Cliff's delta: -1.0000
-   Winner: bgsrp (benefit: 0.450473)
+   Winner: BGSRP (benefit: 0.450473)
 
-9. sobolev vs tv
-   Median sobolev: 0.544017 (0.539809–0.549796)
-   Median tv: 0.080922 (0.080905–0.083160)
+9. Sobolev vs Temporal Variation
+   Median Sobolev: 0.544017 (0.537117–0.549796)
+   Median Temporal Variation: 0.080922 (0.080905–0.083160)
    p-value: 0.000000 ***
    Cliff's delta: 0.9175
-   Winner: tv (benefit: 0.463095)
+   Winner: Temporal Variation (benefit: 0.463095)
 
-10. ica vs idw
-   Median ica: 0.182924 (0.168906–0.196943)
-   Median idw: 0.080915 (0.080915–0.080915)
+10. ICA vs IDW
+   Median ICA: 0.182924 (0.168906–0.196943)
+   Median IDW: 0.080915 (0.080915–0.080915)
    p-value: 0.000000 ***
    Cliff's delta: 0.8874
-   Winner: idw (benefit: 0.102010)
+   Winner: IDW (benefit: 0.102010)
 
 ================================================================================
 Total pairwise comparisons: 55

@@ -237,7 +237,7 @@ Grafo (\texttt{knng}) & $k$, $\sigma$ & $[2, N/2]$, $[0.01, 5]$ \\
 
 \subsection{Protocolo de Ejecución}
 
-Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p. ej. Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación (ver \texttt{experiments/run_optuna_optimization.py}, \texttt{N_TRIALS=30}), mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación (ver \texttt{experiments/run_optuna_baselines.py}, \texttt{NSGAIISampler}, \texttt{n\_trials=10}). Los resultados óptimos se consolidaron en archivos CSV:
+Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p. ej. Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación, mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación. Los resultados óptimos se consolidaron en archivos CSV:
 \begin{itemize}
     \item \texttt{results\_optuna\_final/optuna\_best\_results.csv}: Hiperparámetros óptimos y métricas para métodos GSP y temporales.
     \item \texttt{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}: Equivalente para baselines geométricos.
@@ -291,7 +291,7 @@ Los resultados individuales se agregan mediante:
 \begin{itemize}
     \item \textbf{Tablas pivote} (\textit{pivot tables}): Resumen del rendimiento óptimo por familia de método, dataset y escenario, consolidadas en CSV.
     \item \textbf{Rankings por escenario}: Clasificación ordinal de métodos disponible en \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}.
-    \item \textbf{Pruebas de significancia estadística}: Test de Wilcoxon pareado ($\alpha = 0.05$) entre las familias Temporal y Geométrica.
+    \item \textbf{Pruebas de significancia estadística}: Validación inferencial no paramétrica a nivel trial-level mediante Mann-Whitney U y delta de Cliff.
 \end{itemize}
 
 Los artefactos visuales generados incluyen:
