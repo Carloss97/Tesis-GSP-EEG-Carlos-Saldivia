@@ -49,6 +49,8 @@ Los aportes principales de esta tesis a la comunidad científica son:
     \item \textbf{Primer benchmark GSP-EEG con fair tuning:} Según el conocimiento del autor, este es el primer estudio que somete tanto los métodos novedosos (TRSS, BGSRP) como los baselines clásicos (Spherical Spline, RBF) a una optimización bayesiana multi-objetivo sobre múltiples datasets EEG, estableciendo un nuevo estándar de evaluación imparcial.
 
     \item \textbf{Demostración del cruce de rendimiento teórico:} Se proporcionó evidencia estadística de que, bajo configuraciones óptimas, las familias de regularización temporal dominan absolutamente a los baselines geométricos, con una brecha que se amplifica con la severidad de la pérdida.
+    
+    \item \textbf{Validación a escala trial-level:} Un análisis de 4336 puntos de dato agregados de 736 iteraciones experimentales mediante prueba de Mann-Whitney U confirmó la robustez de los hallazgos: 38 de 55 comparaciones pareadas alcanzaron significancia estadística ($p < 0.001$). Los métodos temporales (temporal\_laplacian, TRSS) y las interpolaciones espaciales simples (IDW, linear) se agrupan en el cuartil superior con MAE mediano $\approx 0.075$-0.081 sin separación significativa, tras excluir el método visibility\_nnk por su comportamiento atípico, demostrando la universalidad del ranking de métodos.
 
     \item \textbf{Análisis de degradación en casos extremos:} Se reveló que bajo regímenes críticos (40\% nearby), los métodos geométricos experimentan un colapso exponencial de fase, mientras que el ancla temporal de TRSS mantiene la estabilidad lineal de la trayectoria fisiológica.
 

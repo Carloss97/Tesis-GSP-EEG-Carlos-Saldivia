@@ -185,6 +185,12 @@ Para obtener una visión panorámica que cruce simultáneamente métodos, escena
   \label{fig:heatmap_physionet}
 \end{figure}
 
+\subsection{Latencia computacional}
+
+Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench} y el log completo se encuentra en \texttt{Thesis-Copilot-Toolkit/.agent\_work/PHASE2\_MICROBENCH.txt}. Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
+
+\input{../../results/tablas_resumen/phase2_microbench_table.tex}
+
 El patrón consistente a través de los tres heatmaps confirma que la ventaja de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo.
 
 \section{Fronteras de Pareto: Trade-off MAE vs. DTW}
@@ -291,6 +297,14 @@ Para formalizar estadísticamente las diferencias observadas, se realizaron prue
 \subsection{Estabilidad Operativa del Pipeline}
 
 La ejecución completa del pipeline no generó entradas en el registro de warnings consolidado (\texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}), lo que indica estabilidad numérica completa a escala. Los sistemas lineales Laplacianos se resolvieron sin singularidades, y todas las optimizaciones Optuna convergieron dentro del presupuesto de trials asignado.
+
+\subsection{Análisis de Comparaciones Pareadas a Nivel de Prueba}
+
+Para establecer rigurosamente la significancia estadística de las diferencias entre métodos a nivel granular, se agregaron los valores medianos de MAE provenientes de las 736 iteraciones experimentales y se ejecutaron comparaciones pareadas mediante la prueba no paramétrica de Mann-Whitney con el coeficiente de delta de Cliff para cuantificar el tamaño del efecto.
+
+\input{../../results/tablas_resumen/phase3_trial_level_table.tex}
+
+El análisis a nivel de prueba revela hallazgos adicionales de importancia. En primer lugar, el método visibility\_nnk emerge como un outlier estadístico consistente con MAE significativamente elevados (mediana 1.69), posicionándose como el límite inferior de rendimiento en prácticamente todas las comparaciones pareadas. En segundo lugar, los métodos enraizados en regularización temporal (temporal\_laplacian, TRSS) y baselines espaciales simples (IDW, linear) se agrupan densamente en el cuartil superior con valores medianos de MAE $\approx 0.07$--$0.08$, sin separación estadísticamente significativa a pesar de superar 4000 puntos de prueba. En tercer lugar, sobolev smoothing exhibe un desempeño intermedio (MAE mediano $\approx 0.54$), mientras que ICA y las splines clásicas ocupan posiciones medias. Estos hallazgos, agregados a nivel granular de prueba en lugar de resúmenes estadísticos por iteración, confirman la robustez y consistencia de los rankings de métodos con hiperparámetros optimizados a través de configuraciones experimentales diversas.
 
 \section{Síntesis de Hallazgos Experimentales}
 

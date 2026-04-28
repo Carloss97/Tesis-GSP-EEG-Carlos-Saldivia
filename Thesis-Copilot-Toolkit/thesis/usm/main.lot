@@ -8,10 +8,12 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST).}}{26}{table.caption.10}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt {optuna\_best\_results.csv}).}}{26}{table.caption.11}%
 \contentsline {table}{\numberline {4.3}{\ignorespaces Resumen multi-métrica (medianas) por familia en MNE Sample, agregado sobre escenarios del registro exhaustivo. Menor es mejor en MAE, RMSE, DTW y LSD; mayor es mejor en SNR y Coherencia.}}{28}{table.caption.13}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Microbenchmarks: median latency per interpolation call (ms). See \texttt {.agent\_work/PHASE2\_MICROBENCH.txt} for full details and environment.}}{29}{table.caption.23}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Phase 3 Trial-Level Pairwise Analysis: MAE (Median) Comparisons. Mann-Whitney test with Cliff delta effect size. Significant: $p < 0.05$ (*, **=0.01, ***=0.001).}}{31}{table.caption.33}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{58}{table.caption.32}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv}).}}{59}{table.caption.33}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{59}{table.caption.34}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv}).}}{60}{table.caption.35}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

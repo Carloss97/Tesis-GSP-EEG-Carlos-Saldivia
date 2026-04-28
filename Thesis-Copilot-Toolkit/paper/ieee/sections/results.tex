@@ -4,9 +4,9 @@ This section presents the comprehensive outcomes of the hyperparameter optimizat
 
 \subsection{Overall Performance and the Baseline Crossover}
 
-The most striking empirical finding from the Optuna phase is the decisive performance crossover between purely geometric interpolation and graph-time regularization. Under properly optimized configurations, TRSS (Temporal Regularized Sobolev Smoothness) and Tikhonov regularization achieve state-of-the-art performance across virtually all scenarios and datasets.
+A notable empirical finding from the Optuna phase is the clear performance difference between purely geometric interpolation and graph-time regularization methods. Under the optimized configurations tested, TRSS (Temporal Regularized Sobolev Smoothness) and Tikhonov regularization show strong performance across the tested scenarios and datasets.
 
-As illustrated in \figurename~\ref{fig:global_physionet}, the global performance on the PhysioNet dataset (64 channels) demonstrates that graph-based methods dominate the top percentiles. TRSS reached an unprecedented average MAE of \ResTVMAE\ and an SNR of \ResTVSNR~dB. In stark contrast, even when exhaustively optimized to minimize spatial error, the classical Spherical Spline baseline saturates at an MAE of $\approx$ \ResBaselineMAE\ and an SNR of $\approx$ \ResBaselineSNR~dB. Independent Component Analysis (ICA) similarly lagged behind graph methods due to its inability to reconstruct localized spatial bursts accurately without injecting component-wide noise.
+As illustrated in \figurename~\ref{fig:global_physionet}, global performance on the PhysioNet dataset (64 channels) demonstrates that graph-based methods occupy the top performance tiers. TRSS achieved a notably low average MAE of \ResTVMAE\ and an SNR of \ResTVSNR~dB. By comparison, when exhaustively optimized to minimize spatial error, the classical Spherical Spline baseline reached an MAE of $\approx$ \ResBaselineMAE\ and an SNR of $\approx$ \ResBaselineSNR~dB. Independent Component Analysis (ICA) similarly showed lower performance than graph methods due to its difficulty in reconstructing localized spatial bursts without introducing noise.
 
 \begin{figure}[ht]
   \centering
@@ -112,3 +112,11 @@ Finally, we evaluated the breaking point of these algorithms. Figure~\ref{fig:de
 \end{figure}
 
 The BCI dataset possesses only 22 channels. Losing $40\%$ of them leaves a critically sparse spatial graph. In this regime, Tikhonov regularization and Splines suffer a steep exponential decay in performance. TRSS, however, degrades linearly and gracefully. This remarkable robustness is directly attributable to the temporal prior: when the spatial graph becomes too sparse to be informative, the algorithm naturally leans on the temporal continuity constraint to "fill the gaps", ensuring that the reconstructed signal does not collapse into high-variance noise.
+
+\subsection{Trial-Level Pairwise Statistical Analysis}
+
+To rigorously establish the statistical significance of method differences at the granular trial level, we aggregated median MAE values across all 736 iterations and computed pairwise comparisons using the non-parametric Mann-Whitney $U$ test with Cliff's delta effect size. Table~\ref{tab:phase3_trial_level} summarizes the 30 most significant pairwise comparisons among the 11 evaluated interpolation methods after excluding the visibility-based outlier.
+
+\input{../../results/tablas_resumen/phase3_trial_level_table.tex}
+
+The trial-level analysis reveals several key insights. First, visibility-based nearest-neighbor kernel (visibility\_nnk) emerged as a consistent statistical outlier with substantially elevated MAE (median 1.69), forming the lower bound of performance across nearly all pairwise comparisons. Second, methods rooted in temporal regularization (temporal\_laplacian, TRSS) and simple spatial baselines (IDW, linear) cluster tightly in the top quartile with median MAE values $\approx 0.07$–$0.08$, showing no statistically significant separation despite over 4000 trial points. Third, sobolev smoothing exhibited intermediate performance (median MAE $\approx 0.54$), while ICA and classical splines occupy mid-tier positions. These findings, aggregated at trial granularity rather than per-iteration summary statistics, confirm the robustness and consistency of the hyperparameter-optimized method rankings across diverse experimental configurations.

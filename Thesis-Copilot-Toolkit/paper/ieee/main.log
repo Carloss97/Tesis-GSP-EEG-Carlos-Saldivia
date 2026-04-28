@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  27 APR 2026 12:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  27 APR 2026 22:45
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -585,6 +584,69 @@ Underfull \hbox (badness 2564) in paragraph at lines 52--53
 \T1/ptm/m/n/10 frequency-domain cor-re-la-tion and phase con-sis-tency
  []
 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.67 ...cenario combination (see `experiments/run_
+                                                  optuna_optimization.py`, N...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.68 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 1990) in paragraph at lines 67--68
+\T1/ptm/m/n/10 Optimization was ex-e-cuted per-method with a strat-i-fied
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+\T1/ptm/m/n/10 Graph-based and tem-po-ral meth-ods (e.g., Tikhonov,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+\T1/ptm/m/n/10 TRSS) were op-ti-mized with Op-tuna's TPE sam-pler
+ []
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 67--68
+\T1/ptm/m/n/10 us-ing 30 tri-als per dataset^^Uscenario com-bi-na-tion (see
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+\T1/ptm/m/n/10 `experiments/run$[]\OML/cmm/m/it/10 ptuna[]ptimization:py\OT1/cm
+r/m/n/10 `\OML/cmm/m/it/10 ; N[]RIALS \OT1/cmr/m/n/10 =
+ []
+
+
+Overfull \hbox (115.75293pt too wide) in paragraph at lines 67--68
+\OT1/cmr/m/n/10 30)\OML/cmm/m/it/10 :Geometricbaselinemethods\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 SphericalSpline; RBF; ICA\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 were
+tunedviaamulti \OMS/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (81.00204pt too wide) in paragraph at lines 67--68
+\OML/cmm/m/it/10 objectiveNSGA \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 IIsamplerw
+ith\OT1/cmr/m/n/10 10\OML/cmm/m/it/10 trialspercombination; selectingPareto \OM
+S/cmsy/m/n/10 ^^@
+ []
+
+
+Overfull \hbox (209.6282pt too wide) in paragraph at lines 67--68
+\OML/cmm/m/it/10 optimalsolutionsonMAEvs:LSD\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s
+ee\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 experiments=run[]ptuna[]aselines:py\OT1/cmr
+/m/n/10 `\OML/cmm/m/it/10 ; NSGAIISampler; n[]rials \OT1/cmr/m/n/10 =
+ []
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 71.
@@ -624,7 +686,7 @@ Underfull \hbox (badness 1688) in paragraph at lines 3--4
 []\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
  []
 
-<../../results_optuna_final/global_comparison_physionet.png, id=211, 1149.5748p
+<../../results_optuna_final/global_comparison_physionet.png, id=215, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -636,7 +698,7 @@ Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 Underfull \vbox (badness 2556) has occurred while \output is active []
 
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=225, 1004.0712pt x 569.4876pt>
+d=229, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
@@ -647,7 +709,7 @@ _nearby_1_0_count.png  used on input line 76.
  [5 <../../results_optuna_final/global_comparison_physionet.png> <../../results
 _optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=240, 1004.0712pt x 569.4876pt>
+d=244, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
@@ -656,7 +718,7 @@ Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
 _nearby_0_4_ratio.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=242, 743.4174pt x 452.892pt>
+d=246, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
@@ -664,7 +726,7 @@ g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
 _nearby_1_0_count.png  used on input line 96.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=245, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=249, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
@@ -672,7 +734,441 @@ le (type png)
 Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
 atio.png  used on input line 109.
 (pdftex.def)             Requested size: 252.0pt x 93.7579pt.
-) (sections/discussion.tex
+
+(../../results/tablas_resumen/phase3_trial_level_table.tex
+! Missing $ inserted.
+<inserted text> 
+                $
+l.9 sobolev & temporal_
+                       la & 0.5440 & 0.0804 & 1.5e-121$^{***}$ & 1.00 & temp...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.9 sobolev & temporal_la &
+                            0.5440 & 0.0804 & 1.5e-121$^{***}$ & 1.00 & temp...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.9 ....0804 & 1.5e-121$^{***}$ & 1.00 & temporal_
+                                                  la & 0.464 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.9 ...4 & 1.5e-121$^{***}$ & 1.00 & temporal_la &
+                                                   0.464 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 ica & temporal_
+                    la & 0.1829 & 0.0804 & 6.4e-116$^{***}$ & 0.97 & tempora...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 ica & temporal_la &
+                         0.1829 & 0.0804 & 6.4e-116$^{***}$ & 0.97 & tempora...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 ...0804 & 6.4e-116$^{***}$ & 0.97 & temporal_
+                                                  la & 0.103 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 ... & 6.4e-116$^{***}$ & 0.97 & temporal_la &
+                                                   0.103 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 sobolev & spherical_
+                         s & 0.5440 & 0.0809 & 9.4e-116$^{***}$ & 1.00 & sph...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 sobolev & spherical_s &
+                             0.5440 & 0.0809 & 9.4e-116$^{***}$ & 1.00 & sph...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 ...809 & 9.4e-116$^{***}$ & 1.00 & spherical_
+                                                  s & 0.463 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 ... & 9.4e-116$^{***}$ & 1.00 & spherical_s &
+                                                   0.463 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ica & spherical_
+                     s & 0.1829 & 0.0809 & 7.4e-92$^{***}$ & 0.89 & spherica...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ica & spherical_s &
+                         0.1829 & 0.0809 & 7.4e-92$^{***}$ & 0.89 & spherica...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ...0809 & 7.4e-92$^{***}$ & 0.89 & spherical_
+                                                  s & 0.102 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.19 ...9 & 7.4e-92$^{***}$ & 0.89 & spherical_s &
+                                                   0.102 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 rbfi_
+          tps & sobolev & 0.0809 & 0.5440 & 8.6e-89$^{***}$ & -0.87 & rbfi_t...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 rbfi_tps &
+                sobolev & 0.0809 & 0.5440 & 8.6e-89$^{***}$ & -0.87 & rbfi_t...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...& 0.5440 & 8.6e-89$^{***}$ & -0.87 & rbfi_
+                                                  tps & 0.463 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.21 ...440 & 8.6e-89$^{***}$ & -0.87 & rbfi_tps &
+                                                   0.463 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 ica & rbfi_
+                tps & 0.1829 & 0.0809 & 1.2e-65$^{***}$ & 0.75 & rbfi_tps & ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 ica & rbfi_tps &
+                      0.1829 & 0.0809 & 1.2e-65$^{***}$ & 0.75 & rbfi_tps & ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 ... & 0.0809 & 1.2e-65$^{***}$ & 0.75 & rbfi_
+                                                  tps & 0.102 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 ...0809 & 1.2e-65$^{***}$ & 0.75 & rbfi_tps &
+                                                   0.102 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 temporal_
+              la & tikhonov & 0.0804 & 0.1683 & 6.3e-63$^{***}$ & -0.71 & te...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 temporal_la &
+                   tikhonov & 0.0804 & 0.1683 & 6.3e-63$^{***}$ & -0.71 & te...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ...1683 & 6.3e-63$^{***}$ & -0.71 & temporal_
+                                                  la & 0.088 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.27 ... & 6.3e-63$^{***}$ & -0.71 & temporal_la &
+                                                   0.088 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.29 spherical_
+               s & tikhonov & 0.0809 & 0.1683 & 2.3e-54$^{***}$ & -0.68 & sp...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.29 spherical_s &
+                   tikhonov & 0.0809 & 0.1683 & 2.3e-54$^{***}$ & -0.68 & sp...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.29 ...683 & 2.3e-54$^{***}$ & -0.68 & spherical_
+                                                  s & 0.087 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.29 ... & 2.3e-54$^{***}$ & -0.68 & spherical_s &
+                                                   0.087 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.33 rbfi_
+          tps & tikhonov & 0.0809 & 0.1683 & 3.9e-43$^{***}$ & -0.60 & rbfi_...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.33 rbfi_tps &
+                tikhonov & 0.0809 & 0.1683 & 3.9e-43$^{***}$ & -0.60 & rbfi_...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.33 ...& 0.1683 & 3.9e-43$^{***}$ & -0.60 & rbfi_
+                                                  tps & 0.087 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.33 ...683 & 3.9e-43$^{***}$ & -0.60 & rbfi_tps &
+                                                   0.087 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.36 bgsrp & spherical_
+                       s & 0.0935 & 0.0809 & 2.4e-17$^{***}$ & 0.37 & spheri...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.36 bgsrp & spherical_s &
+                           0.0935 & 0.0809 & 2.4e-17$^{***}$ & 0.37 & spheri...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.36 ...0809 & 2.4e-17$^{***}$ & 0.37 & spherical_
+                                                  s & 0.013 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.36 ...9 & 2.4e-17$^{***}$ & 0.37 & spherical_s &
+                                                   0.013 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.38 bgsrp & rbfi_
+                  tps & 0.0935 & 0.0809 & 4.7e-17$^{***}$ & 0.37 & rbfi_tps ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.38 bgsrp & rbfi_tps &
+                        0.0935 & 0.0809 & 4.7e-17$^{***}$ & 0.37 & rbfi_tps ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.38 ... & 0.0809 & 4.7e-17$^{***}$ & 0.37 & rbfi_
+                                                  tps & 0.013 \\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.38 ...0809 & 4.7e-17$^{***}$ & 0.37 & rbfi_tps &
+                                                   0.013 \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (4.5125pt too wide) in paragraph at lines 5--42
+ [][] 
+ []
+
+)) (sections/discussion.tex
+Underfull \hbox (badness 4120) in paragraph at lines 122--1
+[]\T1/ptm/m/n/10 The trial-level anal-y-sis re-veals sev-eral key in-sights.
+ []
+
+
+Underfull \hbox (badness 1817) in paragraph at lines 122--1
+\T1/ptm/m/n/10 ond, meth-ods rooted in tem-po-ral reg-u-lar-iza-tion (tem-po-
+ []
+
 [6 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png
 > <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png>
  <../../results_optuna_final/degradation_bci_iv_random_ratio.png>])
@@ -686,71 +1182,73 @@ Underfull \hbox (badness 6252) in paragraph at lines 23--1
 \T1/ptm/m/n/10 ments. By sub-ject-ing all methods---including clas-si-cal
  []
 
-) (sections/conclusion.tex) (main.bbl [7]
-Underfull \hbox (badness 1448) in paragraph at lines 88--92
+[7]) (sections/conclusion.tex) (main.bbl
+Underfull \hbox (badness 1448) in paragraph at lines 90--94
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--116
+Underfull \hbox (badness 10000) in paragraph at lines 112--119
 \T1/ptm/m/n/8 spiedigitallibrary . org / conference-[]proceedings-[]of-[]spie /
  12567 / 2669735 /
  []
 
 
-Overfull \hbox (23.51341pt too wide) in paragraph at lines 109--116
+Overfull \hbox (23.51341pt too wide) in paragraph at lines 112--119
 \T1/ptm/m/n/8 Imputing-[]missing-[]electroencephalography-[]data-[]using-[]grap
 h-[]signal-[]processing /
  []
 
-)
+[8])
+Overfull \vbox (0.77002pt too high) has occurred while \output is active []
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
 
-[8] (main.aux)
+[9] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B300D26FDFF0043009EC3147C118A099;5917.
+(rerunfilecheck)             Checksum: 6D08650F0FD18FE60859F474796CD244;6189.
  ) 
 Here is how much of TeX's memory you used:
- 15480 strings out of 467867
- 310435 string characters out of 5418335
- 692630 words of memory out of 5000000
- 44078 multiletter control sequences out of 15000+600000
+ 15494 strings out of 467867
+ 311088 string characters out of 5418335
+ 705813 words of memory out of 5000000
+ 44083 multiletter control sequences out of 15000+600000
  749720 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,80p,1389b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,1371b,1171s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/sarlo/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/s
-arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
-Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/sarlo/
-AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sarl
-o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarl
-o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sar
-lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sar
-lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 1394139 bytes).
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/sarlo/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/
+sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
+:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sar
+lo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+<C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pf
+b><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pf
+b><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.p
+fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
+fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on main.pdf (9 pages, 1425940 bytes).
 PDF statistics:
- 389 PDF objects out of 1000 (max. 8388607)
- 75 named destinations out of 1000 (max. 500000)
- 266 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 410 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

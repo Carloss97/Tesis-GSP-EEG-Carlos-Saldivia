@@ -1,0 +1,15 @@
+Phase 2 microbench results
+linear: median 0.34 ms per call
+nearest: median 1.10 ms per call
+mean: median 0.32 ms per call
+idw: median 2.13 ms per call
+rbfi_tps: median 6.58 ms per call
+spherical_spline: median 136.64 ms per call
+ica: median 24.19 ms per call
+tikhonov: median 2.19 ms per call
+bgsrp: median 24.61 ms per call
+trss: median 9.44 ms per call
+tv: median 443.36 ms per call
+temporal_laplacian: median 6.13 ms per call
+sobolev: median 2.32 ms per call
+visibility_nnk: median 7043.84 ms per call

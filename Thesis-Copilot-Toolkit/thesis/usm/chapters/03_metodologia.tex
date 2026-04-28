@@ -237,7 +237,7 @@ Grafo (\texttt{knng}) & $k$, $\sigma$ & $[2, N/2]$, $[0.01, 5]$ \\
 
 \subsection{Protocolo de Ejecución}
 
-Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna ejecutó entre 10 y 50 \textit{trials} dependiendo de la dimensionalidad del espacio paramétrico. Los resultados óptimos se consolidaron en archivos CSV:
+Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p. ej. Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación (ver \texttt{experiments/run_optuna_optimization.py}, \texttt{N_TRIALS=30}), mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación (ver \texttt{experiments/run_optuna_baselines.py}, \texttt{NSGAIISampler}, \texttt{n\_trials=10}). Los resultados óptimos se consolidaron en archivos CSV:
 \begin{itemize}
     \item \texttt{results\_optuna\_final/optuna\_best\_results.csv}: Hiperparámetros óptimos y métricas para métodos GSP y temporales.
     \item \texttt{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}: Equivalente para baselines geométricos.
