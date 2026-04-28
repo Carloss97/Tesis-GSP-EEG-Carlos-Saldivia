@@ -11,7 +11,7 @@ As illustrated in \figurename~\ref{fig:global_physionet}, global performance on 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{../../results_optuna_final/global_comparison_physionet.png}
-  \caption{Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) significantly dominate the top rankings in terms of Signal-to-Noise Ratio (SNR).}
+  \caption{Global performance comparison on the PhysioNet dataset after Optuna optimization. Temporal regularization methods (TRSS, Tikhonov) are among the top-ranked methods in terms of Signal-to-Noise Ratio (SNR).}
   \label{fig:global_physionet}
 \end{figure}
 
@@ -65,7 +65,7 @@ Temporal (TRSS family) & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \
 \end{tabular}}
 \end{table}
 
-Table~\ref{tab:multimetric_mne_families} replaces the radar visualization with an explicit metric-by-metric summary, making cross-family trade-offs auditable in text form. Temporal regularization remains consistently dominant across all six metrics, with its most pronounced separation in DTW (morphological fidelity), where lower values indicate improved phase-aligned reconstruction. This behavior is consistent with the global trend already observed in Table~\ref{tab:main_results} and supports the interpretation that temporal priors improve not only pointwise error, but also waveform shape preservation.
+Table~\ref{tab:multimetric_mne_families} replaces the radar visualization with an explicit metric-by-metric summary, making cross-family trade-offs auditable in text form. In our experiments, temporal regularization shows consistent improvements across the six metrics, with its most pronounced separation in DTW (morphological fidelity), where lower values indicate improved phase-aligned reconstruction. This behavior aligns with the global trend observed in Table~\ref{tab:main_results} and supports the interpretation that temporal priors can improve not only pointwise error, but also waveform shape preservation.
 
 \subsection{Physiological Relevance: Event-Related Potentials (ERP) and PSD}
 
@@ -74,7 +74,7 @@ The ultimate benchmark for EEG interpolation is its impact on clinical interpret
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png}
-  \caption{Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 1 missing channel scenario. TRSS preserves the morphological integrity and latency of the ERP components significantly better than exhaustively optimized geometric baselines.}
+  \caption{Event-Related Potential (ERP) reconstruction for the MNE Sample dataset under a 1 missing channel scenario. TRSS tends to better preserve the morphological integrity and latency of the ERP components compared to exhaustively optimized geometric baselines.}
   \label{fig:erp_optimized}
 \end{figure}
 
@@ -85,7 +85,7 @@ Conversely, TRSS accurately traces the morphology of the original clean signal. 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
-  \caption{ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As the spatial information collapses, geometric baselines diverge entirely, while TRSS leverages temporal priors to retain the correct neurophysiological trajectory.}
+  \caption{ERP reconstruction under a severe $40\%$ nearby missing channel scenario. As spatial information becomes sparse, some geometric baselines diverge, while TRSS leverages temporal priors to better retain the neurophysiological trajectory.}
   \label{fig:erp_optimized_severe}
 \end{figure}
 
@@ -94,7 +94,7 @@ The advantage of temporal regularization becomes even more pronounced under extr
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png}
-  \caption{Power Spectral Density (PSD) comparison. Temporal regularization accurately maintains the spectral power distribution across critical physiological bands (alpha, beta).}
+  \caption{Power Spectral Density (PSD) comparison. Temporal regularization helps maintain the spectral power distribution across critical physiological bands (alpha, beta) in our experiments.}
   \label{fig:psd_optimized}
 \end{figure}
 
@@ -107,7 +107,7 @@ Finally, we evaluated the breaking point of these algorithms. Figure~\ref{fig:de
 \begin{figure}[ht]
   \centering
   \includegraphics[width=\linewidth]{../../results_optuna_final/degradation_bci_iv_random_ratio.png}
-  \caption{SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS demonstrates superior robustness, decaying smoothly where classical baselines crash.}
+  \caption{SNR degradation curve for the BCI IV 2a dataset under increasing random missing channel ratios. TRSS shows greater robustness in our experiments, degrading more gradually where some classical baselines decline sharply.}
   \label{fig:degradation_bci}
 \end{figure}
 
@@ -120,3 +120,19 @@ To rigorously establish the statistical significance of method differences at th
 \input{../../results/tablas_resumen/phase3_trial_level_table.tex}
 
 The trial-level analysis reveals several key insights. First, visibility-based nearest-neighbor kernel (visibility\_nnk) emerged as a consistent statistical outlier with substantially elevated MAE (median 1.69), forming the lower bound of performance across nearly all pairwise comparisons. Second, methods rooted in temporal regularization (temporal\_laplacian, TRSS) and simple spatial baselines (IDW, linear) cluster tightly in the top quartile with median MAE values $\approx 0.07$–$0.08$, showing no statistically significant separation despite over 4000 trial points. Third, sobolev smoothing exhibited intermediate performance (median MAE $\approx 0.54$), while ICA and classical splines occupy mid-tier positions. These findings, aggregated at trial granularity rather than per-iteration summary statistics, confirm the robustness and consistency of the hyperparameter-optimized method rankings across diverse experimental configurations.
+
+\subsection{Ablation Study: Temporal Regularization Component Contribution}
+
+To directly assess the contribution of the temporal regularization term ($\beta$ parameter in the TRSS objective) to overall performance, we conducted a controlled ablation study on real EEG data from the BCI Competition IV 2a dataset. The study compared three variants:
+
+\begin{enumerate}
+  \item \textbf{TRSS-Full}: Complete model with spatial ($\alpha=0.7$) and temporal ($\beta=0.15$) regularization
+  \item \textbf{TRSS-NoTemporal}: Spatial regularization only ($\alpha=0.7$, $\beta=0$)
+  \item \textbf{Spatial-Only Spline}: Classical spherical spline baseline (no graph regularization)
+\end{enumerate}
+
+Each variant was evaluated across three missing channel ratios (10\%, 20\%, 30\%) with 10 independent iterations per configuration. Missing channels were selected uniformly at random from the available 22-channel electrode montage, and segments of 10 seconds were used for each trial.
+
+The ablation results reveal that the temporal component contributes a modest and statistically non-significant improvement. Average MAE improvement from TRSS-Full relative to TRSS-NoTemporal was approximately $+0.4\%$ across all missing ratios, with an average absolute Cliff's delta $|\delta| \approx 0.107$ (negligible effect) and non-significant pairwise Mann-Whitney $U$ test results ($p > 0.33$). This contrasts with the larger gains observed when comparing full TRSS to purely spatial methods, indicating that the dominant contribution to TRSS performance in these experiments derives primarily from spatial graph regularization rather than temporal smoothing.
+
+\textbf{Interpretation}: The limited temporal benefit on short-duration real EEG segments (10-second windows) may reflect the relative stationarity of resting-state or motor-task EEG within such windows. Extended temporal dynamics (artifact bursts, non-stationary waveforms) or task-specific epochs could reveal larger temporal contributions and are recommended for future study.

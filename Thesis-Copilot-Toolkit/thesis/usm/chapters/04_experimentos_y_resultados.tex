@@ -187,11 +187,11 @@ Para obtener una visión panorámica que cruce simultáneamente métodos, escena
 
 \subsection{Latencia computacional}
 
-Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench} y el log completo se encuentra en \texttt{Thesis-Copilot-Toolkit/.agent\_work/PHASE2\_MICROBENCH.txt}. Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
+Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench}. El registro completo de microbenchmarks se incluye en el anexo de la tesis (ruta local omitida). Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
 
 \input{../../results/tablas_resumen/phase2_microbench_table.tex}
 
-El patrón consistente a través de los tres heatmaps confirma que la ventaja de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo.
+El patrón consistente a través de los tres heatmaps confirma que la ventaja observada de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo en los escenarios estudiados.
 
 \section{Fronteras de Pareto: Trade-off MAE vs. DTW}
 
@@ -310,15 +310,15 @@ El análisis a nivel de prueba revela hallazgos adicionales de importancia. En p
 Los resultados expuestos permiten extraer las siguientes conclusiones experimentales:
 
 \begin{enumerate}
-    \item \textbf{Superioridad absoluta de TRSS}: Bajo optimización exhaustiva e imparcial, TRSS domina todas las métricas en todos los datasets, con una ventaja que se amplifica en escenarios adversos.
+  \item \textbf{Ventaja observada de TRSS}: Bajo optimización exhaustiva e imparcial, TRSS muestra mejoras consistentes en la mayoría de las métricas, con una ventaja que se hace más evidente en escenarios adversos.
 
-    \item \textbf{La brecha es estructural, no paramétrica}: La optimización de los baselines con Optuna (NSGA-II multi-objetivo) demostró que incluso con hiperparámetros perfectos, las Spherical Splines no pueden evitar el colapso ante pérdida masiva contigua. La limitación es inherente a la formulación sin memoria temporal.
+  \item \textbf{La brecha parece estructural, no solo paramétrica}: La optimización de los baselines con Optuna (NSGA-II multi-objetivo) sugiere que, incluso ajustando hiperparámetros, las Spherical Splines tienen limitaciones frente a pérdida masiva contigua. Esto indica que la memoria temporal aporta un componente complementario importante a la formulación espacial.
 
-    \item \textbf{Tikhonov como ``segundo mejor''}: La regularización Laplaciana pura (sin término temporal) ya supera consistentemente a los baselines geométricos, validando el paradigma GSP como un avance cualitativo sobre la interpolación euclidiana.
+  \item \textbf{Tikhonov como ``segundo mejor''}: La regularización Laplaciana pura (sin término temporal) suele superar a los baselines geométricos, validando el paradigma GSP como una mejora cualitativa respecto a la interpolación euclidiana en las configuraciones estudiadas.
 
-    \item \textbf{El modo \textit{nearby} es el diferenciador clave}: En escenarios \textit{random}, las diferencias entre métodos son moderadas. Es el escenario \textit{nearby} ---fisiológicamente más relevante--- el que expone la superioridad de la regularización temporal.
+  \item \textbf{El modo \textit{nearby} es el diferenciador clave}: En escenarios \textit{random}, las diferencias entre métodos son moderadas. Es el escenario \textit{nearby} ---fisiológicamente más relevante--- el que expone con mayor claridad la contribución de la regularización temporal.
 
-    \item \textbf{Preservación fisiológica demostrada}: Las reconstrucciones de ERPs y PSD confirman que TRSS no solo minimiza métricas abstractas de error, sino que preserva la utilidad clínica real de la señal: latencia de picos, amplitud de componentes y distribución espectral de bandas.
+  \item \textbf{Preservación fisiológica observada}: Las reconstrucciones de ERPs y PSD indican que TRSS preserva características fisiológicas relevantes de la señal (latencia de picos, amplitud y distribución espectral) en los escenarios evaluados.
 
-    \item \textbf{Consistencia multi-dataset}: La superioridad de TRSS se verifica en datasets de alta densidad (PhysioNet, 64ch), baja densidad (BCI IV, 22ch) y paradigma evocado (MNE Sample, 60ch), descartando overfitting a una topología particular.
+  \item \textbf{Consistencia multi-dataset}: Las mejoras observadas para TRSS se verifican en datasets de alta densidad (PhysioNet, 64ch), baja densidad (BCI IV, 22ch) y paradigma evocado (MNE Sample, 60ch), reduciendo la probabilidad de overfitting a una topología particular.
 \end{enumerate}
