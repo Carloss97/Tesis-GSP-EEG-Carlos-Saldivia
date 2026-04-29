@@ -1,0 +1,99 @@
+\section{Resultados}
+
+Esta sección presenta los resultados comprehensivos de la optimización de hiperparámetros y el pipeline de validación cruzada de datasets. A diferencia de la literatura previa donde algoritmos novedosos frecuentemente son evaluados contra líneas base no optimizadas, los resultados reportados aquí representan el techo teórico de cada método evaluado después de sintonización rigurosa por Optuna.
+
+\subsection{Desempeño General y el Cruzamiento de Líneas Base}
+
+Un hallazgo empírico notable de la fase Optuna es la diferencia clara de desempeño entre interpolación puramente geométrica y métodos de regularización temporal y grafo. Bajo las configuraciones optimizadas probadas, TRSS (Temporal Regularized Sobolev Smoothness) y regularización de Tikhonov muestran desempeño fuerte en todos los escenarios y datasets probados.
+
+Como es ilustrado en \figurename~\ref{fig:global_physionet}, el desempeño global en el conjunto de datos de PhysioNet (64 canales) demuestra que métodos basados en grafos ocupan los niveles de rendimiento más altos. TRSS logró un MAE promedio notablemente bajo de \ResTVMAE\ y una SNR de \ResTVSNR~dB. En comparación, cuando exhaustivamente optimizada para minimizar error espacial, la línea base clásica de Spherical Spline alcanzó un MAE de $\approx$ \ResBaselineMAE\ y una SNR de $\approx$ \ResBaselineSNR~dB. Análisis de Componentes Independientes (ICA) similarmente mostró desempeño más bajo que métodos de grafo debido a su dificultad en reconstruir ráfagas espaciales localizadas sin introducir ruido.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_final/global_comparison_physionet.png}
+  \caption{Comparación de desempeño global en el conjunto de datos de PhysioNet después de optimización Optuna. Los métodos de regularización temporal (TRSS, Tikhonov) están entre los métodos mejor clasificados en términos de Relación Señal a Ruido (SNR).}
+  \label{fig:global_physionet}
+\end{figure}
+
+La Tabla~\ref{tab:main_results} presenta los resultados cuantitativos estratificados por severidad de degradación y modo de fallo espacial. Particionamos los escenarios basados en proporciones en \emph{Suave} ($\leq 20\%$ pérdida de canales) y \emph{Severo} ($30$--$40\%$ pérdida), y reportamos separadamente para \emph{Aleatorio} (fallos independientes) y \emph{Cercano} (fallos de bloques contiguos). Los valores representan la media $\pm$ desviación estándar computadas en los tres datasets. Esta estratificación previene conflación de varianza debida a severidad con robustez de método.
+
+\begin{table}[ht]
+\centering
+\caption{Media $\pm$ SD de MAE ($\times 10^{-6}$) y SNR (dB) estratificada por severidad de degradación y modo de fallo espacial. Mejores valores por estrato en \textbf{negrilla}.}
+\label{tab:main_results}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llcccc}
+\toprule
+ & & \multicolumn{2}{c}{\textbf{Suave ($\leq$20\%)}} & \multicolumn{2}{c}{\textbf{Severo (30--40\%)}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+\textbf{Modo} & \textbf{Método} & \textbf{MAE} & \textbf{SNR} & \textbf{MAE} & \textbf{SNR} \\
+\midrule
+\multirow{4}{*}{\rotatebox{90}{Aleatorio}}
+ & TRSS & \textbf{0.48 $\pm$ 0.52} & \textbf{27.0 $\pm$ 4.1} & \textbf{1.41 $\pm$ 1.20} & \textbf{20.0 $\pm$ 2.8} \\
+ & Tikhonov & 2.62 $\pm$ 2.32 & 16.0 $\pm$ 6.3 & 6.43 $\pm$ 4.63 & 11.7 $\pm$ 4.4 \\
+ & Esf. Spline & 2.36 $\pm$ 1.82 & 14.5 $\pm$ 7.7 & 5.88 $\pm$ 3.78 & 9.3 $\pm$ 7.3 \\
+ & RBF (TPS) & 2.41 $\pm$ 2.08 & 14.5 $\pm$ 8.8 & 5.65 $\pm$ 4.07 & 9.8 $\pm$ 8.0 \\
+\midrule
+\multirow{4}{*}{\rotatebox{90}{Cercano}}
+ & TRSS & \textbf{0.55 $\pm$ 0.68} & \textbf{26.2 $\pm$ 5.1} & \textbf{1.78 $\pm$ 1.60} & \textbf{16.9 $\pm$ 2.1} \\
+ & Tikhonov & 2.53 $\pm$ 2.35 & 14.4 $\pm$ 6.4 & 6.91 $\pm$ 4.32 & 8.6 $\pm$ 3.4 \\
+ & Esf. Spline & 3.12 $\pm$ 2.56 & 11.2 $\pm$ 8.8 & 12.33 $\pm$ 9.58 & 0.8 $\pm$ 8.7 \\
+ & RBF (TPS) & 2.60 $\pm$ 2.26 & 12.5 $\pm$ 9.4 & 7.49 $\pm$ 5.42 & 4.9 $\pm$ 8.1 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Para evitar mezclar resúmenes a nivel de iteración con afirmaciones inferenciales, el análisis formal de significancia es reportado a nivel de prueba en la subsección siguiente.
+
+\subsection{Evaluación Multi-Métrica: Fidelidad Espacial versus Temporal}
+
+Confiar exclusivamente en métricas de error de amplitud como MAE puede ser engañoso en aplicaciones neurofisiológicas. Un método podría lograr MAE bajo simplemente suavizando fuertemente la señal hacia cero, destruyendo las dinámicas de alta frecuencia requeridas para análisis posterior.
+
+\begin{table}[ht]
+\centering
+\caption{Comparación multi-métrica mediana por familia de método en MNE Sample (agregado sobre escenarios de registro exhaustivo). Menor es mejor para MAE, RMSE, DTW, y LSD; mayor es mejor para SNR y Coherencia.}
+\label{tab:multimetric_mne_families}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Familia} & \textbf{MAE} $\downarrow$ & \textbf{RMSE} $\downarrow$ & \textbf{DTW} $\downarrow$ & \textbf{SNR} $\uparrow$ & \textbf{LSD} $\downarrow$ & \textbf{Coherencia} $\uparrow$ \\
+\midrule
+Línea Base & 0.0501 & 0.1405 & 0.8731 & 19.32 & 2.2534 & 0.9623 \\
+GSP espacial & 0.0862 & 0.2081 & 1.2247 & 14.16 & 2.2394 & 0.8816 \\
+Temporal (familia TRSS) & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \textbf{20.83} & \textbf{2.2258} & \textbf{0.9763} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+La Tabla~\ref{tab:multimetric_mne_families} reemplaza la visualización de radar con un resumen explícito métrica-por-métrica, haciendo compromisos entre familias auditables en forma de texto. En nuestros experimentos, la regularización temporal muestra mejoras consistentes en las seis métricas, con su separación más pronunciada en DTW (fidelidad morfológica), donde valores más bajos indican reconstrucción alineada en fase mejorada. Este comportamiento se alinea con la tendencia global observada en la Tabla~\ref{tab:main_results} y respalda la interpretación de que los priors temporales pueden mejorar no solo el error puntual, sino también la preservación de forma de onda.
+
+\subsection{Relevancia Fisiológica: Potenciales Relacionados con Eventos (ERP) y PSD}
+
+El benchmark final para interpolación EEG es su impacto en la interpretación clínica. Para investigar esto, analizamos la preservación de Potenciales Relacionados con Eventos (ERPs) en el conjunto de datos de MNE Sample, enfocándose en componentes evocados bien-conocidos como N100 y P300.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png}
+  \caption{Reconstrucción de Potencial Relacionado con Evento (ERP) para el conjunto de datos de MNE Sample bajo un escenario de 1 canal faltante. TRSS tiende a mejor preservar la integridad morfológica y latencia de los componentes ERP en comparación con líneas base geométricas exhaustivamente optimizadas.}
+  \label{fig:erp_optimized}
+\end{figure}
+
+Como es retratado en \figurename~\ref{fig:erp_optimized}, bajo el escenario práctico de un electrodo desconectado (1 canal faltante), líneas base puramente geométricas aún exhiben fallos notables. El método Spherical Spline, a pesar de ser sintonizado para error espacial mínimo por Optuna, aplana los picos de ERP e introduce distorsiones de fase. Su falta de memoria temporal lo fuerza a adivinar el canal faltante únicamente desde sensores vecinos en cada muestra discreta, resultando en una traza dentada y atenuada.
+
+Inversamente, TRSS traza con precisión la morfología de la señal original limpia. Al penalizar saltos de derivada temporal ($\beta \|\Delta_t \mathbf{Z}\|_F^2$), el algoritmo refuerza la realidad fisiológica de que generadores neuro-eléctricos producen trazas suave en el tiempo. Consecuentemente, la latencia y amplitud de los picos de ERP son fielmente preservados.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
+  \caption{Reconstrucción de ERP bajo un escenario severo de $40\%$ de canales cercanos faltantes. Conforme la información espacial se torna escasa, algunas líneas base geométricas divergen, mientras TRSS apalanca priors temporales para mejor retener la trayectoria neurofisiológica.}
+  \label{fig:erp_optimized_severe}
+\end{figure}
+
+La ventaja de regularización temporal se hace aún más pronunciada bajo degradación espacial extrema. Como se muestra en \figurename~\ref{fig:erp_optimized_severe}, cuando 40\% de los canales contiguos se pierden, la línea base Spherical Spline completamente colapsa, invirtiendo la fase e amplificando ruido. TRSS, aunque naturalmente atenuada por la pérdida masiva de información, continúa preservando la trayectoria correcta y tiempo de la respuesta ERP subyacente, demostrando el efecto estabilizador crítico del prior temporal.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png}
+  \caption{Comparación de Densidad Espectral de Potencia (PSD). La regularización temporal ayuda a mantener la distribución de potencia espectral en bandas fisiológicas críticas (alpha, beta) en nuestros experimentos.}
+  \label{fig:psd_optimized}
+\end{figure}

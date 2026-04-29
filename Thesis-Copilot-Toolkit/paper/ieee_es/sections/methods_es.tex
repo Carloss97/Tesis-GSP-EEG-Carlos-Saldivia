@@ -1,0 +1,86 @@
+\section{Métodos}
+
+Representamos los canales EEG como vértices de un grafo y modelamos relaciones inter-canal con matrices de adyacencia ponderadas. Sea $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ un grafo ponderado indirecto donde $\mathcal{V}$ es el conjunto de $N$ vértices de electrodos, $\mathcal{E}$ es el conjunto de aristas, y $\mathbf{W} \in \mathbb{R}^{N \times N}$ la matriz de pesos simétrica. El Laplaciano de grafo combinatorio es $\mathbf{L} = \mathbf{D} - \mathbf{W}$, donde $\mathbf{D}$ es la matriz de grados definida como $D_{ii} = \sum_j W_{ij}$. Una señal de grafo $\mathbf{x} \in \mathbb{R}^{N}$ asigna un valor escalar (p. ej., potencial eléctrico) a cada electrodo en un instante de tiempo dado.
+
+El objetivo es comparar formalmente líneas base de interpolación geométrica contra métodos avanzados de Procesamiento de Señales en Grafos (GSP) que incorporen regularización temporal bajo exactamente las mismas condiciones experimentales rigurosamente optimizadas.
+
+\subsection{Construcción de Grafos}
+El fundamento de cualquier enfoque GSP es la topología subyacente. Evaluamos varios constructores de grafos organizados en tres categorías:
+\begin{itemize}
+\item \emph{Grafos de vecindad}: $k$-NN (\iterid{knn}), $k$-NN ponderado Gaussiano (\iterid{knng}), NN de $k$ variable (\iterid{vknng}), bola epsilon (\iterid{epsilon_ball}), y árbol de expansión mínimo (\iterid{mst}). El $k$-NN ponderado Gaussiano define pesos de aristas como $W_{ij} = \exp(-d(i,j)^2 / \sigma^2)$ para los $k$ vecinos más cercanos basados en distancia euclidiana $d(i,j)$ entre coordenadas 3D de electrodos.
+\item \emph{Grafos densos/globales}: distancia inversa completamente conectada (\iterid{fully_connected_inverse_distance}) y núcleo Gaussiano (\iterid{gaussian}).
+\item \emph{Grafos adaptativos/aprendidos}: regresión de núcleo no negativo \cite{shekkizhar2020} (\iterid{nnk}), ponderación de aristas adaptativa \cite{kalofolias2016} (\iterid{aew}), y aprendizaje de grafos vía regularización de log-grado \cite{kalofolias2016} (\iterid{kalofolias}).
+\end{itemize}
+
+Para el benchmarking final, utilizamos $k$-NN ponderado Gaussiano (\iterid{knng}) debido a su estabilidad numérica, eficiencia computacional, y superioridad empírica en capturar correlaciones espaciales locales entre electrodos del cuero cabelludo.
+
+\subsection{Familias de Interpolación}
+
+Sea $\mathcal{K}$ el conjunto de canales conocidos (observados) y $\mathcal{U}$ el conjunto de canales desconocidos (faltantes). Comparamos tres familias distintas de métodos:
+
+\paragraph{Líneas Base Geométricas/Spline} 
+Alternativas clásicas que no explotan teoría de grafos se basan estrictamente en distancia euclidiana o proyecciones de superficie. La línea base más prominente en investigación EEG es el \emph{Spherical Spline} \cite{perrin1989}. Representa el potencial del cuero cabelludo con una expansión de base esférica sobre los canales conocidos:
+\begin{equation}
+V(\mathbf{r}) = c_0 + \sum_{i \in \mathcal{K}} c_i \, g(\mathbf{r}, \mathbf{r}_i),
+\end{equation}
+donde los coeficientes $c_i$ son estimados a partir de los electrodos observados y $g(\mathbf{r}, \mathbf{r}_i)$ es el núcleo spline definido sobre coordenadas de electrodos. Aunque geométricamente elegante, opera estrictamente en el dominio espacial para cada muestra de tiempo e ignora por tanto la continuidad temporal.
+
+\paragraph{Métodos GSP Instantáneos (Tikhonov)} 
+Estos métodos operan independientemente en cada muestra de tiempo utilizando priors de grafo. El problema de regularización por Laplaciano de grafo, también conocido como regularización de Tikhonov en grafos, refuerza suavidad espacial:
+\begin{equation}
+  \hat{\mathbf{x}} = \arg\min_{\mathbf{z} \in \mathbb{R}^N}
+    \|\mathbf{z}_{\mathcal{K}} - \mathbf{x}_{\mathcal{K}}\|_2^2 + \alpha \, \mathbf{z}^\top \mathbf{L} \mathbf{z},
+  \label{eq:tikhonov}
+\end{equation}
+donde $\alpha$ controla la penalidad de suavidad. El caso GSP puro (restricción dura) corresponde al límite $\alpha \to \infty$, produciendo la solución de forma cerrada $\hat{\mathbf{x}}_{\mathcal{U}} = -\mathbf{L}_{\mathcal{U}\mathcal{U}}^{-1} \mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_{\mathcal{K}}$.
+
+\paragraph{Métodos con Regularización Temporal (TRSS)} 
+Estos métodos optimizan conjuntamente criterios espaciales y temporales sobre una matriz de señal completa (o época) $\mathbf{X} \in \mathbb{R}^{N \times T}$. El método Temporal Regularized Sobolev Smoothness (TRSS) \cite{giraldo2022} penaliza explícitamente variaciones de alta frecuencia tanto en el dominio de grafo como en el dominio temporal:
+\begin{equation}
+  \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}}
+    \|\mathbf{Z}_{\mathcal{K}, :} - \mathbf{X}_{\mathcal{K}, :}\|_F^2
+    + \alpha \operatorname{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})
+    + \beta \|\Delta_t \mathbf{Z}\|_F^2,
+  \label{eq:sobolev}
+\end{equation}
+Aquí, $\mathbf{Z}_{\mathcal{K}, :}$ denota la submatriz formada por los canales observados indexados por $\mathcal{K}$ en todas las muestras de tiempo; el dos puntos significa ``todas las columnas''. El operador $\|\cdot\|_F$ es la norma de Frobenius, $\operatorname{tr}(\cdot)$ es el operador traza, y $\Delta_t$ es un operador de diferencia finita a lo largo del eje temporal. El hiperparámetro $\beta$ controla explícitamente la asunción de suavidad temporal, espejando la naturaleza de baja frecuencia fisiológica de la mayoría de señales EEG.
+
+\subsection{Métricas de Evaluación}
+
+El desempeño se evalúa con seis métricas complementarias:
+\begin{itemize}
+\item \textbf{Error Absoluto Medio (MAE)} y \textbf{Error Cuadrático Medio (RMSE)}: Capturan precisión de amplitud puntual. RMSE penaliza fuertemente desviaciones locales grandes, sirviendo como proxy para generación de valores atípicos.
+\item \textbf{Dynamic Time Warping (DTW)}: Evalúa fidelidad morfológica temporal. A diferencia de distancia euclidiana, DTW es robusto a cambios de fase ligeros, siendo ideal para evaluar Potenciales Relacionados con Eventos (ERP).
+\item \textbf{Relación Señal a Ruido (SNR)}: Proporciona una vista de calidad global, acotada e fácilmente interpretable en diferentes escalas de sensor.
+\item \textbf{Distancia Espectral Logarítmica (LSD)}: Evalúa la distancia logarítmica entre la Densidad Espectral de Potencia (PSD) de la señal reconstruida y la señal original, cuantificando la preservación del contenido de frecuencia en bandas fisiológicas críticas.
+\item \textbf{Coherencia Magnitud-Cuadrada}: Cuantifica la correlación en el dominio de frecuencia y consistencia de fase entre la señal reconstruida y la señal original verdadera.
+\end{itemize}
+
+Esta combinación de seis métricas es esencial en EEG: Un método con MAE bajo puede aún distorsionar dinámicas temporales (destruyendo ERPs), y un método competitivo en DTW podría fallar en preservar coherencia espectral.
+
+\subsection{Optimización de Hiperparámetros (Optuna)}
+
+Un aspecto crucial de nuestra metodología es asegurar una comparación justa y rigurosa entre familias. Métodos avanzados como TRSS dependen fuertemente de hiperparámetros (p. ej., peso temporal $\beta$, peso espacial $\alpha$, y dispersidad de grafo $k$). Sin embargo, líneas base geométricas (como splines) también poseen parámetros ajustables (p. ej., rigidez polinomial $m$).
+
+Para prevenir el sesgo permeable en la literatura de comparar algoritmos finamente sintonizados contra líneas base con configuración por defecto, utilizamos el framework Optuna \cite{akiba2019optuna}. Definimos un espacio de búsqueda sistemático para cada algoritmo:
+\begin{itemize}
+\item \textbf{TRSS}: $\alpha \in [10^{-3}, 10^{2}]$ (escala log), $\beta \in [10^{-3}, 10^{2}]$ (escala log), $k \in [3, 20]$.
+\item \textbf{Tikhonov}: $\alpha \in [10^{-3}, 10^{2}]$ (escala log), $k \in [3, 20]$.
+\item \textbf{Spherical Splines / RBF}: parámetros de rigidez/suavidad sintonizados extensivamente en rangos continuos.
+\end{itemize}
+La optimización fue ejecutada por método con configuración de muestreador estratificado para asegurar sintonización justa entre familias. Métodos basados en grafos y temporales (p. ej., Tikhonov y TRSS) fueron optimizados con muestreador TPE de Optuna usando 30 pruebas por combinación dataset-escenario. Métodos de línea base geométrica (Spherical Spline, RBF, e ICA) fueron sintonizados con muestreador multi-objetivo NSGA-II usando 10 pruebas por combinación, seleccionando soluciones Pareto-óptimas en MAE versus LSD. Los detalles de implementación están documentados en los scripts de optimización correspondientes en el repositorio.
+
+Para asegurar la validez de los resultados y prevenir fuga de datos, implementamos una división temporal estricta train/test para cada prueba. El primer 70\% de cada segmento de señal fue designado como el \emph{Optimization Set}, usado por Optuna para evaluar la función objetivo y sintonizar hiperparámetros ($\alpha, \beta, k, \dots$). Críticamente, para considerar la fuerte autocorrelación temporal inherente en señales EEG filtradas en paso banda (0.5--40~Hz), un \emph{buffer gap} de 2~segundos ($2 \times f_s$ muestras) fue descartado entre el Optimization Set y el \emph{Test Set}. Esta zona muerta asegura que las muestras de prueba no sean trivialmente predecibles del límite de optimización. Las muestras restantes después del gap constituyen el Test Set. Todas las métricas reportadas corresponden exclusivamente a este Test Set no visto.
+
+\subsection{Análisis de Sensibilidad de $\alpha$ y $\beta$}
+
+El objetivo TRSS (Eq.~\ref{eq:sobolev}) contiene dos términos de regularización compitiendo controlados por $\alpha$ (suavidad espacial) y $\beta$ (suavidad temporal). Su interacción admite una interpretación intuitiva como un filtro paso-bajo bidimensional: $\alpha$ controla el ancho de banda espacial en el grafo (suprimiendo armónicos de grafo de alta frecuencia), mientras $\beta$ controla el ancho de banda temporal (penalizando variaciones rápidas muestra-a-muestra).
+
+El tamaño de paso de descenso de gradiente está acotado por la constante de Lipschitz $L_c$ del gradiente compuesto:
+\begin{equation}
+  L_c = 2\left(1 + \alpha \|\mathbf{L}\|_2 + \beta \|\mathbf{L}_t\|_2 \|\mathbf{L}\|_2\right),
+  \label{eq:lipschitz}
+\end{equation}
+donde $\|\mathbf{L}\|_2$ y $\|\mathbf{L}_t\|_2$ son las normas espectrales de los Laplacianos espacial y temporal, respectivamente. El tamaño de paso adaptativo $\eta = \min(\text{lr}, 1/L_c)$ asegura convergencia sin importar la relación $\alpha/\beta$.
+
+Prácticamente, la relación $\beta/\alpha$ determina la importancia relativa de los priors temporal versus espacial. Cuando $\beta \gg \alpha$, el algoritmo prioriza continuidad temporal, lo que es beneficioso cuando la información espacial es severamente degradada (p. ej., 40\% de pérdida cercana). Cuando $\beta \to 0$, TRSS se reduce a Tikhonov estándar en grafos (Eq.~\ref{eq:tikhonov}). La relación con la frecuencia de muestreo $f_s$ es implícita: ya que $\Delta_t$ opera en muestras consecutivas, mayor $f_s$ implica pasos de tiempo físicos más pequeños, requiriendo proporcionalmente mayor $\beta$ para lograr suavizado temporal equivalente en unidades físicas. Este acoplamiento es automáticamente resuelto por optimización por-escenario de Optuna.

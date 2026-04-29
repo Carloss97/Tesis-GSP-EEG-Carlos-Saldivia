@@ -1,0 +1,23 @@
+\section{Configuración Experimental}
+
+Los experimentos siguen un pipeline fijo y reproducible: carga y preprocesamiento de datos, construcción de grafos, simulación de canales faltantes, optimización sistemática de hiperparámetros, reconstrucción, y evaluación cuantitativa.
+
+\subsection{Conjuntos de Datos y Preprocesamiento}
+Para asegurar amplía generalización y capturar diferentes densidades espaciales y dinámicas temporales, evaluamos los métodos en tres conjuntos de datos distintos y públicamente disponibles:
+\begin{itemize}
+\item \emph{PhysioNet EEG Motor Movement/Imagery Dataset} \cite{schalk2004bci2000}: Una base de datos a gran escala que comprende grabaciones EEG de 64 canales muestreadas a 160 Hz. Este conjunto de datos representa grabaciones de grado clínico de alta densidad y altamente correlacionadas donde los métodos espaciales típicamente funcionan bien.
+\item \emph{BCI Competition IV 2a} \cite{tangermann2012bci}: Un conjunto de datos estándar de benchmarking de imaginería motora de 22 canales muestreado a 250 Hz. Su densidad espacial más baja lo hace particularmente desafiante para interpolación puramente geométrica, sirviendo como banco de pruebas excelente para regularización temporal.
+\item \emph{MNE Sample Dataset} \cite{gramfort2013meg}: Un conjunto de datos de 60 canales capturando potenciales evocados auditivos y visuales. Este conjunto de datos es específicamente utilizado para evaluar la preservación de Potenciales Relacionados con Eventos (ERPs), requiriendo precisión sub-milisegundo e integridad de fase.
+\end{itemize}
+Todas las señales fueron filtradas en paso banda entre $0.5$ y $40$ Hz para remover desplazamientos DC y artefactos de músculos de alta frecuencia, siguiendo pipelines estándar de procesamiento EEG.
+
+\subsection{Protocolo de Enmascaramiento (Simulación de Canales Faltantes)}
+El enmascaramiento simula fallos de sensores tanto sistemáticos como esporádicos. En ambientes clínicos y BCI, los sensores frecuentemente fallan en clusters debido a problemas de bloques amplificadores o desplazamiento localizado de casquete. Por lo tanto, utilizamos dos modos espaciales:
+\begin{itemize}
+\item \emph{Aleatorio}: Los electrodos son seleccionados para remoción siguiendo una distribución discreta uniforme.
+\item \emph{Cercano}: Un electrodo semilla es aleatoriamente seleccionado, y sus vecinos más cercanos (basados en distancia euclidiana 3D) son secuencialmente removidos, simulando un fallo de bloque espacial contiguo.
+\end{itemize}
+Para cada modo, variamos la severidad de degradación utilizando \emph{proporciones} (10\%, 20\%, 30\%, 40\% de canales totales) y \emph{conteos} discretos (1, 2, o 3 canales específicos faltantes). Cada escenario es simulado en múltiples épocas para asegurar significancia estadística.
+
+\subsection{Reproducibilidad}
+Para prevenir la crisis de reproducibilidad frecuentemente observada en benchmarking algorítmico, todos los scripts, configuraciones de hiperparámetros, y artefactos de salida son rastreados bajo control de versiones en el repositorio público. La fase de optimización de Optuna produce archivos CSV estructurados que contienen: (i) los valores precisos de hiperparámetros (p. ej., $\alpha, \beta, k, \sigma$) que produjeron el MAE mínimo para cada pareja método/escenario, y (ii) registros equivalentes para las líneas base geométricas, probando que fueron impulsadas a sus límites de rendimiento teórico. Amplios artefactos visuales incluyendo mapas de calor, gráficos de radar multi-métrica, y curvas de degradación también son archivados. Todas las semillas aleatorias son fijas (\texttt{random\_state = 42}) para asegurar replicación determinística.

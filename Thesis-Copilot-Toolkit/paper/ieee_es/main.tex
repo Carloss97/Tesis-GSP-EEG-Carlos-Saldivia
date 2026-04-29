@@ -1,0 +1,68 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{balance}
+
+% Reduce table column separation and use smaller font in table floats
+% to mitigate extreme overfull boxes from auto-generated wide tables.
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{\scriptsize\setlength{\tabcolsep}{1.5pt}}
+\renewcommand{\arraystretch}{0.88}
+
+% Robust iteration identifier for captions/moving arguments
+\DeclareRobustCommand{\iterid}[1]{\texttt{\detokenize{#1}}}
+
+% NOTE: The following block maps fragile macros for hyperref PDF-strings.
+% It has caused ordering/expansion issues in some LaTeX runs (runaway
+% argument during auxiliary writes). Commenting out temporarily to
+% isolate the problem. If needed, reintroduce a safer mapping.
+% \pdfstringdefDisableCommands{%
+%     \def\iterid#1{#1}% keep identifier content as plain text in bookmarks
+%     \def\_{_}% map escaped underscore to literal underscore
+%     \def\textunderscore{_}% ensure text underscore maps to plain '_'
+%     \def\pm{±}% render plus-minus as a unicode symbol in bookmarks
+%     \def\textpm{±}% alternate plus-minus macro
+%     \def\%{\%}% keep literal percent in strings
+% }
+
+% Reference to shared numerical results
+\input{../../shared/results_data}
+
+\title{Procesamiento de Señales de Grafos e Interpolación para Reconstrucción de Canales en EEG}
+
+% AUTHOR BLOCK FOR DOUBLE-BLIND REVIEW
+\author{Autores Anónimos}
+% AUTHOR BLOCK FOR FINAL CAMERA-READY (Commented for review)
+% \author{Carlos~Saldivia,~\IEEEmembership{Student Member, IEEE} and [Professor Name],~\IEEEmembership{Senior Member, IEEE}
+% \thanks{Manuscript prepared for journal submission. C. Saldivia and [Professor Name] are with the Department of Electronic Engineering, Universidad Técnica Federico Santa María, Chile.}
+% }
+
+\begin{document}
+
+\maketitle
+
+\input{sections/abstract_es}
+\input{sections/introduction_es}
+\input{sections/related_work_es}
+\input{sections/methods_es}
+\input{sections/experiments_es}
+\input{sections/results_es}
+\input{sections/discussion_es}
+\input{sections/reproducibility_es}
+\input{sections/conclusion_es}
+
+\bibliographystyle{IEEEtran}
+\bibliography{../ieee/bibliography/references}
+
+\balance
+
+\end{document}

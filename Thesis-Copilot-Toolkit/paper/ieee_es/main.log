@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  29 APR 2026 09:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  29 APR 2026 09:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -446,7 +446,7 @@ Package: balance 1999/02/23 4.3 (PWD)
 )
 (../../shared/results_data.tex)
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 52.
+h' as default language. on input line 49.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
@@ -464,24 +464,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
 
 -- Lines per column: 58 (exact).
 
@@ -516,14 +516,14 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 52.
-Package hyperref Info: Link coloring OFF on input line 52.
+or `english'. on input line 49.
+Package hyperref Info: Link coloring OFF on input line 49.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 
-(sections/abstract.tex) (sections/introduction.tex
+(sections/abstract_es.tex) (sections/introduction_es.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
 
@@ -535,13 +535,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-(sections/related_work.tex [1{C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdf
-tex/pdftex.map}{C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ba
-se/8r.enc}
+)
+[1{C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/sa
+rlo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
-]) (sections/methods.tex
+])
+(sections/related_work_es.tex) (sections/methods_es.tex [2]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
 .
 
@@ -549,37 +549,18 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
+[]\T1/ptm/m/it/10 Grafos den-sos/globales\T1/ptm/m/n/10 : dis-tan-cia in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+\T1/ptm/m/n/10 versa com-ple-ta-mente conec-tada
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 \T1/ptm/m/n/10 (\T1/pcr/m/n/10 fully_connected_inverse_distance\T1/ptm/m/n/10 )
- and
- []
-
-[2]
-Underfull \hbox (badness 1406) in paragraph at lines 12--13
-[]\T1/ptm/m/it/10 Adaptive/learned graphs\T1/ptm/m/n/10 : non-negative ker-nel 
-re-gres-
- []
-
-
-Underfull \hbox (badness 2435) in paragraph at lines 22--23
- \T1/ptm/m/it/10 a) Ge-o-met-ric/Spline Base-lines: [][] \T1/ptm/m/n/10 Clas-si
--cal al-ter-na-tives
- []
-
-
-Underfull \hbox (badness 2158) in paragraph at lines 38--39
- \T1/ptm/m/it/10 c) Tem-po-ral Reg-u-lar-iza-tion Meth-ods (TRSS): [][] \T1/ptm
-/m/n/10 These
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-[]\T1/ptm/b/n/10 Magnitude-Squared Co-her-ence\T1/ptm/m/n/10 : Quan-ti-fies the
-
- []
-
-
-Underfull \hbox (badness 2564) in paragraph at lines 56--57
-\T1/ptm/m/n/10 frequency-domain cor-re-la-tion and phase con-sis-tency
+ y
  []
 
 [3]
@@ -607,23 +588,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 75.
 
-) (sections/experiments.tex
-Underfull \hbox (badness 2828) in paragraph at lines 3--4
-\T1/ptm/m/n/10 load-ing and pre-pro-cess-ing, graph con-struc-tion, missing-
- []
-
-
-Underfull \hbox (badness 2119) in paragraph at lines 8--9
-\T1/ptm/m/n/10 A large-scale database com-pris-ing 64-channel EEG
- []
-
-) (sections/results.tex
-Underfull \hbox (badness 1688) in paragraph at lines 3--4
-[]\T1/ptm/m/n/10 This sec-tion presents the com-pre-hen-sive out-comes of
- []
-
-[4]
-<../../results_optuna_final/global_comparison_physionet.png, id=240, 1149.5748p
+) (sections/experiments_es.tex [4]) (sections/results_es.tex
+<../../results_optuna_final/global_comparison_physionet.png, id=216, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -631,8 +597,21 @@ type png)
 Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 187.04247pt.
+
+Overfull \vbox (1.23553pt too high) detected at line 43
+ []
+
+
+Underfull \vbox (badness 3375) has occurred while \output is active []
+
+ [5 <../../results_optuna_final/global_comparison_physionet.png>]
+Underfull \hbox (badness 2027) in paragraph at lines 70--70
+ \T1/ptm/m/it/10 C. Rel-e-van-cia Fi-si-ológ-ica: Po-ten-ciales Rela-ciona-dos 
+con
+ []
+
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=245, 1004.0712pt x 569.4876pt>
+d=232, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
@@ -640,10 +619,8 @@ g>
 Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
 _nearby_1_0_count.png  used on input line 76.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
- [5 <../../results_optuna_final/global_comparison_physionet.png> <../../results
-_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=261, 1004.0712pt x 569.4876pt>
+d=234, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
@@ -652,7 +629,7 @@ Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
 _nearby_0_4_ratio.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=263, 743.4174pt x 452.892pt>
+d=236, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
@@ -660,43 +637,11 @@ g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
 _nearby_1_0_count.png  used on input line 96.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=266, 1148.6
-112pt x 427.3566pt>
-File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
-le (type png)
-<use ../../results_optuna_final/degradation_bci_iv_random_ratio.png>
-Package pdftex.def Info: ../../results_optuna_final/degradation_bci_iv_random_r
-atio.png  used on input line 109.
-(pdftex.def)             Requested size: 252.0pt x 93.7579pt.
-
-(../../results/tablas_resumen/phase3_trial_level_table.tex)
-Underfull \hbox (badness 4120) in paragraph at lines 122--123
-[]\T1/ptm/m/n/10 The trial-level anal-y-sis re-veals sev-eral key in-sights.
- []
-
-
-Underfull \hbox (badness 1817) in paragraph at lines 122--123
-\T1/ptm/m/n/10 ond, meth-ods rooted in tem-po-ral reg-u-lar-iza-tion (tem-po-
- []
-
-[6 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png
-> <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png>
- <../../results_optuna_final/degradation_bci_iv_random_ratio.png>]
-Underfull \hbox (badness 3049) in paragraph at lines 148--149
-[]\T1/ptm/m/n/10 Signal qual-ity: SNR, log spec-tral dis-tance (LSD),
- []
-
-) (sections/discussion.tex [7]) (sections/reproducibility.tex
-Underfull \hbox (badness 2229) in paragraph at lines 23--1
-\T1/ptm/m/n/10 default-configured base-lines, in-flat-ing per-ceived im-prove-
- []
-
-
-Underfull \hbox (badness 6252) in paragraph at lines 23--1
-\T1/ptm/m/n/10 ments. By sub-ject-ing all methods---including clas-si-cal
- []
-
-) (sections/conclusion.tex [8]) (main.bbl
+) (sections/discussion_es.tex [6 <../../results_optuna_baselines/erp_optimized_
+baselines_nearby_1_0_count.png> <../../results_optuna_baselines/erp_optimized_b
+aselines_nearby_0_4_ratio.png> <../../results_optuna_baselines/psd_optimized_ba
+selines_nearby_1_0_count.png>]) (sections/reproducibility_es.tex)
+(sections/conclusion_es.tex [7]) (main.bbl
 Underfull \hbox (badness 1448) in paragraph at lines 90--94
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
@@ -714,10 +659,9 @@ Overfull \hbox (23.51341pt too wide) in paragraph at lines 112--119
 h-[]signal-[]processing /
  []
 
-)
+[8])
+Overfull \vbox (0.86597pt too high) has occurred while \output is active []
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
 
 [9] (main.aux)
  ***********
@@ -725,16 +669,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 430C2B66378E807AD0A14E0663D347D5;7189.
+(rerunfilecheck)             Checksum: 835368B18D29C2A5BD93591968CE7237;6425.
  ) 
 Here is how much of TeX's memory you used:
- 15509 strings out of 467867
- 311342 string characters out of 5418335
- 708947 words of memory out of 5000000
- 44090 multiletter control sequences out of 15000+600000
+ 15473 strings out of 467867
+ 310195 string characters out of 5418335
+ 694658 words of memory out of 5000000
+ 44069 multiletter control sequences out of 15000+600000
  749720 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,80p,1313b,1107s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,80p,1548b,1171s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -742,26 +686,25 @@ blic/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/sarlo/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sarlo/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sarlo/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/
-sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
-pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/User
-s/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Us
-ers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Us
-ers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/U
-sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/U
-sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (9 pages, 1414011 bytes).
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sarlo/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/s
+arlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
+fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sarlo/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/sarlo/
+AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sarl
+o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sarl
+o/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/sar
+lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/sar
+lo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (9 pages, 1239646 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
- 306 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 
