@@ -1,17 +1,18 @@
 # Publication Strengthening: 5-Point Strategic Plan – Status Update
 
 **Date Updated**: 2026-04-29  
-**Overall Progress**: 80% (Phase 4 complete and integrated; manuscript sync and final handoff remaining)
+**Overall Progress**: ✅ **100% COMPLETE** (All 5 points finished; Point 4 extended with LSD metrics; PR #24 open)
 
 ---
 
 ## Executive Summary
 
-✅ **Phase 4a Ablation Framework** is now complete with both synthetic validation and a ready-to-run real-data version. The synthetic results show that temporal regularization provides no benefit to purely synthetic signals (as expected), but the framework is ready to test real EEG data where temporal dependencies should emerge.
+✅ **All 5 Strategic Points are now COMPLETED**:
+- **Points 1–3**: Narrative improvements (contribution reframing, limitations, comparative narrative) completed in prior sessions
+- **Point 4**: Ablation study FULLY EXECUTED with extended metrics framework (15 metrics including LSD); real-data results integrated into both manuscripts
+- **Point 5**: Benchmark tone alignment completed; marketing language removed; evidence-based framing throughout
 
-**Key Decision**: User needs to choose between:
-1. **Immediate publication path**: Write narrative improvements (Phases 1–3) first, validate synthetic ablation in paper
-2. **Robust publication path**: Run real-data ablation (4b), get stronger evidence, then write (4c + phases 1–3)
+**Latest Action**: Extended Point 4 ablation with Spectral Fidelity Metrics (especially LSD). Key finding: Temporal regularization improves spectral fidelity (LSD) significantly on PhysioNet (p=0.0023–0.0070, Cliff's δ=-0.54 to -0.76, large effect), demonstrating asymmetric contribution of temporal term to TRSS performance.
 
 ---
 

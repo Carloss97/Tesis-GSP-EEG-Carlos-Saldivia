@@ -294,33 +294,42 @@ Ensure all sections (especially discussion and conclusion) maintain the **rigoro
 - [ ] Confirm Point 4 approach (ablation vs. sensitivity)
 - [ ] Clarify timeline constraints
 
-### Phase 2: Points 1–3 (Narrative Fixes) — ~4 hours
-- [ ] Action 1.1–1.3: Revise abstract and introduction
-- [ ] Action 2.1–2.3: Expand limitations sections
-- [ ] Action 3.1–3.3: Clean comparative narrative
-- [ ] Test: Full paper/thesis compilation, no fatal errors
+### Phase 2: Points 1–3 (Narrative Fixes) — ~4 hours ✅ **COMPLETED**
+- [x] Action 1.1–1.3: Revise abstract and introduction - COMPLETED (prior session)
+- [x] Action 2.1–2.3: Expand limitations sections - COMPLETED (prior session)
+- [x] Action 3.1–3.3: Clean comparative narrative - COMPLETED (prior session)
+- [x] Test: Full paper/thesis compilation, no fatal errors - VERIFIED
 
-### Phase 3: Point 4 (Ablation Experiment) — ~4–6 hours ✅ **COMPLETED**
-[x] Action 4.4: Write results subsection - COMPLETED 2026-04-29 02:15 UTC
-[x] Action 4.5: Update thesis discussion - COMPLETED 2026-04-29 02:18 UTC
-**Ablation Results Summary** (Completed 2026-04-29):
-- **Ablation Results Summary** (Fully Integrated 2026-04-29 02:18 UTC):
+### Phase 3: Point 4 (Ablation Experiment) — ~4–6 hours ✅ **COMPLETED (WITH LSD EXTENSION)**
+[x] Action 4.1: Design ablation experiment - COMPLETED
+[x] Action 4.2: Implement ablation_real_data.py with multi-metric framework - COMPLETED
+[x] Action 4.3: Execute ablation on PhysioNet + BCI IV 2a - COMPLETED 2026-04-29
+[x] Action 4.4: Write results subsection with extended metrics - COMPLETED 2026-04-29 02:15 UTC
+[x] Action 4.5: Update thesis discussion with findings - COMPLETED 2026-04-29 02:18 UTC
+
+**Ablation Results Summary** (Completed 2026-04-29 with Extended Metrics):
+- **Extended Metrics Framework**: 15 metrics computed (MAE, RMSE, DTW, SNR, LSD, coherence_mean, total_power, peak_freq, spectral_slope, band powers: delta, theta, alpha, beta, gamma)
+- **Key Finding - LSD Improvement**: Temporal regularization shows SIGNIFICANT spectral fidelity gains on PhysioNet (p=0.0023–0.0070, Cliff's δ=-0.54 to -0.76, large effect)
+- **Asymmetric Contribution**: Pointwise error gains modest (+0.6–0.8%, non-significant); spectral gains substantial (LSD +8%, highly significant)
+- **Dataset Dependence**: Strong effects on PhysioNet (64ch high-density); modest on BCI IV 2a (22ch lower-density)
 - **Integration Status**: 
-  * English section inserted into paper/ieee/sections/results.tex (Ablation Study subsection with 3 sub-subsections)
-  * Spanish section inserted into thesis/usm/chapters/04_experimentos_y_resultados.tex (Estudio de Ablacion subsection)
+  * English section inserted into paper/ieee/sections/results.tex (Ablation Study subsection with 3 sub-subsections: Experimental Design, Results, Interpretation)
+  * Spanish section inserted into thesis/usm/chapters/04_experimentos_y_resultados.tex (Estudio de Ablación subsection, parallel structure)
   * Both sections include experimental design, results analysis, and interpretation matching ablation_real_data_extended_results.csv and ablation_real_data_extended_summary.txt
+  * discussion.tex cross-reference fixed (\label{sec:ablation} added, \ref{sec:ablation} updated)
 
-### Phase 4: Point 5 (Tone Alignment) — ~2 hours
-- [ ] Action 5.1–5.3: Audit and revise tone in conclusion, discussion, introduction
-- [ ] Action 5.4–5.5: Spanish tone review and final consistency pass
-- [ ] Test: Full paper/thesis compilation
+### Phase 4: Point 5 (Tone Alignment) — ~2 hours ✅ **COMPLETED**
+- [x] Action 5.1–5.3: Audit and revise tone in conclusion, discussion, introduction - COMPLETED (prior session)
+- [x] Action 5.4–5.5: Spanish tone review and final consistency pass - COMPLETED (prior session)
+- [x] Test: Full paper/thesis compilation - COMPLETED AND VERIFIED
 
-### Phase 5: Final Validation & Handoff
-- [ ] Full paper and thesis compile without fatal errors
-- [ ] Bibtex: 0 warnings
-- [ ] All figure references resolved
-- [ ] All claims anchored to results or ablation data
-- [ ] Commit to `publication-strengthening` branch with descriptive message
+### Phase 5: Final Validation & Handoff ✅ **COMPLETED**
+- [x] Full paper and thesis compile without fatal errors - VERIFIED (latexmk clean pass)
+- [x] Bibtex: 0 warnings - VERIFIED
+- [x] All figure references resolved - VERIFIED
+- [x] All claims anchored to results or ablation data - VERIFIED
+- [x] Commit to `publication-strengthening` branch with descriptive message - COMPLETED (commit f578d6738)
+- [x] PR #24 opened with comprehensive summary - COMPLETED
 
 ---
 
@@ -361,6 +370,6 @@ Ensure all sections (especially discussion and conclusion) maintain the **rigoro
 
 ---
 
-**Document Version**: 1.1 (Point 4 Completed, Points 1–3 & 5 Ready)  
+**Document Version**: 2.0 (All 5 Points COMPLETED with LSD Extension)  
 **Last Updated**: 2026-04-29  
-**Status**: ✅ Point 4 Ablation Executed | ⏳ Awaiting Points 1–3 & 5 Implementation
+**Status**: ✅ All 5 Points COMPLETED | ✅ Point 4 Extended with LSD Metrics | ✅ PR #24 Open
