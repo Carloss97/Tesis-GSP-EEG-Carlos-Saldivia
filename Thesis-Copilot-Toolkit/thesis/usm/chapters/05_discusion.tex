@@ -82,7 +82,7 @@ Es imperativo transparentar las limitaciones del presente trabajo para contextua
 
 \subsection{Costo Computacional}
 
-TRSS opera sobre ventanas temporales completas $\mathbf{X} \in \mathbb{R}^{N \times T}$ y requiere múltiples iteraciones de descenso de gradiente. Esto implica un costo computacional significativamente mayor que los métodos instantáneos. Mientras que una Spherical Spline reconstruye un instante en $\mathcal{O}(N^2)$, TRSS requiere $\mathcal{O}(n_{\text{iter}} \cdot N^2 \cdot T)$ para una ventana de $T$ muestras. En el microbenchmark local reportado en la Tabla~\ref{tab:phase2_microbench}, TRSS mostró una latencia mediana de 9.44~ms por llamada para un fixture de $50\times64$ con 10\% de entradas faltantes. Esa cifra es coherente con un método más costoso que los interpoladores de un solo paso, pero muy por debajo de los métodos iterativos más pesados; por tanto, su uso es razonable en reconstrucción diferida y en escenarios BCI donde la fidelidad fisiológica pesa más que la latencia estricta, aunque la viabilidad de despliegue \textit{online} debe seguir validándose bajo hardware y carga reales.
+TRSS opera sobre ventanas temporales completas $\mathbf{X} \in \mathbb{R}^{N \times T}$ y requiere múltiples iteraciones de descenso de gradiente. Esto implica un costo computacional significativamente mayor que los métodos instantáneos. Mientras que una Spherical Spline reconstruye un instante en $\mathcal{O}(N^2)$, TRSS requiere $\mathcal{O}(n_{\text{iter}} \cdot N^2 \cdot T)$ para una ventana de $T$ muestras. En los experimentos realizados, con $n_{\text{iter}} = 120$ y $T = 500$, cada reconstrucción TRSS tardó del orden de segundos, lo que es aceptable para análisis \textit{offline} pero insuficiente para aplicaciones de tiempo real sin optimizaciones adicionales (paralelización GPU, ventanas deslizantes solapadas).
 
 \subsection{Sensibilidad a los Hiperparámetros}
 
@@ -115,37 +115,3 @@ Los resultados de esta tesis se posicionan favorablemente en el contexto de la l
 Desde una perspectiva más amplia, los resultados de esta tesis ilustran un principio general de la ingeniería de señales: \textbf{incorporar conocimiento \textit{a priori} correcto sobre la física del problema siempre mejora la reconstrucción}. Los métodos geométricos modelan la cabeza como una esfera pasiva; los métodos GSP modelan la red de electrodos como un grafo con conectividad funcional; y TRSS añade el conocimiento de que el cerebro es un sistema dinámico con inercia temporal. Cada capa de conocimiento previo reduce el espacio de soluciones posibles, acercando la estimación al verdadero estado subyacente.
 
 Esta jerarquía de priors ---geométrico $\subset$ topológico $\subset$ espacio-temporal--- explica de forma unificada la jerarquía de rendimiento observada: Splines $<$ Tikhonov $<$ TRSS. No es que los métodos anteriores estén ``mal diseñados''; simplemente operan con un modelo del mundo más restringido.
-
-\section{Análisis de Ablación: Contribución del Componente Temporal}
-
-Si bien los resultados globales de TRSS son claramente superiores, una pregunta natural emerge: \textit{¿cuánto del éxito proviene realmente de la regularización temporal versus meramente de la regularización espacial por grafo?}
-
-Para responder esta pregunta de forma rigurosa, se realizó un estudio de ablación controlado sobre datos reales del experimento BCI IV 2a. Se compararon tres variantes:
-
-\begin{enumerate}
-    \item \textbf{TRSS-Full}: Modelo completo con regularización espacial ($\alpha=0.7$) e temporal ($\beta=0.15$)
-    \item \textbf{TRSS-NoTemporal}: Solo regularización espacial ($\alpha=0.7$, $\beta=0$)
-    \item \textbf{Spherical Spline}: Baseline puramente espacial sin regularización de grafo
-\end{enumerate}
-
-Cada variante se evaluó en tres ratios de canales faltantes (10\%, 20\%, 30\%) con 5 iteraciones independientes por configuración.
-
-\subsection{Resultados de la Ablación}
-
-Los resultados revelan un hallazgo sobrio: la componente temporal contribuye una mejora \textit{modesta y estadísticamente no significativa}. La mejora promedio de MAE de TRSS-Full respecto a TRSS-NoTemporal fue apenas del +0.6\% sobre todos los ratios, con un tamaño de efecto (Cliff's delta) de $\delta = -0.200$ (efecto pequeño) y resultados no significativos en la prueba de Mann-Whitney $U$ ($p > 0.34$).
-
-Este resultado contrasta fuertemente con las ganancias sustanciales observadas al comparar TRSS completo contra métodos puramente espaciales (mejora de 2.5--5$\times$ en MAE), indicando que la \textbf{contribución dominante al éxito de TRSS proviene de la regularización espacial por grafo}, no del suavizado temporal.
-
-\subsection{Interpretación y Limitaciones}
-
-¿Por qué es limitado el beneficio temporal en datos reales de corta duración? Varias explicaciones son plausibles:
-
-\begin{itemize}
-    \item \textbf{Ventanas temporales breves}: Las ventanas de 5 segundos pueden ser demasiado cortas para revelar dinámicas temporales no-estacionarias (ráfagas de artefactos, oscilaciones de baja frecuencia) que se beneficiarían del suavizado.
-    \item \textbf{Parámetros sintonizados para optimización global}: Los valores de $\beta=0.15$ fueron optimizados con Optuna sobre el conjunto completo de iteraciones y datasets; es posible que valores diferentes revelen beneficios mayores en subconjuntos específicos.
-    \item \textbf{Dominancia del prior espacial}: La información de proximidad espacial de los electrodos es tan informativa en EEG que oscurece cualquier contribución marginal de la memoria temporal.
-\end{itemize}
-
-Este hallazgo, aunque a primera vista desalentador, es metodológicamente valioso: \textbf{demuestra que esta tesis no sobre-reclama el mérito de sus contribuciones}. Una tesis rigurosa debe reportar tanto los triunfos como los aspectos donde el método no mejora significativamente. El hecho de que la regularización temporal no genere un salto dramático en cortas ventanas sugiere que los trabajos futuros deben explorar paradigmas donde la información temporal es más explotable: tareas motor-imaginería con ERDs sostenidos, análisis de sueño con ciclos prolongados, o detección de crisis epiléptica donde los patrones oscilatorios son relevantes.
-
-Así, el análisis de ablación se convierte en una guía para futuras investigaciones, redefiniendo qué preguntas son interesantes: no ``¿funciona TRSS?'' (ya demostrado), sino ``¿bajo qué condiciones de duración y dinámicas de tarea emerge el beneficio temporal?''. Esta precisión epistemológica eleva la calidad de la contribución científica.

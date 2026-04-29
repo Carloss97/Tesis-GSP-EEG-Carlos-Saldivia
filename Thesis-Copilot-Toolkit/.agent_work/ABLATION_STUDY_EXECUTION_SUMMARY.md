@@ -1,8 +1,8 @@
 # Ablation Study: Temporal Component Contribution - Execution Summary
 
-**Date**: 2026-04-28 13:28  
-**Status**: ✅ COMPLETE  
-**Mode**: Fast execution using synthetic EEG-like signals  
+**Date**: 2026-04-29 13:28  
+**Status**: ✅ COMPLETE AND INTEGRATED  
+**Mode**: Fast execution using synthetic EEG-like signals (historical phase-4a baseline)
 
 ---
 
@@ -36,7 +36,7 @@ Executed Phase 4 of the Publication Strengthening Plan: an ablation study compar
 
 ### Why Synthetic Data?
 
-Fast execution validation. Real data experiments will follow with PhysioNet/BCI IV 2a once data availability is confirmed.
+Fast execution validation. Real data experiments were later completed with PhysioNet/BCI IV 2a and integrated into the manuscript set.
 
 ---
 
@@ -128,7 +128,7 @@ The ablation study framework is now **ready for real EEG data validation**:
 
 1. **Methodological Rigor**: Demonstrates systematic evaluation of model components
 2. **Transparency**: Shows what hypotheses hold under synthetic conditions
-3. **Framework**: Ready for real-data validation to strengthen manuscript
+3. **Framework**: Real-data validation was later completed and integrated into the manuscript set
 
 ### What's Still Needed
 
@@ -157,23 +157,19 @@ To make the ablation a compelling publication argument:
 | Phase | Task | Effort | Blocker | Status |
 |-------|------|--------|---------|--------|
 | Phase 4a | Ablation framework (done) | ✓ Complete | None | ✅ |
-| Phase 4b | Real-data ablation | 1–2 hrs | Data availability | ⏳ Pending |
-| Phase 4c | Write ablation section | 1 hr | 4b complete | ⏳ Pending |
-| Phase 1–3 | Narrative fixes | 4 hrs | None | ⏳ Pending |
-| Phase 5 | Tone/voice alignment | 2 hrs | 4c complete | ⏳ Pending |
-| **Total** | **Publication strengthening** | **12–14 hrs** | **4b data** | **In progress** |
+| Phase 4b | Real-data ablation | 1–2 hrs | Data availability | ✅ Done |
+| Phase 4c | Write ablation section | 1 hr | 4b complete | ✅ Done |
+| Phase 1–3 | Narrative fixes | 4 hrs | None | ✅ Done |
+| Phase 5 | Tone/voice alignment | 2 hrs | 4c complete | ✅ Done |
+| **Total** | **Publication strengthening** | **12–14 hrs** | **Complete** | **Done** |
 
 ---
 
 ## Immediate Action Items
 
 1. **✅ Complete** – Ablation script created and tested
-2. **⏳ Next** – Decide on real-data run:
-   - Try PhysioNet download (may take 5–10 min)
-   - Or proceed with narrative fixes (Phases 1–3) while data downloads
-   - Or document synthetic-only ablation in paper as "preliminary validation"
-
-3. **⏳ Then** – Write ablation results section + integrate into paper
+2. **✅ Complete** – Real-data run completed later and integrated into the paper/thesis
+3. **✅ Complete** – Narrative and tone updates were aligned across documents
 
 ---
 

@@ -1,122 +1,53 @@
-# RESUMEN EJECUTIVO: FASES 1-5 COMPLETADAS ✅
+# RESUMEN EJECUTIVO: FASE 4b ABLACIÓN - COMPLETADO ✅
 
-**Fecha Actualización**: 29 de abril de 2026  
-**Estado General**: ✅ **100% COMPLETADAS (TODAS LAS 5 FASES)**  
-**Cambio Reciente**: Fase 4 extendida con métricas de Fidelidad Espectral (LSD)
-
----
-
-## Estado de Cada Fase
-
-| Fase | Nombre | Estado | Descubrimiento Clave |
-|------|--------|--------|----------------------|
-| **1** | Reencuadre de Contribución | ✅ COMPLETA | Abstract/Intro enfatizan metodología, no novedad algoritmica |
-| **2** | Sección Explícita de Limitaciones | ✅ COMPLETA | Limitaciones documentadas en ambos manuscritos |
-| **3** | Consistencia de Narrativa | ✅ COMPLETA | Resumen de resultados + interpretación coherente |
-| **4** | Ablación + Evidencia de Robustez | ✅ COMPLETA (EXTENDIDA) | Contribución ASIMÉTRICA: fidelidad espectral >> error puntual |
-| **5** | Alineación de Tono Benchmark | ✅ COMPLETA | Lenguaje de marketing removido; framing objetivo |
+**Fecha**: 28 de abril de 2026  
+**Estado**: ✅ **COMPLETADO**  
+**Tiempo Total**: ~6 segundos de ejecución + ~1 hora de integración
 
 ---
 
-## FASE 4: ABLACIÓN EXTENDIDA CON MÉTRICAS LSD ✨
+## Lo que se Logró
 
-### Diseño Experimental
-- **Datasets**: PhysioNet EEGBCI (64ch, alta densidad) + BCI IV 2a (22ch, baja densidad)
-- **Variantes**: 
-  - TRSS-Full (α=0.7, β=0.15) – modelo completo con término temporal
-  - TRSS-NoTemporal (α=0.7, β=0) – solo regularización espacial
-  - Spherical Spline – baseline puramente espacial
-- **Métricas Extendidas** (15 total):
-  - Errores puntuales: MAE, RMSE, DTW
-  - Calidad de señal: SNR (dB), LSD (distancia espectral log 0.5–45 Hz), Coherencia media
-  - Descriptores espectrales: potencia total, frecuencia pico, pendiente espectral, potencias de banda (delta, theta, alpha, beta, gamma)
-- **Diseño**: 2 datasets × 4 ratios faltantes (10%, 20%, 30%, 40%) × 10 iteraciones × 3 variantes = **240 filas de datos**
+### 1. Estudio de Ablación Real ejecutado exitosamente
+- **Dataset**: BCI Competition IV 2a (datos reales de EEG, 22 canales, 250 Hz)
+- **Duración**: 5 segundos de datos por iteración (tractable computacionalmente)
+- **Variantes comparadas**:
+  - **TRSS-Full**: Modelo completo (α=0.7, β=0.15)
+  - **TRSS-NoTemporal**: Solo regularización espacial (α=0.7, β=0)
+  - **Spherical Spline**: Baseline puramente espacial
 
-### Hallazgos Clave: Contribución ASIMÉTRICA del Término Temporal
+### 2. Resultados Honesto sobre Contribución Temporal
 
-#### 📊 Errores Puntuales (MAE, RMSE, DTW)
 ```
-TRSS-Full vs TRSS-NoTemporal:
-  Mejora:      +0.6–0.8%
-  p-value:     >0.20 (NO significativo)
-  Cliff's δ:   -0.12 a -0.15 (efecto pequeño)
-  
-CONCLUSIÓN: La regularización espacial domina; beneficio temporal modesto
+Mejora promedio de MAE:        +0.6%
+Tamaño del efecto (Cliff's δ): -0.200 (efecto pequeño)
+p-value (Mann-Whitney U):      p = 0.3452 (NO significativo)
 ```
 
-#### 🌊 Fidelidad Espectral (LSD) – PRINCIPAL HALLAZGO
+**Conclusión**: La regularización temporal contribuye **beneficio modesto pero no significativo** en segmentos cortos de EEG real.
+
+### 3. Integración en Manuscritos
+
+#### Paper IEEE (English)
+- **Nueva subsección**: "Ablation Study: Temporal Regularization Component Contribution"
+- **Tamaño**: ~300 palabras
+- **Contenido**: Método, resultados, interpretación, direcciones futuras
+- **Compilación**: ✅ SUCCESS (9 páginas, 0 errores fatales)
+
+#### Tesis USM (Spanish)  
+- **Nueva sección**: "Análisis de Ablación: Contribución del Componente Temporal"
+- **Tamaño**: ~600 palabras
+- **Contenido**: Resultados, interpretación, valor metodológico, limitaciones
+- **Compilación**: ✅ SUCCESS (85 páginas, 0 errores fatales)
+
+---
+
+## Archivos Generados
+
 ```
-PhysioNet (64ch, alta densidad):
-  Mejora LSD:  +8.0%
-  p-value:     0.0023–0.0070 ⭐ ALTAMENTE SIGNIFICATIVO
-  Cliff's δ:   -0.54 a -0.76 ⭐⭐ EFECTO GRANDE
-  
-BCI IV 2a (22ch, baja densidad):
-  Mejora LSD:  +2.1%
-  p-value:     >0.15 (no significativo)
-  Cliff's δ:   -0.18 a -0.22
-  
-CONCLUSIÓN: El término temporal es ESENCIAL para fidelidad espectral
-            en arreglos de alta densidad. Preserva dinámicas fisiológicas.
-```
-
-### Implicación Científica
-✅ **Valida el diseño de TRSS**: El término temporal (β) no es decorativo sino componente crítico para capturar continuidad espacio-temporal en EEG  
-✅ **Dependencia de configuración**: Los beneficios son máximos en arreglos densos; modestos en configuraciones de baja densidad  
-✅ **Objetivo de publicación**: Demuestra "robustez metodológica", no solo optimización de hiperparámetros
-
----
-
-## Artefactos Generados
-
-**Datos de Ablación**:
-- ✅ `results/ablation_real_data_extended_results.csv` (240 filas × 18 columnas)
-- ✅ `results/ablation_real_data_extended_summary.txt` (resumen estadístico: Mann-Whitney U, Cliff's δ)
-
-**Código Actualizado**:
-- ✅ `scripts/ablation_real_data.py` – Extendido con framework de 15 métricas + funciones espectrales
-
-**Documentación**:
-- ✅ `.agent_work/PUBLICATION_STRENGTHENING_5POINT_PLAN.md` (v2.0, todas las fases completadas)
-- ✅ `.agent_work/PUBLICATION_STRENGTHENING_STATUS_UPDATE.md` (tracker de estado)
-
-**Manuscritos Actualizados**:
-- ✅ `paper/ieee/sections/results.tex` – Nueva subsección de Ablación con análisis de LSD
-- ✅ `paper/ieee/sections/discussion.tex` – Interpretación actualizada, referencias cruzadas corregidas
-- ✅ `thesis/usm/chapters/04_experimentos_y_resultados.tex` – Sección de Ablación en español (~50 líneas)
-- ✅ Plus: abstract, introduction, conclusion en ambos manuscritos (Fases 1, 5)
-
-**Compilación**:
-- ✅ Paper IEEE: 10 páginas, 0 errores fatales, todas las referencias resueltas
-- ✅ Tesis USM: 72 páginas, 0 errores fatales, secciones en español integradas
-
----
-
-## Git & PR
-
-**Rama**: `publication-strengthening`  
-**Commit**: f578d6738  
-**Mensaje**: "Strengthen publication docs and ablation results"  
-**Cambios**: 10 archivos modificados, 488 inserciones(+), 301 eliminaciones(-)  
-**PR #24**: Abierto y listo para revisión/merge
-
----
-
-## Estado de Publicación
-
-✅ **LISTO PARA PUBLICACIÓN**
-- Todas las 5 fases completadas
-- Evidencia real de robustez (LSD significativa en PhysioNet)
-- Tono benchmark verificado (sin lenguaje de marketing)
-- Limitaciones documentadas explícitamente
-- Ambos manuscritos compilan sin errores
-
----
-
-**Próximos pasos**:
-1. Revisar PR #24
-2. Merge a rama main cuando esté listo
-3. Proceder con sumisión a revista
+results/
+├── ablation_real_data_results.csv          (45 rows: 5 iter × 3 ratios × 3 variants)
+└── ablation_real_data_summary.txt          (resumen estadístico)
 
 .agent_work/
 ├── PHASE_4B_ABLATION_COMPLETION.md         (reporte técnico detallado)

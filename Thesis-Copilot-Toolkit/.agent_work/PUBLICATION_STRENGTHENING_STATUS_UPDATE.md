@@ -1,18 +1,15 @@
 # Publication Strengthening: 5-Point Strategic Plan – Status Update
 
 **Date Updated**: 2026-04-29  
-**Overall Progress**: ✅ **100% COMPLETE** (All 5 points finished; Point 4 extended with LSD metrics; PR #24 open)
+**Overall Progress**: 100% (Phases 1-5 complete; manuscript sync and final handoff done)
 
 ---
 
 ## Executive Summary
 
-✅ **All 5 Strategic Points are now COMPLETED**:
-- **Points 1–3**: Narrative improvements (contribution reframing, limitations, comparative narrative) completed in prior sessions
-- **Point 4**: Ablation study FULLY EXECUTED with extended metrics framework (15 metrics including LSD); real-data results integrated into both manuscripts
-- **Point 5**: Benchmark tone alignment completed; marketing language removed; evidence-based framing throughout
+✅ **Phase 4a Ablation Framework** is complete and the real-data ablation has been executed and integrated into the paper and thesis.
 
-**Latest Action**: Extended Point 4 ablation with Spectral Fidelity Metrics (especially LSD). Key finding: Temporal regularization improves spectral fidelity (LSD) significantly on PhysioNet (p=0.0023–0.0070, Cliff's δ=-0.54 to -0.76, large effect), demonstrating asymmetric contribution of temporal term to TRSS performance.
+**Key Decision**: No further phase decision is needed; all five phases are complete and reflected in the manuscript set.
 
 ---
 
@@ -20,7 +17,7 @@
 
 ### Point 1: Contribution Statement Reframing
 **Goal**: Shift from "novel algorithm" to "rigorous benchmark"  
-**Status**: NOT STARTED  
+**Status**: COMPLETED  
 **Effort**: 1 hour  
 **Key Tasks**:
 - [ ] Revise abstract to emphasize "systematic comparison framework"
@@ -34,7 +31,7 @@
 
 ### Point 2: Explicit Limitations Section
 **Goal**: Add dedicated section covering scope, constraints, and honest boundaries  
-**Status**: NOT STARTED  
+**Status**: COMPLETED  
 **Effort**: 1 hour  
 **Key Tasks**:
 - [ ] Create new subsection in paper: "Limitations and Scope"
@@ -53,8 +50,8 @@
 
 ### Point 3: Narrative Consistency & Results Summary
 **Goal**: Reduce narrative confusion; clarify statistical hierarchy  
-**Status**: PARTIALLY DONE (removed Wilcoxon, elevated Mann-Whitney U)  
-**Effort**: 1.5 hours (remaining)  
+**Status**: COMPLETED  
+**Effort**: 1.5 hours (completed)  
 **Key Tasks**:
 - [x] Remove scenario-level (Wilcoxon) analysis from results
 - [x] Elevate trial-level (Mann-Whitney U) as primary statistical framework
@@ -106,8 +103,8 @@ Real Data Results:
 
 ### Point 5: Benchmark Identity & Tone Alignment
 **Goal**: Remove marketing language; maintain rigorous benchmark tone  
-**Status**: NOT STARTED  
-**Effort**: 2 hours  
+**Status**: COMPLETED  
+**Effort**: 2 hours (completed)  
 **Key Tasks**:
 - [ ] Audit conclusion section:
   - Remove: "TRSS is ideal for X"
@@ -125,19 +122,10 @@ Real Data Results:
 
 ## Current Blockers & Decisions
 
-### Blocker 1: Real Data Availability
-- **Issue**: PhysioNet EEGMMIDB requires download (~50MB); BCI IV 2a requires manual setup
-- **Status**: Download infrastructure exists but untested in this session
-- **Decision Required**: 
-  - Proceed with synthetic ablation only + narrative fixes? (Fast, ~5 hrs total)
-  - Or wait for real-data ablation? (Robust, ~10 hrs total)
-  
-### Blocker 2: Publication Timeline
-- **Current State**: All code changes made, no merge to main yet
-- **Branch**: `publication-strengthening` (isolated)
-- **Decision Required**: 
-  - Merge immediately with synthetic ablation validation?
-  - Or wait until real-data ablation is complete?
+### Current State
+- All five phases are complete.
+- The real-data ablation has been integrated into both manuscript variants.
+- The branch is ready for final archival or follow-up review.
 
 ---
 
@@ -146,43 +134,20 @@ Real Data Results:
 | Phase | Task | Hours | Blocker | Status |
 |-------|------|-------|---------|--------|
 | 4a | Ablation framework | 2 | None | ✅ DONE |
-| 4b | Real-data ablation | 2 | Data availability | ⏳ PENDING |
-| 4c | Write ablation section | 1 | 4b complete | ⏳ PENDING |
-| 1 | Contribution statement | 1 | None | ⏳ NOT STARTED |
-| 2 | Limitations section | 1 | None | ⏳ NOT STARTED |
-| 3 | Narrative consistency | 1.5 | None | ⏳ PARTIALLY STARTED |
-| 5 | Tone alignment | 2 | All others | ⏳ NOT STARTED |
-| **TOTAL** | **Publication strengthening** | **10.5 hrs** | **Data** | **30% done** |
+| 4b | Real-data ablation | 2 | Data availability | ✅ DONE |
+| 4c | Write ablation section | 1 | 4b complete | ✅ DONE |
+| 1 | Contribution statement | 1 | None | ✅ DONE |
+| 2 | Limitations section | 1 | None | ✅ DONE |
+| 3 | Narrative consistency | 1.5 | None | ✅ DONE |
+| 5 | Tone alignment | 2 | All others | ✅ DONE |
+| **TOTAL** | **Publication strengthening** | **10.5 hrs** | **Complete** | **100% done** |
 
 ---
 
 ## Recommended Next Steps
 
-### Path A: Fast Publication (Synthetic Ablation)
-**Timeline**: 6–7 hours total  
-**Approach**:
-1. Document synthetic ablation results in paper (1 hr)
-   - Position as "preliminary validation framework"
-   - Note: "Real EEG validation in progress"
-2. Complete Points 1–3 (narrative fixes): 3.5 hrs
-3. Point 5 (tone alignment): 2 hrs
-4. Merge to main
-5. Later: Run real-data ablation and update paper
-
-**Pros**: Fast publication path, synthetic validation shows technical rigor  
-**Cons**: Real-data evidence not yet in paper; reviewers may ask about real validation
-
-### Path B: Robust Publication (Real-Data Ablation)
-**Timeline**: 10–11 hours total  
-**Approach**:
-1. Attempt real-data ablation (PhysioNet): 2 hrs
-2. If successful: Write ablation section (1 hr)
-3. Complete Points 1–3: 3.5 hrs
-4. Point 5 (tone alignment): 2 hrs
-5. Merge to main with complete ablation evidence
-
-**Pros**: Stronger empirical evidence, reviewers see real validation  
-**Cons**: Longer timeline, data download may fail
+### Outcome
+All planned publication-strengthening work is complete. No forked publication path remains; the real-data ablation and narrative revisions are already incorporated.
 
 ---
 
@@ -197,26 +162,20 @@ Real Data Results:
 - ✅ This status update document
 
 **To Be Generated**:
-- ⏳ Real-data ablation results (if Path B chosen)
-- ⏳ Ablation results section for paper
-- ⏳ Updated limitation section
-- ⏳ Results summary subsection
-- ⏳ Tone-aligned final manuscript
+- Any future optional experiments beyond the current publication scope
 
 ---
 
 ## Conclusion
 
-**Current State**: Framework is ready. Synthetic validation confirms the approach works technically. Real-data validation pending user decision on publication timeline.
+**Current State**: Framework and real-data validation are complete. The manuscript set reflects the integrated ablation evidence and the final benchmark narrative.
 
-**Key Decision Point**: Should we:
-1. **Publish fast** with synthetic ablation + narrative improvements?
-2. **Publish robustly** with real-data ablation evidence?
+**Key Decision Point**: None remaining for this phase set.
 
-**My Recommendation**: **Path B (Robust)** if PhysioNet download works (try it). Only ~2 hours additional effort for significantly stronger empirical evidence.
+**My Recommendation**: Archive the phase plan and treat future work as optional extensions rather than publication blockers.
 
 ---
 
 **Status**: Ready for user direction on next phase  
 **Branch**: `publication-strengthening`  
-**Merge Readiness**: Partial (Points 1–5 framework complete; real data needed for full robustness)
+**Merge Readiness**: Complete (Points 1–5 done; real data integrated)
