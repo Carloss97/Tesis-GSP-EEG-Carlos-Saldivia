@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  28 APR 2026 18:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  29 APR 2026 01:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -623,7 +623,7 @@ Underfull \hbox (badness 1688) in paragraph at lines 3--4
  []
 
 [4]
-<../../results_optuna_final/global_comparison_physionet.png, id=264, 1149.5748p
+<../../results_optuna_final/global_comparison_physionet.png, id=276, 1149.5748p
 t x 853.2678pt>
 File: ../../results_optuna_final/global_comparison_physionet.png Graphic file (
 type png)
@@ -632,7 +632,7 @@ Package pdftex.def Info: ../../results_optuna_final/global_comparison_physionet
 .png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 187.04247pt.
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png, i
-d=269, 1004.0712pt x 569.4876pt>
+d=281, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.pn
@@ -643,7 +643,7 @@ _nearby_1_0_count.png  used on input line 76.
  [5 <../../results_optuna_final/global_comparison_physionet.png> <../../results
 _optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png>]
 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png, i
-d=285, 1004.0712pt x 569.4876pt>
+d=297, 1004.0712pt x 569.4876pt>
 File: ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.pn
@@ -652,7 +652,7 @@ Package pdftex.def Info: ../../results_optuna_baselines/erp_optimized_baselines
 _nearby_0_4_ratio.png  used on input line 87.
 (pdftex.def)             Requested size: 252.0pt x 142.92769pt.
 <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png, i
-d=287, 743.4174pt x 452.892pt>
+d=299, 743.4174pt x 452.892pt>
 File: ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.p
 ng Graphic file (type png)
 <use ../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.pn
@@ -660,7 +660,7 @@ g>
 Package pdftex.def Info: ../../results_optuna_baselines/psd_optimized_baselines
 _nearby_1_0_count.png  used on input line 96.
 (pdftex.def)             Requested size: 252.0pt x 153.51822pt.
-<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=290, 1148.6
+<../../results_optuna_final/degradation_bci_iv_random_ratio.png, id=302, 1148.6
 112pt x 427.3566pt>
 File: ../../results_optuna_final/degradation_bci_iv_random_ratio.png Graphic fi
 le (type png)
@@ -681,12 +681,12 @@ Underfull \hbox (badness 1817) in paragraph at lines 122--123
 
 [6 <../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png
 > <../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png>
- <../../results_optuna_final/degradation_bci_iv_random_ratio.png>])
-(sections/discussion.tex [7]
+ <../../results_optuna_final/degradation_bci_iv_random_ratio.png>]
+Underfull \hbox (badness 3049) in paragraph at lines 148--149
+[]\T1/ptm/m/n/10 Signal qual-ity: SNR, log spec-tral dis-tance (LSD),
+ []
 
-LaTeX Warning: Reference `sec:ablation' on page 8 undefined on input line 33.
-
-) (sections/reproducibility.tex
+) (sections/discussion.tex [7] [8]) (sections/reproducibility.tex
 Underfull \hbox (badness 2229) in paragraph at lines 51--1
 \T1/ptm/m/n/10 default-configured base-lines, in-flat-ing per-ceived im-prove-
  []
@@ -696,7 +696,7 @@ Underfull \hbox (badness 6252) in paragraph at lines 51--1
 \T1/ptm/m/n/10 ments. By sub-ject-ing all methods---including clas-si-cal
  []
 
-) (sections/conclusion.tex [8]) (main.bbl
+) (sections/conclusion.tex) (main.bbl [9]
 Underfull \hbox (badness 1448) in paragraph at lines 90--94
 \T1/ptm/m/n/8 mans, ``Re-con-struc-tion of time-varying graph sig-nals via sobo
 lev
@@ -714,26 +714,23 @@ Overfull \hbox (23.51341pt too wide) in paragraph at lines 112--119
 h-[]signal-[]processing /
  []
 
-[9]) [10] (main.aux)
+)
+Overfull \vbox (0.86597pt too high) has occurred while \output is active []
+
+
+[10] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 51A0F4D44DFC18B535AC372DCE6D6415;8847.
+(rerunfilecheck)             Checksum: 688293B4AFDAD7F4F0FF1232ACFC1E38;9464.
  ) 
 Here is how much of TeX's memory you used:
- 15522 strings out of 467867
- 311589 string characters out of 5418335
- 706818 words of memory out of 5000000
- 44096 multiletter control sequences out of 15000+600000
+ 15528 strings out of 467867
+ 311709 string characters out of 5418335
+ 708952 words of memory out of 5000000
+ 44099 multiletter control sequences out of 15000+600000
  749720 words of font info for 163 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,80p,1313b,1169s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -761,9 +758,9 @@ ers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Us
 ers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/U
 sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/U
 sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (10 pages, 1419999 bytes).
+Output written on main.pdf (10 pages, 1423926 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 94 named destinations out of 1000 (max. 500000)
- 354 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 469 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
