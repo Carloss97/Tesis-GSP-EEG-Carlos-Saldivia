@@ -300,13 +300,15 @@ Ensure all sections (especially discussion and conclusion) maintain the **rigoro
 - [ ] Action 3.1–3.3: Clean comparative narrative
 - [ ] Test: Full paper/thesis compilation, no fatal errors
 
-### Phase 3: Point 4 (Ablation Experiment) — ~4–6 hours
-- [ ] Action 4.1: Design ablation experiment
-- [ ] Action 4.2: Implement `scripts/ablation_temporal_component.py`
-- [ ] Action 4.3: Run ablation, generate results CSV and figures
-- [ ] Action 4.4: Write results subsection
-- [ ] Action 4.5: Update thesis discussion
-- [ ] Test: Verify figures match claims in text
+### Phase 3: Point 4 (Ablation Experiment) — ~4–6 hours ✅ **COMPLETED**
+[x] Action 4.4: Write results subsection - COMPLETED 2026-04-29 02:15 UTC
+[x] Action 4.5: Update thesis discussion - COMPLETED 2026-04-29 02:18 UTC
+**Ablation Results Summary** (Completed 2026-04-29):
+- **Ablation Results Summary** (Fully Integrated 2026-04-29 02:18 UTC):
+- **Integration Status**: 
+  * English section inserted into paper/ieee/sections/results.tex (Ablation Study subsection with 3 sub-subsections)
+  * Spanish section inserted into thesis/usm/chapters/04_experimentos_y_resultados.tex (Estudio de Ablacion subsection)
+  * Both sections include experimental design, results analysis, and interpretation matching ablation_real_data_extended_results.csv and ablation_real_data_extended_summary.txt
 
 ### Phase 4: Point 5 (Tone Alignment) — ~2 hours
 - [ ] Action 5.1–5.3: Audit and revise tone in conclusion, discussion, introduction
@@ -359,6 +361,6 @@ Ensure all sections (especially discussion and conclusion) maintain the **rigoro
 
 ---
 
-**Document Version**: 1.0 (Draft for Review)  
-**Last Updated**: 2026-04-28  
-**Status**: ⏳ Awaiting User Review and Approval
+**Document Version**: 1.1 (Point 4 Completed, Points 1–3 & 5 Ready)  
+**Last Updated**: 2026-04-29  
+**Status**: ✅ Point 4 Ablation Executed | ⏳ Awaiting Points 1–3 & 5 Implementation

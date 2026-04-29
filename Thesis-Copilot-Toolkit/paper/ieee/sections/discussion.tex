@@ -30,7 +30,7 @@ TRSS and other methods require per-scenario hyperparameter tuning via Optuna to 
 TRSS requires iterative gradient descent (typically 50 iterations), resulting in 9.44~ms per-call latency on 64-channel data. Strict real-time BCI requirements ($<$5~ms) would necessitate GPU acceleration or algorithmic approximations. Single-pass interpolators (linear, IDW) remain faster but sacrifice reconstruction quality.
 
 \subsubsection{Limited Temporal Regularization Benefit on Short Windows}
-The ablation study (Section~\ref{sec:ablation}) shows that temporal regularization provides only modest benefit ($+0.6\%$ MAE improvement, $p > 0.34$) on 5--10 second segments. Temporal advantage likely emerges in longer recordings with non-stationary dynamics (ERD/ERS, sleep architecture, seizure evolution). Future ablations should test task-specific scenarios explicitly.
+The ablation study (Section~\ref{sec:ablation}) shows a split effect: pointwise reconstruction gains remain modest ($+0.6\%$ to $+0.8\%$ MAE change, non-significant), but spectral fidelity improves substantially on the higher-density PhysioNet EEGBCI dataset (LSD $p=0.0023$--$0.0070$, large Cliff's $\delta$). Temporal advantage likely grows with longer recordings and more non-stationary dynamics (ERD/ERS, sleep architecture, seizure evolution), and future ablations should test task-specific scenarios explicitly.
 
 \subsubsection{Statistical Power of Ablation}
 The ablation study uses $n=10$ iterations per scenario. While adequate for detecting large effects, smaller physiological differences require extended repetitions ($n=20$--50) or Bayesian hierarchical models for robust inference. Confidence bounds around effect sizes are correspondingly wider.

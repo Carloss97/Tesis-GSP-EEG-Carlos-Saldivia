@@ -1,7 +1,7 @@
 # Publication Strengthening: 5-Point Strategic Plan – Status Update
 
-**Date Updated**: 2026-04-28 13:30  
-**Overall Progress**: 30% (Phase 4a complete, phases 1–3 pending, phase 4b/4c pending real data)
+**Date Updated**: 2026-04-29  
+**Overall Progress**: 80% (Phase 4 complete and integrated; manuscript sync and final handoff remaining)
 
 ---
 
@@ -70,39 +70,26 @@
 
 ### Point 4: Robustness Evidence via Ablation Study
 **Goal**: Prove temporal regularization meaningfully contributes to TRSS performance  
-**Status**: 50% COMPLETE (Framework done, synthetic validation done, real-data pending)  
-**Effort**: 4–6 hours total (3 hrs remaining for real data + writing)  
+**Status**: COMPLETED (real-data ablation executed and integrated into paper + thesis)  
+**Effort**: 4–6 hours total (completed)  
 **Timeline**:
 - [x] **Phase 4a - Framework**: Ablation script written, tested, documented (COMPLETE ✅)
-- [ ] **Phase 4b - Real Data**: Run on PhysioNet/BCI IV 2a (1–2 hrs)
-- [ ] **Phase 4c - Write Results**: Ablation results section for paper + thesis discussion (1 hr)
+- [x] **Phase 4b - Real Data**: Ran on PhysioNet/BCI IV 2a and generated results (COMPLETE ✅)
+- [x] **Phase 4c - Write Results**: Ablation results section for paper + thesis discussion (COMPLETE ✅)
 
-**Current State (Synthetic Validation)**:
+**Current State (Integrated Validation)**:
 ```
-✅ Generated: results/ablation_temporal_component_results.csv
-✅ Generated: results/ablation_temporal_component_summary.txt
-✅ Framework: scripts/ablation_temporal_component_fast.py
-✅ Documentation: .agent_work/ABLATION_STUDY_EXECUTION_SUMMARY.md
+✅ Generated: results/ablation_real_data_extended_results.csv
+✅ Generated: results/ablation_real_data_extended_summary.txt
+✅ Integrated: paper/ieee/sections/results.tex
+✅ Integrated: thesis/usm/chapters/04_experimentos_y_resultados.tex
+✅ Documentation: .agent_work/PUBLICATION_STRENGTHENING_5POINT_PLAN.md
 
-Synthetic Data Results:
-- TRSS-Full vs. TRSS-NoTemporal: No significant difference (Δ ≈ 0.08, p ≈ 0.65)
-- Spline vs. TRSS-Full: Minor improvement for TRSS (as expected)
-- Conclusion: Synthetic signals don't exhibit temporal complexity; real EEG needed
-```
-
-**Phase 4b - Real Data (PENDING)**:  
-Expected to show:
-- Cliff's δ ≥ 0.2 (small effect) for TRSS-Full vs. TRSS-NoTemporal
-- p < 0.05 for majority of missing ratios
-- Average improvement: 5–15% MAE reduction with β term
-
-**Phase 4c - Write Ablation Section** (template ready):
-```
-Subsection: "Ablation Study: Temporal Component Contribution"
-- Hypothesis: β term reduces fitting error on partially-observed EEG
-- Method: Compare TRSS(α,β) vs. TRSS(α,0) across 2 datasets, 4 missing ratios
-- Results: [INSERT DATA from 4b]
-- Interpretation: Temporal term contributes [X]% average improvement (statistically significant)
+Real Data Results:
+- TRSS-Full vs. TRSS-NoTemporal: Modest pointwise gains, strong spectral fidelity gains on PhysioNet
+- LSD: p = 0.0023–0.0070, Cliff's δ = -0.54 to -0.76 (large effect)
+- BCI IV 2a: Temporal benefit modest and non-significant for pointwise metrics
+- Conclusion: Temporal regularization improves spectral fidelity and supports the TRSS design choice
 ```
 
 **Success Criteria**:
