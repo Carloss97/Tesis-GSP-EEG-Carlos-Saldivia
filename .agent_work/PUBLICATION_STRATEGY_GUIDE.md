@@ -1,18 +1,18 @@
 # Publication Strategy Guide
-**Date**: 2026-04-27
+**Date**: 2026-04-29
 **Scope**: Final publication strategy for the IEEE paper and thesis-derived manuscript.
 
 ## Executive Judgment
-The current work is already sufficient for a Master's submission requirement if the formal requirement is to submit a paper, not necessarily secure acceptance immediately.
+Yes. The manuscript is now publication-ready for submission, and it is also sufficiently strong to justify a serious review cycle in an IEEE venue.
 
-For a stronger chance of acceptance in a serious IEEE journal, the manuscript is good but still benefits from a few targeted improvements. The highest-value gains now are not broad rewrites; they are mostly about sharpening the contribution, documenting limits, and making the paper easier for reviewers to trust.
+The current version already has the key pieces in place: the benchmark framing is explicit, the limitations are documented, the narrative is consistent, and the real-data ablation has been integrated. The remaining value is mostly in a final consistency check rather than any broad rewrite.
 
 ## Recommended Decision
 ### If the goal is to satisfy the degree requirement
 Proceed with submission now.
 
 ### If the goal is to maximize acceptance probability
-Do a short final strengthening pass before submitting.
+Do one short final consistency pass, then submit.
 
 ## What Still Has Value at This Stage
 
@@ -43,7 +43,7 @@ The paper should keep the narrative centered on:
 Avoid any language that sounds like overclaiming.
 
 ### 4. Add one more high-value technical reinforcement if time allows
-Best candidate: a compact ablation or sensitivity check.
+Best candidate: a compact ablation or sensitivity check, if not already included.
 Examples:
 - TRSS with temporal penalty reduced or removed
 - one sensitivity plot for the most important regularization parameter
@@ -74,7 +74,7 @@ That is fine, but the submission target should match that identity.
 
 ### Stronger path for acceptance
 1. Do the minimum path.
-2. Add one compact ablation or sensitivity check.
+2. Keep the compact ablation already integrated and make sure it is summarized cleanly.
 3. Add one short paragraph on computational cost and practical deployment.
 4. Submit to a journal whose scope matches benchmarking + biomedical signal processing.
 
@@ -88,12 +88,15 @@ Safer fallback if you want a better acceptance probability:
 - IEEE Access
 
 ## Bottom Line
-The work is already enough to justify a Master's submission.
-If the objective is acceptance probability rather than just compliance, the most effective extra effort is to sharpen the contribution statement, add a short limitations paragraph, and, if feasible, include one compact sensitivity or ablation result.
+The work is already enough to justify a Master's submission and is now also publishable as a benchmark-style IEEE manuscript.
+
+If the objective is acceptance probability rather than just compliance, the most effective remaining effort is a final consistency pass on the contribution statement, limitations paragraph, and numerical claims. The heavy lifting is already done.
 
 ## Suggested Next Action
 Before submitting, do one final pass focused on:
 - contribution sentence
 - limitations paragraph
-- one compact robustness or sensitivity check
+- compact robustness or sensitivity summary
 - consistency of numerical claims across paper and thesis
+
+Then submit.
