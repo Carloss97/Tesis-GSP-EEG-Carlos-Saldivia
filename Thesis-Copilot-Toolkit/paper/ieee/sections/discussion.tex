@@ -14,10 +14,35 @@ The variance in performance across datasets underscores the importance of the Op
 It is important to contextualize these results against the broader landscape of EEG reconstruction methods. Recent deep learning approaches---including convolutional autoencoders, graph neural networks (GNNs), and transformer-based architectures---have shown promise in related signal imputation tasks. However, a direct comparison was intentionally excluded from this benchmark for two principled reasons. First, GSP methods like TRSS are \emph{training-free}: they require no pre-training phase, no labeled data, and no subject-specific calibration, making them immediately deployable on any EEG montage. Second, the theoretical convergence of the TRSS gradient descent is guaranteed by the Lipschitz bound (Eq.~\ref{eq:lipschitz}), providing interpretability and reliability that black-box neural networks cannot offer. Future work should investigate hybrid architectures that combine the inductive biases of GSP with the representational power of learned models.
 
 \subsection{Limitations}
+
+The scope and methodology of this work have several important limitations that readers should consider when interpreting results and planning future investigations:
+
+\subsubsection{Dataset Scope and Population}
+Evaluation is restricted to three publicly available EEG datasets with healthy adult subjects in non-clinical paradigms (motor imagery, resting state, auditory-visual). Generalization to clinical populations (epilepsy, stroke, coma), pathological EEG signatures (burst-suppression, interictal spikes), neonatal recordings, or specialized modalities (intracranial, MEG) remains untested and represents a critical gap for clinical deployment.
+
+\subsubsection{Synthetic Missing-Channel Simulation}
+The missing-channel degradation model uses binary masking (channel fully present or fully absent). Real-world channel loss is often gradual (increasing impedance, intermittent contact loss, correlated artifacts). This synthetic model may not capture the smooth degradation observed in clinical practice, potentially underestimating method robustness to partial failures.
+
+\subsubsection{Hyperparameter Optimization Requirements}
+TRSS and other methods require per-scenario hyperparameter tuning via Optuna to achieve reported performance levels. While we demonstrate robustness to global (median) hyperparameters ($-0.7\%$ MAE change), clinical deployment with unpredictable degradation patterns may benefit from adaptive tuning strategies to avoid repeated optimization overhead ($\sim$1--2 hours per new dataset).
+
+\subsubsection{Computational Latency}
+TRSS requires iterative gradient descent (typically 50 iterations), resulting in 9.44~ms per-call latency on 64-channel data. Strict real-time BCI requirements ($<$5~ms) would necessitate GPU acceleration or algorithmic approximations. Single-pass interpolators (linear, IDW) remain faster but sacrifice reconstruction quality.
+
+\subsubsection{Limited Temporal Regularization Benefit on Short Windows}
+The ablation study (Section~\ref{sec:ablation}) shows a split effect: pointwise reconstruction gains remain modest ($+0.6\%$ to $+0.8\%$ MAE change, non-significant), but spectral fidelity improves substantially on the higher-density PhysioNet EEGBCI dataset (LSD $p=0.0023$--$0.0070$, large Cliff's $\delta$). Temporal advantage likely grows with longer recordings and more non-stationary dynamics (ERD/ERS, sleep architecture, seizure evolution), and future ablations should test task-specific scenarios explicitly.
+
+\subsubsection{Statistical Power of Ablation}
+The ablation study uses $n=10$ iterations per scenario. While adequate for detecting large effects, smaller physiological differences require extended repetitions ($n=20$--50) or Bayesian hierarchical models for robust inference. Confidence bounds around effect sizes are correspondingly wider.
+
+\subsubsection{Graph Construction and Montage Dependency}
+This work assumes accurate 3D electrode positions and uses fixed KNN ($k=5$--7). Performance may be sensitive to montage density, electrode placement errors, and graph topology. Adaptive or data-driven graph learning (e.g., graphical lasso, spectral clustering) could improve robustness but was outside this benchmark's scope.
+
+\subsubsection{Limited Cross-Validation Strategy}
+Evaluation uses a single temporal split per dataset rather than $k$-fold temporal cross-validation. Tighter confidence bounds and robustness to temporal distribution shifts would require extended validation protocols.
+
 \subsubsection{Computational Cost and Deployment}
 TRSS is not the lowest-latency option in the benchmark. Because it optimizes a full signal window with iterative gradient descent, its cost grows with the number of channels, the number of time samples, and the number of iterations. In the companion thesis microbenchmark, TRSS measured 9.44~ms per call on a $50\times64$ fixture with 10\% missing entries, which is slower than single-pass interpolators such as linear, mean, and IDW, yet far faster than the heaviest iterative methods in the same fixture. This supports an interpretation of TRSS as a high-fidelity method whose real-time suitability still depends on hardware acceleration and deployment constraints.
-
-This study has limitations that should be acknowledged. First, the missing-channel simulation uses binary masking (channel fully present or absent), whereas real degradation is often gradual. Second, all datasets correspond to healthy adult subjects; validation on clinical populations (epilepsy, neonates) remains an open question. Third, the current evaluation uses a single temporal split per dataset; future work could employ $k$-fold temporal cross-validation for tighter confidence bounds.
 
 \subsection{Robustness to Fixed Hyperparameters}
 A natural concern with per-scenario optimization is whether TRSS performance is fragile to the specific $\alpha, \beta$ values found for each degradation level. To address this, we evaluated TRSS using a single \emph{global} set of hyperparameters per dataset (the median of all per-scenario optima). Across all 42 experimental contexts, the global configuration exhibited a mean MAE change of $-0.7\%$ (i.e., negligibly \emph{better} than per-scenario tuning, due to the robustness of the median) and a mean SNR loss of only $0.46$~dB. These results demonstrate that TRSS is inherently robust to the choice of regularization parameters and does not require re-optimization for each specific failure pattern---a critical property for real-world BCI deployment where degradation is unpredictable.

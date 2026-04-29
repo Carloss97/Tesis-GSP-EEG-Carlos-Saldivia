@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1777361626.89911 "main.aux" "main.bbl" "main" 1777361948.55906 0
+["bibtex main"] 1777441853.42165 "main.aux" "main.bbl" "main" 1777441861.59058 0
   "./bibliography/references.bib" 1777343988 58126 84360671885ba51328e349aa197037db ""
   "C:/Users/sarlo/AppData/Local/Programs/MiKTeX/bibtex/bst/ieeetran/IEEEtran.bst" 1440622569 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1777361947 36465 720b33730d7074304b12ae292f681d9d "pdflatex"
+  "main.aux" 1777441860 37458 f79d9bb8a88f24cd4e0df311e5eee231 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1777361942.98992 "main.tex" "main.pdf" "main" 1777361948.55953 0
+["pdflatex"] 1777441853.73949 "main.tex" "main.pdf" "main" 1777441861.59113 0
   "../../results/tablas_resumen/phase2_microbench_table.tex" 1777329288 606 2b59a794fa013d342384d144b6677c41 ""
   "../../results/tablas_resumen/phase3_trial_level_table.tex" 1777361763 3144 a14b0bb38cd07a63af44503043f70992 ""
   "../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png" 1777054603 459212 81e66d1fccab1e9876c2c9dd450844de ""
@@ -189,9 +189,9 @@
   "chapters/01_introduccion.tex" 1777306310 16333 e3627a1cedb9bd3a5dd85c708e932033 ""
   "chapters/02_marco_teorico.tex" 1777306310 18428 32925c9daa2a4d04aa0563b2649ed907 ""
   "chapters/03_metodologia.tex" 1777346699 26163 3a01c3718ac9f27b54edba9129ad8b81 ""
-  "chapters/04_experimentos_y_resultados.tex" 1777346699 24465 297c970887598ef9580d906583ab2922 ""
-  "chapters/05_discusion.tex" 1777361923 15494 63d28e6192766a0992f3b7787822fd59 ""
-  "chapters/06_conclusiones_y_trabajo_futuro.tex" 1777361923 10901 ac123f3ec26c69a6ea951bbf2009fa05 ""
+  "chapters/04_experimentos_y_resultados.tex" 1777441485 29547 f2097c274a3812628f6987df2e037fe9 ""
+  "chapters/05_discusion.tex" 1777399057 19165 3dec8f5d87d403bfca220fada517a791 ""
+  "chapters/06_conclusiones_y_trabajo_futuro.tex" 1777362070 10901 ac123f3ec26c69a6ea951bbf2009fa05 ""
   "chapters/appendix_detailed_tables.tex" 1776992985 5537 9855650eaf12f4177e9f487a9e59d280 ""
   "config/metadata.tex" 1775159383 911 fa16cd77c1e13d54813aefd543a8a7b0 ""
   "config/packages.tex" 1775712437 1341 d04f655a2f07cc4a2061fb0fca9f3598 ""
@@ -201,13 +201,13 @@
   "frontmatter/approval_page.tex" 1775143592 778 7a6569c99555159d2791efd656a2a710 ""
   "frontmatter/cover_page.tex" 1775706387 1083 a140af910592e8e66d2f2e75726d2a67 ""
   "frontmatter/title_page.tex" 1775143592 545 9347982584e39ed8cab45b6c2eaef5c3 ""
-  "main.aux" 1777361947 36465 720b33730d7074304b12ae292f681d9d "pdflatex"
-  "main.bbl" 1777361627 15473 d1475bf8c3090cd613a549a3bea39ddc "bibtex main"
-  "main.lof" 1777361947 5632 a5d2919fff5a1815a566b84dd43d4c78 "pdflatex"
-  "main.lot" 1777361947 1929 9fa0e6b41255b4eeda2611ca7b8a7a93 "pdflatex"
-  "main.out" 1777361947 27883 a92c63e94f8fd1f3f6bf0d6da6daad16 "pdflatex"
+  "main.aux" 1777441860 37458 f79d9bb8a88f24cd4e0df311e5eee231 "pdflatex"
+  "main.bbl" 1777441853 15473 d1475bf8c3090cd613a549a3bea39ddc "bibtex main"
+  "main.lof" 1777441860 5632 20e25a2e1560535d8e80739fabd21ced "pdflatex"
+  "main.lot" 1777441860 1929 3c0960432c5f2134d3978fd171ecae9d "pdflatex"
+  "main.out" 1777441860 29144 cf2e6ec8c9215fbd3e3667b6fb62f94c "pdflatex"
   "main.tex" 1776992944 1088 4dd29278515b75e38c37db89bd36d313 ""
-  "main.toc" 1777361947 11946 f4c11214fefb5d863d90e7427ba4d06e "pdflatex"
+  "main.toc" 1777441860 12652 7db5c9b03b0e11b66aeb77084a2f4ebd "pdflatex"
   (generated)
   "main.aux"
   "main.lof"

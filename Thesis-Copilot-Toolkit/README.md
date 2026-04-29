@@ -229,15 +229,15 @@ La lista completa de tickets por metodo esta en `backlog.md` y se replica en `RE
 Comandos reproducibles B2 (ejecutados):
 
 ```powershell
-$env:PYTHONPATH='c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit'
+$env:PYTHONPATH='.'
 $env:INCLUDE_MNE='1'
 $env:MAX_TIME_SAMPLES='220'
 $env:B2_DTW_MAX_POINTS='80'
 $env:B2_TOP_K='3'
 $env:B2_RANDOM_SEED='42'
-& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\run_b2_batched.py"
-& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\experiments\consolidate_b2_publication.py"
-& "c:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit\.venv\Scripts\python.exe" -m experiments.verify_bgsrp_vs_narang
+& ".venv\Scripts\python.exe" "experiments\run_b2_batched.py"
+& ".venv\Scripts\python.exe" "experiments\consolidate_b2_publication.py"
+& ".venv\Scripts\python.exe" -m experiments.verify_bgsrp_vs_narang
 ```
 
 Nota de alcance:

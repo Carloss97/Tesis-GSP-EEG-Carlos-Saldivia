@@ -187,11 +187,11 @@ Para obtener una visión panorámica que cruce simultáneamente métodos, escena
 
 \subsection{Latencia computacional}
 
-Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench} y el log completo se encuentra en \texttt{Thesis-Copilot-Toolkit/.agent\_work/PHASE2\_MICROBENCH.txt}. Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
+Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench}. El registro completo de microbenchmarks se incluye en el anexo de la tesis (ruta local omitida). Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
 
 \input{../../results/tablas_resumen/phase2_microbench_table.tex}
 
-El patrón consistente a través de los tres heatmaps confirma que la ventaja de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo.
+El patrón consistente a través de los tres heatmaps confirma que la ventaja observada de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo en los escenarios estudiados.
 
 \section{Fronteras de Pareto: Trade-off MAE vs. DTW}
 
@@ -305,20 +305,77 @@ Para establecer rigurosamente la significancia estadística de las diferencias e
 
 El análisis a nivel de prueba revela hallazgos adicionales de importancia. En primer lugar, el método visibility\_nnk emerge como un outlier estadístico consistente con MAE significativamente elevados (mediana 1.69), posicionándose como el límite inferior de rendimiento en prácticamente todas las comparaciones pareadas. En segundo lugar, los métodos enraizados en regularización temporal (temporal\_laplacian, TRSS) y baselines espaciales simples (IDW, linear) se agrupan densamente en el cuartil superior con valores medianos de MAE $\approx 0.07$--$0.08$, sin separación estadísticamente significativa a pesar de superar 4000 puntos de prueba. En tercer lugar, sobolev smoothing exhibe un desempeño intermedio (MAE mediano $\approx 0.54$), mientras que ICA y las splines clásicas ocupan posiciones medias. Estos hallazgos, agregados a nivel granular de prueba en lugar de resúmenes estadísticos por iteración, confirman la robustez y consistencia de los rankings de métodos con hiperparámetros optimizados a través de configuraciones experimentales diversas.
 
+\subsection{Estudio de Ablación: Contribución del Componente de Regularización Temporal}
+
+Para evaluar rigurosamente la necesidad y la contribución del término de regularización temporal (parámetro $\beta$) en TRSS, se condujo un estudio de ablación integral sobre datos EEG reales de dos datasets independientes. Este análisis extiende las investigaciones previas examinando no solo métricas de error puntual, sino también medidas de fidelidad espectral que son críticas para la interpretación clínica de EEG.
+
+\subsubsection{Diseño Experimental}
+
+El estudio de ablación comparó tres variantes del modelo a través de dos datasets EEG reales:
+
+\begin{enumerate}
+  \item \textbf{TRSS-Completo}: Modelo completo con regularización espacial ($\alpha=0.7$) y temporal ($\beta=0.15$)
+  \item \textbf{TRSS-SinTemporal}: Solo regularización espacial ($\alpha=0.7$, $\beta=0$)
+  \item \textbf{Spline-Espacial}: Baseline clásico de spline esférica (sin regularización de grafo)
+\end{enumerate}
+
+\textbf{Datasets:}
+\begin{itemize}
+  \item Competencia BCI IV 2a: 22 canales (EEG + EOG), frecuencia de muestreo 250 Hz
+  \item PhysioNet EEGBCI: 64 canales, frecuencia de muestreo variable (inferida por sesión)
+\end{itemize}
+
+\textbf{Métricas:} Para evaluar tanto contribuciones puntuales como espectrales, se computaron 15 métricas por variante:
+\begin{itemize}
+  \item Errores puntuales: MAE, RMSE, DTW
+  \item Calidad de señal: SNR, distancia espectral logarítmica (LSD), coherencia magnitud-cuadrada
+  \item Descriptores espectrales: potencia total, frecuencia de pico, pendiente espectral, potencias de banda (delta, theta, alpha, beta, gamma)
+\end{itemize}
+
+\textbf{Protocolo:} 4 ratios de canales faltantes (10\%, 20\%, 30\%, 40\%), 10 iteraciones independientes por configuración, selección aleatoria de canales por iteración (seeded para reproducibilidad), total de 240 filas de resultados por dataset.
+
+\subsubsection{Resultados: Error Puntual versus Fidelidad Espectral}
+
+\textbf{Error Puntual (MAE, RMSE, DTW):} El componente temporal entrega mejoras modestas en error puntual con cambios promedios de $+0.6\%$ a $+0.8\%$ a través de ratios y datasets. Estas mejoras no son estadísticamente significativas ($p > 0.20$ en pruebas de Mann-Whitney $U$), con delta de Cliff absoluto promedio $|\delta| \approx 0.12$--$0.18$ (efecto negligible a pequeño).
+
+\textbf{Hallazgo Clave --- Fidelidad Espectral (LSD):} En marcado contraste, la distancia espectral logarítmica (LSD), que mide la preservación de características de la señal en el dominio de frecuencia, muestra \textit{mejoras pronunciadas y estadísticamente significativas} cuando se habilita la regularización temporal. En el dataset PhysioNet EEGBCI:
+
+\begin{itemize}
+  \item Mejora promedio de LSD: $+8.0\%$ a $+8.5\%$ (TRSS-Completo logra valores más bajos, mejores)
+  \item Tamaños de efecto: delta de Cliff $= -0.54$ a $-0.76$ (efecto grande)
+  \item Significancia estadística: $p = 0.0023$--$0.0070$ (Mann-Whitney $U$, dos colas)
+  \item Consistente a través de todos los ratios de canales faltantes (10\%--40\%)
+\end{itemize}
+
+\textbf{Análisis de Potencia de Banda:} Los descriptores espectrales asociados refuerzan la tendencia de LSD. La potencia en banda beta (13--30 Hz) y gamma (30--45 Hz) ambas muestran mejoras medias-a-grandes con regularización temporal ($|\delta| = 0.34$--$0.70$, efectos medio-a-grandes), particularmente en ratios altos de canales faltantes (30\%--40\%).
+
+En el dataset BCI IV 2a, las mejoras espectrales son más modestas (cambio de LSD $+3.9\%$--$+4.8\%$, no significativo) debido a la ventana de evaluación más corta de 5 segundos y al menor número total de canales, lo que puede limitar la visibilidad de dinámicas temporales en este régimen más espacialmente restringido.
+
+\subsubsection{Interpretación}
+
+Estos resultados establecen que la regularización temporal contribuye \textit{significativamente pero asimétricamente} al desempeño de TRSS:
+
+\begin{itemize}
+  \item \textbf{Fidelidad puntual}: Dominada por la estructura del grafo espacial; el término temporal proporciona reducción de error adicional mínima.
+  \item \textbf{Fidelidad espectral}: Dominada por continuidad temporal; el término $\beta$ es esencial para preservar características en el dominio de frecuencia y comportamiento oscilatorio crítico para análisis clínico de EEG.
+\end{itemize}
+
+La asimetría refleja un insight fundamental: minimizar error espacial instantáneo no garantiza preservación de suavidad temporal de la señal ni contenido espectral. Conversamente, reforzar restricciones temporales sin regularización espacial probablemente produciría trayectorias de señal poco realistas. La combinación de ambos términos es por lo tanto justificada y necesaria para una solución de interpolación completa adecuada para aplicaciones de neurociencia clínica donde importan tanto fidelidad morfológica como espectral.
+
 \section{Síntesis de Hallazgos Experimentales}
 
 Los resultados expuestos permiten extraer las siguientes conclusiones experimentales:
 
 \begin{enumerate}
-    \item \textbf{Superioridad absoluta de TRSS}: Bajo optimización exhaustiva e imparcial, TRSS domina todas las métricas en todos los datasets, con una ventaja que se amplifica en escenarios adversos.
+  \item \textbf{Ventaja observada de TRSS}: Bajo optimización exhaustiva e imparcial, TRSS muestra mejoras consistentes en la mayoría de las métricas, con una ventaja que se hace más evidente en escenarios adversos.
 
-    \item \textbf{La brecha es estructural, no paramétrica}: La optimización de los baselines con Optuna (NSGA-II multi-objetivo) demostró que incluso con hiperparámetros perfectos, las Spherical Splines no pueden evitar el colapso ante pérdida masiva contigua. La limitación es inherente a la formulación sin memoria temporal.
+  \item \textbf{La brecha parece estructural, no solo paramétrica}: La optimización de los baselines con Optuna (NSGA-II multi-objetivo) sugiere que, incluso ajustando hiperparámetros, las Spherical Splines tienen limitaciones frente a pérdida masiva contigua. Esto indica que la memoria temporal aporta un componente complementario importante a la formulación espacial.
 
-    \item \textbf{Tikhonov como ``segundo mejor''}: La regularización Laplaciana pura (sin término temporal) ya supera consistentemente a los baselines geométricos, validando el paradigma GSP como un avance cualitativo sobre la interpolación euclidiana.
+  \item \textbf{Tikhonov como ``segundo mejor''}: La regularización Laplaciana pura (sin término temporal) suele superar a los baselines geométricos, validando el paradigma GSP como una mejora cualitativa respecto a la interpolación euclidiana en las configuraciones estudiadas.
 
-    \item \textbf{El modo \textit{nearby} es el diferenciador clave}: En escenarios \textit{random}, las diferencias entre métodos son moderadas. Es el escenario \textit{nearby} ---fisiológicamente más relevante--- el que expone la superioridad de la regularización temporal.
+  \item \textbf{El modo \textit{nearby} es el diferenciador clave}: En escenarios \textit{random}, las diferencias entre métodos son moderadas. Es el escenario \textit{nearby} ---fisiológicamente más relevante--- el que expone con mayor claridad la contribución de la regularización temporal.
 
-    \item \textbf{Preservación fisiológica demostrada}: Las reconstrucciones de ERPs y PSD confirman que TRSS no solo minimiza métricas abstractas de error, sino que preserva la utilidad clínica real de la señal: latencia de picos, amplitud de componentes y distribución espectral de bandas.
+  \item \textbf{Preservación fisiológica observada}: Las reconstrucciones de ERPs y PSD indican que TRSS preserva características fisiológicas relevantes de la señal (latencia de picos, amplitud y distribución espectral) en los escenarios evaluados.
 
-    \item \textbf{Consistencia multi-dataset}: La superioridad de TRSS se verifica en datasets de alta densidad (PhysioNet, 64ch), baja densidad (BCI IV, 22ch) y paradigma evocado (MNE Sample, 60ch), descartando overfitting a una topología particular.
+  \item \textbf{Consistencia multi-dataset}: Las mejoras observadas para TRSS se verifican en datasets de alta densidad (PhysioNet, 64ch), baja densidad (BCI IV, 22ch) y paradigma evocado (MNE Sample, 60ch), reduciendo la probabilidad de overfitting a una topología particular.
 \end{enumerate}

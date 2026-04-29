@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 from collections import Counter
 
-ROOT = Path(r"C:\Users\sarlo\OneDrive\Escritorio\Proyectos\Tesis-GSP-EEG-Carlos-Saldivia\Thesis-Copilot-Toolkit")
+ROOT = Path(__file__).resolve().parents[1]
 TARGETS = {
     "paper": {
         "tex_root": ROOT / "paper" / "ieee",
