@@ -97,6 +97,19 @@ This ablation study provides **critical evidence quality improvements** for publ
 
 ---
 
+## Documentation Reference for the LSD / Beta Relationship
+
+The temporal-regularization effect on spectral fidelity is documented outside the paper text as follows:
+
+- `thesis/usm/chapters/04_experimentos_y_resultados.tex`: states that enabling temporal regularization yields an LSD improvement of `+8.0%` to `+8.5%` on PhysioNet EEGBCI, with consistent gains across missing ratios and supporting beta/gamma-band power improvements.
+- `thesis/usm/chapters/05_discusion.tex`: explains that `beta` is the temporal prior, acting as the temporal cutoff in the space-time filter interpretation of TRSS.
+- `paper/ieee/sections/results.tex`: records the same finding in the IEEE manuscript, including the LSD improvement and the associated spectral-band interpretation.
+- `paper/ieee_es/sections/results_es.tex`: mirrors the English version for the Spanish review copy.
+
+This is the best pointer to cite when the question is specifically about where the beta-driven LSD improvement was documented in the repository.
+
+---
+
 ## Limitations & Caveats
 
 1. **Short Duration**: 5-second segments may obscure temporal dynamics that emerge over minutes

@@ -81,8 +81,10 @@ That is fine, but the submission target should match that identity.
 ## Likely Journal Fit
 Best fit for the current manuscript:
 - IEEE Journal of Biomedical and Health Informatics (JBHI)
-- IEEE Transactions on Neural Systems and Rehabilitation Engineering (TNSRE)
+- (X)IEEE Transactions on Neural Systems and Rehabilitation Engineering (TNSRE)
 - IEEE Transactions on Biomedical Engineering (TBME)
+- Computers in Biology and Medicine
+- Biomedical signal prosessing and control
 
 Safer fallback if you want a better acceptance probability:
 - IEEE Access

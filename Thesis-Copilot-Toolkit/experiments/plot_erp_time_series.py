@@ -103,7 +103,31 @@ def main():
             res_ica = interpolate_signals("ica", signals_missing)
         sig_ica = res_ica["reconstructed"]
         
-        # 4. Spherical Spline
+        # 4. ICA (MNE)
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            res_ica_mne = interpolate_signals(
+                "ica_mne",
+                signals_missing,
+                positions=positions,
+                sfreq=sfreq,
+                ica_method="picard",
+            )
+        sig_ica_mne = res_ica_mne["reconstructed"]
+
+        # 5. MNE interpolate_bads
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            res_mne = interpolate_signals(
+                "mne_bads",
+                signals_missing,
+                positions=positions,
+                sfreq=sfreq,
+                interpolate_method="MNE",
+            )
+        sig_mne = res_mne["reconstructed"]
+
+        # 6. Spherical Spline
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             res_ss = interpolate_signals("spherical_spline", signals_missing, positions=positions)
@@ -113,11 +137,13 @@ def main():
         methods_data = [
             ("TRSS (GSP)", sig_trss, "blue"),
             ("Tikhonov", sig_tik, "cyan"),
-            ("ICA", sig_ica, "orange"),
-            ("Spherical Spline", sig_ss, "magenta")
+            ("ICA (sklearn FastICA)", sig_ica, "orange"),
+            ("ICA (MNE Picard)", sig_ica_mne, "green"),
+            ("MNE interpolate_bads", sig_mne, "magenta"),
+            ("Spherical Spline", sig_ss, "purple")
         ]
         
-        fig, axes = plt.subplots(4, 1, figsize=(14, 10), sharex=True, sharey=True)
+        fig, axes = plt.subplots(6, 1, figsize=(14, 14), sharex=True, sharey=True)
         fig.suptitle(f"Temporal Reconstruction (ERP) - Missing Channel #{target_ch}\n{ds_name.upper()} | {mode.capitalize()} | {int(scen_val*100)}% Loss", fontsize=16, fontweight="bold")
         
         gt_signal = signals_clean[:N_SAMPLES, target_ch]

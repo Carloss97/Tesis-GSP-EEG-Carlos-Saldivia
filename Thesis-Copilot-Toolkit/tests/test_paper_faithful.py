@@ -67,6 +67,34 @@ class TestPaperFaithfulMethods(unittest.TestCase):
         self.assertEqual(x.shape, self.signals.shape)
         self.assertTrue(np.isfinite(x).all())
 
+    def test_mne_bads_runs_and_preserves_observed_entries(self):
+        masked = simulate_missing_channels(self.signals, missing_ratio=0.2, random_state=14)
+        observed = ~np.isnan(masked)
+        rec = interpolate_signals(
+            "mne_bads",
+            masked,
+            positions=self.positions,
+            sfreq=250.0,
+            interpolate_method="MNE",
+        )
+        x = rec["reconstructed"]
+        self.assertEqual(x.shape, self.signals.shape)
+        self.assertTrue(np.isfinite(x).all())
+        self.assertTrue(np.allclose(x[observed], masked[observed], atol=1e-8))
+
+    def test_ica_mne_runs_and_returns_finite(self):
+        masked = simulate_missing_channels(self.signals, missing_ratio=0.2, random_state=15)
+        rec = interpolate_signals(
+            "ica_mne",
+            masked,
+            positions=self.positions,
+            sfreq=250.0,
+            ica_method="picard",
+        )
+        x = rec["reconstructed"]
+        self.assertEqual(x.shape, self.signals.shape)
+        self.assertTrue(np.isfinite(x).all())
+
     def test_spline_surface_no_fitpack_warning_storm(self):
         masked = simulate_missing_channels(self.signals[:40], missing_ratio=0.2, random_state=12)
         with warnings.catch_warnings(record=True) as w:

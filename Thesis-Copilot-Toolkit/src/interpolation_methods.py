@@ -31,6 +31,159 @@ def _pinv_matlab(a: np.ndarray) -> np.ndarray:
     return (vh.T * s_inv) @ u.T
 
 
+def _normalize_positions_for_mne(positions: np.ndarray) -> np.ndarray:
+    pos = np.asarray(positions, dtype=float)
+    if pos.ndim != 2 or pos.shape[1] < 2:
+        raise ValueError("'positions' must be a 2D array with at least 2 coordinates per channel.")
+
+    if pos.shape[1] == 2:
+        pos = np.column_stack([pos, np.zeros(pos.shape[0])])
+    else:
+        pos = pos[:, :3].copy()
+
+    finite_rows = np.isfinite(pos).all(axis=1)
+    if not np.any(finite_rows):
+        return np.zeros((pos.shape[0], 3), dtype=float)
+
+    center = np.mean(pos[finite_rows], axis=0)
+    pos = pos - center
+    radii = np.linalg.norm(pos[finite_rows], axis=1)
+    scale = float(np.max(radii)) if radii.size else 1.0
+    if not np.isfinite(scale) or scale <= 0:
+        scale = 1.0
+    pos = pos / scale
+    pos[~finite_rows] = 0.0
+    return pos
+
+
+def _impute_missing_with_row_mean(data: np.ndarray) -> np.ndarray:
+    filled = np.asarray(data, dtype=float).copy()
+    if filled.ndim != 2:
+        raise ValueError("data must be a 2D array.")
+
+    row_mean = _nanmean_no_warn(filled, axis=1)
+    if np.isscalar(row_mean):
+        row_mean = np.full((filled.shape[0],), float(row_mean), dtype=float)
+    row_mean = np.asarray(row_mean, dtype=float)
+    row_mean[~np.isfinite(row_mean)] = 0.0
+
+    missing = np.isnan(filled)
+    if missing.any():
+        filled[missing] = np.take(row_mean, np.where(missing)[0])
+    return filled
+
+
+def _build_mne_eeg_raw(
+    signals: np.ndarray,
+    positions: np.ndarray | None = None,
+    sfreq: float = 250.0,
+    ch_names: List[str] | None = None,
+    bads: List[str] | None = None,
+    normalize_positions: bool = True,
+):
+    try:
+        import mne
+    except Exception as exc:
+        raise ImportError("mne is required for the MNE-based interpolation backends.") from exc
+
+    data = np.asarray(signals, dtype=float)
+    if data.ndim != 2:
+        raise ValueError("signals must be a 2D array with shape (n_times, n_channels).")
+
+    n_times, n_channels = data.shape
+    if ch_names is None:
+        ch_names = [f"EEG{idx:03d}" for idx in range(n_channels)]
+    if len(ch_names) != n_channels:
+        raise ValueError("ch_names must match the number of channels in signals.")
+
+    info = mne.create_info(ch_names=ch_names, sfreq=float(sfreq), ch_types="eeg")
+
+    if np.isnan(data).any():
+        data = _impute_missing_with_row_mean(data)
+
+    raw = mne.io.RawArray(data.T, info, verbose="ERROR")
+
+    if positions is not None:
+        pos = _normalize_positions_for_mne(positions) if normalize_positions else np.asarray(positions, dtype=float)
+        if pos.ndim != 2 or pos.shape[1] < 2:
+            raise ValueError("positions must be a 2D array with at least 2 coordinates per channel.")
+        if pos.shape[1] == 2:
+            pos = np.column_stack([pos, np.zeros(pos.shape[0])])
+        else:
+            pos = pos[:, :3].copy()
+        if pos.shape[0] == n_channels and np.isfinite(pos).any():
+            ch_pos = {name: tuple(pos[idx, :3]) for idx, name in enumerate(ch_names)}
+            montage = mne.channels.make_dig_montage(ch_pos=ch_pos, coord_frame="head")
+            raw.set_montage(montage, on_missing="ignore")
+            for idx, channel in enumerate(raw.info["chs"]):
+                channel["loc"][:3] = pos[idx, :3]
+                channel["loc"][3:] = 0.0
+
+    if bads:
+        raw.info["bads"] = list(bads)
+
+    return raw
+
+
+def interpolate_mne_bads(
+    signals: np.ndarray,
+    positions: np.ndarray,
+    sfreq: float = 250.0,
+    ch_names: List[str] | None = None,
+    method: str = "MNE",
+) -> np.ndarray:
+    data = np.asarray(signals, dtype=float)
+    missing = np.isnan(data)
+    bad_indices = np.where(np.all(missing, axis=0))[0]
+    bad_names = None if bad_indices.size == 0 else []
+
+    if bad_indices.size != 0:
+        if ch_names is None:
+            bad_names = [f"EEG{idx:03d}" for idx in bad_indices]
+        else:
+            bad_names = [ch_names[idx] for idx in bad_indices]
+
+    raw = _build_mne_eeg_raw(
+        signals,
+        positions=positions,
+        sfreq=sfreq,
+        ch_names=ch_names,
+        bads=bad_names,
+        normalize_positions=False,
+    )
+
+    if bad_indices.size == 0:
+        return data.copy()
+
+    try:
+        raw_interp = raw.copy().interpolate_bads(
+            reset_bads=False,
+            method=method,
+            origin="auto",
+            verbose="ERROR",
+        )
+    except Exception:
+        raw_interp = raw.copy().interpolate_bads(
+            reset_bads=False,
+            method="spline",
+            origin="auto",
+            verbose="ERROR",
+        )
+
+    reconstructed = raw_interp.get_data().T
+    if bad_indices.size and np.allclose(reconstructed[:, bad_indices], 0.0, atol=1e-15, rtol=1e-12):
+        raw_interp = raw.copy().interpolate_bads(
+            reset_bads=False,
+            method="spline",
+            origin="auto",
+            verbose="ERROR",
+        )
+        reconstructed = raw_interp.get_data().T
+
+    reconstructed[~missing] = data[~missing]
+    return reconstructed
+
+
 def interpolate_signals(
     method: str,
     signals: np.ndarray,
@@ -65,6 +218,50 @@ def interpolate_signals(
         if warn_list:
             info["warnings"] = warn_list
         return {"reconstructed": reconstructed, "info": info}
+
+    if method in {"ica_mne", "mne_ica"}:
+        positions = kwargs.get("positions")
+        sfreq = float(kwargs.get("sfreq", 250.0))
+        n_components = kwargs.get("n_components", None)
+        random_state = int(kwargs.get("random_state", 0))
+        ica_method = kwargs.get("ica_method", kwargs.get("method", "picard"))
+        reconstructed, warn_list = interpolate_ica_mne(
+            signals,
+            positions=positions,
+            sfreq=sfreq,
+            n_components=n_components,
+            random_state=random_state,
+            method=str(ica_method).lower(),
+        )
+        info: Dict[str, Any] = {
+            "method": "ica_mne",
+            "n_components": n_components,
+            "random_state": random_state,
+            "sfreq": sfreq,
+            "ica_method": str(ica_method).lower(),
+        }
+        if warn_list:
+            info["warnings"] = warn_list
+        return {"reconstructed": reconstructed, "info": info}
+
+    if method in {"mne_bads", "mne_interpolate_bads", "mne_interpolate"}:
+        positions = kwargs.get("positions")
+        if positions is None:
+            raise ValueError("Se requieren 'positions' para la interpolacion MNE de canales malos.")
+        sfreq = float(kwargs.get("sfreq", 250.0))
+        ch_names = kwargs.get("ch_names")
+        interpolate_method = str(kwargs.get("interpolate_method", "MNE"))
+        reconstructed = interpolate_mne_bads(
+            signals,
+            positions=positions,
+            sfreq=sfreq,
+            ch_names=ch_names,
+            method=interpolate_method,
+        )
+        return {
+            "reconstructed": reconstructed,
+            "info": {"method": "mne_bads", "sfreq": sfreq, "interpolate_method": interpolate_method},
+        }
 
     if method == "random":
         reconstructed = interpolate_random(signals)
@@ -477,6 +674,104 @@ def interpolate_ica(signals: np.ndarray, n_components: int | None = None, random
         reconstructed = y.copy()
         reconstructed[miss] = np.take(col_mean, np.where(miss)[1])
         return reconstructed, [{"category": "Exception", "message": str(exc)}]
+
+
+def interpolate_ica_mne(
+    signals: np.ndarray,
+    positions: np.ndarray | None = None,
+    sfreq: float = 250.0,
+    n_components: int | None = None,
+    random_state: int = 0,
+    method: str = "picard",
+) -> Tuple[np.ndarray, List[Dict[str, str]]]:
+    try:
+        from mne.preprocessing import ICA
+    except Exception:
+        return interpolate_ica(signals, n_components=n_components, random_state=random_state)
+
+    data = np.asarray(signals, dtype=float)
+    missing_mask = np.isnan(data)
+    if not missing_mask.any():
+        return data.copy(), []
+
+    n_times, n_channels = data.shape
+    if n_components is None:
+        comp = min(n_channels, max(1, n_channels - 1))
+    else:
+        comp = int(min(int(n_components), n_channels))
+    comp = max(1, min(comp, n_channels))
+    if n_times <= comp:
+        comp = max(1, min(n_times - 1, n_channels)) if n_times > 1 else 1
+
+    bad_indices = np.where(np.all(missing_mask, axis=0))[0]
+    bad_names = None if bad_indices.size == 0 else [f"EEG{idx:03d}" for idx in bad_indices]
+    raw = _build_mne_eeg_raw(
+        data,
+        positions=positions,
+        sfreq=sfreq,
+        bads=bad_names,
+        normalize_positions=False,
+    )
+    if method == "auto":
+        candidate_methods = ["picard", "infomax", "fastica"]
+    else:
+        candidate_methods = [method, "picard", "infomax", "fastica"]
+
+    ordered_methods: List[str] = []
+    seen_methods: set[str] = set()
+    for candidate in candidate_methods:
+        if candidate not in seen_methods:
+            ordered_methods.append(candidate)
+            seen_methods.add(candidate)
+
+    last_error: Exception | None = None
+    for candidate in ordered_methods:
+        try:
+            fit_params = {"extended": True} if candidate == "infomax" else None
+            ica = ICA(
+                n_components=comp,
+                random_state=random_state,
+                method=candidate,
+                fit_params=fit_params,
+                max_iter="auto",
+            )
+            ica.fit(raw, picks="eeg", reject_by_annotation=False, verbose="ERROR")
+            reconstructed_raw = ica.apply(raw.copy(), exclude=[], n_pca_components=comp, verbose="ERROR")
+            if bad_names:
+                reconstructed_raw.info["bads"] = list(bad_names)
+                try:
+                    reconstructed_raw = reconstructed_raw.interpolate_bads(
+                        reset_bads=False,
+                        method="MNE",
+                        origin="auto",
+                        verbose="ERROR",
+                    )
+                except Exception:
+                    reconstructed_raw = reconstructed_raw.interpolate_bads(
+                        reset_bads=False,
+                        method="spline",
+                        origin="auto",
+                        verbose="ERROR",
+                    )
+            reconstructed = reconstructed_raw.get_data().T
+            reconstructed[~missing_mask] = data[~missing_mask]
+            return reconstructed, [
+                {
+                    "category": "Info",
+                    "message": f"MNE ICA backend used method={candidate!r} with n_components={comp}.",
+                }
+            ]
+        except Exception as exc:
+            last_error = exc
+
+    fallback_reconstructed, fallback_warnings = interpolate_ica(signals, n_components=comp, random_state=random_state)
+    fallback_warnings.append(
+        {
+            "category": "Warning",
+            "message": f"MNE ICA backend failed, falling back to sklearn FastICA. Last error: {last_error}",
+        }
+    )
+    return fallback_reconstructed, fallback_warnings
 
 
 def interpolate_idw(signals: np.ndarray, positions: np.ndarray = None, power: float = 2.0) -> np.ndarray:
