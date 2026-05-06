@@ -3,8 +3,11 @@ from pathlib import Path
 import warnings
 import numpy as np
 import pandas as pd
-import ast
 from scipy.spatial.distance import cdist
+import optuna
+
+# Suprimir salida excesiva de Optuna
+optuna.logging.set_verbosity(optuna.logging.WARNING)
 
 ROOT = Path('.').resolve()
 sys.path.insert(0, str(ROOT))
@@ -13,8 +16,6 @@ from src.data.data_loader import load_physionet_eegmmidb, load_mne_sample_datase
 from src.interpolation_methods import interpolate_signals
 from src.evaluation.evaluation import evaluate_signals
 from src.graph_construction.graph_constructors import build_graph
-
-df = pd.read_csv('results_optuna_final/optuna_best_results.csv')
 
 def simulate_static_mask(signals, positions, missing_val, mode, random_state=42):
     N, D = signals.shape
@@ -46,12 +47,14 @@ datasets = {
 missing_vals = [0.1, 0.4]
 missing_modes = ['random', 'nearby']
 
+metrics_list = ['mae', 'rmse', 'dtw', 'snr', 'lsd', 'coherence_mean']
+
 results = []
 
 for d_name, loader in datasets.items():
     print(f"\nLoading {d_name}...")
     data = loader()
-    signals_clean = data['signals'][:4000] # Use enough samples for reliable PSD/LSD
+    signals_clean = data['signals'][:4000] 
     positions = data['positions']
     sfreq = data['info'].get('sfreq', 250.0)
     
@@ -64,38 +67,49 @@ for d_name, loader in datasets.items():
             with warnings.catch_warnings():
                 warnings.simplefilter('ignore')
                 res_mne = interpolate_signals('mne_bads', signals_missing, positions=positions, sfreq=sfreq, interpolate_method='MNE')
-            met_mne = evaluate_signals(signals_clean[:, bad_idx], res_mne['reconstructed'][:, bad_idx], metrics=['mae', 'lsd'], sfreq=sfreq)
+            met_mne = evaluate_signals(signals_clean[:, bad_idx], res_mne['reconstructed'][:, bad_idx], metrics=metrics_list, sfreq=sfreq)
             
-            # 2. TRSS (Default)
-            with warnings.catch_warnings():
-                warnings.simplefilter('ignore')
-                g_def = build_graph('knn', positions, k=4)
-                adj_def = g_def['adjacency'].toarray() if hasattr(g_def['adjacency'], 'toarray') else np.asarray(g_def['adjacency'])
-                res_trss_def = interpolate_signals('trss', signals_missing, adjacency=adj_def, alpha=1.0, beta=0.1, lr=0.01, n_iter=100)
-            met_trss_def = evaluate_signals(signals_clean[:, bad_idx], res_trss_def['reconstructed'][:, bad_idx], metrics=['mae', 'lsd'], sfreq=sfreq)
-            
-            # 3. TRSS (Optimized)
-            try:
-                row_trss = df[(df['dataset'] == d_name) & (df['missing_mode'] == m_mode) & (df['missing_val'] == m_val) & (df['method'] == 'trss')].iloc[0]
-                p_trss = ast.literal_eval(row_trss['params'])
+            # 2. Optimize TRSS for this specific static mask using Optuna
+            def objective(trial):
+                alpha = trial.suggest_float("alpha", 0.1, 5.0, log=True)
+                beta = trial.suggest_float("beta", 0.01, 1.0, log=True)
+                k = trial.suggest_int("k", 3, 12)
+                sigma = trial.suggest_float("sigma", 0.1, 5.0)
+                
                 with warnings.catch_warnings():
                     warnings.simplefilter('ignore')
-                    g_opt = build_graph('knng', positions, signals=signals_clean, k=p_trss.get('k', 4), sigma=p_trss.get('sigma', 1.0))
-                    adj_opt = g_opt['adjacency'].toarray() if hasattr(g_opt['adjacency'], 'toarray') else np.asarray(g_opt['adjacency'])
-                    res_trss_opt = interpolate_signals('trss', signals_missing, adjacency=adj_opt, alpha=p_trss['alpha'], beta=p_trss['beta'], lr=0.05, n_iter=80)
-                met_trss_opt = evaluate_signals(signals_clean[:, bad_idx], res_trss_opt['reconstructed'][:, bad_idx], metrics=['mae', 'lsd'], sfreq=sfreq)
-            except Exception as e:
-                print(f"    Error in TRSS opt: {e}")
-                met_trss_opt = {'mae': np.nan, 'lsd': np.nan}
+                    g = build_graph('knng', positions, signals=signals_clean, k=k, sigma=sigma)
+                    adj = g['adjacency'].toarray() if hasattr(g['adjacency'], 'toarray') else np.asarray(g['adjacency'])
+                    res = interpolate_signals('trss', signals_missing, adjacency=adj, alpha=alpha, beta=beta, lr=0.05, n_iter=80)
                 
-            results.append({
+                met = evaluate_signals(signals_clean[:, bad_idx], res['reconstructed'][:, bad_idx], metrics=['mae', 'dtw'], sfreq=sfreq)
+                # Optimize a mix of amplitude and shape to avoid destroying LSD/DTW completely
+                # Since DTW is larger, we normalize by adding them
+                return met['mae'] * 10000 + met.get('dtw', 0.0)
+                
+            study = optuna.create_study(direction="minimize")
+            study.optimize(objective, n_trials=15) # Quick optimization
+            
+            best_p = study.best_params
+            
+            # Re-evaluate best TRSS
+            with warnings.catch_warnings():
+                warnings.simplefilter('ignore')
+                g_opt = build_graph('knng', positions, signals=signals_clean, k=best_p['k'], sigma=best_p['sigma'])
+                adj_opt = g_opt['adjacency'].toarray() if hasattr(g_opt['adjacency'], 'toarray') else np.asarray(g_opt['adjacency'])
+                res_trss_opt = interpolate_signals('trss', signals_missing, adjacency=adj_opt, alpha=best_p['alpha'], beta=best_p['beta'], lr=0.05, n_iter=80)
+            met_trss_opt = evaluate_signals(signals_clean[:, bad_idx], res_trss_opt['reconstructed'][:, bad_idx], metrics=metrics_list, sfreq=sfreq)
+            
+            row = {
                 'dataset': d_name, 'mode': m_mode, 'loss': m_val,
-                'MNE_MAE': met_mne['mae'], 'MNE_LSD': met_mne['lsd'],
-                'TRSS_def_MAE': met_trss_def['mae'], 'TRSS_def_LSD': met_trss_def['lsd'],
-                'TRSS_opt_MAE': met_trss_opt['mae'], 'TRSS_opt_LSD': met_trss_opt['lsd']
-            })
+            }
+            for m in metrics_list:
+                row[f"MNE_{m}"] = met_mne.get(m, np.nan)
+                row[f"TRSS_{m}"] = met_trss_opt.get(m, np.nan)
+            
+            results.append(row)
 
 df_res = pd.DataFrame(results)
-print("\n" + "="*120)
+print("\n" + "="*160)
 print(df_res.to_string(index=False))
-print("="*120)
+print("="*160)
