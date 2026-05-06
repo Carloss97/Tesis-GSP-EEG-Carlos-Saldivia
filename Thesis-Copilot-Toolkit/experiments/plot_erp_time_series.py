@@ -148,12 +148,18 @@ def main():
         
         gt_signal = signals_clean[:N_SAMPLES, target_ch]
         
+        # Calcular limites basados en GT
+        gt_min = gt_signal.min()
+        gt_max = gt_signal.max()
+        margin = (gt_max - gt_min) * 0.3
+        
         for ax, (m_name, m_sig, m_color) in zip(axes, methods_data):
             ax.plot(time_axis, gt_signal, label="Ground Truth", color="black", linestyle="--", linewidth=2.5, alpha=0.8, zorder=2)
             ax.plot(time_axis, m_sig[:N_SAMPLES, target_ch], label=m_name, color=m_color, linestyle="-", linewidth=2.5, alpha=0.9, zorder=1)
             ax.set_ylabel("Amplitude (µV)", fontsize=10)
             ax.grid(True, linestyle=":", alpha=0.7)
             ax.legend(fontsize=10, loc="upper right")
+            ax.set_ylim(gt_min - margin, gt_max + margin) # Fix the Y limit here!
         
         axes[-1].set_xlabel("Time (seconds)", fontsize=14)
         

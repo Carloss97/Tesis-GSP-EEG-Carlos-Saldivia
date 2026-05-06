@@ -221,19 +221,23 @@ La prueba de fuego para cualquier método de reconstrucción de EEG clínico es 
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png}
-  \caption{Reconstrucción de ERP en MNE Sample con 10\% de pérdida \textit{nearby}. En este escenario benigno, tanto TRSS como los baselines logran una reconstrucción razonable, aunque ya se observan desfases sutiles en las splines.}
-  \label{fig:erp_10pct}
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png}
+    \caption{10\% de pérdida \textit{nearby}. MNE y Spline logran buena reconstrucción por la alta densidad, aunque ICA lanza picos distorsionados.}
+    \label{fig:erp_10pct}
+  \end{minipage}\hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png}
+    \caption{40\% de pérdida \textit{nearby}. Bajo degradación masiva, las splines y MNE colapsan invirtiendo fase. TRSS resiste mediante inercia.}
+    \label{fig:erp_40pct}
+  \end{minipage}
+  \caption{Comparación de reconstrucción de ERP (1 canal) bajo distinta severidad de pérdida. Ambos ejes Y están fijados al rango de la señal original para evidenciar las distorsiones de amplitud introducidas por los baselines geométricos.}
+  \label{fig:erp_sidebyside}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png}
-  \caption{Reconstrucción de ERP en MNE Sample con 40\% de pérdida \textit{nearby}. Bajo degradación severa, las splines esféricas colapsan completamente: la amplitud del P300 se aplana y la fase se invierte. TRSS preserva fielmente la trayectoria fisiológica original.}
-  \label{fig:erp_40pct}
-\end{figure}
-
-La comparación entre las Figuras~\ref{fig:erp_10pct} y \ref{fig:erp_40pct} es reveladora. Con solo un 10\% de pérdida, las diferencias entre métodos son sutiles. Pero al escalar a un 40\% de pérdida contigua, la reconstrucción por splines diverge catastróficamente: los picos N100 se invierten y el P300 desaparece. TRSS, gracias a la penalización $\beta \|\mathbf{Z}\mathbf{D}_t\|_F^2$, mantiene la forma del transitorio porque la inercia temporal impide saltos bruscos no justificados por la dinámica de los nodos observados.
+La comparación visual entre escenarios es reveladora. Con solo un 10\% de pérdida, las diferencias estructurales se enmascaran porque la red de electrodos es suficientemente densa. Sin embargo, al escalar a un 40\% de pérdida contigua, la reconstrucción geométrica diverge catastróficamente: los métodos basados en memoria espacial pura (como MNE \texttt{interpolate\_bads} y Spherical Splines) no logran mantener la trayectoria e invierten la fase de la señal. TRSS, gracias a su inercia temporal, impide saltos bruscos no justificados y sigue la verdadera trayectoria.
 
 \subsection{Reconstrucción con Baselines Optimizados}
 

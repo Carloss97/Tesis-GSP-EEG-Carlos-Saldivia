@@ -31,30 +31,30 @@
 \contentsline {section}{\numberline {3.1}Arquitectura General del Pipeline}{14}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Bases de Datos Experimentales}{15}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)}{15}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}BCI Competition IV Dataset 2a}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}BCI Competition IV Dataset 2a}{16}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}MNE Sample Dataset}{16}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Resumen Comparativo de Datasets}{16}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Construcción de Grafos}{16}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Grafos de Vecindad Geométrica}{16}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.3}Construcción de Grafos}{17}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Grafos de Vecindad Geométrica}{17}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Grafos Densos / Globales}{17}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Grafos Adaptativos e Inferencia Basada en Datos}{17}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Protocolo de Simulación de Canales Faltantes}{18}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Modo \textit {Random} (Fallas Independientes)}{18}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Modo \textit {Nearby} (Fallas Contiguas)}{18}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Niveles de Degradación}{18}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Métodos de Interpolación y Reconstrucción}{18}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Métodos de Interpolación y Reconstrucción}{19}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Familia 1: Baselines Geométricos y Estadísticos}{19}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Familia 2: Métodos GSP Espaciales (Instantáneos)}{19}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Familia 3: Métodos con Regularización Temporal}{20}{subsection.3.5.3}%
 \contentsline {section}{\numberline {3.6}Optimización de Hiperparámetros con Optuna}{20}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Estrategia de Muestreo}{20}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Espacios de Búsqueda por Familia}{20}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.2}Espacios de Búsqueda por Familia}{21}{subsection.3.6.2}%
 \contentsline {subsection}{\numberline {3.6.3}Protocolo de Ejecución}{21}{subsection.3.6.3}%
 \contentsline {subsection}{\numberline {3.6.4}Validación Temporal y Prevención de Fuga de Datos (\textit {Data Leakage})}{21}{subsection.3.6.4}%
 \contentsline {section}{\numberline {3.7}Evaluación Cuantitativa}{22}{section.3.7}%
 \contentsline {subsection}{\numberline {3.7.1}Métricas de Error de Amplitud}{22}{subsection.3.7.1}%
 \contentsline {subsection}{\numberline {3.7.2}Métricas de Fidelidad Temporal}{22}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Métricas Espectrales}{22}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.3}Métricas Espectrales}{23}{subsection.3.7.3}%
 \contentsline {section}{\numberline {3.8}Consolidación Estadística y Generación de Artefactos}{23}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Stack Tecnológico e Infraestructura}{23}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Reproducibilidad y Transparencia}{24}{section.3.10}%
@@ -86,40 +86,40 @@
 \contentsline {subsubsection}{Resultados: Error Puntual versus Fidelidad Espectral}{33}{section*.35}%
 \contentsline {subsubsection}{Interpretación}{33}{section*.36}%
 \contentsline {section}{\numberline {4.9}Síntesis de Hallazgos Experimentales}{34}{section.4.9}%
-\contentsline {chapter}{\numberline {5}Discusión}{50}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Interpretación Teórica de la Superioridad Temporal}{50}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}La Inercia Neurofisiológica como Prior Matemático}{50}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}La Doble Regularización como Filtro Espacio-Temporal}{51}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}El Cruce de Rendimiento: Análisis Detallado}{51}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Comportamiento Asintótico bajo Degradación}{51}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}El Papel de la Densidad Espacial}{51}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}El Impacto del Fair Benchmarking}{52}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}La Trampa de los Baselines sin Optimizar}{52}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}El Caso ICA: Promesa Teórica vs. Realidad Práctica}{52}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Relevancia Clínica y Aplicaciones}{53}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Impacto en Sistemas BCI}{53}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Monitorización Clínica Continua}{53}{subsection.5.4.2}%
-\contentsline {section}{\numberline {5.5}Limitaciones del Estudio}{53}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Costo Computacional}{53}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Sensibilidad a los Hiperparámetros}{54}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Simulación vs. Realidad}{54}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Alcance de los Datasets}{54}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}Estado de BGSRP}{54}{subsection.5.5.5}%
-\contentsline {section}{\numberline {5.6}Comparación con el Estado del Arte Internacional}{54}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Reflexión Epistemológica}{55}{section.5.7}%
-\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{56}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusiones}{56}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Validación de la Hipótesis de Trabajo}{56}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Cumplimiento de los Objetivos Específicos}{57}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Aportes Originales}{57}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Trabajo Futuro}{58}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Integración BCI en Tiempo Real}{58}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Validación Clínica Descendente}{59}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Modelos Híbridos GSP + Deep Learning}{59}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Extensiones Metodológicas}{59}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Reflexión Final}{60}{section.6.3}%
-\contentsline {chapter}{\numberline {A}Tablas Detalladas de Resultados}{61}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Hiperparámetros Óptimos por Escenario}{61}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Métricas Espectrales Detalladas}{61}{section.Alph1.2}%
-\contentsline {chapter}{\numberline {B}Estructura del Repositorio}{63}{appendix.Alph2}%
-\contentsline {chapter}{\numberline {C}Instrucciones de Reproducción}{65}{appendix.Alph3}%
+\contentsline {chapter}{\numberline {5}Discusión}{48}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Interpretación Teórica de la Superioridad Temporal}{48}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}La Inercia Neurofisiológica como Prior Matemático}{48}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}La Doble Regularización como Filtro Espacio-Temporal}{49}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}El Cruce de Rendimiento: Análisis Detallado}{49}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Comportamiento Asintótico bajo Degradación}{49}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}El Papel de la Densidad Espacial}{49}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}El Impacto del Fair Benchmarking}{50}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}La Trampa de los Baselines sin Optimizar}{50}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}El Caso ICA: Promesa Teórica vs. Realidad Práctica}{50}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Relevancia Clínica y Aplicaciones}{51}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Impacto en Sistemas BCI}{51}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Monitorización Clínica Continua}{51}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Limitaciones del Estudio}{51}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Costo Computacional}{51}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Sensibilidad a los Hiperparámetros}{52}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Simulación vs. Realidad}{52}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Alcance de los Datasets}{52}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.5}Estado de BGSRP}{52}{subsection.5.5.5}%
+\contentsline {section}{\numberline {5.6}Comparación con el Estado del Arte Internacional}{52}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Reflexión Epistemológica}{53}{section.5.7}%
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{54}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusiones}{54}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Validación de la Hipótesis de Trabajo}{54}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Cumplimiento de los Objetivos Específicos}{55}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Aportes Originales}{55}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Trabajo Futuro}{56}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Integración BCI en Tiempo Real}{56}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Validación Clínica Descendente}{57}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Modelos Híbridos GSP + Deep Learning}{57}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Extensiones Metodológicas}{57}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Reflexión Final}{58}{section.6.3}%
+\contentsline {chapter}{\numberline {A}Tablas Detalladas de Resultados}{59}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Hiperparámetros Óptimos por Escenario}{59}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Métricas Espectrales Detalladas}{59}{section.Alph1.2}%
+\contentsline {chapter}{\numberline {B}Estructura del Repositorio}{61}{appendix.Alph2}%
+\contentsline {chapter}{\numberline {C}Instrucciones de Reproducción}{63}{appendix.Alph3}%

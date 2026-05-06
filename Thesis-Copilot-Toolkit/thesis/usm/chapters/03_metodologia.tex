@@ -4,6 +4,29 @@ Este capítulo describe exhaustivamente el diseño experimental empleado para va
 
 \section{Arquitectura General del Pipeline}
 
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[
+        box/.style={rectangle, rounded corners, draw=blue!70!black, fill=blue!5, thick, minimum height=1cm, text centered, font=\small},
+        arrow/.style={-latex, thick, blue!70!black}
+    ]
+        % Nodes
+        \node (data) [box, align=center] {Carga y preprocesamiento\\(MNE-Python)};
+        \node (mask) [box, right=of data, align=center] {Máscara de Degradación\\(Random vs Nearby)};
+        \node (opt) [box, right=of mask, align=center, fill=orange!10, draw=orange!80!black] {Optimización Bayesiana\\(Optuna + TPE/NSGA-II)};
+        \node (buffer) [box, below=1cm of opt, align=center] {Buffer Cronológico (2s)\\(Prevención de Leakage)};
+        \node (eval) [box, left=of buffer, align=center] {Evaluación Multi-Métrica\\(MAE, DTW, LSD)};
+        
+        % Arrows
+        \draw [arrow] (data) -- (mask);
+        \draw [arrow] (mask) -- (opt);
+        \draw [arrow] (opt) -- (buffer);
+        \draw [arrow] (buffer) -- (eval);
+    \end{tikzpicture}
+    \caption{Representación esquemática del pipeline metodológico de optimización y evaluación propuesto.}
+    \label{fig:methodology_pipeline}
+\end{figure}
+
 El flujo de trabajo se organiza como una secuencia determinista de seis etapas:
 \begin{enumerate}
     \item \textbf{Carga y estandarización} de datasets heterogéneos mediante \texttt{mne-python}.

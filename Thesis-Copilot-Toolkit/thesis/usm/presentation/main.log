@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  5 MAY 2026 20:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  5 MAY 2026 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -825,9 +825,9 @@ Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
 LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) 
-on input line 20.
+on input line 21.
 LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
- on input line 20.
+ on input line 21.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -856,10 +856,108 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@dima=\skip68
 \bigstrutjot=\dimen316
 )
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box78
+)
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen317
+\pgf@nodesepend=\dimen318
+)
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen319
+\pgffor@skip=\dimen320
+\pgffor@stack=\toks49
+\pgffor@toks=\toks50
+))
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count366
+\pgfplotmarksize=\dimen321
+)
+\tikz@lastx=\dimen322
+\tikz@lasty=\dimen323
+\tikz@lastxsaved=\dimen324
+\tikz@lastysaved=\dimen325
+\tikz@lastmovetox=\dimen326
+\tikz@lastmovetoy=\dimen327
+\tikzleveldistance=\dimen328
+\tikzsiblingdistance=\dimen329
+\tikz@figbox=\box79
+\tikz@figbox@bg=\box80
+\tikz@tempbox=\box81
+\tikz@tempbox@bg=\box82
+\tikztreelevel=\count367
+\tikznumberofchildren=\count368
+\tikznumberofcurrentchild=\count369
+\tikz@fig@count=\count370
+
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count371
+\pgfmatrixcurrentcolumn=\count372
+\pgf@matrix@numberofcolumns=\count373
+)
+\tikz@expandcount=\count374
+
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen330
+\pgfarrowlength=\dimen331
+\pgfarrowwidth=\dimen332
+\pgfarrowlinewidth=\dimen333
+)
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count366
+\l__color_backend_stack_int=\count375
 ) (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
@@ -868,24 +966,24 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -925,17 +1023,17 @@ LaTeX Font Info:    ... okay on input line 36.
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count367
-\scratchdimen=\dimen317
-\scratchbox=\box78
-\nofMPsegments=\count368
-\nofMParguments=\count369
-\everyMPshowfont=\toks49
-\MPscratchCnt=\count370
-\MPscratchDim=\dimen318
-\MPnumerator=\count371
-\makeMPintoPDFobject=\count372
-\everyMPtoPDFconversion=\toks50
+\scratchcounter=\count376
+\scratchdimen=\dimen334
+\scratchbox=\box83
+\nofMPsegments=\count377
+\nofMParguments=\count378
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count379
+\MPscratchDim=\dimen335
+\MPnumerator=\count380
+\makeMPintoPDFobject=\count381
+\everyMPtoPDFconversion=\toks52
 )
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -947,63 +1045,63 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 36.
+Package hyperref Info: Link coloring OFF on input line 39.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 36.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 39.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 36.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 39.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 36.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 36.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 36.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 36.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 39.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 36.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 36.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 36.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 39.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 36.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 36.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 36.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 39.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 36.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 36.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 39.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 36.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 39.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 36.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 36.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 36.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 36.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 36.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 39.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 36.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 36.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 39.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 39.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 3
-6.
+9.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 3
-6.
+9.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 36.
+ut line 39.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-b
 asic-dictionary-English.dict
@@ -1029,8 +1127,8 @@ Dictionary: translator-numbers-dictionary, Language: English
 heorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
  (main.nav) [1
 
 {C:/Users/sarlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
@@ -1040,89 +1138,144 @@ LaTeX Info: Redefining \% on input line 1.
 
 ] [3
 
-] [4
-
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 96.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
 
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 96.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
 
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 96.
+ut line 90.
 
 (C:\Users\sarlo\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
 erncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)
+) [4
+
+]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 96.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 114.
+
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 96.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 114.
+
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 96.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 114.
+
  [5
 
-] [6
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <12> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 143.
 
-] [7
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 143.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 143.
+
+ [6
+
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <9> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 190.
+
+
+Overfull \vbox (12.63574pt too high) detected at line 190
+ []
+
+[7
 
 ] [8
 
 ] [9
 
-] [10
-
 ]
-<../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png, id=193, 114
+<../../../results_optuna_final/tradeoff_scatter_bci_iv.png, id=235, 713.064pt x
+ 569.4876pt>
+File: ../../../results_optuna_final/tradeoff_scatter_bci_iv.png Graphic file (t
+ype png)
+<use ../../../results_optuna_final/tradeoff_scatter_bci_iv.png>
+Package pdftex.def Info: ../../../results_optuna_final/tradeoff_scatter_bci_iv.
+png  used on input line 249.
+(pdftex.def)             Requested size: 229.93689pt x 183.63878pt.
+ [10
+
+ <../../../results_optuna_final/tradeoff_scatter_bci_iv.png>]
+<../../../results_optuna_final/heatmap_performance_bci_iv.png, id=245, 919.7562
+pt x 711.1368pt>
+File: ../../../results_optuna_final/heatmap_performance_bci_iv.png Graphic file
+ (type png)
+<use ../../../results_optuna_final/heatmap_performance_bci_iv.png>
+Package pdftex.def Info: ../../../results_optuna_final/heatmap_performance_bci_
+iv.png  used on input line 267.
+(pdftex.def)             Requested size: 237.50299pt x 183.63248pt.
+
+[11
+
+ <../../../results_optuna_final/heatmap_performance_bci_iv.png>]
+<../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png, id=254
+, 1004.0712pt x 994.4352pt>
+File: ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png Gr
+aphic file (type png)
+<use ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png>
+Package pdftex.def Info: ../../../results_optuna_final/erp_timeseries_mne_sampl
+e_nearby_0.1.png  used on input line 287.
+(pdftex.def)             Requested size: 173.04926pt x 171.38852pt.
+<../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png, id=255
+, 1019.007pt x 994.4352pt>
+File: ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png Gr
+aphic file (type png)
+<use ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>
+Package pdftex.def Info: ../../../results_optuna_final/erp_timeseries_mne_sampl
+e_nearby_0.4.png  used on input line 287.
+(pdftex.def)             Requested size: 175.62341pt x 171.38852pt.
+ [12
+
+ <../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png> <../.
+./../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>]
+<../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png, id=265, 114
 8.6112pt x 427.3566pt>
 File: ../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png Graphic
  file (type png)
 <use ../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png>
 Package pdftex.def Info: ../../../results_optuna_final/degradation_bci_iv_nearb
-y_ratio.png  used on input line 201.
+y_ratio.png  used on input line 305.
 (pdftex.def)             Requested size: 261.14296pt x 97.16182pt.
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 201.
-
- [11
+ [13
 
  <../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png>]
-<../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png, id=203
-, 1004.0712pt x 994.4352pt>
-File: ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png Gr
-aphic file (type png)
-<use ../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>
-Package pdftex.def Info: ../../../results_optuna_final/erp_timeseries_mne_sampl
-e_nearby_0.4.png  used on input line 217.
-(pdftex.def)             Requested size: 217.62202pt x 215.52922pt.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 340.
 
-Overfull \vbox (1.84851pt too high) detected at line 217
+
+Overfull \vbox (10.08072pt too high) detected at line 340
  []
 
-[12
+[14
 
- <../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png>]
-[13
-
-] [14
+] [15
 
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 250.
+(Font)              using `OT1/cmss/bx/n' instead on input line 361.
 
-[15
+[16
 
-] [16
+] [17
+
+] [18
+
+] [19
 
 ]
 \tf@nav=\write6
@@ -1146,42 +1299,38 @@ L3 programming layer <2026-01-19>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 259A221B5C462659D995C6130C822F2C;1027
-(rerunfilecheck)             After:  EBBF442E44FFE11FB52E013AE7EAE29C;876.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 3FAD7732945BF3074EA07507D1D92067;960.
  ) 
 Here is how much of TeX's memory you used:
- 23626 strings out of 467867
- 462320 string characters out of 5418335
- 842365 words of memory out of 5000000
- 51989 multiletter control sequences out of 15000+600000
- 637225 words of font info for 73 fonts, out of 8000000 for 9000
+ 27816 strings out of 467867
+ 564119 string characters out of 5418335
+ 953179 words of memory out of 5000000
+ 56104 multiletter control sequences out of 15000+600000
+ 645756 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,381b,873s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,123p,549b,871s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmmi12.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/sarlo/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/sarlo/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/sarlo/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/sarlo/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/U
-sers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10
-.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmssi8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmssi9.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 822392 bytes).
+s/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/sarlo/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/sarlo/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/sarlo/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/sarlo/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/User
+s/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.p
+fb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmssi10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmssi8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmssi9.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sarlo/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/sarlo/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (19 pages, 1986712 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 506 words of extra memory for PDF output out of 10000 (max. 10000000)
 
