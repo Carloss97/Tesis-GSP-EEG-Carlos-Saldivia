@@ -1,0 +1,261 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+% Tema y colores UTFSM
+\usetheme{Madrid}
+\usecolortheme{default}
+\definecolor{usmblue}{RGB}{0, 75, 135}
+\definecolor{usmgold}{RGB}{200, 160, 50}
+\setbeamercolor{palette primary}{bg=usmblue,fg=white}
+\setbeamercolor{palette secondary}{bg=usmblue!80!black,fg=white}
+\setbeamercolor{palette tertiary}{bg=usmblue!60!black,fg=white}
+\setbeamercolor{palette quaternary}{bg=usmblue,fg=white}
+\setbeamercolor{structure}{fg=usmblue}
+\setbeamercolor{item projected}{bg=usmblue}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+% Paquetes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{multirow}
+
+% Información de la Portada
+\title[Reconstrucción EEG con GSP y TRSS]{Reconstrucción de Señales EEG mediante Procesamiento de Señales en Grafos e Interpolación Temporal}
+\author[Carlos Saldivia]{Carlos Saldivia}
+\institute[UTFSM]{
+  Departamento de Ingeniería Electrónica\\
+  Universidad Técnica Federico Santa María\\[1.5ex]
+  \textit{Directores: Dr. Alejandro Weinstein, Dr. Matías Zañartu}
+}
+\date{Defensa de Tesis de Magíster -- 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}{Contenidos}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+% --- SECCIÓN 1: INTRODUCCIÓN ---
+\section{Introducción y Motivación}
+
+\begin{frame}{El Electroencefalograma (EEG) y la Pérdida de Información}
+    \begin{itemize}
+        \item El EEG es el estándar de oro no invasivo para el monitoreo cortical clínico y el diseño de Interfaces Cerebro-Computador (BCI).
+        \item \textbf{El Problema:} Durante la adquisición, frecuentemente se pierde información de uno o más electrodos por fallas de hardware, desconexión física o secado del gel.
+        \item \textbf{Impacto:}
+        \begin{itemize}
+            \item Interrumpe el análisis topográfico y la localización de fuentes.
+            \item Distorsiona métricas temporales (ERPs) y espectrales (PSD).
+            \item Obliga a descartar \textit{trials} valiosos en algoritmos de clasificación.
+        \end{itemize}
+        \item \textbf{Solución estándar:} Interpolar los canales faltantes a partir de los canales vecinos funcionales.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Limitaciones del Estado del Arte (Enfoques Clásicos)}
+    \textbf{Interpolación Geométrica (Ej: Spherical Splines)}
+    \begin{itemize}
+        \item \textit{Supuesto:} Asume que la cabeza es una esfera homogénea y que la conductividad depende exclusivamente de la distancia euclidiana entre canales.
+        \item \textit{Falla estructural 1:} Opera estrictamente en el dominio espacial \textbf{instante por instante}.
+        \item \textit{Falla estructural 2:} Ignora la \textbf{inercia neurofisiológica} del cerebro (los voltajes corticales son continuos en el tiempo).
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \begin{block}{Consecuencia Clínica}
+        Al no tener "memoria" temporal, los métodos euclidianos clásicos generan reconstrucciones ruidosas que aplanan o invierten la fase de los transitorios rápidos, destruyendo biomarcadores como el P300.
+    \end{block}
+\end{frame}
+
+% --- SECCIÓN 2: MARCO TEÓRICO ---
+\section{Marco Teórico: GSP y TRSS}
+
+\begin{frame}{Procesamiento de Señales en Grafos (GSP)}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Transforma el dominio euclidiano en un \textbf{Grafo Ponderado} $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$.
+                \item Cada nodo es un electrodo; cada arista $W_{ij}$ representa conectividad (geométrica o funcional).
+                \item El \textbf{Laplaciano del Grafo} $\mathbf{L} = \mathbf{D} - \mathbf{W}$ captura la "variación espacial" de la señal.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{block}{Regularización Tikhonov Espacial}
+                Minimiza el error con los datos observados más una penalización a los saltos bruscos en el grafo:
+                \[ \min_{\mathbf{z}} \| \mathbf{y} - \mathbf{S} \mathbf{z} \|_2^2 + \alpha (\mathbf{z}^\top \mathbf{L} \mathbf{z}) \]
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Regularización Temporal Espacio-Temporal (TRSS)}
+    El método \textbf{Temporal Regularized Sobolev Smoothness (TRSS)} optimiza simultáneamente la topología espacial y la derivada temporal de toda la ventana $\mathbf{X} \in \mathbb{R}^{N \times T}$:
+    
+    \vspace{0.3cm}
+    \[ \hat{\mathbf{X}} = \arg\min_{\mathbf{Z}} \underbrace{\| \mathbf{S}\mathbf{X} - \mathbf{S}\mathbf{Z} \|_F^2}_{\text{Fidelidad a los datos}} + \underbrace{\alpha \, \text{tr}(\mathbf{Z}^\top \mathbf{L} \mathbf{Z})}_{\text{Suavidad Espacial}} + \underbrace{\beta \| \mathbf{Z}\mathbf{D}_t \|_F^2}_{\text{Suavidad Temporal}} \]
+    \vspace{0.3cm}
+    
+    \begin{itemize}
+        \item $\alpha$: Controla la dependencia de la topología funcional (Filtro paso-bajo espacial).
+        \item $\beta$: Controla la inercia (Penaliza la primera derivada temporal, estabilizando la reconstrucción ante ruido).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hipótesis de Investigación}
+    \begin{block}{Hipótesis}
+        La integración de restricciones de suavidad espacial (GSP) junto con \textit{priors} de continuidad temporal penalizada (TRSS) permite reconstruir canales faltantes de EEG de manera significativamente más precisa que los métodos geométricos estáticos.
+        
+        \vspace{0.2cm}
+        Esta superioridad se reflejará crucialmente en la preservación fiel de la \textbf{morfología transitoria (ERPs)} y la \textbf{densidad espectral (PSD)}, en especial ante escenarios clínicos de pérdida espacial masiva y contigua.
+    \end{block}
+\end{frame}
+
+% --- SECCIÓN 3: METODOLOGÍA ---
+\section{Metodología y Diseño Experimental}
+
+\begin{frame}{Diseño Experimental Multidimensional}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \textbf{Bases de Datos (Diversidad Espacial):}
+            \begin{itemize}
+                \item \textit{PhysioNet EEGBCI}: 64 ch (Alta densidad, Motor).
+                \item \textit{BCI IV 2a}: 22 ch (Baja densidad, Imaginería Motora).
+                \item \textit{MNE Sample}: 60 ch (Paradigma evocado ERPs).
+            \end{itemize}
+            \vspace{0.3cm}
+            \textbf{Simulación de Fallas (Modos y Severidad):}
+            \begin{itemize}
+                \item \textbf{Random}: Pérdida estocástica aislada.
+                \item \textbf{Nearby}: Pérdida contigua de amplificador.
+                \item Desde 10\% hasta \textbf{40\%} de la malla.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \textbf{Métricas Transversales:}
+            \begin{itemize}
+                \item Amplitud: MAE, RMSE, SNR.
+                \item Forma: DTW (Dynamic Time Warping).
+                \item Frecuencia: LSD, Coherencia.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{La Trampa del Benchmarking y la Solución con Optuna}
+    \begin{block}{Problema Endémico en la Literatura}
+        Los nuevos métodos GSP suelen compararse contra \textit{baselines} (como Spherical Splines) utilizando los "parámetros por defecto" de EEGLAB, generando una ventaja desleal inflada.
+    \end{block}
+    
+    \textbf{Solución Metodológica (Fair Benchmarking):}
+    \begin{itemize}
+        \item Se integró \textbf{Optuna} (Muestreo Bayesiano TPE y NSGA-II) para optimizar los hiperparámetros de \textbf{todos los 18 métodos evaluados}.
+        \item Se implementó \textit{cross-validation} con un \textbf{buffer temporal de 2 segundos} para evitar fuga de datos (\textit{data leakage}) por autocorrelación de la señal EEG.
+    \end{itemize}
+\end{frame}
+
+% --- SECCIÓN 4: RESULTADOS ---
+\section{Resultados}
+
+\begin{frame}{Resultados Globales de Rendimiento}
+    Una vez que \textbf{todos} los métodos operan en su límite de diseño teórico (Optimizados):
+    
+    \vspace{0.5cm}
+    \centering
+    \begin{tabular}{lccccc}
+    \toprule
+    \textbf{Familia} & \textbf{MAE $\downarrow$} & \textbf{RMSE $\downarrow$} & \textbf{SNR $\uparrow$} & \textbf{DTW $\downarrow$} \\
+    \midrule
+    Baselines (Sph. Splines) & 0.050 & 0.140 & 19.3 dB & 0.87 \\
+    GSP Espacial (Tikhonov)  & 0.086 & 0.208 & 14.1 dB & 1.22 \\
+    \textbf{Temporal (TRSS)} & \textbf{0.038} & \textbf{0.104} & \textbf{20.8 dB} & \textbf{0.74} \\
+    \bottomrule
+    \end{tabular}
+    
+    \vspace{0.5cm}
+    \begin{itemize}
+        \item \textbf{Conclusión:} La superioridad temporal es una propiedad \textbf{estructural}. Incluso con hiperparámetros perfectos, las Splines Esféricas se ven limitadas por su falta de "memoria".
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Degradación bajo Pérdida Extrema (Nearby 40\%)}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{itemize}
+                \item Escenario realista: se pierde el 40\% de los canales \textit{agrupados en una sola zona}.
+                \item Los baselines geométricos sufren un colapso exponencial de SNR.
+                \item TRSS mantiene estabilidad lineal gracias a la inyección de rango desde la derivada temporal.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            % Se usa imagen real del repositorio si compila local, o placeholder comentado
+            \includegraphics[width=\linewidth,height=0.7\textheight,keepaspectratio]{../../../results_optuna_final/degradation_bci_iv_nearby_ratio.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Preservación de Biomarcadores: ERPs y Fase}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Reconstrucción de Potencial Evocado (MNE, 40\% Nearby)}
+            \vspace{0.2cm}
+            \begin{itemize}
+                \item Las Splines \textbf{invierten la fase} y destruyen el P300.
+                \item TRSS preserva la trayectoria original por la restricción inercial de Sobolev.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\linewidth]{../../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Estudio de Ablación: El verdadero impacto de $\beta$}
+    Para aislar la contribución de la regularización temporal ($\beta$), se evaluó TRSS-Completo vs TRSS-SinTemporal ($\beta=0$) vs Spline.
+    
+    \vspace{0.3cm}
+    \begin{itemize}
+        \item \textbf{En el Dominio del Tiempo (Error Puntual):} El aporte de $\beta$ al MAE/RMSE es \textit{modesto} ($\sim 0.6\%$) y no es estadísticamente significativo.
+        \item \textbf{En el Dominio de Frecuencia (Fidelidad Espectral):} El LSD (Log Spectral Distance) mejora de forma dramática y \textbf{significativa} ($>8.5\%$, $p < 0.005$).
+    \end{itemize}
+    
+    \begin{block}{Interpretación}
+        Minimizar el error espacial (GSP) asegura amplitudes correctas en general, pero \textbf{solo el término temporal $\beta$} asegura un comportamiento oscilatorio fisiológicamente realista en bandas de alta frecuencia (Beta, Gamma).
+    \end{block}
+\end{frame}
+
+% --- SECCIÓN 5: CONCLUSIONES ---
+\section{Conclusiones y Trabajo Futuro}
+
+\begin{frame}{Conclusiones}
+    \begin{enumerate}
+        \item \textbf{Validación de Hipótesis:} La regularización topológica y temporal combinadas superan de forma estructural a la interpolación euclidiana. La jerarquía de rendimiento es un reflejo de la información agregada: Geométrica $\subset$ Topológica $\subset$ Espacio-Temporal.
+        \item \textbf{Fair Benchmarking Crítico:} La metodología de optimización exhaustiva demostró que la brecha teórica persiste aun asumiendo algoritmos baselines perfectos.
+        \item \textbf{Aporte Clínico:} TRSS es excepcionalmente robusto a zonas "ciegas" masivas (nearby failures), preservando biomarcadores como ERPs y distribuciones de PSD fundamentales para neurología y BCIs.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Trabajo Futuro}
+    \begin{itemize}
+        \item \textbf{Aplicación en BCI Real-Time:} Adaptar la minimización global de TRSS para operar bajo \textit{ventanas deslizantes causales} y portar la optimización iterativa de matrices a entornos acelerados (GPU/CuPy) para abatir la latencia.
+        \item \textbf{Evaluación \textit{Downstream}:} Cuantificar empíricamente cómo la mejora espectral (LSD) de TRSS se traduce en incrementos de exactitud (\%) en clasificadores de neurociencia o interfaces motoras (\textit{Deep Learning}).
+        \item \textbf{Redes Neuronales y Grafos:} Utilizar Grafos Dinámicos (GNNs) para aprender topologías dependientes del tiempo, permitiendo una adaptación evolutiva a medida que el estado cognitivo del sujeto cambia.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+    \begin{center}
+        \Huge \textbf{Gracias por su atención} \\[1em]
+        \large Universidad Técnica Federico Santa María \\
+        Departamento de Ingeniería Electrónica \\[2em]
+        \Large ¿Preguntas?
+    \end{center}
+\end{frame}
+
+\end{document}
