@@ -39,15 +39,15 @@ El flujo de trabajo se organiza como una secuencia determinista de seis etapas:
 
 Cada etapa genera artefactos intermedios serializados (archivos CSV, JSON y matrices NumPy), lo que permite desacoplar el cómputo intensivo de la generación de figuras y tablas finales. Esta modularidad garantiza la trazabilidad completa desde el dato crudo hasta cada cifra reportada en el manuscrito.
 
-Como capa final de control experimental, la cobertura de configuraciones se gobernó mediante el registro exhaustivo \texttt{it\_exhaustive\_from\_registry.json}, donde se define explícitamente el espacio combinatorio de datasets, constructores de grafo, escenarios de pérdida, semillas, hiperparámetros y familias de métodos. De esta forma, cada resultado reportado puede rastrearse en la cadena \textit{schedule $\rightarrow$ run $\rightarrow$ artifacts}, vinculando la definición de la corrida con sus salidas en \texttt{results/} (\texttt{itX*\_raw.csv}, \texttt{itX*\_stats.csv}, \texttt{itX*\_significance.csv}, \texttt{itX*\_run\_metadata.json}, figuras y reportes de QA).
+Como capa final de control experimental, la cobertura de configuraciones se gobernó mediante un registro exhaustivo que define explícitamente el espacio combinatorio de datasets, constructores de grafo, escenarios de pérdida, semillas, hiperparámetros y familias de métodos. De esta forma, cada resultado reportado mantiene una trazabilidad completa desde la configuración inicial hasta los artefactos generados (tablas de estadísticas, metadatos y figuras).
 
-La implementación completa reside en un repositorio Python estructurado bajo el directorio \texttt{Thesis-Copilot-Toolkit/}, con los módulos principales organizados en:
+La implementación computacional se desarrolló estructurando el código de la investigación en módulos lógicos que separan responsabilidades:
 \begin{itemize}
-    \item \texttt{src/data/data\_loader.py}: Cargadores unificados para los tres datasets.
-    \item \texttt{src/graph\_construction/}: Constructores de grafos (\texttt{graph\_constructors.py}, \texttt{aew.py}).
-    \item \texttt{src/interpolation\_methods.py}: Implementación de todos los algoritmos de interpolación.
-    \item \texttt{src/evaluation.py}: Cálculo de las seis métricas de rendimiento.
-    \item \texttt{experiments/}: Scripts de ejecución, optimización y visualización.
+    \item \textbf{Carga de Datos:} Módulos unificados para procesar los tres datasets de manera estandarizada.
+    \item \textbf{Construcción de Grafos:} Implementación de los constructores espaciales y temporales.
+    \item \textbf{Interpolación:} Funciones que agrupan tanto los algoritmos de Procesamiento de Señales en Grafos como los baselines geométricos e ICA.
+    \item \textbf{Evaluación:} Módulo dedicado al cálculo unificado de las métricas de rendimiento temporales y espectrales.
+    \item \textbf{Experimentos y Optimización:} Scripts orquestadores encargados de la simulación, la búsqueda bayesiana de hiperparámetros y la visualización de resultados.
 \end{itemize}
 
 \section{Bases de Datos Experimentales}
@@ -56,9 +56,9 @@ La validez externa de cualquier estudio de interpolación depende críticamente 
 
 \subsection{PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)}
 
-Este dataset, alojado en la base de datos PhysioNet, comprende registros de 64 canales EEG adquiridos a 160~Hz bajo el sistema internacional 10-10. Los sujetos realizaron tareas de ejecución motora real (apertura y cierre de puños) e imaginería motora (imaginación del mismo movimiento sin ejecución). La alta densidad de electrodos genera una malla espacial densa con alta correlación inter-canal, lo que constituye el escenario más favorable para los métodos geométricos.
+Este dataset, alojado en la base de datos PhysioNet, comprende registros de 64 canales EEG adquiridos a 160~Hz bajo el sistema internacional 10-10. Los sujetos realizaron tareas de ejecución motora real (apertura y cierre de puños) e imagería motora (imaginación del mismo movimiento sin ejecución). La alta densidad de electrodos genera una malla espacial densa con alta correlación inter-canal, lo que constituye el escenario más favorable para los métodos geométricos.
 
-La carga se realiza mediante \texttt{mne.io.read\_raw\_edf()}, aplicando la estandarización de nombres de canal proporcionada por \texttt{mne.datasets.eegbci.standardize()} y asignando el montaje estándar \texttt{standard\_1005} para obtener coordenadas 3D.
+La carga y estandarización se realizan mediante las funciones provistas por MNE-Python, aplicando la nomenclatura estándar de canales y asignando el montaje 10-05 para obtener coordenadas 3D.
 
 \subsection{BCI Competition IV Dataset 2a}
 
@@ -66,13 +66,13 @@ El dataset BCI Competition IV 2a \cite{tangermann2012bci} es un estándar en la 
 
 La baja densidad espacial de este dataset (22 canales frente a los 64 de PhysioNet) representa un desafío extremo para la interpolación. Con solo 22 nodos en el grafo, la pérdida de incluso 2--3 canales puede dejar regiones del cráneo sin cobertura sensora alguna, exponiendo las debilidades inherentes de los métodos puramente geométricos.
 
-Los archivos GDF requieren descarga manual desde el sitio oficial de la competencia. La carga emplea \texttt{mne.io.read\_raw\_gdf()} con un mapeo explícito de nombres de canal al estándar 10-05.
+Los archivos en formato GDF requieren descarga manual desde el sitio oficial de la competencia. La carga se realiza mediante las funciones de lectura de MNE-Python, con un mapeo explícito de nombres de canal al estándar 10-05.
 
 \subsection{MNE Sample Dataset}
 
 El MNE Sample Dataset \cite{gramfort2013meg} es un registro multimodal (MEG y EEG) de 60 canales EEG a 600~Hz, capturando potenciales evocados auditivos y visuales. Este dataset fue seleccionado específicamente por la presencia de componentes ERP bien documentados (N100, P300), cuya preservación morfológica y temporal constituye el criterio más exigente de evaluación clínica.
 
-La carga se realiza mediante \texttt{mne.io.read\_raw\_fif()}, seleccionando exclusivamente los canales EEG (\texttt{raw.pick\_types(eeg=True)}) y extrayendo las posiciones 3D del montaje asociado.
+La carga se realiza mediante MNE-Python, seleccionando exclusivamente los canales EEG y extrayendo las posiciones 3D del montaje asociado.
 
 \subsection{Resumen Comparativo de Datasets}
 
@@ -102,7 +102,7 @@ La topología del grafo es un factor determinante en el rendimiento de cualquier
 Estos grafos conectan electrodos basándose exclusivamente en la proximidad euclidiana de sus coordenadas 3D en el cuero cabelludo.
 
 \begin{itemize}
-    \item \textbf{\texttt{knn}} ($k$-Nearest Neighbors): Conecta cada electrodo con sus $k$ vecinos más cercanos. La implementación utiliza \texttt{sklearn.neighbors.kneighbors\_graph()} con simetrización posterior por máximo.
+    \item \textbf{\texttt{knn}} ($k$-Nearest Neighbors): Conecta cada electrodo con sus $k$ vecinos más cercanos. Se aplica simetrización posterior por máximo para garantizar un grafo no dirigido.
 
     \item \textbf{\texttt{knng}} ($k$-NN Gaussiano): Extiende \texttt{knn} asignando pesos gaussianos a las aristas:
     \begin{equation}
@@ -117,7 +117,7 @@ Estos grafos conectan electrodos basándose exclusivamente en la proximidad eucl
     donde $\tilde{d}$ es la mediana de las distancias al $k$-ésimo vecino y $d_i$ la distancia local del nodo $i$.
 
     \item \textbf{\texttt{epsilon\_ball}}: Conecta todos los pares $(i,j)$ cuya distancia satisface $d(i,j) < \epsilon$.
-    \item \textbf{\texttt{mst}} (Minimum Spanning Tree): Garantiza conectividad mínima del grafo usando \texttt{scipy.sparse.csgraph.minimum\_spanning\_tree()}.
+    \item \textbf{\texttt{mst}} (Minimum Spanning Tree): Garantiza conectividad mínima del grafo construyendo el árbol de expansión mínima sobre la matriz de distancias euclidianas.
 \end{itemize}
 
 \subsection{Grafos Densos / Globales}
@@ -132,7 +132,7 @@ Estos grafos conectan electrodos basándose exclusivamente en la proximidad eucl
 Estos métodos aprenden la topología directamente desde los datos, superando las limitaciones del modelo esférico.
 
 \begin{itemize}
-    \item \textbf{\texttt{nnk}} (Non-Negative Kernel Regression) \cite{shekkizhar2020}: Resuelve un problema de mínimos cuadrados no negativos (NNLS) local para cada nodo, obteniendo pesos de arista esparcidos que reflejan genuinamente la estructura geométrica local. La implementación propia utiliza \texttt{scipy.optimize.nnls()}.
+    \item \textbf{\texttt{nnk}} (Non-Negative Kernel Regression) \cite{shekkizhar2020}: Resuelve un problema de mínimos cuadrados no negativos (NNLS) local para cada nodo, obteniendo pesos de arista esparcidos que reflejan genuinamente la estructura geométrica local.
 
     \item \textbf{\texttt{aew}} (Adaptive Edge Weighting) \cite{karasuyama_adaptive_2017}: Optimiza los pesos de las aristas minimizando un error de reconstrucción local bajo una parametrización por funciones de similitud. Cuando el optimizador AEW no converge, un \textit{fallback} heurístico combina kernel gaussiano espacial con correlación temporal.
 
@@ -176,11 +176,11 @@ El framework implementa un total de 18 algoritmos de interpolación organizados 
 Estos métodos no utilizan información de grafos y sirven como referencia inferior.
 
 \begin{itemize}
-    \item \textbf{Spherical Spline} \cite{perrin_spherical_1989}: Estándar \textit{de facto} en MNE-Python y EEGLAB. Modela el cuero cabelludo como una esfera e interpola usando polinomios de Legendre. El hiperparámetro de regularización \texttt{eps} controla la suavidad.
+    \item \textbf{Spherical Spline} \cite{perrin_spherical_1989}: Estándar \textit{de facto} en herramientas clínicas como MNE-Python y EEGLAB. Modela el cuero cabelludo como una esfera e interpola usando polinomios de Legendre. El hiperparámetro de regularización $\varepsilon$ controla la suavidad.
 
-    \item \textbf{RBF Interpolation (Thin-Plate Spline y Multiquadric)} \cite{jager_reconstruction_2016}: Funciones de base radial implementadas mediante \texttt{scipy.interpolate.Rbf}. El parámetro \texttt{smooth} controla el trade-off entre fidelidad a los datos e interpolación suave.
+    \item \textbf{RBF Interpolation (Thin-Plate Spline y Multiquadric)} \cite{jager_reconstruction_2016}: Funciones de base radial con kernel \textit{Thin-Plate} o \textit{Multiquadric}. El parámetro de suavizado controla el \textit{trade-off} entre fidelidad a los datos e interpolación suave.
 
-    \item \textbf{ICA (Independent Component Analysis)}: Basado en \texttt{sklearn.decomposition.FastICA}. Los canales faltantes se inicializan con la media del canal y se reconstruyen desde la proyección inversa de las componentes independientes.
+    \item \textbf{ICA (Independent Component Analysis)}: Basado en el algoritmo FastICA. Los canales faltantes se inicializan con la media del canal y se reconstruyen desde la proyección inversa de las componentes independientes.
 
     \item \textbf{IDW (Inverse Distance Weighting)}: Promedio ponderado por la inversa de la distancia euclidiana elevada a una potencia $p$.
 
@@ -192,7 +192,7 @@ Estos métodos no utilizan información de grafos y sirven como referencia infer
 Estos métodos operan muestra por muestra ($t$ fijo), resolviendo un problema de optimización espacial independiente en cada instante temporal.
 
 \begin{itemize}
-    \item \textbf{GSP puro (Laplacian Solving)}: Resuelve el sistema $\mathbf{L}_{\mathcal{U}\mathcal{U}} \hat{\mathbf{x}}_\mathcal{U} = -\mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_\mathcal{K}$ directamente mediante \texttt{np.linalg.solve()}.
+    \item \textbf{GSP puro (Laplacian Solving)}: Resuelve el sistema $\mathbf{L}_{\mathcal{U}\mathcal{U}} \hat{\mathbf{x}}_\mathcal{U} = -\mathbf{L}_{\mathcal{U}\mathcal{K}} \mathbf{x}_\mathcal{K}$ directamente mediante la factorización del subsistema lineal correspondiente.
 
     \item \textbf{Tikhonov en Grafo}: Resuelve $(\mathbf{M} + \alpha \mathbf{L})\hat{\mathbf{x}} = \mathbf{M}\mathbf{y}$, donde $\mathbf{M}$ es la máscara diagonal de observación y $\alpha$ el peso de regularización.
 
@@ -260,11 +260,7 @@ Grafo (\texttt{knng}) & $k$, $\sigma$ & $[2, N/2]$, $[0.01, 5]$ \\
 
 \subsection{Protocolo de Ejecución}
 
-Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p. ej. Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación, mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación. Los resultados óptimos se consolidaron en archivos CSV:
-\begin{itemize}
-    \item \texttt{results\_optuna\_final/optuna\_best\_results.csv}: Hiperparámetros óptimos y métricas para métodos GSP y temporales.
-    \item \texttt{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}: Equivalente para baselines geométricos.
-\end{itemize}
+Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p.~ej.~Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación, mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación. Los hiperparámetros óptimos y las métricas resultantes se consolidaron en tablas estructuradas para su análisis posterior.
 
 \subsection{Validación Temporal y Prevención de Fuga de Datos (\textit{Data Leakage})}
 
@@ -295,7 +291,7 @@ El rendimiento de cada método se cuantifica mediante seis métricas complementa
 \subsection{Métricas de Fidelidad Temporal}
 
 \begin{itemize}
-    \item \textbf{DTW} (Dynamic Time Warping): Calcula la alineación temporal óptima entre dos secuencias minimizando la distancia euclidiana acumulada. Es esencial para la evaluación de ERPs, ya que tolera pequeños desfases de latencia sin penalizarlos como error de amplitud. La implementación utiliza \texttt{dtaidistance} con \textit{fallback} a programación dinámica con ventana de Sakoe-Chiba.
+    \item \textbf{DTW} (Dynamic Time Warping): Calcula la alineación temporal óptima entre dos secuencias minimizando la distancia euclidiana acumulada. Es esencial para la evaluación de ERPs, ya que tolera pequeños desfases de latencia sin penalizarlos como error de amplitud. Se utiliza programación dinámica con ventana de Sakoe-Chiba para acotar la complejidad computacional.
 \end{itemize}
 
 \subsection{Métricas Espectrales}
@@ -303,18 +299,18 @@ El rendimiento de cada método se cuantifica mediante seis métricas complementa
 \begin{itemize}
     \item \textbf{LSD} (Log Spectral Distance): $\text{LSD} = \sqrt{\frac{1}{K} \sum_{k} (\log |X(k)| - \log |\hat{X}(k)|)^2}$, donde $X(k)$ y $\hat{X}(k)$ son las magnitudes de la FFT de la señal original y reconstruida. Cuantifica la preservación del contenido frecuencial en las bandas fisiológicas.
 
-    \item \textbf{Coherencia} (Magnitude-Squared Coherence): $C_{xy}(f) = \frac{|S_{xy}(f)|^2}{S_{xx}(f) S_{yy}(f)}$, calculada mediante \texttt{scipy.signal.coherence()}. Valores cercanos a 1 indican preservación perfecta de la correlación de fase en cada frecuencia.
+    \item \textbf{Coherencia} (Magnitude-Squared Coherence): $C_{xy}(f) = \frac{|S_{xy}(f)|^2}{S_{xx}(f) S_{yy}(f)}$. Valores cercanos a 1 indican preservación perfecta de la correlación de fase en cada frecuencia.
 \end{itemize}
 
-Todas las métricas se promedian sobre los canales reconstruidos. La combinación de estas seis dimensiones impide que un método ``engañe'' al evaluador: un MAE bajo obtenido por sobre-suavizado se evidenciará como un DTW y LSD elevados.
+Todas las métricas se promedian sobre los canales reconstruidos. La combinación de estas seis dimensiones impide que un método oculte sus debilidades: un MAE bajo obtenido por sobre-suavizado se evidenciará como un DTW y LSD elevados.
 
 \section{Consolidación Estadística y Generación de Artefactos}
 
 Los resultados individuales se agregan mediante:
 \begin{itemize}
-    \item \textbf{Tablas pivote} (\textit{pivot tables}): Resumen del rendimiento óptimo por familia de método, dataset y escenario, consolidadas en CSV.
-    \item \textbf{Rankings por escenario}: Clasificación ordinal de métodos disponible en \texttt{results/b2\_publication\_topk\_by\_family\_scenario.csv}.
-    \item \textbf{Pruebas de significancia estadística}: Validación inferencial no paramétrica a nivel trial-level mediante Mann-Whitney U y delta de Cliff.
+    \item \textbf{Tablas pivote} (\textit{pivot tables}): Resumen del rendimiento óptimo por familia de método, dataset y escenario.
+    \item \textbf{Rankings por escenario}: Clasificación ordinal de métodos que permite identificar la familia dominante en cada contexto experimental.
+    \item \textbf{Pruebas de significancia estadística}: Validación inferencial no paramétrica a nivel de \textit{trial} mediante Mann-Whitney U y delta de Cliff.
 \end{itemize}
 
 Los artefactos visuales generados incluyen:
@@ -338,14 +334,14 @@ La totalidad del pipeline se implementó en \textbf{Python 3.10+}, aprovechando 
     \item \textbf{dtaidistance}: Cálculo eficiente de DTW con implementación en C.
 \end{itemize}
 
-Todas las operaciones de álgebra matricial asociadas a la inversión de los sistemas lineales GSP (Tikhonov, BGSRP) se implementaron con rutinas vectorizadas propias, evitando dependencias externas de GSP como PyGSP para maximizar la reproducibilidad y el control sobre las tolerancias numéricas. Para BGSRP se implementó además una pseudo-inversa con tolerancia tipo MATLAB (\texttt{\_pinv\_matlab()}) para facilitar la comparación con implementaciones de referencia.
+Todas las operaciones de álgebra matricial asociadas a la inversión de los sistemas lineales GSP (Tikhonov, BGSRP) se implementaron con rutinas vectorizadas propias para maximizar la reproducibilidad y el control sobre las tolerancias numéricas. Para BGSRP se implementó además una pseudo-inversa con tolerancia numérica equivalente a la utilizada en implementaciones de referencia.
 
 \section{Reproducibilidad y Transparencia}
 
 La reproducibilidad total del experimento se garantiza mediante:
 \begin{enumerate}
-    \item \textbf{Semillas fijas}: Todas las operaciones estocásticas (muestreo de máscaras, inicialización de ICA, muestreo Optuna) utilizan semillas deterministas (\texttt{random\_state=42}).
-    \item \textbf{Versionado de artefactos}: Los archivos CSV de resultados, los JSON de configuración de \textit{schedules} y los \textit{logs} de ejecución se almacenan bajo control de versiones en el repositorio Git.
-    \item \textbf{Scripts de ejecución autocontenidos}: Cada fase del pipeline puede re-ejecutarse independientemente, por ejemplo: \texttt{python experiments/run\_optuna\_optimization.py} para la optimización GSP, o \texttt{python experiments/run\_optuna\_baselines.py} para los baselines.
-    \item \textbf{Registro de warnings}: Un módulo dedicado (\texttt{interpolation\_warning\_registry.py}) captura y serializa cualquier advertencia numérica (convergencia de ICA, singularidad de Laplaciano) para auditoría posterior.
+    \item \textbf{Semillas fijas}: Todas las operaciones estocásticas (muestreo de máscaras, inicialización de ICA, muestreo de Optuna) utilizan semillas deterministas para asegurar resultados idénticos entre ejecuciones.
+    \item \textbf{Versionado de artefactos}: Los archivos de resultados, configuraciones experimentales y bitácoras de ejecución se almacenan bajo control de versiones en un repositorio Git.
+    \item \textbf{Ejecución modular}: Cada fase del \textit{pipeline} puede re-ejecutarse independientemente, permitiendo reproducir de forma aislada la optimización, la evaluación o la generación de figuras.
+    \item \textbf{Registro de advertencias numéricas}: Un módulo dedicado captura y serializa cualquier advertencia (convergencia de ICA, singularidad de Laplaciano) para auditoría posterior.
 \end{enumerate}
