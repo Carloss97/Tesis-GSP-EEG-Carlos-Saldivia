@@ -27,28 +27,13 @@ Este capítulo describe exhaustivamente el diseño experimental empleado para va
     \label{fig:methodology_pipeline}
 \end{figure}
 
-El flujo de trabajo se organiza como una secuencia determinista de seis etapas:
-\begin{enumerate}
-    \item \textbf{Carga y estandarización} de datasets heterogéneos mediante \texttt{mne-python}.
-    \item \textbf{Construcción del grafo} sobre las coordenadas 3D de los electrodos y/o la covarianza temporal de la señal.
-    \item \textbf{Simulación de canales faltantes} bajo protocolos espaciales controlados (\textit{random} y \textit{nearby}).
-    \item \textbf{Interpolación y reconstrucción} mediante el abanico completo de métodos implementados.
-    \item \textbf{Optimización de hiperparámetros} con Optuna (muestreo TPE y NSGA-II multi-objetivo).
-    \item \textbf{Evaluación cuantitativa} con seis métricas complementarias y consolidación estadística.
-\end{enumerate}
+El flujo de trabajo se organiza como una secuencia determinista de seis etapas. Primero se realiza la carga y estandarización de los datasets heterogéneos mediante MNE-Python, seguida de la construcción del grafo sobre las coordenadas 3D de los electrodos y/o la covarianza temporal de la señal. A continuación se aplica la simulación de canales faltantes bajo protocolos espaciales controlados (\textit{random} y \textit{nearby}), tras lo cual se ejecuta la interpolación y reconstrucción mediante el abanico completo de métodos implementados. Posteriormente, los hiperparámetros de cada método son sintonizados mediante Optuna con muestreo TPE y NSGA-II multi-objetivo. Finalmente, se realiza la evaluación cuantitativa con seis métricas complementarias y la consolidación estadística de los resultados.
 
 Cada etapa genera artefactos intermedios serializados (archivos CSV, JSON y matrices NumPy), lo que permite desacoplar el cómputo intensivo de la generación de figuras y tablas finales. Esta modularidad garantiza la trazabilidad completa desde el dato crudo hasta cada cifra reportada en el manuscrito.
 
 Como capa final de control experimental, la cobertura de configuraciones se gobernó mediante un registro exhaustivo que define explícitamente el espacio combinatorio de datasets, constructores de grafo, escenarios de pérdida, semillas, hiperparámetros y familias de métodos. De esta forma, cada resultado reportado mantiene una trazabilidad completa desde la configuración inicial hasta los artefactos generados (tablas de estadísticas, metadatos y figuras).
 
-La implementación computacional se desarrolló estructurando el código de la investigación en módulos lógicos que separan responsabilidades:
-\begin{itemize}
-    \item \textbf{Carga de Datos:} Módulos unificados para procesar los tres datasets de manera estandarizada.
-    \item \textbf{Construcción de Grafos:} Implementación de los constructores espaciales y temporales.
-    \item \textbf{Interpolación:} Funciones que agrupan tanto los algoritmos de Procesamiento de Señales en Grafos como los baselines geométricos e ICA.
-    \item \textbf{Evaluación:} Módulo dedicado al cálculo unificado de las métricas de rendimiento temporales y espectrales.
-    \item \textbf{Experimentos y Optimización:} Scripts orquestadores encargados de la simulación, la búsqueda bayesiana de hiperparámetros y la visualización de resultados.
-\end{itemize}
+La implementación computacional se desarrolló estructurando el código en módulos lógicos que separan responsabilidades. Un primer módulo se encarga de la carga unificada de los tres datasets. Otro módulo agrupa los constructores de grafos espaciales y temporales. Las funciones de interpolación reúnen tanto los algoritmos GSP como los \textit{baselines} geométricos e ICA. Un módulo de evaluación centraliza el cálculo de todas las métricas de rendimiento, y finalmente los scripts orquestadores gestionan la simulación, la búsqueda bayesiana de hiperparámetros y la visualización de resultados.
 
 \section{Bases de Datos Experimentales}
 
@@ -99,51 +84,33 @@ La topología del grafo es un factor determinante en el rendimiento de cualquier
 
 \subsection{Grafos de Vecindad Geométrica}
 
-Estos grafos conectan electrodos basándose exclusivamente en la proximidad euclidiana de sus coordenadas 3D en el cuero cabelludo.
+Estos grafos conectan electrodos basándose exclusivamente en la proximidad euclidiana de sus coordenadas 3D en el cuero cabelludo. Se evaluaron cinco variantes.
 
-\begin{itemize}
-    \item \textbf{\texttt{knn}} ($k$-Nearest Neighbors): Conecta cada electrodo con sus $k$ vecinos más cercanos. Se aplica simetrización posterior por máximo para garantizar un grafo no dirigido.
+El constructor más elemental es el \textbf{$k$-Nearest Neighbors} ($k$-NN), que conecta cada electrodo con sus $k$ vecinos más cercanos y aplica simetrización posterior por máximo para garantizar un grafo no dirigido. Su extensión natural es el \textbf{$k$-NN Gaussiano} ($k$-NNG), que asigna pesos gaussianos a las aristas:
+\begin{equation}
+    W_{ij} = \exp\left(-\frac{d(i,j)^2}{2\sigma^2}\right) \cdot \mathbb{1}_{[j \in \mathcal{N}_k(i)]}
+\end{equation}
+donde $\sigma$ controla el ancho del kernel y $\mathcal{N}_k(i)$ denota el conjunto de $k$ vecinos de $i$. Inspirado en Tamaru et al.~\cite{tamaru_optimizing_2024}, el \textbf{$k$-NN Variable Gaussiano} adapta $k_i$ por nodo según la densidad local de sensores:
+\begin{equation}
+    k_i = \text{clip}\left(\text{round}\left(k_{\text{base}} \cdot \left(\frac{\tilde{d}}{d_i}\right)^\alpha\right), k_{\min}, k_{\max}\right)
+\end{equation}
+donde $\tilde{d}$ es la mediana de las distancias al $k$-ésimo vecino y $d_i$ la distancia local del nodo $i$. Esta variante resulta especialmente útil en montajes con densidad de electrodos no uniforme.
 
-    \item \textbf{\texttt{knng}} ($k$-NN Gaussiano): Extiende \texttt{knn} asignando pesos gaussianos a las aristas:
-    \begin{equation}
-        W_{ij} = \exp\left(-\frac{d(i,j)^2}{2\sigma^2}\right) \cdot \mathbb{1}_{[j \in \mathcal{N}_k(i)]}
-    \end{equation}
-    donde $\sigma$ controla el ancho del kernel y $\mathcal{N}_k(i)$ denota el conjunto de $k$ vecinos de $i$.
-
-    \item \textbf{\texttt{vknng}} ($k$-NN Variable Gaussiano): Inspirado en Tamaru et al. \cite{tamaru_optimizing_2024}, adapta $k_i$ por nodo según la densidad local de sensores:
-    \begin{equation}
-        k_i = \text{clip}\left(\text{round}\left(k_{\text{base}} \cdot \left(\frac{\tilde{d}}{d_i}\right)^\alpha\right), k_{\min}, k_{\max}\right)
-    \end{equation}
-    donde $\tilde{d}$ es la mediana de las distancias al $k$-ésimo vecino y $d_i$ la distancia local del nodo $i$.
-
-    \item \textbf{\texttt{epsilon\_ball}}: Conecta todos los pares $(i,j)$ cuya distancia satisface $d(i,j) < \epsilon$.
-    \item \textbf{\texttt{mst}} (Minimum Spanning Tree): Garantiza conectividad mínima del grafo construyendo el árbol de expansión mínima sobre la matriz de distancias euclidianas.
-\end{itemize}
+Dos constructores adicionales completan la familia geométrica. El grafo de \textbf{bola-$\epsilon$} conecta todos los pares $(i,j)$ cuya distancia satisface $d(i,j) < \epsilon$, mientras que el \textbf{árbol de expansión mínima} (MST, \textit{Minimum Spanning Tree}) garantiza la conectividad mínima del grafo.
 
 \subsection{Grafos Densos / Globales}
 
-\begin{itemize}
-    \item \textbf{\texttt{fully\_connected\_inverse\_distance}}: $W_{ij} = 1/d(i,j)$ para todo par de electrodos.
-    \item \textbf{\texttt{gaussian}}: Kernel gaussiano global sin restricción de vecindad.
-\end{itemize}
+Se evaluaron también dos topologías densas: un grafo \textbf{completamente conectado con pesos de distancia inversa}, donde $W_{ij} = 1/d(i,j)$ para todo par de electrodos, y un grafo \textbf{gaussiano global} sin restricción de vecindad.
 
 \subsection{Grafos Adaptativos e Inferencia Basada en Datos}
 
-Estos métodos aprenden la topología directamente desde los datos, superando las limitaciones del modelo esférico.
+Estos métodos aprenden la topología directamente desde los datos, superando las limitaciones del modelo esférico. El constructor \textbf{NNK} (\textit{Non-Negative Kernel Regression})~\cite{shekkizhar2020} resuelve un problema de mínimos cuadrados no negativos local para cada nodo, obteniendo pesos de arista esparcidos que reflejan genuinamente la estructura geométrica local. El método \textbf{AEW} (\textit{Adaptive Edge Weighting})~\cite{karasuyama_adaptive_2017} optimiza los pesos de las aristas minimizando un error de reconstrucción local bajo una parametrización por funciones de similitud; cuando el optimizador no converge, un mecanismo de respaldo combina kernel gaussiano espacial con correlación temporal. Finalmente, el modelo de \textbf{aprendizaje de grafos de Kalofolias}~\cite{kalofolias_how_2016} infiere la topología con regularización \textit{log-degree}:
+\begin{equation}
+    \min_{\mathbf{W} \geq 0} \langle \mathbf{Z}, \mathbf{W} \rangle - a \sum_i \log(d_i) + \frac{b}{2} \|\mathbf{W}\|_F^2
+\end{equation}
+donde $\mathbf{Z}$ es la matriz de distancias al cuadrado entre señales, y los parámetros $a, b$ equilibran esparsidad y conectividad. La solución se obtiene por descenso de gradiente proyectado con restricciones de simetría y no-negatividad.
 
-\begin{itemize}
-    \item \textbf{\texttt{nnk}} (Non-Negative Kernel Regression) \cite{shekkizhar2020}: Resuelve un problema de mínimos cuadrados no negativos (NNLS) local para cada nodo, obteniendo pesos de arista esparcidos que reflejan genuinamente la estructura geométrica local.
-
-    \item \textbf{\texttt{aew}} (Adaptive Edge Weighting) \cite{karasuyama_adaptive_2017}: Optimiza los pesos de las aristas minimizando un error de reconstrucción local bajo una parametrización por funciones de similitud. Cuando el optimizador AEW no converge, un \textit{fallback} heurístico combina kernel gaussiano espacial con correlación temporal.
-
-    \item \textbf{\texttt{kalofolias}} (Graph Learning) \cite{kalofolias_how_2016}: Implementación del modelo de aprendizaje de grafos con regularización \textit{log-degree}:
-    \begin{equation}
-        \min_{\mathbf{W} \geq 0} \langle \mathbf{Z}, \mathbf{W} \rangle - a \sum_i \log(d_i) + \frac{b}{2} \|\mathbf{W}\|_F^2
-    \end{equation}
-    donde $\mathbf{Z}$ es la matriz de distancias al cuadrado entre señales, y los parámetros $a, b$ equilibran esparsidad y conectividad. La solución se obtiene por descenso de gradiente proyectado con restricciones de simetría y no-negatividad.
-\end{itemize}
-
-En la fase de optimización final, se seleccionó \texttt{knng} como constructor primario por su estabilidad numérica (ausencia de grafos disconexos), eficiencia computacional y desempeño competitivo sostenido a lo largo de todos los escenarios.
+Tras una fase exploratoria inicial en la que se evaluaron todos los constructores sobre los tres datasets, se seleccionó el $k$-NN Gaussiano como constructor primario para la fase de optimización final, dada su estabilidad numérica (ausencia de grafos disconexos), su eficiencia computacional y su desempeño competitivo sostenido a lo largo de todos los escenarios.
 
 \section{Protocolo de Simulación de Canales Faltantes}
 
@@ -159,13 +126,7 @@ Se selecciona un electrodo semilla aleatorio y se remueven sus $m$ vecinos más 
 
 \subsection{Niveles de Degradación}
 
-Cada modo se combina con dos esquemas de severidad:
-\begin{itemize}
-    \item \textbf{Por proporción (\textit{ratio})}: 10\%, 20\%, 30\% y 40\% de los canales totales.
-    \item \textbf{Por conteo discreto (\textit{count})}: 1, 2 o 3 canales específicos.
-\end{itemize}
-
-La combinación de 2 modos $\times$ 7 niveles produce 14 escenarios experimentales por dataset, resultando en 42 contextos experimentales únicos.
+Cada modo se combina con dos esquemas de severidad: por proporción (\textit{ratio}), removiendo el 10\%, 20\%, 30\% o 40\% de los canales totales, y por conteo discreto (\textit{count}), removiendo 1, 2 o 3 canales específicos. La combinación de 2 modos $\times$ 7 niveles produce 14 escenarios experimentales por dataset, resultando en 42 contextos experimentales únicos.
 
 \section{Métodos de Interpolación y Reconstrucción}
 
@@ -223,7 +184,11 @@ Estos métodos operan sobre ventanas temporales completas $\mathbf{X} \in \mathb
 
 \section{Optimización de Hiperparámetros con Optuna}
 
-La contribución metodológica más importante de este trabajo es someter \textit{todos} los métodos ---incluyendo los baselines clásicos--- a una optimización de hiperparámetros rigurosa. Se utilizó el framework \textbf{Optuna} \cite{akiba2019optuna} por su eficiencia en espacios de búsqueda continuos y mixtos.
+La contribución metodológica más importante de este trabajo es someter \textit{todos} los métodos ---incluyendo los \textit{baselines} clásicos--- a una optimización de hiperparámetros rigurosa. Se utilizó el \textit{framework} \textbf{Optuna}~\cite{akiba2019optuna} por su eficiencia en espacios de búsqueda continuos y mixtos.
+
+\subsection{Reducción del Espacio de Métodos}
+
+Aunque la Sección~3.5 describió un total de 18 algoritmos de interpolación, la fase de optimización bayesiana no se aplicó de forma indiscriminada a todos ellos. Se realizó primero una fase exploratoria inicial con hiperparámetros por defecto sobre todos los datasets y escenarios de pérdida, cuyo propósito fue identificar las familias competitivas y descartar aquellas con rendimiento consistentemente inferior o con inestabilidad numérica recurrente (por ejemplo, métodos puramente laplacianos sin regularización, o BGSRP bajo pérdida contigua severa). A partir de esta criba, la optimización fina con Optuna se concentró en los métodos con mayor potencial: \textbf{Tikhonov en grafo} y \textbf{TRSS} como representantes de la familia GSP, junto con los tres \textit{baselines} clásicos (Spherical Spline, RBF y ICA) para mantener una comparación justa. Análogamente, del espacio de constructores de grafo se retuvo únicamente el $k$-NN Gaussiano, por las razones expuestas en la Sección~3.3.
 
 \subsection{Estrategia de Muestreo}
 
@@ -243,34 +208,27 @@ Los rangos de búsqueda fueron definidos para cubrir las regiones de interés si
 \toprule
 \textbf{Método} & \textbf{Parámetro} & \textbf{Rango} \\
 \midrule
-Spherical Spline & \texttt{eps} & $[10^{-8}, 10^{-2}]$ (log) \\
-RBF (TPS) & \texttt{smooth} & $[0.0, 5.0]$ \\
-ICA & \texttt{n\_components} & $[1, N_{\text{ch}}]$ (int) \\
+Spherical Spline & $\varepsilon$ (regularización) & $[10^{-8}, 10^{-2}]$ (log) \\
+RBF (TPS) & suavizado & $[0.0, 5.0]$ \\
+ICA & $n$ (componentes) & $[1, N_{\text{ch}}]$ (entero) \\
 \midrule
 Tikhonov & $\alpha$ & $[10^{-4}, 10^{2}]$ (log) \\
-BGSRP & \texttt{bandwidth}, $\gamma$ & $[2, N-1]$, $[10^{-4}, 10]$ \\
 \midrule
 TRSS & $\alpha$, $\beta$ & $[10^{-3}, 10]$, $[10^{-4}, 1]$ \\
-TRSS & \texttt{n\_iter}, \texttt{lr} & $[50, 500]$, $[10^{-4}, 0.1]$ \\
+TRSS & iteraciones, tasa de aprendizaje & $[50, 500]$, $[10^{-4}, 0.1]$ \\
 \midrule
-Grafo (\texttt{knng}) & $k$, $\sigma$ & $[2, N/2]$, $[0.01, 5]$ \\
+Grafo ($k$-NNG) & $k$, $\sigma$ & $[2, N/2]$, $[0.01, 5]$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Protocolo de Ejecución}
 
-Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada para garantizar una sintonía homogénea entre familias de métodos: los métodos basados en grafo y temporales (p.~ej.~Tikhonov, TRSS) emplearon el muestreador TPE con 30 \textit{trials} por combinación, mientras que los baselines geométricos se optimizaron con un muestreador NSGA-II multi-objetivo con 10 \textit{trials} por combinación. Los hiperparámetros óptimos y las métricas resultantes se consolidaron en tablas estructuradas para su análisis posterior.
+Para cada combinación (dataset $\times$ escenario de falla $\times$ método), Optuna fue ejecutado siguiendo una política de muestreo estratificada. Los métodos GSP (Tikhonov y TRSS) emplearon el muestreador multi-objetivo NSGA-II con 30~\textit{trials} por combinación, optimizando simultáneamente MAE y LSD. Dentro de cada \textit{trial} de TRSS, el algoritmo iterativo de descenso de gradiente ejecuta internamente hasta 80~iteraciones para converger a la solución del problema de optimización espacio-temporal definido en la Ecuación~\ref{eq:trss_obj}. Los \textit{baselines} geométricos (Spherical Spline, RBF e ICA) se optimizaron con 10~\textit{trials} por combinación. En total, el protocolo ejecutó del orden de miles de evaluaciones de interpolación al cruzar los 3~datasets, 14~escenarios de pérdida y los métodos optimizados. La selección del mejor \textit{trial} desde el frente de Pareto resultante se realizó por distancia euclidiana normalizada al origen, y los hiperparámetros óptimos junto con las métricas resultantes se consolidaron en tablas estructuradas para su análisis posterior.
 
-\subsection{Validación Temporal y Prevención de Fuga de Datos (\textit{Data Leakage})}
+\subsection{Validación Temporal y Prevención de Fuga de Datos}
 
-Un aspecto crítico en la optimización de hiperparámetros para señales temporales es evitar que el modelo ``vea'' los mismos datos durante la sintonización y la evaluación final. Para mitigar este riesgo, se implementó un esquema de validación cruzada temporal estricto:
-\begin{enumerate}
-    \item \textbf{Split Temporal}: Cada segmento de señal se divide cronológicamente en dos bloques: los primeros 70\% de las muestras constituyen el \textit{Optimization Set} (entrenamiento/validación interna).
-    \item \textbf{Buffer de Autocorrelación}: Para contrarrestar la fuerte autocorrelación temporal inherente a señales EEG filtradas por banda pasante (0.5--40~Hz), se descarta un \textit{buffer gap} de 2~segundos ($2 \times f_s$ muestras) entre el final del \textit{Optimization Set} y el inicio del \textit{Test Set}. Esta ``zona muerta'' asegura que las muestras de test no sean trivialmente predecibles desde la frontera de optimización.
-    \item \textbf{Optimización Aislada}: Optuna evalúa la función objetivo (minimización de MAE y LSD) exclusivamente sobre el \textit{Optimization Set}.
-    \item \textbf{Reporte Final}: Una vez seleccionados los mejores parámetros por Optuna, las métricas finales reportadas en los capítulos de Resultados y Discusión se calculan únicamente sobre el \textit{Test Set}. 
-\end{enumerate}
+Un aspecto crítico en la optimización de hiperparámetros para señales temporales es evitar que el modelo acceda a los mismos datos durante la sintonización y la evaluación final. Para mitigar este riesgo se implementó un esquema de validación temporal estricto. Cada segmento de señal se divide cronológicamente en dos bloques: los primeros 70\% de las muestras constituyen el conjunto de optimización, mientras que el bloque restante se reserva como conjunto de prueba (\textit{Test Set}). Entre ambos bloques se descarta un \textit{buffer} de 2~segundos ($2 \times f_s$ muestras) para contrarrestar la fuerte autocorrelación temporal inherente a señales EEG filtradas por banda pasante (0.5--40~Hz); esta zona de separación asegura que las muestras de prueba no sean trivialmente predecibles desde la frontera de optimización. Optuna evalúa la función objetivo exclusivamente sobre el conjunto de optimización, y una vez seleccionados los mejores parámetros, todas las métricas reportadas en los capítulos de Resultados y Discusión se calculan únicamente sobre el conjunto de prueba.
 
 Este protocolo garantiza que los resultados reflejen la capacidad genuina de los algoritmos para reconstruir información neurofisiológica futura, simulando una aplicación en tiempo real donde los parámetros óptimos del pasado deben generalizar a muestras nuevas.
 
@@ -278,70 +236,26 @@ Este protocolo garantiza que los resultados reflejen la capacidad genuina de los
 
 El rendimiento de cada método se cuantifica mediante seis métricas complementarias que capturan dimensiones ortogonales del error de reconstrucción.
 
-\subsection{Métricas de Error de Amplitud}
+En el dominio de la amplitud se emplean tres indicadores. El \textbf{MAE} (Mean Absolute Error), definido como $\text{MAE} = \frac{1}{T} \sum_{t=1}^{T} |x(t) - \hat{x}(t)|$, mide la desviación absoluta promedio y resulta robusto ante \textit{outliers}. El \textbf{RMSE} (Root Mean Square Error), $\text{RMSE} = \sqrt{\frac{1}{T} \sum (x(t) - \hat{x}(t))^2}$, penaliza severamente errores grandes aislados, funcionando como detector de inestabilidades numéricas. Finalmente, el \textbf{SNR} (Signal-to-Noise Ratio), $\text{SNR} = 10 \log_{10}\left(\frac{\text{Var}(x)}{\text{Var}(x - \hat{x})}\right)$~dB, proporciona una medida global fácilmente interpretable entre escalas de sensores distintas.
 
-\begin{itemize}
-    \item \textbf{MAE} (Mean Absolute Error): $\text{MAE} = \frac{1}{T} \sum_{t=1}^{T} |x(t) - \hat{x}(t)|$. Mide la desviación absoluta promedio. Robusta a outliers.
+Para evaluar la fidelidad temporal se utiliza el \textbf{DTW} (Dynamic Time Warping), que calcula la alineación temporal óptima entre dos secuencias minimizando la distancia euclidiana acumulada. Esta métrica es esencial para la evaluación de ERPs, ya que tolera pequeños desfases de latencia sin penalizarlos como error de amplitud. Se emplea programación dinámica con ventana de Sakoe-Chiba para acotar la complejidad computacional.
 
-    \item \textbf{RMSE} (Root Mean Square Error): $\text{RMSE} = \sqrt{\frac{1}{T} \sum (x(t) - \hat{x}(t))^2}$. Penaliza severamente errores grandes aislados, sirviendo como detector de inestabilidades numéricas.
-
-    \item \textbf{SNR} (Signal-to-Noise Ratio): $\text{SNR} = 10 \log_{10}\left(\frac{\text{Var}(x)}{\text{Var}(x - \hat{x})}\right)$~dB. Proporciona una medida global y acotada, fácilmente interpretable entre escalas de sensores distintas.
-\end{itemize}
-
-\subsection{Métricas de Fidelidad Temporal}
-
-\begin{itemize}
-    \item \textbf{DTW} (Dynamic Time Warping): Calcula la alineación temporal óptima entre dos secuencias minimizando la distancia euclidiana acumulada. Es esencial para la evaluación de ERPs, ya que tolera pequeños desfases de latencia sin penalizarlos como error de amplitud. Se utiliza programación dinámica con ventana de Sakoe-Chiba para acotar la complejidad computacional.
-\end{itemize}
-
-\subsection{Métricas Espectrales}
-
-\begin{itemize}
-    \item \textbf{LSD} (Log Spectral Distance): $\text{LSD} = \sqrt{\frac{1}{K} \sum_{k} (\log |X(k)| - \log |\hat{X}(k)|)^2}$, donde $X(k)$ y $\hat{X}(k)$ son las magnitudes de la FFT de la señal original y reconstruida. Cuantifica la preservación del contenido frecuencial en las bandas fisiológicas.
-
-    \item \textbf{Coherencia} (Magnitude-Squared Coherence): $C_{xy}(f) = \frac{|S_{xy}(f)|^2}{S_{xx}(f) S_{yy}(f)}$. Valores cercanos a 1 indican preservación perfecta de la correlación de fase en cada frecuencia.
-\end{itemize}
+En el dominio espectral se emplean dos métricas adicionales. La \textbf{LSD} (Log Spectral Distance), definida como $\text{LSD} = \sqrt{\frac{1}{K} \sum_{k} (\log |X(k)| - \log |\hat{X}(k)|)^2}$, cuantifica la preservación del contenido frecuencial en las bandas fisiológicas, donde $X(k)$ y $\hat{X}(k)$ son las magnitudes de la FFT de la señal original y reconstruida respectivamente. La \textbf{Coherencia} (Magnitude-Squared Coherence), $C_{xy}(f) = \frac{|S_{xy}(f)|^2}{S_{xx}(f) S_{yy}(f)}$, complementa el análisis indicando la preservación de la correlación de fase en cada frecuencia, con valores cercanos a 1 representando una reconstrucción espectral ideal.
 
 Todas las métricas se promedian sobre los canales reconstruidos. La combinación de estas seis dimensiones impide que un método oculte sus debilidades: un MAE bajo obtenido por sobre-suavizado se evidenciará como un DTW y LSD elevados.
 
 \section{Consolidación Estadística y Generación de Artefactos}
 
-Los resultados individuales se agregan mediante:
-\begin{itemize}
-    \item \textbf{Tablas pivote} (\textit{pivot tables}): Resumen del rendimiento óptimo por familia de método, dataset y escenario.
-    \item \textbf{Rankings por escenario}: Clasificación ordinal de métodos que permite identificar la familia dominante en cada contexto experimental.
-    \item \textbf{Pruebas de significancia estadística}: Validación inferencial no paramétrica a nivel de \textit{trial} mediante Mann-Whitney U y delta de Cliff.
-\end{itemize}
+Los resultados individuales se agregan mediante tablas pivote que resumen el rendimiento óptimo por familia de método, dataset y escenario. A partir de estas tablas se construyen rankings ordinales por escenario que permiten identificar la familia dominante en cada contexto experimental. Adicionalmente, se aplican pruebas de significancia estadística no paramétricas a nivel de \textit{trial} mediante Mann-Whitney U y delta de Cliff para validar que las diferencias observadas no sean producto del azar.
 
-Los artefactos visuales generados incluyen:
-\begin{itemize}
-    \item \textbf{Mapas de calor (Heatmaps)}: Rendimiento RMSE cruzando métodos $\times$ escenarios.
-    \item \textbf{Gráficos radar multi-métrica}: Visualización simultánea de las seis métricas normalizadas.
-    \item \textbf{Curvas de degradación}: SNR vs. proporción de canales faltantes para cada dataset.
-    \item \textbf{Frentes de Pareto}: Trade-off DTW vs. MAE entre familias.
-    \item \textbf{Series de tiempo ERP y PSD}: Comparación cualitativa visual de la reconstrucción.
-\end{itemize}
+La visualización de los resultados se apoya en diversos formatos complementarios: mapas de calor (\textit{heatmaps}) que cruzan métodos con escenarios para la métrica RMSE, gráficos radar multi-métrica que permiten comparar simultáneamente las seis dimensiones normalizadas, curvas de degradación que muestran la caída del SNR en función de la proporción de canales faltantes, frentes de Pareto que evidencian el \textit{trade-off} entre DTW y MAE, y series de tiempo de ERPs junto con sus correspondientes PSD para la comparación cualitativa visual de la reconstrucción.
 
 \section{Stack Tecnológico e Infraestructura}
 
-La totalidad del pipeline se implementó en \textbf{Python 3.10+}, aprovechando el ecosistema científico abierto:
-\begin{itemize}
-    \item \textbf{MNE-Python} \cite{gramfort2013meg}: Carga, preprocesamiento y manipulación de datos EEG.
-    \item \textbf{NumPy / SciPy}: Álgebra lineal densa, descomposiciones espectrales, optimización NNLS, funciones de interpolación y análisis espectral.
-    \item \textbf{scikit-learn}: Construcción de grafos $k$-NN, FastICA.
-    \item \textbf{Optuna} \cite{akiba2019optuna}: Optimización bayesiana de hiperparámetros.
-    \item \textbf{Pandas / Matplotlib}: Consolidación tabular y generación de figuras de publicación.
-    \item \textbf{dtaidistance}: Cálculo eficiente de DTW con implementación en C.
-\end{itemize}
+La totalidad del \textit{pipeline} se implementó en \textbf{Python~3.10+}, aprovechando el ecosistema científico abierto. La carga, preprocesamiento y manipulación de datos EEG se realiza con \textbf{MNE-Python}~\cite{gramfort2013meg}. El álgebra lineal densa, las descomposiciones espectrales y las funciones de interpolación se apoyan en \textbf{NumPy} y \textbf{SciPy}, mientras que \textbf{scikit-learn} provee la construcción de grafos $k$-NN y el algoritmo FastICA. La optimización bayesiana de hiperparámetros se gestiona mediante \textbf{Optuna}~\cite{akiba2019optuna}, y la consolidación tabular junto con la generación de figuras se realiza con \textbf{Pandas} y \textbf{Matplotlib}. Para el cálculo eficiente de DTW se emplea la biblioteca \textbf{dtaidistance}, que ofrece una implementación optimizada en C.
 
 Todas las operaciones de álgebra matricial asociadas a la inversión de los sistemas lineales GSP (Tikhonov, BGSRP) se implementaron con rutinas vectorizadas propias para maximizar la reproducibilidad y el control sobre las tolerancias numéricas. Para BGSRP se implementó además una pseudo-inversa con tolerancia numérica equivalente a la utilizada en implementaciones de referencia.
 
 \section{Reproducibilidad y Transparencia}
 
-La reproducibilidad total del experimento se garantiza mediante:
-\begin{enumerate}
-    \item \textbf{Semillas fijas}: Todas las operaciones estocásticas (muestreo de máscaras, inicialización de ICA, muestreo de Optuna) utilizan semillas deterministas para asegurar resultados idénticos entre ejecuciones.
-    \item \textbf{Versionado de artefactos}: Los archivos de resultados, configuraciones experimentales y bitácoras de ejecución se almacenan bajo control de versiones en un repositorio Git.
-    \item \textbf{Ejecución modular}: Cada fase del \textit{pipeline} puede re-ejecutarse independientemente, permitiendo reproducir de forma aislada la optimización, la evaluación o la generación de figuras.
-    \item \textbf{Registro de advertencias numéricas}: Un módulo dedicado captura y serializa cualquier advertencia (convergencia de ICA, singularidad de Laplaciano) para auditoría posterior.
-\end{enumerate}
+La reproducibilidad total del experimento se garantiza mediante diversas medidas complementarias. Todas las operaciones estocásticas ---muestreo de máscaras, inicialización de ICA y muestreo de Optuna--- utilizan semillas deterministas, asegurando resultados idénticos entre ejecuciones. Los archivos de resultados, configuraciones experimentales y bitácoras de ejecución se almacenan bajo control de versiones en un repositorio Git. Cada fase del \textit{pipeline} puede re-ejecutarse independientemente, lo que permite reproducir de forma aislada la optimización, la evaluación o la generación de figuras. Además, un módulo dedicado captura y serializa cualquier advertencia numérica ---como problemas de convergencia de ICA o singularidad del Laplaciano--- para facilitar la auditoría posterior de la estabilidad numérica del sistema.

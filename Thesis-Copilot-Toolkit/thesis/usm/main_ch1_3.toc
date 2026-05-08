@@ -25,36 +25,33 @@
 \contentsline {subsection}{\numberline {2.4.1}Regularización Tikhonov Espacial}{10}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Recuperación Bandlimited y Espacios RKHS (BGSRP)}{11}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Regularización Espacio-Temporal (TRSS)}{11}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Definición de las Métricas de Rendimiento}{11}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Brechas en el Estado del Arte}{12}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Metodología}{14}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Arquitectura General del Pipeline}{14}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Bases de Datos Experimentales}{15}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)}{15}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}BCI Competition IV Dataset 2a}{16}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}MNE Sample Dataset}{16}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Resumen Comparativo de Datasets}{16}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Construcción de Grafos}{17}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Grafos de Vecindad Geométrica}{17}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Grafos Densos / Globales}{17}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Grafos Adaptativos e Inferencia Basada en Datos}{17}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Protocolo de Simulación de Canales Faltantes}{18}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Modo \textit {Random} (Fallas Independientes)}{18}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Modo \textit {Nearby} (Fallas Contiguas)}{18}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Niveles de Degradación}{18}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Métodos de Interpolación y Reconstrucción}{19}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Familia 1: Baselines Geométricos y Estadísticos}{19}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Familia 2: Métodos GSP Espaciales (Instantáneos)}{19}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Familia 3: Métodos con Regularización Temporal}{20}{subsection.3.5.3}%
-\contentsline {section}{\numberline {3.6}Optimización de Hiperparámetros con Optuna}{20}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Estrategia de Muestreo}{20}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Espacios de Búsqueda por Familia}{21}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Protocolo de Ejecución}{21}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Validación Temporal y Prevención de Fuga de Datos (\textit {Data Leakage})}{21}{subsection.3.6.4}%
-\contentsline {section}{\numberline {3.7}Evaluación Cuantitativa}{22}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Métricas de Error de Amplitud}{22}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Métricas de Fidelidad Temporal}{22}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Métricas Espectrales}{22}{subsection.3.7.3}%
-\contentsline {section}{\numberline {3.8}Consolidación Estadística y Generación de Artefactos}{23}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Stack Tecnológico e Infraestructura}{23}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Reproducibilidad y Transparencia}{24}{section.3.10}%
+\contentsline {section}{\numberline {2.5}Brechas en el Estado del Arte}{12}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Metodología}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Arquitectura General del Pipeline}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Bases de Datos Experimentales}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}BCI Competition IV Dataset 2a}{14}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}MNE Sample Dataset}{15}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Resumen Comparativo de Datasets}{15}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Construcción de Grafos}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Grafos de Vecindad Geométrica}{15}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Grafos Densos / Globales}{16}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Grafos Adaptativos e Inferencia Basada en Datos}{16}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Protocolo de Simulación de Canales Faltantes}{17}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Modo \textit {Random} (Fallas Independientes)}{17}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Modo \textit {Nearby} (Fallas Contiguas)}{17}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Niveles de Degradación}{17}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Métodos de Interpolación y Reconstrucción}{17}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Familia 1: Baselines Geométricos y Estadísticos}{17}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Familia 2: Métodos GSP Espaciales (Instantáneos)}{18}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Familia 3: Métodos con Regularización Temporal}{18}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.6}Optimización de Hiperparámetros con Optuna}{19}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Reducción del Espacio de Métodos}{19}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Estrategia de Muestreo}{19}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Espacios de Búsqueda por Familia}{19}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Protocolo de Ejecución}{20}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}Validación Temporal y Prevención de Fuga de Datos}{20}{subsection.3.6.5}%
+\contentsline {section}{\numberline {3.7}Evaluación Cuantitativa}{21}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Consolidación Estadística y Generación de Artefactos}{21}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Stack Tecnológico e Infraestructura}{22}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Reproducibilidad y Transparencia}{22}{section.3.10}%

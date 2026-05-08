@@ -59,12 +59,7 @@ En el EEG, los componentes asociados a autovalores pequeños ($\lambda \approx 0
 
 \subsection{Construcción y Aprendizaje de Grafos}
 
-El éxito del GSP recae enteramente en la matriz $\mathbf{W}$. En neurofisiología, la topología puede diseñarse utilizando tres estrategias generales:
-\begin{itemize}
-    \item \textbf{Grafos Geométricos:} Construidos \textit{a priori} usando la inversa de la distancia euclidiana entre las coordenadas 3D de los electrodos. Una variante popular es el Grafo K-Vecinos Más Cercanos Gaussianos ($k$-NN Gaussiano), donde $W_{ij} = \exp(-d(i,j)^2/\sigma^2)$ si $j$ está entre los $k$ vecinos de $i$, y $0$ en caso contrario. Tamaru et al. \cite{tamaru_optimizing_2024} han explorado variantes de $k$ dinámico para combatir irregularidades locales en la densidad de mallas.
-    \item \textbf{Grafos Funcionales o de Correlación:} Extraídos empíricamente de la covarianza de la señal temporal o modelos adaptativos como \textit{Adaptive Edge Weighting} \cite{karasuyama_adaptive_2017}.
-    \item \textbf{Aprendizaje de Grafos (Graph Learning):} Problemas de optimización inversos que buscan inferir la matriz $\mathbf{W}$ desde los datos pidiendo simultáneamente que la red resultante sea esparsa y que las señales observadas exhiban alta suavidad laplaciana \cite{kalofolias_how_2016, qiao_data-driven_2018}.
-\end{itemize}
+El éxito del GSP recae enteramente en la matriz $\mathbf{W}$. En neurofisiología, la topología puede diseñarse utilizando tres estrategias generales. La primera consiste en construir \textbf{grafos geométricos} \textit{a priori}, usando la inversa de la distancia euclidiana entre las coordenadas 3D de los electrodos. Una variante popular es el Grafo $k$-Vecinos Más Cercanos Gaussianos ($k$-NN Gaussiano), donde $W_{ij} = \exp(-d(i,j)^2/\sigma^2)$ si $j$ está entre los $k$ vecinos de $i$, y $0$ en caso contrario; Tamaru et al.~\cite{tamaru_optimizing_2024} han explorado variantes de $k$ dinámico para combatir irregularidades locales en la densidad de mallas. La segunda estrategia emplea \textbf{grafos funcionales o de correlación}, extraídos empíricamente de la covarianza de la señal temporal o mediante modelos adaptativos como \textit{Adaptive Edge Weighting}~\cite{karasuyama_adaptive_2017}. Finalmente, una tercera familia corresponde al \textbf{aprendizaje de grafos} (\textit{Graph Learning}), donde se plantean problemas de optimización inversos que buscan inferir la matriz $\mathbf{W}$ directamente desde los datos, exigiendo simultáneamente que la red resultante sea esparsa y que las señales observadas exhiban alta suavidad laplaciana~\cite{kalofolias_how_2016, qiao_data-driven_2018}.
 
 Dentro de esta línea, los trabajos sobre aprendizaje de grafos de gran escala y selección de vecindad para señales sobre grafos han reforzado criterios prácticos de construcción topológica en escenarios con alta dimensionalidad y heterogeneidad de conectividad \cite{kalofolias_large_2019, shekkizhar_graph_2020, shekkizhar_neighborhood_2023}.
 
@@ -95,32 +90,24 @@ Todos los métodos anteriores reconstruyen una muestra temporal a la vez. Sin em
 \end{equation}
 donde $\mathbf{D}_t$ es una matriz que actúa como operador de diferencias finitas temporales (i.e. penalizando cambios bruscos en el tiempo). Este \textit{prior} temporal, controlado por $\beta$, es excepcionalmente poderoso para el EEG, ya que refleja matemáticamente la inercia neurofisiológica de los generadores dipolares del cerebro.
 
-\section{Definición de las Métricas de Rendimiento}
+Para evaluar rigurosamente la calidad de la reconstrucción se emplean métricas de error escalar, morfológico y espectral. Sean $\mathbf{x}$ el vector real de un canal en el tiempo de longitud $T$ y $\hat{\mathbf{x}}$ su reconstrucción.
 
-Para evaluar rigurosamente la calidad de la reconstrucción se han implementado métricas de error escalar, morfológico y espectral. Sean $\mathbf{x}$ el vector real de un canal en el tiempo de longitud $T$ y $\hat{\mathbf{x}}$ su reconstrucción:
+En el dominio de la amplitud, el \textbf{Mean Absolute Error} (MAE) mide la desviación absoluta media, resultando altamente intuitivo para bioseñales:
+\begin{equation}
+    \text{MAE}(\mathbf{x}, \hat{\mathbf{x}}) = \frac{1}{T} \sum_{t=1}^T | x(t) - \hat{x}(t) |
+\end{equation}
+El \textbf{Root Mean Square Error} (RMSE) añade una penalización severa a las grandes desviaciones aisladas, sirviendo como indicador de inestabilidades numéricas en la interpolación:
+\begin{equation}
+    \text{RMSE}(\mathbf{x}, \hat{\mathbf{x}}) = \sqrt{\frac{1}{T} \sum_{t=1}^T (x(t) - \hat{x}(t))^2}
+\end{equation}
+Por su parte, el \textbf{Signal-to-Noise Ratio} (SNR) cuantifica cuánta energía de la señal original es preservada frente a la energía del error residual, expresado en decibelios:
+\begin{equation}
+    \text{SNR}(\mathbf{x}, \hat{\mathbf{x}}) = 10 \log_{10} \left( \frac{\sum x(t)^2}{\sum (x(t) - \hat{x}(t))^2} \right)
+\end{equation}
 
-\begin{itemize}
-    \item \textbf{Mean Absolute Error (MAE):} Error lineal promedio que refleja la desviación absoluta media, altamente intuitivo para bioseñales.
-    \begin{equation}
-        \text{MAE}(\mathbf{x}, \hat{\mathbf{x}}) = \frac{1}{T} \sum_{t=1}^T | x(t) - \hat{x}(t) |
-    \end{equation}
-    
-    \item \textbf{Root Mean Square Error (RMSE):} Medida de error cuadrática. Penaliza severamente grandes desviaciones aisladas (\textit{outliers}), sirviendo como proxy para inestabilidades en la interpolación.
-    \begin{equation}
-        \text{RMSE}(\mathbf{x}, \hat{\mathbf{x}}) = \sqrt{\frac{1}{T} \sum_{t=1}^T (x(t) - \hat{x}(t))^2}
-    \end{equation}
+En el dominio temporal-morfológico, el \textbf{Dynamic Time Warping} (DTW) busca la alineación temporal óptima de secuencias que minimice la distancia euclidiana. A diferencia del MAE o RMSE, que comparan punto a punto $\hat{x}(t)$ con $x(t)$, DTW permite medir la fidelidad morfológica (la ``forma'' del ERP) sin ser excesivamente penalizado por minúsculos desfases de latencia de fase, lo que lo convierte en una herramienta especialmente valiosa para el análisis de EEG.
 
-    \item \textbf{Signal-to-Noise Ratio (SNR):} Cuantifica cuánta energía de la señal original es preservada frente a la energía del error residual, expresado en decibelios (dB). Un SNR alto indica una reconstrucción casi perfecta.
-    \begin{equation}
-        \text{SNR}(\mathbf{x}, \hat{\mathbf{x}}) = 10 \log_{10} \left( \frac{\sum x(t)^2}{\sum (x(t) - \hat{x}(t))^2} \right)
-    \end{equation}
-
-    \item \textbf{Dynamic Time Warping (DTW):} A diferencia del MAE o RMSE que comparan vectores punto a punto $\hat{x}(t)$ con $x(t)$, DTW busca la alineación temporal óptima de secuencias que minimice la distancia euclidiana. Es excepcionalmente valioso en EEG porque permite medir la fidelidad morfológica (la ``forma'' del ERP) sin ser excesivamente penalizado por minúsculos desfases de latencia de fase.
-
-    \item \textbf{Log Spectral Distance (LSD):} Mide la distancia entre las Densidades Espectrales de Potencia (PSD) de ambas señales en escala logarítmica. Esto asegura que la reconstrucción preserve no solo la forma en el tiempo, sino la distribución de energía en las bandas Alfa, Beta y Gamma, crucial para análisis de BCI.
-    
-    \item \textbf{Magnitude-Squared Coherence (Coherencia):} Una medida entre $0$ y $1$ que indica el nivel de correlación de fase lineal entre ambas señales a través de distintas frecuencias.
-\end{itemize}
+En el dominio espectral, la \textbf{Log Spectral Distance} (LSD) mide la distancia entre las Densidades Espectrales de Potencia de ambas señales en escala logarítmica, asegurando que la reconstrucción preserve la distribución de energía en las bandas Alfa, Beta y Gamma, aspecto crucial para aplicaciones de BCI. Complementariamente, la \textbf{Magnitude-Squared Coherence} (Coherencia) proporciona una medida entre $0$ y $1$ que indica el nivel de correlación de fase lineal entre ambas señales a través de distintas frecuencias.
 
 \section{Brechas en el Estado del Arte}
 

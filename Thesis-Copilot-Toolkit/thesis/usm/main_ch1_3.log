@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  6 MAY 2026 14:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.7)  8 MAY 2026 00:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1030,7 +1030,15 @@ Cap\'{\i }tulo 1.
 [1
 
 
-] [2] [3] [4] [5]) (chapters/02_marco_teorico.tex [6]
+] [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+[4]) (chapters/02_marco_teorico.tex
+Underfull \vbox (badness 5133) has occurred while \output is active []
+
+ [5]
+[6]
 Cap\'{\i }tulo 2.
 [7
 
@@ -1040,20 +1048,17 @@ Overfull \hbox (4.5151pt too wide) in paragraph at lines 31--31
 os (GSP) 
  []
 
-[9] [10] [11]) (chapters/03_metodologia.tex [12] [13]
+[9] [10] [11]) (chapters/03_metodologia.tex [12]
 Cap\'{\i }tulo 3.
-[14
+[13
 
 ]
-Overfull \hbox (10.60439pt too wide) in paragraph at lines 40--41
+Overfull \hbox (10.60439pt too wide) in paragraph at lines 32--33
 []\T1/cmr/m/n/10.95 Cada eta-pa ge-ne-ra ar-te-fac-tos in-ter-me-dios se-ria-li
 -za-dos (ar-chi-vos CSV, JSON y ma-tri-ces NumPy),
  []
 
-[15] [16]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 105.
- [17] [18] [19] [20] [21] [22] [23]) (main_ch1_3.bbl [24] [25
+[14] [15] [16] [17] [18] [19] [20] [21]) (main_ch1_3.bbl [22] [23
 
 ]
 Underfull \hbox (badness 1661) in paragraph at lines 109--116
@@ -1067,7 +1072,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--116
 graph-[]signal-[]processing / 10 . 1117 / 12 .
  []
 
-[26] [27] [28]) [29] (main_ch1_3.aux
+[24] [25] [26]) [27] (main_ch1_3.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1076,50 +1081,48 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main_ch1_3.out' has not changed.
-(rerunfilecheck)             Checksum: A84E680F225EBB26B07F66FD23720610;14053.
+(rerunfilecheck)             Checksum: 24C62561E669BA15650D8E6FE907ABA0;13311.
  ) 
 Here is how much of TeX's memory you used:
- 29839 strings out of 467867
- 612729 string characters out of 5418335
- 979614 words of memory out of 5000000
- 58063 multiletter control sequences out of 15000+600000
- 648932 words of font info for 86 fonts, out of 8000000 for 9000
+ 29806 strings out of 467867
+ 612418 string characters out of 5418335
+ 979610 words of memory out of 5000000
+ 58058 multiletter control sequences out of 15000+600000
+ 647917 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,107p,1179b,1410s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,13n,107p,1402b,1410s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi
 1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecrm0800.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ectt1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbi1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\sarlo\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\sarlo\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\sarlo\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\sarlo\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\
-sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\
-Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk
-> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2
-488.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecrm1200.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecrm1440.pk><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/sarlo/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
-/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
-6.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main_ch1_3.pdf (41 pages, 511925 bytes).
+/dpi600\ecrm1000.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx2074.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecxc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\eccc1095.pk> <C:\Users\sarlo\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\sarlo\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\sarlo\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\sarlo\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\sarlo\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\
+sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\
+Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk
+> <C:\Users\sarlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+440.pk><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmbx8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sarlo/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/sarlo/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sarlo/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sar
+lo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Us
+ers/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Users/sarlo/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on main_ch1_3.pdf (39 pages, 489908 bytes).
 PDF statistics:
- 1363 PDF objects out of 1440 (max. 8388607)
- 181 named destinations out of 1000 (max. 500000)
- 485 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1261 PDF objects out of 1440 (max. 8388607)
+ 155 named destinations out of 1000 (max. 500000)
+ 461 words of extra memory for PDF output out of 10000 (max. 10000000)
 
