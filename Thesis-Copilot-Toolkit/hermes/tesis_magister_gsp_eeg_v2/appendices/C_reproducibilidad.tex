@@ -1,0 +1,6 @@
+\chapter{Protocolo de Reproducibilidad}
+\label{ap:reproducibilidad}
+
+Este apéndice documenta los pasos necesarios para reproducir exactamente los resultados reportados en esta tesis. Se requiere Python 3.10 o superior, MNE-Python 1.8.0, NumPy 2.1.0, SciPy 1.14.0, Optuna 4.0.0, PyGSP 0.5.1, scikit-learn 1.5.0, matplotlib 3.9.0 y pandas 2.2.0.
+
+El código fuente del sistema experimental está organizado en cinco módulos —datos, simulación de daños, interpolación, evaluación y optimización— con un archivo principal \texttt{run\_all.py} que ejecuta la totalidad de los experimentos en secuencia a partir de un archivo de configuración. Los tres conjuntos de datos utilizados son públicos y se descargan automáticamente mediante las funciones correspondientes de MNE-Python y el repositorio de BCI Competition IV. Todas las semillas aleatorias están documentadas en el archivo de configuración, y las semillas globales se fijan al inicio de cada ejecución. Un script de verificación compara los resúmenes criptográficos de los archivos de resultados generados contra los valores esperados, permitiendo confirmar que la reproducción es exacta. Una guía detallada de instalación y ejecución se encuentra en el archivo \texttt{README.md} del repositorio principal.

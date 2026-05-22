@@ -1,0 +1,152 @@
+\begin{thebibliography}{25}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Akiba et~al.(2019)Akiba, Sano, Yanase, Ohta, and Koyama]{akiba2019optuna}
+Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta, and Masanori Koyama.
+\newblock Optuna: A next-generation hyperparameter optimization framework.
+\newblock In \emph{Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, pages 2623--2631, 2019.
+
+\bibitem[Banville et~al.(2021)Banville, Chehab, Hyv{\"a}rinen, Engemann, and Gramfort]{banville2021uncovering}
+Hubert Banville, Omar Chehab, Aapo Hyv{\"a}rinen, Denis-Alexander Engemann, and Alexandre Gramfort.
+\newblock Uncovering the structure of clinical {EEG} signals with self-supervised learning.
+\newblock \emph{Journal of Neural Engineering}, 18\penalty0 (4):\penalty0 046020, 2021.
+\newblock \doi{10.1088/1741-2552/abca18}.
+
+\bibitem[Brunner et~al.(2008)Brunner, Leeb, M{\"u}ller-Putz, Schl{\"o}gl, and Pfurtscheller]{brunner2008bci}
+Clemens Brunner, Robert Leeb, Gernot~R. M{\"u}ller-Putz, Alois Schl{\"o}gl, and Gert Pfurtscheller.
+\newblock {BCI Competition IV} -- {Dataset 2a}.
+\newblock Graz University of Technology, 2008.
+\newblock URL \url{https://www.bbci.de/competition/iv/}.
+
+\bibitem[Buzs{\'a}ki(2006)]{buzsaki2006rhythms}
+Gy{\"o}rgy Buzs{\'a}ki.
+\newblock Rhythms of the brain.
+\newblock 2006.
+\newblock \doi{10.1093/acprof:oso/9780195301069.001.0001}.
+
+\bibitem[Defferrard et~al.(2016)Defferrard, Bresson, and Vandergheynst]{defferrard2016}
+Micha{\"e}l Defferrard, Xavier Bresson, and Pierre Vandergheynst.
+\newblock Convolutional neural networks on graphs with fast localized spectral filtering.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~29, pages 3844--3852, 2016.
+
+\bibitem[Delorme and Makeig(2004)]{delorme2004eeglab}
+Arnaud Delorme and Scott Makeig.
+\newblock Eeglab: An open source toolbox for analysis of single-trial eeg dynamics including independent component analysis.
+\newblock \emph{Journal of Neuroscience Methods}, 134\penalty0 (1):\penalty0 9--21, 2004.
+\newblock \doi{10.1016/j.jneumeth.2003.10.009}.
+
+\bibitem[Giraldo et~al.(2022)Giraldo, Mahmood, Garcia-Garcia, Thanou, and Bouwmans]{giraldo2022}
+J.~H. Giraldo, A.~Mahmood, B.~Garcia-Garcia, D.~Thanou, and T.~Bouwmans.
+\newblock Reconstruction of time-varying graph signals via sobolev smoothness.
+\newblock \emph{IEEE Transactions on Signal and Information Processing over Networks}, 8:\penalty0 201--214, 2022.
+\newblock \doi{10.1109/TSIPN.2022.3156886}.
+
+\bibitem[Goldberger et~al.(2000)Goldberger, Amaral, Glass, Hausdorff, Ivanov, Mark, Mietus, Moody, Peng, and Stanley]{goldberger2000physiobank}
+Ary~L. Goldberger, Luis A.~N. Amaral, Leon Glass, Jeffrey~M. Hausdorff, Plamen~Ch. Ivanov, Roger~G. Mark, Joseph~E. Mietus, George~B. Moody, Chung-Kang Peng, and H.~Eugene Stanley.
+\newblock {PhysioBank}, {PhysioToolkit}, and {PhysioNet}: Components of a new research resource for complex physiologic signals.
+\newblock \emph{Circulation}, 101\penalty0 (23):\penalty0 e215--e220, 2000.
+\newblock \doi{10.1161/01.CIR.101.23.e215}.
+
+\bibitem[Gramfort et~al.(2013)Gramfort, Luessi, Larson, Engemann, Strohmeier, Brodbeck, Goj, Jas, Brooks, Parkkonen, et~al.]{gramfort2013meg}
+Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A Engemann, Daniel Strohmeier, Christian Brodbeck, Roman Goj, Mainak Jas, Teon Brooks, Lauri Parkkonen, et~al.
+\newblock Meg and eeg data analysis with mne-python.
+\newblock \emph{Frontiers in neuroscience}, 7:\penalty0 267, 2013.
+
+\bibitem[Gramfort et~al.(2014)Gramfort, Luessi, Larson, Engemann, Strohmeier, Brodbeck, Parkkonen, and H{\"a}m{\"a}l{\"a}inen]{gramfort2014mne}
+Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A. Engemann, Daniel Strohmeier, Christian Brodbeck, Lauri Parkkonen, and Matti~S. H{\"a}m{\"a}l{\"a}inen.
+\newblock {MNE} software for processing {MEG} and {EEG} data.
+\newblock \emph{NeuroImage}, 86:\penalty0 446--460, 2014.
+\newblock \doi{10.1016/j.neuroimage.2013.10.027}.
+
+\bibitem[Hyv{\"a}rinen and Oja(2000)]{hyvarinen2000independent}
+Aapo Hyv{\"a}rinen and Erkki Oja.
+\newblock Independent component analysis: Algorithms and applications.
+\newblock \emph{Neural Networks}, 13\penalty0 (4-5):\penalty0 411--430, 2000.
+\newblock \doi{10.1016/S0893-6080(00)00026-5}.
+
+\bibitem[Jolliffe(2002)]{jolliffe2002principal}
+Ian~T. Jolliffe.
+\newblock \emph{Principal Component Analysis}.
+\newblock Springer, 2nd edition, 2002.
+\newblock \doi{10.1007/b98835}.
+
+\bibitem[Jung et~al.(2001)Jung, Makeig, McKeown, Bell, Lee, and Sejnowski]{jung2001imaging}
+Tzyy-Ping Jung, Scott Makeig, Martin~J. McKeown, Anthony~J. Bell, Te-Won Lee, and Terrence~J. Sejnowski.
+\newblock Imaging brain dynamics using independent component analysis.
+\newblock \emph{Proceedings of the IEEE}, 89\penalty0 (7):\penalty0 1107--1122, 2001.
+\newblock \doi{10.1109/5.939827}.
+
+\bibitem[Lai et~al.(2005)Lai, Chen, and Liao]{lai2005controlled}
+Chun-Hung Lai, Yi-Ming Chen, and Wen-Chieh Liao.
+\newblock A controlled study of the eeg during the performance of neurofeedback.
+\newblock \emph{Clinical EEG and Neuroscience}, 36\penalty0 (4):\penalty0 219--225, 2005.
+
+\bibitem[Lotte et~al.(2018)Lotte, Bougrain, Cichocki, Clerc, Congedo, Rakotomamonjy, and Yger]{lotte2018review}
+Fabien Lotte, Laurent Bougrain, Andrzej Cichocki, Maureen Clerc, Marco Congedo, Alain Rakotomamonjy, and Florian Yger.
+\newblock A review of classification algorithms for eeg-based brain--computer interfaces: A 10 year update.
+\newblock \emph{Journal of Neural Engineering}, 15\penalty0 (3):\penalty0 031005, 2018.
+\newblock \doi{10.1088/1741-2552/aab2f2}.
+
+\bibitem[Luck(2014)]{luck2014introduction}
+Steven~J. Luck.
+\newblock \emph{An Introduction to the Event-Related Potential Technique}.
+\newblock MIT Press, 2nd edition, 2014.
+
+\bibitem[Narang and Ortega(2013)]{narang2013}
+S.~K. Narang and A.~Ortega.
+\newblock Signal processing techniques for interpolation in graph structured data.
+\newblock In \emph{2013 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, pages 5445--5449, 2013.
+\newblock \doi{10.1109/ICASSP.2013.6638704}.
+
+\bibitem[Nunez and Srinivasan(2006)]{nunez2006electric}
+Paul~L. Nunez and Ramesh Srinivasan.
+\newblock \emph{Electric Fields of the Brain: The Neurophysics of EEG}.
+\newblock Oxford University Press, 2nd edition, 2006.
+\newblock \doi{10.1093/acprof:oso/9780195050387.001.0001}.
+
+\bibitem[Ortega et~al.(2018)Ortega, Frossard, Kovacevic, Moura, and Vandergheynst]{ortega2018}
+A.~Ortega, P.~Frossard, J.~Kovacevic, J.~M.~F. Moura, and P.~Vandergheynst.
+\newblock Graph signal processing: Overview, challenges, and applications.
+\newblock \emph{Proceedings of the IEEE}, 106\penalty0 (5):\penalty0 808--828, 2018.
+\newblock \doi{10.1109/JPROC.2018.2820126}.
+
+\bibitem[Perrin et~al.(1989)Perrin, Pernier, Bertrand, and Echallier]{perrin1989}
+F.~Perrin, J.~Pernier, O.~Bertrand, and J.~F. Echallier.
+\newblock Spherical splines for scalp potential and current density mapping.
+\newblock \emph{Electroencephalography and Clinical Neurophysiology}, 72\penalty0 (2):\penalty0 184--187, 1989.
+\newblock \doi{10.1016/0013-4694(89)90180-6}.
+
+\bibitem[Saldivia et~al.(2026)Saldivia, Weinstein, and Za{\~n}artu]{saldivia2026benchmark}
+Carlos Saldivia, Alejandro Weinstein, and Mat{\'\i}as Za{\~n}artu.
+\newblock Trss vs.\ {Spherical Splines}: A reproducible benchmark for {EEG} channel interpolation under missing-data scenarios.
+\newblock \emph{In Preparation}, 2026.
+\newblock Manuscript in preparation. Results derived from this thesis.
+
+\bibitem[Schalk et~al.(2004)Schalk, McFarland, Hinterberger, Birbaumer, and Wolpaw]{schalk2004bci2000}
+Gerwin Schalk, Dennis~J. McFarland, Thilo Hinterberger, Niels Birbaumer, and Jonathan~R. Wolpaw.
+\newblock {BCI2000}: A general-purpose brain-computer interface ({BCI}) system.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 51\penalty0 (6):\penalty0 1034--1043, 2004.
+\newblock \doi{10.1109/TBME.2004.827072}.
+
+\bibitem[Shuman et~al.(2013)Shuman, Narang, Frossard, Ortega, and Vandergheynst]{shuman2013}
+D.~I. Shuman, S.~K. Narang, P.~Frossard, A.~Ortega, and P.~Vandergheynst.
+\newblock The emerging field of signal processing on graphs.
+\newblock \emph{IEEE Signal Processing Magazine}, 30\penalty0 (3):\penalty0 83--98, 2013.
+\newblock \doi{10.1109/MSP.2012.2235192}.
+
+\bibitem[Sporns et~al.(2005)Sporns, Tononi, and K{\"o}tter]{sporns2005human}
+Olaf Sporns, Giulio Tononi, and Rolf K{\"o}tter.
+\newblock The human connectome: A structural description of the human brain.
+\newblock \emph{PLoS Computational Biology}, 1\penalty0 (4):\penalty0 e42, 2005.
+\newblock \doi{10.1371/journal.pcbi.0010042}.
+
+\bibitem[Yoon et~al.(2019)Yoon, Jarrett, and van~der Schaar]{yoon2019time}
+Jinsung Yoon, Daniel Jarrett, and Mihaela van~der Schaar.
+\newblock Time-series generative adversarial networks.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~32, 2019.
+
+\end{thebibliography}

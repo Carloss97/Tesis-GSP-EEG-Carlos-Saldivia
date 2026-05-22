@@ -1,0 +1,141 @@
+\chapter{Metodología}
+\label{ch:metodologia}
+
+Este capítulo describe el diseño metodológico de la investigación: los tres conjuntos de datos, los dieciocho algoritmos implementados, los protocolos de simulación de canales faltantes, las métricas de evaluación y el motor de optimización bayesiana. La metodología sigue el principio de que una evaluación comparativa solo es justa cuando todos los métodos —incluyendo las referencias— son llevados a su máximo rendimiento empírico.
+
+\section{Conjuntos de Datos}
+
+La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades de montaje, paradigmas experimentales y poblaciones. Esta heterogeneidad es deliberada: un método que solo funciona en condiciones ideales de laboratorio tiene una utilidad clínica limitada. La Tabla \ref{tab:datasets} resume las características clave de cada conjunto.
+
+\begin{table}[t]
+\centering
+\caption{Características de los tres conjuntos de datos experimentales.}
+\label{tab:datasets}
+\begin{tabular}{lcccc}
+\toprule
+Propiedad & PhysioNet & BCI IV 2a & MNE Sample \\
+\midrule
+Canales & 64 & 22 & 60 \\
+Sistema & 10--10 & 10--20 & 10--20 ext. \\
+Frecuencia (Hz) & 160 & 250 & 600 \\
+Sujetos & 109 & 9 & 1 \\
+Paradigma & Reposo & Imag. motora & Auditivo \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{PhysioNet EEG Motor Movement/Imagery}
+
+Esta base de datos \cite{goldberger2000physiobank, schalk2004bci2000} contiene registros EEG de 109 sujetos realizando tareas motoras reales e imaginadas. Cada registro incluye 64 canales según el sistema internacional 10--10, muestreados a 160~Hz. Para esta tesis se utilizaron exclusivamente los segmentos de reposo con ojos abiertos, de 60 segundos por sujeto, con el fin de evitar que las modulaciones relacionadas con la tarea motora introdujeran variabilidad no controlada en la evaluación de los métodos de interpolación.
+
+\subsection{BCI Competition IV -- Dataset 2a}
+
+Este conjunto \cite{brunner2008bci} es uno de los más utilizados en la investigación de interfaces cerebro-computador. Contiene registros de 9 sujetos realizando imaginación motora de cuatro clases (mano izquierda, mano derecha, pies y lengua) con 22 canales EEG según el sistema 10--20, muestreados a 250~Hz. Se extrajeron segmentos de 2 segundos posteriores al estímulo de todos los ensayos, generando un total de 2592 ensayos de 500 muestras cada uno.
+
+\subsection{MNE Sample}
+
+El conjunto de datos de ejemplo distribuido con MNE-Python \cite{gramfort2013meg} contiene registros de un experimento de procesamiento auditivo y visual. Se utilizó exclusivamente la componente EEG: 60 canales según el sistema 10--20 extendido, muestreados a 600~Hz. Se extrajeron épocas de 0.7 segundos alrededor de estímulos auditivos, generando 72 ensayos de 420 muestras cada uno.
+
+\subsection{Justificación de la Heterogeneidad}
+
+Estos tres conjuntos cubren el espacio de variabilidad que un método de interpolación debe manejar en la práctica: desde 22 canales (típico en clínica ambulatoria) hasta 64 (típico en investigación), con frecuencias de muestreo entre 160 y 600~Hz, y paradigmas que incluyen reposo continuo, imaginación motora y potenciales evocados auditivos.
+
+\section{Protocolos de Simulación de Canales Faltantes}
+
+Se definieron dos modos de pérdida que reflejan escenarios clínicos reales. El \textbf{modo aleatorio} selecciona un porcentaje $p$ de los canales al azar, modelando fallas esporádicas e independientes (secado del gel, desprendimiento mecánico de electrodos individuales). El \textbf{modo contiguo} selecciona un canal semilla al azar y marca como faltantes los $p$ canales más cercanos a él en distancia euclidiana, modelando fallas catastróficas localizadas (saturación de un amplificador que afecta un bloque de electrodos adyacentes).
+
+Para cada modo se evaluaron cuatro niveles de severidad: $p \in \{10\%, 20\%, 30\%, 40\%\}$ del total de canales. Cada condición experimental (conjunto de datos, modo y severidad) se evaluó con 5 semillas aleatorias, generando diferentes patrones de canales faltantes. El total de escenarios evaluados fue de $3 \times 2 \times 4 \times 5 = 120$.
+
+\section{Métodos de Interpolación}
+
+Se implementaron dieciocho métodos organizados en seis familias. La Tabla \ref{tab:methods} presenta la lista completa.
+
+\begin{table}[htbp]
+\centering
+\caption{Lista completa de los dieciocho métodos de interpolación implementados, organizados por familia metodológica.}
+\label{tab:methods}
+\small
+\begin{tabular}{lp{7cm}}
+\toprule
+Familia & Métodos \\
+\midrule
+Geométrica & Vecino más cercano, Distancia inversa, RBF, Spherical splines \\
+Estadística & Lineal, PCA, ICA \\
+GSP-Tikhonov & k-NN gaussiano, Distancia completa, Correlación funcional, Distancia inversa \\
+GSP-Muestreo & Banda limitada, Mínimos cuadrados \\
+TRSS & Grafo gaussiano, Grafo de correlación \\
+Referencia & MNE-Python (defecto), MNE-Python (Optuna) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Es importante destacar que los \textit{spherical splines} se implementaron en dos variantes: una implementación propia siguiendo la formulación original de Perrin \cite{perrin1989} y la función \code{mne.io.Raw.interpolate\_bads()} de MNE-Python con parámetros por defecto y optimizados. Esta distinción es metodológicamente crucial, ya que —como se documentó en el Capítulo~\ref{ch:marco_teorico}— la implementación de MNE incorpora mejoras de ingeniería que la hacen sustancialmente más robusta.
+
+\section{Métricas de Evaluación}
+
+La calidad de interpolación se evaluó mediante seis métricas organizadas en tres categorías. Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica de la señal reconstruida, por lo que la batería completa es necesaria. La Tabla \ref{tab:metrics} presenta la definición, interpretación y dirección de optimalidad de cada métrica.
+
+\begin{table}[t]
+\centering
+\caption{Batería de métricas de evaluación: definición, categoría y dirección de optimalidad ($\uparrow$ = mayor es mejor, $\downarrow$ = menor es mejor).}
+\label{tab:metrics}
+\begin{tabular}{llcl}
+\toprule
+Métrica & Definición & Categoría & Dirección \\
+\midrule
+MAE & Error absoluto medio $\frac{1}{N}\sum_i |x_i - \hat{x}_i|$ & Amplitud & $\downarrow$ \\
+RMSE & Raíz del error cuadrático medio & Amplitud & $\downarrow$ \\
+SNR & Relación señal-ruido $10\log_{10}(\|x\|^2 / \|x - \hat{x}\|^2)$ & Amplitud & $\uparrow$ \\
+DTW & \textit{Dynamic Time Warping}: distancia con deformación temporal & Morfológica & $\downarrow$ \\
+LSD & Distancia Espectral Logarítmica (promedio sobre bandas) & Espectral & $\downarrow$ \\
+Coherencia & Correlación lineal en el dominio de la frecuencia & Espectral & $\uparrow$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Las métricas de \textbf{amplitud} (MAE, RMSE, SNR) cuantifican el error de reconstrucción muestra a muestra. El MAE es menos sensible a valores atípicos que el RMSE; el SNR normaliza el error por la energía de la señal original, facilitando la comparación entre conjuntos de datos con distintas escalas de amplitud.
+
+La métrica de \textbf{fidelidad morfológica} (DTW) permite deformaciones no lineales del eje temporal para alinear rasgos morfológicos correspondientes. Es particularmente relevante para ERPs, donde un desplazamiento de pocos milisegundos en la latencia de un pico es clínicamente insignificante pero severamente penalizado por el RMSE.
+
+Las métricas de \textbf{preservación espectral} (LSD, Coherencia) cuantifican la distorsión del espectro de potencia y la correlación en el dominio de la frecuencia entre la señal original y la reconstruida. Son las que mejor predicen la utilidad clínica de la señal interpolada, ya que muchos biomarcadores EEG —como la potencia relativa en bandas específicas o la coherencia interhemisférica— dependen de la estructura fina del espectro.
+
+\section{Motor de Optimización Bayesiana: Optuna}
+
+Un aspecto metodológico central de esta tesis es la optimización imparcial de hiperparámetros para todos los métodos. Se utilizó Optuna \cite{akiba2019optuna} con muestreo TPE (\textit{Tree-structured Parzen Estimator}), que modela $p(\text{hiperparámetros} \mid \text{desempeño})$ y selecciona el próximo punto a evaluar maximizando la probabilidad de mejora esperada.
+
+Los espacios de búsqueda se definieron de manera diferenciada para cada familia, como se detalla en la Tabla \ref{tab:hyperparams}.
+
+\begin{table}[t]
+\centering
+\caption{Espacios de búsqueda de hiperparámetros por familia metodológica.}
+\label{tab:hyperparams}
+\begin{tabular}{lcc}
+\toprule
+Familia & Parámetros & Escala \\
+\midrule
+GSP (grafo) & $\sigma \in [0.01, 1.0]$, $k \in \{3,5,7,10,15,20\}$ & Lineal \\
+TRSS & $\alpha \in [10^{-4}, 10^2]$, $\beta \in [10^{-3}, 10^3]$ & Logarítmica \\
+Splines propios & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
+MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Se ejecutaron 30 intentos independientes por cada método de grafo (suficientes para que el TPE converja a una región de alto desempeño), 10 intentos con NSGA-II multiobjetivo para los \textit{spherical splines} (optimizando MAE y SNR simultáneamente), y barridos de grilla fina para TRSS (dado su mayor costo computacional, que impide un gran número de evaluaciones). En total se exploraron más de quince mil configuraciones paramétricas.
+
+\section{Protocolo de Validación Confirmatoria}
+
+Como fase experimental independiente —diseñada para no contaminar los resultados exploratorios— se ejecutó una validación donde TRSS, con hiperparámetros congelados tras la optimización, se comparó directamente contra \code{mne.io.Raw.interpolate\_bads()} con parámetros por defecto. Para cada escenario se computó la diferencia pareada en cada métrica, y la significancia se evaluó mediante la prueba de Wilcoxon para muestras pareadas con corrección de Benjamini-Hochberg para comparaciones múltiples. Se reportaron medianas de mejora relativa, intervalos de confianza bootstrap al 95\% (1000 remuestreos estratificados por conjunto de datos) y tasas de victoria por escenario.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{res_opt_final__degradation_bci_iv_nearby_ratio}
+\caption[Curva de degradación SNR en BCI IV 2a]{Degradación del SNR en función del porcentaje de canales perdidos para BCI IV 2a (22 canales, modo contiguo). TRSS mantiene un SNR superior a 15~dB incluso al 40\% de pérdida, mientras que los métodos geométricos caen por debajo de 10~dB. La curva ilustra el punto de cruce alrededor del 20\%.}
+\label{fig:degradation_bci}
+\end{figure}
+
+\section{Arquitectura del Sistema Experimental}
+
+El sistema se organiza en cinco módulos independientes con responsabilidades bien definidas. El módulo de \textbf{datos} implementa adaptadores específicos para cada conjunto que exponen una interfaz común. El módulo de \textbf{simulación de daños} recibe los datos crudos y retorna una máscara binaria para los canales faltantes, preservando la semilla para trazabilidad. El módulo de \textbf{interpolación} contiene las implementaciones de los dieciocho métodos, cada uno como una clase que expone el método \code{interpolate(X, mask) -> X\_hat}. El módulo de \textbf{evaluación} calcula las seis métricas sobre pares de señal original y reconstruida. Finalmente, el módulo de \textbf{optimización} define los espacios de búsqueda de Optuna y orquesta los intentos, implementando funciones de retorno para detección temprana de convergencia y puntos de control para recuperación ante fallas.
+
+La separación estricta entre fases exploratoria y confirmatoria —los resultados de una nunca se usaron para ajustar hiperparámetros de la otra— es una decisión de diseño fundamental que previene la contaminación circular que vicia muchas evaluaciones comparativas en la literatura.

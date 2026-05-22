@@ -1,19 +1,20 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Resumen de familias de métodos de interpolación de canales EEG.}}{16}{table.caption.13}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres datasets experimentales.}}{16}{table.caption.9}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Espacios de búsqueda de hiperparámetros por método.}}{21}{table.caption.10}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Características de las tres bases de datos experimentales.}}{18}{table.caption.15}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Catálogo de métodos de interpolación implementados y evaluados.}}{21}{table.caption.16}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Espacios de búsqueda de hiperparámetros.}}{22}{table.caption.17}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Matriz experimental consolidada. Cada celda representa una combinación evaluada bajo optimización bayesiana con separación cronológica estricta entrenamiento/prueba.}}{23}{table.caption.18}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST).}}{26}{table.caption.11}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt {optuna\_best\_results.csv}).}}{26}{table.caption.12}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Resumen multi-métrica (medianas) por familia en MNE Sample, agregado sobre escenarios del registro exhaustivo. Menor es mejor en MAE, RMSE, DTW y LSD; mayor es mejor en SNR y Coherencia.}}{28}{table.caption.14}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Microbenchmarks: median latency per interpolation call (ms). See \texttt {.agent\_work/PHASE2\_MICROBENCH.txt} for full details and environment.}}{29}{table.caption.24}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Phase 3 Trial-Level Pairwise Analysis: MAE (Median) Comparisons. Mann-Whitney test with Cliff delta effect size. Significant: $p < 0.05$ (*, **=0.01, ***=0.001).}}{31}{table.caption.33}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Resultados globales tras optimización con Optuna. MAE en $\times 10^{-6}$ y SNR en dB. Mejores valores por estrato en \textbf {negrita}.}}{25}{table.caption.19}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Comparación multi-métrica por familia. Flechas indican dirección de mejora.}}{26}{table.caption.20}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Comparación directa TRSS vs. MNE interpolate\_bads. Valores medianos sobre 12 escenarios (3 datasets $\times $ 2 modos $\times $ 2 severidades).}}{30}{table.caption.25}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{59}{table.caption.37}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv}).}}{60}{table.caption.38}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}}{38}{table.caption.26}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces LSD y Coherencia promedio por método y dataset (valores de \texttt {optuna\_summary\_pivot.csv}).}}{39}{table.caption.27}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

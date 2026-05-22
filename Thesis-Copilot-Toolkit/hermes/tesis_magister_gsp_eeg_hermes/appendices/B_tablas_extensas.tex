@@ -1,0 +1,172 @@
+\chapter{Tablas extensas de resultados}
+\label{app:tablas_extensas}
+Este apéndice concentra tablas extensas derivadas de los artefactos experimentales. Su propósito es preservar trazabilidad sin sobrecargar el cuerpo principal de la tesis. Las tablas se generan desde CSV existentes y deben considerarse vistas tipográficas de artefactos computacionales, no fuentes primarias independientes.
+
+
+\section{Benchmark confirmatorio TRSS vs. MNE-Python}
+\label{app:trss_mne_confirmatorio}
+Además de las tablas extensas históricas, la fase final de la tesis generó un benchmark confirmatorio contra \code{MNE interpolate\_bads(method='spline')}. Las tablas principales aparecen en el Capítulo~\ref{sec:resultados_mne_confirmatorio}; aquí se documenta la procedencia de los artefactos para trazabilidad:
+\begin{itemize}
+  \item Entrada balanceada: \code{results/trss\_vs\_mne\_bads\_extensive/derived\_balanced.csv}.
+  \item Script estadístico: \code{experiments/analyze\_trss\_mne\_robust\_stats.py}.
+  \item Reporte robusto: \code{results/trss\_vs\_mne\_bads\_extensive/robust\_stats/ROBUST\_ANALYSIS\_TRSS\_MNE.md}.
+  \item Tablas tipográficas: \code{tables/trss\_mne\_robust\_main.tex} y \code{tables/trss\_mne\_by\_dataset.tex}.
+\end{itemize}
+El análisis emplea 300 pares por método, 100 clústeres de escenario y bootstrap jerárquico con 2000 remuestreos. Esta separación evita mezclar resultados exploratorios con evidencia confirmatoria.
+
+
+\begin{landscape}
+\scriptsize
+\begin{longtable}{p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+\caption{Tabla final consolidada por familia metodológica (REP-01).}\label{tab:app_rep01_overall}\\
+\toprule
+\textbf{grupo} & \textbf{mae\_mean} & \textbf{mae\_std} & \textbf{dtw\_mean} & \textbf{dtw\_std} & \textbf{rmse\_mean} & \textbf{snr\_mean} & \textbf{metodo\_top} & \textbf{wins} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{grupo} & \textbf{mae\_mean} & \textbf{mae\_std} & \textbf{dtw\_mean} & \textbf{dtw\_std} & \textbf{rmse\_mean} & \textbf{snr\_mean} & \textbf{metodo\_top} & \textbf{wins} \\
+\midrule
+\endhead
+Baseline & 0.07127 & 0.08799 & 0.5219 & 0.6382 & 0.1622 & 2.874 & spherical\_spline & 20 \\
+TV/Tiempo & 0.07293 & 0.08972 & 0.4918 & 0.605 & 0.1674 & 2.248 & tv & 35 \\
+GSP & 0.07369 & 0.09051 & 0.4989 & 0.6163 & 0.169 & 2.455 & gsmooth & 36 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}
+
+\begin{landscape}
+\scriptsize
+\begin{longtable}{p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}}
+\caption{Pruebas de significancia STAT-02 utilizadas para inferencias principales.}\label{tab:app_stat02}\\
+\toprule
+\textbf{test\_id} & \textbf{metric} & \textbf{group\_a} & \textbf{group\_b} & \textbf{n\_a} & \textbf{n\_b} & \textbf{statistic} & \textbf{p\_value} & \textbf{effect\_size} & \textbf{effect\_size\_name} & \textbf{decision\_alpha\_0\_05} & \textbf{notes} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{test\_id} & \textbf{metric} & \textbf{group\_a} & \textbf{group\_b} & \textbf{n\_a} & \textbf{n\_b} & \textbf{statistic} & \textbf{p\_value} & \textbf{effect\_size} & \textbf{effect\_size\_name} & \textbf{decision\_alpha\_0\_05} & \textbf{notes} \\
+\midrule
+\endhead
+STAT-02\_mae\_trss\_vs\_bgsrp\_mwu & mae & trss & bgsrp & 3680 & 2760 & 2.54e+06 & 6.11e-259 & 0.4998 & rank\_biserial & reject\_H0 & Unpaired two-sided Mann-Whitney U \\
+STAT-02\_mae\_trss\_vs\_tikhonov\_mwu & mae & trss & tikhonov & 3680 & 2760 & 2.79e+06 & 4.69e-210 & 0.4497 & rank\_biserial & reject\_H0 & Unpaired two-sided Mann-Whitney U \\
+STAT-02\_mae\_bgsrp\_vs\_gsp\_mwu & mae & bgsrp & gsp & 2760 & 920 & 1.90e+06 & 1.59e-114 & -0.5 & rank\_biserial & reject\_H0 & Unpaired two-sided Mann-Whitney U \\
+STAT-02\_mae\_family\_wilcoxon & mae & tv\_time & instant & 280 & 280 & 792 & 4.77e-44 & -1.93e-06 & median\_delta(tv\_time-instant) & reject\_H0 & Paired by dataset/scenario/missing/graph/seed \\
+STAT-02\_dtw\_family\_wilcoxon & dtw & tv\_time & instant & 280 & 280 & 1.02e+04 & 2.40e-12 & -8.83e-06 & median\_delta(tv\_time-instant) & reject\_H0 & Paired by dataset/scenario/missing/graph/seed \\
+STAT-02\_mae\_trss\_vs\_gsp\_mwu & mae & trss & gsp & 3680 & 920 & 1.69e+06 & 0.981 & -5.08e-04 & rank\_biserial & fail\_to\_reject\_H0 & Unpaired two-sided Mann-Whitney U \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}
+
+\begin{landscape}
+\scriptsize
+\begin{longtable}{p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}p{0.095\textwidth}}
+\caption{Comparaciones pareadas a nivel de ensayo de la Fase 3.}\label{tab:app_phase3_pairwise}\\
+\toprule
+\textbf{method\_a} & \textbf{method\_b} & \textbf{n\_a} & \textbf{n\_b} & \textbf{median\_a} & \textbf{ci\_a\_lower} & \textbf{ci\_a\_upper} & \textbf{median\_b} & \textbf{ci\_b\_lower} & \textbf{ci\_b\_upper} & \textbf{p\_value} & \textbf{cliffs\_delta} & \textbf{winner} & \textbf{benefit} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{method\_a} & \textbf{method\_b} & \textbf{n\_a} & \textbf{n\_b} & \textbf{median\_a} & \textbf{ci\_a\_lower} & \textbf{ci\_a\_upper} & \textbf{median\_b} & \textbf{ci\_b\_lower} & \textbf{ci\_b\_upper} & \textbf{p\_value} & \textbf{cliffs\_delta} & \textbf{winner} & \textbf{benefit} \\
+\midrule
+\endhead
+sobolev & temporal\_laplacian & 348 & 388 & 0.544 & 0.5398 & 0.5498 & 0.08039 & 0.07741 & 0.08068 & 1.50e-121 & 1 & temporal\_laplacian & 0.4636 \\
+sobolev & trss & 348 & 388 & 0.544 & 0.5398 & 0.5498 & 0.07479 & 0.07091 & 0.07819 & 1.50e-121 & 1 & trss & 0.4692 \\
+ica & temporal\_laplacian & 348 & 388 & 0.1829 & 0.1689 & 0.1969 & 0.08039 & 0.07741 & 0.08068 & 6.41e-116 & 0.9748 & temporal\_laplacian & 0.1025 \\
+sobolev & spherical\_spline & 348 & 348 & 0.544 & 0.5398 & 0.5498 & 0.08091 & 0.08091 & 0.08091 & 9.44e-116 & 1 & spherical\_spline & 0.4631 \\
+linear & sobolev & 348 & 348 & 0.07564 & 0.07564 & 0.07564 & 0.544 & 0.5371 & 0.5498 & 9.44e-116 & -1 & linear & 0.4684 \\
+idw & sobolev & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.544 & 0.5398 & 0.5498 & 9.44e-116 & -1 & idw & 0.4631 \\
+ica & sobolev & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.544 & 0.5398 & 0.5498 & 9.44e-116 & -1 & ica & 0.3611 \\
+bgsrp & sobolev & 348 & 348 & 0.09354 & 0.08629 & 0.09404 & 0.544 & 0.5398 & 0.5498 & 2.23e-115 & -1 & bgsrp & 0.4505 \\
+sobolev & tv & 348 & 388 & 0.544 & 0.5371 & 0.5498 & 0.08092 & 0.08091 & 0.08316 & 1.23e-102 & 0.9175 & tv & 0.4631 \\
+ica & idw & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.08091 & 0.08091 & 0.08091 & 7.45e-92 & 0.8874 & idw & 0.102 \\
+ica & spherical\_spline & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.08091 & 0.08091 & 0.08091 & 7.45e-92 & 0.8874 & spherical\_spline & 0.102 \\
+sobolev & tikhonov & 348 & 348 & 0.544 & 0.5398 & 0.5498 & 0.1683 & 0.1615 & 0.1806 & 1.95e-91 & 0.8882 & tikhonov & 0.3757 \\
+rbfi\_tps & sobolev & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.544 & 0.5398 & 0.5498 & 8.63e-89 & -0.8736 & rbfi\_tps & 0.4631 \\
+ica & linear & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.07564 & 0.07564 & 0.07564 & 1.73e-87 & 0.8656 & linear & 0.1073 \\
+ica & tv & 348 & 388 & 0.1829 & 0.1689 & 0.1969 & 0.08092 & 0.08091 & 0.08316 & 4.44e-81 & 0.8123 & tv & 0.102 \\
+bgsrp & ica & 348 & 348 & 0.09354 & 0.08629 & 0.09399 & 0.1829 & 0.1689 & 0.1969 & 1.04e-80 & -0.8319 & bgsrp & 0.08938 \\
+ica & trss & 348 & 388 & 0.1829 & 0.1689 & 0.1969 & 0.07479 & 0.07091 & 0.07819 & 7.86e-76 & 0.7849 & trss & 0.1081 \\
+ica & rbfi\_tps & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.08091 & 0.08091 & 0.08091 & 1.16e-65 & 0.7471 & rbfi\_tps & 0.102 \\
+temporal\_laplacian & tikhonov & 388 & 348 & 0.08039 & 0.07741 & 0.08068 & 0.1683 & 0.1615 & 0.1806 & 6.30e-63 & -0.7142 & temporal\_laplacian & 0.08789 \\
+idw & tikhonov & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.1683 & 0.1615 & 0.1806 & 5.52e-55 & -0.6829 & idw & 0.08736 \\
+spherical\_spline & tikhonov & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.1683 & 0.1615 & 0.1806 & 2.27e-54 & -0.6804 & spherical\_spline & 0.08736 \\
+linear & tikhonov & 348 & 348 & 0.07564 & 0.07564 & 0.07564 & 0.1683 & 0.1615 & 0.1806 & 3.00e-53 & -0.6717 & linear & 0.09264 \\
+tikhonov & trss & 348 & 388 & 0.1683 & 0.1615 & 0.1806 & 0.07479 & 0.07091 & 0.07819 & 1.02e-49 & 0.6323 & trss & 0.09349 \\
+tikhonov & tv & 348 & 388 & 0.1683 & 0.1615 & 0.1806 & 0.08092 & 0.08091 & 0.08316 & 2.13e-43 & 0.5889 & tv & 0.08736 \\
+rbfi\_tps & tikhonov & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.1683 & 0.1615 & 0.1806 & 3.94e-43 & -0.6021 & rbfi\_tps & 0.08736 \\
+bgsrp & tikhonov & 348 & 348 & 0.09354 & 0.08629 & 0.09399 & 0.1683 & 0.1615 & 0.1806 & 3.00e-34 & -0.5345 & bgsrp & 0.07474 \\
+bgsrp & linear & 348 & 348 & 0.09354 & 0.08629 & 0.09399 & 0.07564 & 0.07564 & 0.07564 & 9.35e-22 & 0.4191 & linear & 0.01791 \\
+bgsrp & spherical\_spline & 348 & 348 & 0.09354 & 0.08629 & 0.09399 & 0.08091 & 0.08091 & 0.08091 & 2.41e-17 & 0.3705 & spherical\_spline & 0.01263 \\
+bgsrp & idw & 348 & 348 & 0.09354 & 0.08629 & 0.09404 & 0.08091 & 0.08091 & 0.08091 & 2.41e-17 & 0.3705 & idw & 0.01263 \\
+bgsrp & rbfi\_tps & 348 & 348 & 0.09354 & 0.08629 & 0.09399 & 0.08091 & 0.08091 & 0.08091 & 4.72e-17 & 0.367 & rbfi\_tps & 0.01263 \\
+bgsrp & temporal\_laplacian & 348 & 388 & 0.09354 & 0.08629 & 0.09399 & 0.08039 & 0.07741 & 0.08068 & 5.54e-17 & 0.3572 & temporal\_laplacian & 0.01316 \\
+bgsrp & trss & 348 & 388 & 0.09354 & 0.08629 & 0.09399 & 0.07479 & 0.07091 & 0.07819 & 1.92e-15 & 0.339 & trss & 0.01875 \\
+bgsrp & tv & 348 & 388 & 0.09354 & 0.08629 & 0.09399 & 0.08092 & 0.08091 & 0.08316 & 2.94e-08 & 0.2365 & tv & 0.01262 \\
+rbfi\_tps & tv & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08092 & 0.08091 & 0.08316 & 1.66e-05 & -0.1834 & rbfi\_tps & 7.26e-06 \\
+linear & tv & 348 & 388 & 0.07564 & 0.07564 & 0.07564 & 0.08092 & 0.0809 & 0.08316 & 4.46e-05 & -0.1739 & linear & 0.005284 \\
+idw & tv & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08092 & 0.08091 & 0.08316 & 1.29e-04 & -0.1631 & idw & 7.26e-06 \\
+trss & tv & 388 & 388 & 0.07479 & 0.07091 & 0.07819 & 0.08092 & 0.08091 & 0.08316 & 1.52e-04 & -0.1571 & trss & 0.006131 \\
+temporal\_laplacian & tv & 388 & 388 & 0.08039 & 0.07741 & 0.08068 & 0.08092 & 0.08091 & 0.08316 & 2.70e-04 & -0.1511 & temporal\_laplacian & 5.36e-04 \\
+spherical\_spline & tv & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08092 & 0.08091 & 0.08316 & 0.001288 & -0.1384 & spherical\_spline & 7.26e-06 \\
+ica & tikhonov & 348 & 348 & 0.1829 & 0.1689 & 0.1969 & 0.1683 & 0.1615 & 0.1806 & 0.08756 & 0.07471 & tikhonov & 0.01465 \\
+linear & rbfi\_tps & 348 & 348 & 0.07564 & 0.07564 & 0.07564 & 0.08091 & 0.08091 & 0.08091 & 0.1455 & 0.06355 & linear & 0.005276 \\
+spherical\_spline & trss & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.07479 & 0.07091 & 0.07819 & 0.1504 & 0.06126 & trss & 0.006124 \\
+idw & rbfi\_tps & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.1996 & -0.03983 & rbfi\_tps & 0 \\
+rbfi\_tps & spherical\_spline & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.1996 & -0.1509 & spherical\_spline & 0 \\
+idw & spherical\_spline & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.08091 & 0.2709 & -0.1431 & spherical\_spline & 0 \\
+idw & trss & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.07479 & 0.07091 & 0.07819 & 0.2755 & 0.04645 & trss & 0.006124 \\
+spherical\_spline & temporal\_laplacian & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08039 & 0.07741 & 0.08084 & 0.3962 & 0.03614 & temporal\_laplacian & 5.29e-04 \\
+idw & temporal\_laplacian & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08039 & 0.07741 & 0.08068 & 0.5071 & 0.02826 & temporal\_laplacian & 5.29e-04 \\
+temporal\_laplacian & trss & 388 & 388 & 0.08039 & 0.07741 & 0.08084 & 0.07479 & 0.07091 & 0.07819 & 0.6989 & 0.01605 & trss & 0.005595 \\
+linear & spherical\_spline & 348 & 348 & 0.07564 & 0.07564 & 0.07564 & 0.08091 & 0.08091 & 0.08091 & 0.7166 & -0.01585 & linear & 0.005276 \\
+linear & temporal\_laplacian & 348 & 388 & 0.07564 & 0.07564 & 0.07564 & 0.08039 & 0.07741 & 0.08068 & 0.7534 & -0.01339 & linear & 0.004747 \\
+rbfi\_tps & trss & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.07479 & 0.07091 & 0.07819 & 0.7714 & 0.01238 & trss & 0.006124 \\
+linear & trss & 348 & 388 & 0.07564 & 0.07564 & 0.07564 & 0.07479 & 0.07091 & 0.07819 & 0.8175 & 0.009835 & trss & 8.48e-04 \\
+idw & linear & 348 & 348 & 0.08091 & 0.08091 & 0.08091 & 0.07564 & 0.07564 & 0.07564 & 0.8549 & -0.007993 & linear & 0.005276 \\
+rbfi\_tps & temporal\_laplacian & 348 & 388 & 0.08091 & 0.08091 & 0.08091 & 0.08039 & 0.07741 & 0.08068 & 0.8807 & -0.006399 & temporal\_laplacian & 5.29e-04 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}
+
+\begin{landscape}
+\scriptsize
+\begin{longtable}{p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}p{0.105\textwidth}}
+\caption{Resumen agregado del estudio de ablación con datos reales.}\label{tab:app_ablation_real_summary}\\
+\toprule
+\textbf{dataset} & \textbf{missing\_ratio} & \textbf{variant} & \textbf{n} & \textbf{mae\_mean} & \textbf{rmse\_mean} & \textbf{dtw\_mean} & \textbf{snr\_mean} & \textbf{lsd\_mean} & \textbf{coherence\_mean} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{dataset} & \textbf{missing\_ratio} & \textbf{variant} & \textbf{n} & \textbf{mae\_mean} & \textbf{rmse\_mean} & \textbf{dtw\_mean} & \textbf{snr\_mean} & \textbf{lsd\_mean} & \textbf{coherence\_mean} \\
+\midrule
+\endhead
+bci\_iv2a\_s1 & 0.1 & Spatial-Only Spline & 10 & 7.06e-07 & 3.77e-06 & 6.42e-06 & 6.51 & 0.0397 & 0.9843 \\
+bci\_iv2a\_s1 & 0.1 & TRSS-Full & 10 & 7.28e-07 & 3.91e-06 & 7.12e-06 & 6.209 & 0.04913 & 0.9868 \\
+bci\_iv2a\_s1 & 0.1 & TRSS-NoTemporal & 10 & 7.34e-07 & 3.95e-06 & 7.34e-06 & 6.047 & 0.05163 & 0.9868 \\
+bci\_iv2a\_s1 & 0.2 & Spatial-Only Spline & 10 & 2.52e-06 & 1.13e-05 & 2.34e-05 & 6.887 & 0.1102 & 0.96 \\
+bci\_iv2a\_s1 & 0.2 & TRSS-Full & 10 & 2.75e-06 & 1.21e-05 & 2.73e-05 & 5.511 & 0.1415 & 0.9617 \\
+bci\_iv2a\_s1 & 0.2 & TRSS-NoTemporal & 10 & 2.76e-06 & 1.21e-05 & 2.80e-05 & 5.362 & 0.1482 & 0.9617 \\
+bci\_iv2a\_s1 & 0.3 & Spatial-Only Spline & 10 & 3.24e-06 & 1.26e-05 & 2.99e-05 & 6.684 & 0.152 & 0.9446 \\
+bci\_iv2a\_s1 & 0.3 & TRSS-Full & 10 & 3.58e-06 & 1.34e-05 & 3.62e-05 & 5.269 & 0.2113 & 0.945 \\
+bci\_iv2a\_s1 & 0.3 & TRSS-NoTemporal & 10 & 3.60e-06 & 1.35e-05 & 3.72e-05 & 5.117 & 0.2219 & 0.945 \\
+bci\_iv2a\_s1 & 0.4 & Spatial-Only Spline & 10 & 4.67e-06 & 1.58e-05 & 4.25e-05 & 6.433 & 0.2168 & 0.9164 \\
+bci\_iv2a\_s1 & 0.4 & TRSS-Full & 10 & 5.26e-06 & 1.70e-05 & 5.41e-05 & 4.626 & 0.3478 & 0.919 \\
+bci\_iv2a\_s1 & 0.4 & TRSS-NoTemporal & 10 & 5.29e-06 & 1.71e-05 & 5.56e-05 & 4.47 & 0.3661 & 0.919 \\
+eegbci\_s1r1 & 0.1 & Spatial-Only Spline & 10 & 1.65e-06 & 6.84e-06 & 1.47e-05 & 5.908 & 0.06774 & 0.9736 \\
+eegbci\_s1r1 & 0.1 & TRSS-Full & 10 & 1.59e-06 & 6.54e-06 & 1.51e-05 & 6.291 & 0.06692 & 0.9845 \\
+eegbci\_s1r1 & 0.1 & TRSS-NoTemporal & 10 & 1.60e-06 & 6.59e-06 & 1.53e-05 & 6.211 & 0.0726 & 0.9845 \\
+eegbci\_s1r1 & 0.2 & Spatial-Only Spline & 10 & 3.36e-06 & 9.92e-06 & 2.94e-05 & 5.722 & 0.1361 & 0.9446 \\
+eegbci\_s1r1 & 0.2 & TRSS-Full & 10 & 3.38e-06 & 9.87e-06 & 3.24e-05 & 5.62 & 0.1455 & 0.9656 \\
+eegbci\_s1r1 & 0.2 & TRSS-NoTemporal & 10 & 3.41e-06 & 9.94e-06 & 3.27e-05 & 5.543 & 0.1585 & 0.9656 \\
+eegbci\_s1r1 & 0.3 & Spatial-Only Spline & 10 & 5.41e-06 & 1.27e-05 & 4.74e-05 & 5.642 & 0.2142 & 0.9105 \\
+eegbci\_s1r1 & 0.3 & TRSS-Full & 10 & 5.75e-06 & 1.34e-05 & 5.58e-05 & 5.055 & 0.251 & 0.9434 \\
+eegbci\_s1r1 & 0.3 & TRSS-NoTemporal & 10 & 5.79e-06 & 1.35e-05 & 5.64e-05 & 4.981 & 0.2742 & 0.9434 \\
+eegbci\_s1r1 & 0.4 & Spatial-Only Spline & 10 & 7.17e-06 & 1.47e-05 & 6.27e-05 & 5.583 & 0.2847 & 0.8801 \\
+eegbci\_s1r1 & 0.4 & TRSS-Full & 10 & 8.13e-06 & 1.65e-05 & 7.92e-05 & 4.414 & 0.3679 & 0.9184 \\
+eegbci\_s1r1 & 0.4 & TRSS-NoTemporal & 10 & 8.18e-06 & 1.66e-05 & 8.01e-05 & 4.346 & 0.4022 & 0.9183 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}

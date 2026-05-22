@@ -1,0 +1,70 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contexto General y Planteamiento del Problema}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Limitaciones de los Enfoques Tradicionales}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}El Advenimiento del Procesamiento de Señales en Grafos}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Mención del Paradigma de Aprendizaje Profundo}{3}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.4}La Brecha en la Literatura y la Motivación del Trabajo}{4}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}La pregunta central: ¿por qué funciona tan bien la interpolación de MNE-Python?}{5}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Cronología del Proyecto}{6}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Fase 1 — Selección de Métodos y Revisión del Estado del Arte}{6}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Fase 2 — Implementación del Sistema de Experimentación}{6}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Fase 3 — Barrido Exploratorio Inicial}{7}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Fase 4 — Selección Fina y Diseño del Espacio de Búsqueda}{7}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Fase 5 — Optimización Bayesiana con Optuna}{7}{subsection.1.5.5}%
+\contentsline {subsection}{\numberline {1.5.6}Fase 6 — Validación Confirmatoria contra MNE-Python}{8}{subsection.1.5.6}%
+\contentsline {subsection}{\numberline {1.5.7}Fase 7 — Ablación y Documentación}{8}{subsection.1.5.7}%
+\contentsline {section}{\numberline {1.6}Objetivos}{8}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Objetivo General}{8}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Objetivos Específicos}{8}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Hipótesis de Trabajo}{9}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Alcance y Aportes de la Investigación}{10}{section.1.8}%
+\contentsline {section}{\numberline {1.9}Estructura de la Tesis}{10}{section.1.9}%
+\contentsline {section}{\numberline {1.10}Tesis, Contribución y Criterio de Lectura}{11}{section.1.10}%
+\contentsline {chapter}{\numberline {2}Marco Teórico}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Fundamentos Neurofisiológicos de la Señal EEG}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Generación y Propagación de la Señal}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Características Espectrales y Bandas de Frecuencia}{14}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Potenciales Relacionados a Eventos}{15}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Procesamiento de Señales en Grafos}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definición de Grafo y Señal de Grafo}{15}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Matriz Laplaciana y Suavidad en el Grafo}{16}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Descomposición Espectral y Frecuencias en el Grafo}{17}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Transformada de Fourier en Grafos}{17}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Construcción de Grafos para Datos EEG}{18}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Métodos Estadísticos de Descomposición}{19}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Métodos Basados en GSP}{19}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Regularización Espacio-Temporal: TRSS}{20}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Mención del Paradigma de Aprendizaje Profundo}{21}{subsection.2.3.5}%
+\contentsline {section}{\numberline {2.4}Análisis del Mecanismo Interno de la Interpolación por Splines Esféricos en MNE-Python}{21}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Formulación Original de Perrin y colaboradores}{22}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Las Seis Mejoras de Ingeniería Incorporadas en MNE-Python}{22}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Implicaciones para la Evaluación Comparativa}{23}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}¿Por Qué Funciona Tan Bien? Los Tres Pilares de la Robustez}{23}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Cuándo Fallan los Splines Esféricos}{24}{subsection.2.4.5}%
+\contentsline {section}{\numberline {2.5}Síntesis del Marco Teórico}{24}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Metodología}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conjuntos de Datos}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}PhysioNet EEG Motor Movement/Imagery}{26}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}BCI Competition IV -- Dataset 2a}{27}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}MNE Sample}{27}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Justificación de la Heterogeneidad}{27}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{27}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Métodos de Interpolación}{28}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Métricas de Evaluación}{29}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Motor de Optimización Bayesiana: Optuna}{29}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Protocolo de Validación Confirmatoria}{30}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Arquitectura del Sistema Experimental}{30}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Arquitectura del Sistema y Trazabilidad}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Arquitectura Modular}{32}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Flujo de Datos y Cadena de Trazabilidad}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Gestión de Artefactos Experimentales}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Decisiones de Diseño Significativas}{34}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Diseño Experimental}{36}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Variables del Experimento}{36}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Preguntas de Investigación por Experimento}{37}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Plan de Análisis Estadístico}{37}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Control de Calidad Experimental}{38}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Síntesis del Diseño}{39}{section.5.5}%

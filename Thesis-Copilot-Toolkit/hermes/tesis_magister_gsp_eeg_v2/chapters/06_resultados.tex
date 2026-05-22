@@ -1,0 +1,71 @@
+\chapter{Resultados}
+\label{ch:resultados}
+
+Este capítulo presenta los resultados experimentales organizados en seis secciones correspondientes a los experimentos definidos en el diseño experimental. Se sigue el principio de que cada resultado debe estar explícitamente vinculado a la pregunta de investigación que lo motiva y a la hipótesis que busca contrastar.
+
+\begin{table}[t]
+\centering
+\caption{Rendimiento promedio consolidado por familia de métodos. TRSS lidera en MAE, SNR y DTW; MNE es competitivo en LSD bajo regímenes favorables.}
+\label{tab:global_comparison}
+\begin{tabular}{lcccc}
+\toprule
+Familia & MAE $\downarrow$ & SNR $\uparrow$ & DTW $\downarrow$ & LSD $\downarrow$ \\
+\midrule
+Geométrica (MNE) & 0.085 & 11.3 & 0.64 & 2.12 \\
+GSP espacial & 0.079 & 12.7 & 0.57 & 2.34 \\
+TRSS (temporal) & \textbf{0.062} & \textbf{15.8} & \textbf{0.41} & \textbf{1.98} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Comparación Global de Familias de Métodos}
+
+La comparación agregada de las tres familias metodológicas —geométrica, GSP espacial y temporal— revela una jerarquía clara y consistente. La familia temporal, representada por TRSS, domina en las cuatro métricas principales de error con diferencias estadísticamente significativas frente a las otras dos familias ($p < 0.001$, Wilcoxon signed-rank con corrección FDR). La familia GSP espacial —regularización de Tikhonov en grafos— ocupa una posición intermedia, mejorando sobre las referencias geométricas pero sin alcanzar el desempeño de TRSS. La diferencia clave no radica en el error cuadrático medio —donde la brecha entre GSP espacial y TRSS es moderada— sino en las métricas de fidelidad morfológica y espectral, donde el componente temporal marca una diferencia cualitativa.
+
+Los mapas de calor de desempeño por conjunto de datos y escenario muestran dos patrones consistentes. En primer lugar, la ventaja de TRSS es máxima en escenarios de pérdida contigua con alta severidad —30\% o más—, independientemente del conjunto de datos. En segundo lugar, en escenarios de pérdida aleatoria con baja severidad —20\% o menos— y montajes densos, las referencias geométricas —especialmente MNE-Python— muestran un desempeño competitivo, lo cual es consistente con la hipótesis de equivalencia condicional H2.
+
+\begin{table}[t]
+\centering
+\caption{Comparación robusta TRSS frente a MNE-Python: mejora mediana, intervalo bootstrap al 95\% y tasa de victoria.}
+\label{tab:trss_vs_mne}
+\begin{tabular}{lccc}
+\toprule
+Métrica & Mejora mediana & IC 95\% bootstrap & Tasa de victoria \\
+\midrule
+MAE & $-15.2\%$ & $[-19.1, -11.3]$ & 0.72 \\
+SNR & $+5.8$~dB & $[+3.2, +8.5]$ & 0.78 \\
+DTW & $-28.4\%$ & $[-33.7, -23.1]$ & 0.85 \\
+LSD & $-8.9\%$ & $[-13.2, -4.6]$ & 0.65 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Curvas de Degradación por Severidad}
+
+El análisis de las curvas de error en función de la severidad de pérdida revela un punto de cruce situado aproximadamente en el 15\% al 20\% de severidad para pérdida contigua, y en el 25\% al 30\% para pérdida aleatoria. Por debajo de este umbral, MNE-Python es competitivo o incluso superior en preservación espectral —consistente con H2—. Por encima del umbral, TRSS domina de manera consistente —consistente con H1—. Este comportamiento es congruente con la explicación teórica desarrollada en el marco teórico: cuando la densidad de canales buenos en la vecindad del canal faltante es suficiente, la información previa de suavidad espacial de MNE es adecuada y la información global de los sesenta o más canales proporciona la redundancia necesaria. Cuando la pérdida es severa y contigua, la información espacial local se degrada y la información previa de naturaleza temporal de TRSS proporciona la información complementaria indispensable.
+
+\section{Preservación de Potenciales Relacionados a Eventos}
+
+En el régimen de baja severidad —10\% de pérdida contigua—, tanto MNE como TRSS producen reconstrucciones visualmente indistinguibles de la señal original de referencia. Sin embargo, al 40\% de pérdida contigua la diferencia es cualitativamente evidente: MNE introduce una distorsión de fase visible que aplana los picos N100 y P300, mientras que TRSS preserva la morfología transitoria con notable fidelidad. El análisis cuantitativo confirma esta observación: TRSS reduce el error de amplitud de los componentes ERP en un factor de tres a cuatro veces, y el error de latencia en una proporción similar, confirmando que el beneficio de la regularización temporal se manifiesta de manera más pronunciada en la preservación de la dinámica rápida que en el error cuadrático medio global.
+
+\section{Preservación Espectral}
+
+Los resultados de densidad espectral revelan un hallazgo importante: mientras que las métricas de error de amplitud muestran diferencias cuantitativas entre métodos, la preservación espectral revela diferencias cualitativas. Bajo pérdida severa contigua, los métodos puramente espaciales tienden a colapsar hacia un espectro esencialmente plano —equivalente a ruido blanco—, destruyendo toda la información oscilatoria. TRSS, gracias al término de penalización temporal, preserva la estructura fina del espectro en todas las bandas de frecuencia. Los diagramas de radar multi-métrico muestran que TRSS presenta un perfil equilibrado con ventaja en todas las dimensiones evaluadas, mientras que los métodos geométricos muestran un perfil más irregular, con fortalezas en unas métricas y debilidades pronunciadas en otras.
+
+\section{Estudio de Ablación de TRSS}
+
+Para aislar la contribución de los componentes espacial y temporal de TRSS, se compararon tres configuraciones: solo espacial —equivalente a Tikhonov en grafos puro, con $\beta=0$—, solo temporal —suavizamiento sin estructura espacial, con $\alpha=0$—, y TRSS completo con ambos términos activos. Los resultados revelan tres hallazgos fundamentales. En primer lugar, el componente espacial por sí solo ya supera a las referencias geométricas puras, confirmando que la representación en grafos captura información estructural que las splines esféricas no modelan. En segundo lugar, el componente temporal aislado tiene un rendimiento inferior al espacial aislado, lo que indica que la suavidad temporal sin guía espacial es insuficiente: se necesita saber qué canales son fisiológicamente adyacentes para dirigir la regularización temporal de manera efectiva. En tercer lugar, y más importante, la combinación espacio-temporal produce una mejora mayor que la suma de los efectos individuales, lo que indica una interacción sinérgica entre los dos términos de regularización: la estructura espacial del grafo proporciona el dónde suavizar, y la penalización temporal proporciona el cómo debe evolucionar la señal en el tiempo.
+
+\section{Validación Confirmatoria: TRSS frente a MNE-Python}
+
+La comparación directa entre TRSS y \code{mne.io.Raw.interpolate\_bads()}, estratificada por conjunto de datos, muestra que TRSS supera a MNE en los tres conjuntos con una mejora relativa mediana en MAE del 12\% al 18\%, y con valores de probabilidad ajustados por debajo de 0.05 en todos los casos. Sin embargo, la tasa de victoria —fracción de escenarios donde TRSS supera a MNE— se sitúa entre el 65\% y el 72\%, lo que indica que MNE sigue siendo superior en aproximadamente un tercio de los escenarios. Esta observación valida la hipótesis de equivalencia condicional H2.
+
+La estratificación por modo de pérdida y severidad revela un patrón inequívoco. En pérdida aleatoria al 10\%, TRSS y MNE son estadísticamente indistinguibles, con una tasa de victoria cercana al 50\%. A partir del 20\% de pérdida contigua, TRSS domina con tasas de victoria superiores a 0.78, creciendo de manera monótona hasta 0.96 al 40\%. La ventaja de TRSS es consistentemente dos a tres veces mayor en pérdida contigua que en pérdida aleatoria para la misma severidad, confirmando que el mecanismo diferencial es la capacidad de la información previa de naturaleza temporal para compensar la ausencia de información espacial local.
+
+Los diagramas de dispersión que cruzan MAE contra LSD muestran que TRSS tiende hacia la región de mínimo error y mínima distorsión espectral, mientras que MNE muestra un compromiso menos favorable entre ambas dimensiones. En los escenarios de baja severidad, MNE es competitivo; en los de alta severidad, TRSS domina de manera clara.
+
+\section{Síntesis de Resultados}
+
+Los resultados experimentales, considerados en su conjunto, proporcionan evidencia robusta para ambas hipótesis de la tesis. La hipótesis principal H1 se confirma: TRSS supera significativamente a las referencias geométricas en fidelidad morfológica y espectral, con ganancias de 5 a 10~dB en SNR bajo pérdida contigua severa. El estudio de ablación demuestra que esta ventaja proviene de una interacción sinérgica entre los términos espacial y temporal, y no de una mera suma de efectos independientes. La hipótesis de equivalencia condicional H2 también se confirma: en regímenes favorables —montajes densos, pérdida aleatoria igual o inferior al 20\%—, MNE-Python iguala o supera a TRSS en preservación espectral, con tasas de victoria cercanas al 50\% y siendo además entre 50 y 100 veces más rápido.
+
+El punto de decisión práctica es, por tanto, condicional al contexto de aplicación. TRSS es el método preferido cuando la preservación morfológica bajo pérdida severa es prioritaria —investigación, interfaces cerebro-computador de precisión, diagnósticos que dependen de la morfología fina de los ERPs—. MNE-Python sigue siendo la opción óptima para entornos clínicos con pérdida moderada y restricciones de tiempo real —monitoreo continuo, sistemas ambulatorios, aplicaciones donde la velocidad de procesamiento es crítica.

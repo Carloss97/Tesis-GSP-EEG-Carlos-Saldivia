@@ -1,102 +1,49 @@
 \chapter{Conclusiones y Trabajo Futuro}
 
-\section{Conclusiones}
+\section{Síntesis de Hallazgos}
 
-Esta tesis abordó el problema de la reconstrucción de canales EEG faltantes desde la perspectiva del Procesamiento de Señales en Grafos (GSP), con el objetivo de determinar ---bajo condiciones de evaluación rigurosamente imparciales--- si la incorporación de información topológica y temporal produce mejoras reales y significativas frente a los métodos geométricos clásicos. A continuación se presentan las conclusiones principales, organizadas según los objetivos específicos formulados en el Capítulo 1.
+Esta tesis se propuso comparar, bajo condiciones de rigurosa imparcialidad metodológica, el desempeño de los métodos de interpolación de canales EEG basados en Procesamiento de Señales en Grafos con regularización temporal frente a los \textit{baselines} geométricos clásicos. Tras un proceso iterativo de implementación, experimentación exploratoria, optimización bayesiana y validación confirmatoria, los hallazgos principales pueden sintetizarse en cinco conclusiones.
 
-\subsection{Validación de la Hipótesis de Trabajo}
+\textbf{1. La regularización temporal marca una diferencia cualitativa.} TRSS no solo reduce el error de amplitud frente a los métodos puramente espaciales —incluso cuando estos son exhaustivamente optimizados—, sino que fundamentalmente altera el \textit{modo de falla} de la interpolación. Donde los métodos geométricos colapsan (inversión de fase, divergencia de amplitud), TRSS mantiene trayectorias fisiológicamente plausibles. Esta diferencia no es de grado sino de naturaleza: la restricción temporal cambia la topología del espacio de soluciones, eliminando los mínimos locales espurios que atrapan a los métodos muestra-a-muestra.
 
-La hipótesis planteada fue:
-\begin{quote}
-\emph{La integración de restricciones de suavidad espacial basadas en topologías de grafos junto con priors de continuidad temporal penalizada permite reconstruir canales faltantes de EEG de manera significativamente más precisa y robusta que los métodos geométricos de extrapolación de superficies estáticas.}
-\end{quote}
+\textbf{2. La contribución del término temporal es asimétrica.} El estudio de ablación reveló que $\beta$ no mejora significativamente el error punto-a-punto (MAE, RMSE), pero produce mejoras grandes y estadísticamente significativas en fidelidad espectral (LSD: $+8\%$, Cliff's $\delta = -0.54$ a $-0.76$, $p < 0.01$). Esta disociación tiene una interpretación física clara: el error de amplitud está gobernado por la estructura espacial del grafo; la preservación frecuencial depende de la continuidad temporal. Un método de interpolación completo requiere ambos.
 
-La evidencia acumulada a lo largo de la extensa fase experimental permite \textbf{confirmar plenamente} esta hipótesis:
+\textbf{3. MNE interpolate\_bads es un baseline excepcionalmente fuerte que no debe subestimarse.} La implementación industrial del \textit{spherical spline} en MNE-Python incorpora décadas de refinamientos ingenieriles —normalización de posiciones, regularización diagonal, aumento del sistema, pseudoinversa con tolerancia adaptativa— que lo convierten en un contrincante formidable. En escenarios favorables (montajes densos, $\leq$20\% de pérdida aleatoria), MNE iguala o supera a TRSS con un costo computacional 50--100$\times$ menor. Cualquier trabajo futuro que proponga un nuevo método de interpolación debe incluir a MNE en su panel de comparación.
 
-\begin{enumerate}
-    \item \textbf{Superioridad cuantitativa:} TRSS logró un MAE promedio de \ResTVMAE{} y un SNR de \ResTVSNR~dB, superando por más de un orden de magnitud al mejor baseline geométrico optimizado (Spherical Spline: MAE \ResBaselineMAE{}, SNR \ResBaselineSNR~dB). Tikhonov se posicionó consistentemente como segundo mejor (MAE \ResGSPMAE{}, SNR \ResGSPSNR~dB).
+\textbf{4. La recomendación de método es condicional al contexto.} No existe un método universalmente óptimo. TRSS se justifica cuando la prioridad es la preservación de dinámica temporal fina (ERPs, conectividad funcional, análisis espectral) bajo condiciones de pérdida severa ($\geq$30\%) o contigua. MNE interpolate\_bads es la opción correcta para escenarios de rutina con restricciones de tiempo, montajes densos y patrones de pérdida aleatorios de baja severidad.
 
-    \item \textbf{La brecha es estructural, no paramétrica:} La optimización exhaustiva de los baselines con Optuna (NSGA-II multi-objetivo sobre MAE y LSD) demostró que incluso con hiperparámetros perfectos, las Spherical Splines no pueden evitar el colapso de fase bajo degradación severa contigua. La limitación es inherente a la formulación sin memoria temporal.
+\textbf{5. El \textit{fair benchmarking} es posible y necesario.} La optimización bayesiana de \textit{todos} los métodos —incluyendo los baselines clásicos— con separación cronológica estricta entre datos de optimización y prueba establece un estándar metodológico que esta tesis espera ver adoptado en la literatura de interpolación de señales biomédicas. Los resultados obtenidos bajo este protocolo son más conservadores —las ventajas reportadas son menores— pero también más confiables.
 
-    \item \textbf{Preservación fisiológica:} TRSS demostró capacidad excepcional para preservar Potenciales Relacionados a Eventos (ERPs) y Densidad Espectral de Potencia (PSD) bajo escenarios de pérdida severa (40\% nearby). El LSD de TRSS ($\approx 0.11$) fue más de tres veces menor que el de Spherical Spline ($\approx 0.37$), y la Coherencia Espectral se mantuvo por encima de $0.99$.
+\section{Cumplimiento de Objetivos}
 
-    \item \textbf{Consistencia multi-dataset:} La superioridad de TRSS se verificó en tres datasets heterogéneos ---PhysioNet (64 canales, alta densidad), BCI IV 2a (22 canales, baja densidad) y MNE Sample (60 canales, paradigma evocado)--- descartando overfitting a una topología particular.
-\end{enumerate}
-
-\subsection{Cumplimiento de los Objetivos Específicos}
-
-\begin{itemize}
-    \item \textbf{Consolidación de Métodos:} Se implementaron y unificaron 18 algoritmos de interpolación y 10 constructores de grafos en un pipeline modular Python, cubriendo familias geométricas, estadísticas, GSP espaciales y temporales.
-
-    \item \textbf{Diseño de Escenarios Clínicos:} Se definieron 14 escenarios experimentales (2 modos $\times$ 7 niveles de degradación) que simulan tanto fallas esporádicas (\textit{random}) como colapsos regionales del amplificador (\textit{nearby}), cubriendo desde el 10\% hasta el 40\% de pérdida.
-
-    \item \textbf{Optimización Imparcial:} Se integró Optuna con muestreadores TPE y NSGA-II para explorar los espacios paramétricos de todos los métodos ---incluyendo los baselines clásicos--- garantizando que ningún algoritmo fuera evaluado por debajo de su límite de diseño.
-
-    \item \textbf{Evaluación Multi-Métrica:} Se cuantificó el rendimiento con seis métricas complementarias (MAE, RMSE, SNR, DTW, LSD y Coherencia) que capturan dimensiones ortogonales del error, impidiendo que un método pueda ``engañar'' al evaluador mediante sobre-suavizado.
-
-    \item \textbf{Análisis Fisiológico:} Se demostró visual y cuantitativamente el impacto de la reconstrucción en ERPs (N100, P300) y en la distribución de energía por bandas de frecuencia (PSD), proveyendo evidencia directa de relevancia clínica.
-
-    \item \textbf{Trazabilidad:} Se entregó un repositorio abierto con artefactos computacionales versionados (CSV, JSON, figuras) que permiten la reproducibilidad total de los hallazgos.
-\end{itemize}
-
-\subsection{Aportes Originales}
-
-Los aportes principales de esta tesis a la comunidad científica son:
+El objetivo general —comparar el rendimiento de métodos GSP con regularización temporal frente a baselines geométricos mediante un marco experimental riguroso— ha sido plenamente alcanzado. Los siete objetivos específicos definidos en la Sección~1.5 se cumplieron de la siguiente manera:
 
 \begin{enumerate}
-    \item \textbf{Primer benchmark GSP-EEG con fair tuning:} Según el conocimiento del autor, este es el primer estudio que somete tanto los métodos novedosos (TRSS, BGSRP) como los baselines clásicos (Spherical Spline, RBF) a una optimización bayesiana multi-objetivo sobre múltiples datasets EEG, estableciendo un nuevo estándar de evaluación imparcial.
-
-    \item \textbf{Demostración del cruce de rendimiento teórico:} Se proporcionó evidencia estadística de que, bajo configuraciones óptimas, las familias de regularización temporal dominan absolutamente a los baselines geométricos, con una brecha que se amplifica con la severidad de la pérdida.
-    
-    \item \textbf{Validación a escala trial-level:} Un análisis de 4336 puntos de dato agregados de 736 iteraciones experimentales mediante prueba de Mann-Whitney U confirmó la robustez de los hallazgos: 38 de 55 comparaciones pareadas alcanzaron significancia estadística ($p < 0.001$). Los métodos temporales (temporal\_laplacian, TRSS) y las interpolaciones espaciales simples (IDW, linear) se agrupan en el cuartil superior con MAE mediano $\approx 0.075$-0.081 sin separación significativa, tras excluir el método visibility\_nnk por su comportamiento atípico, demostrando la universalidad del ranking de métodos.
-
-    \item \textbf{Análisis de degradación en casos extremos:} Se reveló que bajo regímenes críticos (40\% nearby), los métodos geométricos experimentan un colapso exponencial de fase, mientras que el ancla temporal de TRSS mantiene la estabilidad lineal de la trayectoria fisiológica.
-
-    \item \textbf{Toolkit de código abierto:} La entrega de un framework modular en Python que unifica carga de datos, construcción de grafos, interpolación, optimización y evaluación, permitiendo a la comunidad replicar y extender los experimentos sobre sus propios datos.
+    \item \textbf{Unificación metodológica:} Se implementó un \textit{pipeline} modular en Python con 18 métodos de interpolación, 8 constructores de grafo y 6 métricas de evaluación, todos con interfaces homogéneas (Capítulo~3).
+    \item \textbf{Escenarios clínicamente representativos:} Se definieron 14 escenarios de pérdida combinando modos espaciales (random, nearby) con niveles de severidad del 10\% al 40\% (Sección~3.4).
+    \item \textbf{Optimización imparcial:} Se aplicó Optuna con TPE y NSGA-II a los 5 métodos seleccionados, con espacios de búsqueda documentados y protocolo de validación temporal (Sección~3.6).
+    \item \textbf{Evaluación multi-métrica:} Se cuantificó el desempeño en 6 métricas sobre 3 datasets, con 736 iteraciones y 4336 puntos de dato (Capítulo~4).
+    \item \textbf{Relevancia fisiológica:} Se demostró la preservación de ERPs (N100, P300) y PSD en bandas clínicas mediante figuras comparativas (Sección~4.3 y~4.4).
+    \item \textbf{Validación confirmatoria contra MNE:} Se realizó una comparación directa TRSS vs. MNE interpolate\_bads con máscara estática y optimización independiente (Sección~\ref{sec:resultados_mne}).
+    \item \textbf{Trazabilidad y reproducibilidad:} El código fuente, las configuraciones experimentales y los artefactos de resultados están disponibles en un repositorio Git público.
 \end{enumerate}
 
 \section{Trabajo Futuro}
 
-Los resultados y limitaciones identificados en esta tesis abren múltiples líneas de investigación futura:
+Los resultados de esta tesis habilitan varias direcciones de investigación que se consideran prioritarias.
 
-\subsection{Integración BCI en Tiempo Real}
+\textbf{Validación clínica.} Extender la evaluación a registros de pacientes con patologías neurológicas (epilepsia, enfermedad de Alzheimer, trastornos de la conciencia) donde la señal EEG presenta características anormales (puntas epilépticas, enlentecimiento difuso) que pueden desafiar los \textit{priors} de suavidad asumidos por todos los métodos evaluados.
 
-La aplicación más inmediata y de mayor impacto práctico es la integración de TRSS en pipelines BCI \textit{online}. Esto requiere:
-\begin{itemize}
-    \item \textbf{Ventanas deslizantes:} Adaptar TRSS para operar sobre ventanas temporales solapadas de longitud fija, permitiendo procesamiento causal (solo información pasada y presente).
-    \item \textbf{Aceleración GPU:} Paralelizar las operaciones matriciales (producto Laplaciano, gradiente) en GPU mediante frameworks como CuPy o PyTorch, con el objetivo de reducir aún más la latencia medida en el microbenchmark local.
-    \item \textbf{Calibración rápida:} Desarrollar heurísticas para la selección rápida de $\alpha$ y $\beta$ basadas en las propiedades espectrales del grafo (e.g., gap espectral), evitando la necesidad de una optimización Optuna completa en tiempo de inferencia.
-\end{itemize}
+\textbf{Aprendizaje de hiperparámetros.} El acoplamiento entre $\alpha$, $\beta$ y la frecuencia de muestreo $f_s$ fue resuelto por Optuna en este trabajo, pero una caracterización sistemática de esta relación —potencialmente derivable analíticamente— permitiría transferir hiperparámetros entre datasets sin re-optimización.
 
-\subsection{Validación Clínica Descendente}
+\textbf{Aceleración computacional.} Explorar implementaciones en GPU del descenso de gradiente de TRSS, \textit{early stopping} basado en la norma del gradiente, y precondicionadores que reduzcan el número de iteraciones requeridas, para cerrar la brecha de velocidad con MNE.
 
-Es necesario evaluar el impacto cuantitativo de TRSS sobre tareas posteriores (\textit{downstream tasks}):
-\begin{itemize}
-    \item \textbf{Clasificación BCI:} Medir la tasa de acierto de clasificadores de imaginería motora (CSP + LDA o redes convolucionales) cuando los canales faltantes son reconstruidos por TRSS vs. splines vs. descarte.
-    \item \textbf{Conectividad funcional:} Evaluar si las matrices de coherencia y correlación parcial computadas sobre señales reconstruidas por TRSS preservan la estructura de red cerebral para diagnóstico de patologías.
-    \item \textbf{Poblaciones clínicas:} Validar el framework en datos de pacientes con epilepsia, neonatos y desórdenes de conciencia, donde la dinámica cortical puede diferir sustancialmente de sujetos sanos.
-\end{itemize}
+\textbf{Generalización entre sujetos.} Evaluar la transferibilidad de hiperparámetros optimizados en un sujeto a otros sujetos dentro del mismo dataset, y entre datasets con distintas densidades de electrodos.
 
-\subsection{Modelos Híbridos GSP + Deep Learning}
+\textbf{Comparación con métodos de aprendizaje profundo.} Incluir autoencoders convolucionales y GNNs en el \textit{benchmark}, con volúmenes de entrenamiento controlados, para cuantificar el \textit{trade-off} entre desempeño, requerimiento de datos y costo computacional entre enfoques algorítmicos y basados en datos.
 
-La combinación de la fundamentación teórica del GSP con la flexibilidad de modelos aprendidos abre posibilidades prometedoras:
-\begin{itemize}
-    \item \textbf{Graph Neural Networks (GNN):} Entrenar redes neuronales sobre grafos que aprendan simultáneamente la topología óptima y la función de reconstrucción, potencialmente superando la necesidad de hiperparámetros manuales.
-    \item \textbf{Autoencoders espaciotemporales:} Utilizar la solución TRSS como inicialización (\textit{warm start}) para autoencoders que refinen la reconstrucción de forma no-lineal.
-    \item \textbf{Transfer learning topológico:} Transferir grafos aprendidos en datasets de alta densidad (64 canales) a montajes de baja densidad (22 canales) mediante proyección espectral.
-\end{itemize}
+\textbf{Extensión a otros dominios.} La formulación de TRSS es independiente del dominio de aplicación. Su evaluación en otros problemas de señales sobre grafos con pérdida de nodos —redes de sensores industriales, datos climáticos, señales de tráfico— podría revelar patrones de desempeño generalizables.
 
-\subsection{Extensiones Metodológicas}
+\section{Comentario Final}
 
-\begin{itemize}
-    \item \textbf{Degradación gradual:} Extender los protocolos de masking para simular degradación parcial (SNR reducido, no NaN binario) y fallas intermitentes.
-    \item \textbf{Regularización adaptativa:} Diseñar esquemas donde $\alpha$ y $\beta$ varíen dinámicamente en el tiempo según la calidad estimada de la señal observada.
-    \item \textbf{Equivalencia BGSRP:} Cerrar el gap residual entre la implementación Python y la referencia MATLAB/GSPBox para obtener conclusiones definitivas sobre el rendimiento de la familia bandlimited.
-    \item \textbf{Grafos temporales dinámicos:} Explorar topologías de grafo que evolucionen con la señal, capturando cambios en la conectividad funcional a lo largo de la sesión.
-\end{itemize}
-
-\section{Reflexión Final}
-
-Esta tesis demostró que la integración de conocimiento \textit{a priori} sobre la estructura espacial (topología de grafos) y la dinámica temporal (regularización de Sobolev) de las señales cerebrales produce una mejora cualitativa y cuantitativa en la reconstrucción de canales EEG faltantes. La jerarquía de rendimiento observada ---Splines $<$ Tikhonov $<$ TRSS--- refleja directamente la jerarquía de información incorporada: geométrica $\subset$ topológica $\subset$ espacio-temporal.
-
-Más allá del resultado numérico, el aporte metodológico central es la demostración de que el \textit{fair benchmarking} ---la evaluación bajo optimización paramétrica igualitaria--- es indispensable para establecer conclusiones válidas en la comparación de algoritmos. Los márgenes de mejora reportados en esta tesis, obtenidos bajo las condiciones más exigentes posibles, representan ventajas estructurales genuinas que abren nuevas posibilidades para la neurociencia computacional y las interfaces cerebro-computador del futuro.
+Esta tesis no propone un nuevo algoritmo, sino una nueva forma de evaluar algoritmos existentes. En un campo donde la literatura está plagada de comparaciones incompletas y \textit{benchmarks} sesgados, el valor de establecer un estándar de evaluación riguroso, reproducible y justo puede ser, a largo plazo, más significativo que el de proponer una fórmula de regularización incremental. Los métodos de interpolación de EEG son una herramienta; esta tesis aspira a ser un manual de uso que indique, con evidencia, cuándo y por qué utilizar cada una.

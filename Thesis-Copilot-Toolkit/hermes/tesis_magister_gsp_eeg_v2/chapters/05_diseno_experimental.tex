@@ -1,0 +1,57 @@
+\chapter{Diseño Experimental}
+\label{ch:diseno_experimental}
+
+Este capítulo formaliza el diseño experimental: variables independientes, dependientes y controladas, protocolo de validación, plan de análisis estadístico y preguntas de investigación. El diseño sigue el principio de que cada experimento debe estar explícitamente vinculado a una pregunta de investigación y a una hipótesis, y que la significancia estadística debe establecerse con rigor antes de interpretar cualquier patrón.
+
+\section{Variables del Experimento}
+
+Como \textbf{variables independientes} se definen: el método de interpolación (18 niveles), el conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), el modo de pérdida (aleatorio, contiguo), la severidad de la pérdida (10\%, 20\%, 30\%, 40\%) y la semilla aleatoria (5 réplicas por condición, como variable de bloque).
+
+Las \textbf{variables dependientes} son las seis métricas de evaluación: MAE, RMSE, SNR, DTW, LSD y Coherencia, cuyas definiciones precisas se presentaron en la Tabla~\ref{tab:metrics}.
+
+Como \textbf{variables controladas} se fijan: las versiones exactas de todas las bibliotecas de software (documentadas en el Apéndice de Reproducibilidad), el hardware de ejecución, las semillas globales de NumPy y PyTorch, y el preprocesamiento —idéntico para todos los métodos: filtro pasabanda Butterworth de orden 4 entre 0.5 y 45~Hz, referencia promedio común, y segmentación en épocas de igual duración.
+
+\section{Preguntas de Investigación por Experimento}
+
+La Tabla \ref{tab:hypothesis_experiments} vincula cada pregunta de investigación con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 y H2.
+
+\begin{table}[htbp]
+\centering
+\caption{Relación entre hipótesis, preguntas de investigación, experimentos y evidencia esperada.}
+\label{tab:hypothesis_experiments}
+\begin{tabular}{llll}
+\toprule
+Hipótesis & Pregunta & Experimento & Evidencia esperada \\
+\midrule
+H1 & ¿Supera TRSS a las referencias? & Comparación global de familias & TRSS domina en pérdida contigua $>20\%$ \\
+H1 & ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & $\alpha+\beta > \alpha + \beta$ (superaditividad) \\
+H1 & ¿Preserva ERPs? & Series temporales N100/P300 & Amplitud y latencia conservadas al 40\% \\
+H2 & ¿Es MNE equivalente en régimen favorable? & Validación confirmatoria & Equivalencia estadística en pérdida $\leq 20\%$ \\
+H2 & ¿Cuál es el punto de cruce? & Curvas de degradación & Cruce en 15--20\% de severidad \\
+-- & ¿Qué métrica discrimina mejor? & Radar multi-métrico & DTW y LSD muestran mayor contraste \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Plan de Análisis Estadístico}
+
+Para todas las comparaciones entre métodos se utilizan pruebas no paramétricas (Wilcoxon signed-rank para muestras pareadas), ya que las métricas de error no siguen distribuciones normales (confirmado mediante la prueba de Shapiro-Wilk sobre los resultados agregados). Dado el alto número de comparaciones —6 métricas $\times$ 18 métodos $\times$ 120 escenarios—, se aplica la corrección de Benjamini-Hochberg para controlar la tasa de falsos descubrimientos (FDR) al 5\%. Se reportan tanto los valores $p$ originales como los ajustados.
+
+Además de la significancia estadística, se reporta el tamaño del efecto mediante la correlación biserial por rangos (para Wilcoxon) y la mejora relativa mediana. Los intervalos de confianza se calculan mediante remuestreo bootstrap jerárquico (1000 remuestreos) que respeta la estructura anidada de los datos: escenarios $\supset$ réplicas.
+
+Para la comparación TRSS vs. MNE en la fase confirmatoria, se emplea un diseño de medidas repetidas: cada escenario produce una diferencia pareada en cada métrica. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero (equivalencia); la alternativa $H_1$ es que es distinta de cero. La significancia se evalúa con Wilcoxon signed-rank y se reporta la tasa de victoria (fracción de escenarios donde TRSS supera a MNE) estratificada por dataset, modo y severidad.
+
+\section{Control de Calidad Experimental}
+
+Antes de cualquier análisis, se ejecutaron verificaciones automáticas de consistencia para garantizar la integridad de los datos: (1) todos los archivos de resultados contienen las seis métricas esperadas, (2) ningún identificador de ejecución aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden exactamente con la semilla y configuración especificadas, (4) las ejecuciones donde el método produjo valores no numéricos en alguna métrica fueron excluidas, (5) las ejecuciones donde el tiempo de ejecución excedió 10 minutos por intento fueron marcadas y analizadas por separado, y (6) las ejecuciones donde la reconstrucción resultó idéntica a la entrada (falla silenciosa del resolvedor) fueron excluidas. Estos criterios se aplicaron uniformemente a todos los métodos sin excepción.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{res_opt_final__heatmap_performance_mne_sample}
+\caption[Mapa de calor de desempeño en MNE Sample]{Mapa de calor del RMSE para todos los métodos en MNE Sample. Cada fila corresponde a un método y cada columna a una combinación de modo y nivel de pérdida. Los tonos oscuros indican menor error. La columna de la derecha (pérdida contigua al 40\%) muestra el contraste más marcado entre TRSS y las referencias geométricas.}
+\label{fig:heatmap_mne_sample}
+\end{figure}
+
+\section{Síntesis del Diseño}
+
+El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: (1) todos los métodos, incluyendo las referencias clásicas, fueron optimizados con el mismo motor de optimización bayesiana, (2) se incorporó una validación confirmatoria independiente contra la implementación industrial MNE-Python, (3) la evaluación abarca métricas de amplitud, morfología y espectro, y (4) los escenarios de pérdida incluyen tanto fallas aleatorias como contiguas en un rango de severidades clínicamente relevante.

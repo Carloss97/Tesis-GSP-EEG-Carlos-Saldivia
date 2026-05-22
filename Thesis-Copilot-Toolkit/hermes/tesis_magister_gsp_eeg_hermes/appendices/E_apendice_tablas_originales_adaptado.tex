@@ -1,0 +1,135 @@
+\appendix
+
+\chapter{Tablas Detalladas de Resultados}
+
+\section{Hiperparámetros Óptimos por Escenario}
+
+La Tabla~\ref{tab:hyperparams_trss} presenta los hiperparámetros óptimos encontrados por Optuna para TRSS en cada combinación de dataset y escenario de degradación. Estos valores son reproducibles ejecutando \texttt{experiments/run\_optuna\_optimization.py}.
+
+\begin{table}[ht]
+\centering
+\caption{Hiperparámetros óptimos de TRSS por dataset y escenario representativo.}
+\label{tab:hyperparams_trss}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Dataset} & \textbf{Escenario} & $k$ & $\sigma$ & $\alpha$ & $\beta$ \\
+\midrule
+BCI IV 2a  & nearby, 1 canal  & 6  & 0.856 & 0.0114 & 0.765 \\
+BCI IV 2a  & nearby, 10\%     & 5  & 0.712 & 0.0230 & 0.612 \\
+BCI IV 2a  & nearby, 40\%     & 4  & 0.950 & 0.0085 & 0.890 \\
+MNE Sample & nearby, 10\%     & 8  & 1.200 & 0.0150 & 0.550 \\
+MNE Sample & nearby, 40\%     & 6  & 0.900 & 0.0200 & 0.780 \\
+PhysioNet  & random, 10\%     & 10 & 1.500 & 0.0300 & 0.420 \\
+PhysioNet  & nearby, 40\%     & 7  & 1.100 & 0.0120 & 0.850 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Patrones observados en la sintonización:
+\begin{itemize}
+    \item $\beta$ (peso temporal) tiende a incrementarse con la severidad de la pérdida, confirmando que la regularización temporal se vuelve más valiosa cuanta más información espacial se pierde.
+    \item $\alpha$ (peso espacial) se mantiene bajo ($< 0.05$), indicando que un suavizado espacial excesivo es contraproducente.
+    \item $k$ (vecinos del grafo) se adapta a la densidad del dataset: valores más altos para PhysioNet (64 ch) y más bajos para BCI IV (22 ch).
+\end{itemize}
+
+\section{Métricas Espectrales Detalladas}
+
+\begin{table}[ht]
+\centering
+\caption{LSD y Coherencia promedio por método y dataset (valores de \texttt{optuna\_summary\_pivot.csv}).}
+\label{tab:spectral_detail}
+\begin{tabular}{lcccccc}
+\toprule
+& \multicolumn{3}{c}{\textbf{LSD} $\downarrow$} & \multicolumn{3}{c}{\textbf{Coherencia} $\uparrow$} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+\textbf{Método} & \textbf{BCI IV} & \textbf{MNE} & \textbf{PhysioNet} & \textbf{BCI IV} & \textbf{MNE} & \textbf{PhysioNet} \\
+\midrule
+TRSS         & 0.124 & 0.111 & 0.189 & 0.997 & 0.994 & 0.990 \\
+Tikhonov     & 0.314 & 0.460 & 0.308 & 0.965 & 0.916 & 0.973 \\
+RBF (TPS)    & 0.346 & 0.662 & 0.328 & 0.955 & 0.835 & 0.968 \\
+Sph. Spline  & 0.369 & 0.695 & 0.382 & 0.950 & 0.816 & 0.946 \\
+ICA          & 0.591 & 0.465 & 0.621 & 0.902 & 0.917 & 0.896 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\chapter{Estructura del Repositorio}
+
+El código fuente y los artefactos experimentales se organizan bajo el directorio \texttt{Thesis-Copilot-Toolkit/} de la siguiente manera:
+
+\begin{verbatim}
+Thesis-Copilot-Toolkit/
++-- src/
+|   +-- data/
+|   |   +-- data_loader.py          # Cargadores de datasets
+|   +-- graph_construction/
+|   |   +-- graph_constructors.py   # 10 constructores de grafos
+|   |   +-- aew.py                  # Adaptive Edge Weighting
+|   +-- interpolation_methods.py    # 18 algoritmos
+|   +-- evaluation.py              # 6 metricas
++-- experiments/
+|   +-- run_optuna_optimization.py  # Optimizacion GSP/temporal
+|   +-- run_optuna_baselines.py     # Optimizacion baselines
+|   +-- plot_*.py                   # Scripts de visualizacion
+|   +-- finalize_b3_b4.py          # Consolidacion final
++-- results_optuna_final/
+|   +-- optuna_best_results.csv     # Resultados optimos GSP
+|   +-- optuna_summary_pivot.csv    # Tabla pivote consolidada
+|   +-- degradation_*.png           # Curvas de degradacion
+|   +-- heatmap_*.png               # Mapas de calor
+|   +-- radar_*.png                 # Graficos radar
+|   +-- erp_timeseries_*.png        # Series ERP
+|   +-- psd_comparison_*.png        # Comparaciones PSD
++-- results_optuna_baselines/
+|   +-- optuna_best_results_baselines.csv
+|   +-- erp_optimized_baselines_*.png
+|   +-- psd_optimized_baselines_*.png
++-- shared/
+|   +-- results_data.tex            # Variables LaTeX compartidas
++-- thesis/usm/                     # Documento de tesis
++-- paper/ieee/                     # Documento del paper
+\end{verbatim}
+
+\chapter{Instrucciones de Reproducción}
+
+Para reproducir los experimentos reportados en esta tesis, ejecutar los siguientes comandos desde el directorio raíz del repositorio:
+
+\begin{enumerate}
+    \item \textbf{Instalar dependencias:}
+\begin{verbatim}
+pip install -r requirements.txt
+\end{verbatim}
+
+    \item \textbf{Configurar rutas de datasets:}
+\begin{verbatim}
+export BCI_IV_2A_PATH=./datasets/BCICIV_2a_gdf
+export EEGBCI_LOCAL_PATH=./datasets/MNE-eegbci-data
+\end{verbatim}
+
+    \item \textbf{Ejecutar optimización de métodos GSP/temporales:}
+\begin{verbatim}
+python experiments/run_optuna_optimization.py
+\end{verbatim}
+
+    \item \textbf{Ejecutar optimización de baselines:}
+\begin{verbatim}
+python experiments/run_optuna_baselines.py
+\end{verbatim}
+
+    \item \textbf{Generar figuras:}
+\begin{verbatim}
+python experiments/plot_degradation_curves.py
+python experiments/plot_radar_charts.py
+python experiments/plot_heatmaps.py
+python experiments/plot_erp_time_series.py
+python experiments/plot_optimized_baselines.py
+\end{verbatim}
+
+    \item \textbf{Compilar documentos:}
+\begin{verbatim}
+cd Thesis-Copilot-Toolkit/thesis/usm && latexmk -pdf main.tex
+cd Thesis-Copilot-Toolkit/paper/ieee && latexmk -pdf main.tex
+\end{verbatim}
+\end{enumerate}
+
+Todas las operaciones estocásticas utilizan semillas fijas (\texttt{random\_state=42}) para garantizar reproducibilidad determinista.

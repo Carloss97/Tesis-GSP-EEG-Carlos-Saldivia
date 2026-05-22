@@ -1,0 +1,24 @@
+% Auto-generated content copied from results/trss_vs_mne_bads_extensive/robust_stats.
+\begin{table}[H]
+\centering
+\small
+\caption{Comparación robusta contra \code{MNE interpolate_bads(method='spline')}. La mejora mediana positiva indica ventaja de TRSS; para tiempo una mejora negativa indica que TRSS es más lento que MNE. Los intervalos se obtienen mediante bootstrap jerárquico por dataset y escenario.}
+\label{tab:trss_mne_robust_main}
+\begin{tabular}{llp{0.25\textwidth}rrr}
+\toprule
+Método & Métrica & Mejora mediana (IC95) & Win-rate & $q_{BH}$ & Efecto \\
+\midrule
+TRSS fijo & MAE $\downarrow$ & 12.4\% [7.8, 17.4] & 72.0\% & $1.0\times 10^{-22}$ & 0.66 \\
+TRSS fijo & NRMSE $\downarrow$ & 13.9\% [6.4, 19.3] & 70.3\% & $2.5\times 10^{-22}$ & 0.65 \\
+TRSS fijo & LSD $\downarrow$ & -2.3\% [-4.0, -0.2] & 40.7\% & 0.003 & -0.20 \\
+TRSS fijo & Correlación $\uparrow$ & 0.8\% [0.3, 2.0] & 68.7\% & $5.8\times 10^{-21}$ & 0.63 \\
+TRSS fijo & Tiempo $\downarrow$ & -1004.1\% [-1072.8, -934.0] & 0.3\% & $9.0\times 10^{-49}$ & -0.99 \\
+\addlinespace
+TRSS calibrado & MAE $\downarrow$ & 12.0\% [6.9, 18.7] & 70.0\% & $1.8\times 10^{-20}$ & 0.62 \\
+TRSS calibrado & NRMSE $\downarrow$ & 13.4\% [6.6, 20.5] & 69.3\% & $3.4\times 10^{-21}$ & 0.63 \\
+TRSS calibrado & LSD $\downarrow$ & -9.6\% [-13.4, -6.5] & 26.0\% & $5.8\times 10^{-17}$ & -0.56 \\
+TRSS calibrado & Correlación $\uparrow$ & 0.6\% [0.2, 1.6] & 63.7\% & $5.2\times 10^{-15}$ & 0.52 \\
+TRSS calibrado & Tiempo $\downarrow$ & -825.9\% [-876.1, -731.3] & 1.3\% & $9.0\times 10^{-49}$ & -0.99 \\
+\bottomrule
+\end{tabular}
+\end{table}

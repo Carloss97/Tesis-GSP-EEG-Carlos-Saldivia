@@ -1,6 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Estrategias de construcción de grafos para EEG.}}{12}{table.caption.10}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Resumen de familias de métodos de interpolación de canales EEG.}}{15}{table.caption.11}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres datasets experimentales.}}{15}{table.caption.9}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Espacios de búsqueda de hiperparámetros por método.}}{20}{table.caption.10}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Características de las tres bases de datos experimentales.}}{17}{table.caption.13}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Catálogo de métodos de interpolación implementados y evaluados.}}{20}{table.caption.14}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Espacios de búsqueda de hiperparámetros.}}{21}{table.caption.15}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Matriz experimental consolidada. Cada celda representa una combinación evaluada bajo optimización bayesiana con separación cronológica estricta entrenamiento/prueba.}}{22}{table.caption.16}%

@@ -1,0 +1,119 @@
+\chapter{Discusión}
+
+Los resultados presentados en el capítulo anterior muestran que los métodos con regularización temporal ---particularmente TRSS--- pueden superar a varios baselines geométricos y GSP bajo el protocolo experimental exploratorio. La comparación confirmatoria contra \code{MNE interpolate\_bads(method='spline')}, sin embargo, obliga a una lectura más matizada: TRSS mejora de forma reproducible el error de amplitud, pero MNE conserva ventajas en fidelidad espectral agregada y coste computacional. Este capítulo ofrece un análisis reflexivo y crítico sobre el \textit{porqué} de estos resultados, conectando la evidencia empírica con los fundamentos teóricos del Procesamiento de Señales en Grafos, identificando las limitaciones del estudio y contextualizando los hallazgos dentro del panorama más amplio de la neurociencia computacional.
+
+\section{Interpretación Teórica de la Ventaja observada Temporal}
+
+\subsection{La Inercia Neurofisiológica como Prior Matemático}
+
+El resultado más importante de esta tesis ---que TRSS supera a todos los demás métodos por más de un orden de magnitud en MAE--- tiene una explicación física profunda. Las señales EEG son generadas por poblaciones de neuronas piramidales cuyos potenciales postsinápticos están gobernados por ecuaciones diferenciales con constantes de tiempo del orden de milisegundos a decenas de milisegundos. Esto significa que la actividad eléctrica en un electrodo en el instante $t$ está fuertemente correlacionada con la actividad en el instante $t-1$.
+
+La formulación de TRSS captura exactamente esta realidad mediante el término $\beta \|\mathbf{Z}\mathbf{D}_t\|_F^2$, que penaliza las derivadas temporales de primer orden de la señal reconstruida. Al hacerlo, impone un \textit{prior} de continuidad que es fisiológicamente correcto: los voltajes corticales no pueden ``saltar'' instantáneamente de un valor a otro sin violar las leyes de la dinámica de membrana neuronal.
+
+Los métodos puramente espaciales (Spherical Splines, RBF, Tikhonov sin término temporal) carecen de esta restricción. Al operar muestra por muestra, cada instante se reconstruye como un problema independiente. Aunque la solución para cada $t$ individual puede ser razonable, la secuencia $\{\hat{x}(t)\}_{t=1}^T$ resultante carece de coherencia temporal, introduciendo ruido de alta frecuencia artificial (``jitter'') que distorsiona la fase de los ERPs y contamina las bandas espectrales superiores.
+
+\subsection{La Doble Regularización como Filtro Espacio-Temporal}
+
+Desde una perspectiva de teoría de señales, la función de costo de TRSS (Ecuación~\ref{eq:trss_obj} del Capítulo 2) puede interpretarse como un filtro paso-bajo bidimensional: espacialmente (a través del Laplaciano $\mathbf{L}$) y temporalmente (a través de $\mathbf{D}_t$). El parámetro $\alpha$ controla la frecuencia de corte espacial y $\beta$ la temporal. La optimización con Optuna sintoniza estos dos cortes simultáneamente para cada escenario, logrando un balance óptimo que ningún método uni-dimensional puede alcanzar.
+
+Esta interpretación explica por qué la ventaja de TRSS se amplifica en escenarios \textit{nearby}: cuando se pierden múltiples electrodos contiguos, la información espacial local desaparece por completo. El Laplaciano $\mathbf{L}_{\mathcal{U}\mathcal{U}}$ del subgrafo faltante pierde rango y la reconstrucción espacial pura se vuelve mal condicionada. Sin embargo, el término temporal $\beta \|\mathbf{Z}\mathbf{D}_t\|_F^2$ sigue proveyendo información válida desde los instantes adyacentes, estabilizando numéricamente la solución.
+
+\section{El Cruce de Rendimiento: Análisis Detallado}
+
+\subsection{Comportamiento Asintótico bajo Degradación}
+
+Las curvas de degradación (Figuras del Capítulo 4) revelan un patrón consistente: a medida que la proporción de canales faltantes crece, el SNR de los baselines geométricos decae de forma aproximadamente exponencial, mientras que el de TRSS exhibe una degradación cuasi-lineal. Este comportamiento diferencial se explica por la naturaleza del condicionamiento del problema inverso.
+
+Para los métodos espaciales, la reconstrucción depende de la inversión del subbloque $\mathbf{L}_{\mathcal{U}\mathcal{U}}$ del Laplaciano. A medida que $|\mathcal{U}|$ crece, el número de condición de este subbloque se dispara, amplificando exponencialmente cualquier error numérico. En el caso extremo de pérdida \textit{nearby}, el subgrafo inducido por $\mathcal{U}$ puede incluso desconectarse del resto de la red, haciendo el sistema literalmente singular.
+
+TRSS evita este colapso porque la matriz del sistema completo incluye contribuciones del operador temporal $\mathbf{D}_t^\top \mathbf{D}_t$, que es independiente de la topología del grafo y siempre tiene rango completo (excepto en los extremos temporales). Esta ``inyección de rango'' temporal es el mecanismo matemático que explica la resiliencia observada.
+
+\subsection{El Papel de la Densidad Espacial}
+
+Los resultados muestran una interacción interesante entre la densidad de electrodos y la ventaja relativa de TRSS:
+\begin{itemize}
+    \item En \textbf{PhysioNet} (64 canales, alta densidad), la ventaja de TRSS sobre los baselines, aunque estadísticamente significativa, es moderada en escenarios benignos (10\% random). La alta redundancia espacial permite a las splines compensar parcialmente la falta de memoria temporal.
+    \item En \textbf{BCI IV 2a} (22 canales, baja densidad), la ventaja se amplifica dramáticamente. Con solo 22 nodos, la pérdida de 4-5 canales (20\%) ya representa una fracción sustancial de la malla, y los métodos geométricos carecen de suficientes ``vecinos'' para interpolar con precisión.
+    \item En \textbf{MNE Sample} (60 canales, alta densidad pero paradigma evocado), TRSS exhibe su mayor ventaja en DTW y LSD, reflejando la importancia crítica de la regularización temporal para preservar los transitorios rápidos de los ERPs.
+\end{itemize}
+
+Esta interacción sugiere una regla práctica: cuanto menor sea la densidad espacial y más transitoria la dinámica de interés, mayor será el beneficio de incorporar regularización temporal.
+
+\section{El Impacto del Fair Benchmarking}
+
+\subsection{La Trampa de los Baselines sin Optimizar}
+
+Uno de los aportes metodológicos más importantes de esta tesis es mostrar que la comparación contra baselines depende fuertemente de cómo se defina el baseline. En la fase exploratoria, optimizar las familias geométricas con Optuna no cerró por completo la brecha con TRSS, pero sí reveló que varios resultados espectaculares desaparecen cuando las splines y RBF reciben una oportunidad de calibración comparable. En la fase confirmatoria, al reemplazar la spline propia por \code{MNE interpolate\_bads(method='spline')}, la conclusión se volvió aún más exigente: TRSS conserva una ventaja robusta en MAE/NRMSE, pero MNE domina en velocidad y puede ser superior en fidelidad espectral agregada.
+
+Esto tiene implicaciones metodológicas importantes para la comunidad: futuros estudios de interpolación EEG deberían reportar siempre el rendimiento de sus baselines bajo una implementación de referencia fuerte, idealmente MNE-Python o una alternativa documentada, y no solo bajo implementaciones ad hoc o valores por defecto no auditados.
+
+\subsection{Por qué \code{MNE interpolate\_bads()} funciona tan bien}
+
+El buen rendimiento de MNE no es accidental. Primero, el supuesto físico de las splines esféricas coincide bien con la conducción de volumen: el potencial medido en el cuero cabelludo es espacialmente suave porque cada fuente cortical se distribuye sobre múltiples sensores. Segundo, MNE explota todos los canales buenos disponibles simultáneamente, no solo vecinos locales, lo que reduce varianza cuando la densidad de sensores es alta. Tercero, la implementación introduce regularización diagonal, pseudoinversa y un sistema aumentado con término constante; estas decisiones reducen singularidades numéricas sin añadir muchos hiperparámetros libres. Cuarto, el método es instantáneo y determinista: evita errores de optimización, sensibilidad a semillas y sobreajuste de ventana temporal.
+
+Las diferencias respecto de la formulación original de Perrin et al.~\cite{perrin1989} deben entenderse como decisiones de ingeniería científica más que como un cambio de modelo: MNE conserva la expansión de Legendre sobre esfera, pero usa una expansión truncada, rigidez fija, normalización geométrica de posiciones, ajuste automático del origen de cabeza y regularización pequeña en la matriz de canales buenos \cite{gramfort2013meg, gramfort_mne_software_2014, mne_interpolate_bads_docs}. Estos criterios responden a estabilidad numérica, reproducibilidad y compatibilidad con montajes reales. Por eso MNE es un baseline difícil: cuando la señal es suficientemente suave y el montaje es denso, su sesgo inductivo coincide casi exactamente con la estructura del problema.
+
+La ventaja de TRSS aparece precisamente fuera de ese régimen ideal. Cuando la señal tiene transitorios, dinámica temporal o zonas faltantes contiguas, una interpolación instantánea puede producir una superficie plausible en cada muestra, pero no necesariamente una trayectoria temporal fisiológicamente plausible. TRSS añade ese prior dinámico; a cambio, paga coste computacional y puede degradar métricas espectrales si la regularización temporal no se calibra cuidadosamente.
+
+\subsection{El Caso ICA: Promesa Teórica vs. Realidad Práctica}
+
+Los resultados de ICA merecen una discusión aparte. A pesar de su fundamentación teórica sólida en separación de fuentes, ICA exhibió el rendimiento más errático e inconsistente:
+\begin{itemize}
+    \item Resultados competitivos en MNE Sample (donde la estructura de fuentes evocadas es limpia y bien separable).
+    \item Rendimiento deficiente en PhysioNet (donde la alta densidad genera componentes altamente correlacionadas que dificultan la separación).
+    \item Problemas recurrentes de convergencia de FastICA que requirieron implementar un mecanismo de \textit{retry} con parámetros degradados y \textit{fallback} a interpolación lineal.
+\end{itemize}
+
+Estos hallazgos sugieren que ICA, aunque teóricamente elegante, no es una herramienta robusta para interpolación en escenarios de producción donde la convergencia no puede garantizarse. Su utilidad se restringe a escenarios controlados con pocas fuentes bien separables.
+
+\section{Relevancia Clínica y Aplicaciones}
+
+\subsection{Impacto en Sistemas BCI}
+
+La preservación de ERPs demostrada por TRSS tiene implicaciones directas para los sistemas de interfaz cerebro-computador. En un pipeline BCI típico basado en P300, la señal EEG se segmenta en épocas cortas ($\sim$800~ms) y se clasifica según la presencia o ausencia de un componente P300. La distorsión de amplitud o latencia de este componente ---como la observada en las reconstrucciones por splines bajo degradación severa--- se traduce directamente en una caída de la tasa de acierto del clasificador.
+
+Aunque este trabajo no evaluó directamente el impacto en la clasificación (\textit{downstream task}), la evidencia de DTW y la inspección visual de las trazas ERP sugieren fuertemente que TRSS produciría tasas de clasificación más favorables en un pipeline BCI real. Esta hipótesis constituye una línea natural de trabajo futuro.
+
+\subsection{Monitorización Clínica Continua}
+
+En contextos de monitorización clínica prolongada (UCI, monitorización de epilepsia), los electrodos se degradan inevitablemente con el tiempo. La capacidad de TRSS para reconstruir canales perdidos con alta fidelidad espectral (LSD $\approx 0.11$) abre la posibilidad de mantener la integridad del registro durante horas o días sin intervención técnica, preservando la capacidad diagnóstica del EEG.
+
+\section{Limitaciones del Estudio}
+
+Es imperativo transparentar las limitaciones del presente trabajo para contextualizar correctamente los hallazgos y orientar el trabajo futuro.
+
+\subsection{Costo Computacional}
+
+TRSS opera sobre ventanas temporales completas $\mathbf{X} \in \mathbb{R}^{N \times T}$ y requiere múltiples iteraciones de descenso de gradiente. Esto implica un costo computacional significativamente mayor que los métodos instantáneos. Mientras que una Spherical Spline reconstruye un instante en $\mathcal{O}(N^2)$, TRSS requiere $\mathcal{O}(n_{\text{iter}} \cdot N^2 \cdot T)$ para una ventana de $T$ muestras. En los experimentos realizados, con $n_{\text{iter}} = 120$ y $T = 500$, cada reconstrucción TRSS tardó del orden de segundos, lo que es aceptable para análisis \textit{offline} pero insuficiente para aplicaciones de tiempo real sin optimizaciones adicionales (paralelización GPU, ventanas deslizantes solapadas).
+
+\subsection{Sensibilidad a los Hiperparámetros}
+
+Aunque Optuna sintoniza eficientemente $\alpha$ y $\beta$, la calidad de la reconstrucción TRSS depende críticamente de estos valores. Un $\beta$ excesivamente alto produce sobre-suavizado temporal (pérdida de transitorios rápidos), mientras que un $\beta$ insuficiente no aporta ventaja sobre Tikhonov puro. La necesidad de optimización por escenario implica que no existe una configuración ``universal'' de TRSS, lo que limita su aplicabilidad directa sin un paso previo de calibración.
+
+\subsection{Simulación vs. Realidad}
+
+Los protocolos de enmascaramiento (\textit{random} y \textit{nearby}) son aproximaciones a las fallas reales. En la práctica, la degradación de un electrodo es gradual (no binaria), puede correlacionarse con artefactos de movimiento que contaminan simultáneamente canales vecinos, y puede variar a lo largo del registro. Además, la señal ``limpia'' utilizada como \textit{ground truth} nunca es perfecta: contiene artefactos residuales del preprocesamiento que podrían sesgar las métricas. Futuros trabajos deberían explorar modelos de degradación más realistas con ruido parcial y fallas intermitentes.
+
+\subsection{Alcance de los Datasets}
+
+Aunque se emplearon tres datasets heterogéneos, todos provienen de sujetos adultos sanos (o con paradigmas controlados). La generalización a poblaciones clínicas (epilepsia, neonatos, pacientes con daño cerebral) requiere validación adicional, ya que la dinámica cortical en estas condiciones puede diferir sustancialmente de las asunciones de suavidad que sustentan la regularización.
+
+\subsection{Estado de BGSRP}
+
+El método BGSRP, basado en espacios RKHS bandlimited, mostró un rendimiento intermedio en los experimentos. Sin embargo, persiste un gap residual entre la implementación Python del presente repositorio y la referencia MATLAB/GSPBox original. Aunque los resultados cualitativos son coherentes, la equivalencia numérica exacta no ha sido verificada, por lo que las conclusiones sobre BGSRP deben interpretarse con esta cautela.
+
+\section{Comparación con el Estado del Arte Internacional}
+
+Los resultados de esta tesis se posicionan favorablemente en el contexto de la literatura reciente:
+\begin{itemize}
+    \item Los trabajos de Mortaheb et al. \cite{mortaheb_graph_2019} demostraron la utilidad del GSP para extraer biomarcadores de conectividad, pero no evaluaron la reconstrucción de canales faltantes per se. La presente tesis extiende el paradigma GSP específicamente al problema de interpolación.
+    \item Los estudios de detección de Alzheimer basados en GFT \cite{mootoo_detecting_2023} y decodificación de imaginería motora \cite{miri_spectral_2024} confirman que las representaciones espectrales en grafos superan a la FFT espacial, lo cual es consistente con nuestra observación de que la métrica LSD favorece a los métodos GSP.
+    \item El trabajo de Jiang et al. \cite{jiang_graph-based_2021} en redes de sensores inalámbricos demostró la importancia del aprendizaje de grafos para la imputación, hallazgo que se replica en nuestro contexto EEG con los constructores adaptativos (\texttt{kalofolias}, \texttt{aew}).
+    \item A diferencia de los benchmarks existentes, este trabajo es ---según el conocimiento del autor--- el primero en someter tanto los métodos novedosos como los baselines clásicos a optimización bayesiana multi-objetivo (NSGA-II) sobre múltiples datasets EEG simultáneamente, estableciendo un nuevo estándar metodológico para la evaluación justa.
+\end{itemize}
+
+\section{Reflexión Epistemológica}
+
+Desde una perspectiva más amplia, los resultados de esta tesis ilustran un principio general de la ingeniería de señales: \textbf{incorporar conocimiento \textit{a priori} correcto sobre la física del problema siempre mejora la reconstrucción}. Los métodos geométricos modelan la cabeza como una esfera pasiva; los métodos GSP modelan la red de electrodos como un grafo con conectividad funcional; y TRSS añade el conocimiento de que el cerebro es un sistema dinámico con inercia temporal. Cada capa de conocimiento previo reduce el espacio de soluciones posibles, acercando la estimación al verdadero estado subyacente.
+
+Esta jerarquía de priors ---geométrico $\subset$ topológico $\subset$ espacio-temporal--- explica de forma unificada buena parte de la jerarquía de rendimiento observada, pero no debe leerse como una dominancia universal. MNE demuestra que un prior geométrico muy bien implementado puede ser extraordinariamente competitivo cuando sus supuestos se cumplen. La contribución de TRSS consiste en ampliar el prior hacia la dimensión temporal, lo cual mejora la reconstrucción en escenarios dinámicos o adversos, no en invalidar la utilidad de las splines esféricas.

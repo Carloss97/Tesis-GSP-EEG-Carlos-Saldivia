@@ -1,0 +1,44 @@
+============================================================
+  Validation: tesis_completa.tex
+============================================================
+{
+  "document": "tesis_completa.tex",
+  "tex_files_loaded": 28,
+  "missing_inputs": [],
+  "citations_used": 25,
+  "missing_citations": [],
+  "figures_used": 17,
+  "missing_figures": [],
+  "labels": 80,
+  "duplicate_labels": {},
+  "missing_refs": [],
+  "approx_words_tex": 16494,
+  "heuristic_pages_text_only": 42.3
+}
+  [PASS] tesis_completa.tex
+
+============================================================
+  Validation: tesis_caps_1_5.tex
+============================================================
+{
+  "document": "tesis_caps_1_5.tex",
+  "tex_files_loaded": 12,
+  "missing_inputs": [],
+  "citations_used": 25,
+  "missing_citations": [],
+  "figures_used": 2,
+  "missing_figures": [],
+  "labels": 32,
+  "duplicate_labels": {},
+  "missing_refs": [
+    "ap:derivaciones",
+    "ap:inventario",
+    "ap:original_adaptado",
+    "ap:reproducibilidad",
+    "ap:tablas_extensas",
+    "ch:resultados"
+  ],
+  "approx_words_tex": 9855,
+  "heuristic_pages_text_only": 25.3
+}
+  [FAIL] tesis_caps_1_5.tex

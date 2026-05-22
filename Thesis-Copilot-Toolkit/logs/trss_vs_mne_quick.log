@@ -1,0 +1,19 @@
+Installed 39 packages in 123ms
+
+=== Loading synthetic_smooth ===
+Dataset synthetic_smooth: signals=(640, 32), sfreq=160.000, channels=32
+
+=== Loading synthetic_rough ===
+Dataset synthetic_rough: signals=(640, 32), sfreq=160.000, channels=32
+  completed case 10; rows=90
+
+=== Loading physionet_s1_r4_w0 ===
+Dataset physionet_s1_r4_w0: signals=(640, 64), sfreq=160.000, channels=64
+  completed case 20; rows=180
+
+Raw results written to: /mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/results/trss_vs_mne_bads_extensive/raw_quick.csv
+/mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/experiments/trss_vs_mne_bads_extensive.py:900: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  plt.boxplot(data, labels=["MNE spline", "TRSS default", "TRSS tuned", "TRSS oracle"], showfliers=False)
+/mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/experiments/trss_vs_mne_bads_extensive.py:913: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  plt.boxplot(data, labels=["MNE spline", "TRSS default", "TRSS tuned", "TRSS oracle"], showfliers=False)
+Summary written under: /mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/results/trss_vs_mne_bads_extensive

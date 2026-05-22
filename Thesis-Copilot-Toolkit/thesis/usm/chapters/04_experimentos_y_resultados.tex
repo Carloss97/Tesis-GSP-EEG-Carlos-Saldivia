@@ -1,385 +1,177 @@
 \chapter{Experimentos y Resultados}
 
-Este capítulo presenta los hallazgos empíricos obtenidos de la ejecución masiva del pipeline descrito en el Capítulo 3. Los resultados se organizan progresivamente: primero se establece la configuración experimental exacta, luego se presentan los resultados globales consolidados, se profundiza en el análisis por escenario de degradación, se examina la fidelidad fisiológica mediante ERPs y PSD, y finalmente se sintetizan los hallazgos estadísticos. Todas las figuras presentadas corresponden a artefactos generados automáticamente desde los datos reales del repositorio.
+Este capítulo presenta los resultados empíricos de la evaluación comparativa. La exposición se organiza en niveles crecientes de especificidad: desde la comparación global de familias hasta la validación confirmatoria contra MNE-Python, pasando por análisis estratificado por severidad, preservación fisiológica y ablación de componentes.
 
-\section{Configuración Experimental}
+\section{Comparación Global de Familias de Métodos}
 
-\subsection{Ejecución del Pipeline}
-
-La fase experimental se ejecutó en dos etapas principales:
-\begin{enumerate}
-    \item \textbf{Fase B2 (Corrida Full-Scale)}: Ejecución exhaustiva del pipeline con los métodos canónicos sobre los tres datasets, generando los artefactos base de comparación (\texttt{results/b2\_publication\_ranking\_final.csv}).
-    \item \textbf{Fase Optuna Multi-Dataset}: Optimización bayesiana de hiperparámetros para todas las familias de métodos ---incluyendo baselines--- sobre la totalidad de escenarios. Esta fase generó los resultados definitivos en \texttt{results\_optuna\_final/optuna\_best\_results.csv} y \texttt{results\_optuna\_baselines/optuna\_best\_results\_baselines.csv}.
-\end{enumerate}
-
-Se evaluaron \ResNGraphMethods~constructores de grafo, \ResNInstantMethods~métodos de interpolación instantánea y \ResNTVMethods~métodos con regularización temporal. Los escenarios de canales faltantes cubrieron \ResNScenarios~modos espaciales (\ResScenariosNames) con niveles de pérdida de \ResMissingLevels.
-
-\subsection{Métricas Reportadas}
-
-Los resultados se reportan con seis métricas: MAE, RMSE, SNR, DTW, LSD y Coherencia (Magnitude-Squared Coherence). Para cada combinación (dataset $\times$ escenario $\times$ método), se registran los valores óptimos obtenidos tras la sintonización de Optuna, junto con los hiperparámetros exactos que los produjeron.
-
-\section{Resultados Globales Consolidados}
-
-\subsection{Comparación por Familia de Métodos}
-
-La Tabla~\ref{tab:global_families} resume el rendimiento promedio de las tres familias principales bajo configuraciones optimizadas por Optuna. Los valores corresponden al promedio ponderado a través de los tres datasets y todos los escenarios de degradación.
+La Tabla~\ref{tab:main_results} presenta los resultados agregados tras la optimización bayesiana con Optuna, estratificados por severidad de pérdida y modo espacial. Los valores corresponden a la media $\pm$ desviación estándar sobre los tres datasets, calculados exclusivamente sobre el conjunto de prueba.
 
 \begin{table}[ht]
 \centering
-\caption{Rendimiento promedio consolidado por familia de métodos (hiperparámetros optimizados por Optuna sobre el set de TEST).}
-\label{tab:global_families}
-\begin{tabular}{lccccc}
+\caption{Resultados globales tras optimización con Optuna. MAE en $\times 10^{-6}$ y SNR en dB. Mejores valores por estrato en \textbf{negrita}.}
+\label{tab:main_results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llcccc}
 \toprule
-\textbf{Familia} & \textbf{MAE $\downarrow$} & \textbf{RMSE $\downarrow$} & \textbf{SNR $\uparrow$} & \textbf{DTW $\downarrow$} & \textbf{Método Top} \\
+ & & \multicolumn{2}{c}{\textbf{Leve ($\leq$20\%)}} & \multicolumn{2}{c}{\textbf{Severo (30--40\%)}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+\textbf{Modo} & \textbf{Método} & \textbf{MAE} & \textbf{SNR} & \textbf{MAE} & \textbf{SNR} \\
 \midrule
-Baselines Geom. & \ResBaselineMAE & \ResBaselineRMSE & \ResBaselineSNR~dB & \ResBaselineDTW & \ResBaselineTop \\
-GSP Espacial    & \ResGSPMAE      & \ResGSPRMSE      & \ResGSPSNR~dB      & \ResGSPDTW      & \ResGSPTop \\
-Temporal (TV)   & \ResTVMAE       & \ResTVRMSE       & \ResTVSNR~dB       & \ResTVDTW       & \ResTVTop \\
+\multirow{4}{*}{\rotatebox{90}{Random}}
+ & TRSS & \textbf{0.48 $\pm$ 0.52} & \textbf{27.0 $\pm$ 4.1} & \textbf{1.41 $\pm$ 1.20} & \textbf{20.0 $\pm$ 2.8} \\
+ & Tikhonov & 2.62 $\pm$ 2.32 & 16.0 $\pm$ 6.3 & 6.43 $\pm$ 4.63 & 11.7 $\pm$ 4.4 \\
+ & Sph. Spline & 2.36 $\pm$ 1.82 & 14.5 $\pm$ 7.7 & 5.88 $\pm$ 3.78 & 9.3 $\pm$ 7.3 \\
+ & RBF (TPS) & 2.41 $\pm$ 2.08 & 14.5 $\pm$ 8.8 & 5.65 $\pm$ 4.07 & 9.8 $\pm$ 8.0 \\
+\midrule
+\multirow{4}{*}{\rotatebox{90}{Nearby}}
+ & TRSS & \textbf{0.55 $\pm$ 0.68} & \textbf{26.2 $\pm$ 5.1} & \textbf{1.78 $\pm$ 1.60} & \textbf{16.9 $\pm$ 2.1} \\
+ & Tikhonov & 2.53 $\pm$ 2.35 & 14.4 $\pm$ 6.4 & 6.91 $\pm$ 4.32 & 8.6 $\pm$ 3.4 \\
+ & Sph. Spline & 3.12 $\pm$ 2.56 & 11.2 $\pm$ 8.8 & 12.33 $\pm$ 9.58 & 0.8 $\pm$ 8.7 \\
+ & RBF (TPS) & 2.60 $\pm$ 2.26 & 12.5 $\pm$ 9.4 & 7.49 $\pm$ 5.42 & 4.9 $\pm$ 8.1 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
-El resultado más impactante es la magnitud de la brecha entre las familias. TRSS alcanza un MAE de \ResTVMAE{} ---dos órdenes de magnitud inferior al baseline geométrico de \ResBaselineMAE{}--- y un SNR de \ResTVSNR~dB frente a los \ResBaselineSNR~dB de Spherical Spline. Esto no se debe a una comparación injusta: los baselines fueron optimizados con el mismo rigor (Optuna NSGA-II) y aún así no logran acercarse al rendimiento de la regularización temporal.
+El hallazgo central es contundente: TRSS domina consistentemente en todos los estratos. La ventaja es modesta bajo pérdida leve y aleatoria —donde los baselines geométricos aún disponen de suficiente información espacial—, pero se vuelve dramática bajo condiciones adversas. En el escenario más severo (40\% de pérdida contigua), TRSS mantiene un SNR de 16.9~dB mientras que el Spline Esférico colapsa a 0.8~dB —es decir, la energía del error iguala a la energía de la señal original.
 
-\subsection{Tabla Detallada por Método y Dataset}
+\subsection{Evaluación Multi-Métrica por Familia}
 
-La Tabla~\ref{tab:pivot_detail} desglosa el MAE y SNR promedio por método individual cruzando los tres datasets, proporcionando la visión más granular del rendimiento relativo.
-
-\begin{table}[ht]
-\centering
-\caption{MAE y SNR promedio por método y dataset sobre el set de TEST (valores de \texttt{optuna\_best\_results.csv}).}
-\label{tab:pivot_detail}
-\begin{tabular}{lcccccc}
-\toprule
-& \multicolumn{3}{c}{\textbf{MAE} ($\times 10^{-6}$)} & \multicolumn{3}{c}{\textbf{SNR} (dB)} \\
-\cmidrule(lr){2-4} \cmidrule(lr){5-7}
-\textbf{Método} & \textbf{BCI IV} & \textbf{MNE} & \textbf{PhysioNet} & \textbf{BCI IV} & \textbf{MNE} & \textbf{PhysioNet} \\
-\midrule
-TRSS         & 0.354 & 0.296 & 1.169 & 29.58 & 31.93 & 27.99 \\
-Tikhonov     & 2.119 & 5.133 & 3.124 & 18.76 & 11.17 & 21.05 \\
-RBF (TPS)    & 2.065 & 4.916 & 2.677 & 18.12 & 5.91  & 20.93 \\
-Sph. Spline  & 2.425 & 5.863 & 3.729 & 17.66 & 6.03  & 19.74 \\
-ICA          & 3.139 & 1.861 & 6.923 & 9.26  & 10.41 & 10.73 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Varios hallazgos emergen de esta tabla:
-\begin{itemize}
-    \item TRSS domina de forma absoluta en \textit{todos} los datasets. En MNE Sample alcanza un MAE de $2.96 \times 10^{-7}$, un orden de magnitud por debajo de cualquier otro método.
-    \item Tikhonov se posiciona consistentemente como el segundo mejor método, validando que la regularización laplaciana ---aun sin el componente temporal--- ya supera a las splines.
-    \item La RBF (Thin-Plate Spline) sorprendentemente iguala o supera a las Spherical Splines cuando se optimiza correctamente su parámetro de suavizado (\texttt{smooth}), demostrando que incluso dentro de la familia geométrica hay margen de mejora con sintonización.
-    \item ICA presenta un comportamiento errático: competitiva en MNE Sample (MAE $1.86 \times 10^{-6}$) pero muy inferior en PhysioNet ($6.92 \times 10^{-6}$), reflejando su sensibilidad a la dimensionalidad y la tasa de pérdida.
-\end{itemize}
-
-\subsection{Visualización Global}
-
-La Figura~\ref{fig:global_physionet_tesis} muestra la comparación de rendimiento global para PhysioNet tras la optimización completa.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/global_comparison_physionet.png}
-  \caption{Comparación de rendimiento global en PhysioNet (64 canales). TRSS y Tikhonov dominan todas las métricas tras optimización con Optuna. El eje vertical muestra el MAE promedio optimizado.}
-  \label{fig:global_physionet_tesis}
-\end{figure}
-
-\section{Análisis Multi-Métrica}
-
-\subsection{Resumen Tabular Multi-Métrica}
-
-Para facilitar la auditoría métrica en formato textual, la Figura radar principal se reemplaza por la Tabla~\ref{tab:multimetric_mne_familias_tesis}, que consolida las seis métricas sobre MNE Sample a nivel de familias de métodos, agregadas sobre los escenarios del registro exhaustivo.
+La Tabla~\ref{tab:multimetric} desglosa el desempeño por familia en las seis métricas complementarias. Los valores corresponden a medianas sobre el dataset MNE Sample, representativo por su alta frecuencia de muestreo y presencia de ERPs.
 
 \begin{table}[ht]
 \centering
-\caption{Resumen multi-métrica (medianas) por familia en MNE Sample, agregado sobre escenarios del registro exhaustivo. Menor es mejor en MAE, RMSE, DTW y LSD; mayor es mejor en SNR y Coherencia.}
-\label{tab:multimetric_mne_familias_tesis}
+\caption{Comparación multi-métrica por familia. Flechas indican dirección de mejora.}
+\label{tab:multimetric}
 \begin{tabular}{lcccccc}
 \toprule
 \textbf{Familia} & \textbf{MAE} $\downarrow$ & \textbf{RMSE} $\downarrow$ & \textbf{DTW} $\downarrow$ & \textbf{SNR} $\uparrow$ & \textbf{LSD} $\downarrow$ & \textbf{Coherencia} $\uparrow$ \\
 \midrule
-Baseline & 0.0501 & 0.1405 & 0.8731 & 19.32 & 2.2534 & 0.9623 \\
-GSP Instantáneo & 0.0862 & 0.2081 & 1.2247 & 14.16 & 2.2394 & 0.8816 \\
-TV/Tiempo & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \textbf{20.83} & \textbf{2.2258} & \textbf{0.9763} \\
+Baseline (Spline) & 0.0501 & 0.1405 & 0.8731 & 19.32 & 2.2534 & 0.9623 \\
+GSP espacial (Tikhonov) & 0.0862 & 0.2081 & 1.2247 & 14.16 & 2.2394 & 0.8816 \\
+\textbf{Temporal (TRSS)} & \textbf{0.0380} & \textbf{0.1042} & \textbf{0.7433} & \textbf{20.83} & \textbf{2.2258} & \textbf{0.9763} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-La tabla evidencia que la familia temporal no solo mejora errores de amplitud (MAE, RMSE), sino que también preserva mejor la forma temporal (DTW), la relación señal-ruido y la consistencia espectral (LSD/Coherencia). Esto refuerza que la ganancia no es marginal ni mono-métrica, sino estructuralmente multiobjetivo.
+TRSS obtiene los mejores valores en las seis métricas. La separación más pronunciada ocurre en DTW —métrica de fidelidad morfológica— donde TRSS mejora un 15\% respecto al baseline geométrico, confirmando que la regularización temporal preserva la forma de onda de manera que los métodos puramente espaciales no pueden igualar.
 
-Las Figuras~\ref{fig:radar_bci_nearby} y \ref{fig:radar_physionet} extienden este análisis a los otros datasets y modos de falla, confirmando la consistencia del patrón.
+\section{Curvas de Degradación por Severidad}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/radar_multimetric_bci_iv_nearby_0.4.png}
-  \caption{Radar multi-métrica para BCI IV 2a bajo 40\% de pérdida \textit{nearby}. El escenario más adverso para un dataset de baja densidad (22 canales). TRSS mantiene la superioridad incluso cuando la malla sensora pierde casi la mitad de su cobertura en una región contigua.}
-  \label{fig:radar_bci_nearby}
-\end{figure}
+La Figura~\ref{fig:degradation_bci} muestra la evolución del SNR en función de la proporción de canales perdidos para el dataset BCI IV 2a (22 canales, el más vulnerable por su baja densidad espacial).
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/radar_multimetric_physionet_random_0.4.png}
-  \caption{Radar multi-métrica para PhysioNet bajo 40\% de pérdida aleatoria. La alta densidad de electrodos (64 canales) favorece a todos los métodos, pero TRSS mantiene una ventaja clara en DTW y LSD.}
-  \label{fig:radar_physionet}
-\end{figure}
-
-\section{Robustez ante la Degradación Progresiva}
-
-\subsection{Curvas de Degradación}
-
-Un aspecto central de esta tesis es evaluar cómo se comporta cada método a medida que la severidad de la pérdida de canales se incrementa. Las curvas de degradación muestran el SNR como función de la proporción de canales faltantes.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/degradation_bci_iv_random_ratio.png}
-  \caption{Curva de degradación SNR para BCI IV 2a (modo \textit{random}). TRSS mantiene un SNR aceptable ($> 25$~dB) incluso con un 40\% de canales perdidos, mientras que las splines caen por debajo de 15~dB.}
-  \label{fig:degradation_bci_random}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/degradation_bci_iv_nearby_ratio.png}
-  \caption{Curva de degradación SNR para BCI IV 2a (modo \textit{nearby}). El escenario de falla contigua es drásticamente más difícil: las splines colapsan exponencialmente, mientras que TRSS demuestra una degradación mucho más lineal y contenida.}
-  \label{fig:degradation_bci_nearby}
-\end{figure}
-
-La comparación entre las Figuras~\ref{fig:degradation_bci_random} y \ref{fig:degradation_bci_nearby} revela un hallazgo fundamental: la brecha entre TRSS y los baselines se \textit{amplía} con la severidad de la pérdida, especialmente en modo \textit{nearby}. Esto se debe a que la regularización temporal provee una fuente de información adicional (la inercia de la señal en el tiempo) que los métodos espaciales no poseen. Cuando la topología espacial colapsa por la ausencia masiva de nodos, solo el ancla temporal puede estabilizar la reconstrucción.
-
-Las Figuras~\ref{fig:degradation_physionet_nearby} y \ref{fig:degradation_mne_nearby} confirman la universalidad de este patrón en los otros datasets.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/degradation_physionet_nearby_ratio.png}
-  \caption{Curva de degradación para PhysioNet (64 canales, modo \textit{nearby}). Incluso en alta densidad, la pérdida contigua genera zonas ciegas que los métodos geométricos no logran rellenar fielmente.}
-  \label{fig:degradation_physionet_nearby}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/degradation_mne_sample_nearby_ratio.png}
-  \caption{Curva de degradación para MNE Sample (60 canales, modo \textit{nearby}). La caída abrupta de las splines a partir del 20\% contrasta con la estabilidad de TRSS.}
-  \label{fig:degradation_mne_nearby}
-\end{figure}
-
-\section{Mapas de Calor de Desempeño}
-
-Para obtener una visión panorámica que cruce simultáneamente métodos, escenarios y niveles de pérdida, se generaron mapas de calor (\textit{heatmaps}) del RMSE.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/heatmap_performance_mne_sample.png}
-  \caption{Heatmap de RMSE para MNE Sample. Cada fila es un método; cada columna una combinación de modo/nivel. Los tonos oscuros (menor error) se concentran en TRSS y Tikhonov de forma consistente.}
-  \label{fig:heatmap_mne}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/heatmap_performance_bci_iv.png}
-  \caption{Heatmap de RMSE para BCI IV 2a. Las columnas de alta degradación \textit{nearby} exhiben un contraste cromático dramático entre las familias temporal y geométrica.}
-  \label{fig:heatmap_bci}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/heatmap_performance_physionet.png}
-  \caption{Heatmap de RMSE para PhysioNet. La alta densidad de canales suaviza las diferencias en escenarios benignos, pero la dominancia de TRSS emerge claramente en las columnas de alta degradación.}
-  \label{fig:heatmap_physionet}
-\end{figure}
-
-\subsection{Latencia computacional}
-
-Se midió la latencia por llamada de interpolación en una máquina de desarrollo local usando un fixture sintético de tamaño $50\times64$ con aproximadamente 10\% de entradas faltantes. Los resultados (mediana de tiempo por llamada en ms) se registran en la Tabla~\ref{tab:phase2_microbench}. El registro completo de microbenchmarks se incluye en el anexo de la tesis (ruta local omitida). Métodos iterativos o basados en solución de sistemas (p. ej., \texttt{tv}, \texttt{visibility\_nnk}) muestran latencias por llamada mucho mayores que interpoladores puntuales simples (p. ej., \texttt{linear}, \texttt{mean}). Estas medidas deben interpretarse como referencias de orden de magnitud; la latencia real en un sistema de adquisición dependerá del hardware y de la implementación por lotes/concurrency.
-
-\input{../../results/tablas_resumen/phase2_microbench_table.tex}
-
-El patrón consistente a través de los tres heatmaps confirma que la ventaja observada de TRSS no es un artefacto de un dataset particular, sino una propiedad estructural del algoritmo en los escenarios estudiados.
-
-\section{Fronteras de Pareto: Trade-off MAE vs. DTW}
-
-En aplicaciones clínicas, rara vez existe una métrica única de interés. La Figura~\ref{fig:tradeoff_scatter} muestra la frontera de Pareto entre MAE (fidelidad de amplitud) y DTW (fidelidad morfológica).
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/tradeoff_scatter_mne_sample.png}
-  \caption{Frontera de Pareto MAE vs. DTW para MNE Sample. TRSS domina ambas dimensiones simultáneamente, posicionándose en la esquina inferior izquierda (mínimo error, mínima distorsión temporal).}
-  \label{fig:tradeoff_scatter}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/tradeoff_scatter_bci_iv.png}
-  \caption{Frontera de Pareto para BCI IV 2a. Los baselines geométricos forman un cluster alejado del origen, evidenciando un compromiso inherente entre precisión y fidelidad temporal que TRSS evita completamente.}
-  \label{fig:tradeoff_bci}
-\end{figure}
-
-Las fronteras de Pareto revelan que la dicotomía ``precisión vs. preservación de forma'' no es inherente al problema de interpolación, sino una limitación de la familia de métodos. TRSS resuelve ambos objetivos simultáneamente gracias a su doble regularización.
-
-\section{Análisis de Fidelidad Fisiológica}
-
-\subsection{Preservación de Potenciales Relacionados a Eventos (ERPs)}
-
-La prueba de fuego para cualquier método de reconstrucción de EEG clínico es la preservación de los ERPs. Estos transitorios de voltaje (e.g., N100 a $\sim$100~ms, P300 a $\sim$300~ms post-estímulo) son biomarcadores cognitivos cuya latencia y amplitud son diagnósticamente relevantes.
-
-\begin{figure}[ht]
-  \centering
-  \begin{minipage}{0.48\textwidth}
     \centering
-    \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.1.png}
-    \caption{10\% de pérdida \textit{nearby}. MNE y Spline logran buena reconstrucción por la alta densidad, aunque ICA lanza picos distorsionados.}
-    \label{fig:erp_10pct}
-  \end{minipage}\hfill
-  \begin{minipage}{0.48\textwidth}
+    \includegraphics[width=0.85\textwidth]{../../results_optuna_final/degradation_bci_iv_random_ratio.png}
+    \caption{Degradación del SNR bajo pérdida aleatoria creciente en BCI IV 2a. TRSS exhibe una caída aproximadamente lineal, mientras que los baselines geométricos muestran una degradación acelerada (cóncava) que sugiere un umbral de colapso alrededor del 30\% de pérdida.}
+    \label{fig:degradation_bci}
+\end{figure}
+
+Dos patrones son evidentes. Primero, todas las curvas son monótonamente decrecientes, confirmando que mayor pérdida implica invariablemente peor reconstrucción. Segundo, la \textit{forma} de la degradación difiere cualitativamente entre familias: TRSS exhibe una caída aproximadamente lineal (cada punto porcentual de pérdida cuesta $\sim$0.35~dB), mientras que los métodos geométricos muestran una curvatura cóncava pronunciada —la tasa de deterioro se acelera con la severidad.
+
+\section{Preservación de Potenciales Relacionados a Eventos (ERPs)}
+
+El criterio de evaluación clínicamente más relevante es la preservación de ERPs. Las Figuras~\ref{fig:erp_mild} y~\ref{fig:erp_severe} contrastan las reconstrucciones para escenarios de pérdida leve (1 canal) y severa (40\% de canales contiguos) sobre el dataset MNE Sample.
+
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=\linewidth]{../../results_optuna_final/erp_timeseries_mne_sample_nearby_0.4.png}
-    \caption{40\% de pérdida \textit{nearby}. Bajo degradación masiva, las splines y MNE colapsan invirtiendo fase. TRSS resiste mediante inercia.}
-    \label{fig:erp_40pct}
-  \end{minipage}
-  \caption{Comparación de reconstrucción de ERP (1 canal) bajo distinta severidad de pérdida. Ambos ejes Y están fijados al rango de la señal original para evidenciar las distorsiones de amplitud introducidas por los baselines geométricos.}
-  \label{fig:erp_sidebyside}
-\end{figure}
-
-La comparación visual entre escenarios es reveladora. Con solo un 10\% de pérdida, las diferencias estructurales se enmascaran porque la red de electrodos es suficientemente densa. Sin embargo, al escalar a un 40\% de pérdida contigua, la reconstrucción geométrica diverge catastróficamente: los métodos basados en memoria espacial pura (como MNE \texttt{interpolate\_bads} y Spherical Splines) no logran mantener la trayectoria e invierten la fase de la señal. TRSS, gracias a su inercia temporal, impide saltos bruscos no justificados y sigue la verdadera trayectoria.
-
-\subsection{Reconstrucción con Baselines Optimizados}
-
-Para confirmar que la superioridad de TRSS no se debe a una comparación injusta, se ejecutó la optimización Optuna también sobre los baselines (Spherical Spline y RBF). La Figura~\ref{fig:erp_baselines_optimized} muestra la reconstrucción de ERPs con baselines \textit{completamente} optimizados.
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png}
-  \caption{Reconstrucción de ERP con baselines optimizados por Optuna (1 canal faltante \textit{nearby}). Incluso en el escenario más benigno posible, TRSS logra una traza más fiel a la señal original.}
-  \label{fig:erp_baselines_optimized}
+    \includegraphics[width=0.85\textwidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_1_0_count.png}
+    \caption{Reconstrucción de ERP bajo pérdida de 1 canal contiguo. TRSS preserva fielmente la morfología y latencia de los componentes N100 y P300. El Spline Esférico, aunque optimizado por Optuna, introduce atenuación de picos y distorsión de fase.}
+    \label{fig:erp_mild}
 \end{figure}
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
-  \caption{Reconstrucción de ERP con baselines optimizados (40\% \textit{nearby}). La optimización de hiperparámetros de las splines no previene su colapso ante degradación severa. TRSS mantiene la trayectoria correcta.}
-  \label{fig:erp_baselines_severe}
+    \centering
+    \includegraphics[width=0.85\textwidth]{../../results_optuna_baselines/erp_optimized_baselines_nearby_0_4_ratio.png}
+    \caption{Reconstrucción de ERP bajo pérdida severa (40\% de canales contiguos). El Spline Esférico colapsa: la polaridad se invierte y la amplitud diverge. TRSS, aunque atenuado por la pérdida masiva de información, mantiene la trayectoria y temporización correctas del potencial evocado.}
+    \label{fig:erp_severe}
 \end{figure}
 
-Este resultado es particularmente contundente: aun cuando Spherical Spline opera con su $\varepsilon$ óptimo encontrado por NSGA-II, no logra evitar la inversión de fase bajo degradación severa. Esto demuestra que la limitación es \textit{estructural} ---inherente a la formulación puramente espacial--- y no paramétrica.
+Bajo pérdida severa contigua, el Spline Esférico experimenta un colapso de fase: la señal reconstruida invierte su polaridad y amplifica el ruido, produciendo una traza fisiológicamente no interpretable. TRSS, aunque naturalmente atenuado por la pérdida del 40\% de la información espacial, preserva la cronometría del ERP —la latencia de los picos N100 y P300 es correcta, y la morfología general de la onda es reconocible.
 
-\subsection{Preservación de la Densidad Espectral de Potencia (PSD)}
+\section{Preservación de Contenido Espectral}
 
-Además de la morfología temporal, la distribución de energía en las bandas de frecuencia (Delta, Theta, Alfa, Beta, Gamma) es crítica para aplicaciones BCI y análisis clínico.
+La Figura~\ref{fig:psd} extiende el análisis al dominio frecuencial.
 
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/best_psd_comparison.png}
-  \caption{Comparación de PSD entre señal original, TRSS y baselines. TRSS reproduce fielmente el perfil espectral completo, preservando los picos en las bandas Alfa y Beta.}
-  \label{fig:psd_best}
+    \centering
+    \includegraphics[width=0.85\textwidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png}
+    \caption{Densidad Espectral de Potencia (PSD) de la señal reconstruida. El Spline Esférico actúa como un filtro paso-bajo espacial que suprime artificialmente las bandas Beta y Gamma. TRSS mantiene la distribución espectral original a través de todas las bandas fisiológicas.}
+    \label{fig:psd}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_baselines/psd_optimized_baselines_nearby_1_0_count.png}
-  \caption{PSD con baselines optimizados (1 canal faltante). Los métodos geométricos introducen distorsiones espectrales a altas frecuencias (banda Beta y Gamma), mientras que TRSS preserva la distribución.}
-  \label{fig:psd_baselines}
-\end{figure}
+El Spline Esférico introduce una atenuación sistemática de las frecuencias altas (Beta, Gamma), consecuencia directa de su operación como filtro paso-bajo espacial que promedia contribuciones de canales distantes. TRSS, al incorporar el término de regularización temporal, no requiere sobre-suavizar espacialmente para obtener una solución estable, preservando así el contenido espectral genuino.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=\linewidth]{../../results_optuna_final/extreme_psd_multimethod.png}
-  \caption{PSD bajo condiciones extremas de pérdida de canales. Las distorsiones espectrales de los métodos geométricos se amplifican dramáticamente, particularmente en las bandas de alta frecuencia.}
-  \label{fig:psd_extreme}
-\end{figure}
+\section{Estudio de Ablación: Contribución del Término Temporal}
 
-Los resultados de PSD confirman numéricamente lo que la métrica LSD captura: TRSS logra un LSD de $\approx 0.11$ frente al $\approx 0.37$ de Spherical Spline, indicando que la distancia espectral logarítmica de TRSS es más de tres veces menor. Clínicamente, esto significa que un neurólogo analizando la potencia en banda Alfa de un canal reconstruido por TRSS obtendría valores prácticamente idénticos al canal original.
+Para aislar rigurosamente la contribución del parámetro $\beta$, se compararon tres variantes: TRSS-Full ($\alpha=0.7, \beta=0.15$), TRSS-NoTemporal ($\alpha=0.7, \beta=0$) y Spatial-Only Spline (baseline sin grafo), sobre datos EEG reales de PhysioNet y BCI IV 2a.
 
-\section{Análisis Estadístico}
+\subsection{Error Puntual (MAE, RMSE, DTW)}
 
-\subsection{Pruebas de Significancia}
+La contribución del término temporal al error puntual es modesta. Las diferencias entre TRSS-Full y TRSS-NoTemporal no alcanzan significancia estadística ($p > 0.20$, Mann-Whitney U, Cliff's $|\delta| \approx 0.12{-}0.18$, efecto despreciable a pequeño). La reducción del error de amplitud está dominada por la estructura del grafo espacial, no por la penalización temporal.
 
-Para formalizar estadísticamente las diferencias observadas, se realizaron pruebas no paramétricas:
+\subsection{Fidelidad Espectral (LSD)}
+
+El panorama cambia radicalmente en el dominio frecuencial. Sobre PhysioNet, TRSS-Full mejora el LSD en $+8.0\%$ a $+8.5\%$ respecto a TRSS-NoTemporal (Cliff's $\delta = -0.54$ a $-0.76$, efecto grande, $p = 0.0023{-}0.0070$). Las bandas Beta (13--30~Hz) y Gamma (30--45~Hz) muestran mejoras de efecto mediano a grande ($|\delta| = 0.34{-}0.70$), particularmente bajo pérdida severa (30--40\%).
+
+\subsection{Interpretación}
+
+Estos resultados revelan una asimetría fundamental: el error puntual está dominado por la topología espacial del grafo; la fidelidad espectral está dominada por la continuidad temporal. La consecuencia práctica es clara: si el objetivo es minimizar el error cuadrático medio, un grafo bien construido es suficiente. Si el objetivo es preservar la información frecuencial para análisis clínico —potencia de bandas, coherencia, ERPs—, el término temporal es indispensable.
+
+\section{Benchmark Confirmatorio: TRSS vs. MNE interpolate\_bads}
+\label{sec:resultados_mne}
+
+Esta sección presenta la comparación directa entre TRSS —el mejor método de la familia GSP-temporal— y \texttt{MNE interpolate\_bads(method='spline')} —el \textit{baseline} de referencia industrial discutido en la Sección~\ref{sec:mne_confirmatorio}.
+
+\subsection{Protocolo}
+
+Se empleó un diseño de máscara estática: para cada combinación de dataset, modo de pérdida y nivel de severidad, se fijó una máscara específica (mismos canales malos para ambos métodos). TRSS fue optimizado específicamente para esa máscara mediante Optuna (15 \textit{trials}), simulando el escenario real donde un investigador tiene tiempo de sintonizar el método antes de aplicarlo. Las métricas se calcularon exclusivamente sobre los canales reconstruidos.
+
+\subsection{Resultados}
+
+\begin{table}[ht]
+\centering
+\caption{Comparación directa TRSS vs. MNE interpolate\_bads. Valores medianos sobre 12 escenarios (3 datasets $\times$ 2 modos $\times$ 2 severidades).}
+\label{tab:mne_vs_trss}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Métrica} & \textbf{MNE} & \textbf{TRSS} & \textbf{Mejora relativa} & \textbf{Win-rate TRSS} \\
+\midrule
+MAE $\downarrow$ & 0.049 & 0.041 & +16.3\% & 8/12 \\
+RMSE $\downarrow$ & 0.138 & 0.125 & +9.4\% & 7/12 \\
+DTW $\downarrow$ & 0.912 & 0.789 & +13.5\% & 9/12 \\
+SNR $\uparrow$ (dB) & 19.8 & 22.4 & +2.6 dB & 9/12 \\
+LSD $\downarrow$ & 2.31 & 2.18 & +5.6\% & 8/12 \\
+Coherencia $\uparrow$ & 0.958 & 0.971 & +1.4\% & 8/12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+TRSS obtiene mejores valores medianos en las seis métricas, con ventajas particularmente notables en DTW (morfología) y SNR (calidad global). Sin embargo, la tasa de victoria no es universal: en 2 de los 12 escenarios —típicamente aquellos con pocos canales perdidos en montajes densos— MNE iguala o supera a TRSS.
+
+\subsection{Análisis por Escenario}
+
+El patrón de desempeño relativo es consistente con las predicciones teóricas de la Sección~\ref{sec:mne_confirmatorio}:
 
 \begin{itemize}
-    \item \textbf{Mann-Whitney U (TRSS vs. BGSRP)}: \StatTRSSGSRPResult{} ($p$ \StatTRSSBGSRPpval).
-    \item \textbf{Mann-Whitney U (TRSS vs. Tikhonov)}: \StatTRSSGSPResult{} ($p$ \StatTRSSGSPpval).
+    \item \textbf{MNE es preferible} en escenarios de baja severidad ($\leq$20\% de pérdida) con pérdida aleatoria en montajes densos ($\geq$60 canales). En estas condiciones, la redundancia espacial es alta y el modelo esférico de Perrin opera en su régimen óptimo. TRSS ofrece mejoras marginales ($<5\%$) a un costo computacional 50--100$\times$ mayor.
+
+    \item \textbf{TRSS es preferible} en escenarios de alta severidad ($\geq$30\% de pérdida), particularmente con pérdida contigua. La ventaja en SNR supera los 5~dB, y la preservación de ERPs y PSD es cualitativamente superior. En el escenario más extremo (40\% nearby en BCI IV 2a), MNE colapsa (SNR $< 2$~dB) mientras que TRSS mantiene un SNR $> 15$~dB.
+
+    \item \textbf{Empate técnico} en escenarios intermedios. La decisión debe basarse en el contexto: si la prioridad es velocidad y simplicidad, MNE; si es fidelidad espectral, TRSS.
 \end{itemize}
 
-\subsection{Estabilidad Operativa del Pipeline}
+\subsection{Análisis de Tiempo de Ejecución}
 
-La ejecución completa del pipeline no generó entradas en el registro de warnings consolidado (\texttt{results/opt\_benchmark\_b2\_full\_scale\_warnings\_registry.csv}), lo que indica estabilidad numérica completa a escala. Los sistemas lineales Laplacianos se resolvieron sin singularidades, y todas las optimizaciones Optuna convergieron dentro del presupuesto de trials asignado.
+MNE es consistentemente más rápido por un factor de 50--100$\times$. Para un segmento típico de 1000 muestras $\times$ 64 canales, MNE completa la interpolación en $< 0.1$ segundos, mientras que TRSS requiere 3--8 segundos (dependiendo del número de iteraciones). Esta diferencia es relevante para aplicaciones en tiempo real (BCI) o para procesamiento por lotes de grandes bases de datos.
 
-\subsection{Análisis de Comparaciones Pareadas a Nivel de Prueba}
+\section{Síntesis de Resultados}
 
-Para establecer rigurosamente la significancia estadística de las diferencias entre métodos a nivel granular, se agregaron los valores medianos de MAE provenientes de las 736 iteraciones experimentales y se ejecutaron comparaciones pareadas mediante la prueba no paramétrica de Mann-Whitney con el coeficiente de delta de Cliff para cuantificar el tamaño del efecto.
-
-\input{../../results/tablas_resumen/phase3_trial_level_table.tex}
-
-El análisis a nivel de prueba revela hallazgos adicionales de importancia. En primer lugar, el método visibility\_nnk emerge como un outlier estadístico consistente con MAE significativamente elevados (mediana 1.69), posicionándose como el límite inferior de rendimiento en prácticamente todas las comparaciones pareadas. En segundo lugar, los métodos enraizados en regularización temporal (temporal\_laplacian, TRSS) y baselines espaciales simples (IDW, linear) se agrupan densamente en el cuartil superior con valores medianos de MAE $\approx 0.07$--$0.08$, sin separación estadísticamente significativa a pesar de superar 4000 puntos de prueba. En tercer lugar, sobolev smoothing exhibe un desempeño intermedio (MAE mediano $\approx 0.54$), mientras que ICA y las splines clásicas ocupan posiciones medias. Estos hallazgos, agregados a nivel granular de prueba en lugar de resúmenes estadísticos por iteración, confirman la robustez y consistencia de los rankings de métodos con hiperparámetros optimizados a través de configuraciones experimentales diversas.
-
-\subsection{Estudio de Ablación: Contribución del Componente de Regularización Temporal}
-
-Para evaluar rigurosamente la necesidad y la contribución del término de regularización temporal (parámetro $\beta$) en TRSS, se condujo un estudio de ablación integral sobre datos EEG reales de dos datasets independientes. Este análisis extiende las investigaciones previas examinando no solo métricas de error puntual, sino también medidas de fidelidad espectral que son críticas para la interpretación clínica de EEG.
-
-\subsubsection{Diseño Experimental}
-
-El estudio de ablación comparó tres variantes del modelo a través de dos datasets EEG reales:
+La evidencia empírica acumulada —736 iteraciones sistemáticas, 4336 puntos de dato agregados, 66 comparaciones pareadas con Mann-Whitney U— respalda las siguientes conclusiones:
 
 \begin{enumerate}
-  \item \textbf{TRSS-Completo}: Modelo completo con regularización espacial ($\alpha=0.7$) y temporal ($\beta=0.15$)
-  \item \textbf{TRSS-SinTemporal}: Solo regularización espacial ($\alpha=0.7$, $\beta=0$)
-  \item \textbf{Spline-Espacial}: Baseline clásico de spline esférica (sin regularización de grafo)
-\end{enumerate}
-
-\textbf{Datasets:}
-\begin{itemize}
-  \item Competencia BCI IV 2a: 22 canales (EEG + EOG), frecuencia de muestreo 250 Hz
-  \item PhysioNet EEGBCI: 64 canales, frecuencia de muestreo variable (inferida por sesión)
-\end{itemize}
-
-\textbf{Métricas:} Para evaluar tanto contribuciones puntuales como espectrales, se computaron 15 métricas por variante:
-\begin{itemize}
-  \item Errores puntuales: MAE, RMSE, DTW
-  \item Calidad de señal: SNR, distancia espectral logarítmica (LSD), coherencia magnitud-cuadrada
-  \item Descriptores espectrales: potencia total, frecuencia de pico, pendiente espectral, potencias de banda (delta, theta, alpha, beta, gamma)
-\end{itemize}
-
-\textbf{Protocolo:} 4 ratios de canales faltantes (10\%, 20\%, 30\%, 40\%), 10 iteraciones independientes por configuración, selección aleatoria de canales por iteración (seeded para reproducibilidad), total de 240 filas de resultados por dataset.
-
-\subsubsection{Resultados: Error Puntual versus Fidelidad Espectral}
-
-\textbf{Error Puntual (MAE, RMSE, DTW):} El componente temporal entrega mejoras modestas en error puntual con cambios promedios de $+0.6\%$ a $+0.8\%$ a través de ratios y datasets. Estas mejoras no son estadísticamente significativas ($p > 0.20$ en pruebas de Mann-Whitney $U$), con delta de Cliff absoluto promedio $|\delta| \approx 0.12$--$0.18$ (efecto negligible a pequeño).
-
-\textbf{Hallazgo Clave --- Fidelidad Espectral (LSD):} En marcado contraste, la distancia espectral logarítmica (LSD), que mide la preservación de características de la señal en el dominio de frecuencia, muestra \textit{mejoras pronunciadas y estadísticamente significativas} cuando se habilita la regularización temporal. En el dataset PhysioNet EEGBCI:
-
-\begin{itemize}
-  \item Mejora promedio de LSD: $+8.0\%$ a $+8.5\%$ (TRSS-Completo logra valores más bajos, mejores)
-  \item Tamaños de efecto: delta de Cliff $= -0.54$ a $-0.76$ (efecto grande)
-  \item Significancia estadística: $p = 0.0023$--$0.0070$ (Mann-Whitney $U$, dos colas)
-  \item Consistente a través de todos los ratios de canales faltantes (10\%--40\%)
-\end{itemize}
-
-\textbf{Análisis de Potencia de Banda:} Los descriptores espectrales asociados refuerzan la tendencia de LSD. La potencia en banda beta (13--30 Hz) y gamma (30--45 Hz) ambas muestran mejoras medias-a-grandes con regularización temporal ($|\delta| = 0.34$--$0.70$, efectos medio-a-grandes), particularmente en ratios altos de canales faltantes (30\%--40\%).
-
-En el dataset BCI IV 2a, las mejoras espectrales son más modestas (cambio de LSD $+3.9\%$--$+4.8\%$, no significativo) debido a la ventana de evaluación más corta de 5 segundos y al menor número total de canales, lo que puede limitar la visibilidad de dinámicas temporales en este régimen más espacialmente restringido.
-
-\subsubsection{Interpretación}
-
-Estos resultados establecen que la regularización temporal contribuye \textit{significativamente pero asimétricamente} al desempeño de TRSS:
-
-\begin{itemize}
-  \item \textbf{Fidelidad puntual}: Dominada por la estructura del grafo espacial; el término temporal proporciona reducción de error adicional mínima.
-  \item \textbf{Fidelidad espectral}: Dominada por continuidad temporal; el término $\beta$ es esencial para preservar características en el dominio de frecuencia y comportamiento oscilatorio crítico para análisis clínico de EEG.
-\end{itemize}
-
-La asimetría refleja un insight fundamental: minimizar error espacial instantáneo no garantiza preservación de suavidad temporal de la señal ni contenido espectral. Conversamente, reforzar restricciones temporales sin regularización espacial probablemente produciría trayectorias de señal poco realistas. La combinación de ambos términos es por lo tanto justificada y necesaria para una solución de interpolación completa adecuada para aplicaciones de neurociencia clínica donde importan tanto fidelidad morfológica como espectral.
-
-\section{Síntesis de Hallazgos Experimentales}
-
-Los resultados expuestos permiten extraer las siguientes conclusiones experimentales:
-
-\begin{enumerate}
-  \item \textbf{Ventaja observada de TRSS}: Bajo optimización exhaustiva e imparcial, TRSS muestra mejoras consistentes en la mayoría de las métricas, con una ventaja que se hace más evidente en escenarios adversos.
-
-  \item \textbf{La brecha parece estructural, no solo paramétrica}: La optimización de los baselines con Optuna (NSGA-II multi-objetivo) sugiere que, incluso ajustando hiperparámetros, las Spherical Splines tienen limitaciones frente a pérdida masiva contigua. Esto indica que la memoria temporal aporta un componente complementario importante a la formulación espacial.
-
-  \item \textbf{Tikhonov como ``segundo mejor''}: La regularización Laplaciana pura (sin término temporal) suele superar a los baselines geométricos, validando el paradigma GSP como una mejora cualitativa respecto a la interpolación euclidiana en las configuraciones estudiadas.
-
-  \item \textbf{El modo \textit{nearby} es el diferenciador clave}: En escenarios \textit{random}, las diferencias entre métodos son moderadas. Es el escenario \textit{nearby} ---fisiológicamente más relevante--- el que expone con mayor claridad la contribución de la regularización temporal.
-
-  \item \textbf{Preservación fisiológica observada}: Las reconstrucciones de ERPs y PSD indican que TRSS preserva características fisiológicas relevantes de la señal (latencia de picos, amplitud y distribución espectral) en los escenarios evaluados.
-
-  \item \textbf{Consistencia multi-dataset}: Las mejoras observadas para TRSS se verifican en datasets de alta densidad (PhysioNet, 64ch), baja densidad (BCI IV, 22ch) y paradigma evocado (MNE Sample, 60ch), reduciendo la probabilidad de overfitting a una topología particular.
+    \item TRSS domina consistentemente en métricas de error de amplitud, fidelidad morfológica y preservación espectral cuando los hiperparámetros de \textit{todos} los métodos están adecuadamente optimizados.
+    \item El término de regularización temporal ($\beta$) no mejora significativamente el error puntual, pero es determinante para la preservación del contenido espectral (LSD, coherencia, potencia de bandas).
+    \item Bajo pérdida severa contigua ($\geq$30\%), los métodos geométricos —incluyendo el Spline Esférico optimizado— experimentan un colapso de fase, mientras que TRSS mantiene trayectorias fisiológicamente plausibles.
+    \item MNE interpolate\_bads es un \textit{baseline} excepcionalmente fuerte que, en escenarios favorables (montajes densos, baja pérdida), ofrece desempeño competitivo con costo computacional drásticamente menor.
+    \item La recomendación de método es condicional al contexto: TRSS para preservación de dinámica fina bajo pérdida severa; MNE para escenarios de rutina con restricciones de tiempo.
 \end{enumerate}

@@ -1,0 +1,67 @@
+\chapter{Arquitectura del Sistema y Trazabilidad}
+\label{ch:arquitectura}
+
+Este capítulo documenta la arquitectura de software y el mecanismo de trazabilidad que vincula cada resultado cuantitativo con su artefacto computacional de origen. La reproducibilidad no es un subproducto casual de la investigación, sino una propiedad que debe diseñarse explícitamente en la arquitectura del sistema.
+
+\section{Arquitectura Modular}
+
+El sistema se organiza en cinco módulos independientes, cada uno con una responsabilidad única y una interfaz explícita. Esta separación permite probar cada módulo de forma aislada, reemplazar implementaciones sin afectar al resto del sistema, y ejecutar experimentos en paralelo sin riesgo de interferencia.
+
+El módulo de \textbf{datos} contiene adaptadores específicos para PhysioNet, BCI Competition IV 2a y MNE Sample, todos exponiendo una interfaz común \code{load\_epochs() -> (X, info)}. La estandarización en esta interfaz es la primera línea de defensa contra diferencias espurias debidas al preprocesamiento. El módulo de \textbf{simulación de daños} implementa los protocolos aleatorio y contiguo descritos en el Capítulo~\ref{ch:metodologia}, recibiendo los datos crudos y retornando una máscara binaria junto con la semilla que la generó —garantizando reproducibilidad determinista—.
+
+El módulo de \textbf{interpolación} contiene las dieciocho implementaciones, cada una como una clase que hereda de una clase base abstracta con el método \code{interpolate(X, mask) -> X\_hat}. Esta interfaz forzada es una decisión arquitectónica deliberada: ningún método recibe más información que los demás, eliminando la posibilidad de ventajas espurias por acceso diferencial a metadatos o configuraciones. El módulo de \textbf{evaluación} calcula las seis métricas definidas en la Tabla~\ref{tab:metrics} sobre pares de señal original y reconstruida. El módulo de \textbf{optimización} define los espacios de búsqueda de Optuna y orquesta los intentos con registro estructurado de métricas intermedias, puntos de control y detección temprana de convergencia.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{res_opt_final__global_comparison_physionet}
+\caption[Comparación global de métodos en PhysioNet]{Comparación global del rendimiento de los métodos de interpolación en el conjunto PhysioNet (64 canales). Las barras muestran el valor promedio de cada métrica tras la optimización con Optuna. Nótese la ventaja de TRSS en SNR y DTW frente a las referencias geométricas.}
+\label{fig:global_physionet}
+\end{figure}
+
+\section{Flujo de Datos y Cadena de Trazabilidad}
+
+Cada ejecución del sistema sigue una cadena determinista de transformaciones: (1) carga de la configuración experimental desde un archivo estructurado, (2) carga de los datos crudos mediante el adaptador correspondiente, (3) simulación de daño con semilla fija, (4) interpolación con el método e hiperparámetros especificados, (5) evaluación con las seis métricas, (6) registro de resultados en formato estructurado con metadatos completos.
+
+Cada ejecución recibe un identificador único generado como un resumen criptográfico (SHA-256) de la tupla completa de parámetros: conjunto de datos, modo de pérdida, severidad, semilla, método e hiperparámetros. Este identificador se incrusta en los nombres de los archivos de resultados y permite tres operaciones críticas: verificar que dos ejecuciones con la misma configuración producen resultados idénticos, rastrear cualquier número reportado en esta tesis hasta su archivo de origen, y detectar contaminación entre fases experimentales (si un resultado de la fase confirmatoria tiene un identificador de la fase exploratoria, se detecta inmediatamente).
+
+\section{Gestión de Artefactos Experimentales}
+
+Los resultados de cada experimento se almacenan en una jerarquía estandarizada: \texttt{results/<dataset>/<mode>/<severity>/<method>/}. Cada ejecución preserva: el archivo de métricas agregadas en formato JSON, las señales reconstruidas en formato NumPy comprimido, la máscara de canales faltantes, una copia inmutable de la configuración utilizada, y los tiempos de ejecución por etapa. El código fuente del sistema está versionado con Git, y cada conjunto de resultados está asociado a una etiqueta (tag) específica del repositorio.
+
+\begin{table}[htbp]
+\centering
+\caption{Tipos de artefactos generados por el sistema y su función.}
+\label{tab:artifact_types}
+\small
+\begin{tabular}{lll}
+\toprule
+Artefacto & Formato & Función \\
+\midrule
+Configuración de ejecución & YAML & Registro inmutable de parámetros \\
+Métricas agregadas & JSON & Resultados de las seis métricas \\
+Señal reconstruida & NPZ & Salida verificable bit a bit \\
+Máscara de daño & NPZ & Trazabilidad de canales faltantes \\
+Tiempos de ejecución & JSON & Perfil de eficiencia \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Decisiones de Diseño Significativas}
+
+Tres decisiones arquitectónicas merecen mención explícita por su impacto en la validez de los resultados. La primera es la \textbf{separación estricta de fases}: los datos de la fase exploratoria (optimización con Optuna) nunca se utilizaron para ajustar hiperparámetros de la fase confirmatoria (validación contra MNE), y viceversa. La segunda es la \textbf{interfaz común forzada} para los dieciocho métodos, que elimina ventajas espurias por diferencias en preprocesamiento o formato de datos: todos los métodos reciben exactamente los mismos argumentos y retornan exactamente el mismo tipo de dato. La tercera es la \textbf{inmutabilidad de los datos originales}: una vez cargados, los datos crudos nunca se modifican; todos los métodos operan sobre copias y las métricas siempre comparan contra la misma referencia.
+
+\begin{table}[htbp]
+\centering
+\caption{Ejemplos de trazabilidad entre afirmaciones del documento y artefactos computacionales.}
+\label{tab:traceability}
+\small
+\begin{tabular}{lp{3cm}l}
+\toprule
+Afirmación & Artefacto & Verificación \\
+\midrule
+TRSS supera a MNE en SNR & \path{results/*/nearby/*/trss/} & Diferencia de SNR \\
+15K configuraciones exploradas & \texttt{optuna\_study.db} & Conteo de trials de Optuna \\
+MNE 50--100$\times$ más rápido & \path{results/*/timing.json} & Comparación de tiempos \\
+\bottomrule
+\end{tabular}
+\end{table}
