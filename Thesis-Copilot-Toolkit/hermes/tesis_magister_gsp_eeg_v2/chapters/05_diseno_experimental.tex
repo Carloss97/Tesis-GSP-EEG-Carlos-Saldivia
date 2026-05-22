@@ -1,57 +1,72 @@
 \chapter{Diseño Experimental}
 \label{ch:diseno_experimental}
 
-Este capítulo formaliza el diseño experimental: variables independientes, dependientes y controladas, protocolo de validación, plan de análisis estadístico y preguntas de investigación. El diseño sigue el principio de que cada experimento debe estar explícitamente vinculado a una pregunta de investigación y a una hipótesis, y que la significancia estadística debe establecerse con rigor antes de interpretar cualquier patrón.
+Este capítulo formaliza el diseño experimental: variables, protocolo de validación, plan de análisis estadístico y preguntas de investigación.
 
 \section{Variables del Experimento}
 
-Como \textbf{variables independientes} se definen: el método de interpolación (18 niveles), el conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), el modo de pérdida (aleatorio, contiguo), la severidad de la pérdida (10\%, 20\%, 30\%, 40\%) y la semilla aleatoria (5 réplicas por condición, como variable de bloque).
+Como \textbf{variables independientes} se definen: método de interpolación (18 niveles), conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), modo de pérdida (aleatorio, contiguo), severidad (10\%, 20\%, 30\%, 40\%) y semilla aleatoria (5 réplicas por condición, como variable de bloque).
 
-Las \textbf{variables dependientes} son las seis métricas de evaluación: MAE, RMSE, SNR, DTW, LSD y Coherencia, cuyas definiciones precisas se presentaron en la Tabla~\ref{tab:metrics}.
+Las \textbf{variables dependientes} son las seis métricas definidas en la Tabla~\ref{tab:metrics}: MAE, RMSE, SNR, DTW, LSD y Coherencia.
 
-Como \textbf{variables controladas} se fijan: las versiones exactas de todas las bibliotecas de software (documentadas en el Apéndice de Reproducibilidad), el hardware de ejecución, las semillas globales de NumPy y PyTorch, y el preprocesamiento —idéntico para todos los métodos: filtro pasabanda Butterworth de orden 4 entre 0.5 y 45~Hz, referencia promedio común, y segmentación en épocas de igual duración.
+Como \textbf{variables controladas} se fijan: versiones exactas de todas las bibliotecas (documentadas en el Apéndice de Reproducibilidad), hardware de ejecución, semillas globales, y preprocesamiento idéntico para todos los métodos (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación en épocas de igual duración).
 
-\section{Preguntas de Investigación por Experimento}
+\section{Preguntas de Investigación}
 
-La Tabla \ref{tab:hypothesis_experiments} vincula cada pregunta de investigación con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 y H2.
+La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 (TRSS supera a referencias geométricas) y H2 (MNE es equivalente en regímenes favorables).
 
 \begin{table}[htbp]
 \centering
-\caption{Relación entre hipótesis, preguntas de investigación, experimentos y evidencia esperada.}
+\caption{Relación entre hipótesis, experimentos y evidencia esperada.}
 \label{tab:hypothesis_experiments}
-\begin{tabular}{llll}
+\footnotesize
+\begin{tabular}{@{}p{3.5cm} p{3.5cm} p{4.5cm}@{}}
 \toprule
-Hipótesis & Pregunta & Experimento & Evidencia esperada \\
+Hipótesis y pregunta & Experimento & Evidencia esperada \\
 \midrule
-H1 & ¿Supera TRSS a las referencias? & Comparación global de familias & TRSS domina en pérdida contigua $>20\%$ \\
-H1 & ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & $\alpha+\beta > \alpha + \beta$ (superaditividad) \\
-H1 & ¿Preserva ERPs? & Series temporales N100/P300 & Amplitud y latencia conservadas al 40\% \\
-H2 & ¿Es MNE equivalente en régimen favorable? & Validación confirmatoria & Equivalencia estadística en pérdida $\leq 20\%$ \\
-H2 & ¿Cuál es el punto de cruce? & Curvas de degradación & Cruce en 15--20\% de severidad \\
--- & ¿Qué métrica discrimina mejor? & Radar multi-métrico & DTW y LSD muestran mayor contraste \\
+H1: ¿Supera TRSS a las referencias? & Comparación global de familias & TRSS domina en pérdida contigua \textgreater 20\% \\
+H1: ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & Efecto superaditivo \\
+H1: ¿Preserva ERPs? & Series temporales N100/P300 & Amplitud y latencia conservadas al 40\% \\
+H2: ¿Equivalencia en régimen favorable? & Validación confirmatoria TRSS vs.\ MNE & Equivalencia estadística en pérdida \textless=20\% \\
+H2: ¿Punto de cruce? & Curvas de degradación por severidad & Cruce en 15--20\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \section{Plan de Análisis Estadístico}
 
-Para todas las comparaciones entre métodos se utilizan pruebas no paramétricas (Wilcoxon signed-rank para muestras pareadas), ya que las métricas de error no siguen distribuciones normales (confirmado mediante la prueba de Shapiro-Wilk sobre los resultados agregados). Dado el alto número de comparaciones —6 métricas $\times$ 18 métodos $\times$ 120 escenarios—, se aplica la corrección de Benjamini-Hochberg para controlar la tasa de falsos descubrimientos (FDR) al 5\%. Se reportan tanto los valores $p$ originales como los ajustados.
+La elección de las pruebas estadísticas no es arbitraria, sino que responde a las propiedades de los datos y a los objetivos de la evaluación comparativa. A continuación se justifica cada decisión.
 
-Además de la significancia estadística, se reporta el tamaño del efecto mediante la correlación biserial por rangos (para Wilcoxon) y la mejora relativa mediana. Los intervalos de confianza se calculan mediante remuestreo bootstrap jerárquico (1000 remuestreos) que respeta la estructura anidada de los datos: escenarios $\supset$ réplicas.
+\subsection{Prueba de Wilcoxon para muestras pareadas}
 
-Para la comparación TRSS vs. MNE en la fase confirmatoria, se emplea un diseño de medidas repetidas: cada escenario produce una diferencia pareada en cada métrica. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero (equivalencia); la alternativa $H_1$ es que es distinta de cero. La significancia se evalúa con Wilcoxon signed-rank y se reporta la tasa de victoria (fracción de escenarios donde TRSS supera a MNE) estratificada por dataset, modo y severidad.
+Se emplea la prueba de rangos con signo de Wilcoxon como prueba principal de comparación entre métodos. Esta decisión descansa sobre tres fundamentos.
 
-\section{Control de Calidad Experimental}
+\textbf{No normalidad de las métricas de error.} La prueba de Shapiro-Wilk sobre los resultados agregados rechaza la hipótesis de normalidad con $p < 0.05$ para MAE, RMSE, DTW y LSD. La desviación es particularmente severa en LSD, donde la cola derecha —reconstrucciones de muy baja calidad en escenarios de pérdida extrema— genera una asimetría positiva marcada. Bajo estas condiciones, la prueba $t$ de Student produce valores $p$ no confiables. La prueba de Wilcoxon, en contraste, solo asume que las diferencias son independientes y provienen de una distribución simétrica bajo $H_0$, condiciones mucho más débiles y razonables para nuestros datos.
 
-Antes de cualquier análisis, se ejecutaron verificaciones automáticas de consistencia para garantizar la integridad de los datos: (1) todos los archivos de resultados contienen las seis métricas esperadas, (2) ningún identificador de ejecución aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden exactamente con la semilla y configuración especificadas, (4) las ejecuciones donde el método produjo valores no numéricos en alguna métrica fueron excluidas, (5) las ejecuciones donde el tiempo de ejecución excedió 10 minutos por intento fueron marcadas y analizadas por separado, y (6) las ejecuciones donde la reconstrucción resultó idéntica a la entrada (falla silenciosa del resolvedor) fueron excluidas. Estos criterios se aplicaron uniformemente a todos los métodos sin excepción.
+\textbf{Diseño de medidas repetidas.} Cada escenario produce una observación pareada para cada par de métodos $A$ y $B$, pues ambos operan sobre la misma señal original y la misma máscara de canales faltantes. La prueba de Wilcoxon explota esta estructura: para cada escenario $i$ se calcula la diferencia $d_i = \text{métrica}_A(i) - \text{métrica}_B(i)$, se ordenan los valores absolutos $|d_i|$ asignando rangos $R_i$, y se computa el estadístico $W = \sum_{i: d_i > 0} R_i$. Bajo $H_0$ (mediana de diferencias igual a cero), $W$ sigue una distribución conocida. Para tamaños muestrales grandes ($n > 50$), la distribución de $W$ se aproxima mediante una normal con media $\mu_W = n(n+1)/4$ y varianza $\sigma^2_W = n(n+1)(2n+1)/24$, aplicando corrección de continuidad para variables discretas.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.95\textwidth]{res_opt_final__heatmap_performance_mne_sample}
-\caption[Mapa de calor de desempeño en MNE Sample]{Mapa de calor del RMSE para todos los métodos en MNE Sample. Cada fila corresponde a un método y cada columna a una combinación de modo y nivel de pérdida. Los tonos oscuros indican menor error. La columna de la derecha (pérdida contigua al 40\%) muestra el contraste más marcado entre TRSS y las referencias geométricas.}
-\label{fig:heatmap_mne_sample}
-\end{figure}
+\textbf{Eficiencia y robustez.} La prueba de Wilcoxon tiene una eficiencia relativa asintótica del 95\% respecto a la prueba $t$ bajo normalidad, pero es sustancialmente más potente bajo desviaciones de la normalidad. En otras palabras, incluso en el peor caso la pérdida de potencia es mínima, mientras que en el caso típico de nuestras métricas —asimétricas y con colas pesadas— la ganancia es considerable.
+
+\subsection{Corrección de Benjamini-Hochberg para comparaciones múltiples}
+
+El diseño experimental genera un número elevado de pruebas simultáneas: 6 métricas $\times$ 18 métodos producen 153 comparaciones por par, que multiplicadas por estratificaciones (3 conjuntos de datos, 2 modos, 4 severidades) superan el millar. Si cada prueba usara $\alpha = 0.05$, la probabilidad de al menos un falso positivo sería $1 - 0.95^k$, que para $k = 1000$ es prácticamente 1. En otras palabras, sin corrección, el experimento garantiza hallar diferencias ``significativas'' incluso donde no existen.
+
+Para controlar este problema se emplea la corrección de Benjamini-Hochberg (BH), que controla la tasa de falsos descubrimientos (FDR): la proporción esperada de falsos positivos entre todos los rechazos. A diferencia de la corrección de Bonferroni —que controla la tasa de error por familia (FWER, $\text{FWER} \leq m \cdot \alpha$) dividiendo $\alpha$ entre $m$ pruebas y es excesivamente conservadora para estudios con muchas comparaciones—, BH adapta el umbral a la distribución observada de los valores $p$. El procedimiento es: para $m$ pruebas independientes con valores $p$ ordenados $p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}$, se encuentra el mayor índice $k$ que satisface $p_{(k)} \leq \frac{k}{m} \cdot \alpha$, y se rechazan $H_{(1)}, \dots, H_{(k)}$.
+
+Se reportan los valores $p$ originales y los ajustados por BH, fijando $\alpha = 0.05$ (FDR al 5\%). Para las comparaciones planificadas de la fase confirmatoria (TRSS vs.\ MNE), no se aplica corrección por ser hipótesis predefinidas, pero se reporta el tamaño del efecto para contextualizar la magnitud de cualquier diferencia detectada.
+
+\subsection{Tamaño del efecto e intervalos de confianza}
+
+La significancia estadística indica si una diferencia observada es improbable bajo la hipótesis nula, pero no cuantifica la magnitud de esa diferencia. Una diferencia de 0.001 en MAE puede ser estadísticamente significativa con suficientes escenarios, pero clínicamente irrelevante. Para complementar la significancia se reportan dos medidas de tamaño del efecto: la correlación biserial por rangos $r = 1 - 2U/(n_1 n_2)$ para comparaciones no pareadas, y la mejora relativa mediana $\Delta = \text{mediana}((B-A)/|A|)$ para comparaciones pareadas. Adicionalmente, todos los estimadores puntuales se acompañan de intervalos de confianza al 95\% calculados mediante remuestreo bootstrap jerárquico con 1000 remuestreos que respetan la estructura anidada de los datos (escenarios $\supset$ réplicas). Este método no asume ninguna distribución paramétrica y produce intervalos asimétricos que reflejan fielmente la incertidumbre de los estimadores.
+
+\subsection{Protocolo de la fase confirmatoria}
+
+Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas: cada uno de los 120 escenarios produce una diferencia pareada $d_i$ en cada métrica. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero (equivalencia entre métodos). La alternativa $H_1$ es bilateral. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de escenarios donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice la hipótesis H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
+
+\section{Control de Calidad}
+
+Antes de cualquier análisis se ejecutaron verificaciones automáticas: (1) todos los archivos contienen las seis métricas, (2) ningún identificador aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden con la semilla especificada, (4) se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada (falla silenciosa). Estos criterios se aplicaron uniformemente a todos los métodos.
 
 \section{Síntesis del Diseño}
 
-El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: (1) todos los métodos, incluyendo las referencias clásicas, fueron optimizados con el mismo motor de optimización bayesiana, (2) se incorporó una validación confirmatoria independiente contra la implementación industrial MNE-Python, (3) la evaluación abarca métricas de amplitud, morfología y espectro, y (4) los escenarios de pérdida incluyen tanto fallas aleatorias como contiguas en un rango de severidades clínicamente relevante.
+El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos —incluyendo referencias— fueron optimizados con el mismo motor bayesiano; se incorporó una validación confirmatoria independiente contra la implementación de referencia MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante.

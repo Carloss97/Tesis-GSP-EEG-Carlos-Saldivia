@@ -1,25 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  TESIS DE MAGÍSTER — CAPÍTULOS 1–5 (VERSIÓN PROFESOR)       %
+%  Reconstrucción de Canales EEG Faltantes mediante            %
+%  Procesamiento de Señales en Grafos con Regularización       %
+%  Temporal                                                    %
+%  Universidad Técnica Federico Santa María                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[12pt,letterpaper,oneside]{book}
+
 \input{config/packages}
 \input{config/metadata}
 \input{config/results_data}
 
+% ── Colores ──
+\definecolor{hermesblue}{HTML}{0072B2}
+\definecolor{hermesorange}{HTML}{E69F00}
+\definecolor{hermesgreen}{HTML}{009E73}
+\definecolor{hermesred}{HTML}{D55E00}
+\definecolor{hermespurple}{HTML}{CC79A7}
+
 \begin{document}
-\frontmatter
-\input{frontmatter/cover_page}
-\input{frontmatter/acknowledgements}
+
+\pagenumbering{roman}
+\include{frontmatter/cover_page}
+\include{frontmatter/abstract_es}
+\include{frontmatter/abstract_en}
+
 \tableofcontents
 \listoffigures
 \listoftables
-\input{frontmatter/abstract_es}
 
-\mainmatter
+\cleardoublepage
+\pagenumbering{arabic}
 \include{chapters/01_introduccion}
 \include{chapters/02_marco_teorico}
 \include{chapters/03_metodologia}
 \include{chapters/04_arquitectura_y_trazabilidad}
 \include{chapters/05_diseno_experimental}
 
-\backmatter
 \bibliographystyle{plainnat}
 \bibliography{bibliography/references}
+
 \end{document}

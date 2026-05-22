@@ -35,7 +35,7 @@ No obstante, estos métodos presentan limitaciones que motivan su exclusión del
 
 A pesar de la inmensa promesa teórica de los algoritmos GSP y TRSS, su validación empírica en la literatura de señales biomédicas sufre de una preocupante fragmentación metodológica. Se identifican tres problemas graves en las evaluaciones comparativas publicadas hasta la fecha.
 
-El primer problema es que los estudios que proponen nuevos algoritmos GSP suelen compararse contra \textit{spherical splines} usando las configuraciones por defecto de los paquetes de software, sin realizar una búsqueda rigurosa de hiperparámetros para los métodos de referencia. Esto infla artificialmente las ventajas del método propuesto y distorsiona la percepción del verdadero estado del arte \cite{saldivia2026benchmark}. El segundo problema es que la gran mayoría de los trabajos restringen su evaluación a métricas de error de amplitud global —como el RMSE o el MAE— y aplican escenarios de desconexión irreales, tales como la remoción de canales aleatorios aislados en bases de datos pequeñas. Rara vez se investiga el impacto morfológico de la reconstrucción mediante métricas temporales como el \textit{Dynamic Time Warping} o espectrales como la Distancia Espectral Logarítmica, que constituyen los verdaderos predictores de la utilidad clínica de la señal interpolada. El tercer problema, y quizás el más grave desde el punto de vista metodológico, es la ausencia casi total de comparaciones contra implementaciones de referencia industrial. En particular, la función \code{mne.io.Raw.interpolate\_bads()} de MNE-Python incorpora una década de refinamientos de ingeniería —normalización de coordenadas, regularización diagonal adaptativa, aumentación del sistema con restricciones lineales, pseudoinversa con tolerancia adaptativa y un mecanismo de reintento automático— que la hacen sustancialmente más robusta que una implementación ingenua de \textit{spherical splines}. Ignorar esta implementación equivale a comparar contra un método de referencia debilitado artificialmente.
+El primer problema es que los estudios que proponen nuevos algoritmos GSP suelen compararse contra \textit{spherical splines} usando las configuraciones por defecto de los paquetes de software, sin realizar una búsqueda rigurosa de hiperparámetros para los métodos de referencia. Esto infla artificialmente las ventajas del método propuesto y distorsiona la percepción del verdadero estado del arte \cite{saldivia2026benchmark}. El segundo problema es que la gran mayoría de los trabajos restringen su evaluación a métricas de error de amplitud global —como el RMSE o el MAE— y aplican escenarios de desconexión irreales, tales como la remoción de canales aleatorios aislados en bases de datos pequeñas. Rara vez se investiga el impacto morfológico de la reconstrucción mediante métricas temporales como el \textit{Dynamic Time Warping} o espectrales como la Distancia Espectral Logarítmica, que constituyen los verdaderos predictores de la utilidad clínica de la señal interpolada. El tercer problema, y quizás el más grave desde el punto de vista metodológico, es la ausencia casi total de comparaciones contra implementaciones de referencia industrial. En particular, la implementación de interpolación de MNE-Python incorpora más de una década de refinamientos de ingeniería —normalización de coordenadas, regularización diagonal adaptativa, aumentación del sistema con restricciones lineales, pseudoinversa con tolerancia adaptativa y un mecanismo de reintento automático— que la hacen sustancialmente más robusta que una implementación ingenua de \textit{spherical splines}. Ignorar esta implementación equivale a comparar contra un método de referencia debilitado artificialmente.
 
 La motivación concreta de este trabajo nace directamente de estas brechas. El objetivo no es diseñar desde cero un nuevo marco teórico matemático, sino someter a la frontera del conocimiento actual —métodos geométricos, GSP y regularización temporal— a la evaluación empírica más rigurosa, exhaustiva y justa posible. Al utilizar el sistema moderno de optimización bayesiana Optuna \cite{akiba2019optuna} para llevar todos los algoritmos a su máximo límite empírico bajo protocolos evaluados en múltiples conjuntos de datos, esta tesis busca revelar el verdadero punto de cruce entre el paradigma clásico y el paradigma de grafos.
 
@@ -61,7 +61,7 @@ Los siguientes dos meses se dedicaron al desarrollo de un sistema modular en Pyt
 
 \subsection{Fase 3 — Barrido Exploratorio Inicial}
 
-Con el sistema funcional, se ejecutó un barrido exploratorio sobre escenarios de pérdida aleatoria al 20\% en los tres conjuntos de datos. Los resultados revelaron un hallazgo inesperado que redefiniría el curso de la investigación: TRSS mostraba ventajas muy significativas —del orden de 5 a 15~dB en SNR— sobre las implementaciones propias de \textit{spherical splines}, pero esa brecha se reducía de manera importante al comparar contra la función \code{mne.io.Raw.interpolate\_bads()} de MNE-Python, que incorpora una década de refinamientos de ingeniería. Este hallazgo fue el disparador de dos decisiones metodológicas cruciales: incluir a MNE como referencia confirmatoria independiente en una fase separada del experimento, y diseñar el resto del protocolo para distinguir nítidamente entre resultados exploratorios y confirmatorios.
+Con el sistema funcional, se ejecutó un barrido exploratorio sobre escenarios de pérdida aleatoria al 20\% en los tres conjuntos de datos. Los resultados revelaron un hallazgo inesperado que redefiniría el curso de la investigación: TRSS mostraba ventajas muy significativas —del orden de 5 a 15~dB en SNR— sobre las implementaciones propias de \textit{spherical splines}, pero esa brecha se reducía de manera importante al comparar contra la implementación industrial de MNE-Python, que incorpora una década de refinamientos de ingeniería. Este hallazgo fue el disparador de dos decisiones metodológicas cruciales: incluir a MNE como referencia confirmatoria independiente en una fase separada del experimento, y diseñar el resto del protocolo para distinguir nítidamente entre resultados exploratorios y confirmatorios.
 
 \subsection{Fase 4 — Selección Fina y Diseño del Espacio de Búsqueda}
 
@@ -73,7 +73,7 @@ Durante los siguientes dos meses se integró Optuna con muestreo TPE (\textit{Tr
 
 \subsection{Fase 6 — Validación Confirmatoria contra MNE-Python}
 
-En una fase independiente —diseñada para no contaminar los resultados exploratorios— se ejecutó una validación donde TRSS, con sus hiperparámetros congelados tras la optimización de la fase anterior, se comparó directamente contra \code{mne.io.Raw.interpolate\_bads()} utilizando los parámetros por defecto que cualquier usuario de MNE obtendría sin ajuste adicional. Esta validación se estratificó por conjunto de datos, modo de pérdida y severidad, y empleó pruebas estadísticas pareadas —Wilcoxon signed-rank con corrección de Benjamini-Hochberg para comparaciones múltiples— con el fin de establecer significancia estadística de manera rigurosa.
+En una fase independiente —diseñada para no contaminar los resultados exploratorios— se ejecutó una validación donde TRSS, con sus hiperparámetros congelados tras la optimización de la fase anterior, se comparó directamente contra la implementación de referencia de MNE-Python utilizando los parámetros por defecto que cualquier usuario de MNE obtendría sin ajuste adicional. Esta validación se estratificó por conjunto de datos, modo de pérdida y severidad, y empleó pruebas estadísticas pareadas —Wilcoxon signed-rank con corrección de Benjamini-Hochberg para comparaciones múltiples— con el fin de establecer significancia estadística de manera rigurosa.
 
 \subsection{Fase 7 — Ablación y Documentación}
 
@@ -83,32 +83,26 @@ La fase final consistió en un estudio de ablación para cuantificar la contribu
 
 \subsection{Objetivo General}
 
-Comparar el rendimiento espacial, temporal y espectral de los métodos de reconstrucción de canales EEG basados en Procesamiento de Señales en Grafos con regularización temporal frente a las referencias geométricas clásicas —incluida MNE-Python—, bajo un marco experimental riguroso, reproducible y optimizado mediante optimización bayesiana.
+Comparar el rendimiento espacial, temporal y espectral de los métodos de reconstrucción de canales EEG basados en GSP con regularización temporal frente a las referencias geométricas —incluida MNE-Python— bajo un marco experimental riguroso, reproducible y optimizado mediante optimización bayesiana.
 
 \subsection{Objetivos Específicos}
 
 \begin{itemize}
-    \item \textbf{OE1 — Consolidación de Métodos.} Implementar y unificar dieciocho métodos de interpolación —geométricos, estadísticos y basados en grafos— en un sistema modular en Python con una interfaz común que permita la comparación directa entre todos ellos.
-    
-    \item \textbf{OE2 — Diseño de Escenarios Clínicamente Relevantes.} Definir protocolos realistas de simulación de canales faltantes, abarcando tanto fallos esporádicos aleatorios como pérdidas masivas contiguas de amplificadores locales, iterando desde un 10\% hasta un 40\% de degradación del montaje sensor.
-    
-    \item \textbf{OE3 — Optimización Imparcial de Hiperparámetros.} Integrar el sistema Optuna con muestreo TPE y NSGA-II multiobjetivo para explorar iterativamente los espacios paramétricos de todos los métodos, garantizando que ningún algoritmo sea evaluado por debajo de su verdadero límite de diseño.
-    
-    \item \textbf{OE4 — Evaluación Multi-Métrica Transversal.} Cuantificar el desempeño de reconstrucción mediante una batería de seis métricas —MAE, RMSE, SNR, DTW, LSD y Coherencia— cruzando tres conjuntos de datos heterogéneos y ciento veinte escenarios de pérdida.
-    
-    \item \textbf{OE5 — Análisis de Relevancia Fisiológica.} Demostrar, tanto visual como cuantitativamente, el impacto de los distintos enfoques de interpolación en la preservación de Potenciales Relacionados a Eventos específicos —como N100 y P300— y de la dinámica espectral en las bandas de frecuencia naturales del cerebro.
-    
-    \item \textbf{OE6 — Trazabilidad y Reproducibilidad Científica.} Generar un repositorio abierto de artefactos computacionales —código fuente, configuraciones, registros de optimización y resultados— que garantice la reproducibilidad completa de todos los hallazgos reportados.
+    \item \textbf{OE1 — Sistema unificado de evaluación.} Implementar dieciocho métodos de interpolación en un sistema modular con interfaz común, definir protocolos de pérdida aleatoria y contigua (10\%--40\%), e integrar Optuna para la optimización imparcial de todos los algoritmos (más de 15\,000 configuraciones exploradas).
+
+    \item \textbf{OE2 — Evaluación multi-métrica y fisiológica.} Cuantificar el desempeño mediante seis métricas (MAE, RMSE, SNR, DTW, LSD, Coherencia) sobre tres conjuntos de datos y 120 escenarios de pérdida, y verificar el impacto en la preservación de ERPs (N100, P300) y de la estructura espectral en las bandas de frecuencia naturales del EEG.
+
+    \item \textbf{OE3 — Trazabilidad y reproducibilidad.} Generar un repositorio abierto de artefactos computacionales —código, configuraciones, registros de optimización y resultados— que garantice la trazabilidad completa de cada afirmación cuantitativa hasta el archivo que la origina.
 \end{itemize}
 
 \section{Hipótesis de Trabajo}
 
 \begin{quote}
-\textbf{H1 — Hipótesis Principal.} La integración de restricciones de suavidad espacial basadas en topologías de grafos, junto con información previa de continuidad temporal penalizada mediante regularización de Sobolev (TRSS), permite reconstruir canales EEG faltantes con significativamente mayor precisión y robustez que los métodos geométricos de extrapolación de superficies estáticas. Esta ventaja no solo se refleja en la mitigación del error cuadrático medio, sino fundamentalmente en la preservación fiel de la morfología transitoria de los ERPs y de la densidad espectral de potencia, especialmente ante escenarios de pérdida espacial severa y contigua.
+\textbf{H1 — Hipótesis principal.} La regularización espacio-temporal (TRSS) permite reconstruir canales EEG faltantes con mayor precisión y robustez que los métodos geométricos, no solo en error de amplitud sino en la preservación de la morfología de ERPs y de la densidad espectral, especialmente bajo pérdida contigua severa.
 \end{quote}
 
 \begin{quote}
-\textbf{H2 — Hipótesis de Equivalencia Condicional.} En regímenes favorables —montajes densos de sesenta canales o más, pérdida aleatoria igual o inferior al 20\% y señales espacialmente suaves—, la implementación industrial de referencia MNE-Python iguala o supera a TRSS en preservación espectral, ofreciendo una solución significativamente más eficiente —entre 50 y 100 veces más rápida— sin un sacrificio clínico significativo en la calidad de la señal reconstruida.
+\textbf{H2 — Hipótesis de equivalencia condicional.} En regímenes favorables —montajes densos ($\geq 60$ canales), pérdida aleatoria $\leq 20\%$—, MNE-Python iguala o supera a TRSS en preservación espectral, siendo entre 50 y 100 veces más rápido sin un sacrificio clínico significativo.
 \end{quote}
 
 \section{Alcance y Aportes de la Investigación}

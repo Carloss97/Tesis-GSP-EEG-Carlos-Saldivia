@@ -1,14 +1,10 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Generación y propagación de la señal EEG}}{14}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Fundamentos del Procesamiento de Señales en Grafos}}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Generación de la señal EEG por poblaciones neuronales corticales y su propagación hasta los electrodos de superficie. La conducción volumétrica a través del cráneo actúa como un filtro espacial paso-bajo. Adaptado de \cite {nunez2006electric}.}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Conceptos fundamentales de GSP. (a) Electrodos como nodos de un grafo con pesos $W_{ij}$. (b) Descomposición espectral del Laplaciano: autovalores $\lambda _k$ como frecuencias en el grafo. (c) Flujo de reconstrucción: la señal original sufre pérdida de canales y GSP la reconstruye minimizando la variación sobre el grafo.}}{14}{figure.caption.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Curva de degradación SNR en BCI IV 2a}}{31}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparación global de métodos en PhysioNet}}{33}{figure.caption.15}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Mapa de calor de desempeño en MNE Sample}}{38}{figure.caption.19}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

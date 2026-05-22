@@ -1,19 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  TESIS DE MAGÍSTER — VERSIÓN COMPLETA                        %
+%  Reconstrucción de Canales EEG Faltantes mediante            %
+%  Procesamiento de Señales en Grafos con Regularización       %
+%  Temporal                                                    %
+%  Universidad Técnica Federico Santa María                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass[12pt,letterpaper,oneside]{book}
+
 \input{config/packages}
 \input{config/metadata}
 \input{config/results_data}
 
+% ── Colores Okabe-Ito (colorblind-safe) ──
+\definecolor{hermesblue}{HTML}{0072B2}
+\definecolor{hermesorange}{HTML}{E69F00}
+\definecolor{hermesgreen}{HTML}{009E73}
+\definecolor{hermesred}{HTML}{D55E00}
+\definecolor{hermespurple}{HTML}{CC79A7}
+
 \begin{document}
-\frontmatter
-\input{frontmatter/cover_page}
-\input{frontmatter/acknowledgements}
+
+% ── Páginas preliminares ──
+\pagenumbering{roman}
+\include{frontmatter/cover_page}
+\include{frontmatter/abstract_es}
+\include{frontmatter/abstract_en}
+\include{frontmatter/acknowledgements}
+
+% ── Índices ──
 \tableofcontents
 \listoffigures
 \listoftables
-\input{frontmatter/abstract_es}
-\input{frontmatter/abstract_en}
 
-\mainmatter
+% ── Cuerpo principal ──
+\cleardoublepage
+\pagenumbering{arabic}
 \include{chapters/01_introduccion}
 \include{chapters/02_marco_teorico}
 \include{chapters/03_metodologia}
@@ -23,14 +45,16 @@
 \include{chapters/07_discusion}
 \include{chapters/08_conclusiones}
 
+% ── Apéndices ──
 \appendix
 \include{appendices/A_derivaciones}
 \include{appendices/B_tablas_extensas}
-\include{appendices/C_reproducibilidad}
+\include{appendices/C_protocolo_reproducibilidad}
 \include{appendices/D_inventario_artefactos}
 \include{appendices/E_apendice_tablas_originales_adaptado}
 
-\backmatter
+% ── Bibliografía ──
 \bibliographystyle{plainnat}
 \bibliography{bibliography/references}
+
 \end{document}

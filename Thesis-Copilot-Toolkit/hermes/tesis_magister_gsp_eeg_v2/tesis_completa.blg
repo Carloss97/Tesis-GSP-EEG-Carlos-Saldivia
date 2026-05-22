@@ -1,6 +1,10 @@
 This is BibTeX, Version 0.99e (TeX Live 2026)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tesis_completa.aux
+A level-1 auxiliary file: frontmatter/cover_page.aux
+A level-1 auxiliary file: frontmatter/abstract_es.aux
+A level-1 auxiliary file: frontmatter/abstract_en.aux
+A level-1 auxiliary file: frontmatter/acknowledgements.aux
 A level-1 auxiliary file: chapters/01_introduccion.aux
 A level-1 auxiliary file: chapters/02_marco_teorico.aux
 A level-1 auxiliary file: chapters/03_metodologia.aux
@@ -11,7 +15,7 @@ A level-1 auxiliary file: chapters/07_discusion.aux
 A level-1 auxiliary file: chapters/08_conclusiones.aux
 A level-1 auxiliary file: appendices/A_derivaciones.aux
 A level-1 auxiliary file: appendices/B_tablas_extensas.aux
-A level-1 auxiliary file: appendices/C_reproducibilidad.aux
+A level-1 auxiliary file: appendices/C_protocolo_reproducibilidad.aux
 A level-1 auxiliary file: appendices/D_inventario_artefactos.aux
 A level-1 auxiliary file: appendices/E_apendice_tablas_originales_adaptado.aux
 The style file: plainnat.bst
@@ -21,45 +25,45 @@ Repeated entry---line 670 of file bibliography/references.bib
  :                         ,
 I'm skipping whatever remains of this entry
 Warning--empty journal in buzsaki2006rhythms
-You've used 25 entries,
+You've used 24 entries,
             2773 wiz_defined-function locations,
-            776 strings with 10925 characters,
-and the built_in function-call counts, 14205 in all, are:
-= -- 1236
-> -- 1031
-< -- 12
-+ -- 346
-- -- 321
-* -- 1278
-:= -- 2220
-add.period$ -- 94
-call.type$ -- 25
-change.case$ -- 181
-chr.to.int$ -- 25
-cite$ -- 51
-duplicate$ -- 556
-empty$ -- 1003
-format.name$ -- 354
-if$ -- 2925
+            772 strings with 10873 characters,
+and the built_in function-call counts, 13735 in all, are:
+= -- 1189
+> -- 1010
+< -- 11
++ -- 339
+- -- 315
+* -- 1239
+:= -- 2149
+add.period$ -- 90
+call.type$ -- 24
+change.case$ -- 176
+chr.to.int$ -- 24
+cite$ -- 49
+duplicate$ -- 536
+empty$ -- 963
+format.name$ -- 345
+if$ -- 2826
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 27
-newline$ -- 152
-num.names$ -- 100
-pop$ -- 338
+missing$ -- 26
+newline$ -- 146
+num.names$ -- 96
+pop$ -- 331
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 152
 quote$ -- 0
-skip$ -- 463
+skip$ -- 447
 stack$ -- 0
-substring$ -- 502
-swap$ -- 63
+substring$ -- 475
+swap$ -- 62
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 260
+type$ -- 249
 warning$ -- 1
-while$ -- 110
+while$ -- 105
 width$ -- 0
-write$ -- 367
+write$ -- 352
 (There was 1 error message)
