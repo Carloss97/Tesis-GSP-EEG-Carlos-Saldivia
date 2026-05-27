@@ -1,58 +1,76 @@
-VALIDATION REPORT — tesis_magister_gsp_eeg_v2
-Fecha: 2026-05-27T10:36:09-04:00
+# Validation Report — tesis_magister_gsp_eeg_v2
 
-Static validation:
-  python3 scripts/validate_thesis.py
-  tesis_completa.tex: PASS
-    tex_files_loaded: 26
-    citations_used: 24
-    missing_citations: 0
-    duplicate_bibkeys: 0
-    figures_used: 9
-    missing_figures: 0
-    duplicate_labels: 0
-    missing_refs: 0
-  tesis_caps_1_5.tex: PASS
-    tex_files_loaded: 12
-    citations_used: 24
-    missing_citations: 0
-    duplicate_bibkeys: 0
-    figures_used: 1
-    missing_figures: 0
-    duplicate_labels: 0
-    missing_refs: 0
+## Estado final
 
-Compilation:
-  latexmk -pdf -interaction=nonstopmode tesis_completa.tex: PASS
-    pages: 73
-    LaTeX errors: 0
-    undefined citations: 0
-    undefined references: 0
-    overfull hboxes: 5
-    overfull hboxes >10pt: 0
+`tesis_completa.tex` compila correctamente después de la pasada de refuerzo visual y corrección de figuras.
 
-  latexmk -pdf -interaction=nonstopmode tesis_caps_1_5.tex: PASS
-    pages: 43
-    LaTeX errors: 0
-    undefined citations: 0
-    undefined references: 0
-    overfull hboxes: 4
-    overfull hboxes >10pt: 0
+## Comandos ejecutados
 
-Generated artifacts:
-  figures/ch6_robust_improvement_ci.pdf
-  figures/ch6_dataset_mae_improvement.pdf
-  figures/ch6_scenario_heatmap_mae.pdf
-  figures/ch6_runtime_mae_tradeoff.pdf
-  figures/ch6_ablation_temporal_component.pdf
-  figures/ch6_boxplot_runtime_balanced.pdf
-  figures/ch6_boxplot_nrmse_balanced.pdf
-  figures/ch6_heatmap_tuned_winrate_balanced.pdf
+```bash
+python3 scripts/validate_thesis.py
+latexmk -pdf -interaction=nonstopmode tesis_completa.tex
+```
 
-  tables/ch6_global_summary.tex
-  tables/ch6_robust_main.tex
-  tables/ch6_by_dataset_mae.tex
-  tables/ch6_selected_scenarios_mae.tex
-  tables/ch6_runtime_complexity.tex
-  tables/ch6_experiment_log.md
-  tables/ch6_artifact_manifest.json
+## Resultado de validación estática
+
+### tesis_completa.tex
+
+- Estado: PASS
+- Archivos `.tex` cargados: 29
+- Inputs faltantes: 0
+- Citas usadas: 24
+- Citas faltantes: 0
+- BibTeX duplicadas: 0
+- Figuras usadas: 18
+- Figuras faltantes: 0
+- Labels: 54
+- Labels duplicados: 0
+- Referencias faltantes: 0
+- Palabras aproximadas LaTeX: 14,430
+- Páginas heurísticas texto: 37.0
+
+### tesis_caps_1_5.tex
+
+La validación estática también pasa, aunque esta pasada se enfocó en `tesis_completa.tex`.
+
+- Estado: PASS
+- Archivos `.tex` cargados: 12
+- Inputs faltantes: 0
+- Citas faltantes: 0
+- Figuras usadas: 7
+- Figuras faltantes: 0
+- Labels duplicados: 0
+- Referencias faltantes: 0
+
+## Resultado de compilación LaTeX
+
+### tesis_completa.pdf
+
+- Estado: PASS
+- Páginas: 80
+- Tamaño: 1,607,440 bytes
+- Errores LaTeX: 0
+- Citas indefinidas: 0
+- Referencias indefinidas: 0
+- Overfull hboxes totales: 3
+- Overfull hboxes >10pt: 0
+
+## Figuras nuevas/reemplazadas
+
+- `figures/ch1_thesis_roadmap.pdf`
+- `figures/ch2_gsp_concepts_clean.pdf`
+- `figures/ch2_trss_operator.pdf`
+- `figures/ch3_methodology_flow.pdf`
+- `figures/ch4_traceability_pipeline.pdf`
+- `figures/ch5_experimental_design_matrix.pdf`
+- `figures/ch6_metric_portfolio_improvement.pdf`
+- `figures/ch7_decision_map.pdf`
+
+## Scripts reproducibles
+
+- `scripts/generate_additional_figures.py`
+- `scripts/generate_ch6_artifacts.py`
+
+## Nota de calidad
+
+La figura GSP del Capítulo 2 fue reemplazada por una versión vectorial nueva. El panel del espectro del Laplaciano ya no presenta superposición visible de etiquetas con el eje $\lambda_k$.

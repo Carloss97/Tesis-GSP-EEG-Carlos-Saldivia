@@ -3,6 +3,13 @@
 
 Este capítulo documenta la arquitectura de software y el mecanismo de trazabilidad que vincula cada resultado cuantitativo con su artefacto computacional de origen.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{ch4_traceability_pipeline}
+\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. La tesis exige que cada afirmación cuantitativa pueda rastrearse desde el texto hasta una tabla o figura, desde allí al archivo CSV correspondiente y finalmente al script/configuración que generó el resultado.}
+\label{fig:traceability_pipeline}
+\end{figure}
+
 \section{Arquitectura Modular}
 
 El sistema se organiza en cinco módulos con interfaces explícitas, lo que permite probar cada módulo de forma aislada y ejecutar experimentos en paralelo sin interferencia.
@@ -39,8 +46,8 @@ Tiempos & JSON & Perfil de eficiencia computacional \\
 \centering
 \caption{Ejemplos de trazabilidad entre afirmaciones y artefactos.}
 \label{tab:traceability}
-\small
-\begin{tabular}{@{}l l l@{}}
+\footnotesize
+\begin{tabular}{@{}p{3.4cm}p{3.0cm}p{4.0cm}@{}}
 \toprule
 Afirmación & Artefacto & Verificación \\
 \midrule

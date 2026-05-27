@@ -127,6 +127,10 @@ def sci(x: float, digits: int = 2) -> str:
     return f"${mant:.{digits}f}\\times 10^{{{exp}}}$"
 
 
+def scaled_1e5(x: float, digits: int = 2) -> str:
+    return f"{float(x) * 1e5:.{digits}f}"
+
+
 def dec(x: float, digits: int = 3) -> str:
     return f"{float(x):.{digits}f}"
 
@@ -375,19 +379,19 @@ for mode, val in selected_keys:
     r = row.iloc[0]
     rows.append(
         f"{mode_label.get(mode, mode)} & {value_label.get(str(val).rstrip('0').rstrip('.'), str(val))} & {int(r['n'])} & "
-        f"{pct(r['win_rate'])} & {signed_pct(r['median_improvement'])} & {sci(r['mne_median'])} / {sci(r['trss_median'])} \\\\"
+        f"{pct(r['win_rate'])} & {signed_pct(r['median_improvement'])} & {scaled_1e5(r['mne_median'])} / {scaled_1e5(r['trss_median'])} \\\\"
     )
 tex_table(
     TABLES / "ch6_selected_scenarios_mae.tex",
     r"""
 \begin{table}[htbp]
 \centering
-\small
+\footnotesize
 \caption{Escenarios representativos para TRSS fijo frente a MNE en MAE. La mejora aumenta en pérdidas agrupadas o periféricas de alta severidad, mientras que escenarios de pocos canales cercanos pueden producir empate práctico.}
 \label{tab:ch6_selected_scenarios_mae}
 \begin{tabular}{@{}llrrrr@{}}
 \toprule
-Patrón & Severidad & $n$ & Tasa victoria & Mejora mediana & MAE MNE / TRSS \\
+Patrón & Severidad & $n$ & Victoria & Mejora & MAE MNE/TRSS ($10^{-5}$) \\
 \midrule
 """ + "\n".join(rows) + r"""
 \bottomrule

@@ -3,6 +3,13 @@
 
 Este capítulo describe el diseño metodológico: conjuntos de datos, algoritmos, protocolos de simulación de canales faltantes, métricas de evaluación y motor de optimización bayesiana.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.96\textwidth]{ch3_methodology_flow}
+\caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas, y se evalúa con un portafolio de métricas antes del análisis estadístico pareado.}
+\label{fig:methodology_flow}
+\end{figure}
+
 \section{Conjuntos de Datos}
 
 La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades, paradigmas y poblaciones (Tabla~\ref{tab:datasets}).

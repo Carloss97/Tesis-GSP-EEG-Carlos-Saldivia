@@ -13,7 +13,7 @@ Los datos sintéticos de la fase confirmatoria no reemplazan a los conjuntos rea
 
 \section{Inventario de Evidencia Experimental}
 
-La evaluación confirmatoria se realizó sobre 300 casos pareados y 3300 evaluaciones crudas. Cada par compara una variante de TRSS y \code{MNE interpolate\_bads(method='spline')} sobre la misma señal, la misma máscara de canales ocultos y la misma semilla. Del total de evaluaciones, 2700 corresponden a variantes de TRSS usadas para sensibilidad, calibración u oráculo de grilla; las conclusiones desplegables se basan en TRSS fijo, TRSS calibrado y MNE. Las métricas se calcularon únicamente sobre los canales artificialmente ocultos, de modo que los valores reportados miden reconstrucción de información faltante y no ajuste sobre canales observados.
+La evaluación confirmatoria se realizó sobre 300 casos pareados y 3300 evaluaciones crudas. Cada par compara una variante de TRSS y MNE-Python sobre la misma señal, la misma máscara de canales ocultos y la misma semilla. Del total de evaluaciones, 2700 corresponden a variantes de TRSS usadas para sensibilidad, calibración u oráculo de grilla; las conclusiones desplegables se basan en TRSS fijo, TRSS calibrado y MNE. Las métricas se calcularon únicamente sobre los canales artificialmente ocultos, de modo que los valores reportados miden reconstrucción de información faltante y no ajuste sobre canales observados.
 
 La Tabla~\ref{tab:ch6_global_summary} resume el resultado global. El método MNE spline tiene el menor tiempo mediano por caso y el menor valor medio de LSD. TRSS fijo reduce la mediana de MAE de $1.13\times10^{-5}$ a $8.46\times10^{-6}$, mejora NRMSE medio de 0.804 a 0.604, aumenta la correlación media de 0.808 a 0.860 y eleva $R^2$ medio de 0.010 a 0.508. La variante calibrada mejora levemente MAE y NRMSE, pero empeora LSD respecto de TRSS fijo. El oráculo, que selecciona hiperparámetros usando la verdad de terreno, solo entrega una ganancia marginal adicional; por tanto, se utiliza como cota superior no desplegable y no como método comparable en condiciones reales.
 
@@ -39,6 +39,13 @@ El resultado espectral es distinto. En LSD, donde menor es mejor, TRSS fijo pres
 La Tabla~\ref{tab:ch6_metric_portfolio} amplía la lectura a todas las métricas confirmatorias disponibles para TRSS fijo. El patrón es coherente: TRSS mejora MAE, RMSE, NRMSE, DTW, SNR, coherencia, correlación y $R^2$ después de ajustar la dirección de cada métrica. La excepción relevante es LSD, que favorece a MNE, y el tiempo de cómputo, donde MNE domina claramente. Esta tabla evita seleccionar solo métricas favorables y muestra de forma transparente el perfil completo de ventajas y pérdidas.
 
 \input{tables/ch6_metric_portfolio}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.92\textwidth]{ch6_metric_portfolio_improvement}
+    \caption[Portafolio visual de métricas TRSS--MNE]{Portafolio visual de métricas para TRSS fijo frente a MNE. Los valores positivos favorecen a TRSS y los negativos favorecen a MNE. La figura muestra de forma compacta que la mejora no es uniforme: TRSS favorece error de amplitud, ajuste temporal y correlación, mientras que MNE mantiene ventaja en LSD y tiempo de cómputo.}
+    \label{fig:ch6_metric_portfolio_improvement}
+\end{figure}
 
 \begin{figure}[htbp]
     \centering

@@ -34,45 +34,11 @@ Un grafo $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ consiste en $N$ 
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[
-  node distance=1.2cm,
-  box/.style={rectangle, draw, rounded corners, minimum height=0.6cm, minimum width=1.6cm, align=center, font=\small},
-  arrow/.style={-{Stealth[length=2mm]}, thick},
-]
-  % === ROW 1: (a) Graph + (b) Spectrum ===
-  \node[font=\small\bfseries] at (-2.5, 0.5) {(a) Grafo de electrodos};
-  \node[box, fill=hermesblue!15] (e1) at (-4, -1.2) {Fz};
-  \node[box, fill=hermesblue!15] (e2) at (-2, -1.2) {Cz};
-  \node[box, fill=hermesblue!15] (e3) at (0, -1.2) {Pz};
-  \node[box, fill=hermesgreen!15] (e4) at (-3, -2.8) {C3};
-  \node[box, fill=hermesgreen!15] (e5) at (-1, -2.8) {C4};
-  \draw[thick, hermesblue] (e1) -- (e2) node[midway, above, font=\footnotesize] {$W_{12}$};
-  \draw[thick, hermesblue] (e2) -- (e3) node[midway, above, font=\footnotesize] {$W_{23}$};
-  \draw[thick, hermesblue] (e2) -- (e4) node[midway, left, font=\footnotesize] {$W_{24}$};
-  \draw[thick, hermesblue] (e2) -- (e5) node[midway, right, font=\footnotesize] {$W_{25}$};
-
-  \node[font=\small\bfseries] at (4.5, 0.5) {(b) Espectro del Laplaciano};
-  \draw[->] (3.5, -1.0) -- (7.5, -1.0) node[right, font=\footnotesize] {$\lambda_k$};
-  \foreach \x/\l in {0.6/$\lambda_1{=}0$, 1.8/$\lambda_2$, 3.0/$\lambda_3$, 4.2/$\lambda_4$, 5.4/$\lambda_N$} {
-    \draw[hermesblue, thick] (\x+3.5, -1.4) -- (\x+3.5, -1.0);
-    \node[font=\footnotesize, rotate=45, anchor=east] at (\x+3.5, -1.5) {\l};
-  }
-  \node at (4.8, -1.9) {\footnotesize baja frecuencia (suave)};
-  \node at (8.0, -1.9) {\footnotesize alta frecuencia};
-
-  % === ROW 2: (c) Reconstruction ===
-  \node[font=\small\bfseries] at (0.5, -3.8) {(c) Flujo de reconstrucción GSP};
-  \node[box, fill=hermesgreen!20] (orig) at (-2, -5.0) {Señal\\original};
-  \node[box, fill=hermesblue!10] (obs) at (1, -5.0) {Canales\\observados};
-  \node[box, fill=hermesgreen!20] (rec) at (4, -5.0) {Señal\\reconstruida};
-  \draw[arrow] (orig) -- (obs) node[midway, above, font=\footnotesize] {pérdida};
-  \draw[arrow] (obs) -- (rec) node[midway, above, font=\footnotesize] {GSP};
-  \draw[arrow, dashed] (orig.south) to[out=-60, in=-120] (rec.south);
-  \node[font=\footnotesize] at (1, -6.2) {comparar};
-\end{tikzpicture}
-\caption{Conceptos fundamentales de GSP. (a) Electrodos como nodos de un grafo con pesos $W_{ij}$. (b) Descomposición espectral del Laplaciano: autovalores $\lambda_k$ como frecuencias en el grafo. (c) Flujo de reconstrucción: la señal original sufre pérdida de canales y GSP la reconstruye minimizando la variación sobre el grafo.}
+\includegraphics[width=0.98\textwidth]{ch2_gsp_concepts_clean}
+\caption[Conceptos fundamentales de GSP]{Conceptos fundamentales de GSP aplicados a EEG. (a) Los electrodos forman un grafo ponderado; (b) el espectro del Laplaciano ordena los modos desde variación suave hasta variación rápida, sin superposición de etiquetas en el eje $\lambda_k$; (c) la reconstrucción regularizada combina fidelidad a los canales observados con penalización de variación sobre el grafo.}
 \label{fig:gsp_conceptos}
 \end{figure}
+
 
 \subsection{Laplaciano, Suavidad y Transformada de Fourier en Grafos}
 
@@ -115,7 +81,14 @@ La Regularización Temporal de Suavidad de Sobolev (TRSS) \cite{giraldo2022} inc
 \hat{\mathbf{X}} = \arg\min_{\mathbf{X}} \; \|\mathbf{M} \odot (\mathbf{X} - \mathbf{Y})\|_F^2 \;+\; \alpha \cdot \operatorname{tr}(\mathbf{X}^\top \mathbf{L} \mathbf{X}) \;+\; \beta \cdot \|\mathbf{X} \mathbf{D}_t\|_F^2,
 \label{eq:trss}
 \end{equation}
-donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias finitas con $(\mathbf{D}_t)_{t,t} = -1$, $(\mathbf{D}_t)_{t+1,t} = 1$, y $\|\mathbf{X} \mathbf{D}_t\|_F^2 = \sum_{i=1}^N \sum_{t=1}^{T-1} (X_{i,t+1} - X_{i,t})^2$ penaliza los cambios abruptos muestra a muestra. $\beta$ controla la suavidad temporal: $\beta = 0$ reduce TRSS a Tikhonov independiente por instante; $\alpha = 0$ lo convierte en un suavizador temporal sin guía espacial. La interacción de ambos términos produce una mejora mayor que la suma de sus efectos individuales (sinergia que se verifica en el Capítulo de Resultados).
+donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias finitas con $(\mathbf{D}_t)_{t,t} = -1$, $(\mathbf{D}_t)_{t+1,t} = 1$, y $\|\mathbf{X} \mathbf{D}_t\|_F^2 = \sum_{i=1}^N \sum_{t=1}^{T-1} (X_{i,t+1} - X_{i,t})^2$ penaliza los cambios abruptos muestra a muestra. $\beta$ controla la suavidad temporal: $\beta = 0$ reduce TRSS a Tikhonov independiente por instante; $\alpha = 0$ lo convierte en un suavizador temporal sin guía espacial. La interacción de ambos términos se evalúa empíricamente mediante la ablación del Capítulo de Resultados.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{ch2_trss_operator}
+\caption[Descomposición del operador TRSS]{Descomposición del operador TRSS. La reconstrucción combina fidelidad a los canales observados, suavidad espacial inducida por el Laplaciano del grafo y suavidad temporal inducida por diferencias finitas. La figura enfatiza que el término temporal no agrega información externa: restringe el espacio de soluciones admisibles.}
+\label{fig:trss_operator}
+\end{figure}
 
 \subsection{Paradigma de Aprendizaje Profundo}
 
@@ -167,7 +140,7 @@ Estadística & Descomposición en fuentes & Separa artefactos & Requiere datos c
 GSP-Tikhonov & Suavidad espacial en grafo & Topología flexible & Independiente por instante \\
 GSP-Muestreo & Banda limitada en grafo & Fundamento de muestreo & Sensible a selección de $K$ \\
 TRSS & Suavidad espacio-temporal & Preserva morfología & Costo computacional alto \\
-MNE-Python & Splines + mejoras ing. & Robusta en rég. favorable & Colapso bajo pérdida contigua \\
+MNE-Python & Splines + mejoras ing. & Robusta en rég. favorable & Pierde precisión bajo pérdida contigua \\
 \bottomrule
 \end{tabular}
 \end{table}
