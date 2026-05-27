@@ -43,7 +43,7 @@ La Tabla~\ref{tab:ch6_metric_portfolio} amplía la lectura a todas las métricas
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.92\textwidth]{ch6_metric_portfolio_improvement}
-    \caption[Portafolio visual de métricas TRSS--MNE]{Portafolio visual de métricas para TRSS fijo frente a MNE. Los valores positivos favorecen a TRSS y los negativos favorecen a MNE. La figura muestra de forma compacta que la mejora no es uniforme: TRSS favorece error de amplitud, ajuste temporal y correlación, mientras que MNE mantiene ventaja en LSD y tiempo de cómputo.}
+    \caption[Portafolio visual de métricas TRSS--MNE]{Portafolio visual de métricas para TRSS fijo frente a MNE. El panel izquierdo muestra métricas de calidad con valores positivos favorables a TRSS y negativos favorables a MNE; el panel derecho separa el costo temporal para que la diferencia de escala no comprima las métricas de precisión.}
     \label{fig:ch6_metric_portfolio_improvement}
 \end{figure}
 
@@ -120,7 +120,7 @@ Además de las métricas agregadas, las visualizaciones de series temporales y e
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.92\textwidth]{res_opt_final__erp_timeseries_mne_sample_nearby_0.4}
+    \includegraphics[width=0.86\textwidth]{res_opt_final__erp_comparison_static_mne_trss_filtered}
     \caption{Ejemplo cualitativo de reconstrucción temporal bajo pérdida cercana severa. La figura ilustra la diferencia morfológica que las métricas agregadas capturan de forma resumida.}
     \label{fig:ch6_erp_severo}
 \end{figure}
@@ -129,7 +129,7 @@ La Figura~\ref{fig:ch6_psd_comparison} resume el comportamiento espectral en una
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.86\textwidth]{res_opt_final__best_psd_comparison}
+    \includegraphics[width=0.94\textwidth]{res_opt_final__best_psd_comparison_clean}
     \caption{Comparación espectral multi-método. La preservación de potencia por banda no siempre coincide con la mejora de MAE, por lo que LSD se reporta como dimensión independiente y no como consecuencia automática del error de amplitud.}
     \label{fig:ch6_psd_comparison}
 \end{figure}

@@ -1,358 +1,316 @@
 #!/usr/bin/env python3
-"""Generate additional conceptual and result figures for tesis_completa.tex.
+"""Generate visually clean explanatory figures for the complete thesis.
 
-The figures are intentionally explanatory, not decorative:
-- Chapter 1: thesis roadmap and contribution logic.
-- Chapter 2: clean GSP concepts figure replacing the crowded TikZ spectrum.
-- Chapter 2: TRSS operator decomposition.
-- Chapter 3: methodology flow.
-- Chapter 4: reproducibility/traceability pipeline.
-- Chapter 5: experimental design matrix.
-- Chapter 6: full metric portfolio TRSS vs MNE.
-- Chapter 7: practical decision map.
+Design rules used here:
+- short labels inside boxes; explanatory prose belongs in LaTeX captions;
+- high-contrast, colorblind-safe palette;
+- no long notes inside axes;
+- arrows are routed outside labels;
+- all outputs are vector PDF.
 """
 from __future__ import annotations
-
-import csv
 from pathlib import Path
-
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Rectangle, Circle, Polygon
-from scipy.spatial.distance import cdist
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle, Rectangle
+from matplotlib.lines import Line2D
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
-TABLES = ROOT / "tables"
 FIG.mkdir(exist_ok=True)
 
-COLORS = {
-    "blue": "#0B3D91",
-    "light_blue": "#D9EAF7",
-    "green": "#1B7F5C",
-    "light_green": "#DFF3EA",
-    "orange": "#E69F00",
-    "light_orange": "#FDECC8",
-    "red": "#D55E00",
-    "light_red": "#F7D9CC",
-    "purple": "#6A3D9A",
-    "light_purple": "#E8DDF5",
-    "gray": "#4D4D4D",
-    "light_gray": "#F2F2F2",
-}
-
-plt.rcParams.update({
-    "font.size": 9,
+mpl.rcParams.update({
+    "font.family": "DejaVu Sans",
+    "font.size": 10,
     "axes.titlesize": 11,
-    "axes.labelsize": 9,
-    "legend.fontsize": 8,
-    "figure.dpi": 150,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
-    "savefig.pad_inches": 0.04,
+    "axes.labelsize": 10,
+    "xtick.labelsize": 9,
+    "ytick.labelsize": 9,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
 })
 
+C = {
+    "blue": "#0072B2", "orange": "#E69F00", "green": "#009E73",
+    "red": "#D55E00", "purple": "#CC79A7", "cyan": "#56B4E9",
+    "yellow": "#F0E442", "gray": "#666666", "light": "#F7F7F7",
+    "line": "#333333",
+}
 
-def save(fig: plt.Figure, name: str) -> None:
-    path = FIG / name
-    fig.savefig(path, format="pdf")
-    preview = FIG / name.replace(".pdf", "_preview.png")
-    fig.savefig(preview, format="png", dpi=160)
+
+def save(fig: plt.Figure, name: str):
+    fig.savefig(FIG / name, format="pdf", bbox_inches="tight", pad_inches=0.06)
     plt.close(fig)
-    print(f"saved {path.relative_to(ROOT)}")
+    print(f"saved figures/{name}")
 
 
-def rounded_box(ax, xy, wh, text, fc, ec=None, fontsize=8, lw=1.2):
-    x, y = xy
-    w, h = wh
-    patch = FancyBboxPatch(
-        (x, y), w, h,
-        boxstyle="round,pad=0.02,rounding_size=0.04",
-        facecolor=fc,
-        edgecolor=ec or COLORS["gray"],
-        linewidth=lw,
-    )
+def clean_ax(ax):
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+    ax.set_xticks([]); ax.set_yticks([])
+    for s in ax.spines.values(): s.set_visible(False)
+
+
+def box(ax, xy, wh, text, color, fontsize=10, lw=1.2, fc_alpha=0.16, weight="normal"):
+    x, y = xy; w, h = wh
+    patch = FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0.018,rounding_size=0.035",
+                           linewidth=lw, edgecolor=color, facecolor=color, alpha=fc_alpha)
     ax.add_patch(patch)
-    ax.text(x + w/2, y + h/2, text, ha="center", va="center", fontsize=fontsize, color="#222222")
+    ax.text(x+w/2, y+h/2, text, ha="center", va="center", fontsize=fontsize,
+            color="#111111", weight=weight, linespacing=1.12)
     return patch
 
 
-def arrow(ax, start, end, color=None, lw=1.5, style="->"):
-    ax.add_patch(FancyArrowPatch(start, end, arrowstyle=style, mutation_scale=12,
-                                 linewidth=lw, color=color or COLORS["gray"],
-                                 shrinkA=4, shrinkB=4))
+def arrow(ax, start, end, color=C["line"], rad=0.0, lw=1.6):
+    arr = FancyArrowPatch(start, end, arrowstyle="-|>", mutation_scale=13,
+                          linewidth=lw, color=color, connectionstyle=f"arc3,rad={rad}")
+    ax.add_patch(arr)
+    return arr
 
 
-def figure_ch1_roadmap():
-    fig, ax = plt.subplots(figsize=(7.2, 3.6))
-    ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1)
-    ax.axis("off")
-    ax.text(0.02, 0.96, "Mapa lógico de la tesis", fontsize=12, fontweight="bold", color=COLORS["blue"])
-    ax.text(0.02, 0.89, "De la falla de canales EEG a una frontera práctica de uso entre MNE y TRSS", fontsize=9)
-
-    xs = [0.05, 0.29, 0.53, 0.77]
-    labels = [
-        "Problema\ncanales EEG\nfaltantes",
-        "Métodos\nespaciales, GSP\ny TRSS",
-        "Evaluación\npareada, multi-métrica\ny reproducible",
-        "Decisión\ncuándo usar\nMNE o TRSS",
+# ---------------------------------------------------------------------------
+# Chapter 1: roadmap.
+# ---------------------------------------------------------------------------
+def fig_roadmap():
+    fig, ax = plt.subplots(figsize=(7.4, 3.0)); clean_ax(ax)
+    xs = [0.04, 0.28, 0.52, 0.76]
+    top = [
+        ("Problema", "canales EEG\nfaltantes"),
+        ("Métodos", "MNE, GSP\ny TRSS"),
+        ("Evaluación", "métricas +\nestadística"),
+        ("Decisión", "cuándo usar\ncada método"),
     ]
-    colors = [COLORS["light_red"], COLORS["light_blue"], COLORS["light_green"], COLORS["light_orange"]]
-    for i, (x, label, fc) in enumerate(zip(xs, labels, colors)):
-        rounded_box(ax, (x, 0.55), (0.18, 0.20), label, fc, fontsize=8.5)
-        if i < len(xs)-1:
-            arrow(ax, (x+0.18, 0.65), (xs[i+1], 0.65), COLORS["blue"])
-
-    lower = [
-        (0.05, "Ruido, desconexión,\ncanales descartados"),
-        (0.29, "Suavidad espacial\n+ continuidad temporal"),
-        (0.53, "MAE, NRMSE, DTW,\nLSD, coherencia, tiempo"),
-        (0.77, "Precisión vs costo\nsegún régimen de pérdida"),
-    ]
-    for x, txt in lower:
-        rounded_box(ax, (x, 0.18), (0.18, 0.20), txt, COLORS["light_gray"], fontsize=7.8, lw=0.9)
-        arrow(ax, (x+0.09, 0.55), (x+0.09, 0.38), COLORS["gray"], lw=1.1)
-
-    ax.text(0.50, 0.05,
-            "Criterio de lectura: la tesis no busca reemplazar MNE de forma universal; delimita el régimen donde TRSS aporta valor adicional.",
-            ha="center", fontsize=8.2, color=COLORS["gray"])
+    cols = [C["red"], C["blue"], C["green"], C["orange"]]
+    for i, (title, body) in enumerate(top):
+        box(ax, (xs[i], 0.54), (0.18, 0.27), f"{title}\n{body}", cols[i], fontsize=10.2, weight="bold")
+        if i < 3: arrow(ax, (xs[i]+0.19, 0.675), (xs[i+1]-0.01, 0.675))
+    # Evidence lane, short and readable.
+    lane = [(0.08, "datos"), (0.31, "máscaras"), (0.54, "métricas"), (0.77, "trade-off")]
+    for x, label in lane:
+        box(ax, (x, 0.20), (0.15, 0.16), label, C["gray"], fontsize=9.8, fc_alpha=0.10)
+    for i in range(len(lane)-1): arrow(ax, (lane[i][0]+0.155, 0.28), (lane[i+1][0]-0.005, 0.28), lw=1.2)
+    ax.text(0.5, 0.05, "Lectura: la tesis delimita una frontera práctica MNE--TRSS; no afirma dominancia universal.",
+            ha="center", va="center", fontsize=9.2, color=C["gray"])
     save(fig, "ch1_thesis_roadmap.pdf")
 
 
-def electrode_positions(n=16):
-    theta = np.linspace(0, 2*np.pi, n, endpoint=False)
-    base = np.array([0.20, 0.34, 0.45, 0.36, 0.48, 0.52, 0.42, 0.55,
-                     0.20, 0.34, 0.45, 0.36, 0.48, 0.52, 0.42, 0.55])
-    r = np.resize(base, n)
-    return 0.5 + r*np.cos(theta), 0.5 + r*np.sin(theta)
+# ---------------------------------------------------------------------------
+# Chapter 2: GSP concepts.
+# ---------------------------------------------------------------------------
+def fig_gsp_concepts():
+    """Three-panel GSP figure with generous spacing and no crossing arrows.
 
+    Layout intentionally uses two rows: graph + spectrum on top, reconstruction
+    full-width at bottom. This avoids the cramped third panel that previously
+    caused labels to leave boxes and arrows to cross text.
+    """
+    fig = plt.figure(figsize=(7.6, 4.75))
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.08, 0.92], width_ratios=[1.05, 1.0],
+                          hspace=0.48, wspace=0.34)
 
-def figure_ch2_gsp_concepts():
-    fig, axes = plt.subplots(1, 3, figsize=(7.4, 2.75))
-    x, y = electrode_positions(15)
-    coords = np.c_[x, y]
-    dist = cdist(coords, coords)
+    # (a) EEG graph. Keep a generous data margin so the scalp circle is not clipped.
+    ax = fig.add_subplot(gs[0, 0])
+    ax.set_aspect('equal')
+    ax.set_xlim(-0.12, 1.12); ax.set_ylim(-0.12, 1.12)
+    ax.set_xticks([]); ax.set_yticks([])
+    for s in ax.spines.values(): s.set_visible(False)
+    ax.set_title("(a) EEG como grafo", pad=6)
+    theta = np.linspace(0, 2*np.pi, 12, endpoint=False)
+    r = np.array([0.42,0.31,0.43,0.29,0.39,0.47,0.32,0.42,0.28,0.45,0.35,0.40])
+    xy = np.c_[0.5 + r*np.cos(theta), 0.5 + r*np.sin(theta)]
+    for i in range(len(xy)):
+        d = np.linalg.norm(xy - xy[i], axis=1)
+        for j in np.argsort(d)[1:4]:
+            if j > i:
+                ax.plot([xy[i,0], xy[j,0]], [xy[i,1], xy[j,1]], color="#BBBBBB", lw=0.85, zorder=1)
+    val = np.sin(theta) + 0.35*np.cos(2*theta)
+    ax.add_patch(Circle((0.5,0.5),0.56, fill=False, lw=1.15, color=C["line"]))
+    ax.scatter(xy[:,0], xy[:,1], c=val, cmap="RdBu_r", s=82, edgecolors="black", linewidths=0.5, zorder=2)
+    ax.text(0.5, -0.035, "nodos = electrodos; aristas = cercanía espacial",
+            ha="center", va="top", fontsize=8.5, clip_on=False)
 
-    ax = axes[0]
-    ax.set_title("(a) Electrodos como grafo", loc="left", fontweight="bold")
-    for i in range(len(x)):
-        for j in np.argsort(dist[i])[1:4]:
-            if i < j:
-                w = np.exp(-dist[i, j]**2 / 0.04)
-                ax.plot([x[i], x[j]], [y[i], y[j]], color="#9AA7B2", lw=0.5 + 2*w, alpha=0.8)
-    ax.scatter(x, y, s=70, color=COLORS["blue"], edgecolor="white", linewidth=0.8, zorder=3)
-    for i, name in enumerate(["Fz","FC1","C3","CP1","Pz","P4","C4","FC2","Cz","O1","O2","T7","T8","P3","F4"]):
-        ax.text(x[i], y[i]+0.055, name, ha="center", va="center", fontsize=5.8)
-    ax.add_patch(Circle((0.5, 0.5), 0.58, fill=False, color=COLORS["gray"], lw=1))
-    ax.set_aspect("equal"); ax.set_xlim(-0.12, 1.12); ax.set_ylim(-0.12, 1.12); ax.axis("off")
+    # (b) Laplacian spectrum. All labels live away from axes/ticks.
+    ax = fig.add_subplot(gs[0, 1])
+    ax.set_title("(b) Espectro del Laplaciano", pad=6)
+    k = np.arange(1, 11)
+    lam = np.array([0, .16, .29, .45, .65, .92, 1.25, 1.7, 2.2, 2.8])
+    ax.vlines(k, 0, lam, color=C["blue"], lw=2)
+    ax.scatter(k, lam, color=C["blue"], s=28, zorder=3)
+    ax.set_xlabel(r"modo $k$", labelpad=4)
+    ax.set_ylabel(r"autovalor $\lambda_k$", labelpad=6)
+    ax.set_xlim(0.4, 10.6); ax.set_ylim(-0.03, 3.08)
+    ax.grid(axis='y', color="#E5E5E5", lw=0.6)
+    ax.annotate("modos\nsuaves", xy=(2.0, .22), xytext=(3.0, 1.10),
+                arrowprops=dict(arrowstyle="->", lw=0.9), fontsize=8.8, ha="center")
+    ax.annotate("modos\nrápidos", xy=(9.0, 2.28), xytext=(7.45, 2.62),
+                arrowprops=dict(arrowstyle="->", lw=0.9), fontsize=8.8, ha="center")
 
-    ax = axes[1]
-    ax.set_title("(b) Espectro del Laplaciano", loc="left", fontweight="bold")
-    eig = np.array([0.0, 0.18, 0.42, 0.75, 1.12, 1.55, 2.05, 2.70])
-    amp = np.exp(-0.9*eig) + np.array([0, .08, -.02, .04, -.03, .02, -.015, .0])
-    ax.vlines(eig, 0, amp, color=COLORS["blue"], lw=1.8)
-    ax.scatter(eig, amp, color=COLORS["blue"], s=24, zorder=3)
-    ax.axvspan(-0.05, 0.9, color=COLORS["light_green"], alpha=0.7, label="modos suaves")
-    ax.axvspan(1.75, 2.85, color=COLORS["light_red"], alpha=0.6, label="modos rápidos")
-    for xx, lab, yy in [(0, r"$\lambda_1=0$", 1.08), (0.42, r"$\lambda_3$", .82), (1.12, r"$\lambda_5$", .56), (2.70, r"$\lambda_N$", .28)]:
-        ax.text(xx, yy, lab, fontsize=7, ha="center", va="bottom")
-    ax.set_xlabel(r"autovalor $\lambda_k$")
-    ax.set_ylabel(r"magnitud $|\hat{x}_k|$")
-    ax.set_xlim(-0.08, 2.9); ax.set_ylim(0, 1.25)
-    ax.spines[["top", "right"]].set_visible(False)
-
-    ax = axes[2]
-    ax.set_title("(c) Reconstrucción por suavidad", loc="left", fontweight="bold")
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    rounded_box(ax, (0.05, 0.58), (0.25, 0.20), "Canales\nobservados", COLORS["light_blue"], fontsize=8)
-    rounded_box(ax, (0.38, 0.58), (0.25, 0.20), "Grafo +\nregularización", COLORS["light_green"], fontsize=8)
-    rounded_box(ax, (0.71, 0.58), (0.25, 0.20), "Canales\nreconstruidos", COLORS["light_orange"], fontsize=8)
-    arrow(ax, (0.30, 0.68), (0.38, 0.68), COLORS["blue"])
-    arrow(ax, (0.63, 0.68), (0.71, 0.68), COLORS["blue"])
-    ax.text(0.50, 0.34,
-            r"$\min_{\mathbf{x}} \|\mathbf{M}(\mathbf{x}-\mathbf{y})\|_2^2 + \alpha\,\mathbf{x}^\top\mathbf{L}\mathbf{x}$",
-            ha="center", va="center", fontsize=8.5,
-            bbox=dict(boxstyle="round,pad=0.35", facecolor="white", edgecolor=COLORS["gray"], alpha=.95))
-    ax.text(0.50, 0.14, "La reconstrucción favorece señales suaves sobre el grafo,\npero respeta los canales observados.",
-            ha="center", fontsize=7.8, color=COLORS["gray"])
-    fig.tight_layout(w_pad=2.0)
+    # (c) Reconstruction. Use separated lanes and vertical arrows; no arrow crosses a label.
+    ax = fig.add_subplot(gs[1, :]); clean_ax(ax)
+    ax.set_title("(c) Reconstrucción regularizada", pad=7)
+    # top lane
+    box(ax, (0.07, .58), (.20, .23), "canales\nobservados", C["green"], fontsize=9.6, weight="bold")
+    box(ax, (0.40, .58), (.22, .23), "ajuste a\ndatos", C["green"], fontsize=9.6, weight="bold")
+    box(ax, (0.73, .58), (.20, .23), "señal\nreconstruida", C["purple"], fontsize=9.5, weight="bold")
+    arrow(ax, (.275,.695), (.395,.695), lw=1.2)
+    arrow(ax, (.625,.695), (.725,.695), lw=1.2)
+    # bottom lane
+    box(ax, (0.07, .16), (.20, .23), "canales\nfaltantes", C["red"], fontsize=9.6, weight="bold")
+    box(ax, (0.40, .16), (.22, .23), "suavidad\ndel grafo", C["blue"], fontsize=9.6, weight="bold")
+    box(ax, (0.73, .16), (.20, .23), "estimación\noculta", C["orange"], fontsize=9.5, weight="bold")
+    arrow(ax, (.275,.275), (.395,.275), lw=1.2)
+    arrow(ax, (.625,.275), (.725,.275), lw=1.2)
+    # combine lanes into final output with arrows routed between boxes.
+    arrow(ax, (.83,.58), (.83,.40), lw=1.1)
+    ax.text(.50, .015, "La solución conserva datos observados y penaliza variaciones no suaves en el grafo.",
+            ha="center", va="bottom", fontsize=8.8, color=C["gray"])
+    fig.subplots_adjust(left=0.055, right=0.985, top=0.93, bottom=0.07)
     save(fig, "ch2_gsp_concepts_clean.pdf")
 
 
-def figure_ch2_trss_operator():
-    fig, ax = plt.subplots(figsize=(7.2, 3.6))
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    ax.text(0.02, 0.95, "Descomposición del operador TRSS", fontsize=12, fontweight="bold", color=COLORS["blue"])
-
-    # Matrix X with missing rows
-    rng = np.random.default_rng(1)
-    mat = np.sin(np.linspace(0, 3*np.pi, 80))[None, :] + 0.25*rng.normal(size=(8, 80))
-    mat += np.linspace(-0.8, 0.8, 8)[:, None]
-    ax_in = fig.add_axes([0.08, 0.38, 0.18, 0.34])
-    ax_in.imshow(mat, aspect="auto", cmap="RdBu_r", vmin=-2, vmax=2)
-    ax_in.axhspan(2.5, 4.5, color="black", alpha=.18)
-    ax_in.text(40, 3.55, "canales\nocultos", ha="center", va="center", fontsize=7, color="white",
-               bbox=dict(facecolor="black", alpha=.45, edgecolor="none"))
-    ax_in.set_xticks([]); ax_in.set_yticks([]); ax_in.set_title(r"datos $\mathbf{Y}$", fontsize=9)
-
-    rounded_box(ax, (0.36, 0.66), (0.22, 0.16), r"Fidelidad\na canales observados\n$\|\mathbf{M}\odot(\mathbf{X}-\mathbf{Y})\|_F^2$", COLORS["light_blue"], fontsize=7.4)
-    rounded_box(ax, (0.36, 0.43), (0.22, 0.16), r"Suavidad espacial\n$\alpha\,\mathrm{tr}(\mathbf{X}^\top\mathbf{L}\mathbf{X})$", COLORS["light_green"], fontsize=7.4)
-    rounded_box(ax, (0.36, 0.20), (0.22, 0.16), r"Suavidad temporal\n$\beta\,\|\mathbf{X}\mathbf{D}_t\|_F^2$", COLORS["light_orange"], fontsize=7.4)
-    for y0 in [0.74, 0.51, 0.28]:
-        arrow(ax, (0.27, 0.55), (0.36, y0), COLORS["blue"], lw=1.2)
-
-    ax.text(0.66, 0.52, r"$\hat{\mathbf{X}} = \arg\min_{\mathbf{X}}$", fontsize=13, ha="center", color=COLORS["blue"])
-    arrow(ax, (0.58, 0.52), (0.72, 0.52), COLORS["blue"], lw=1.8)
-    rounded_box(ax, (0.73, 0.43), (0.20, 0.18), r"señal completa\nreconstruida\n$\hat{\mathbf{X}}$", COLORS["light_purple"], fontsize=8.2)
-    ax.text(0.50, 0.06,
-            "TRSS no agrega información nueva: restringe el espacio de soluciones para que sean compatibles con la geometría de electrodos y con trayectorias temporales suaves.",
-            ha="center", fontsize=8, color=COLORS["gray"])
+# ---------------------------------------------------------------------------
+# Chapter 2: TRSS operator.
+# ---------------------------------------------------------------------------
+def fig_trss_operator():
+    fig, ax = plt.subplots(figsize=(7.4, 3.0)); clean_ax(ax)
+    ax.set_title("Descomposición del objetivo TRSS", pad=5)
+    box(ax, (0.04, .38), (.18, .24), "señal\nobservada\nY", C["gray"], fontsize=10)
+    # three readable terms
+    terms = [
+        (0.33, .68, "fidelidad\na datos", r"$\|P_\Omega X-Y\|_F^2$", C["green"]),
+        (0.33, .38, "suavidad\nespacial", r"$\alpha\,\mathrm{tr}(X^\top L X)$", C["blue"]),
+        (0.33, .08, "suavidad\ntemporal", r"$\beta\,\|X D_t\|_F^2$", C["orange"]),
+    ]
+    for x,y,label,eq,col in terms:
+        box(ax, (x,y), (.26,.18), label, col, fontsize=10, weight="bold")
+        ax.text(x+.13, y-.045, eq, ha="center", va="top", fontsize=9.4, color=C["line"])
+        arrow(ax, (.22,.50), (x-.012,y+.09), lw=1.2)
+    box(ax, (0.72, .36), (.22, .26), "señal\nreconstruida\n$\\hat{X}$", C["purple"], fontsize=10.5, weight="bold")
+    for x,y,_,_,_ in terms:
+        arrow(ax, (x+.265, y+.09), (.72, .49), lw=1.2)
+    ax.text(0.50, 0.96, "Los tres términos se optimizan conjuntamente; el término temporal restringe soluciones admisibles.",
+            ha="center", va="center", fontsize=9.2, color=C["gray"])
     save(fig, "ch2_trss_operator.pdf")
 
 
-def figure_ch3_methodology_flow():
-    fig, ax = plt.subplots(figsize=(7.4, 3.2))
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    ax.text(0.02, 0.94, "Flujo metodológico de evaluación", fontsize=12, fontweight="bold", color=COLORS["blue"])
+# ---------------------------------------------------------------------------
+# Chapter 3: methodology flow.
+# ---------------------------------------------------------------------------
+def fig_methodology_flow():
+    """Chapter 3 flow figure redesigned with separated boxes and clear arrows."""
+    fig, ax = plt.subplots(figsize=(7.6, 3.25)); clean_ax(ax)
+    ax.set_title("Flujo metodológico de la evaluación", pad=8)
     nodes = [
-        ("Conjuntos\nde datos", "PhysioNet\nBCI IV 2a\nMNE Sample", COLORS["light_blue"]),
-        ("Máscaras\nde pérdida", "aleatoria\ncontigua\n10--40%", COLORS["light_orange"]),
-        ("Métodos", "geométricos\nestadísticos\nGSP/TRSS", COLORS["light_green"]),
-        ("Métricas", "amplitud\ntemporal\nespectral\ntiempo", COLORS["light_purple"]),
-        ("Inferencia", "Wilcoxon\nbootstrap\nBH", COLORS["light_red"]),
+        (.06, .63, .19, .20, "datos\nEEG", C["cyan"]),
+        (.31, .63, .19, .20, "máscaras\nde pérdida", C["orange"]),
+        (.56, .63, .19, .20, "métodos\ncomparados", C["blue"]),
+        (.20, .24, .19, .20, "métricas", C["green"]),
+        (.61, .24, .25, .20, "inferencia\npareada", C["purple"]),
     ]
-    xs = np.linspace(0.05, 0.78, len(nodes))
-    for i, (title, body, fc) in enumerate(nodes):
-        x = xs[i]
-        rounded_box(ax, (x, 0.50), (0.16, 0.25), f"{title}\n\n{body}", fc, fontsize=7.8)
-        if i < len(nodes)-1:
-            arrow(ax, (x+0.16, 0.625), (xs[i+1], 0.625), COLORS["blue"], lw=1.4)
-    rounded_box(ax, (0.24, 0.18), (0.52, 0.16), "Comparación justa: misma señal, misma máscara y misma semilla para cada método", COLORS["light_gray"], fontsize=8.5)
-    arrow(ax, (0.86, 0.50), (0.72, 0.34), COLORS["gray"], lw=1.2)
+    for x,y,w,h,t,c in nodes:
+        box(ax, (x,y), (w,h), t, c, fontsize=10.2, weight="bold")
+    # Top row arrows, placed in gaps rather than on top of bubbles.
+    arrow(ax, (.255,.73), (.305,.73), lw=1.2)
+    arrow(ax, (.505,.73), (.555,.73), lw=1.2)
+    # Downstream arrows routed with arcs outside text boxes.
+    arrow(ax, (.655,.615), (.305,.455), rad=0.16, lw=1.15)
+    arrow(ax, (.400,.34), (.600,.34), lw=1.15)
+    box(ax, (.09,.045), (.82,.13), "control pareado: misma señal, misma máscara y misma semilla", C["gray"], fontsize=9.6, fc_alpha=.10)
+    arrow(ax, (.735,.235), (.735,.188), lw=1.0)
+    fig.subplots_adjust(left=0.04, right=0.98, top=0.87, bottom=0.10)
     save(fig, "ch3_methodology_flow.pdf")
 
 
-def figure_ch4_traceability_pipeline():
-    fig, ax = plt.subplots(figsize=(7.4, 3.4))
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    ax.text(0.02, 0.94, "Trazabilidad de artefactos experimentales", fontsize=12, fontweight="bold", color=COLORS["blue"])
-    left = [(0.06, 0.68, "Código\nalgoritmos"), (0.06, 0.45, "Configuración\nYAML/CSV"), (0.06, 0.22, "Semillas y\nmáscaras")]
-    for x, y, txt in left:
-        rounded_box(ax, (x, y), (0.18, 0.14), txt, COLORS["light_blue"], fontsize=8)
-        arrow(ax, (0.24, y+0.07), (0.38, 0.52), COLORS["blue"], lw=1.2)
-    rounded_box(ax, (0.38, 0.43), (0.22, 0.18), "Motor de\nejecución\nreproducible", COLORS["light_green"], fontsize=8.5)
-    right = [(0.72, 0.68, "CSV\ncrudos"), (0.72, 0.45, "Tablas\nLaTeX"), (0.72, 0.22, "Figuras\nPDF")]
-    for x, y, txt in right:
-        arrow(ax, (0.60, 0.52), (x, y+0.07), COLORS["blue"], lw=1.2)
-        rounded_box(ax, (x, y), (0.18, 0.14), txt, COLORS["light_orange"], fontsize=8)
-    ax.text(0.50, 0.08, "Cada afirmación cuantitativa debe trazarse: texto → tabla/figura → CSV → script/configuración.",
-            ha="center", fontsize=8.4, color=COLORS["gray"])
+# ---------------------------------------------------------------------------
+# Chapter 4: traceability pipeline.
+# ---------------------------------------------------------------------------
+def fig_traceability():
+    fig, ax = plt.subplots(figsize=(7.4, 3.0)); clean_ax(ax)
+    left = [(0.05,.70,"código"), (0.05,.43,"config."), (0.05,.16,"semillas\ny máscaras")]
+    for x,y,t in left:
+        box(ax, (x,y), (.18,.16), t, C["blue"], fontsize=10)
+        arrow(ax, (x+.185,y+.08), (.39,.50), lw=1.15)
+    box(ax, (.39,.39), (.22,.22), "ejecución\nreproducible", C["green"], fontsize=10.5, weight="bold")
+    right = [(0.75,.70,"CSV\ncrudos"), (0.75,.43,"tablas\nLaTeX"), (0.75,.16,"figuras\nPDF")]
+    for x,y,t in right:
+        arrow(ax, (.61,.50), (x-.01,y+.08), lw=1.15)
+        box(ax, (x,y), (.18,.16), t, C["orange"], fontsize=10)
+    ax.text(0.50,.08,"Trazabilidad exigida: texto → tabla/figura → CSV → script/configuración",
+            ha="center", fontsize=9.5, color=C["gray"])
     save(fig, "ch4_traceability_pipeline.pdf")
 
 
-def figure_ch5_design_matrix():
-    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.1), gridspec_kw={"width_ratios": [1.2, 1]})
-    ax = axes[0]
-    patterns = ["Aleatoria", "Cercana", "Periférica", "Alta var."]
+# ---------------------------------------------------------------------------
+# Chapter 5: experimental design.
+# ---------------------------------------------------------------------------
+def fig_experimental_design():
+    fig = plt.figure(figsize=(7.4, 3.0))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.05, 1.0], wspace=0.36)
+    ax = fig.add_subplot(gs[0,0])
+    patterns = ["Aleatoria", "Agrupada", "Periférica", "Alta var."]
     severities = ["1 ch", "2 ch", "10%", "30%", "40%"]
-    mat = np.array([[1,1,1,1,1], [1,1,0.8,1,1], [0.7,0.8,1,1,1], [0.6,0.7,0.9,1,1]])
-    im = ax.imshow(mat, cmap="YlGnBu", vmin=0.5, vmax=1.0, aspect="auto")
-    ax.set_xticks(range(len(severities)), severities, rotation=35, ha="right")
-    ax.set_yticks(range(len(patterns)), patterns)
-    ax.set_title("(a) Estratificación de pérdida", loc="left", fontweight="bold")
-    for i in range(mat.shape[0]):
-        for j in range(mat.shape[1]):
-            ax.text(j, i, "✓", ha="center", va="center", fontsize=11, color="#1B3A57")
-    ax.set_xlabel("severidad")
-    ax.set_ylabel("patrón")
-    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03)
-    cbar.set_label("cobertura relativa", fontsize=8)
+    data = np.array([[.25,.30,.45,.65,.80],[.20,.34,.55,.82,.95],[.22,.33,.50,.72,.88],[.18,.29,.43,.60,.78]])
+    im = ax.imshow(data, cmap="YlGnBu", vmin=0, vmax=1, aspect="auto")
+    ax.set_title("(a) Estratos de pérdida", pad=5)
+    ax.set_xticks(range(len(severities))); ax.set_xticklabels(severities)
+    ax.set_yticks(range(len(patterns))); ax.set_yticklabels(patterns)
+    ax.tick_params(length=0)
+    for s in ax.spines.values(): s.set_visible(False)
+    cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.02)
+    cb.set_label("severidad", fontsize=9)
 
-    ax = axes[1]
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
-    ax.set_title("(b) Inferencia pareada", loc="left", fontweight="bold")
-    rounded_box(ax, (0.10, 0.68), (0.32, 0.17), "MNE\nmismo caso", COLORS["light_blue"], fontsize=8)
-    rounded_box(ax, (0.58, 0.68), (0.32, 0.17), "TRSS\nmismo caso", COLORS["light_green"], fontsize=8)
-    arrow(ax, (0.42, 0.765), (0.58, 0.765), COLORS["gray"], style="<->")
-    rounded_box(ax, (0.27, 0.40), (0.46, 0.16), r"Diferencia pareada\n$d_i = m_{TRSS,i} - m_{MNE,i}$", COLORS["light_orange"], fontsize=8)
-    arrow(ax, (0.50, 0.68), (0.50, 0.56), COLORS["blue"])
-    rounded_box(ax, (0.20, 0.12), (0.60, 0.15), "Wilcoxon + bootstrap + BH\npara magnitud, incertidumbre y error múltiple", COLORS["light_red"], fontsize=8)
-    arrow(ax, (0.50, 0.40), (0.50, 0.27), COLORS["blue"])
-    fig.tight_layout(w_pad=2)
+    ax = fig.add_subplot(gs[0,1]); clean_ax(ax)
+    ax.set_title("(b) Comparación pareada", pad=5)
+    box(ax, (.08,.64), (.28,.18), "MNE", C["blue"], fontsize=11, weight="bold")
+    box(ax, (.08,.24), (.28,.18), "TRSS", C["green"], fontsize=11, weight="bold")
+    box(ax, (.55,.44), (.34,.20), "$d_i$ por caso", C["purple"], fontsize=10.5, weight="bold")
+    arrow(ax, (.36,.73), (.55,.55)); arrow(ax, (.36,.33), (.55,.53))
+    box(ax, (.55,.12), (.34,.18), "Wilcoxon\n+ bootstrap", C["orange"], fontsize=10)
+    arrow(ax, (.72,.44), (.72,.30))
     save(fig, "ch5_experimental_design_matrix.pdf")
 
 
-def figure_ch6_metric_portfolio():
-    rows = []
-    with (TABLES / "ch6_pairwise_comparisons_balanced.csv").open(newline="", encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            if r["method_a"] == "trss_default" and r["method_b"] == "mne_interpolate_bads_spline":
-                rows.append(r)
-    order = ["mae", "rmse", "nrmse", "dtw", "snr", "lsd", "coherence_mean", "corr_mean", "r2", "runtime_s"]
-    label = {"mae":"MAE", "rmse":"RMSE", "nrmse":"NRMSE", "dtw":"DTW", "snr":"SNR", "lsd":"LSD",
-             "coherence_mean":"Coherencia", "corr_mean":"Correlación", "r2":"R²", "runtime_s":"Tiempo"}
-    data = {r["metric"]: r for r in rows}
-    metrics = [m for m in order if m in data]
-    values = [100*float(data[m]["median_relative_improvement_of_a"]) for m in metrics]
-    wins = [100*float(data[m]["a_win_rate"]) for m in metrics]
-    fig, ax = plt.subplots(figsize=(7.4, 3.8))
-    y = np.arange(len(metrics))
-    colors = [COLORS["green"] if v >= 0 else COLORS["red"] for v in values]
-    ax.barh(y, values, color=colors, alpha=0.85)
-    ax.axvline(0, color="black", lw=0.8)
-    for yi, v, w in zip(y, values, wins):
-        ha = "left" if v >= 0 else "right"
-        x = v + (1.0 if v >= 0 else -1.0)
-        ax.text(x, yi, f"{v:+.1f}% | win {w:.0f}%", va="center", ha=ha, fontsize=7.5)
-    ax.set_yticks(y, [label[m] for m in metrics])
-    ax.invert_yaxis()
-    ax.set_xlabel("Mejora mediana relativa de TRSS fijo vs MNE (%)")
-    ax.set_title("Portafolio confirmatorio de métricas", loc="left", fontweight="bold")
-    ax.text(0.99, 0.02, "Valores positivos favorecen TRSS; negativos favorecen MNE.",
-            transform=ax.transAxes, ha="right", fontsize=8, color=COLORS["gray"])
-    ax.spines[["top", "right"]].set_visible(False)
-    ax.set_xlim(min(values)-10, max(values)+12)
-    fig.tight_layout()
-    save(fig, "ch6_metric_portfolio_improvement.pdf")
-
-
-def figure_ch7_decision_map():
-    fig, ax = plt.subplots(figsize=(7.0, 3.8))
+# ---------------------------------------------------------------------------
+# Chapter 7: practical decision map.
+# ---------------------------------------------------------------------------
+def fig_decision_map():
+    """Clean decision map with simplified axes and separated annotations."""
+    fig, ax = plt.subplots(figsize=(7.1, 4.05))
     ax.set_xlim(0, 1); ax.set_ylim(0, 1)
-    ax.set_xlabel("Severidad / agrupamiento de la pérdida")
-    ax.set_ylabel("Prioridad de precisión temporal-amplitud\nfrente a latencia y LSD")
-    # Regions
-    ax.add_patch(Rectangle((0, 0), 0.55, 0.55, facecolor=COLORS["light_blue"], alpha=0.8, edgecolor="none"))
-    ax.add_patch(Rectangle((0.45, 0.45), 0.55, 0.55, facecolor=COLORS["light_green"], alpha=0.75, edgecolor="none"))
-    ax.add_patch(Rectangle((0.55, 0), 0.45, 0.35, facecolor=COLORS["light_orange"], alpha=0.8, edgecolor="none"))
-    ax.text(0.22, 0.30, "MNE\npor defecto", ha="center", va="center", fontsize=12, color=COLORS["blue"], fontweight="bold")
-    ax.text(0.74, 0.72, "TRSS\njustificado", ha="center", va="center", fontsize=12, color=COLORS["green"], fontweight="bold")
-    ax.text(0.78, 0.17, "Validar\ncaso a caso", ha="center", va="center", fontsize=11, color=COLORS["orange"], fontweight="bold")
-    ax.plot([0.08, 0.92], [0.18, 0.86], "--", color=COLORS["gray"], lw=1.2)
-    ax.text(0.52, 0.57, "frontera práctica\nno universal", rotation=37, fontsize=8, color=COLORS["gray"], ha="center")
-    ax.set_xticks([0, .5, 1], ["baja", "media", "alta"])
-    ax.set_yticks([0, .5, 1], ["latencia/LSD", "balance", "MAE/NRMSE/DTW"])
-    ax.set_title("Mapa de decisión práctica MNE--TRSS", loc="left", fontweight="bold")
-    ax.grid(color="white", lw=0.8)
-    fig.tight_layout()
+    ax.set_xlabel("Severidad / agrupamiento de pérdida", labelpad=8)
+    ax.set_ylabel("Prioridad de precisión", labelpad=8)
+
+    ax.add_patch(Rectangle((0, 0), .45, .55, fc="#D9EAF7", ec="none"))
+    ax.add_patch(Rectangle((.45, .55), .55, .45, fc="#DDEFE6", ec="none"))
+    ax.add_patch(Rectangle((.45, 0), .55, .55, fc="#FFF0D0", ec="none"))
+
+    ax.plot([.18, .82], [.28, .82], ls="--", lw=1.5, color=C["line"])
+    ax.text(.23, .23, "MNE\npor defecto", ha="center", va="center", fontsize=11,
+            weight="bold", color="#004C7F")
+    ax.text(.77, .86, "TRSS\njustificado", ha="center", va="center", fontsize=11,
+            weight="bold", color="#006B4A")
+    ax.text(.72, .30, "validar\ncaso a caso", ha="center", va="center", fontsize=10.4,
+            weight="bold", color="#8A5600")
+
+    ax.annotate("frontera\npráctica", xy=(.58, .60), xytext=(.30, .86),
+                arrowprops=dict(arrowstyle="->", lw=1.0, connectionstyle="arc3,rad=-0.15"),
+                fontsize=9.2, ha="center", va="center",
+                bbox=dict(fc="white", ec="#BBBBBB", boxstyle="round,pad=0.25"))
+
+    ax.set_xticks([.08, .50, .92]); ax.set_xticklabels(["baja", "media", "alta"])
+    ax.set_yticks([.08, .50, .92]); ax.set_yticklabels(["latencia", "balance", "precisión"])
+    ax.grid(color="#FFFFFF", lw=1.0)
+    for spine in ax.spines.values():
+        spine.set_color("#555555")
+    fig.subplots_adjust(left=0.16, right=0.98, bottom=0.18, top=0.94)
     save(fig, "ch7_decision_map.pdf")
 
 
-def main():
-    figure_ch1_roadmap()
-    figure_ch2_gsp_concepts()
-    figure_ch2_trss_operator()
-    figure_ch3_methodology_flow()
-    figure_ch4_traceability_pipeline()
-    figure_ch5_design_matrix()
-    figure_ch6_metric_portfolio()
-    figure_ch7_decision_map()
-
-
 if __name__ == "__main__":
-    main()
+    fig_roadmap()
+    fig_gsp_concepts()
+    fig_trss_operator()
+    fig_methodology_flow()
+    fig_traceability()
+    fig_experimental_design()
+    fig_decision_map()

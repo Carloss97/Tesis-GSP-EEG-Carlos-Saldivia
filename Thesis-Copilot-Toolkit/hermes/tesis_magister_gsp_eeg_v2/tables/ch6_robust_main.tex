@@ -1,23 +1,23 @@
 \begin{table}[htbp]
 \centering
-\small
-\caption[Comparación robusta TRSS--MNE]{Comparación robusta de TRSS frente a \code{MNE interpolate\_bads(method='spline')}. La mejora mediana positiva favorece a TRSS; en tiempo, valores negativos indican mayor costo computacional de TRSS. Los intervalos son bootstrap jerárquicos al 95\%.}
+\footnotesize
+\caption[Comparación robusta TRSS--MNE]{Comparación robusta de TRSS frente a MNE-Python. La mejora mediana positiva favorece a TRSS; en tiempo, valores negativos indican mayor costo computacional de TRSS. Los intervalos son bootstrap jerárquicos al 95\%.}
 \label{tab:ch6_robust_main}
-\begin{tabular}{@{}llp{3.5cm}rrr@{}}
+\begin{tabular}{@{}llrrrrr@{}}
 \toprule
-Método & Métrica & Mejora mediana (IC95) & Tasa victoria & $q_{BH}$ & Efecto \\
+Método & Métrica & Mej. (\%) & IC95 (\%) & Victoria (\%) & $q_{BH}$ & Efecto \\
 \midrule
-TRSS fijo & MAE & +12.4\% [+7.8\%, +17.4\%] & 72.0\% & $1.0\times 10^{-22}$ & 0.66 \\
-TRSS fijo & NRMSE & +13.9\% [+6.4\%, +19.3\%] & 70.3\% & $2.5\times 10^{-22}$ & 0.65 \\
-TRSS fijo & LSD & -2.3\% [-4.0\%, -0.2\%] & 40.7\% & 0.003 & -0.20 \\
-TRSS fijo & Correlación & +0.8\% [+0.3\%, +2.0\%] & 68.7\% & $5.8\times 10^{-21}$ & 0.63 \\
-TRSS fijo & Tiempo & -1004.1\% [-1072.8\%, -934.0\%] & 0.3\% & $9.0\times 10^{-49}$ & -0.99 \\
+TRSS fijo & MAE & +12.4 & [+7.8, +17.4] & 72.0 & $1.0\times 10^{-22}$ & 0.66 \\
+TRSS fijo & NRMSE & +13.9 & [+6.4, +19.3] & 70.3 & $2.5\times 10^{-22}$ & 0.65 \\
+TRSS fijo & LSD & -2.3 & [-4.0, -0.2] & 40.7 & 0.003 & -0.20 \\
+TRSS fijo & Correlación & +0.8 & [+0.3, +2.0] & 68.7 & $5.8\times 10^{-21}$ & 0.63 \\
+TRSS fijo & Tiempo & -1004.1 & [-1072.8, -934.0] & 0.3 & $9.0\times 10^{-49}$ & -0.99 \\
 \addlinespace
-TRSS calibrado & MAE & +12.0\% [+6.9\%, +18.7\%] & 70.0\% & $1.8\times 10^{-20}$ & 0.62 \\
-TRSS calibrado & NRMSE & +13.4\% [+6.6\%, +20.5\%] & 69.3\% & $3.4\times 10^{-21}$ & 0.63 \\
-TRSS calibrado & LSD & -9.6\% [-13.4\%, -6.5\%] & 26.0\% & $5.8\times 10^{-17}$ & -0.56 \\
-TRSS calibrado & Correlación & +0.6\% [+0.2\%, +1.6\%] & 63.7\% & $5.2\times 10^{-15}$ & 0.52 \\
-TRSS calibrado & Tiempo & -825.9\% [-876.1\%, -731.3\%] & 1.3\% & $9.0\times 10^{-49}$ & -0.99 \\
+TRSS calibrado & MAE & +12.0 & [+6.9, +18.7] & 70.0 & $1.8\times 10^{-20}$ & 0.62 \\
+TRSS calibrado & NRMSE & +13.4 & [+6.6, +20.5] & 69.3 & $3.4\times 10^{-21}$ & 0.63 \\
+TRSS calibrado & LSD & -9.6 & [-13.4, -6.5] & 26.0 & $5.8\times 10^{-17}$ & -0.56 \\
+TRSS calibrado & Correlación & +0.6 & [+0.2, +1.6] & 63.7 & $5.2\times 10^{-15}$ & 0.52 \\
+TRSS calibrado & Tiempo & -825.9 & [-876.1, -731.3] & 1.3 & $9.0\times 10^{-49}$ & -0.99 \\
 \bottomrule
 \end{tabular}
 \end{table}

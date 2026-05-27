@@ -27,17 +27,17 @@
 \contentsline {subsection}{\numberline {2.1.2}Bandas de Frecuencia y Potenciales Relacionados a Eventos}{13}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Procesamiento de Señales en Grafos}{14}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Definiciones Fundamentales}{14}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{14}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{15}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Construcción de Grafos para EEG}{15}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{15}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{15}{subsection.2.3.1}%
+\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{16}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Métodos Basados en GSP}{16}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Regularización Espacio-Temporal: TRSS}{16}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Paradigma de Aprendizaje Profundo}{17}{subsection.2.3.4}%
 \contentsline {section}{\numberline {2.4}Mecanismo Interno de la Interpolación en MNE-Python}{17}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{17}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{18}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Los Tres Pilares de la Robustez}{18}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Regímenes de Falla}{18}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}Regímenes de Falla}{19}{subsection.2.4.3}%
 \contentsline {chapter}{\numberline {3}Metodología}{20}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Conjuntos de Datos}{20}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{21}{section.3.2}%
@@ -55,7 +55,7 @@
 \contentsline {section}{\numberline {5.1}Variables del Experimento}{28}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Preguntas de Investigación}{29}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Plan de Análisis Estadístico}{29}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Prueba de Wilcoxon para muestras pareadas}{29}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.1}Prueba de Wilcoxon para muestras pareadas}{30}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Corrección de Benjamini-Hochberg para comparaciones múltiples}{30}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}Tamaño del efecto e intervalos de confianza}{31}{subsection.5.3.3}%
 \contentsline {subsection}{\numberline {5.3.4}Protocolo de la fase confirmatoria}{31}{subsection.5.3.4}%
@@ -64,12 +64,12 @@
 \contentsline {chapter}{\numberline {6}Resultados}{33}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Relación entre Fases Experimentales}{33}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Inventario de Evidencia Experimental}{34}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Comparación Pareada TRSS--MNE}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.3}Comparación Pareada TRSS--MNE}{36}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Estratificación por Conjunto de Datos}{39}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Efecto del Patrón y Severidad de Pérdida}{41}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Ablación del Término Temporal}{42}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Preservación Morfológica y Espectral}{43}{section.6.7}%
-\contentsline {section}{\numberline {6.8}Tiempo de Cómputo y Complejidad}{44}{section.6.8}%
+\contentsline {section}{\numberline {6.5}Efecto del Patrón y Severidad de Pérdida}{40}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Ablación del Término Temporal}{41}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Preservación Morfológica y Espectral}{42}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Tiempo de Cómputo y Complejidad}{45}{section.6.8}%
 \contentsline {section}{\numberline {6.9}Síntesis de Resultados}{46}{section.6.9}%
 \contentsline {chapter}{\numberline {7}Discusión}{47}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Validación Matizada de las Hipótesis}{47}{section.7.1}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.13)  27 MAY 2026 12:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.13)  27 MAY 2026 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1043,13 +1043,13 @@ LaTeX Info: Redefining \% on input line 32.
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
  [4]
-<figures/ch1_thesis_roadmap.pdf, id=743, 541.42339pt x 207.73047pt>
+<figures/ch1_thesis_roadmap.pdf, id=739, 433.72917pt x 175.6161pt>
 File: figures/ch1_thesis_roadmap.pdf Graphic file (type pdf)
 <use figures/ch1_thesis_roadmap.pdf>
 Package pdftex.def Info: figures/ch1_thesis_roadmap.pdf  used on input line 44.
-(pdftex.def)             Requested size: 429.10176pt x 164.63777pt.
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
+(pdftex.def)             Requested size: 429.10176pt x 173.74525pt.
+LaTeX Info: Redefining \. on input line 54.
+LaTeX Info: Redefining \% on input line 54.
  [5 <./figures/ch1_thesis_roadmap.pdf>]
 LaTeX Info: Redefining \. on input line 68.
 LaTeX Info: Redefining \% on input line 68.
@@ -1057,11 +1057,11 @@ LaTeX Info: Redefining \% on input line 68.
 LaTeX Info: Redefining \. on input line 80.
 LaTeX Info: Redefining \% on input line 80.
  [7]
-LaTeX Info: Redefining \. on input line 101.
-LaTeX Info: Redefining \% on input line 101.
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
  [8]
-LaTeX Info: Redefining \. on input line 121.
-LaTeX Info: Redefining \% on input line 121.
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
  [9]
 LaTeX Info: Redefining \. on input line 128.
 LaTeX Info: Redefining \% on input line 128.
@@ -1073,11 +1073,11 @@ LaTeX Info: Redefining \% on input line 39.
 
  (./chapters/02_marco_teorico.tex
 Cap\'{\i }tulo 2.
-<figures/capitulo2_origen_eeg.pdf, id=799, 530.77019pt x 376.87863pt>
+<figures/capitulo2_origen_eeg.pdf, id=795, 530.16104pt x 395.64677pt>
 File: figures/capitulo2_origen_eeg.pdf Graphic file (type pdf)
 <use figures/capitulo2_origen_eeg.pdf>
 Package pdftex.def Info: figures/capitulo2_origen_eeg.pdf  used on input line 16.
-(pdftex.def)             Requested size: 361.35138pt x 256.58461pt.
+(pdftex.def)             Requested size: 361.35138pt x 269.6641pt.
 [12
 
 
@@ -1087,38 +1087,46 @@ Package pdftex.def Info: figures/capitulo2_origen_eeg.pdf  used on input line 16
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
  [13 <./figures/capitulo2_origen_eeg.pdf>]
-<figures/ch2_gsp_concepts_clean.pdf, id=917, 562.02158pt x 182.57373pt>
+<figures/ch2_gsp_concepts_clean.pdf, id=829, 519.47678pt x 318.30858pt>
 File: figures/ch2_gsp_concepts_clean.pdf Graphic file (type pdf)
 <use figures/ch2_gsp_concepts_clean.pdf>
 Package pdftex.def Info: figures/ch2_gsp_concepts_clean.pdf  used on input line 37.
-(pdftex.def)             Requested size: 442.65182pt x 143.79985pt.
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
- [14{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./figures/ch2_gsp_concepts_clean.pdf>]
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [15]
-<figures/ch2_trss_operator.pdf, id=959, 684.88123pt x 206.11403pt>
+(pdftex.def)             Requested size: 442.65182pt x 271.23383pt.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+ [14 <./figures/ch2_gsp_concepts_clean.pdf>]
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+ [15{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+LaTeX Info: Redefining \. on input line 85.
+LaTeX Info: Redefining \% on input line 85.
+ [16]
+<figures/ch2_trss_operator.pdf, id=878, 474.97702pt x 195.66667pt>
 File: figures/ch2_trss_operator.pdf Graphic file (type pdf)
 <use figures/ch2_trss_operator.pdf>
 Package pdftex.def Info: figures/ch2_trss_operator.pdf  used on input line 88.
-(pdftex.def)             Requested size: 424.58736pt x 127.7768pt.
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
- [16 <./figures/ch2_trss_operator.pdf>]
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
- [17]
+(pdftex.def)             Requested size: 424.58736pt x 174.91008pt.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
+ [17 <./figures/ch2_trss_operator.pdf>]
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
+ [18]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 134.
 
-Overfull \hbox (2.54391pt too wide) in paragraph at lines 138--138
-[]|\T1/lmr/m/n/10.95 (-20) Geométrica| 
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+[]|\T1/lmr/m/n/10.95 (+20) Ignora di-ná-mi-ca
  []
 
 
-Overfull \hbox (3.06694pt too wide) in paragraph at lines 139--139
-[]|\T1/lmr/m/n/10.95 (-20) Descomposición
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[]|\T1/lmr/m/n/10.95 (+20) Descomposición
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+[]|\T1/lmr/m/n/10.95 (+20) Requiere da-tos
  []
 
 
@@ -1127,43 +1135,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 140--140
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
-[]|\T1/lmr/m/n/10.95 (+20) Independiente
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 141--141
 []|\T1/lmr/m/n/10.95 (+20) GSP-
  []
 
 
-Underfull \hbox (badness 2818) in paragraph at lines 141--141
-[]|\T1/lmr/m/n/10.95 (+20) Banda li-mi-ta-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 141--141
-[]|\T1/lmr/m/n/10.95 (+20) Fundamento
+[]|\T1/lmr/m/n/10.95 (+20) Fundamento de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-[]|\T1/lmr/m/n/10.95 (+20) Suavidad
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-\T1/lmr/m/n/10.95 (+20) espacio-
- []
-
-
-Underfull \hbox (badness 1776) in paragraph at lines 142--142
-[]|\T1/lmr/m/n/10.95 (+20) Preserva mor-
- []
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 142--143
-[]|\T1/lmr/m/n/10.95 (+20) Costo compu-
+Underfull \hbox (badness 1178) in paragraph at lines 142--142
+[]|\T1/lmr/m/n/10.95 (+20) Preserva mor-fo-lo-
  []
 
 
@@ -1171,25 +1154,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--143
 []|\T1/lmr/m/n/10.95 (+20) MNE-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
-[]|\T1/lmr/m/n/10.95 (+20) Pierde pre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
-\T1/lmr/m/n/10.95 (+20) ci-sión ba-jo
- []
-
-
-Underfull \hbox (badness 1755) in paragraph at lines 143--144
-\T1/lmr/m/n/10.95 (+20) pér-di-da con-ti-
- []
-
 )
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
- [18]
 LaTeX Info: Redefining \. on input line 40.
 LaTeX Info: Redefining \% on input line 40.
  [19]
@@ -1197,11 +1162,11 @@ LaTeX Info: Redefining \% on input line 40.
 
  (./chapters/03_metodologia.tex
 Cap\'{\i }tulo 3.
-<figures/ch3_methodology_flow.pdf, id=1019, 420.25005pt x 183.85487pt>
+<figures/ch3_methodology_flow.pdf, id=929, 524.96927pt x 206.38794pt>
 File: figures/ch3_methodology_flow.pdf Graphic file (type pdf)
 <use figures/ch3_methodology_flow.pdf>
 Package pdftex.def Info: figures/ch3_methodology_flow.pdf  used on input line 8.
-(pdftex.def)             Requested size: 433.62305pt x 189.71768pt.
+(pdftex.def)             Requested size: 433.62305pt x 170.48314pt.
 [20
 
 
@@ -1228,11 +1193,11 @@ LaTeX Info: Redefining \% on input line 41.
 
  (./chapters/04_arquitectura_y_trazabilidad.tex
 Cap\'{\i }tulo 4.
-<figures/ch4_traceability_pipeline.pdf, id=1071, 420.25005pt x 194.98445pt>
+<figures/ch4_traceability_pipeline.pdf, id=981, 423.14085pt x 175.6161pt>
 File: figures/ch4_traceability_pipeline.pdf Graphic file (type pdf)
 <use figures/ch4_traceability_pipeline.pdf>
 Package pdftex.def Info: figures/ch4_traceability_pipeline.pdf  used on input line 8.
-(pdftex.def)             Requested size: 424.58736pt x 197.01009pt.
+(pdftex.def)             Requested size: 424.58736pt x 176.22128pt.
 [25
 
 
@@ -1261,29 +1226,34 @@ LaTeX Info: Redefining \% on input line 42.
 
  (./chapters/05_diseno_experimental.tex
 Cap\'{\i }tulo 5.
-<figures/ch5_experimental_design_matrix.pdf, id=1100, 518.49625pt x 209.26921pt>
+<figures/ch5_experimental_design_matrix.pdf, id=1010, 470.56804pt x 201.7293pt>
 File: figures/ch5_experimental_design_matrix.pdf Graphic file (type pdf)
 <use figures/ch5_experimental_design_matrix.pdf>
 Package pdftex.def Info: figures/ch5_experimental_design_matrix.pdf  used on input line 8.
-(pdftex.def)             Requested size: 429.10176pt x 173.19525pt.
+(pdftex.def)             Requested size: 429.10176pt x 183.95255pt.
 [28
 
 
 
 
  <./figures/ch5_experimental_design_matrix.pdf>]
-Underfull \hbox (badness 7064) in paragraph at lines 36--36
-[]|\T1/lmr/m/n/10 (+20) Series tem-po-ra-les y
+Underfull \hbox (badness 2856) in paragraph at lines 37--37
+[]|\T1/lmr/m/n/10.95 (+20) H2: ¾Exis-te ré-gi-
  []
 
-LaTeX Info: Redefining \. on input line 52.
-LaTeX Info: Redefining \% on input line 52.
+
+Underfull \hbox (badness 5147) in paragraph at lines 37--37
+\T1/lmr/m/n/10.95 (+20) men fa-vo-ra-ble a
+ []
+
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
 [29]
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
  [30]
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
  [31])
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
@@ -1294,22 +1264,7 @@ LaTeX Info: Redefining \% on input line 43.
 Cap\'{\i }tulo 6.
 (./tables/ch6_phase_map.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]|\T1/lmr/m/n/10.95 (+10) Implementación
- []
-
-
-Underfull \hbox (badness 1496) in paragraph at lines 10--10
-[]|\T1/lmr/m/n/10.95 (+20) 18 mé-to-dos im-ple-
- []
-
-
-Underfull \hbox (badness 1281) in paragraph at lines 11--11
-\T1/lmr/m/n/10.95 (+20) 3 con-jun-tos reales,
- []
-
-
-Underfull \hbox (badness 6094) in paragraph at lines 11--12
-[]|\T1/lmr/m/n/10.95 (+20) Sustenta la se-lec-ción de
+[]|\T1/lmr/m/n/10.95 (+20) Implementación
  []
 
 
@@ -1317,202 +1272,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--12
 []|\T1/lmr/m/n/10.95 (+20) Confirmatoria
  []
 
-
-Underfull \hbox (badness 7047) in paragraph at lines 12--12
-[]|\T1/lmr/m/n/10.95 (+20) 100 es-tra-tos, 300
- []
-
-
-Underfull \hbox (badness 1221) in paragraph at lines 12--12
-\T1/lmr/m/n/10.95 (+20) ca-sos pa-rea-dos, 11
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
-\T1/lmr/m/n/10.95 (+20) va-rian-tes/métodos
- []
-
 ) [33
 
 
 
 
-]
-LaTeX Info: Redefining \. on input line 19.
-LaTeX Info: Redefining \% on input line 19.
- [34] (./tables/ch6_global_summary.tex)
-<figures/ch6_runtime_mae_tradeoff.pdf, id=1161, 413.78586pt x 239.60593pt>
+] (./tables/ch6_global_summary.tex)
+<figures/ch6_runtime_mae_tradeoff.pdf, id=1067, 457.1755pt x 261.28693pt>
 File: figures/ch6_runtime_mae_tradeoff.pdf Graphic file (type pdf)
 <use figures/ch6_runtime_mae_tradeoff.pdf>
 Package pdftex.def Info: figures/ch6_runtime_mae_tradeoff.pdf  used on input line 24.
-(pdftex.def)             Requested size: 352.3157pt x 204.00966pt.
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
- [35 <./figures/ch6_runtime_mae_tradeoff.pdf>] (./tables/ch6_robust_main.tex
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4.
- (/home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
-[]\T1/lmr/m/n/12 (+20) Tabla 6.3: |Com-pa-ra-ción ro-bus-ta de TRSS fren-te a \T1/lmtt/m/n/12 MNE
- []
-
-
-Underfull \hbox (badness 2245) in paragraph at lines 4--4
-\T1/lmtt/m/n/12 interpolate\_bads(method='spline')\T1/lmr/m/n/12 (+20) . La me-jo-ra me-dia-na po-si-ti-va fa-vo-re-ce a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--8
-[]|\T1/lmr/m/n/10.95 (+20) Mejora me-dia-na
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]|\T1/lmr/m/n/10.95 (+20) +12.4$ $% [+7.8$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
-[]|\T1/lmr/m/n/10.95 (+20) +13.9$ $% [+6.4$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]|\T1/lmr/m/n/10.95 (+20) +0.8$ $% [+0.3$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
-[]|\T1/lmr/m/n/10.95 (+20) +12.0$ $% [+6.9$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/lmr/m/n/10.95 (+20) +13.4$ $% [+6.6$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]|\T1/lmr/m/n/10.95 (+20) -9.6$ $% [-13.4$ $%, -
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
-[]|\T1/lmr/m/n/10.95 (+20) +0.6$ $% [+0.2$ $%,
- []
-
-)
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
- [36] (./tables/ch6_metric_portfolio.tex
-Underfull \hbox (badness 10000) in paragraph at lines 8--8
-[]|\T1/lmr/m/n/10 (+20) Mejora me-dia-na
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]|\T1/lmr/m/n/10 (+20) +12.4$ $% [+7.8$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
-[]|\T1/lmr/m/n/10 (+20) +13.9$ $% [+6.4$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--12
-[]|\T1/lmr/m/n/10 (+20) +13.9$ $% [+6.4$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]|\T1/lmr/m/n/10 (+20) +9.8$ $% [+5.5$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
-[]|\T1/lmr/m/n/10 (+20) +3.7$ $% [+0.9$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 17--17
-[]|\T1/lmr/m/n/10 (+20) +0.8$ $% [+0.3$ $%,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
-[]|\T1/lmr/m/n/10 (+20) +16.9$ $% [+3.4$ $%,
- []
-
-)
-<figures/ch6_metric_portfolio_improvement.pdf, id=1184, 521.37234pt x 259.80753pt>
+(pdftex.def)             Requested size: 352.3157pt x 201.36298pt.
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
+ [34]
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
+ [35 <./figures/ch6_runtime_mae_tradeoff.pdf>] (./tables/ch6_robust_main.tex) (./tables/ch6_metric_portfolio.tex)
+<figures/ch6_metric_portfolio_improvement.pdf, id=1089, 549.085pt x 270.77112pt>
 File: figures/ch6_metric_portfolio_improvement.pdf Graphic file (type pdf)
 <use figures/ch6_metric_portfolio_improvement.pdf>
 Package pdftex.def Info: figures/ch6_metric_portfolio_improvement.pdf  used on input line 45.
-(pdftex.def)             Requested size: 415.55168pt x 207.08514pt.
-<figures/ch6_boxplot_nrmse_balanced.pdf, id=1185, 578.16pt x 289.08pt>
+(pdftex.def)             Requested size: 415.55168pt x 204.9288pt.
+<figures/ch6_boxplot_nrmse_balanced.pdf, id=1090, 457.141pt x 224.90901pt>
 File: figures/ch6_boxplot_nrmse_balanced.pdf Graphic file (type pdf)
 <use figures/ch6_boxplot_nrmse_balanced.pdf>
 Package pdftex.def Info: figures/ch6_boxplot_nrmse_balanced.pdf  used on input line 52.
-(pdftex.def)             Requested size: 388.45154pt x 194.22514pt.
-<figures/ch6_robust_improvement_ci.pdf, id=1188, 505.1247pt x 210.85777pt>
+(pdftex.def)             Requested size: 388.45154pt x 191.11865pt.
+<figures/ch6_robust_improvement_ci.pdf, id=1093, 471.6113pt x 225.31177pt>
 File: figures/ch6_robust_improvement_ci.pdf Graphic file (type pdf)
 <use figures/ch6_robust_improvement_ci.pdf>
 Package pdftex.def Info: figures/ch6_robust_improvement_ci.pdf  used on input line 59.
-(pdftex.def)             Requested size: 415.55168pt x 173.47395pt.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
- [37]
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
- [38 <./figures/ch6_metric_portfolio_improvement.pdf> <./figures/ch6_boxplot_nrmse_balanced.pdf>] (./tables/ch6_by_dataset_mae.tex)
-<figures/ch6_dataset_mae_improvement.pdf, id=1250, 457.87416pt x 217.682pt>
+(pdftex.def)             Requested size: 415.55168pt x 198.5328pt.
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+ [36]
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+ [37 <./figures/ch6_metric_portfolio_improvement.pdf>]
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
+ [38 <./figures/ch6_boxplot_nrmse_balanced.pdf> <./figures/ch6_robust_improvement_ci.pdf>] (./tables/ch6_by_dataset_mae.tex)
+<figures/ch6_dataset_mae_improvement.pdf, id=1139, 486.68513pt x 224.90901pt>
 File: figures/ch6_dataset_mae_improvement.pdf Graphic file (type pdf)
 <use figures/ch6_dataset_mae_improvement.pdf>
 Package pdftex.def Info: figures/ch6_dataset_mae_improvement.pdf  used on input line 76.
-(pdftex.def)             Requested size: 379.41585pt x 180.39035pt.
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [39 <./figures/ch6_robust_improvement_ci.pdf>]
-LaTeX Info: Redefining \. on input line 83.
-LaTeX Info: Redefining \% on input line 83.
- [40 <./figures/ch6_dataset_mae_improvement.pdf>] (./tables/ch6_selected_scenarios_mae.tex)
-<figures/ch6_scenario_heatmap_mae.pdf, id=1278, 480.6849pt x 224.41455pt>
+(pdftex.def)             Requested size: 379.41585pt x 175.34595pt.
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+ [39 <./figures/ch6_dataset_mae_improvement.pdf>] (./tables/ch6_selected_scenarios_mae.tex)
+<figures/ch6_scenario_heatmap_mae.pdf, id=1155, 493.96661pt x 247.46611pt>
 File: figures/ch6_scenario_heatmap_mae.pdf Graphic file (type pdf)
 <use figures/ch6_scenario_heatmap_mae.pdf>
 Package pdftex.def Info: figures/ch6_scenario_heatmap_mae.pdf  used on input line 93.
-(pdftex.def)             Requested size: 406.516pt x 189.79788pt.
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
- [41 <./figures/ch6_scenario_heatmap_mae.pdf>]
-<figures/ch6_ablation_temporal_component.pdf, id=1297, 478.26682pt x 210.39853pt>
+(pdftex.def)             Requested size: 406.516pt x 203.6636pt.
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
+ [40]
+<figures/ch6_ablation_temporal_component.pdf, id=1161, 485.34222pt x 228.92526pt>
 File: figures/ch6_ablation_temporal_component.pdf Graphic file (type pdf)
 <use figures/ch6_ablation_temporal_component.pdf>
 Package pdftex.def Info: figures/ch6_ablation_temporal_component.pdf  used on input line 108.
-(pdftex.def)             Requested size: 406.516pt x 178.83958pt.
-LaTeX Info: Redefining \. on input line 120.
-LaTeX Info: Redefining \% on input line 120.
+(pdftex.def)             Requested size: 406.516pt x 191.75447pt.
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+ [41 <./figures/ch6_scenario_heatmap_mae.pdf>]
+<figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png, id=1187, 626.34pt x 408.5664pt>
+File: figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png Graphic file (type png)
+<use figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png>
+Package pdftex.def Info: figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png  used on input line 123.
+(pdftex.def)             Requested size: 388.45154pt x 253.39583pt.
+<figures/res_opt_final__best_psd_comparison_clean.png, id=1191, 460.2285pt x 304.848pt>
+File: figures/res_opt_final__best_psd_comparison_clean.png Graphic file (type png)
+<use figures/res_opt_final__best_psd_comparison_clean.png>
+Package pdftex.def Info: figures/res_opt_final__best_psd_comparison_clean.png  used on input line 132.
+(pdftex.def)             Requested size: 424.58736pt x 281.24504pt.
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
  [42 <./figures/ch6_ablation_temporal_component.pdf>]
-<figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png, id=1311, 1019.007pt x 994.4352pt>
-File: figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png Graphic file (type png)
-<use figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png>
-Package pdftex.def Info: figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png  used on input line 123.
-(pdftex.def)             Requested size: 415.55168pt x 405.52086pt.
-LaTeX Info: Redefining \. on input line 129.
-LaTeX Info: Redefining \% on input line 129.
- [43 <./figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png>]
-<figures/res_opt_final__best_psd_comparison.png, id=1320, 629.7126pt x 407.6028pt>
-File: figures/res_opt_final__best_psd_comparison.png Graphic file (type png)
-<use figures/res_opt_final__best_psd_comparison.png>
-Package pdftex.def Info: figures/res_opt_final__best_psd_comparison.png  used on input line 132.
-(pdftex.def)             Requested size: 388.45154pt x 251.44234pt.
- (./tables/ch6_runtime_complexity.tex
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
+ [43 <./figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png>]
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
+ [44 <./figures/res_opt_final__best_psd_comparison_clean.png (PNG copy)>] (./tables/ch6_runtime_complexity.tex
 Underfull \hbox (badness 1466) in paragraph at lines 8--8
 []|\T1/lmr/m/n/10.95 (+20) Complejidad asin-
  []
@@ -1523,17 +1366,16 @@ Underfull \hbox (badness 1117) in paragraph at lines 11--11
  []
 
 )
-<figures/ch6_boxplot_runtime_balanced.pdf, id=1322, 578.16pt x 289.08pt>
+<figures/ch6_boxplot_runtime_balanced.pdf, id=1214, 457.12787pt x 224.90901pt>
 File: figures/ch6_boxplot_runtime_balanced.pdf Graphic file (type pdf)
 <use figures/ch6_boxplot_runtime_balanced.pdf>
 Package pdftex.def Info: figures/ch6_boxplot_runtime_balanced.pdf  used on input line 147.
-(pdftex.def)             Requested size: 370.38707pt x 185.1914pt.
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
- [44 <./figures/res_opt_final__best_psd_comparison.png>]
-LaTeX Info: Redefining \. on input line 154.
-LaTeX Info: Redefining \% on input line 154.
- [45 <./figures/ch6_boxplot_runtime_balanced.pdf>])
+(pdftex.def)             Requested size: 370.38707pt x 182.23021pt.
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
+ [45
+
+ <./figures/ch6_boxplot_runtime_balanced.pdf>])
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
  [46]
@@ -1557,11 +1399,11 @@ Underfull \hbox (badness 1314) in paragraph at lines 56--56
 \T1/lmr/m/n/10.95 (+20) lí-nea con prio-ri-dad en
  []
 
-<figures/ch7_decision_map.pdf, id=1386, 490.84254pt x 259.64377pt>
+<figures/ch7_decision_map.pdf, id=1245, 495.29944pt x 265.04309pt>
 File: figures/ch7_decision_map.pdf Graphic file (type pdf)
 <use figures/ch7_decision_map.pdf>
 Package pdftex.def Info: figures/ch7_decision_map.pdf  used on input line 64.
-(pdftex.def)             Requested size: 388.45154pt x 205.49269pt.
+(pdftex.def)             Requested size: 388.45154pt x 207.87325pt.
 LaTeX Info: Redefining \. on input line 73.
 LaTeX Info: Redefining \% on input line 73.
 [50]
@@ -1584,27 +1426,17 @@ Cap\'{\i }tulo 8.
 LaTeX Info: Redefining \. on input line 27.
 LaTeX Info: Redefining \% on input line 27.
  [54] (./tables/ch8_objective_evidence_matrix.tex
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]|\T1/lmr/m/n/10.95 (+20) Evaluación com-pa-ra-ti-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-\T1/lmr/m/n/10.95 (+20) mor-fo-lo-gía, es-pec-tro y
- []
-
-
-Underfull \hbox (badness 2426) in paragraph at lines 12--13
-[]|\T1/lmr/m/n/10.95 (+20) Cumplido; la pre-ser-va-
+Underfull \hbox (badness 3118) in paragraph at lines 12--13
+[]|\T1/lmr/m/n/10.95 (+20) Cumplido; evi-den-cia
  []
 
 )
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
- [55]
-LaTeX Info: Redefining \. on input line 47.
-LaTeX Info: Redefining \% on input line 47.
- [56])
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+ [55])
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+ [56]
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
  [57]
@@ -1625,6 +1457,14 @@ LaTeX Info: Redefining \% on input line 50.
 
  (./appendices/B_tablas_extensas.tex
 Ap\'{e}ndice B.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4.
+(/home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 ) [60
 
 
@@ -1682,18 +1522,18 @@ Package rerunfilecheck Info: File `tesis_completa.out' has not changed.
 (rerunfilecheck)             Checksum: 65274B432EBB4FBDDEF6EB9E68019E0C;22580.
  ) 
 Here is how much of TeX's memory you used:
- 35764 strings out of 469321
- 723523 string characters out of 5465745
- 1119196 words of memory out of 5000000
+ 35750 strings out of 469321
+ 723481 string characters out of 5465745
+ 1123869 words of memory out of 5000000
  63278 multiletter control sequences out of 15000+600000
- 743979 words of font info for 287 fonts, out of 8000000 for 9000
+ 743398 words of font info for 280 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,13n,97p,1770b,1395s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesis_completa.pdf (80 pages, 1607440 bytes).
+Output written on tesis_completa.pdf (80 pages, 1136802 bytes).
 PDF statistics:
- 1630 PDF objects out of 1728 (max. 8388607)
- 1239 compressed objects within 13 object streams
+ 1490 PDF objects out of 1728 (max. 8388607)
+ 1234 compressed objects within 13 object streams
  252 named destinations out of 1000 (max. 500000)
  60783 words of extra memory for PDF output out of 61914 (max. 10000000)
 

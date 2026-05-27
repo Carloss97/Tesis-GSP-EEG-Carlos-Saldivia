@@ -118,6 +118,22 @@ def signed_pct(x: float, decimals: int = 1) -> str:
     return f"{sign}{val:.{decimals}f}\\%"
 
 
+def pct_num(x: float, decimals: int = 1) -> str:
+    return f"{100 * float(x):.{decimals}f}"
+
+
+def signed_num(x: float, decimals: int = 1) -> str:
+    val = 100 * float(x)
+    if abs(val) < 0.5 * (10 ** -decimals):
+        val = 0.0
+    sign = "+" if val > 0 else ""
+    return f"{sign}{val:.{decimals}f}"
+
+
+def ci_num(lo: float, hi: float, decimals: int = 1) -> str:
+    return f"[{signed_num(lo, decimals)}, {signed_num(hi, decimals)}]"
+
+
 def sci(x: float, digits: int = 2) -> str:
     x = float(x)
     if x == 0:
@@ -166,16 +182,16 @@ tex_table(
 \begin{{table}}[htbp]
 \centering
 \small
-\caption{{Relación entre fases experimentales y evidencia usada en los capítulos prácticos. La fase exploratoria amplia implementó el espacio completo de métodos; la fase confirmatoria restringe la inferencia principal a comparaciones pareadas TRSS--MNE para evitar conclusiones infladas por selección posterior.}}
+\caption{{Relación entre fases experimentales y evidencia usada en los capítulos prácticos.}}
 \label{{tab:ch6_phase_map}}
-\begin{{tabular}}{{@{{}}p{{2.7cm}}p{{3.4cm}}p{{4.8cm}}@{{}}}}
+\begin{{tabular}}{{@{{}}p{{2.8cm}}p{{4.2cm}}p{{4.4cm}}@{{}}}}
 \toprule
-Fase & Alcance verificable & Uso en la tesis \\
+Fase & Alcance verificable & Uso principal \\
 \midrule
-Implementación y cribado & 18 métodos implementados; {len(micro)} métodos con microbenchmark de latencia & Documenta cobertura metodológica y descarta métodos no competitivos o demasiado costosos. \\
-Optimización final & {phase_opt_methods} métodos finalistas, {phase_opt_datasets} conjuntos reales, {phase_opt_rows} filas de mejores configuraciones & Sustenta la selección de TRSS, Tikhonov y splines como familias relevantes. \\
-Confirmatoria TRSS--MNE & {phase_strata} estratos, {phase_cases} casos pareados, {phase_methods} variantes/métodos y {phase_rows} evaluaciones crudas & Base estadística principal de los Capítulos 6--8. \\
-Ablación temporal & {phase_abl_variants} variantes, {phase_abl_datasets} conjuntos reales y {len(abl)} evaluaciones & Cuantifica el aporte del término temporal dentro de la familia TRSS. \\
+Implementación y cribado & 18 métodos; {len(micro)} con microbenchmark & Cobertura metodológica y descarte inicial. \\
+Optimización final & {phase_opt_methods} finalistas, {phase_opt_datasets} bases reales, {phase_opt_rows} filas & Selección de familias competitivas. \\
+Confirmatoria TRSS--MNE & {phase_strata} estratos, {phase_cases} pares, {phase_methods} variantes, {phase_rows} evaluaciones & Inferencia principal de capítulos 6--8. \\
+Ablación temporal & {phase_abl_variants} variantes, {phase_abl_datasets} bases, {len(abl)} evaluaciones & Aporte del término temporal. \\
 \bottomrule
 \end{{tabular}}
 \end{{table}}
@@ -191,18 +207,18 @@ tex_table(
 \begin{table}[htbp]
 \centering
 \small
-\caption{Matriz de cumplimiento de objetivos e hipótesis. La tabla conecta cada compromiso de la tesis con la evidencia presentada en los capítulos prácticos.}
+\caption{Matriz de cumplimiento de objetivos e hipótesis.}
 \label{tab:ch8_objective_evidence}
-\begin{tabular}{@{}p{2.4cm}p{4.5cm}p{4.2cm}@{}}
+\begin{tabular}{@{}p{2.4cm}p{5.4cm}p{3.7cm}@{}}
 \toprule
 Elemento & Evidencia principal & Estado \\
 \midrule
-Objetivo general & Evaluación comparativa GSP/TRSS contra MNE con métricas de amplitud, morfología, espectro y tiempo. & Cumplido con conclusión condicional. \\
-OE1 & Sistema modular, 18 métodos implementados, optimización Optuna y artefactos trazables. & Cumplido; el cuerpo principal resume la fase final y el apéndice conserva artefactos extensos. \\
-OE2 & Seis métricas primarias más métricas auxiliares confirmatorias; análisis por conjunto, patrón, severidad y ablación. & Cumplido; la preservación ERP queda como evidencia morfológica cualitativa, no como prueba clínica de componentes específicos. \\
-OE3 & Tablas, figuras, CSV copiados, bitácora de evidencia y validador reproducible. & Cumplido. \\
-H1 & TRSS mejora MAE, NRMSE y correlación; no domina LSD ni tiempo. & Respaldada parcialmente y acotada por métrica. \\
-H2 & MNE gana o empata en señales suaves, pocos canales y restricciones de latencia. & Respaldada como ventaja o empate práctico, no como prueba formal de equivalencia estadística. \\
+Objetivo general & Benchmark GSP/TRSS contra MNE con métricas de error, morfología, espectro y tiempo. & Cumplido con conclusión condicional. \\
+OE1 & Sistema modular, 18 métodos, Optuna y artefactos trazables. & Cumplido. \\
+OE2 & Métricas primarias y auxiliares; análisis por base, patrón, severidad y ablación. & Cumplido; evidencia ERP es cualitativa. \\
+OE3 & Tablas, figuras, CSV copiados, bitácora y validador. & Cumplido. \\
+H1 & TRSS mejora MAE, NRMSE y correlación; no domina LSD ni tiempo. & Respaldada con alcance acotado. \\
+H2 & MNE gana o empata en señales suaves, pocos canales y restricciones de latencia. & Respaldada como ventaja práctica. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -254,23 +270,22 @@ headline["_order"] = headline["method_a"].map(method_order) * 10 + headline["met
 headline = headline.sort_values("_order")
 rows = []
 for _, r in headline.iterrows():
-    ci = f"{signed_pct(r['boot_median_improvement_ci_low'])}, {signed_pct(r['boot_median_improvement_ci_high'])}"
     rows.append(
         f"{METHOD_LABELS[r['method_a']]} & {METRIC_LABELS[r['metric']]} & "
-        f"{signed_pct(r['median_improvement'])} [{ci}] & {pct(r['win_rate'])} & "
-        f"{qfmt(r['p_fdr_bh'])} & {dec(r['paired_rank_biserial'],2)} \\\\"
+        f"{signed_num(r['median_improvement'])} & {ci_num(r['boot_median_improvement_ci_low'], r['boot_median_improvement_ci_high'])} & "
+        f"{pct_num(r['win_rate'])} & {qfmt(r['p_fdr_bh'])} & {dec(r['paired_rank_biserial'],2)} " + r"\\"
     )
 tex_table(
     TABLES / "ch6_robust_main.tex",
     r"""
 \begin{table}[htbp]
 \centering
-\small
-\caption[Comparación robusta TRSS--MNE]{Comparación robusta de TRSS frente a \code{MNE interpolate\_bads(method='spline')}. La mejora mediana positiva favorece a TRSS; en tiempo, valores negativos indican mayor costo computacional de TRSS. Los intervalos son bootstrap jerárquicos al 95\%.}
+\footnotesize
+\caption[Comparación robusta TRSS--MNE]{Comparación robusta de TRSS frente a MNE-Python. La mejora mediana positiva favorece a TRSS; en tiempo, valores negativos indican mayor costo computacional de TRSS. Los intervalos son bootstrap jerárquicos al 95\%.}
 \label{tab:ch6_robust_main}
-\begin{tabular}{@{}llp{3.5cm}rrr@{}}
+\begin{tabular}{@{}llrrrrr@{}}
 \toprule
-Método & Métrica & Mejora mediana (IC95) & Tasa victoria & $q_{BH}$ & Efecto \\
+Método & Métrica & Mej. (\%) & IC95 (\%) & Victoria (\%) & $q_{BH}$ & Efecto \\
 \midrule
 """ + "\n".join(rows[:5]) + r"""
 \addlinespace
@@ -294,10 +309,10 @@ portfolio["_order"] = portfolio["metric"].map({m: i for i, m in enumerate(portfo
 portfolio = portfolio.sort_values("_order")
 rows = []
 for _, r in portfolio.iterrows():
-    ci = f"{signed_pct(r['boot_median_improvement_ci_low'])}, {signed_pct(r['boot_median_improvement_ci_high'])}"
     rows.append(
-        f"{METRIC_LABELS.get(r['metric'], r['metric'])} & {signed_pct(r['median_improvement'])} [{ci}] & "
-        f"{pct(r['win_rate'])} & {qfmt(r['p_fdr_bh'])} & {dec(r['paired_rank_biserial'],2)} \\\\"
+        f"{METRIC_LABELS.get(r['metric'], r['metric'])} & {signed_num(r['median_improvement'])} & "
+        f"{ci_num(r['boot_median_improvement_ci_low'], r['boot_median_improvement_ci_high'])} & "
+        f"{pct_num(r['win_rate'])} & {qfmt(r['p_fdr_bh'])} & {dec(r['paired_rank_biserial'],2)} " + r"\\"
     )
 tex_table(
     TABLES / "ch6_metric_portfolio.tex",
@@ -307,9 +322,9 @@ tex_table(
 \footnotesize
 \caption{Portafolio completo de métricas confirmatorias para TRSS fijo frente a MNE. La mejora mediana positiva favorece a TRSS después de ajustar la dirección de cada métrica; valores negativos favorecen a MNE.}
 \label{tab:ch6_metric_portfolio}
-\begin{tabular}{@{}lp{3.4cm}rrr@{}}
+\begin{tabular}{@{}lrrrrr@{}}
 \toprule
-Métrica & Mejora mediana (IC95) & Tasa victoria & $q_{BH}$ & Efecto \\
+Métrica & Mej. (\%) & IC95 (\%) & Victoria (\%) & $q_{BH}$ & Efecto \\
 \midrule
 """ + "\n".join(rows) + r"""
 \bottomrule
@@ -317,6 +332,61 @@ Métrica & Mejora mediana (IC95) & Tasa victoria & $q_{BH}$ & Efecto \\
 \end{table}
 """,
 )
+
+# Visual portfolio: quality metrics and runtime are shown on separate axes so
+# the runtime outlier does not collapse the quality bars. The runtime panel uses
+# horizontal bars; labels are outside bars and the title contains no numeric
+# annotation, avoiding the previous overlap between the title and value label.
+quality_metrics = [m for m in portfolio_metrics if m != "runtime_s"]
+quality = portfolio.set_index("metric").loc[quality_metrics].reset_index()
+runtime_row = portfolio.set_index("metric").loc["runtime_s"]
+fig, (ax, ax2) = plt.subplots(
+    1, 2, figsize=(7.6, 3.75),
+    gridspec_kw={"width_ratios": [3.0, 1.55], "wspace": 0.44},
+    constrained_layout=True,
+)
+y = np.arange(len(quality))
+vals = quality["median_improvement"].to_numpy() * 100
+cols = [OKABE["blue"] if v >= 0 else OKABE["orange"] for v in vals]
+ax.barh(y, vals, color=cols, alpha=0.9)
+ax.axvline(0, color="black", lw=0.9)
+ax.set_yticks(y)
+ax.set_yticklabels([METRIC_LABELS[m] for m in quality["metric"]], fontsize=8.6)
+ax.set_xlabel("Mejora mediana de calidad (%)")
+ax.grid(axis="x", color="#dddddd", linewidth=0.6)
+lo = min(-8, float(np.nanmin(vals)) - 4)
+hi = max(23, float(np.nanmax(vals)) + 7)
+ax.set_xlim(lo, hi)
+for yy, v, win in zip(y, vals, quality["win_rate"].to_numpy()*100):
+    ha = "left" if v >= 0 else "right"
+    dx = 0.9 if v >= 0 else -0.9
+    ax.text(v + dx, yy, f"{v:+.1f}%", va="center", ha=ha, fontsize=7.8)
+ax.set_title("Métricas de calidad", fontsize=10.5, pad=8)
+# Runtime panel: horizontal log-scale bars keep labels separated from title.
+time_summary = summary.set_index("method").loc[["mne_interpolate_bads_spline", "trss_default"]]
+rt_vals = time_summary["runtime_s_median"].to_numpy()
+rt_labels = ["MNE", "TRSS"]
+yp = np.arange(len(rt_vals))
+ax2.barh(yp, rt_vals, color=[OKABE["green"], OKABE["blue"]], alpha=0.9, height=0.42)
+ax2.set_xscale("log")
+ax2.set_yticks(yp)
+ax2.set_yticklabels(rt_labels, fontsize=8.8)
+ax2.set_xlabel("segundos/caso", labelpad=4)
+ax2.set_title("Costo temporal", fontsize=10.5, pad=10)
+ax2.minorticks_off()
+ax2.grid(False)
+ax2.grid(axis="x", which="major", color="#dddddd", linewidth=0.55)
+max_rt = float(np.nanmax(rt_vals))
+min_rt = float(np.nanmin(rt_vals))
+ax2.set_xlim(min_rt/1.8, max_rt*2.9)
+for yy, v in zip(yp, rt_vals):
+    ax2.text(v*1.18, yy, f"{v:.3f}s", ha="left", va="center", fontsize=8.0)
+ratio = rt_vals[1] / rt_vals[0]
+ax2.text(0.06, 0.88, f"TRSS ≈ {ratio:.1f}×", transform=ax2.transAxes,
+         ha="left", va="top", fontsize=8.2, color="#555555",
+         bbox=dict(facecolor="white", edgecolor="none", alpha=0.82, pad=1.6))
+fig.savefig(FIGURES / "ch6_metric_portfolio_improvement.pdf", bbox_inches="tight", pad_inches=0.04)
+plt.close(fig)
 
 # ---------------------------------------------------------------------------
 # Table 3: dataset-level MAE stratification.
@@ -431,12 +501,12 @@ TRSS calibrado & Igual a TRSS fijo más selección de hiperparámetros & $O(HK(E
 # ---------------------------------------------------------------------------
 # Figure 1: robust improvement with CIs.
 # ---------------------------------------------------------------------------
-fig_data = headline[headline["metric"].isin(["mae", "nrmse", "lsd", "corr_mean", "runtime_s"])].copy()
+fig_data = headline[headline["metric"].isin(["mae", "nrmse", "lsd", "corr_mean"])].copy()
 fig_data["metric_label"] = fig_data["metric"].map(METRIC_LABELS)
-metrics = ["mae", "nrmse", "lsd", "corr_mean", "runtime_s"]
+metrics = ["mae", "nrmse", "lsd", "corr_mean"]
 x = np.arange(len(metrics))
 width = 0.36
-fig, ax = plt.subplots(figsize=(7.1, 3.0))
+fig, ax = plt.subplots(figsize=(6.6, 3.2))
 for i, method in enumerate(["trss_default", "trss_cv_tuned_seed0"]):
     sub = fig_data[fig_data["method_a"].eq(method)].set_index("metric").loc[metrics]
     y = sub["median_improvement"].to_numpy() * 100
@@ -449,9 +519,9 @@ ax.axhline(0, color="black", lw=0.8)
 ax.set_xticks(x)
 ax.set_xticklabels([METRIC_LABELS[m] for m in metrics])
 ax.set_ylabel("Mejora mediana frente a MNE (%)")
-ax.legend(frameon=False, ncol=2, loc="lower left")
+ax.legend(frameon=False, ncol=2, loc="upper left")
 ax.grid(axis="y", color="#dddddd", linewidth=0.6)
-ax.text(4, -9.7, "Tiempo: valor negativo = TRSS más lento", ha="center", va="top", fontsize=7, color=OKABE["gray"])
+ax.set_ylim(min(-15, ax.get_ylim()[0]), max(24, ax.get_ylim()[1]))
 fig.tight_layout()
 fig.savefig(FIGURES / "ch6_robust_improvement_ci.pdf", bbox_inches="tight")
 plt.close(fig)
@@ -463,7 +533,7 @@ ds_plot = ds.copy()
 ds_plot["label"] = ds_plot["dataset"].map(pretty_ds).fillna(ds_plot["dataset"])
 ds_plot = ds_plot.sort_values("median_improvement")
 colors = [OKABE["red"] if v < 0 else OKABE["blue"] for v in ds_plot["median_improvement"]]
-fig, ax = plt.subplots(figsize=(6.4, 3.1))
+fig, ax = plt.subplots(figsize=(6.8, 3.2))
 ypos = np.arange(len(ds_plot))
 ax.barh(ypos, ds_plot["median_improvement"] * 100, color=colors, alpha=0.88)
 ax.axvline(0, color="black", lw=0.8)
@@ -472,7 +542,9 @@ ax.set_yticklabels(ds_plot["label"])
 ax.set_xlabel("Mejora mediana de MAE frente a MNE (%)")
 for y, (_, r) in zip(ypos, ds_plot.iterrows()):
     xval = r["median_improvement"] * 100
-    ax.text(xval + (1 if xval >= 0 else -1), y, f"win {r['win_rate']*100:.0f}%", va="center", ha="left" if xval >= 0 else "right", fontsize=7)
+    ax.text(xval + (1.4 if xval >= 0 else -1.4), y, f"{r['win_rate']*100:.0f}%", va="center", ha="left" if xval >= 0 else "right", fontsize=8)
+ax.set_xlim(ds_plot["median_improvement"].min()*100 - 8, ds_plot["median_improvement"].max()*100 + 11)
+ax.text(0.98, 0.04, "etiqueta = tasa de victoria", transform=ax.transAxes, ha="right", va="bottom", fontsize=8, color=OKABE["gray"])
 ax.grid(axis="x", color="#dddddd", linewidth=0.6)
 fig.tight_layout()
 fig.savefig(FIGURES / "ch6_dataset_mae_improvement.pdf", bbox_inches="tight")
@@ -494,7 +566,7 @@ for i, m in enumerate(mode_order):
         if not row.empty:
             mat[i, j] = row.iloc[0]["median_improvement"] * 100
             ann_win[i, j] = row.iloc[0]["win_rate"] * 100
-fig, ax = plt.subplots(figsize=(6.7, 3.2))
+fig, ax = plt.subplots(figsize=(6.9, 3.55))
 max_abs = np.nanmax(np.abs(mat))
 im = ax.imshow(mat, cmap="RdBu", vmin=-max_abs, vmax=max_abs, aspect="auto")
 ax.set_xticks(np.arange(len(val_order)))
@@ -504,11 +576,13 @@ ax.set_yticklabels(mode_names)
 for i in range(mat.shape[0]):
     for j in range(mat.shape[1]):
         if np.isfinite(mat[i, j]):
-            ax.text(j, i, f"{mat[i,j]:+.0f}%\n{ann_win[i,j]:.0f}%", ha="center", va="center", fontsize=7, color="black")
+            txt_color = "white" if abs(mat[i, j]) > 0.45 * max_abs else "black"
+            ax.text(j, i, f"{mat[i,j]:+.0f}%\n{ann_win[i,j]:.0f}%", ha="center", va="center", fontsize=8.2, color=txt_color, fontweight="bold")
 cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
 cb.set_label("Mejora mediana MAE (%)")
 ax.set_xlabel("Severidad de pérdida")
 ax.set_ylabel("Patrón de canales faltantes")
+ax.text(0.5, -0.24, "Cada celda: primera línea = mejora mediana; segunda línea = tasa de victoria", transform=ax.transAxes, ha="center", va="top", fontsize=8.5, color=OKABE["gray"])
 fig.tight_layout()
 fig.savefig(FIGURES / "ch6_scenario_heatmap_mae.pdf", bbox_inches="tight")
 plt.close(fig)
@@ -518,17 +592,73 @@ plt.close(fig)
 # ---------------------------------------------------------------------------
 plot = summary.copy()
 plot["label"] = plot["method"].map(METHOD_LABELS)
-fig, ax = plt.subplots(figsize=(5.8, 3.4))
-colors = [OKABE["green"], OKABE["blue"], OKABE["orange"], OKABE["purple"]]
-for (_, r), color in zip(plot.iterrows(), colors):
-    ax.scatter(r["runtime_s_median"], r["mae_median"] * 1e6, s=70, color=color, edgecolor="black", linewidth=0.5, zorder=3)
-    ax.text(r["runtime_s_median"] * 1.06, r["mae_median"] * 1e6, r["label"], va="center", fontsize=8)
+fig, ax = plt.subplots(figsize=(6.4, 3.7))
+colors = {
+    "mne_interpolate_bads_spline": OKABE["green"],
+    "trss_default": OKABE["blue"],
+    "trss_cv_tuned_seed0": OKABE["orange"],
+    "trss_oracle_grid": OKABE["purple"],
+}
+markers = {
+    "mne_interpolate_bads_spline": "o",
+    "trss_default": "s",
+    "trss_cv_tuned_seed0": "^",
+    "trss_oracle_grid": "D",
+}
+for _, r in plot.iterrows():
+    method = r["method"]
+    ax.scatter(r["runtime_s_median"], r["mae_median"] * 1e6, s=92,
+               color=colors.get(method, OKABE["gray"]), marker=markers.get(method, "o"),
+               edgecolor="black", linewidth=0.6, zorder=3, label=r["label"])
 ax.set_xscale("log")
 ax.set_xlabel("Tiempo mediano por caso (s, escala log)")
 ax.set_ylabel("MAE mediana ($10^{-6}$)")
+ax.set_xlim(plot["runtime_s_median"].min()*0.55, plot["runtime_s_median"].max()*1.85)
+ax.set_ylim(plot["mae_median"].min()*1e6 - 0.45, plot["mae_median"].max()*1e6 + 1.0)
 ax.grid(True, which="both", color="#dddddd", linewidth=0.6)
+ax.legend(frameon=False, loc="upper right", fontsize=8.2)
 fig.tight_layout()
 fig.savefig(FIGURES / "ch6_runtime_mae_tradeoff.pdf", bbox_inches="tight")
+plt.close(fig)
+
+# ---------------------------------------------------------------------------
+# Figure 4b: clean NRMSE and runtime boxplots.
+# ---------------------------------------------------------------------------
+box_methods = ["mne_interpolate_bads_spline", "trss_default", "trss_cv_tuned_seed0", "trss_oracle_grid"]
+box_labels = ["MNE", "TRSS fijo", "TRSS calib.", "Oráculo"]
+box_df = derived[derived["method"].isin(box_methods)].copy()
+box_df["method"] = pd.Categorical(box_df["method"], categories=box_methods, ordered=True)
+box_df = box_df.sort_values("method")
+# NRMSE
+fig, ax = plt.subplots(figsize=(6.4, 3.2))
+data = [box_df.loc[box_df["method"].eq(m), "nrmse"].dropna().to_numpy() for m in box_methods]
+bp = ax.boxplot(data, tick_labels=box_labels, patch_artist=True, widths=0.55, showfliers=False)
+for patch, color in zip(bp["boxes"], [OKABE["green"], OKABE["blue"], OKABE["orange"], OKABE["purple"]]):
+    patch.set_facecolor(color); patch.set_alpha(0.35); patch.set_linewidth(1.0)
+for key in ["whiskers", "caps", "medians"]:
+    for line in bp[key]: line.set_linewidth(1.1)
+ax.set_ylabel("NRMSE en canales ocultos")
+ax.set_xlabel("Método")
+ax.grid(axis="y", color="#dddddd", linewidth=0.6)
+ax.text(0.98, 0.96, "menor es mejor", transform=ax.transAxes, ha="right", va="top", fontsize=8.5, color=OKABE["gray"])
+fig.tight_layout()
+fig.savefig(FIGURES / "ch6_boxplot_nrmse_balanced.pdf", bbox_inches="tight")
+plt.close(fig)
+# Runtime
+fig, ax = plt.subplots(figsize=(6.4, 3.2))
+data = [box_df.loc[box_df["method"].eq(m), "runtime_s"].dropna().to_numpy() for m in box_methods]
+bp = ax.boxplot(data, tick_labels=box_labels, patch_artist=True, widths=0.55, showfliers=False)
+for patch, color in zip(bp["boxes"], [OKABE["green"], OKABE["blue"], OKABE["orange"], OKABE["purple"]]):
+    patch.set_facecolor(color); patch.set_alpha(0.35); patch.set_linewidth(1.0)
+for key in ["whiskers", "caps", "medians"]:
+    for line in bp[key]: line.set_linewidth(1.1)
+ax.set_yscale("log")
+ax.set_ylabel("Tiempo por caso (s, log)")
+ax.set_xlabel("Método")
+ax.grid(axis="y", which="both", color="#dddddd", linewidth=0.6)
+ax.text(0.98, 0.96, "menor es mejor", transform=ax.transAxes, ha="right", va="top", fontsize=8.5, color=OKABE["gray"])
+fig.tight_layout()
+fig.savefig(FIGURES / "ch6_boxplot_runtime_balanced.pdf", bbox_inches="tight")
 plt.close(fig)
 
 # ---------------------------------------------------------------------------
@@ -549,16 +679,18 @@ for m in metrics:
         imp = (b - a) / b.abs()
     vals.append(float(imp.median() * 100))
     wins.append(float((imp > 0).mean() * 100))
-fig, ax = plt.subplots(figsize=(6.7, 3.0))
+fig, ax = plt.subplots(figsize=(6.8, 3.25))
 colors = [OKABE["blue"] if v >= 0 else OKABE["red"] for v in vals]
 xx = np.arange(len(metrics))
 ax.bar(xx, vals, color=colors, alpha=0.88)
 ax.axhline(0, color="black", lw=0.8)
 ax.set_xticks(xx)
 ax.set_xticklabels([METRIC_LABELS[m] for m in metrics], rotation=0)
-ax.set_ylabel("Mejora mediana de TRSS completo\nfrente a TRSS sin temporal (%)")
+ax.set_ylabel("Mejora mediana vs.\nsin término temporal (%)")
+ax.set_ylim(min(0, min(vals)-2), max(vals)+8)
 for x0, v, w in zip(xx, vals, wins):
-    ax.text(x0, v + (0.3 if v >= 0 else -0.3), f"win {w:.0f}%", ha="center", va="bottom" if v >= 0 else "top", fontsize=7)
+    ax.text(x0, v + (1.0 if v >= 0 else -1.0), f"{w:.0f}%", ha="center", va="bottom" if v >= 0 else "top", fontsize=8)
+ax.text(0.98, 0.96, "etiqueta = tasa de victoria", transform=ax.transAxes, ha="right", va="top", fontsize=8, color=OKABE["gray"])
 ax.grid(axis="y", color="#dddddd", linewidth=0.6)
 fig.tight_layout()
 fig.savefig(FIGURES / "ch6_ablation_temporal_component.pdf", bbox_inches="tight")
