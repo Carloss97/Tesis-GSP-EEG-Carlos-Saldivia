@@ -1,44 +1,58 @@
-============================================================
-  Validation: tesis_completa.tex
-============================================================
-{
-  "document": "tesis_completa.tex",
-  "tex_files_loaded": 28,
-  "missing_inputs": [],
-  "citations_used": 25,
-  "missing_citations": [],
-  "figures_used": 17,
-  "missing_figures": [],
-  "labels": 80,
-  "duplicate_labels": {},
-  "missing_refs": [],
-  "approx_words_tex": 16494,
-  "heuristic_pages_text_only": 42.3
-}
-  [PASS] tesis_completa.tex
+VALIDATION REPORT — tesis_magister_gsp_eeg_v2
+Fecha: 2026-05-27T10:36:09-04:00
 
-============================================================
-  Validation: tesis_caps_1_5.tex
-============================================================
-{
-  "document": "tesis_caps_1_5.tex",
-  "tex_files_loaded": 12,
-  "missing_inputs": [],
-  "citations_used": 25,
-  "missing_citations": [],
-  "figures_used": 2,
-  "missing_figures": [],
-  "labels": 32,
-  "duplicate_labels": {},
-  "missing_refs": [
-    "ap:derivaciones",
-    "ap:inventario",
-    "ap:original_adaptado",
-    "ap:reproducibilidad",
-    "ap:tablas_extensas",
-    "ch:resultados"
-  ],
-  "approx_words_tex": 9855,
-  "heuristic_pages_text_only": 25.3
-}
-  [FAIL] tesis_caps_1_5.tex
+Static validation:
+  python3 scripts/validate_thesis.py
+  tesis_completa.tex: PASS
+    tex_files_loaded: 26
+    citations_used: 24
+    missing_citations: 0
+    duplicate_bibkeys: 0
+    figures_used: 9
+    missing_figures: 0
+    duplicate_labels: 0
+    missing_refs: 0
+  tesis_caps_1_5.tex: PASS
+    tex_files_loaded: 12
+    citations_used: 24
+    missing_citations: 0
+    duplicate_bibkeys: 0
+    figures_used: 1
+    missing_figures: 0
+    duplicate_labels: 0
+    missing_refs: 0
+
+Compilation:
+  latexmk -pdf -interaction=nonstopmode tesis_completa.tex: PASS
+    pages: 73
+    LaTeX errors: 0
+    undefined citations: 0
+    undefined references: 0
+    overfull hboxes: 5
+    overfull hboxes >10pt: 0
+
+  latexmk -pdf -interaction=nonstopmode tesis_caps_1_5.tex: PASS
+    pages: 43
+    LaTeX errors: 0
+    undefined citations: 0
+    undefined references: 0
+    overfull hboxes: 4
+    overfull hboxes >10pt: 0
+
+Generated artifacts:
+  figures/ch6_robust_improvement_ci.pdf
+  figures/ch6_dataset_mae_improvement.pdf
+  figures/ch6_scenario_heatmap_mae.pdf
+  figures/ch6_runtime_mae_tradeoff.pdf
+  figures/ch6_ablation_temporal_component.pdf
+  figures/ch6_boxplot_runtime_balanced.pdf
+  figures/ch6_boxplot_nrmse_balanced.pdf
+  figures/ch6_heatmap_tuned_winrate_balanced.pdf
+
+  tables/ch6_global_summary.tex
+  tables/ch6_robust_main.tex
+  tables/ch6_by_dataset_mae.tex
+  tables/ch6_selected_scenarios_mae.tex
+  tables/ch6_runtime_complexity.tex
+  tables/ch6_experiment_log.md
+  tables/ch6_artifact_manifest.json

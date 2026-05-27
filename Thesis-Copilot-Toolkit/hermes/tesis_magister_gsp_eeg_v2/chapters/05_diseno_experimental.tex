@@ -13,7 +13,7 @@ Como \textbf{variables controladas} se fijan: versiones exactas de todas las bib
 
 \section{Preguntas de Investigación}
 
-La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 (TRSS supera a referencias geométricas) y H2 (MNE es equivalente en regímenes favorables).
+La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 (TRSS mejora la reconstrucción en regímenes difíciles) y H2 (MNE conserva ventaja práctica en regímenes favorables).
 
 \begin{table}[htbp]
 \centering
@@ -24,11 +24,11 @@ La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimen
 \toprule
 Hipótesis y pregunta & Experimento & Evidencia esperada \\
 \midrule
-H1: ¿Supera TRSS a las referencias? & Comparación global de familias & TRSS domina en pérdida contigua \textgreater 20\% \\
-H1: ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & Efecto superaditivo \\
-H1: ¿Preserva ERPs? & Series temporales N100/P300 & Amplitud y latencia conservadas al 40\% \\
-H2: ¿Equivalencia en régimen favorable? & Validación confirmatoria TRSS vs.\ MNE & Equivalencia estadística en pérdida \textless=20\% \\
-H2: ¿Punto de cruce? & Curvas de degradación por severidad & Cruce en 15--20\% \\
+H1: ¿Mejora TRSS a las referencias? & Comparación global de familias & TRSS mejora métricas de amplitud y ajuste temporal en pérdida contigua \textgreater 20\% \\
+H1: ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & Contribución medible del término temporal \\
+H1: ¿Preserva morfología temporal? & Series temporales y DTW & Menor distorsión temporal en escenarios severos \\
+H2: ¿Existe régimen favorable a MNE? & Validación confirmatoria TRSS vs.\ MNE & MNE gana o empata en pérdida baja, señales suaves o restricciones de tiempo \\
+H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso dependiente de severidad y patrón \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -53,7 +53,7 @@ El diseño experimental genera un número elevado de pruebas simultáneas: 6 mé
 
 Para controlar este problema se emplea la corrección de Benjamini-Hochberg (BH), que controla la tasa de falsos descubrimientos (FDR): la proporción esperada de falsos positivos entre todos los rechazos. A diferencia de la corrección de Bonferroni —que controla la tasa de error por familia (FWER, $\text{FWER} \leq m \cdot \alpha$) dividiendo $\alpha$ entre $m$ pruebas y es excesivamente conservadora para estudios con muchas comparaciones—, BH adapta el umbral a la distribución observada de los valores $p$. El procedimiento es: para $m$ pruebas independientes con valores $p$ ordenados $p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}$, se encuentra el mayor índice $k$ que satisface $p_{(k)} \leq \frac{k}{m} \cdot \alpha$, y se rechazan $H_{(1)}, \dots, H_{(k)}$.
 
-Se reportan los valores $p$ originales y los ajustados por BH, fijando $\alpha = 0.05$ (FDR al 5\%). Para las comparaciones planificadas de la fase confirmatoria (TRSS vs.\ MNE), no se aplica corrección por ser hipótesis predefinidas, pero se reporta el tamaño del efecto para contextualizar la magnitud de cualquier diferencia detectada.
+Se reportan los valores $p$ originales y los ajustados por BH, fijando $\alpha = 0.05$ (FDR al 5\%). En la fase confirmatoria TRSS vs.\ MNE, la comparación MAE/NRMSE constituye una hipótesis planificada, pero se mantienen valores $q_{BH}$ en las tablas para facilitar una lectura conservadora entre métricas y evitar sobreinterpretar resultados auxiliares.
 
 \subsection{Tamaño del efecto e intervalos de confianza}
 
@@ -61,7 +61,7 @@ La significancia estadística indica si una diferencia observada es improbable b
 
 \subsection{Protocolo de la fase confirmatoria}
 
-Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas: cada uno de los 120 escenarios produce una diferencia pareada $d_i$ en cada métrica. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero (equivalencia entre métodos). La alternativa $H_1$ es bilateral. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de escenarios donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice la hipótesis H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
+Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas. La unidad de análisis es el caso pareado definido por régimen de señal, patrón de pérdida, severidad y semilla. Los 100 estratos confirmatorios, con tres semillas por estrato, generan 300 diferencias pareadas por métrica y comparación. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero; esta prueba detecta diferencia direccional, no equivalencia formal. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de casos donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
 
 \section{Control de Calidad}
 

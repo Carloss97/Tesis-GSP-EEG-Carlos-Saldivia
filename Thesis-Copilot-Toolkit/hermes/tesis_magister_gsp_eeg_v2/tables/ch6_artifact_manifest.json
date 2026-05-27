@@ -1,0 +1,33 @@
+{
+  "generated_tables": [
+    "ch6_by_dataset_mae.tex",
+    "ch6_global_summary.tex",
+    "ch6_metric_portfolio.tex",
+    "ch6_phase_map.tex",
+    "ch6_robust_main.tex",
+    "ch6_runtime_complexity.tex",
+    "ch6_selected_scenarios_mae.tex",
+    "ch8_objective_evidence_matrix.tex"
+  ],
+  "copied_csvs": [
+    "ch6_ablation_real_data_extended_results.csv",
+    "ch6_mae_winrate_by_scenario_balanced.csv",
+    "ch6_pairwise_comparisons_balanced.csv",
+    "ch6_phase2_microbench_latency.csv",
+    "ch6_robust_by_dataset.csv",
+    "ch6_robust_by_missing_scenario.csv",
+    "ch6_robust_pairwise_summary.csv",
+    "ch6_summary_overall_balanced.csv"
+  ],
+  "generated_figures": [
+    "ch6_ablation_temporal_component.pdf",
+    "ch6_boxplot_nrmse_balanced.pdf",
+    "ch6_boxplot_runtime_balanced.pdf",
+    "ch6_dataset_mae_improvement.pdf",
+    "ch6_heatmap_tuned_winrate_balanced.pdf",
+    "ch6_robust_improvement_ci.pdf",
+    "ch6_runtime_mae_tradeoff.pdf",
+    "ch6_scenario_heatmap_mae.pdf"
+  ],
+  "source_root": "/mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit"
+}

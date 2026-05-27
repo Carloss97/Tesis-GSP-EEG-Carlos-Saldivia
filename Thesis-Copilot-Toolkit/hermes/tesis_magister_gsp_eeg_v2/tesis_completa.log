@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.13)  21 MAY 2026 21:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.13)  27 MAY 2026 10:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -810,7 +810,7 @@ LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported on input line 12.
- (./frontmatter/abstract_es.aux) (./frontmatter/abstract_en.aux) (./frontmatter/acknowledgements.aux) (./chapters/01_introduccion.aux) (./chapters/02_marco_teorico.aux) (./chapters/03_metodologia.aux) (./chapters/04_arquitectura_y_trazabilidad.aux) (./chapters/05_diseno_experimental.aux) (./chapters/06_resultados.aux) (./chapters/07_discusion.aux) (./chapters/08_conclusiones.aux) (./appendices/A_derivaciones.aux) (./appendices/B_tablas_extensas.aux) (./appendices/C_protocolo_reproducibilidad.aux) (./appendices/D_inventario_artefactos.aux) (./appendices/E_apendice_tablas_originales_adaptado.aux))
+ (./frontmatter/abstract_es.aux) (./frontmatter/abstract_en.aux) (./frontmatter/acknowledgements.aux) (./chapters/01_introduccion.aux) (./chapters/02_marco_teorico.aux) (./chapters/03_metodologia.aux) (./chapters/04_arquitectura_y_trazabilidad.aux) (./chapters/05_diseno_experimental.aux) (./chapters/06_resultados.aux) (./chapters/07_discusion.aux) (./chapters/08_conclusiones.aux) (./appendices/A_derivaciones.aux) (./appendices/B_tablas_extensas.aux) (./appendices/C_reproducibilidad.aux) (./appendices/D_inventario_artefactos.aux) (./appendices/E_apendice_tablas_originales_adaptado.aux))
 \openout1 = `tesis_completa.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -851,7 +851,7 @@ LaTeX Info: Redefining \% on input line 22.
 * \oddsidemargin=18.0675pt
 * \evensidemargin=18.0675pt
 * \topmargin=-31.8738pt
-* \headheight=14.2pt
+* \headheight=15.5pt
 * \headsep=19.8738pt
 * \topskip=12.0pt
 * \footskip=30.0pt
@@ -965,15 +965,7 @@ l.8
 
 
 
-])
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[2]
+]) [2]
 \openout2 = `frontmatter/abstract_en.aux'.
 
  (./frontmatter/abstract_en.tex [3
@@ -981,15 +973,7 @@ Package fancyhdr Warning: \headheight is too small (14.2pt):
 
 
 
-])
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[4]
+]) [4]
 \openout2 = `frontmatter/acknowledgements.aux'.
 
  (./frontmatter/acknowledgements.tex) [5
@@ -1009,58 +993,38 @@ LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported on input line 52.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 15.35403pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.35403pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.15404pt}.
-
-[7]
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 15.35403pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.35403pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.15404pt}.
-
-[8])
+ [7]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [8])
 \tf@toc=\write5
 \openout5 = `tesis_completa.toc'.
 
 LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 15.35403pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.35403pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.15404pt}.
-
-[9] (./tesis_completa.lof
+ [9] (./tesis_completa.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-)
+ [10
+
+{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}])
 \tf@lof=\write6
 \openout6 = `tesis_completa.lof'.
 
- [10
-
-{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] (./tesis_completa.lot
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+ [11] (./tesis_completa.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-)
+ [12
+
+{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
 \tf@lot=\write7
 \openout7 = `tesis_completa.lot'.
 
- [11
-
-{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
+ [13]
 \openout2 = `chapters/01_introduccion.aux'.
 
  (./chapters/01_introduccion.tex
@@ -1072,119 +1036,39 @@ Cap\'{\i }tulo 1.
 ]
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[2]
+ [2]
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[3{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+ [3{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[4]
+ [4]
 LaTeX Info: Redefining \. on input line 53.
 LaTeX Info: Redefining \% on input line 53.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[5]
+ [5]
 LaTeX Info: Redefining \. on input line 65.
 LaTeX Info: Redefining \% on input line 65.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[6]
+ [6]
 LaTeX Info: Redefining \. on input line 77.
 LaTeX Info: Redefining \% on input line 77.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[7]
+ [7]
 LaTeX Info: Redefining \. on input line 94.
 LaTeX Info: Redefining \% on input line 94.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[8]
+ [8]
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[9]
+ [9]
 LaTeX Info: Redefining \. on input line 125.
 LaTeX Info: Redefining \% on input line 125.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[10])
+ [10])
 LaTeX Info: Redefining \. on input line 39.
 LaTeX Info: Redefining \% on input line 39.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[11]
+ [11]
 \openout2 = `chapters/02_marco_teorico.aux'.
 
  (./chapters/02_marco_teorico.tex
 Cap\'{\i }tulo 2.
-<figures/capitulo2_origen_eeg.pdf, id=633, 530.77019pt x 376.87863pt>
+<figures/capitulo2_origen_eeg.pdf, id=738, 530.77019pt x 376.87863pt>
 File: figures/capitulo2_origen_eeg.pdf Graphic file (type pdf)
 <use figures/capitulo2_origen_eeg.pdf>
 Package pdftex.def Info: figures/capitulo2_origen_eeg.pdf  used on input line 16.
@@ -1197,15 +1081,7 @@ Package pdftex.def Info: figures/capitulo2_origen_eeg.pdf  used on input line 16
 ]
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[13 <./figures/capitulo2_origen_eeg.pdf>]
+ [13 <./figures/capitulo2_origen_eeg.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -1214,48 +1090,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 49.
 LaTeX Info: Redefining \. on input line 83.
 LaTeX Info: Redefining \% on input line 83.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[14]
+ [14]
 LaTeX Info: Redefining \. on input line 99.
 LaTeX Info: Redefining \% on input line 99.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[15{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+ [15{/home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 LaTeX Info: Redefining \. on input line 119.
 LaTeX Info: Redefining \% on input line 119.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[16]
+ [16]
 LaTeX Info: Redefining \. on input line 136.
 LaTeX Info: Redefining \% on input line 136.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[17]
+ [17]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 161.
 
@@ -1331,26 +1175,10 @@ Underfull \hbox (badness 1755) in paragraph at lines 170--171
 )
 LaTeX Info: Redefining \. on input line 40.
 LaTeX Info: Redefining \% on input line 40.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[18]
+ [18]
 LaTeX Info: Redefining \. on input line 40.
 LaTeX Info: Redefining \% on input line 40.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[19]
+ [19]
 \openout2 = `chapters/03_metodologia.aux'.
 
  (./chapters/03_metodologia.tex
@@ -1372,36 +1200,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--76
 
 LaTeX Info: Redefining \. on input line 87.
 LaTeX Info: Redefining \% on input line 87.
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
 [21]
 LaTeX Info: Redefining \. on input line 112.
 LaTeX Info: Redefining \% on input line 112.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[22])
+ [22])
 LaTeX Info: Redefining \. on input line 41.
 LaTeX Info: Redefining \% on input line 41.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[23]
+ [23]
 \openout2 = `chapters/04_arquitectura_y_trazabilidad.aux'.
 
  (./chapters/04_arquitectura_y_trazabilidad.tex
@@ -1419,15 +1224,7 @@ Overfull \hbox (6.90445pt too wide) in paragraph at lines 43--52
 )
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[25]
+ [25]
 \openout2 = `chapters/05_diseno_experimental.aux'.
 
  (./chapters/05_diseno_experimental.tex
@@ -1450,147 +1247,175 @@ Underfull \hbox (badness 1558) in paragraph at lines 30--31
 ]
 LaTeX Info: Redefining \. on input line 47.
 LaTeX Info: Redefining \% on input line 47.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[27]
+ [27]
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[28])
+ [28])
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[29]
+ [29]
 LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[30]
+ [30]
 \openout2 = `chapters/06_resultados.aux'.
 
  (./chapters/06_resultados.tex
 Cap\'{\i }tulo 6.
-[31
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[32]
-LaTeX Info: Redefining \. on input line 58.
-LaTeX Info: Redefining \% on input line 58.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[33]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 61.
- (/home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8.
+(/home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Info: Redefining \. on input line 70.
-LaTeX Info: Redefining \% on input line 70.
+ [31
 
 
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
 
-[34])
+
+] (./tables/ch6_global_summary.tex)
+<figures/ch6_runtime_mae_tradeoff.pdf, id=982, 413.78586pt x 239.60593pt>
+File: figures/ch6_runtime_mae_tradeoff.pdf Graphic file (type pdf)
+<use figures/ch6_runtime_mae_tradeoff.pdf>
+Package pdftex.def Info: figures/ch6_runtime_mae_tradeoff.pdf  used on input line 16.
+(pdftex.def)             Requested size: 352.3157pt x 204.00966pt.
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [32 <./figures/ch6_runtime_mae_tradeoff.pdf>] (./tables/ch6_robust_main.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
+[]\T1/lmr/m/n/12 (+20) Tabla 6.2: |Com-pa-ra-ción ro-bus-ta de TRSS fren-te a \T1/lmtt/m/n/12 MNE
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 4--4
+\T1/lmtt/m/n/12 interpolate\_bads(method='spline')\T1/lmr/m/n/12 (+20) . La me-jo-ra me-dia-na po-si-ti-va fa-vo-re-ce a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|\T1/lmr/m/n/10.95 (+20) Mejora me-dia-na
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+[]|\T1/lmr/m/n/10.95 (+20) +12.4$ $% [+7.8$ $%,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
+[]|\T1/lmr/m/n/10.95 (+20) +13.9$ $% [+6.4$ $%,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+[]|\T1/lmr/m/n/10.95 (+20) +0.8$ $% [+0.3$ $%,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--16
+[]|\T1/lmr/m/n/10.95 (+20) +12.0$ $% [+6.9$ $%,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
+[]|\T1/lmr/m/n/10.95 (+20) +13.4$ $% [+6.6$ $%,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
+[]|\T1/lmr/m/n/10.95 (+20) -9.6$ $% [-13.4$ $%, -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
+[]|\T1/lmr/m/n/10.95 (+20) +0.6$ $% [+0.2$ $%,
+ []
+
+)
+<figures/ch6_robust_improvement_ci.pdf, id=997, 505.1247pt x 210.85777pt>
+File: figures/ch6_robust_improvement_ci.pdf Graphic file (type pdf)
+<use figures/ch6_robust_improvement_ci.pdf>
+Package pdftex.def Info: figures/ch6_robust_improvement_ci.pdf  used on input line 33.
+(pdftex.def)             Requested size: 415.55168pt x 173.47395pt.
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+ [33] (./tables/ch6_by_dataset_mae.tex)
+<figures/ch6_dataset_mae_improvement.pdf, id=1003, 457.87416pt x 217.682pt>
+File: figures/ch6_dataset_mae_improvement.pdf Graphic file (type pdf)
+<use figures/ch6_dataset_mae_improvement.pdf>
+Package pdftex.def Info: figures/ch6_dataset_mae_improvement.pdf  used on input line 50.
+(pdftex.def)             Requested size: 379.41585pt x 180.39035pt.
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+ [34 <./figures/ch6_robust_improvement_ci.pdf>]
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+ [35 <./figures/ch6_dataset_mae_improvement.pdf>] (./tables/ch6_selected_scenarios_mae.tex
+Overfull \hbox (6.46716pt too wide) in paragraph at lines 6--20
+ [][] 
+ []
+
+)
+<figures/ch6_scenario_heatmap_mae.pdf, id=1031, 479.88222pt x 224.41455pt>
+File: figures/ch6_scenario_heatmap_mae.pdf Graphic file (type pdf)
+<use figures/ch6_scenario_heatmap_mae.pdf>
+Package pdftex.def Info: figures/ch6_scenario_heatmap_mae.pdf  used on input line 67.
+(pdftex.def)             Requested size: 406.516pt x 190.10606pt.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [36 <./figures/ch6_scenario_heatmap_mae.pdf>]
+<figures/ch6_ablation_temporal_component.pdf, id=1049, 478.26682pt x 210.39853pt>
+File: figures/ch6_ablation_temporal_component.pdf Graphic file (type pdf)
+<use figures/ch6_ablation_temporal_component.pdf>
+Package pdftex.def Info: figures/ch6_ablation_temporal_component.pdf  used on input line 82.
+(pdftex.def)             Requested size: 406.516pt x 178.83958pt.
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+ [37 <./figures/ch6_ablation_temporal_component.pdf>]
+<figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png, id=1064, 1019.007pt x 994.4352pt>
+File: figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png Graphic file (type png)
+<use figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png>
+Package pdftex.def Info: figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png  used on input line 97.
+(pdftex.def)             Requested size: 415.55168pt x 405.52086pt.
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ [38 <./figures/res_opt_final__erp_timeseries_mne_sample_nearby_0.4.png>]
+<figures/res_opt_final__best_psd_comparison.png, id=1073, 629.7126pt x 407.6028pt>
+File: figures/res_opt_final__best_psd_comparison.png Graphic file (type png)
+<use figures/res_opt_final__best_psd_comparison.png>
+Package pdftex.def Info: figures/res_opt_final__best_psd_comparison.png  used on input line 106.
+(pdftex.def)             Requested size: 388.45154pt x 251.44234pt.
+ (./tables/ch6_runtime_complexity.tex
+Underfull \hbox (badness 1466) in paragraph at lines 8--8
+[]|\T1/lmr/m/n/10.95 (+20) Complejidad asin-
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 11--11
+[]|\T1/lmr/m/n/10.95 (+20) Iteraciones so-bre gra-
+ []
+
+)
+<figures/ch6_boxplot_runtime_balanced.pdf, id=1075, 578.16pt x 289.08pt>
+File: figures/ch6_boxplot_runtime_balanced.pdf Graphic file (type pdf)
+<use figures/ch6_boxplot_runtime_balanced.pdf>
+Package pdftex.def Info: figures/ch6_boxplot_runtime_balanced.pdf  used on input line 121.
+(pdftex.def)             Requested size: 370.38707pt x 185.1914pt.
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+ [39 <./figures/res_opt_final__best_psd_comparison.png>]
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+ [40 <./figures/ch6_boxplot_runtime_balanced.pdf>])
 LaTeX Info: Redefining \. on input line 44.
 LaTeX Info: Redefining \% on input line 44.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[35]
+ [41]
 \openout2 = `chapters/07_discusion.aux'.
 
  (./chapters/07_discusion.tex
 Cap\'{\i }tulo 7.
-[36
-
-
-
-
-]
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[37])
-LaTeX Info: Redefining \. on input line 45.
-LaTeX Info: Redefining \% on input line 45.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[38]
-\openout2 = `chapters/08_conclusiones.aux'.
-
- (./chapters/08_conclusiones.tex
-Cap\'{\i }tulo 8.
-[39
+[42
 
 
 
@@ -1598,31 +1423,44 @@ Cap\'{\i }tulo 8.
 ]
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
+ [43]
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
+ [44]
+Underfull \hbox (badness 1314) in paragraph at lines 56--56
+\T1/lmr/m/n/10.95 (+20) lí-nea con prio-ri-dad en
+ []
+
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+[45])
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+ [46]
+\openout2 = `chapters/08_conclusiones.aux'.
+
+ (./chapters/08_conclusiones.tex
+Cap\'{\i }tulo 8.
+[47
 
 
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
 
-[40])
+
+]
+LaTeX Info: Redefining \. on input line 27.
+LaTeX Info: Redefining \% on input line 27.
+ [48]
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
+ [49])
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[41]
+ [50]
 \openout2 = `appendices/A_derivaciones.aux'.
 
  (./appendices/A_derivaciones.tex
 Ap\'{e}ndice A.
-[42
+[51
 
 
 
@@ -1630,37 +1468,32 @@ Ap\'{e}ndice A.
 ])
 LaTeX Info: Redefining \. on input line 50.
 LaTeX Info: Redefining \% on input line 50.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[43]
+ [52]
 \openout2 = `appendices/B_tablas_extensas.aux'.
 
  (./appendices/B_tablas_extensas.tex
 Ap\'{e}ndice B.
-) [44
+) [53
 
 
 
 
 ]
-\openout2 = `appendices/C_protocolo_reproducibilidad.aux'.
+\openout2 = `appendices/C_reproducibilidad.aux'.
+
+ (./appendices/C_reproducibilidad.tex
+Ap\'{e}ndice C.
+) [54
 
 
-No file appendices/C_protocolo_reproducibilidad.tex.
+
+
+]
 \openout2 = `appendices/D_inventario_artefactos.aux'.
 
-(./appendices/D_inventario_artefactos.tex
-Ap\'{e}ndice C.
-) [45
-
-
-
+ (./appendices/D_inventario_artefactos.tex
+Ap\'{e}ndice D.
+) [55
 
 
 
@@ -1669,62 +1502,46 @@ Ap\'{e}ndice C.
 \openout2 = `appendices/E_apendice_tablas_originales_adaptado.aux'.
 
  (./appendices/E_apendice_tablas_originales_adaptado.tex
-Ap\'{e}ndice D.
-) [46
+Ap\'{e}ndice E.
+) [56
 
 
 
 
-] (./tesis_completa.bbl [47
+] (./tesis_completa.bbl [57
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 110.
-LaTeX Info: Redefining \% on input line 110.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[48])
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
+ [58])
 LaTeX Info: Redefining \. on input line 60.
 LaTeX Info: Redefining \% on input line 60.
-
-
-Package fancyhdr Warning: \headheight is too small (14.2pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.29999pt}.
-
-[49] (./tesis_completa.aux (./frontmatter/cover_page.aux)
+ [59] (./tesis_completa.aux (./frontmatter/cover_page.aux)
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
- (./frontmatter/abstract_es.aux) (./frontmatter/abstract_en.aux) (./frontmatter/acknowledgements.aux) (./chapters/01_introduccion.aux) (./chapters/02_marco_teorico.aux) (./chapters/03_metodologia.aux) (./chapters/04_arquitectura_y_trazabilidad.aux) (./chapters/05_diseno_experimental.aux) (./chapters/06_resultados.aux) (./chapters/07_discusion.aux) (./chapters/08_conclusiones.aux) (./appendices/A_derivaciones.aux) (./appendices/B_tablas_extensas.aux) (./appendices/C_protocolo_reproducibilidad.aux) (./appendices/D_inventario_artefactos.aux) (./appendices/E_apendice_tablas_originales_adaptado.aux))
+ (./frontmatter/abstract_es.aux) (./frontmatter/abstract_en.aux) (./frontmatter/acknowledgements.aux) (./chapters/01_introduccion.aux) (./chapters/02_marco_teorico.aux) (./chapters/03_metodologia.aux) (./chapters/04_arquitectura_y_trazabilidad.aux) (./chapters/05_diseno_experimental.aux) (./chapters/06_resultados.aux) (./chapters/07_discusion.aux) (./chapters/08_conclusiones.aux) (./appendices/A_derivaciones.aux) (./appendices/B_tablas_extensas.aux) (./appendices/C_reproducibilidad.aux) (./appendices/D_inventario_artefactos.aux) (./appendices/E_apendice_tablas_originales_adaptado.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `tesis_completa.out' has not changed.
-(rerunfilecheck)             Checksum: F0FAE589D55F646DFDA2D6487706188D;20207.
+(rerunfilecheck)             Checksum: B81955F2160E6EDD3F68738516A7FE64;21917.
  ) 
 Here is how much of TeX's memory you used:
- 35521 strings out of 469321
- 713918 string characters out of 5465745
- 1112655 words of memory out of 5000000
- 63161 multiletter control sequences out of 15000+600000
- 740794 words of font info for 264 fonts, out of 8000000 for 9000
+ 35738 strings out of 469321
+ 720931 string characters out of 5465745
+ 1118471 words of memory out of 5000000
+ 63314 multiletter control sequences out of 15000+600000
+ 741421 words of font info for 271 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,13n,97p,1821b,1393s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tesis_completa.pdf (61 pages, 513936 bytes).
+ 89i,13n,97p,1821b,1395s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on tesis_completa.pdf (73 pages, 1412920 bytes).
 PDF statistics:
- 1091 PDF objects out of 1200 (max. 8388607)
- 886 compressed objects within 9 object streams
- 199 named destinations out of 1000 (max. 500000)
- 60610 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1355 PDF objects out of 1440 (max. 8388607)
+ 1076 compressed objects within 11 object streams
+ 231 named destinations out of 1000 (max. 500000)
+ 60714 words of extra memory for PDF output out of 61914 (max. 10000000)
 

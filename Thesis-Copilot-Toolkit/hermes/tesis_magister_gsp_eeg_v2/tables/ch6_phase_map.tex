@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Relación entre fases experimentales y evidencia usada en los capítulos prácticos. La fase exploratoria amplia implementó el espacio completo de métodos; la fase confirmatoria restringe la inferencia principal a comparaciones pareadas TRSS--MNE para evitar conclusiones infladas por selección posterior.}
+\label{tab:ch6_phase_map}
+\begin{tabular}{@{}p{2.7cm}p{3.4cm}p{4.8cm}@{}}
+\toprule
+Fase & Alcance verificable & Uso en la tesis \\
+\midrule
+Implementación y cribado & 18 métodos implementados; 14 métodos con microbenchmark de latencia & Documenta cobertura metodológica y descarta métodos no competitivos o demasiado costosos. \\
+Optimización final & 5 métodos finalistas, 3 conjuntos reales, 210 filas de mejores configuraciones & Sustenta la selección de TRSS, Tikhonov y splines como familias relevantes. \\
+Confirmatoria TRSS--MNE & 100 estratos, 300 casos pareados, 11 variantes/métodos y 3300 evaluaciones crudas & Base estadística principal de los Capítulos 6--8. \\
+Ablación temporal & 3 variantes, 2 conjuntos reales y 240 evaluaciones & Cuantifica el aporte del término temporal dentro de la familia TRSS. \\
+\bottomrule
+\end{tabular}
+\end{table}

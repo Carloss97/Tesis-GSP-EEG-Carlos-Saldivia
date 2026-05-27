@@ -62,28 +62,32 @@ Es metodológicamente crucial distinguir entre la implementación propia de \tex
 
 \section{Métricas de Evaluación}
 
-Se emplearon seis métricas organizadas en tres categorías (Tabla~\ref{tab:metrics}). Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica.
+Se emplearon seis métricas primarias organizadas en tres categorías, más cuatro métricas auxiliares utilizadas para la fase confirmatoria contra MNE-Python (Tabla~\ref{tab:metrics}). Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica o computacional de la interpolación.
 
 \begin{table}[htbp]
 \centering
-\caption{Métricas de evaluación: definición, categoría y dirección ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor).}
+\caption{Métricas de evaluación: categoría y dirección ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor).}
 \label{tab:metrics}
 \small
-\begin{tabular}{@{}l p{5cm} c c@{}}
+\begin{tabular}{@{}l p{5.2cm} c c@{}}
 \toprule
-Métrica & Definición & Cat. & Dir. \\
+Métrica & Definición o interpretación & Cat. & Dir. \\
 \midrule
 MAE & Error absoluto medio $\frac{1}{N}\sum|x_i - \hat{x}_i|$ & Amplitud & $\downarrow$ \\
 RMSE & Raíz del error cuadrático medio & Amplitud & $\downarrow$ \\
 SNR & $10\log_{10}(\|x\|^2 / \|x - \hat{x}\|^2)$ & Amplitud & $\uparrow$ \\
-DTW & Dynamic Time Warping (deformación temporal) & Morfológica & $\downarrow$ \\
+DTW & \textit{Dynamic Time Warping}, distancia con deformación temporal & Morfológica & $\downarrow$ \\
 LSD & Distancia Espectral Logarítmica & Espectral & $\downarrow$ \\
 Coherencia & Correlación en dominio de frecuencia & Espectral & $\uparrow$ \\
+NRMSE & RMSE normalizado por escala de la señal & Auxiliar & $\downarrow$ \\
+Correlación & Correlación temporal entre señal real y reconstruida & Auxiliar & $\uparrow$ \\
+$R^2$ & Proporción de varianza explicada por la reconstrucción & Auxiliar & $\uparrow$ \\
+Tiempo & Latencia por caso de interpolación & Computacional & $\downarrow$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para ERP donde un desplazamiento de pocos milisegundos es clínicamente insignificante pero penalizado por el RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro, que es el mejor predictor de utilidad clínica porque biomarcadores como la potencia relativa en bandas dependen de la estructura fina del espectro.
+Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para segmentos con transitorios donde un desplazamiento de pocos milisegundos puede ser penalizado excesivamente por RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro y se reportan de forma independiente porque no se derivan automáticamente de la mejora en error de amplitud. Las métricas auxiliares —NRMSE, correlación, $R^2$ y tiempo— se incorporan en la fase confirmatoria para separar precisión relativa, ajuste temporal y costo computacional.
 
 \section{Optimización Bayesiana con Optuna}
 
@@ -108,7 +112,7 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
 
 \section{Protocolo de Validación Confirmatoria}
 
-En una fase independiente, TRSS —con hiperparámetros congelados— se comparó contra MNE-Python con parámetros por defecto. Se computó la diferencia pareada en cada métrica por escenario. La significancia se evaluó con Wilcoxon signed-rank y corrección de Benjamini-Hochberg (FDR 5\%). Se reportan medianas de mejora relativa, intervalos bootstrap al 95\% (1000 remuestreos estratificados) y tasas de victoria.
+En una fase independiente, TRSS —con hiperparámetros congelados— se comparó contra MNE-Python con parámetros por defecto. Esta fase confirmatoria no replica exactamente el barrido exploratorio de 120 escenarios: se balanceó en 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, para obtener 300 casos pareados por comparación. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial. Se computó la diferencia pareada en cada métrica por caso. La significancia se evaluó con Wilcoxon signed-rank y se reportaron valores ajustados por Benjamini-Hochberg para mantener una lectura conservadora entre métricas. También se reportan medianas de mejora relativa, intervalos bootstrap al 95\% (1000 remuestreos estratificados) y tasas de victoria.
 
 \section{Arquitectura del Sistema}
 

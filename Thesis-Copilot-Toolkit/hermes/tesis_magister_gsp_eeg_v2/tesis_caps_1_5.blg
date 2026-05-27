@@ -11,39 +11,35 @@ A level-1 auxiliary file: chapters/04_arquitectura_y_trazabilidad.aux
 A level-1 auxiliary file: chapters/05_diseno_experimental.aux
 The style file: plainnat.bst
 Database file #1: bibliography/references.bib
-Repeated entry---line 670 of file bibliography/references.bib
- : @article{gramfort2013meg
- :                         ,
-I'm skipping whatever remains of this entry
 Warning--empty journal in buzsaki2006rhythms
 You've used 24 entries,
             2773 wiz_defined-function locations,
-            763 strings with 10568 characters,
-and the built_in function-call counts, 13735 in all, are:
-= -- 1189
-> -- 1010
+            763 strings with 10613 characters,
+and the built_in function-call counts, 13759 in all, are:
+= -- 1193
+> -- 1011
 < -- 11
 + -- 339
 - -- 315
-* -- 1239
-:= -- 2149
-add.period$ -- 90
+* -- 1243
+:= -- 2152
+add.period$ -- 91
 call.type$ -- 24
-change.case$ -- 176
+change.case$ -- 177
 chr.to.int$ -- 24
 cite$ -- 49
 duplicate$ -- 536
 empty$ -- 963
 format.name$ -- 345
-if$ -- 2826
+if$ -- 2831
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 26
-newline$ -- 146
+newline$ -- 147
 num.names$ -- 96
-pop$ -- 331
+pop$ -- 332
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 153
 quote$ -- 0
 skip$ -- 447
 stack$ -- 0
@@ -56,5 +52,5 @@ type$ -- 249
 warning$ -- 1
 while$ -- 105
 width$ -- 0
-write$ -- 352
-(There was 1 error message)
+write$ -- 354
+(There was 1 warning)

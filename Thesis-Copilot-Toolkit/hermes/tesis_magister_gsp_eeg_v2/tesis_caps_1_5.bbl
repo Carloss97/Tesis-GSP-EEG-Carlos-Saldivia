@@ -51,10 +51,11 @@ Ary~L. Goldberger, Luis A.~N. Amaral, Leon Glass, Jeffrey~M. Hausdorff, Plamen~C
 \newblock \emph{Circulation}, 101\penalty0 (23):\penalty0 e215--e220, 2000.
 \newblock \doi{10.1161/01.CIR.101.23.e215}.
 
-\bibitem[Gramfort et~al.(2013)Gramfort, Luessi, Larson, Engemann, Strohmeier, Brodbeck, Goj, Jas, Brooks, Parkkonen, et~al.]{gramfort2013meg}
-Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A Engemann, Daniel Strohmeier, Christian Brodbeck, Roman Goj, Mainak Jas, Teon Brooks, Lauri Parkkonen, et~al.
-\newblock Meg and eeg data analysis with mne-python.
-\newblock \emph{Frontiers in neuroscience}, 7:\penalty0 267, 2013.
+\bibitem[Gramfort et~al.(2013)Gramfort, Luessi, Larson, Engemann, Strohmeier, Brodbeck, Goj, Jas, Brooks, Parkkonen, and H{\"a}m{\"a}l{\"a}inen]{gramfort2013meg}
+Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A. Engemann, Daniel Strohmeier, Christian Brodbeck, Roman Goj, Mainak Jas, Teon Brooks, Lauri Parkkonen, and Matti H{\"a}m{\"a}l{\"a}inen.
+\newblock {MEG} and {EEG} data analysis with {MNE-Python}.
+\newblock \emph{Frontiers in Neuroscience}, 7:\penalty0 267, 2013.
+\newblock \doi{10.3389/fnins.2013.00267}.
 
 \bibitem[Gramfort et~al.(2014)Gramfort, Luessi, Larson, Engemann, Strohmeier, Brodbeck, Parkkonen, and H{\"a}m{\"a}l{\"a}inen]{gramfort2014mne}
 Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A. Engemann, Daniel Strohmeier, Christian Brodbeck, Lauri Parkkonen, and Matti~S. H{\"a}m{\"a}l{\"a}inen.

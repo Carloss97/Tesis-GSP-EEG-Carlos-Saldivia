@@ -62,26 +62,34 @@
 \contentsline {section}{\numberline {5.4}Control de Calidad}{29}{section.5.4}%
 \contentsline {section}{\numberline {5.5}Síntesis del Diseño}{29}{section.5.5}%
 \contentsline {chapter}{\numberline {6}Resultados}{31}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Comparación Global de Familias de Métodos}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Curvas de Degradación por Severidad}{32}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Preservación de Potenciales Relacionados a Eventos}{32}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Preservación Espectral}{33}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Estudio de Ablación de TRSS}{33}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Validación Confirmatoria: TRSS frente a MNE-Python}{34}{section.6.6}%
-\contentsline {section}{\numberline {6.7}Síntesis de Resultados}{34}{section.6.7}%
-\contentsline {chapter}{\numberline {7}Discusión}{36}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Validación de las Hipótesis}{36}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Interpretación de los Mecanismos Subyacentes}{37}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Limitaciones del Estudio}{37}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Implicaciones para la Práctica}{38}{section.7.4}%
-\contentsline {chapter}{\numberline {8}Conclusiones y Trabajo Futuro}{39}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Conclusiones}{39}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Trabajo Futuro}{40}{section.8.2}%
-\contentsline {chapter}{\numberline {A}Derivaciones Matemáticas}{42}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Solución de Tikhonov en Grafos}{42}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Solución de TRSS en Forma Matricial}{42}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Propiedades del Operador de Diferencias Temporales}{42}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Propiedades Espectrales del Laplaciano del Grafo}{43}{section.A.4}%
-\contentsline {chapter}{\numberline {B}Tablas Extensas de Resultados}{44}{chapter.B}%
-\contentsline {chapter}{\numberline {C}Inventario de Artefactos Computacionales}{45}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Tablas del Documento Original de Tesis}{46}{chapter.D}%
+\contentsline {section}{\numberline {6.1}Inventario de Evidencia Experimental}{31}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Comparación Pareada TRSS--MNE}{32}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Estratificación por Conjunto de Datos}{34}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Efecto del Patrón y Severidad de Pérdida}{36}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Ablación del Término Temporal}{37}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Preservación Morfológica y Espectral}{38}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Tiempo de Cómputo y Complejidad}{39}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Síntesis de Resultados}{41}{section.6.8}%
+\contentsline {chapter}{\numberline {7}Discusión}{42}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Validación Matizada de las Hipótesis}{42}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Por Qué MNE-Python Sigue Siendo una Referencia Fuerte}{43}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Mecanismo de la Regularización Temporal}{43}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Heterogeneidad de Escenarios y Frontera de Decisión}{44}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Costo Computacional e Implementación}{44}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Implicaciones para la Práctica EEG}{45}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Limitaciones del Estudio}{45}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Lecciones Metodológicas}{46}{section.7.8}%
+\contentsline {chapter}{\numberline {8}Conclusiones y Trabajo Futuro}{47}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Conclusiones}{47}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Aportes de la Tesis}{48}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Trabajo Futuro}{49}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Cierre}{50}{section.8.4}%
+\contentsline {chapter}{\numberline {A}Derivaciones Matemáticas}{51}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Solución de Tikhonov en Grafos}{51}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Solución de TRSS en Forma Matricial}{51}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Propiedades del Operador de Diferencias Temporales}{51}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Propiedades Espectrales del Laplaciano del Grafo}{52}{section.A.4}%
+\contentsline {chapter}{\numberline {B}Tablas Extensas de Resultados}{53}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Protocolo de Reproducibilidad}{54}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Inventario de Artefactos Computacionales}{55}{chapter.D}%
+\contentsline {chapter}{\numberline {E}Tablas del Documento Original de Tesis}{56}{chapter.E}%
