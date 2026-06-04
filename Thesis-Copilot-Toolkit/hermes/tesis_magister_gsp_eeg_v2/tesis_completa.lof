@@ -1,29 +1,28 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Mapa lógico de la tesis}}{5}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Mapa lógico de la tesis}}{5}{figure.caption.6}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Generación de la señal EEG por poblaciones neuronales corticales y su propagación hasta los electrodos de superficie. La conducción volumétrica a través del cráneo actúa como un filtro espacial paso-bajo. Adaptado de \cite {nunez2006electric}.}}{13}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Conceptos fundamentales de GSP}}{14}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Descomposición del operador TRSS}}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Generación de la señal EEG por poblaciones neuronales corticales y su propagación hasta los electrodos de superficie. La conducción volumétrica a través del cráneo actúa como un filtro espacial paso-bajo. Adaptado de \cite {nunez2006electric}.}}{13}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Conceptos fundamentales de GSP}}{14}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Descomposición del operador TRSS}}{17}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Flujo metodológico de evaluación}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Flujo metodológico de evaluación}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama de bloques de la arquitectura}}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cadena de trazabilidad experimental}}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Matriz conceptual del diseño experimental}}{26}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Cadena de trazabilidad experimental}}{25}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Compromiso entre precisión y tiempo de cómputo en la evaluación confirmatoria. TRSS desplaza el MAE hacia valores menores, pero se ubica a la derecha de MNE en la escala logarítmica de tiempo, lo que evidencia el costo computacional de la regularización temporal.}}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Portafolio visual de métricas TRSS--MNE}}{35}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Distribución de NRMSE en la evaluación confirmatoria balanceada. La figura complementa la comparación mediana de la Tabla~\ref {tab:ch6_metric_portfolio}: TRSS desplaza la distribución hacia menor error relativo, pero la superposición entre cajas muestra que la mejora no es uniforme en todos los estratos.}}{36}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Mejoras medianas de TRSS frente a MNE con intervalos bootstrap al 95\%. Las barras positivas favorecen a TRSS; las barras negativas favorecen a MNE o indican mayor tiempo de ejecución de TRSS. El gráfico muestra simultáneamente la ganancia en MAE/NRMSE y las dos advertencias principales: LSD y costo temporal.}}{36}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Mejora mediana de MAE de TRSS fijo frente a MNE por conjunto de datos. La señal sintética suave actúa como control negativo: cuando se cumple fuertemente el supuesto de suavidad espacial, MNE puede ser superior.}}{38}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Mapa de calor de mejora mediana de MAE para TRSS fijo frente a MNE. Cada celda muestra la mejora mediana y, debajo, la tasa de victoria. La ventaja crece cuando la pérdida elimina información espacial local, especialmente en patrones cercanos o periféricos de alta severidad.}}{39}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Ablación del componente temporal: mejora mediana de TRSS completo frente a TRSS sin término temporal. La contribución temporal es consistente dentro de la familia TRSS, aunque su magnitud es menor que las diferencias entre familias de métodos.}}{40}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ejemplo cualitativo de reconstrucción temporal bajo pérdida cercana severa. La figura ilustra la diferencia morfológica que las métricas agregadas capturan de forma resumida.}}{41}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Comparación espectral multi-método. La preservación de potencia por banda no siempre coincide con la mejora de MAE, por lo que LSD se reporta como dimensión independiente y no como consecuencia automática del error de amplitud.}}{42}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Distribución de tiempos por caso en la evaluación confirmatoria. La diferencia de costo es consistente: TRSS mejora varias métricas de reconstrucción, pero MNE conserva una ventaja clara en velocidad.}}{43}{figure.caption.39}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Matriz conceptual del diseño experimental}}{28}{figure.caption.20}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Compromiso entre precisión y tiempo de cómputo en la evaluación confirmatoria. TRSS desplaza el MAE hacia valores menores, pero se ubica a la derecha de MNE en la escala logarítmica de tiempo, lo que evidencia el costo computacional de la regularización temporal.}}{35}{figure.caption.24}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Portafolio visual de métricas TRSS--MNE}}{37}{figure.caption.27}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Distribución de NRMSE en la evaluación confirmatoria balanceada. La figura complementa la comparación mediana de la Tabla~\ref {tab:ch6_metric_portfolio}: TRSS desplaza la distribución hacia menor error relativo, pero la superposición entre cajas muestra que la mejora no es uniforme en todos los estratos.}}{38}{figure.caption.28}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Mejoras medianas de TRSS frente a MNE con intervalos bootstrap al 95\%. Las barras positivas favorecen a TRSS; las barras negativas favorecen a MNE o indican mayor tiempo de ejecución de TRSS. El gráfico muestra simultáneamente la ganancia en MAE/NRMSE y las dos advertencias principales: LSD y costo temporal.}}{38}{figure.caption.29}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Mejora mediana de MAE de TRSS fijo frente a MNE por conjunto de datos. La señal sintética suave actúa como control negativo: cuando se cumple fuertemente el supuesto de suavidad espacial, MNE puede ser superior.}}{39}{figure.caption.31}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Mapa de calor de mejora mediana de MAE para TRSS fijo frente a MNE. Cada celda muestra la mejora mediana y, debajo, la tasa de victoria. La ventaja crece cuando la pérdida elimina información espacial local, especialmente en patrones cercanos o periféricos de alta severidad.}}{41}{figure.caption.33}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Ablación del componente temporal: mejora mediana de TRSS completo frente a TRSS sin término temporal. La contribución temporal es consistente dentro de la familia TRSS, aunque su magnitud es menor que las diferencias entre familias de métodos.}}{42}{figure.caption.34}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Ejemplo cualitativo de reconstrucción temporal bajo pérdida cercana severa. La figura ilustra la diferencia morfológica que las métricas agregadas capturan de forma resumida.}}{43}{figure.caption.35}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Comparación espectral multi-método. La preservación de potencia por banda no siempre coincide con la mejora de MAE, por lo que LSD se reporta como dimensión independiente y no como consecuencia automática del error de amplitud.}}{44}{figure.caption.36}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Distribución de tiempos por caso en la evaluación confirmatoria. La diferencia de costo es consistente: TRSS mejora varias métricas de reconstrucción, pero MNE conserva una ventaja clara en velocidad.}}{45}{figure.caption.38}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Mapa de decisión práctica MNE--TRSS}}{51}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Mapa de decisión práctica MNE--TRSS}}{49}{figure.caption.41}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -27,7 +27,7 @@ La ablación muestra que TRSS completo mejora a TRSS sin temporalidad de forma c
 
 La estratificación por dataset y patrón de pérdida es más informativa que el promedio global. En pérdidas cercanas del 30--40\%, TRSS alcanza mejoras medianas cercanas al 41\% en MAE. En pérdidas periféricas al 40\%, la mejora mediana es 31.6\%. Estos son los escenarios donde la información espacial local se degrada y la regularización temporal compensa la ausencia de electrodos vecinos confiables.
 
-En contraste, cuando se ocultan pocos canales o la señal es sintéticamente suave, MNE puede empatar o ganar. Esta frontera de decisión tiene valor práctico: evita recomendar un método más costoso cuando el método estándar es suficiente. La contribución de la tesis no es reemplazar MNE por TRSS en todo flujo de preprocesamiento, sino identificar cuándo la estructura espacio--temporal justifica el costo adicional.
+En contraste, cuando se ocultan pocos canales o la señal es sintéticamente suave, MNE puede empatar o ganar. Esta frontera de decisión tiene valor práctico: evita recomendar un método más costoso cuando el método estándar es suficiente. La contribución de la tesis no es reemplazar MNE por TRSS en todo flujo de preprocesamiento, sino identificar cuándo la estructura espacio--temporal justifica el costo adicional. La Tabla~\ref{tab:decision_mne_trss} resume la guía práctica de selección y la Figura~\ref{fig:decision_map} presenta el mapa de decisión conceptual.
 
 \section{Costo Computacional e Implementación}
 
@@ -62,7 +62,7 @@ Flujo clínico con restricción de latencia & MNE & Menor costo y comportamiento
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.86\textwidth]{ch7_decision_map}
-\caption[Mapa de decisión práctica MNE--TRSS]{Mapa de decisión práctica entre MNE y TRSS. El eje horizontal representa la severidad y agrupamiento de la pérdida; el eje vertical representa la prioridad de precisión temporal-amplitud frente a latencia y preservación espectral global. La frontera es conceptual y resume la evidencia del Capítulo~6: no existe dominancia universal, sino un régimen de uso preferente.}
+\caption[Mapa de decisión práctica MNE--TRSS]{Mapa de decisión práctica entre MNE y TRSS. El eje horizontal representa la severidad y agrupamiento de la pérdida; el eje vertical representa la prioridad de precisión temporal-amplitud frente a latencia y preservación espectral global. La frontera es conceptual y resume la evidencia del Capítulo~4: no existe dominancia universal, sino un régimen de uso preferente.}
 \label{fig:decision_map}
 \end{figure}
 

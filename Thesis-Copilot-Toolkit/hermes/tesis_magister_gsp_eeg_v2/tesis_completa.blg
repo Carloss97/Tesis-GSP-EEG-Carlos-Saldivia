@@ -8,11 +8,9 @@ A level-1 auxiliary file: frontmatter/acknowledgements.aux
 A level-1 auxiliary file: chapters/01_introduccion.aux
 A level-1 auxiliary file: chapters/02_marco_teorico.aux
 A level-1 auxiliary file: chapters/03_metodologia.aux
-A level-1 auxiliary file: chapters/04_arquitectura_y_trazabilidad.aux
-A level-1 auxiliary file: chapters/05_diseno_experimental.aux
-A level-1 auxiliary file: chapters/06_resultados.aux
-A level-1 auxiliary file: chapters/07_discusion.aux
-A level-1 auxiliary file: chapters/08_conclusiones.aux
+A level-1 auxiliary file: chapters/04_resultados.aux
+A level-1 auxiliary file: chapters/05_discusion.aux
+A level-1 auxiliary file: chapters/06_conclusiones.aux
 A level-1 auxiliary file: appendices/A_derivaciones.aux
 A level-1 auxiliary file: appendices/B_tablas_extensas.aux
 A level-1 auxiliary file: appendices/C_reproducibilidad.aux
@@ -21,45 +19,45 @@ A level-1 auxiliary file: appendices/E_apendice_tablas_originales_adaptado.aux
 The style file: plainnat.bst
 Database file #1: bibliography/references.bib
 Warning--empty journal in buzsaki2006rhythms
-You've used 24 entries,
+You've used 26 entries,
             2773 wiz_defined-function locations,
-            772 strings with 10908 characters,
-and the built_in function-call counts, 13759 in all, are:
-= -- 1193
-> -- 1011
-< -- 11
-+ -- 339
-- -- 315
-* -- 1243
-:= -- 2152
-add.period$ -- 91
-call.type$ -- 24
-change.case$ -- 177
-chr.to.int$ -- 24
-cite$ -- 49
-duplicate$ -- 536
-empty$ -- 963
-format.name$ -- 345
-if$ -- 2831
+            783 strings with 11202 characters,
+and the built_in function-call counts, 14680 in all, are:
+= -- 1283
+> -- 1042
+< -- 14
++ -- 350
+- -- 324
+* -- 1297
+:= -- 2277
+add.period$ -- 98
+call.type$ -- 26
+change.case$ -- 186
+chr.to.int$ -- 26
+cite$ -- 53
+duplicate$ -- 585
+empty$ -- 1051
+format.name$ -- 358
+if$ -- 3041
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 26
-newline$ -- 147
-num.names$ -- 96
-pop$ -- 332
+missing$ -- 27
+newline$ -- 158
+num.names$ -- 104
+pop$ -- 356
 preamble$ -- 1
-purify$ -- 153
+purify$ -- 160
 quote$ -- 0
-skip$ -- 447
+skip$ -- 493
 stack$ -- 0
-substring$ -- 475
-swap$ -- 62
-text.length$ -- 5
+substring$ -- 519
+swap$ -- 76
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 249
+type$ -- 271
 warning$ -- 1
-while$ -- 105
+while$ -- 114
 width$ -- 0
-write$ -- 354
+write$ -- 381
 (There was 1 warning)

@@ -1,7 +1,7 @@
 \chapter{Metodología}
 \label{ch:metodologia}
 
-Este capítulo describe el diseño metodológico: conjuntos de datos, algoritmos, protocolos de simulación de canales faltantes, métricas de evaluación y motor de optimización bayesiana.
+Este capítulo integra el diseño metodológico completo: conjuntos de datos, protocolos de simulación de canales faltantes, algoritmos de interpolación, métricas de evaluación, motor de optimización bayesiana, arquitectura del sistema experimental, trazabilidad de artefactos, diseño experimental y plan de análisis estadístico. La Figura~\ref{fig:methodology_flow} resume el flujo metodológico completo.
 
 \begin{figure}[htbp]
 \centering
@@ -10,24 +10,24 @@ Este capítulo describe el diseño metodológico: conjuntos de datos, algoritmos
 \label{fig:methodology_flow}
 \end{figure}
 
+% ======================================================================
 \section{Conjuntos de Datos}
+% ======================================================================
 
-La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades, paradigmas y poblaciones (Tabla~\ref{tab:datasets}).
+La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades de electrodos, paradigmas y poblaciones (Tabla~\ref{tab:datasets}).
 
 \begin{table}[htbp]
 \centering
 \caption{Características de los tres conjuntos de datos experimentales.}
 \label{tab:datasets}
 \small
-\begin{tabular}{@{}lcccc@{}}
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-Propiedad & PhysioNet & BCI IV 2a & MNE Sample \\
+Dataset & Canales & Sistema & Free. (Hz) & Sujetos & Paradigma \\
 \midrule
-Canales & 64 & 22 & 60 \\
-Sistema & 10--10 & 10--20 & 10--20 ext. \\
-Frecuencia (Hz) & 160 & 250 & 600 \\
-Sujetos & 109 & 9 & 1 \\
-Paradigma & Reposo & Imag. motora & Auditivo \\
+PhysioNet & 64 & 10--10 & 160 & 109 & Reposo \\
+BCI IV 2a & 22 & 10--20 & 250 & 9 & Imag. motora \\
+MNE Sample & 60 & 10--20 ext. & 600 & 1 & Auditivo \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -36,15 +36,19 @@ Paradigma & Reposo & Imag. motora & Auditivo \\
 
 Estos tres conjuntos cubren el espacio de variabilidad real: desde 22 canales (clínica ambulatoria) hasta 64 (investigación), con frecuencias de 160 a 600~Hz y paradigmas de reposo, imaginación motora y potenciales evocados.
 
+% ======================================================================
 \section{Protocolos de Simulación de Canales Faltantes}
+% ======================================================================
 
-Se definieron dos modos de pérdida. El \textbf{modo aleatorio} selecciona un porcentaje $p$ de canales al azar, modelando fallas esporádicas (secado del gel, desprendimiento de electrodos). El \textbf{modo contiguo} selecciona un canal semilla y marca como faltantes los $p$ canales más cercanos en distancia euclidiana, modelando fallas catastróficas localizadas (saturación de amplificador).
+Se definieron dos modos de pérdida de canales. El \textbf{modo aleatorio} selecciona un porcentaje $p$ de canales al azar, modelando fallas esporádicas (secado del gel, desprendimiento de electrodos). El \textbf{modo contiguo} selecciona un canal semilla y marca como faltantes los $p$ canales más cercanos en distancia euclidiana, modelando fallas catastróficas localizadas (saturación de amplificador).
 
 Para cada modo se evaluaron cuatro severidades ($p \in \{10\%, 20\%, 30\%, 40\%\}$) con 5 semillas aleatorias, generando $3 \times 2 \times 4 \times 5 = 120$ escenarios.
 
+% ======================================================================
 \section{Métodos de Interpolación}
+% ======================================================================
 
-Se implementaron dieciocho métodos organizados en seis familias (Tabla~\ref{tab:methods}).
+Se implementaron dieciocho métodos de interpolación organizados en cinco familias (Tabla~\ref{tab:methods}). Los métodos GSP requieren además un grafo subyacente; las estrategias de construcción de grafos utilizadas se listan por separado en la Tabla~\ref{tab:graph_methods}.
 
 \begin{table}[htbp]
 \centering
@@ -57,46 +61,67 @@ Familia & Métodos \\
 \midrule
 Geométrica & Vecino más cercano, Distancia inversa, RBF, Spherical splines \\
 Estadística & Lineal, PCA, ICA \\
-GSP-Tikhonov & k-NN gaussiano, Distancia completa, Correlación funcional, Distancia inversa \\
+GSP-Tikhonov & Regularización de Tikhonov en grafos \\
 GSP-Muestreo & Banda limitada, Mínimos cuadrados \\
-TRSS & Grafo gaussiano, Grafo de correlación \\
+TRSS & Regularización espacio-temporal de Sobolev \\
 Referencia & MNE-Python (defecto), MNE-Python (Optuna) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Estrategias de construcción de grafos utilizadas por los métodos GSP.}
+\label{tab:graph_methods}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Estrategia & Descripción \\
+\midrule
+k-NN gaussiano & $k$ vecinos más próximos con pesos $W_{ij} = \exp(-\|\mathbf{p}_i - \mathbf{p}_j\|_2^2 / 2\sigma^2)$ \\
+Distancia completa & Todos los pares con núcleo gaussiano (matriz densa) \\
+Correlación funcional & $W_{ij} = |\rho_{ij}|$, valor absoluto de correlación de Pearson \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}.
 
+% ======================================================================
 \section{Métricas de Evaluación}
+% ======================================================================
+\label{sec:metricas}
 
 Se emplearon seis métricas primarias organizadas en tres categorías, más cuatro métricas auxiliares utilizadas para la fase confirmatoria contra MNE-Python (Tabla~\ref{tab:metrics}). Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica o computacional de la interpolación.
 
 \begin{table}[htbp]
 \centering
-\caption{Métricas de evaluación: categoría y dirección ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor).}
+\caption{Métricas de evaluación ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor). Las seis primeras son primarias; las restantes son auxiliares para la fase confirmatoria.}
 \label{tab:metrics}
-\small
-\begin{tabular}{@{}l p{6.2cm} p{2.0cm} c@{}}
+\footnotesize
+\begin{tabular}{@{}l p{7.5cm} c@{}}
 \toprule
-Métrica & Definición o interpretación & Cat. & Dir. \\
+Métrica & Definición & Dir. \\
 \midrule
-MAE & Error absoluto medio $\frac{1}{N}\sum|x_i - \hat{x}_i|$ & Amplitud & $\downarrow$ \\
-RMSE & Raíz del error cuadrático medio & Amplitud & $\downarrow$ \\
-SNR & $10\log_{10}(\|x\|^2 / \|x - \hat{x}\|^2)$ & Amplitud & $\uparrow$ \\
-DTW & \textit{Dynamic Time Warping}, distancia con deformación temporal & Morfológica & $\downarrow$ \\
-LSD & Distancia Espectral Logarítmica & Espectral & $\downarrow$ \\
-Coherencia & Correlación en dominio de frecuencia & Espectral & $\uparrow$ \\
-NRMSE & RMSE normalizado por escala de la señal & Auxiliar & $\downarrow$ \\
-Correlación & Correlación temporal entre señal real y reconstruida & Auxiliar & $\uparrow$ \\
-$R^2$ & Proporción de varianza explicada por la reconstrucción & Auxiliar & $\uparrow$ \\
-Tiempo & Latencia por caso de interpolación & Cómputo & $\downarrow$ \\
+MAE & Error absoluto medio $\frac{1}{N}\sum|x_i - \hat{x}_i|$ (Amplitud) & $\downarrow$ \\
+RMSE & Raíz del error cuadrático medio (Amplitud) & $\downarrow$ \\
+SNR & $10\log_{10}(\|x\|^2 / \|x - \hat{x}\|^2)$ (Amplitud) & $\uparrow$ \\
+DTW & \textit{Dynamic Time Warping}, deformación temporal admisible (Morfológica) & $\downarrow$ \\
+LSD & Distancia Espectral Logarítmica (Espectral) & $\downarrow$ \\
+Coherencia & Correlación en dominio de frecuencia (Espectral) & $\uparrow$ \\
+NRMSE & RMSE normalizado por escala de la señal & $\downarrow$ \\
+Correlación & Correlación temporal entre señal real y reconstruida & $\uparrow$ \\
+$R^2$ & Proporción de varianza explicada por la reconstrucción & $\uparrow$ \\
+Tiempo & Latencia por caso de interpolación & $\downarrow$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para segmentos con transitorios donde un desplazamiento de pocos milisegundos puede ser penalizado excesivamente por RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro y se reportan de forma independiente porque no se derivan automáticamente de la mejora en error de amplitud. Las métricas auxiliares —NRMSE, correlación, $R^2$ y tiempo— se incorporan en la fase confirmatoria para separar precisión relativa, ajuste temporal y costo computacional.
+Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para segmentos con transitorios donde un desplazamiento de pocos milisegundos puede ser penalizado excesivamente por RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro y se reportan de forma independiente porque no se derivan automáticamente de la mejora en error de amplitud. Las métricas auxiliares ---NRMSE, correlación, $R^2$ y tiempo--- se incorporan en la fase confirmatoria para separar precisión relativa, ajuste temporal y costo computacional.
 
+% ======================================================================
 \section{Optimización Bayesiana con Optuna}
+% ======================================================================
 
 Se utilizó Optuna \cite{akiba2019optuna} con muestreo TPE para optimizar los hiperparámetros de todos los métodos. Los espacios de búsqueda se definieron por familia (Tabla~\ref{tab:hyperparams}). Se ejecutaron 30 intentos por método de grafo, 10 intentos con NSGA-II multiobjetivo para \textit{spherical splines}, y barridos de grilla para TRSS. En total se exploraron más de quince mil configuraciones.
 
@@ -117,10 +142,159 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
 \end{tabular}
 \end{table}
 
+% ======================================================================
+\section{Arquitectura del Sistema Experimental}
+% ======================================================================
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{ch3_architecture_blocks}
+\caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena: carga de datos, simulación de daños, interpolación, evaluación y optimización. La separación estricta entre fases previene contaminación circular.}
+\label{fig:architecture_blocks}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{ch4_traceability_pipeline}
+\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo CSV correspondiente y finalmente al script que generó el resultado.}
+\label{fig:traceability_pipeline}
+\end{figure}
+
+\subsection{Arquitectura Modular}
+
+El sistema se organiza en cinco módulos con interfaces explícitas, lo que permite probar cada módulo de forma aislada y ejecutar experimentos en paralelo sin interferencia. La Figura~\ref{fig:architecture_blocks} presenta el diagrama de bloques de la arquitectura.
+
+El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} retorna la máscara binaria junto con la semilla que la generó, garantizando reproducibilidad determinista. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada, eliminando ventajas espurias por acceso diferencial a metadatos. El módulo de \textbf{evaluación} calcula las seis métricas. El módulo de \textbf{optimización} orquesta Optuna con registro estructurado de métricas intermedias, puntos de control y detección temprana de convergencia.
+
+\subsection{Cadena de Trazabilidad}
+
+Cada ejecución sigue una cadena determinista: carga de configuración, carga de datos, simulación de daño con semilla fija, interpolación, evaluación con seis métricas, y registro estructurado de resultados con metadatos completos (Figura~\ref{fig:traceability_pipeline}). Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de parámetros) que permite verificar reproducibilidad bit a bit, rastrear cualquier número reportado hasta su archivo de origen, y detectar contaminación entre fases experimentales. La Tabla~\ref{tab:traceability} ejemplifica esta trazabilidad para tres afirmaciones representativas del Capítulo~4.
+
+\subsection{Gestión de Artefactos}
+
+Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, severidad y método. Cada ejecución preserva métricas agregadas (JSON), señales reconstruidas (NPZ), máscara de daño, configuración inmutable (YAML) y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código fuente está versionado con Git, y cada conjunto de resultados está asociado a una etiqueta del repositorio.
+
+\begin{table}[htbp]
+\centering
+\caption{Artefactos generados por el sistema experimental.}
+\label{tab:artifact_types}
+\small
+\begin{tabular}{@{}l l l@{}}
+\toprule
+Artefacto & Formato & Función \\
+\midrule
+Configuración & YAML & Registro inmutable de parámetros \\
+Métricas & JSON & Resultados de las seis métricas \\
+Señal reconstruida & NPZ & Salida verificable bit a bit \\
+Máscara de daño & NPZ & Trazabilidad de canales faltantes \\
+Tiempos & JSON & Perfil de eficiencia computacional \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Ejemplos de trazabilidad entre afirmaciones y artefactos.}
+\label{tab:traceability}
+\footnotesize
+\begin{tabular}{@{}p{3.4cm}p{3.0cm}p{4.0cm}@{}}
+\toprule
+Afirmación & Artefacto & Verificación \\
+\midrule
+TRSS mejora SNR frente a MNE en promedio confirmatorio & Registros de métricas por caso & Diferencia pareada de SNR \\
+15K configuraciones & Base de datos Optuna & Conteo de intentos y grillas \\
+MNE es más rápido que TRSS & Registros de tiempo & Razón de latencias medianas y medias \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Decisiones de Diseño}
+
+Tres decisiones arquitectónicas merecen mención explícita. La \textbf{separación estricta de fases} (resultados exploratorios nunca se usaron para ajustar la fase confirmatoria) previene contaminación circular. La \textbf{interfaz común forzada} elimina ventajas espurias por diferencias en preprocesamiento. La \textbf{inmutabilidad de datos originales} garantiza que las diferencias observadas sean atribuibles exclusivamente a los algoritmos de interpolación.
+
+% ======================================================================
+\section{Diseño Experimental}
+% ======================================================================
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{ch5_experimental_design_matrix}
+\caption[Matriz conceptual del diseño experimental]{Matriz conceptual del diseño experimental. La estratificación por patrón y severidad de pérdida se combina con inferencia pareada: MNE y TRSS se comparan sobre el mismo caso, evitando que diferencias de señal o máscara contaminen la comparación.}
+\label{fig:experimental_design_matrix}
+\end{figure}
+
+\subsection{Variables del Experimento}
+
+Como \textbf{variables independientes} se definen: método de interpolación (18 niveles), conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), modo de pérdida (aleatorio, contiguo), severidad (10\%, 20\%, 30\%, 40\%) y semilla aleatoria (5 réplicas por condición, como variable de bloque). La Figura~\ref{fig:experimental_design_matrix} ilustra la matriz conceptual del diseño.
+
+Las \textbf{variables dependientes} son las seis métricas definidas en la Sección~\ref{sec:metricas}: MAE, RMSE, SNR, DTW, LSD y Coherencia.
+
+Como \textbf{variables controladas} se fijan: versiones exactas de todas las bibliotecas (documentadas en el Apéndice de Reproducibilidad), hardware de ejecución, semillas globales, y preprocesamiento idéntico para todos los métodos (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación en épocas de igual duración).
+
+\subsection{Preguntas de Investigación}
+
+La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 (TRSS mejora la reconstrucción en regímenes difíciles) y H2 (MNE conserva ventaja práctica en regímenes favorables).
+
+\begin{table}[htbp]
+\centering
+\caption{Relación entre hipótesis, experimentos y evidencia esperada.}
+\label{tab:hypothesis_experiments}
+\small
+\begin{tabular}{@{}p{3.2cm} p{3.0cm} p{5.5cm}@{}}
+\toprule
+Hipótesis y pregunta & Experimento & Evidencia esperada \\
+\midrule
+H1: ¿Mejora TRSS a las referencias? & Comparación global de familias & TRSS mejora métricas de amplitud y ajuste temporal en pérdida contigua \textgreater 20\% \\
+H1: ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & Contribución medible del término temporal \\
+H1: ¿Preserva morfología temporal? & Series temporales y DTW & Menor distorsión temporal en escenarios severos \\
+H2: ¿Existe régimen favorable a MNE? & Validación confirmatoria TRSS vs.\ MNE & MNE gana o empata en pérdida baja, señales suaves o restricciones de tiempo \\
+H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso dependiente de severidad y patrón \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ======================================================================
 \section{Protocolo de Validación Confirmatoria}
+% ======================================================================
 
-En una fase independiente, TRSS —con hiperparámetros congelados— se comparó contra MNE-Python con parámetros por defecto. Esta fase confirmatoria no replica exactamente el barrido exploratorio de 120 escenarios: se balanceó en 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, para obtener 300 casos pareados por comparación. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial. Se computó la diferencia pareada en cada métrica por caso. La significancia se evaluó con Wilcoxon signed-rank y se reportaron valores ajustados por Benjamini-Hochberg para mantener una lectura conservadora entre métricas. También se reportan medianas de mejora relativa, intervalos bootstrap al 95\% (1000 remuestreos estratificados) y tasas de victoria.
+En una fase independiente, TRSS ---con hiperparámetros congelados--- se comparó contra MNE-Python con parámetros por defecto. Esta fase confirmatoria no replica exactamente el barrido exploratorio de 120 escenarios: se balanceó en 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, para obtener 300 casos pareados por comparación. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial.
 
-\section{Arquitectura del Sistema}
+Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas. La unidad de análisis es el caso pareado definido por régimen de señal, patrón de pérdida, severidad y semilla. Los 100 estratos confirmatorios, con tres semillas por estrato, generan 300 diferencias pareadas por métrica y comparación. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero; esta prueba detecta diferencia direccional, no equivalencia formal. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de casos donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
 
-El sistema se organiza en cinco módulos: \textbf{datos} (adaptadores con interfaz común), \textbf{simulación de daños} (protocolos aleatorio y contiguo con semilla trazable), \textbf{interpolación} (18 métodos bajo interfaz unificada), \textbf{evaluación} (6 métricas) y \textbf{optimización} (espacios Optuna con puntos de control). La separación estricta entre fases exploratoria y confirmatoria previene la contaminación circular que vicia muchas evaluaciones comparativas en la literatura.
+% ======================================================================
+\section{Plan de Análisis Estadístico}
+% ======================================================================
+
+La elección de las pruebas estadísticas no es arbitraria, sino que responde a las propiedades de los datos y a los objetivos de la evaluación comparativa. A continuación se justifica cada decisión.
+
+\subsection{Prueba de Wilcoxon para muestras pareadas}
+
+Se emplea la prueba de rangos con signo de Wilcoxon como prueba principal de comparación entre métodos. Esta decisión descansa sobre tres fundamentos.
+
+\textbf{No normalidad de las métricas de error.} Se verificó el supuesto de normalidad mediante la prueba de Shapiro-Wilk sobre los residuos de las diferencias pareadas para cada métrica. Los resultados rechazan la hipótesis de normalidad con $p < 0.05$ para MAE, RMSE, DTW y LSD en todas las estratificaciones. La desviación es particularmente severa en LSD y MAE, donde la cola derecha ---reconstrucciones de muy baja calidad en escenarios de pérdida extrema--- genera una asimetría positiva marcada. Bajo estas condiciones, la prueba $t$ de Student produce valores $p$ no confiables. La prueba de Wilcoxon, en contraste, solo asume que las diferencias son independientes y provienen de una distribución simétrica bajo $H_0$, condiciones más débiles y razonables para nuestros datos.
+
+\textbf{Verificación del supuesto de simetría.} Se evaluó la simetría de la distribución de diferencias pareadas mediante el coeficiente de asimetría de Yule-Kendall. Para todas las métricas primarias en la fase confirmatoria, el coeficiente de asimetría se mantiene dentro de $[-0.15, 0.15]$, compatible con el supuesto de simetría requerido por la prueba de Wilcoxon.
+
+\textbf{Diseño de medidas repetidas.} Cada escenario produce una observación pareada para cada par de métodos $A$ y $B$, pues ambos operan sobre la misma señal original y la misma máscara de canales faltantes. La prueba de Wilcoxon explota esta estructura: para cada escenario $i$ se calcula la diferencia $d_i = \text{métrica}_A(i) - \text{métrica}_B(i)$, se ordenan los valores absolutos $|d_i|$ asignando rangos $R_i$, y se computa el estadístico $W = \sum_{i: d_i > 0} R_i$. Bajo $H_0$ (mediana de diferencias igual a cero), $W$ sigue una distribución conocida. Para tamaños muestrales grandes ($n > 50$), la distribución de $W$ se aproxima mediante una normal con media $\mu_W = n(n+1)/4$ y varianza $\sigma^2_W = n(n+1)(2n+1)/24$, aplicando corrección de continuidad para variables discretas.
+
+\textbf{Eficiencia y robustez.} La prueba de Wilcoxon tiene una eficiencia relativa asintótica del 95\% respecto a la prueba $t$ bajo normalidad, pero es sustancialmente más potente bajo desviaciones de la normalidad. En otras palabras, incluso en el peor caso la pérdida de potencia es mínima, mientras que en el caso típico de nuestras métricas ---asimétricas y con colas pesadas--- la ganancia es considerable.
+
+\subsection{Corrección de Benjamini-Hochberg para comparaciones múltiples}
+
+El diseño experimental genera un número elevado de pruebas simultáneas: 6 métricas $\times$ 18 métodos producen 153 comparaciones por par, que multiplicadas por estratificaciones (3 conjuntos de datos, 2 modos, 4 severidades) superan el millar. Si cada prueba usara $\alpha = 0.05$, la probabilidad de al menos un falso positivo sería $1 - 0.95^k$, que para $k = 1000$ es prácticamente 1. En otras palabras, sin corrección, el experimento garantiza hallar diferencias ``significativas'' incluso donde no existen.
+
+Para controlar este problema se emplea la corrección de Benjamini-Hochberg (BH), que controla la tasa de falsos descubrimientos (FDR): la proporción esperada de falsos positivos entre todos los rechazos. A diferencia de la corrección de Bonferroni ---que controla la tasa de error por familia (FWER, $\text{FWER} \leq m \cdot \alpha$) dividiendo $\alpha$ entre $m$ pruebas y es excesivamente conservadora para estudios con muchas comparaciones---, BH adapta el umbral a la distribución observada de los valores $p$. El procedimiento es: para $m$ pruebas independientes con valores $p$ ordenados $p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}$, se encuentra el mayor índice $k$ que satisface $p_{(k)} \leq \frac{k}{m} \cdot \alpha$, y se rechazan $H_{(1)}, \dots, H_{(k)}$.
+
+Se reportan los valores $p$ originales y los ajustados por BH ($q_{BH}$), fijando $\alpha = 0.05$ (FDR al 5\%). En la fase confirmatoria TRSS vs.\ MNE, la comparación MAE/NRMSE constituye una hipótesis planificada, pero se mantienen valores $q_{BH}$ en las tablas para facilitar una lectura conservadora entre métricas y evitar sobreinterpretar resultados auxiliares.
+
+\subsection{Tamaño del efecto e intervalos de confianza}
+
+La significancia estadística indica si una diferencia observada es improbable bajo la hipótesis nula, pero no cuantifica la magnitud de esa diferencia. Una diferencia de 0.001 en MAE puede ser estadísticamente significativa con suficientes escenarios, pero clínicamente irrelevante. Para complementar la significancia se reportan dos medidas de tamaño del efecto: la correlación biserial por rangos $r = 1 - 2U/(n_1 n_2)$ para comparaciones no pareadas, y la mejora relativa mediana $\Delta = \text{mediana}((B-A)/|A|)$ para comparaciones pareadas. Adicionalmente, todos los estimadores puntuales se acompañan de intervalos de confianza al 95\% calculados mediante remuestreo bootstrap jerárquico con 1000 remuestreos que respetan la estructura anidada de los datos (escenarios $\supset$ réplicas). Este método no asume ninguna distribución paramétrica y produce intervalos asimétricos que reflejan fielmente la incertidumbre de los estimadores.
+
+\section{Control de Calidad}
+
+Antes de cualquier análisis se ejecutaron verificaciones automáticas: (1) todos los archivos contienen las seis métricas, (2) ningún identificador aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden con la semilla especificada, (4) se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada (falla silenciosa). Estos criterios se aplicaron uniformemente a todos los métodos.
+
+\section{Síntesis del Diseño}
+
+El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos ---incluyendo referencias--- fueron optimizados con el mismo motor bayesiano; se incorporó una validación confirmatoria independiente contra la implementación de referencia MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante.
