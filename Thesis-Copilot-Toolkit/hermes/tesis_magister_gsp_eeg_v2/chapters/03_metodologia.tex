@@ -172,6 +172,8 @@ Cada ejecución sigue una cadena determinista: carga de configuración, carga de
 
 \subsection{Gestión de Artefactos}
 
+En estudios computacionales a gran escala como el presente ---18 métodos, 120 escenarios, más de 15\,000 configuraciones--- la gestión sistemática de artefactos resuelve tres necesidades concretas. Primero, \textbf{auditoría}: todo número reportado en los capítulos de resultados debe poder rastrearse hasta el archivo que lo origina. Segundo, \textbf{control de contaminación}: las fases exploratoria y confirmatoria operan sobre datos independientes, y la separación física de sus artefactos previene que resultados exploratorios influyan inadvertidamente en la fase confirmatoria. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio puede re-ejecutar cualquier subconjunto del experimento y obtener resultados idénticos.
+
 Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, severidad y método. Cada ejecución preserva métricas agregadas (JSON), señales reconstruidas (NPZ), máscara de daño, configuración inmutable (YAML) y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código fuente está versionado con Git, y cada conjunto de resultados está asociado a una etiqueta del repositorio.
 
 \begin{table}[htbp]
