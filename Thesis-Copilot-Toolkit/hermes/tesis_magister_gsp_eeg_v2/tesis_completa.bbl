@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{24}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -62,12 +62,6 @@ Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A. Engemann, Daniel Strohm
 \newblock {MNE} software for processing {MEG} and {EEG} data.
 \newblock \emph{NeuroImage}, 86:\penalty0 446--460, 2014.
 \newblock \doi{10.1016/j.neuroimage.2013.10.027}.
-
-\bibitem[Jolliffe(2002)]{jolliffe2002principal}
-Ian~T. Jolliffe.
-\newblock \emph{Principal Component Analysis}.
-\newblock Springer, 2nd edition, 2002.
-\newblock \doi{10.1007/b98835}.
 
 \bibitem[Jung et~al.(2001)Jung, Makeig, McKeown, Bell, Lee, and Sejnowski]{jung2001imaging}
 Tzyy-Ping Jung, Scott Makeig, Martin~J. McKeown, Anthony~J. Bell, Te-Won Lee, and Terrence~J. Sejnowski.

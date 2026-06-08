@@ -1,7 +1,7 @@
 \chapter{Resultados}
 \label{ch:resultados}
 
-Este capítulo presenta la evidencia experimental que sostiene la parte práctica de la tesis. La exposición separa cuatro niveles de análisis: primero, la relación entre la fase exploratoria amplia y la fase confirmatoria; segundo, el resumen global de la evaluación contra MNE-Python; tercero, la estratificación por conjunto de datos y tipo de pérdida; cuarto, el costo computacional y el estudio de ablación que permiten interpretar cuándo la regularización temporal aporta valor. Esta organización evita una lectura de superioridad universal y permite formular una decisión práctica: TRSS es útil en regímenes difíciles de reconstrucción, mientras que MNE-Python sigue siendo una referencia fuerte en escenarios favorables y en tiempo de cómputo.
+Este capítulo presenta la evidencia experimental que sostiene la parte práctica de la tesis. La exposición separa cuatro niveles de análisis: primero, la relación entre la fase exploratoria amplia y la fase confirmatoria; segundo, el resumen global de la evaluación contra MNE-Python; tercero, la estratificación por conjunto de datos y tipo de pérdida; cuarto, el costo computacional y el estudio de descomposición del componente temporal que permiten interpretar cuándo la regularización temporal aporta valor. Esta organización evita una lectura de superioridad universal y permite formular una decisión práctica: TRSS es útil en regímenes difíciles de reconstrucción, mientras que MNE-Python sigue siendo una referencia fuerte en escenarios favorables y en tiempo de cómputo.
 
 \section{Relación entre Fases Experimentales}
 
@@ -101,7 +101,7 @@ El patrón observado coincide con la intuición del modelo. MNE usa una informac
 
 \section{Estudio de Descomposición del Componente Temporal}
 
-La ablación compara TRSS completo contra una variante sin término temporal. La Figura~\ref{fig:ch6_ablation_temporal_component} muestra que el término temporal produce mejoras modestas pero consistentes: aproximadamente 0.7\% en MAE/RMSE, 1.5\% en DTW y 6.4\% en LSD frente a TRSS sin temporalidad, con tasa de victoria de 100\% en las métricas de error incluidas en el análisis. La interpretación correcta no es que el término temporal convierta por sí solo a TRSS en dominante frente a cualquier método espacial, sino que estabiliza la solución espacio--temporal y reduce degradaciones específicas dentro de la propia familia TRSS.
+La descomposición del componente temporal compara TRSS completo contra una variante sin término temporal. La Figura~\ref{fig:ch6_ablation_temporal_component} muestra que el término temporal produce mejoras modestas pero consistentes: aproximadamente 0.7\% en MAE/RMSE, 1.5\% en DTW y 6.4\% en LSD frente a TRSS sin temporalidad, con tasa de victoria de 100\% en las métricas de error incluidas en el análisis. La interpretación correcta no es que el término temporal convierta por sí solo a TRSS en dominante frente a cualquier método espacial, sino que estabiliza la solución espacio--temporal y reduce degradaciones específicas dentro de la propia familia TRSS.
 
 \begin{figure}[htbp]
   \centering
@@ -110,7 +110,7 @@ La ablación compara TRSS completo contra una variante sin término temporal. La
   \label{fig:ch6_ablation_temporal_component}
 \end{figure}
 
-Este resultado matiza la hipótesis principal. La ventaja práctica de TRSS no proviene de un único componente que domine todas las métricas, sino de la combinación entre una representación espacial suficientemente informativa, una restricción temporal que estabiliza la trayectoria y una selección de hiperparámetros que evita sobre-suavizar la señal. Por esa razón, la comparación contra MNE debe leerse junto con la ablación: TRSS es más fuerte en reconstrucción de amplitud y correlación, pero MNE conserva ventajas espectrales y computacionales.
+Este resultado matiza la hipótesis principal. La ventaja práctica de TRSS no proviene de un único componente que domine todas las métricas, sino de la combinación entre una representación espacial suficientemente informativa, una restricción temporal que estabiliza la trayectoria y una selección de hiperparámetros que evita sobre-suavizar la señal. Por esa razón, la comparación contra MNE debe leerse junto con el estudio de descomposición: TRSS es más fuerte en reconstrucción de amplitud y correlación, pero MNE conserva ventajas espectrales y computacionales.
 
 \FloatBarrier
 
