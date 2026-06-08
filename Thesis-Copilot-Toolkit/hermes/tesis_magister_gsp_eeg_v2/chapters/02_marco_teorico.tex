@@ -9,38 +9,39 @@ Este capítulo presenta los fundamentos sobre los que se construye la investigac
 
 La señal de voltaje EEG registrada en el cuero cabelludo resulta de la actividad sincronizada de grandes poblaciones de neuronas piramidales en la corteza cerebral \cite{buzsaki2006rhythms}. Estas neuronas, orientadas perpendicularmente a la superficie cortical, generan dipolos de corriente ante potenciales postsinápticos. La suma espacial de estos dipolos ---se requieren entre diez mil y cien mil neuronas sincronizadas para producir una señal detectable \cite{nunez2006electric}--- constituye la fuente primaria del EEG.
 
-La señal atraviesa desde la corteza hasta los electrodos múltiples capas de conductividad variable: líquido cefalorraquídeo, meninges, cráneo (aproximadamente ochenta veces menos conductor que el cuero cabelludo) y cuero cabelludo \cite{nunez2006electric}. Esta conducción volumétrica actúa como un filtro espacial paso-bajo que suaviza la distribución de potencial y limita la resolución espacial efectiva del EEG a unos dos o tres centímetros (Figura~\ref{fig:origen_eeg}).
-%Cual señal? En el texto se debe referenciar de manera explicita cada parte de la figura a, b, c, etc.
+La señal atraviesa desde la corteza hasta los electrodos múltiples capas de conductividad variable: líquido cefalorraquídeo, meninges, cráneo (aproximadamente ochenta veces menos conductor que el cuero cabelludo) y cuero cabelludo \cite{nunez2006electric}. Esta conducción volumétrica actúa como un filtro espacial paso-bajo que suaviza la distribución de potencial y limita la resolución espacial efectiva del EEG a unos dos o tres centímetros. La Figura~\ref{fig:origen_eeg}(a) ilustra este proceso de propagación desde la corteza hasta el cuero cabelludo, y la Figura~\ref{fig:origen_eeg}(b) muestra la configuración del campo eléctrico generado por un dipolo cortical.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.80\textwidth]{capitulo2_origen_eeg}
-\caption{Generación de la señal EEG por poblaciones neuronales corticales y su propagación hasta los electrodos de superficie. La conducción volumétrica a través del cráneo actúa como un filtro espacial paso-bajo. Adaptado de \cite{nunez2006electric}.}
+\caption[Generación de la señal EEG y sus manifestaciones]{Generación de la señal EEG por poblaciones neuronales corticales y su propagación hasta los electrodos de superficie. (a) Origen cortical: los dipolos en la corteza generan campos eléctricos que se propagan a través de capas de conductividad variable (LCR, cráneo, cuero cabelludo) hasta los electrodos. (b) Campo del dipolo: configuración del potencial eléctrico generado por un dipolo cortical. (c) Potenciales Relacionados a Eventos (ERP): forma de onda característica con componentes N100, P200 y P300. (d) Topografía: disposición espacial de canales buenos (observados) y canales fallados (a interpolar). Adaptado de \cite{nunez2006electric}.}
 \label{fig:origen_eeg}
 \end{figure}
-%En el caption se debe describir cada subfigura (a) lore ipsum, (b) lore ipsum, etc. ASegurar que (c) sea un ERP
+
 \subsection{Bandas de Frecuencia y Potenciales Relacionados a Eventos}
 
 La señal EEG se caracteriza por su contenido oscilatorio en bandas de frecuencia asociadas a estados funcionales específicos: delta (0.5--4~Hz, sueño profundo), theta (4--8~Hz, procesamiento de memoria), alpha (8--13~Hz, reposo vigil), beta (13--30~Hz, procesamiento activo) y gamma (30--100~Hz, procesamiento perceptual de alto nivel) \cite{buzsaki2006rhythms}. La preservación de la estructura espectral en cada banda es un criterio fundamental para evaluar la calidad de cualquier interpolación.
 
-Los Potenciales Relacionados a Eventos (ERP) son fluctuaciones de voltaje sincronizadas con un estímulo sensorial, motor o cognitivo, obtenidas mediante promediación coherente de múltiples ensayos \cite{luck2014introduction}. Componentes como N100, P300 y N400 constituyen biomarcadores electrofisiológicos cuya preservación morfológica ---amplitud de pico, latencia y distribución topográfica--- es uno de los criterios de evaluación más exigentes para cualquier método de interpolación. La Figura~\ref{fig:origen_eeg} ilustra el proceso completo de generación y propagación de la señal EEG.
+Los Potenciales Relacionados a Eventos (ERP) son fluctuaciones de voltaje sincronizadas con un estímulo sensorial, motor o cognitivo, obtenidas mediante promediación coherente de múltiples ensayos \cite{luck2014introduction}. Componentes como N100, P300 y N400 constituyen biomarcadores electrofisiológicos cuya preservación morfológica ---amplitud de pico, latencia y distribución topográfica--- es uno de los criterios de evaluación más exigentes para cualquier método de interpolación. La Figura~\ref{fig:origen_eeg}(c) muestra un ejemplo de forma de onda ERP con sus componentes principales, y la Figura~\ref{fig:origen_eeg}(d) ilustra la topografía de canales buenos y fallados.
 
 \section{Procesamiento de Señales en Grafos}
 
 El Procesamiento de Señales en Grafos (GSP) \cite{shuman2013,ortega2018} extiende los conceptos del procesamiento clásico de señales a dominios irregulares representados por grafos.
 
 \subsection{Definiciones Fundamentales}
-%No basta con W?
-Un grafo $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ consiste en $N$ nodos $\mathcal{V} = \{v_1, \dots, v_N\}$ ---los electrodos---, un conjunto de aristas $\mathcal{E} \subseteq \mathcal{V} \times \mathcal{V}$ que representa la conectividad entre electrodos, y una matriz de pesos $\mathbf{W} \in \mathbb{R}^{N \times N}$ simétrica donde $W_{ij} > 0$ si existe arista entre $i$ y $j$, y $W_{ij}$ cuantifica la intensidad de la conexión. En otras palabras, $\mathcal{E}$ define \textit{qué} electrodos están conectados y $\mathbf{W}$ especifica \textit{con qué intensidad}.
-%T instantes temporales de que? Creo que esto ya está resuelto
-Una señal de grafo en el instante $t$ es el vector $\mathbf{x}_t \in \mathbb{R}^N$ de voltajes en los $N$ electrodos. La matriz $\mathbf{X} \in \mathbb{R}^{N \times T}$ contiene $T$ instantes temporales de la ventana de análisis.
+
+Un grafo $\mathcal{G} = (\mathcal{V}, \mathcal{E}, \mathbf{W})$ consiste en $N$ nodos $\mathcal{V} = \{v_1, \dots, v_N\}$ ---los electrodos---, un conjunto de aristas $\mathcal{E} \subseteq \mathcal{V} \times \mathcal{V}$ que define qué electrodos están conectados, y una matriz de pesos $\mathbf{W} \in \mathbb{R}^{N \times N}$ simétrica que especifica con qué intensidad: $W_{ij} > 0$ si existe arista entre $i$ y $j$, y $W_{ij} = 0$ en caso contrario. La distinción entre $\mathcal{E}$ y $\mathbf{W}$ es relevante porque $\mathcal{E}$ define la topología (pares conectados) mientras que $\mathbf{W}$ codifica la fuerza de cada conexión; en grafos densos pueden coincidir, pero en grafos sparse como k-NN difieren.
+
+Una señal de grafo en el instante $t$ es el vector $\mathbf{x}_t \in \mathbb{R}^N$ de voltajes en los $N$ electrodos. La matriz $\mathbf{X} \in \mathbb{R}^{N \times T}$ contiene $T$ instantes temporales de la ventana de análisis EEG.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.98\textwidth]{ch2_gsp_concepts_clean}
-\caption[Conceptos fundamentales de GSP]{Conceptos fundamentales de GSP aplicados a EEG. (a) Los electrodos forman un grafo ponderado; (b) el espectro del Laplaciano ordena los modos desde variación suave hasta variación rápida; (c) la reconstrucción regularizada combina fidelidad a los canales observados con penalización de variación sobre el grafo.}
+\caption[Conceptos fundamentales de GSP]{Conceptos fundamentales de GSP aplicados a EEG. (a) Los electrodos forman un grafo ponderado donde el grosor de las aristas indica la intensidad de la conexión. (b) El espectro del Laplaciano ordena los modos desde variación suave hasta variación rápida; los autovalores bajos corresponden a modos de Fourier de baja frecuencia en el grafo. (c) La reconstrucción regularizada combina fidelidad a los canales observados (\textit{Data fitting}) con penalización de variación sobre el grafo (\textit{Graph regularization}), produciendo una señal suave que respeta la topología de electrodos.}
 \label{fig:gsp_conceptos}
 \end{figure}
-%Figura no referenciada en el texto. Aplicar mismas mejoras como anteriormente. REvisar si la sigura (c) es apropiada.
+
+La Figura~\ref{fig:gsp_conceptos}(a) muestra el grafo de electrodos, la Figura~\ref{fig:gsp_conceptos}(b) presenta el espectro del Laplaciano que ordena los modos según su frecuencia en el grafo, y la Figura~\ref{fig:gsp_conceptos}(c) ilustra esquemáticamente el proceso de reconstrucción regularizada.
 
 \subsection{Laplaciano, Suavidad y Transformada de Fourier en Grafos}
 
@@ -49,26 +50,43 @@ La matriz Laplaciana se define como $\mathbf{L} = \mathbf{D} - \mathbf{W}$, con 
 S(\mathbf{x}) = \mathbf{x}^\top \mathbf{L} \mathbf{x} = \frac{1}{2} \sum_{i,j} W_{ij} (x_i - x_j)^2
 \label{eq:laplacian_quadratic}
 \end{equation}
-cuantifica la variación total del vector de voltajes $\mathbf{x}$ sobre el grafo: valores pequeños indican que nodos fuertemente conectados tienen valores similares ---la señal es \textit{suave}---. Esta propiedad es el pilar de la interpolación GSP: la mejor reconstrucción minimiza $S(\mathbf{x})$ sujeta a coincidir con los canales observados. La Ecuación~\ref{eq:laplacian_quadratic} es la base de todos los métodos de regularización en grafos discutidos en este capítulo.
-%Que es x? 
+cuantifica la variación total del vector de voltajes $\mathbf{x} \in \mathbb{R}^N$ sobre el grafo: valores pequeños indican que nodos fuertemente conectados tienen valores similares ---la señal es \textit{suave}---. Esta propiedad es el pilar de la interpolación GSP: la mejor reconstrucción minimiza $S(\mathbf{x})$ sujeta a coincidir con los canales observados. La Ecuación~\ref{eq:laplacian_quadratic} es la base de todos los métodos de regularización en grafos discutidos en este capítulo.
+
 $\mathbf{L}$ admite la descomposición espectral $\mathbf{L} = \mathbf{U} \boldsymbol{\Lambda} \mathbf{U}^\top$, donde $\boldsymbol{\Lambda} = \operatorname{diag}(\lambda_1, \dots, \lambda_N)$ contiene los autovalores ordenados $0 = \lambda_1 \leq \cdots \leq \lambda_N$, y $\mathbf{U}$ es la matriz ortogonal de autovectores. Los $\lambda_k$ actúan como frecuencias en el grafo: valores pequeños corresponden a modos de variación lenta, valores grandes a modos de variación rápida (Figura~\ref{fig:gsp_conceptos}b).
 
 La Transformada de Fourier en Grafos (GFT) se define como $\hat{\mathbf{x}} = \mathbf{U}^\top \mathbf{x}$. Una señal es \textit{de banda limitada} si $\hat{x}_k = 0$ para $k > K$, con $K \ll N$. La suavidad en el dominio espectral es $S(\mathbf{x}) = \sum_k \lambda_k \hat{x}_k^2$, penalizando los modos de alta frecuencia proporcionalmente a su autovalor.
 
 \subsection{Construcción de Grafos para EEG}
-%Que es p? 
-Se implementan tres estrategias. El \textbf{grafo k-NN gaussiano} conecta cada electrodo a sus $k$ vecinos más próximos en distancia euclidiana, con pesos $W_{ij} = \exp(-\|\mathbf{p}_i - \mathbf{p}_j\|_2^2 / 2\sigma^2)$, donde $\mathbf{p}_i \in \mathbb{R}^3$ es el vector de coordenadas tridimensionales del electrodo $i$ según el sistema 10--20 o 10--10. El \textbf{grafo de correlación funcional} usa $W_{ij} = |\rho_{ij}|$, el valor absoluto de la correlación de Pearson entre las series temporales, capturando conectividad funcional. El \textbf{grafo de distancia completa} conecta todos los pares con el núcleo gaussiano, generando una matriz densa.
+\label{sec:graph_construction}
 
-Existen alternativas de construcción de grafos basadas en aprendizaje directo desde los datos (\textit{data-driven}) que no requieren especificar un núcleo ni sus parámetros. Entre ellas destacan el algoritmo NNK (\textit{Non-Negative Kernel regression}) \cite{shekkizhar2020}, que selecciona automáticamente los vecinos relevantes para cada nodo, y los métodos de aprendizaje de grafos desde señales suaves \cite{kalofolias_how_2016}, que estiman $\mathbf{W}$ minimizando la variación de la señal observada sobre el grafo. En este trabajo se emplean grafos basados en distancia por su simplicidad computacional y reproducibilidad determinista; la evaluación del impacto de grafos aprendidos sobre TRSS se propone como trabajo futuro.
-%Desarrollar más, metodo kalofolias, basados en datos, explicar como calcular las distancias, como calcular las correlaciones cuando tienes electrodos faltantes, etc.
+Se implementan tres estrategias principales de construcción de grafos, cada una adecuada para distintos regímenes de información disponible.
+
+\textbf{Grafo k-NN gaussiano.} Conecta cada electrodo a sus $k$ vecinos más próximos en distancia euclidiana, con pesos
+\begin{equation}
+W_{ij} = \exp\left(-\frac{\|\mathbf{p}_i - \mathbf{p}_j\|_2^2}{2\sigma^2}\right),
+\end{equation}
+donde $\mathbf{p}_i \in \mathbb{R}^3$ es el vector de coordenadas tridimensionales del electrodo $i$ según el sistema 10--20 o 10--10, $\sigma$ controla la escala de decaimiento del núcleo, y $k$ determina la dispersión del grafo. La distancia $\|\mathbf{p}_i - \mathbf{p}_j\|_2$ se calcula directamente sobre las posiciones físicas de los electrodos. Este grafo es disperso por construcción (cada nodo tiene exactamente $k$ vecinos) y no requiere la serie temporal para su definición, por lo que es inmune a la presencia de canales faltantes.
+
+\textbf{Grafo de distancia completa.} Conecta todos los pares de electrodos con el mismo núcleo gaussiano, generando una matriz densa $\mathbf{W}$. Captura interacciones de largo alcance pero no impone estructura sparse, lo que puede introducir ruido de conexiones débiles entre electrodos lejanos.
+
+\textbf{Grafo de correlación funcional.} Utiliza la serie temporal observada para cuantificar similitud funcional: $W_{ij} = |\rho_{ij}|$, donde $\rho_{ij}$ es el coeficiente de correlación de Pearson entre las series temporales de los electrodos $i$ y $j$. Cuando existen canales faltantes, $\rho_{ij}$ se calcula únicamente sobre los canales observados, por lo que un canal faltante no contribuye a la matriz de correlación pero los pares entre canales observados mantienen su estimación.
+
+Existen alternativas de construcción de grafos basadas en aprendizaje directo desde los datos (\textit{data-driven}) que no requieren especificar un núcleo ni sus parámetros. Entre ellas destaca el método de Kalofolias \cite{kalofolias_how_2016}, que formula el aprendizaje del grafo como un problema de optimización convexa:
+\begin{equation}
+\min_{\mathbf{W}} \; \|\mathbf{W} \odot \mathbf{Z}\|_1 \;-\; \alpha \sum_i \log(\mathbf{W}\mathbf{1})_i \;+\; \frac{\beta}{2}\|\mathbf{W}\|_F^2,
+\end{equation}
+donde $Z_{ij} = \|\mathbf{x}_i - \mathbf{x}_j\|_2^2$ mide la disimilitud entre las señales de los nodos $i$ y $j$, y los términos de barrera logarítmica fuerzan grados positivos evitando nodos aislados. La ventaja de este enfoque es que la estructura del grafo emerge de los datos sin requerir un núcleo predefinido; la desventaja es su mayor costo computacional ($O(N^3)$ por el operador proximal) y la necesidad de datos completos para estimar $\mathbf{Z}$. El algoritmo NNK (\textit{Non-Negative Kernel regression}) \cite{shekkizhar2020} ofrece una alternativa más ligera: selecciona automáticamente los vecinos relevantes para cada nodo resolviendo un problema de regresión no negativa con restricción de suma unitaria, lo que produce grafos sparse sin necesidad de especificar $k$.
+
+En este trabajo se emplean grafos basados en distancia (k-NN gaussiano y distancia completa) por su simplicidad computacional y reproducibilidad determinista; la evaluación del impacto de grafos aprendidos sobre TRSS se propone como trabajo futuro.
+
 \section{Estado del Arte en Interpolación de Señales Biomédicas}
 
 \subsection{Métodos Geométricos y Estadísticos}
 
-El método más establecido es el de \textit{spherical splines} \cite{perrin1989}, que modela el potencial sobre el cuero cabelludo como una función suave sobre una esfera. El potencial estimado en una posición $\mathbf{r}$ es $\hat{V}(\mathbf{r}) = c_0 + \sum_{i=1}^{M} c_i \, g_m(\mathbf{r}, \mathbf{r}_i)$, donde $g_m$ es la función de Green del operador pseudo-laplaciano de orden $m$ sobre la esfera, y los coeficientes $c_i$ se obtienen resolviendo un sistema lineal aumentado. El parámetro $m$ controla la rigidez de la superficie y $\lambda$ regula el compromiso ajuste-suavidad.
-%Que es M?
-Los métodos estadísticos ---PCA e ICA--- proyectan las señales observadas sobre fuentes latentes y reconstruyen el canal perdido desde esa proyección \cite{jung2001imaging,jolliffe2002principal}. Sin embargo, requieren la estimación previa de la matriz de mezcla sobre datos completos y fallan cuando la pérdida de canales es severa y contigua.
-% No abusar de --, Se usan estos metodos despupes? Si si, como ICA, explicacion con más detalle, y si no indicar que no se usará.
+El método más establecido es el de \textit{spherical splines} \cite{perrin1989}, que modela el potencial sobre el cuero cabelludo como una función suave sobre una esfera. El potencial estimado en una posición $\mathbf{r}$ es $\hat{V}(\mathbf{r}) = c_0 + \sum_{i=1}^{M} c_i \, g_m(\mathbf{r}, \mathbf{r}_i)$, donde $M$ es el número de canales observados, $g_m$ es la función de Green del operador pseudo-laplaciano de orden $m$ sobre la esfera, y los coeficientes $c_i$ se obtienen resolviendo un sistema lineal aumentado. El parámetro $m$ controla la rigidez de la superficie y $\lambda$ regula el compromiso ajuste-suavidad.
+
+Los métodos estadísticos ---PCA e ICA--- se mencionan aquí como contexto histórico del problema de interpolación, pero no forman parte de la evaluación experimental de esta tesis. Estos métodos proyectan las señales observadas sobre fuentes latentes y reconstruyen el canal perdido desde esa proyección \cite{jung2001imaging,jolliffe2002principal}. Sin embargo, requieren la estimación previa de la matriz de mezcla sobre datos completos y su desempeño se degrada cuando la pérdida de canales es severa y contigua. En el contexto de este trabajo, donde se simulan escenarios de pérdida de hasta el 40\% de los canales, estos métodos no son competitivos y se excluyen de la evaluación.
+
 \subsection{Métodos Basados en GSP}
 
 La \textbf{regularización de Tikhonov en grafos} formula la interpolación como un problema de optimización convexa:
@@ -76,8 +94,8 @@ La \textbf{regularización de Tikhonov en grafos} formula la interpolación como
 \hat{\mathbf{x}} = \arg\min_{\mathbf{x}} \; \|\mathbf{M} \odot (\mathbf{x} - \mathbf{y})\|_2^2 \;+\; \alpha \cdot \mathbf{x}^\top \mathbf{L} \mathbf{x},
 \label{eq:tikhonov_graph}
 \end{equation}
-donde $\mathbf{M} \in \{0,1\}^N$ es la máscara binaria de canales observados (con $M_i = 1$ si el canal $i$ está observado y $M_i = 0$ si está faltante), $\odot$ denota el producto Hadamard (elemento a elemento), y $\alpha$ controla el compromiso entre fidelidad a los datos y suavidad espacial. La Ecuación~\ref{eq:tikhonov_graph} admite solución cerrada $\hat{\mathbf{x}} = (\operatorname{diag}(\mathbf{M}) + \alpha \mathbf{L})^{-1} (\mathbf{M} \odot \mathbf{y})$. El \textbf{método de muestreo en grafos} asume que la señal es de banda limitada y busca la señal de banda limitada que interpola exactamente los valores observados.
-%explicar Hadamard.
+donde $\mathbf{M} \in \{0,1\}^N$ es la máscara binaria de canales observados (con $M_i = 1$ si el canal $i$ está observado y $M_i = 0$ si está faltante), $\odot$ denota el producto Hadamard (multiplicación elemento a elemento entre dos matrices o vectores del mismo tamaño), y $\alpha$ controla el compromiso entre fidelidad a los datos y suavidad espacial. La Ecuación~\ref{eq:tikhonov_graph} admite solución cerrada $\hat{\mathbf{x}} = (\operatorname{diag}(\mathbf{M}) + \alpha \mathbf{L})^{-1} (\mathbf{M} \odot \mathbf{y})$. El \textbf{método de muestreo en grafos} asume que la señal es de banda limitada y busca la señal de banda limitada que interpola exactamente los valores observados.
+
 \subsection{Regularización Espacio-Temporal: TRSS}
 
 La Regularización Temporal de Suavidad de Sobolev (TRSS) \cite{giraldo2022} incorpora la continuidad temporal de las señales neuronales mediante un término adicional de penalización. El problema conjunto sobre la matriz espacio-temporal $\mathbf{X} \in \mathbb{R}^{N \times T}$ es
@@ -85,7 +103,7 @@ La Regularización Temporal de Suavidad de Sobolev (TRSS) \cite{giraldo2022} inc
 \hat{\mathbf{X}} = \arg\min_{\mathbf{X}} \; \|\mathbf{M} \odot (\mathbf{X} - \mathbf{Y})\|_F^2 \;+\; \alpha \cdot \operatorname{tr}(\mathbf{X}^\top \mathbf{L} \mathbf{X}) \;+\; \beta \cdot \|\mathbf{X} \mathbf{D}_t\|_F^2,
 \label{eq:trss}
 \end{equation}
-donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias finitas con $(\mathbf{D}_t)_{t,t} = -1$, $(\mathbf{D}_t)_{t+1,t} = 1$, y $\|\mathbf{X} \mathbf{D}_t\|_F^2 = \sum_{i=1}^N \sum_{t=1}^{T-1} (X_{i,t+1} - X_{i,t})^2$ penaliza los cambios abruptos muestra a muestra. $\beta$ controla la suavidad temporal: $\beta = 0$ reduce TRSS a Tikhonov independiente por instante; $\alpha = 0$ lo convierte en un suavizador temporal sin guía espacial. La interacción de ambos términos se evalúa empíricamente mediante la ablación del Capítulo~4. La Figura~\ref{fig:trss_operator} descompone visualmente la contribución de cada término en la Ecuación~\ref{eq:trss}.
+donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias finitas con $(\mathbf{D}_t)_{t,t} = -1$, $(\mathbf{D}_t)_{t+1,t} = 1$, y $\|\mathbf{X} \mathbf{D}_t\|_F^2 = \sum_{i=1}^N \sum_{t=1}^{T-1} (X_{i,t+1} - X_{i,t})^2$ penaliza los cambios abruptos muestra a muestra. $\beta$ controla la suavidad temporal: $\beta = 0$ reduce TRSS a Tikhonov independiente por instante; $\alpha = 0$ lo convierte en un suavizador temporal sin guía espacial. La interacción de ambos términos se evalúa empíricamente mediante el estudio de descomposición de componentes del Capítulo~4. La Figura~\ref{fig:trss_operator} descompone visualmente la contribución de cada término en la Ecuación~\ref{eq:trss}.
 
 \begin{figure}[htbp]
 \centering
@@ -94,10 +112,6 @@ donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias
 \label{fig:trss_operator}
 \end{figure}
 
-\subsection{Paradigma de Aprendizaje Profundo}
-%Sacar seccion
-Existe un cuerpo creciente de literatura sobre imputación de canales EEG mediante redes neuronales: autoencoders convolucionales \cite{banville2021uncovering}, redes generativas antagónicas \cite{yoon2019time} y Redes Neuronales de Grafos \cite{defferrard2016}. Estos métodos quedan fuera del alcance experimental de esta tesis por tres razones: dependencia de datos de entrenamiento (riesgo de falta de generalización), ausencia de garantías formales de convergencia e interpretabilidad, y costo computacional de entrenamiento órdenes de magnitud superior.
-
 \section{Mecanismo Interno de la Interpolación en MNE-Python}
 \label{sec:mne_interpolate_bads}
 
@@ -105,27 +119,27 @@ Esta sección documenta las mejoras de ingeniería ---no descritas en la literat
 
 \subsection{Formulación Original y sus Seis Mejoras}
 
-El artículo de Perrin \cite{perrin1989} formula la interpolación como un sistema lineal aumentado con regularización fija $\lambda \approx 10^{-5}$. MNE-Python extiende este algoritmo con las siguientes mejoras:
+El artículo de Perrin \cite{perrin1989} formula la interpolación como un sistema lineal aumentado con regularización fija $\lambda \approx 10^{-5}$. La formulación original ya utiliza todos los canales observados para estimar cada canal faltante; lo que distingue a MNE-Python no es este principio, sino las mejoras de ingeniería que lo hacen robusto en la práctica. MNE-Python extiende el algoritmo con las siguientes mejoras:
 
 \begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=4pt]
 \item \textbf{Normalización a esfera unitaria.} Las coordenadas se centran y escalan: $\mathbf{p}_i' = (\mathbf{p}_i - \Bar{\mathbf{p}}) / \max_j \|\mathbf{p}_j - \Bar{\mathbf{p}}\|_2$. Esto elimina la dependencia de unidades físicas y garantiza el buen condicionamiento numérico.
-\item \textbf{Uso global de canales.} Todos los $M$ canales observados contribuyen a cada estimación, no solo los vecinos más cercanos. Por ejemplo, en un montaje de 64 canales con 2 canales malos, la reconstrucción aprovecha 62 electrodos. % Por ejemplo, todos los M...
+\item \textbf{Uso global de canales.} Todos los $M$ canales observados contribuyen a cada estimación, no solo los vecinos más cercanos. Por ejemplo, en un montaje de 64 canales con 2 canales malos, la reconstrucción aprovecha 62 electrodos.
 \item \textbf{Regularización adaptativa.} El término de regularización se escala según la traza: $\varepsilon = 10^{-6} \cdot \operatorname{tr}(\mathbf{G}) / M$.
 \item \textbf{Aumentación con restricciones lineales.} Se fuerzan $\sum_i c_i = 0$ y condiciones análogas para las coordenadas, garantizando unicidad.
 \item \textbf{Pseudoinversa con tolerancia adaptativa.} Ante matrices numéricamente singulares, se usa una pseudoinversa con umbral proporcional a la norma.
 \item \textbf{Reintento automático.} Si la reconstrucción produce valores nulos, el sistema reintenta con parámetros por defecto.
 \end{enumerate}
-%De lo que se lee en 2.3.1, no es claro que el metodo tradicional no utiliza todos los canales observados.
+
 Estas mejoras transforman un algoritmo teóricamente simple en un estimador notablemente robusto. La implicación para esta tesis es clara: no es válido comparar contra implementaciones simplificadas de Perrin; la referencia debe ser MNE-Python mismo.
 
 \subsection{Los Tres Pilares de la Robustez}
-%De donde salieron lo polinomios de legendre? Explicar si son relevantes, si no, no nombrar.
-Desde el punto de vista \textbf{físico}, el modelo de cabeza esférica con polinomios de Legendre es una solución regularizada de la ecuación de Laplace: no es una heurística sino el modelo más simple que captura la física de la conducción volumétrica. Cuando la información previa es correcta ---y la suavidad espacial del EEG es un hecho físico bien documentado---, los métodos bayesianos simples superan a alternativas más complejas.
 
-Desde el punto de vista \textbf{estadístico}, MNE implementa implícitamente un estimador bayesiano con información previa de suavidad espacial que, en el régimen de alta redundancia (correlación inter-canal $>0.9$), alcanza la mínima varianza.
-%Como conluir (correlacion >0.9)??
-Desde el punto de vista \textbf{informacional}, el EEG de cuero cabelludo exhibe redundancia espacial muy alta por el filtrado paso-bajo de la conducción volumétrica. Los métodos globales que usan toda la información disponible superan a los locales que la descartan.
-%Que metodo es local de los que tu consideras?
+Desde el punto de vista \textbf{físico}, el modelo de cabeza esférica ---cuya solución involucra polinomios de Legendre como base ortogonal natural para la ecuación de Laplace en coordenadas esféricas--- es una solución regularizada de dicha ecuación: no es una heurística sino el modelo más simple que captura la física de la conducción volumétrica. Cuando la información previa es correcta ---y la suavidad espacial del EEG es un hecho físico bien documentado---, los métodos con restricciones físicas simples superan a alternativas más complejas.
+
+Desde el punto de vista \textbf{estadístico}, MNE implementa implícitamente un estimador bayesiano con información previa de suavidad espacial. En el régimen de alta redundancia espacial típico del EEG de cuero cabelludo ---donde la correlación inter-canal routinely excede 0.9 debido al filtrado paso-bajo de la conducción volumétrica \cite{nunez2006electric}--- este estimador alcanza un error cercano al mínimo teórico.
+
+Desde el punto de vista \textbf{informacional}, el EEG de cuero cabelludo exhibe redundancia espacial muy alta por el filtrado paso-bajo de la conducción volumétrica. Los métodos globales ---que utilizan todos los canales observados, como MNE-Python, Tikhonov en grafos con grafo de distancia completa, o TRSS--- extraen más información que los métodos locales ---que restringen la estimación a un subconjunto de canales vecinos, como el vecino más cercano o k-NN con $k$ pequeño---.
+
 La Tabla~\ref{tab:method_families} resume las familias de métodos discutidas en esta sección, indicando su principio matemático, fortaleza principal y limitación característica.
 
 \begin{table}[htbp]
@@ -146,4 +160,3 @@ MNE-Python & Splines + mejoras ing. & Robusta en rég. favorable & Pierde precis
 \bottomrule
 \end{tabular}
 \end{table}
-%Mencionar tabla en texto.

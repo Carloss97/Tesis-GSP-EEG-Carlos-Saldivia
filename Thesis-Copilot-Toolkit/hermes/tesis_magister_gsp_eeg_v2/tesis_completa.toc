@@ -3,7 +3,6 @@
 \contentsline {section}{\numberline {1.1}Contexto General y Planteamiento del Problema}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Limitaciones de los Enfoques Tradicionales}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}El Advenimiento del Procesamiento de Señales en Grafos}{3}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}Mención del Paradigma de Aprendizaje Profundo}{3}{subsection.1.3.1}%
 \contentsline {section}{\numberline {1.4}La Brecha en la Literatura y la Motivación del Trabajo}{4}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}La pregunta central: ¿por qué funciona tan bien la interpolación de MNE-Python?}{5}{subsection.1.4.1}%
 \contentsline {section}{\numberline {1.5}Cronología del Proyecto}{6}{section.1.5}%
@@ -13,7 +12,7 @@
 \contentsline {subsection}{\numberline {1.5.4}Fase 4 — Selección Fina y Diseño del Espacio de Búsqueda}{7}{subsection.1.5.4}%
 \contentsline {subsection}{\numberline {1.5.5}Fase 5 — Optimización Bayesiana con Optuna}{7}{subsection.1.5.5}%
 \contentsline {subsection}{\numberline {1.5.6}Fase 6 — Validación Confirmatoria contra MNE-Python}{8}{subsection.1.5.6}%
-\contentsline {subsection}{\numberline {1.5.7}Fase 7 — Ablación y Documentación}{8}{subsection.1.5.7}%
+\contentsline {subsection}{\numberline {1.5.7}Fase 7 — Estudio de ablación (descomposición de componentes) y Documentación}{8}{subsection.1.5.7}%
 \contentsline {section}{\numberline {1.6}Objetivos}{8}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Objetivo General}{8}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}Objetivos Específicos}{8}{subsection.1.6.2}%
@@ -24,72 +23,66 @@
 \contentsline {chapter}{\numberline {2}Marco Teórico y Estado del Arte}{12}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Fundamentos Neurofisiológicos de la Señal EEG}{12}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Generación y Propagación}{12}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Bandas de Frecuencia y Potenciales Relacionados a Eventos}{13}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Bandas de Frecuencia y Potenciales Relacionados a Eventos}{14}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Procesamiento de Señales en Grafos}{14}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Definiciones Fundamentales}{14}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{15}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Construcción de Grafos para EEG}{15}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{16}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{16}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Métodos Basados en GSP}{16}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Regularización Espacio-Temporal: TRSS}{17}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Paradigma de Aprendizaje Profundo}{17}{subsection.2.3.4}%
-\contentsline {section}{\numberline {2.4}Mecanismo Interno de la Interpolación en MNE-Python}{18}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{18}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Los Tres Pilares de la Robustez}{19}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Metodología}{20}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Conjuntos de Datos}{20}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Métodos de Interpolación}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Métricas de Evaluación}{22}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Optimización Bayesiana con Optuna}{23}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Arquitectura del Sistema Experimental}{23}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Arquitectura Modular}{23}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Cadena de Trazabilidad}{25}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Gestión de Artefactos}{25}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Decisiones de Diseño}{26}{subsection.3.6.4}%
-\contentsline {section}{\numberline {3.7}Diseño Experimental}{26}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Variables del Experimento}{27}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Preguntas de Investigación}{27}{subsection.3.7.2}%
-\contentsline {section}{\numberline {3.8}Protocolo de Validación Confirmatoria}{28}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Plan de Análisis Estadístico}{28}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Prueba de Wilcoxon para muestras pareadas}{28}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Corrección de Benjamini-Hochberg para comparaciones múltiples}{29}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}Tamaño del efecto e intervalos de confianza}{30}{subsection.3.9.3}%
-\contentsline {section}{\numberline {3.10}Control de Calidad}{30}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Síntesis del Diseño}{31}{section.3.11}%
-\contentsline {chapter}{\numberline {4}Resultados}{32}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Relación entre Fases Experimentales}{32}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Inventario de Evidencia Experimental}{33}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Comparación Pareada TRSS--MNE}{35}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Estratificación por Conjunto de Datos}{38}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Efecto del Patrón y Severidad de Pérdida}{39}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Ablación del Término Temporal}{40}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Preservación Morfológica y Espectral}{41}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Tiempo de Cómputo y Complejidad}{44}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Síntesis de Resultados}{45}{section.4.9}%
-\contentsline {chapter}{\numberline {5}Discusión}{46}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Validación Matizada de las Hipótesis}{46}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Por Qué MNE-Python Sigue Siendo una Referencia Fuerte}{47}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Mecanismo de la Regularización Temporal}{47}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Heterogeneidad de Escenarios y Frontera de Decisión}{48}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Costo Computacional e Implementación}{48}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Implicaciones para la Práctica EEG}{49}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Limitaciones del Estudio}{49}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Amenazas a la Validez}{51}{subsection.5.7.1}%
-\contentsline {section}{\numberline {5.8}Lecciones Metodológicas}{51}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{52}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusiones}{52}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Aportes de la Tesis}{53}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Contribución Original de Ingeniería}{54}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Trabajo Futuro}{55}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Cierre}{56}{section.6.5}%
-\contentsline {chapter}{\numberline {A}Derivaciones Matemáticas}{57}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Solución de Tikhonov en Grafos}{57}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Solución de TRSS en Forma Matricial}{57}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Propiedades del Operador de Diferencias Temporales}{57}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Propiedades Espectrales del Laplaciano del Grafo}{58}{section.A.4}%
-\contentsline {chapter}{\numberline {B}Tablas Extensas de Resultados}{59}{chapter.B}%
-\contentsline {chapter}{\numberline {C}Protocolo de Reproducibilidad}{60}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Inventario de Artefactos Computacionales}{61}{chapter.D}%
-\contentsline {chapter}{\numberline {E}Tablas del Documento Original de Tesis}{62}{chapter.E}%
+\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{16}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Construcción de Grafos para EEG}{16}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{18}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Métodos Basados en GSP}{18}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Regularización Espacio-Temporal: TRSS}{19}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Mecanismo Interno de la Interpolación en MNE-Python}{19}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{20}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Los Tres Pilares de la Robustez}{20}{subsection.2.4.2}%
+\contentsline {chapter}{\numberline {3}Metodología}{22}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conjuntos de Datos}{22}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{23}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Construcción de Grafos}{24}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Métodos de Interpolación}{24}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Métricas de Evaluación}{25}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Optimización Bayesiana con Optuna}{26}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Arquitectura del Sistema Experimental}{28}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Arquitectura Modular}{28}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Cadena de Trazabilidad}{28}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Gestión de Artefactos}{29}{subsection.3.7.3}%
+\contentsline {subsection}{\numberline {3.7.4}Decisiones de Diseño}{29}{subsection.3.7.4}%
+\contentsline {section}{\numberline {3.8}Diseño Experimental}{30}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Protocolo de Validación Confirmatoria}{32}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Control de Calidad}{32}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Síntesis del Diseño}{33}{section.3.11}%
+\contentsline {chapter}{\numberline {4}Resultados}{34}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Relación entre Fases Experimentales}{34}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Inventario de Evidencia Experimental}{35}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparación Pareada TRSS--MNE}{37}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Estratificación por Conjunto de Datos}{40}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Efecto del Patrón y Severidad de Pérdida}{41}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Estudio de Descomposición del Componente Temporal}{42}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Preservación Morfológica y Espectral}{43}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Tiempo de Cómputo y Complejidad}{46}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Síntesis de Resultados}{47}{section.4.9}%
+\contentsline {chapter}{\numberline {5}Discusión}{48}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Validación Matizada de las Hipótesis}{48}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Por Qué MNE-Python Sigue Siendo una Referencia Fuerte}{49}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Mecanismo de la Regularización Temporal}{49}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Heterogeneidad de Escenarios y Frontera de Decisión}{50}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Costo Computacional e Implementación}{50}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Implicaciones para la Práctica EEG}{51}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Limitaciones del Estudio}{51}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Amenazas a la Validez}{53}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}Lecciones Metodológicas}{53}{section.5.8}%
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{54}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusiones}{54}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Aportes de la Tesis}{55}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Contribución Original de Ingeniería}{56}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Trabajo Futuro}{57}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Cierre}{58}{section.6.5}%
+\contentsline {chapter}{\numberline {A}Derivaciones Matemáticas}{59}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Solución de Tikhonov en Grafos}{59}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Solución de TRSS en Forma Matricial}{59}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Propiedades del Operador de Diferencias Temporales}{59}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Propiedades Espectrales del Laplaciano del Grafo}{60}{section.A.4}%
+\contentsline {chapter}{\numberline {B}Tablas Extensas de Resultados}{61}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Protocolo de Reproducibilidad}{62}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Inventario de Artefactos Computacionales}{63}{chapter.D}%
+\contentsline {chapter}{\numberline {E}Tablas del Documento Original de Tesis}{64}{chapter.E}%

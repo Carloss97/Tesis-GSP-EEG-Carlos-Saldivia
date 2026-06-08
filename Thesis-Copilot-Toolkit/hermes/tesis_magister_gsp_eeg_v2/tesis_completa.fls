@@ -396,7 +396,6 @@ INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
@@ -553,11 +552,17 @@ INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tf
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
 INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT ./figures/ch4_traceability_pipeline.pdf
 INPUT ./figures/ch4_traceability_pipeline.pdf
 INPUT ./figures/ch4_traceability_pipeline.pdf
@@ -566,8 +571,6 @@ INPUT ./figures/ch5_experimental_design_matrix.pdf
 INPUT ./figures/ch5_experimental_design_matrix.pdf
 INPUT ./figures/ch5_experimental_design_matrix.pdf
 INPUT ./figures/ch5_experimental_design_matrix.pdf
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
 INPUT ./chapters/04_resultados.tex
 INPUT ./chapters/04_resultados.tex
 OUTPUT chapters/04_resultados.aux
@@ -688,10 +691,6 @@ OUTPUT appendices/C_reproducibilidad.aux
 INPUT ./appendices/C_reproducibilidad.tex
 INPUT ./appendices/C_reproducibilidad.tex
 INPUT appendices/C_reproducibilidad.tex
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT ./appendices/D_inventario_artefactos.tex
 INPUT ./appendices/D_inventario_artefactos.tex
 OUTPUT appendices/D_inventario_artefactos.aux
@@ -762,7 +761,7 @@ INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi5.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb

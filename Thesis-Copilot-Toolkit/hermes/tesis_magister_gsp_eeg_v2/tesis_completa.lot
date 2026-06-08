@@ -1,28 +1,28 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Familias de métodos: principio matemático, fortalezas y limitaciones.}}{19}{table.caption.10}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Familias de métodos: principio matemático, fortalezas y limitaciones.}}{21}{table.caption.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres conjuntos de datos experimentales.}}{21}{table.caption.12}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Métodos de interpolación por familia.}}{22}{table.caption.13}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Estrategias de construcción de grafos utilizadas por los métodos GSP.}}{22}{table.caption.14}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Métricas de evaluación ($\uparrow $ mayor es mejor, $\downarrow $ menor es mejor). Las seis primeras son primarias; las restantes son auxiliares para la fase confirmatoria.}}{22}{table.caption.15}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Espacios de búsqueda de hiperparámetros.}}{23}{table.caption.16}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Artefactos generados por el sistema experimental.}}{25}{table.caption.19}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces Ejemplos de trazabilidad entre afirmaciones y artefactos.}}{26}{table.caption.20}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces Relación entre hipótesis, experimentos y evidencia esperada.}}{27}{table.caption.22}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Características de los tres conjuntos de datos experimentales.}}{23}{table.caption.12}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Estrategias de construcción de grafos utilizadas por los métodos GSP.}}{24}{table.caption.13}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Métodos de interpolación por familia.}}{25}{table.caption.14}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Métricas de evaluación ($\uparrow $ mayor es mejor, $\downarrow $ menor es mejor). Las seis primeras son primarias; las restantes son auxiliares para la fase confirmatoria.}}{25}{table.caption.15}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Espacios de búsqueda de hiperparámetros. Todas las familias comparten el mismo motor de optimización; la estrategia (TPE, NSGA-II o grilla) se indica en la última columna.}}{27}{table.caption.16}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Artefactos generados por el sistema experimental.}}{30}{table.caption.19}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Ejemplos de trazabilidad entre afirmaciones y artefactos.}}{30}{table.caption.20}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Relación entre hipótesis, experimentos y evidencia esperada.}}{31}{table.caption.22}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Relación entre fases experimentales y evidencia usada en los capítulos prácticos.}}{33}{table.caption.23}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen global del benchmark confirmatorio balanceado contra MNE-Python. Las métricas de error se calculan solo sobre canales artificialmente ocultos. El oráculo usa verdad de terreno para seleccionar hiperparámetros y se reporta únicamente como cota superior no desplegable.}}{34}{table.caption.24}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Comparación robusta TRSS--MNE}}{35}{table.caption.26}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Portafolio completo de métricas confirmatorias para TRSS fijo frente a MNE. La mejora mediana positiva favorece a TRSS después de ajustar la dirección de cada métrica; valores negativos favorecen a MNE.}}{36}{table.caption.27}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Estratificación por conjunto de datos para TRSS fijo frente a MNE en MAE. La ventaja no es homogénea: TRSS mejora en datos reales y en el régimen sintético rugoso, pero pierde cuando la señal sintética satisface fuertemente el supuesto de suavidad espacial.}}{38}{table.caption.31}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Escenarios representativos para TRSS fijo frente a MNE en MAE. La mejora aumenta en pérdidas agrupadas o periféricas de alta severidad, mientras que escenarios de pocos canales cercanos pueden producir empate práctico.}}{39}{table.caption.33}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Complejidad computacional e implementación observada. $N$ es el número de canales, $T$ el número de muestras temporales, $E$ el número de aristas del grafo y $K$ el número de iteraciones del resolvedor.}}{44}{table.caption.38}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Relación entre fases experimentales y evidencia usada en los capítulos prácticos.}}{35}{table.caption.23}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen global del benchmark confirmatorio balanceado contra MNE-Python. Las métricas de error se calculan solo sobre canales artificialmente ocultos. El oráculo usa verdad de terreno para seleccionar hiperparámetros y se reporta únicamente como cota superior no desplegable.}}{36}{table.caption.24}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Comparación robusta TRSS--MNE}}{37}{table.caption.26}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Portafolio completo de métricas confirmatorias para TRSS fijo frente a MNE. La mejora mediana positiva favorece a TRSS después de ajustar la dirección de cada métrica; valores negativos favorecen a MNE.}}{38}{table.caption.27}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Estratificación por conjunto de datos para TRSS fijo frente a MNE en MAE. La ventaja no es homogénea: TRSS mejora en datos reales y en el régimen sintético rugoso, pero pierde cuando la señal sintética satisface fuertemente el supuesto de suavidad espacial.}}{40}{table.caption.31}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Escenarios representativos para TRSS fijo frente a MNE en MAE. La mejora aumenta en pérdidas agrupadas o periféricas de alta severidad, mientras que escenarios de pocos canales cercanos pueden producir empate práctico.}}{41}{table.caption.33}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Complejidad computacional e implementación observada. $N$ es el número de canales, $T$ el número de muestras temporales, $E$ el número de aristas del grafo y $K$ el número de iteraciones del resolvedor.}}{46}{table.caption.38}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Guía práctica de selección entre MNE y TRSS a partir de los resultados experimentales.}}{49}{table.caption.40}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Guía práctica de selección entre MNE y TRSS a partir de los resultados experimentales.}}{51}{table.caption.40}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Matriz de cumplimiento de objetivos e hipótesis.}}{54}{table.caption.42}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Matriz de cumplimiento de objetivos e hipótesis.}}{56}{table.caption.42}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

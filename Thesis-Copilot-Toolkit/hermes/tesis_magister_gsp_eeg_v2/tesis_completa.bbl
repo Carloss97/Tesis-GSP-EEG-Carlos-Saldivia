@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -143,12 +143,6 @@ D.~I. Shuman, S.~K. Narang, P.~Frossard, A.~Ortega, and P.~Vandergheynst.
 \newblock The emerging field of signal processing on graphs.
 \newblock \emph{IEEE Signal Processing Magazine}, 30\penalty0 (3):\penalty0 83--98, 2013.
 \newblock \doi{10.1109/MSP.2012.2235192}.
-
-\bibitem[Sporns et~al.(2005)Sporns, Tononi, and K{\"o}tter]{sporns2005human}
-Olaf Sporns, Giulio Tononi, and Rolf K{\"o}tter.
-\newblock The human connectome: A structural description of the human brain.
-\newblock \emph{PLoS Computational Biology}, 1\penalty0 (4):\penalty0 e42, 2005.
-\newblock \doi{10.1371/journal.pcbi.0010042}.
 
 \bibitem[Yoon et~al.(2019)Yoon, Jarrett, and van~der Schaar]{yoon2019time}
 Jinsung Yoon, Daniel Jarrett, and Mihaela van~der Schaar.

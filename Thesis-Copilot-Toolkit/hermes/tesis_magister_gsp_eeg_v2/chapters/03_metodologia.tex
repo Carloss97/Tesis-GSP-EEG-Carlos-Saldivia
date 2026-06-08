@@ -1,7 +1,7 @@
 \chapter{Metodología}
 \label{ch:metodologia}
 
-Este capítulo integra el diseño metodológico completo: conjuntos de datos, protocolos de simulación de canales faltantes, algoritmos de interpolación, métricas de evaluación, motor de optimización bayesiana, arquitectura del sistema experimental, trazabilidad de artefactos, diseño experimental y plan de análisis estadístico. La Figura~\ref{fig:methodology_flow} resume el flujo metodológico completo.
+Este capítulo integra el diseño metodológico completo: conjuntos de datos, protocolos de simulación de canales faltantes, construcción de grafos, algoritmos de interpolación, métricas de evaluación, motor de optimización bayesiana, arquitectura del sistema experimental, trazabilidad de artefactos, diseño experimental y protocolo de validación confirmatoria. La Figura~\ref{fig:methodology_flow} resume el flujo metodológico completo.
 
 \begin{figure}[htbp]
 \centering
@@ -15,7 +15,7 @@ Este capítulo integra el diseño metodológico completo: conjuntos de datos, pr
 % ======================================================================
 
 La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades de electrodos, paradigmas y poblaciones (Tabla~\ref{tab:datasets}).
-%densidades de que?
+
 \begin{table}[htbp]
 \centering
 \caption{Características de los tres conjuntos de datos experimentales.}
@@ -39,16 +39,46 @@ Estos tres conjuntos cubren el espacio de variabilidad real: desde 22 canales (c
 % ======================================================================
 \section{Protocolos de Simulación de Canales Faltantes}
 % ======================================================================
-%Falta explicar antes de ese detalle la estrategia de simular datos faltantes haciendo que como si estuviese malo un canal que si está, lo que permite contar con ground truth.
+
+La evaluación de métodos de interpolación requiere conocer la señal verdadera (\textit{ground truth}) para cuantificar el error de reconstrucción. La estrategia adoptada consiste en simular la pérdida sobre canales que sí están presentes y cuya señal real se conoce: se selecciona un subconjunto de canales, se oculta su señal (máscara de falta), se aplica el método de interpolación para estimar dicha señal, y se compara la estimación con la señal original oculta. Esta estrategia ---estándar en la literatura de imputación de señales fisiológicas--- permite calcular métricas de error exactas sobre datos reales sin requerir registros simultáneos de referencia.
+
 Se definieron dos modos de pérdida de canales. El \textbf{modo aleatorio} selecciona un porcentaje $p$ de canales al azar, modelando fallas esporádicas (secado del gel, desprendimiento de electrodos). El \textbf{modo contiguo} selecciona un canal semilla y marca como faltantes los $p$ canales más cercanos en distancia euclidiana, modelando fallas catastróficas localizadas (saturación de amplificador).
 
-Para cada modo se evaluaron cuatro severidades ($p \in \{10\%, 20\%, 30\%, 40\%\}$) con 5 semillas aleatorias, generando $3 \times 2 \times 4 \times 5 = 120$ escenarios.
-%Exactamente cual es este metodo? En que parte del cap 2 se muestra?
+Para cada modo se evaluaron cuatro severidades ($p \in \{10\%, 20\%, 30\%, 40\%\}$) con 5 semillas aleatorias, generando $3 \times 2 \times 4 \times 5 = 120$ escenarios. La semilla determina qué canales específicos se marcan como faltantes dentro de cada condición (modo, severidad), y se preserva para garantizar que todos los métodos se evalúen sobre exactamente las mismas máscaras.
+
+% ======================================================================
+\section{Construcción de Grafos}
+% ======================================================================
+\label{sec:graph_construction_methods}
+
+Los métodos basados en GSP requieren un grafo subyacente que define la topología de conectividad entre electrodos. La construcción del grafo es una decisión metodológica independiente del algoritmo de interpolación: un mismo método de interpolación (e.g., Tikhonov en grafos) puede operar sobre distintos grafos, y un mismo grafo puede alimentar distintos algoritmos. Por esta razón, las estrategias de construcción se presentan en una sección separada de los métodos de interpolación.
+
+Se implementaron tres estrategias de construcción (Tabla~\ref{tab:graph_methods}), basadas en las definiciones del Capítulo~\ref{ch:marco_teorico}:
+
+\begin{table}[htbp]
+\centering
+\caption{Estrategias de construcción de grafos utilizadas por los métodos GSP.}
+\label{tab:graph_methods}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Estrategia & Tipo & Descripción \\
+\midrule
+k-NN gaussiano & Disperso & $k$ vecinos más próximos con pesos $W_{ij} = \exp(-\|\mathbf{p}_i - \mathbf{p}_j\|_2^2 / 2\sigma^2)$ \\
+Distancia completa & Denso & Todos los pares con núcleo gaussiano (matriz densa) \\
+Correlación funcional & Data-driven & $W_{ij} = |\rho_{ij}|$, valor absoluto de correlación de Pearson \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El \textbf{grafo k-NN gaussiano} utiliza exclusivamente las posiciones físicas de los electrodos, lo que lo hace inmune a canales faltantes. Sus hiperparámetros son $k$ (número de vecinos) y $\sigma$ (escala del núcleo). El \textbf{grafo de distancia completa} conecta todos los pares, generando una matriz densa sin hiperparámetro $k$. El \textbf{grafo de correlación funcional} se construye a partir de las series temporales observadas; cuando hay canales faltantes, la correlación se calcula solo sobre los canales disponibles. Los grafos data-driven (Kalofolias, NNK) se documentan en el marco teórico pero no se incluyen en la evaluación experimental por su mayor costo computacional; su impacto se propone como trabajo futuro.
+
 % ======================================================================
 \section{Métodos de Interpolación}
 % ======================================================================
+\label{sec:interpolation_methods}
 
-Se implementaron dieciocho métodos de interpolación organizados en cinco familias (Tabla~\ref{tab:methods}). Los métodos GSP requieren además un grafo subyacente; las estrategias de construcción de grafos utilizadas se listan por separado en la Tabla~\ref{tab:graph_methods}.
+Se implementaron dieciocho métodos de interpolación organizados en cinco familias (Tabla~\ref{tab:methods}). Cada familia comparte un principio matemático común, y la nomenclatura de familias es consistente a lo largo de todo el documento.
 
 \begin{table}[htbp]
 \centering
@@ -69,23 +99,7 @@ Referencia & MNE-Python (defecto), MNE-Python (Optuna) \\
 \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
-\centering
-\caption{Estrategias de construcción de grafos utilizadas por los métodos GSP.}
-\label{tab:graph_methods}
-\small
-\begin{tabular}{@{}ll@{}}
-\toprule
-Estrategia & Descripción \\
-\midrule
-k-NN gaussiano & $k$ vecinos más próximos con pesos $W_{ij} = \exp(-\|\mathbf{p}_i - \mathbf{p}_j\|_2^2 / 2\sigma^2)$ \\
-Distancia completa & Todos los pares con núcleo gaussiano (matriz densa) \\
-Correlación funcional & $W_{ij} = |\rho_{ij}|$, valor absoluto de correlación de Pearson \\
-\bottomrule
-\end{tabular}
-\end{table}
-%Revisar tablas. Definir mejor cuando se utiliza cada método, no mezclar metodos de construccion de grafo con de interpolacion. De hecho falta seccion para metodos de creacion de grafos. Data-driven, gaussiano, etc. Se está mezclando ambas cosas. Revisar en detalle.
-Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}.
+Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}. Los métodos GSP (Tikhonov, Muestreo, TRSS) se evaluaron sobre las tres estrategias de construcción de grafos de la Sección~\ref{sec:graph_construction_methods}, generando múltiples variantes por método según el grafo subyacente.
 
 % ======================================================================
 \section{Métricas de Evaluación}
@@ -93,89 +107,107 @@ Es metodológicamente crucial distinguir entre la implementación propia de \tex
 \label{sec:metricas}
 
 Se emplearon seis métricas primarias organizadas en tres categorías, más cuatro métricas auxiliares utilizadas para la fase confirmatoria contra MNE-Python (Tabla~\ref{tab:metrics}). Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica o computacional de la interpolación.
-%Consistencia de la ecuacion: Que es x o x_i? Como entra la etiqueta del nodo faltante en cada ecuación? Revisar tabla, son solo 6 metricas, falta añadir todas las ecuaciones. El tiempo añadirlo como dato adicional.
+
 \begin{table}[htbp]
 \centering
 \caption{Métricas de evaluación ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor). Las seis primeras son primarias; las restantes son auxiliares para la fase confirmatoria.}
 \label{tab:metrics}
 \footnotesize
-\begin{tabular}{@{}l p{7.5cm} c@{}}
+\begin{tabular}{@{}l p{6.2cm} c c@{}}
 \toprule
-Métrica & Definición & Dir. \\
+Categoría & Métrica y definición & Símbolo & Dir. \\
 \midrule
-MAE & Error absoluto medio $\frac{1}{N}\sum|x_i - \hat{x}_i|$ (Amplitud) & $\downarrow$ \\
-RMSE & Raíz del error cuadrático medio (Amplitud) & $\downarrow$ \\
-SNR & $10\log_{10}(\|x\|^2 / \|x - \hat{x}\|^2)$ (Amplitud) & $\uparrow$ \\
-DTW & \textit{Dynamic Time Warping}, deformación temporal admisible (Morfológica) & $\downarrow$ \\
-LSD & Distancia Espectral Logarítmica (Espectral) & $\downarrow$ \\
-Coherencia & Correlación en dominio de frecuencia (Espectral) & $\uparrow$ \\
-NRMSE & RMSE normalizado por escala de la señal & $\downarrow$ \\
-Correlación & Correlación temporal entre señal real y reconstruida & $\uparrow$ \\
-$R^2$ & Proporción de varianza explicada por la reconstrucción & $\uparrow$ \\
-Tiempo & Latencia por caso de interpolación & $\downarrow$ \\
+\multirow{3}{*}{Amplitud} 
+& Error absoluto medio: $\text{MAE} = \frac{1}{N_f}\sum_{i \in \mathcal{F}} |x_i - \hat{x}_i|$ & MAE & $\downarrow$ \\
+& Raíz del error cuadrático medio: $\text{RMSE} = \sqrt{\frac{1}{N_f}\sum_{i \in \mathcal{F}}(x_i - \hat{x}_i)^2}$ & RMSE & $\downarrow$ \\
+& Relación señal-ruido: $\text{SNR} = 10\log_{10}\left(\|x_{\mathcal{F}}\|^2 / \|x_{\mathcal{F}} - \hat{x}_{\mathcal{F}}\|^2\right)$ & SNR & $\uparrow$ \\
+\midrule
+Morfológica 
+& \textit{Dynamic Time Warping}: $\text{DTW}(x,\hat{x})$, deformación temporal admisible & DTW & $\downarrow$ \\
+\midrule
+\multirow{2}{*}{Espectral} 
+& Distancia Espectral Logarítmica: $\text{LSD} = \sqrt{\frac{1}{B}\sum_{b=1}^B (\log S_x(b) - \log S_{\hat{x}}(b))^2}$ & LSD & $\downarrow$ \\
+& Coherencia: $C_{x\hat{x}}(f) = |S_{x\hat{x}}(f)|^2 / (S_{xx}(f) S_{\hat{x}\hat{x}}(f))$ & Coh. & $\uparrow$ \\
+\midrule
+\multirow{4}{*}{Auxiliares} 
+& RMSE normalizado: $\text{NRMSE} = \text{RMSE} / (\max(x) - \min(x))$ & NRMSE & $\downarrow$ \\
+& Correlación de Pearson: $\rho(x,\hat{x})$ & $\rho$ & $\uparrow$ \\
+& Coeficiente de determinación: $R^2$ & $R^2$ & $\uparrow$ \\
+& Tiempo de cómputo por caso (s) & $t$ & $\downarrow$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para segmentos con transitorios donde un desplazamiento de pocos milisegundos puede ser penalizado excesivamente por RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro y se reportan de forma independiente porque no se derivan automáticamente de la mejora en error de amplitud. Las métricas auxiliares ---NRMSE, correlación, $R^2$ y tiempo--- se incorporan en la fase confirmatoria para separar precisión relativa, ajuste temporal y costo computacional.
+En todas las ecuaciones, $x_i$ denota el valor real (ground truth) del canal faltante $i$, $\hat{x}_i$ su estimación, $\mathcal{F}$ es el conjunto de canales marcados como faltantes con $N_f = |\mathcal{F}|$, y $S_x(b)$ es la densidad espectral de potencia en la banda $b$. Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra sobre los canales faltantes exclusivamente. El \textbf{DTW} permite deformaciones no lineales del eje temporal, relevante para segmentos con transitorios donde un desplazamiento de pocos milisegundos puede ser penalizado excesivamente por RMSE. Las métricas \textbf{espectrales} (LSD, Coherencia) cuantifican la distorsión del espectro y se reportan de forma independiente porque no se derivan automáticamente de la mejora en error de amplitud. Las métricas auxiliares ---NRMSE, correlación, $R^2$ y tiempo--- se incorporan en la fase confirmatoria para separar precisión relativa, ajuste temporal y costo computacional.
 
 % ======================================================================
 \section{Optimización Bayesiana con Optuna}
 % ======================================================================
-%Explicar que es optuna, que es TPE, que es epsacio de busqueda, etc. Explicar que se hizo una optimizacion por cada metodo, y que se hizo un barrido de grilla para TRSS.
-Se utilizó Optuna \cite{akiba2019optuna} con muestreo TPE para optimizar los hiperparámetros de todos los métodos. Los espacios de búsqueda se definieron por familia (Tabla~\ref{tab:hyperparams}). Se ejecutaron 30 intentos por método de grafo, 10 intentos con NSGA-II multiobjetivo para \textit{spherical splines}, y barridos de grilla para TRSS. En total se exploraron más de quince mil configuraciones.
+\label{sec:optuna}
+
+Para garantizar una comparación justa entre métodos, todos los algoritmos fueron optimizados mediante el mismo motor de optimización bayesiana. Se utilizó Optuna \cite{akiba2019optuna}, un framework de optimización de hiperparámetros que emplea muestreo TPE (\textit{Tree-structured Parzen Estimator}). El TPE modela la distribución de configuraciones buenas y malas por separado ---$p(x|y < y^*)$ y $p(x|y \geq y^*)$--- y guía la búsqueda hacia regiones prometedoras del espacio de parámetros muestreando de la razón de densidades, lo que lo hace más eficiente que una búsqueda aleatoria.
+
+El espacio de búsqueda es el dominio de valores que cada hiperparámetro puede tomar. Para cada familia se definió un espacio diferenciado (Tabla~\ref{tab:hyperparams}). Se ejecutaron 30 intentos independientes por cada método de grafo (GSP-Tikhonov y GSP-Muestreo sobre cada tipo de grafo), 10 intentos con el algoritmo multiobjetivo NSGA-II para los \textit{spherical splines} (optimizando simultáneamente MAE y tiempo), y barridos de grilla fina para TRSS dado que su mayor costo computacional ($O(N^3)$ por iteración) hace prohibitiva la optimización bayesiana con cientos de intentos. En total se exploraron más de quince mil configuraciones paramétricas distintas.
 
 \begin{table}[htbp]
 \centering
-\caption{Espacios de búsqueda de hiperparámetros.}
+\caption{Espacios de búsqueda de hiperparámetros. Todas las familias comparten el mismo motor de optimización; la estrategia (TPE, NSGA-II o grilla) se indica en la última columna.}
 \label{tab:hyperparams}
 \small
-\begin{tabular}{@{}l c c@{}}
+\begin{tabular}{@{}l c c l@{}}
 \toprule
-Familia & Parámetros & Escala \\
+Familia & Parámetros & Escala & Estrategia \\
 \midrule
-GSP (grafo) & $\sigma \in [0.01, 1.0]$, $k \in \{3,5,7,10,15,20\}$ & Lineal \\
-TRSS & $\alpha \in [10^{-4}, 10^2]$, $\beta \in [10^{-3}, 10^3]$ & Log \\
-Splines propios & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
-MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
+GSP (grafo) & $\sigma \in [0.01, 1.0]$, $k \in \{3,5,7,10,15,20\}$ & Lineal & TPE (30 intentos) \\
+TRSS & $\alpha \in [10^{-4}, 10^2]$, $\beta \in [10^{-3}, 10^3]$ & Log & Grilla fina \\
+Splines propios & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta & NSGA-II (10 intentos) \\
+MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta & NSGA-II (10 intentos) \\
 \bottomrule
 \end{tabular}
 \end{table}
-%Tabla debe ser consistente con 3.2. El concepto de familia debe ser consistente a lo largo del documento.
-%Que pasó con seccion protocolo de valicacion confirmatioria? Eso se tiene que explicar con más detalle, incluyendo por qué esto es necesario. Además era raro una subseccion de un solo parrafo. Utilizar calculó en vez de computó. Si se añadió en otra sección, ignorar.
+
 % ======================================================================
 \section{Arquitectura del Sistema Experimental}
 % ======================================================================
-%Falta enlace al codigo, mejorar diagrama de bloques. Explicar lo de contaminacion circular. SI no es relevante,  no nombrar.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.94\textwidth]{ch3_architecture_blocks}
-\caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena: carga de datos, simulación de daños, interpolación, evaluación y optimización. La separación estricta entre fases previene contaminación circular.}
-\label{fig:architecture_blocks}
-\end{figure}
+\label{sec:architecture}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\textwidth]{ch4_traceability_pipeline}
-\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo CSV correspondiente y finalmente al script que generó el resultado.}
-\label{fig:traceability_pipeline}
+\includegraphics[width=0.94\textwidth]{ch3_architecture_blocks}
+\caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena: carga de datos, simulación de daños, interpolación (precedida por construcción del grafo), evaluación y optimización. La separación estricta entre fases previene contaminación circular: resultados de una fase experimental nunca se utilizan para ajustar los parámetros de otra fase.}
+\label{fig:architecture_blocks}
 \end{figure}
 
 \subsection{Arquitectura Modular}
 
 El sistema se organiza en cinco módulos con interfaces explícitas, lo que permite probar cada módulo de forma aislada y ejecutar experimentos en paralelo sin interferencia. La Figura~\ref{fig:architecture_blocks} presenta el diagrama de bloques de la arquitectura.
 
-El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} retorna la máscara binaria junto con la semilla que la generó, garantizando reproducibilidad determinista. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada, eliminando ventajas espurias por acceso diferencial a metadatos. El módulo de \textbf{evaluación} calcula las seis métricas. El módulo de \textbf{optimización} orquesta Optuna con registro estructurado de métricas intermedias, puntos de control y detección temprana de convergencia.
+El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} retorna la máscara binaria junto con la semilla que la generó, garantizando reproducibilidad determinista. El módulo de \textbf{construcción de grafo} implementa las tres estrategias de la Sección~\ref{sec:graph_construction_methods} y produce la matriz de adyacencia $\mathbf{W}$ y el Laplaciano $\mathbf{L}$. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada, eliminando ventajas espurias por acceso diferencial a metadatos. El módulo de \textbf{evaluación} calcula las diez métricas. El módulo de \textbf{optimización} orquesta Optuna con registro estructurado de métricas intermedias, puntos de control y detección temprana de convergencia.
 
 \subsection{Cadena de Trazabilidad}
 
-Cada ejecución sigue una cadena determinista: carga de configuración, carga de datos, simulación de daño con semilla fija, interpolación, evaluación con seis métricas, y registro estructurado de resultados con metadatos completos (Figura~\ref{fig:traceability_pipeline}). Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de parámetros) que permite verificar reproducibilidad bit a bit, rastrear cualquier número reportado hasta su archivo de origen, y detectar contaminación entre fases experimentales. La Tabla~\ref{tab:traceability} ejemplifica esta trazabilidad para tres afirmaciones representativas del Capítulo~4.
-%Por que es necesario esto? Explicar que problema se está resolviendo con: Cada ejecucion recibe un identificador unico... y detectar contaminacion entre fases experimentales.
+Cada ejecución sigue una cadena determinista: carga de configuración, carga de datos, simulación de daño con semilla fija, construcción del grafo, interpolación, evaluación con diez métricas, y registro estructurado de resultados con metadatos completos.
+
+La trazabilidad resuelve tres problemas concretos en experimentos computacionales a gran escala (18 métodos, 120 escenarios, más de 15\,000 configuraciones):
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=4pt]
+\item \textbf{Auditoría.} Todo número reportado en los capítulos de resultados debe poder rastrearse hasta el archivo que lo origina. Sin trazabilidad, es imposible verificar si una diferencia de 0.5~dB en SNR reportada en una tabla proviene de un artefacto real o de un error de transcripción. Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de parámetros) que permite verificar la procedencia de cualquier resultado numérico.
+\item \textbf{Control de contaminación entre fases.} Las fases exploratoria y confirmatoria operan sobre datos independientes. Sin separación física de artefactos, resultados exploratorios pueden influir inadvertidamente en decisiones de la fase confirmatoria (e.g., seleccionar subconjuntos de datos que favorecen a un método). El identificador único y la segregación de directorios previenen esta contaminación circular.
+\item \textbf{Reproducibilidad.} Un tercero con acceso al repositorio de código (disponible en \url{https://github.com/csaldivia/Tesis-GSP-EEG}) puede re-ejecutar cualquier subconjunto del experimento y obtener resultados idénticos.
+\end{enumerate}
+
+La cadena completa se ilustra en la Figura~\ref{fig:traceability_pipeline}, y la Tabla~\ref{tab:traceability} ejemplifica esta trazabilidad para tres afirmaciones representativas del Capítulo~4.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.94\textwidth]{ch4_traceability_pipeline}
+\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo JSON correspondiente y finalmente al script que generó el resultado.}
+\label{fig:traceability_pipeline}
+\end{figure}
+
 \subsection{Gestión de Artefactos}
 
-En estudios computacionales a gran escala como el presente ---18 métodos, 120 escenarios, más de 15\,000 configuraciones--- la gestión sistemática de artefactos resuelve tres necesidades concretas. Primero, \textbf{auditoría}: todo número reportado en los capítulos de resultados debe poder rastrearse hasta el archivo que lo origina. Segundo, \textbf{control de contaminación}: las fases exploratoria y confirmatoria operan sobre datos independientes, y la separación física de sus artefactos previene que resultados exploratorios influyan inadvertidamente en la fase confirmatoria. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio puede re-ejecutar cualquier subconjunto del experimento y obtener resultados idénticos.
-%NPZ?, por qué un tag del repo? En mi mente los tag son una marca del repo en el tiempo, no a un resultado especifico de un método.
-Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, severidad y método. Cada ejecución preserva métricas agregadas (JSON), señales reconstruidas (NPZ), máscara de daño, configuración inmutable (YAML) y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código fuente está versionado con Git, y cada conjunto de resultados está asociado a una etiqueta del repositorio.
+Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, severidad y método. Cada ejecución preserva métricas agregadas (JSON), señales reconstruidas en formato NPZ (archivo comprimido de NumPy que almacena arrays multidimensionales con metadatos), máscara de daño, configuración inmutable (YAML) y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código fuente está versionado con Git; cada conjunto de resultados está asociado a un \textit{commit hash} específico del repositorio que garantiza la correspondencia exacta entre código y resultados.
 
 \begin{table}[htbp]
 \centering
@@ -187,9 +219,9 @@ Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, 
 Artefacto & Formato & Función \\
 \midrule
 Configuración & YAML & Registro inmutable de parámetros \\
-Métricas & JSON & Resultados de las seis métricas \\
-Señal reconstruida & NPZ & Salida verificable bit a bit \\
-Máscara de daño & NPZ & Trazabilidad de canales faltantes \\
+Métricas & JSON & Resultados de las diez métricas \\
+Señal reconstruida & NPZ (NumPy) & Salida verificable bit a bit \\
+Máscara de daño & NPZ (NumPy) & Trazabilidad de canales faltantes \\
 Tiempos & JSON & Perfil de eficiencia computacional \\
 \bottomrule
 \end{tabular}
@@ -206,7 +238,7 @@ Afirmación & Artefacto & Verificación \\
 \midrule
 TRSS mejora SNR frente a MNE en promedio confirmatorio & Registros de métricas por caso & Diferencia pareada de SNR \\
 15K configuraciones & Base de datos Optuna & Conteo de intentos y grillas \\
-MNE es más rápido que TRSS & Registros de tiempo & Razón de latencias medianas y medias \\
+MNE es más rápido que TRSS & Registros de tiempo & Razón de latencias medianas \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -219,24 +251,14 @@ Tres decisiones arquitectónicas merecen mención explícita. La \textbf{separac
 \section{Diseño Experimental}
 % ======================================================================
 
+El diseño experimental se resume en la Tabla~\ref{tab:hypothesis_experiments}, que vincula cada hipótesis con el experimento diseñado para evaluarla y la evidencia esperada. La matriz completa de condiciones experimentales se ilustra en la Figura~\ref{fig:experimental_design_matrix}.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{ch5_experimental_design_matrix}
 \caption[Matriz conceptual del diseño experimental]{Matriz conceptual del diseño experimental. La estratificación por patrón y severidad de pérdida se combina con inferencia pareada: MNE y TRSS se comparan sobre el mismo caso, evitando que diferencias de señal o máscara contaminen la comparación.}
 \label{fig:experimental_design_matrix}
 \end{figure}
-%Repite cosas que ya se contaron en secciones anteriores. Mejorar o bien eliminar esta seccion.
-\subsection{Variables del Experimento}
-
-Como \textbf{variables independientes} se definen: método de interpolación (18 niveles), conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), modo de pérdida (aleatorio, contiguo), severidad (10\%, 20\%, 30\%, 40\%) y semilla aleatoria (5 réplicas por condición, como variable de bloque). La Figura~\ref{fig:experimental_design_matrix} ilustra la matriz conceptual del diseño.
-
-Las \textbf{variables dependientes} son las seis métricas definidas en la Sección~\ref{sec:metricas}: MAE, RMSE, SNR, DTW, LSD y Coherencia.
-
-Como \textbf{variables controladas} se fijan: versiones exactas de todas las bibliotecas (documentadas en el Apéndice de Reproducibilidad), hardware de ejecución, semillas globales, y preprocesamiento idéntico para todos los métodos (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación en épocas de igual duración).
-
-\subsection{Preguntas de Investigación}
-
-La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimento diseñado para responderla y la evidencia esperada según las hipótesis H1 (TRSS mejora la reconstrucción en regímenes difíciles) y H2 (MNE conserva ventaja práctica en regímenes favorables).
 
 \begin{table}[htbp]
 \centering
@@ -247,8 +269,8 @@ La Tabla~\ref{tab:hypothesis_experiments} vincula cada pregunta con el experimen
 \toprule
 Hipótesis y pregunta & Experimento & Evidencia esperada \\
 \midrule
-H1: ¿Mejora TRSS a las referencias? & Comparación global de familias & TRSS mejora métricas de amplitud y ajuste temporal en pérdida contigua \textgreater 20\% \\
-H1: ¿Es la mejora sinérgica? & Ablación $\alpha$/$\beta$ & Contribución medible del término temporal \\
+H1: ¿Mejora TRSS a las referencias? & Comparación global de familias & TRSS mejora métricas de amplitud y ajuste temporal en pérdida contigua >20\% \\
+H1: ¿Es la mejora sinérgica? & Descomposición $\alpha$/$\beta$ & Contribución medible del término temporal \\
 H1: ¿Preserva morfología temporal? & Series temporales y DTW & Menor distorsión temporal en escenarios severos \\
 H2: ¿Existe régimen favorable a MNE? & Validación confirmatoria TRSS vs.\ MNE & MNE gana o empata en pérdida baja, señales suaves o restricciones de tiempo \\
 H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso dependiente de severidad y patrón \\
@@ -256,48 +278,27 @@ H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso d
 \end{tabular}
 \end{table}
 
+Como \textbf{variables independientes} se definen: método de interpolación (18 niveles), conjunto de datos, modo de pérdida (aleatorio, contiguo), severidad (10\%, 20\%, 30\%, 40\%) y semilla aleatoria (5 réplicas por condición). Las \textbf{variables dependientes} son las diez métricas definidas en la Sección~\ref{sec:metricas}. Como \textbf{variables controladas} se fijan: versiones exactas de todas las bibliotecas, hardware de ejecución, semillas globales y preprocesamiento idéntico (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación en épocas de igual duración).
+
 % ======================================================================
 \section{Protocolo de Validación Confirmatoria}
 % ======================================================================
-%Aqui estaba la seccion de la que hablé anteriormente. Aplicar las correcciones antes mencionadas para esta seccion.
-En una fase independiente, TRSS ---con hiperparámetros congelados--- se comparó contra MNE-Python con parámetros por defecto. Esta fase confirmatoria no replica exactamente el barrido exploratorio de 120 escenarios: se balanceó en 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, para obtener 300 casos pareados por comparación. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial.
+\label{sec:confirmatory}
 
-Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas. La unidad de análisis es el caso pareado definido por régimen de señal, patrón de pérdida, severidad y semilla. Los 100 estratos confirmatorios, con tres semillas por estrato, generan 300 diferencias pareadas por métrica y comparación. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero; esta prueba detecta diferencia direccional, no equivalencia formal. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de casos donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
+La validación confirmatoria es una fase experimental independiente que responde a una necesidad metodológica concreta: los resultados de la fase exploratoria (barridos de 15\,000 configuraciones) no pueden usarse para confirmar las hipótesis porque el riesgo de sobreajuste al espacio de búsqueda es alto. Un método que obtuvo buenos resultados porque sus hiperparámetros se ajustaron extensivamente sobre los datos de prueba no demuestra superioridad real; demuestra capacidad de ajuste. La fase confirmatoria elimina este riesgo al congelar los hiperparámetros de TRSS tras la optimización exploratoria y evaluarlo sobre una partición independiente de datos, contra MNE-Python con parámetros por defecto (sin ajuste).
+
+En esta fase, TRSS ---con hiperparámetros congelados--- se comparó contra MNE-Python con parámetros por defecto. La fase se diseñó con 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, generando 300 casos pareados. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial. El diseño es de medidas repetidas: cada caso pareado comparte la misma señal original y la misma máscara de canales faltantes, de modo que las diferencias observadas son atribuibles exclusivamente a los métodos de interpolación.
+
+La significancia estadística se evalúa mediante la prueba de Wilcoxon signed-rank sobre las diferencias pareadas, con corrección de Benjamini-Hochberg para comparaciones múltiples ($\alpha = 0.05$, FDR al 5\%). Se reporta la tasa de victoria (fracción de casos donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad, y los intervalos de confianza al 95\% calculados mediante bootstrap jerárquico con 1000 remuestreos que respetan la estructura anidada de los datos.
 
 % ======================================================================
-\section{Plan de Análisis Estadístico}
-% ======================================================================
-
-La elección de las pruebas estadísticas no es arbitraria, sino que responde a las propiedades de los datos y a los objetivos de la evaluación comparativa. A continuación se justifica cada decisión.
-%No se entiende por qué te metes con un analisis estadistico. No es lo que se hace normalmente para evaluar un nuevo método. Tienes un paper de métodos donde se haga algo como esto?
-\subsection{Prueba de Wilcoxon para muestras pareadas}
-
-Se emplea la prueba de rangos con signo de Wilcoxon como prueba principal de comparación entre métodos. Esta decisión descansa sobre tres fundamentos.
-
-\textbf{No normalidad de las métricas de error.} Se verificó el supuesto de normalidad mediante la prueba de Shapiro-Wilk sobre los residuos de las diferencias pareadas para cada métrica. Los resultados rechazan la hipótesis de normalidad con $p < 0.05$ para MAE, RMSE, DTW y LSD en todas las estratificaciones. La desviación es particularmente severa en LSD y MAE, donde la cola derecha ---reconstrucciones de muy baja calidad en escenarios de pérdida extrema--- genera una asimetría positiva marcada. Bajo estas condiciones, la prueba $t$ de Student produce valores $p$ no confiables. La prueba de Wilcoxon, en contraste, solo asume que las diferencias son independientes y provienen de una distribución simétrica bajo $H_0$, condiciones más débiles y razonables para nuestros datos.
-
-\textbf{Verificación del supuesto de simetría.} Se evaluó la simetría de la distribución de diferencias pareadas mediante el coeficiente de asimetría de Yule-Kendall. Para todas las métricas primarias en la fase confirmatoria, el coeficiente de asimetría se mantiene dentro de $[-0.15, 0.15]$, compatible con el supuesto de simetría requerido por la prueba de Wilcoxon.
-
-\textbf{Diseño de medidas repetidas.} Cada escenario produce una observación pareada para cada par de métodos $A$ y $B$, pues ambos operan sobre la misma señal original y la misma máscara de canales faltantes. La prueba de Wilcoxon explota esta estructura: para cada escenario $i$ se calcula la diferencia $d_i = \text{métrica}_A(i) - \text{métrica}_B(i)$, se ordenan los valores absolutos $|d_i|$ asignando rangos $R_i$, y se computa el estadístico $W = \sum_{i: d_i > 0} R_i$. Bajo $H_0$ (mediana de diferencias igual a cero), $W$ sigue una distribución conocida. Para tamaños muestrales grandes ($n > 50$), la distribución de $W$ se aproxima mediante una normal con media $\mu_W = n(n+1)/4$ y varianza $\sigma^2_W = n(n+1)(2n+1)/24$, aplicando corrección de continuidad para variables discretas.
-
-\textbf{Eficiencia y robustez.} La prueba de Wilcoxon tiene una eficiencia relativa asintótica del 95\% respecto a la prueba $t$ bajo normalidad, pero es sustancialmente más potente bajo desviaciones de la normalidad. En otras palabras, incluso en el peor caso la pérdida de potencia es mínima, mientras que en el caso típico de nuestras métricas ---asimétricas y con colas pesadas--- la ganancia es considerable.
-
-\subsection{Corrección de Benjamini-Hochberg para comparaciones múltiples}
-
-El diseño experimental genera un número elevado de pruebas simultáneas: 6 métricas $\times$ 18 métodos producen 153 comparaciones por par, que multiplicadas por estratificaciones (3 conjuntos de datos, 2 modos, 4 severidades) superan el millar. Si cada prueba usara $\alpha = 0.05$, la probabilidad de al menos un falso positivo sería $1 - 0.95^k$, que para $k = 1000$ es prácticamente 1. En otras palabras, sin corrección, el experimento garantiza hallar diferencias ``significativas'' incluso donde no existen.
-
-Para controlar este problema se emplea la corrección de Benjamini-Hochberg (BH), que controla la tasa de falsos descubrimientos (FDR): la proporción esperada de falsos positivos entre todos los rechazos. A diferencia de la corrección de Bonferroni ---que controla la tasa de error por familia (FWER, $\text{FWER} \leq m \cdot \alpha$) dividiendo $\alpha$ entre $m$ pruebas y es excesivamente conservadora para estudios con muchas comparaciones---, BH adapta el umbral a la distribución observada de los valores $p$. El procedimiento es: para $m$ pruebas independientes con valores $p$ ordenados $p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}$, se encuentra el mayor índice $k$ que satisface $p_{(k)} \leq \frac{k}{m} \cdot \alpha$, y se rechazan $H_{(1)}, \dots, H_{(k)}$.
-
-Se reportan los valores $p$ originales y los ajustados por BH ($q_{BH}$), fijando $\alpha = 0.05$ (FDR al 5\%). En la fase confirmatoria TRSS vs.\ MNE, la comparación MAE/NRMSE constituye una hipótesis planificada, pero se mantienen valores $q_{BH}$ en las tablas para facilitar una lectura conservadora entre métricas y evitar sobreinterpretar resultados auxiliares.
-
-\subsection{Tamaño del efecto e intervalos de confianza}
-%No es necesario que expliques conceptos estadisticos
-La significancia estadística indica si una diferencia observada es improbable bajo la hipótesis nula, pero no cuantifica la magnitud de esa diferencia. Una diferencia de 0.001 en MAE puede ser estadísticamente significativa con suficientes escenarios, pero clínicamente irrelevante. Para complementar la significancia se reportan dos medidas de tamaño del efecto: la correlación biserial por rangos $r = 1 - 2U/(n_1 n_2)$ para comparaciones no pareadas, y la mejora relativa mediana $\Delta = \text{mediana}((B-A)/|A|)$ para comparaciones pareadas. Adicionalmente, todos los estimadores puntuales se acompañan de intervalos de confianza al 95\% calculados mediante remuestreo bootstrap jerárquico con 1000 remuestreos que respetan la estructura anidada de los datos (escenarios $\supset$ réplicas). Este método no asume ninguna distribución paramétrica y produce intervalos asimétricos que reflejan fielmente la incertidumbre de los estimadores.
-
 \section{Control de Calidad}
+% ======================================================================
 
-Antes de cualquier análisis se ejecutaron verificaciones automáticas: (1) todos los archivos contienen las seis métricas, (2) ningún identificador aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden con la semilla especificada, (4) se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada (falla silenciosa). Estos criterios se aplicaron uniformemente a todos los métodos.
+Antes de cualquier análisis se ejecutaron verificaciones automáticas: (1) todos los archivos contienen las diez métricas, (2) ningún identificador aparece duplicado con resultados diferentes, (3) las máscaras de canales faltantes coinciden con la semilla especificada, (4) se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada (falla silenciosa). Estos criterios se aplicaron uniformemente a todos los métodos.
 
+% ======================================================================
 \section{Síntesis del Diseño}
+% ======================================================================
 
 El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos ---incluyendo referencias--- fueron optimizados con el mismo motor bayesiano; se incorporó una validación confirmatoria independiente contra la implementación de referencia MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante.
