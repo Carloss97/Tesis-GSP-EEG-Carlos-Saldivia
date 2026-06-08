@@ -15,7 +15,7 @@ Este capítulo integra el diseño metodológico completo: conjuntos de datos, pr
 % ======================================================================
 
 La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un espectro diverso de densidades de electrodos, paradigmas y poblaciones (Tabla~\ref{tab:datasets}).
-
+%densidades de que?
 \begin{table}[htbp]
 \centering
 \caption{Características de los tres conjuntos de datos experimentales.}
@@ -39,11 +39,11 @@ Estos tres conjuntos cubren el espacio de variabilidad real: desde 22 canales (c
 % ======================================================================
 \section{Protocolos de Simulación de Canales Faltantes}
 % ======================================================================
-
+%Falta explicar antes de ese detalle la estrategia de simular datos faltantes haciendo que como si estuviese malo un canal que si está, lo que permite contar con ground truth.
 Se definieron dos modos de pérdida de canales. El \textbf{modo aleatorio} selecciona un porcentaje $p$ de canales al azar, modelando fallas esporádicas (secado del gel, desprendimiento de electrodos). El \textbf{modo contiguo} selecciona un canal semilla y marca como faltantes los $p$ canales más cercanos en distancia euclidiana, modelando fallas catastróficas localizadas (saturación de amplificador).
 
 Para cada modo se evaluaron cuatro severidades ($p \in \{10\%, 20\%, 30\%, 40\%\}$) con 5 semillas aleatorias, generando $3 \times 2 \times 4 \times 5 = 120$ escenarios.
-
+%Exactamente cual es este metodo? En que parte del cap 2 se muestra?
 % ======================================================================
 \section{Métodos de Interpolación}
 % ======================================================================
@@ -84,7 +84,7 @@ Correlación funcional & $W_{ij} = |\rho_{ij}|$, valor absoluto de correlación 
 \bottomrule
 \end{tabular}
 \end{table}
-
+%Revisar tablas. Definir mejor cuando se utiliza cada método, no mezclar metodos de construccion de grafo con de interpolacion. De hecho falta seccion para metodos de creacion de grafos. Data-driven, gaussiano, etc. Se está mezclando ambas cosas. Revisar en detalle.
 Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}.
 
 % ======================================================================
@@ -93,7 +93,7 @@ Es metodológicamente crucial distinguir entre la implementación propia de \tex
 \label{sec:metricas}
 
 Se emplearon seis métricas primarias organizadas en tres categorías, más cuatro métricas auxiliares utilizadas para la fase confirmatoria contra MNE-Python (Tabla~\ref{tab:metrics}). Ninguna métrica individual captura todos los aspectos relevantes para la utilidad clínica o computacional de la interpolación.
-
+%Consistencia de la ecuacion: Que es x o x_i? Como entra la etiqueta del nodo faltante en cada ecuación? Revisar tabla, son solo 6 metricas, falta añadir todas las ecuaciones. El tiempo añadirlo como dato adicional.
 \begin{table}[htbp]
 \centering
 \caption{Métricas de evaluación ($\uparrow$ mayor es mejor, $\downarrow$ menor es mejor). Las seis primeras son primarias; las restantes son auxiliares para la fase confirmatoria.}
@@ -122,7 +122,7 @@ Las métricas de \textbf{amplitud} cuantifican el error muestra a muestra. El \t
 % ======================================================================
 \section{Optimización Bayesiana con Optuna}
 % ======================================================================
-
+%Explicar que es optuna, que es TPE, que es epsacio de busqueda, etc. Explicar que se hizo una optimizacion por cada metodo, y que se hizo un barrido de grilla para TRSS.
 Se utilizó Optuna \cite{akiba2019optuna} con muestreo TPE para optimizar los hiperparámetros de todos los métodos. Los espacios de búsqueda se definieron por familia (Tabla~\ref{tab:hyperparams}). Se ejecutaron 30 intentos por método de grafo, 10 intentos con NSGA-II multiobjetivo para \textit{spherical splines}, y barridos de grilla para TRSS. En total se exploraron más de quince mil configuraciones.
 
 \begin{table}[htbp]
@@ -141,11 +141,12 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta \\
 \bottomrule
 \end{tabular}
 \end{table}
-
+%Tabla debe ser consistente con 3.2. El concepto de familia debe ser consistente a lo largo del documento.
+%Que pasó con seccion protocolo de valicacion confirmatioria? Eso se tiene que explicar con más detalle, incluyendo por qué esto es necesario. Además era raro una subseccion de un solo parrafo. Utilizar calculó en vez de computó. Si se añadió en otra sección, ignorar.
 % ======================================================================
 \section{Arquitectura del Sistema Experimental}
 % ======================================================================
-
+%Falta enlace al codigo, mejorar diagrama de bloques. Explicar lo de contaminacion circular. SI no es relevante,  no nombrar.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.94\textwidth]{ch3_architecture_blocks}
@@ -169,11 +170,11 @@ El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos.
 \subsection{Cadena de Trazabilidad}
 
 Cada ejecución sigue una cadena determinista: carga de configuración, carga de datos, simulación de daño con semilla fija, interpolación, evaluación con seis métricas, y registro estructurado de resultados con metadatos completos (Figura~\ref{fig:traceability_pipeline}). Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de parámetros) que permite verificar reproducibilidad bit a bit, rastrear cualquier número reportado hasta su archivo de origen, y detectar contaminación entre fases experimentales. La Tabla~\ref{tab:traceability} ejemplifica esta trazabilidad para tres afirmaciones representativas del Capítulo~4.
-
+%Por que es necesario esto? Explicar que problema se está resolviendo con: Cada ejecucion recibe un identificador unico... y detectar contaminacion entre fases experimentales.
 \subsection{Gestión de Artefactos}
 
 En estudios computacionales a gran escala como el presente ---18 métodos, 120 escenarios, más de 15\,000 configuraciones--- la gestión sistemática de artefactos resuelve tres necesidades concretas. Primero, \textbf{auditoría}: todo número reportado en los capítulos de resultados debe poder rastrearse hasta el archivo que lo origina. Segundo, \textbf{control de contaminación}: las fases exploratoria y confirmatoria operan sobre datos independientes, y la separación física de sus artefactos previene que resultados exploratorios influyan inadvertidamente en la fase confirmatoria. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio puede re-ejecutar cualquier subconjunto del experimento y obtener resultados idénticos.
-
+%NPZ?, por qué un tag del repo? En mi mente los tag son una marca del repo en el tiempo, no a un resultado especifico de un método.
 Los resultados se almacenan en una jerarquía estandarizada por conjunto, modo, severidad y método. Cada ejecución preserva métricas agregadas (JSON), señales reconstruidas (NPZ), máscara de daño, configuración inmutable (YAML) y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código fuente está versionado con Git, y cada conjunto de resultados está asociado a una etiqueta del repositorio.
 
 \begin{table}[htbp]
@@ -224,7 +225,7 @@ Tres decisiones arquitectónicas merecen mención explícita. La \textbf{separac
 \caption[Matriz conceptual del diseño experimental]{Matriz conceptual del diseño experimental. La estratificación por patrón y severidad de pérdida se combina con inferencia pareada: MNE y TRSS se comparan sobre el mismo caso, evitando que diferencias de señal o máscara contaminen la comparación.}
 \label{fig:experimental_design_matrix}
 \end{figure}
-
+%Repite cosas que ya se contaron en secciones anteriores. Mejorar o bien eliminar esta seccion.
 \subsection{Variables del Experimento}
 
 Como \textbf{variables independientes} se definen: método de interpolación (18 niveles), conjunto de datos (PhysioNet, BCI IV 2a, MNE Sample), modo de pérdida (aleatorio, contiguo), severidad (10\%, 20\%, 30\%, 40\%) y semilla aleatoria (5 réplicas por condición, como variable de bloque). La Figura~\ref{fig:experimental_design_matrix} ilustra la matriz conceptual del diseño.
@@ -258,7 +259,7 @@ H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso d
 % ======================================================================
 \section{Protocolo de Validación Confirmatoria}
 % ======================================================================
-
+%Aqui estaba la seccion de la que hablé anteriormente. Aplicar las correcciones antes mencionadas para esta seccion.
 En una fase independiente, TRSS ---con hiperparámetros congelados--- se comparó contra MNE-Python con parámetros por defecto. Esta fase confirmatoria no replica exactamente el barrido exploratorio de 120 escenarios: se balanceó en 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato, para obtener 300 casos pareados por comparación. Los regímenes incluyen señales reales y controles sintéticos suave/rugoso, usados como prueba negativa y positiva de sensibilidad espacial.
 
 Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un diseño de medidas repetidas. La unidad de análisis es el caso pareado definido por régimen de señal, patrón de pérdida, severidad y semilla. Los 100 estratos confirmatorios, con tres semillas por estrato, generan 300 diferencias pareadas por métrica y comparación. La hipótesis nula $H_0$ es que la mediana de las diferencias es cero; esta prueba detecta diferencia direccional, no equivalencia formal. La significancia se evalúa con Wilcoxon signed-rank, y se reporta la tasa de victoria (fracción de casos donde TRSS supera a MNE) estratificada por conjunto de datos, modo de pérdida y severidad. Esta estratificación es fundamental porque, como predice H2, la ventaja de TRSS no es uniforme sino condicional al régimen de pérdida.
@@ -268,7 +269,7 @@ Para la comparación TRSS vs.\ MNE-Python en la fase confirmatoria, se emplea un
 % ======================================================================
 
 La elección de las pruebas estadísticas no es arbitraria, sino que responde a las propiedades de los datos y a los objetivos de la evaluación comparativa. A continuación se justifica cada decisión.
-
+%No se entiende por qué te metes con un analisis estadistico. No es lo que se hace normalmente para evaluar un nuevo método. Tienes un paper de métodos donde se haga algo como esto?
 \subsection{Prueba de Wilcoxon para muestras pareadas}
 
 Se emplea la prueba de rangos con signo de Wilcoxon como prueba principal de comparación entre métodos. Esta decisión descansa sobre tres fundamentos.
@@ -290,7 +291,7 @@ Para controlar este problema se emplea la corrección de Benjamini-Hochberg (BH)
 Se reportan los valores $p$ originales y los ajustados por BH ($q_{BH}$), fijando $\alpha = 0.05$ (FDR al 5\%). En la fase confirmatoria TRSS vs.\ MNE, la comparación MAE/NRMSE constituye una hipótesis planificada, pero se mantienen valores $q_{BH}$ en las tablas para facilitar una lectura conservadora entre métricas y evitar sobreinterpretar resultados auxiliares.
 
 \subsection{Tamaño del efecto e intervalos de confianza}
-
+%No es necesario que expliques conceptos estadisticos
 La significancia estadística indica si una diferencia observada es improbable bajo la hipótesis nula, pero no cuantifica la magnitud de esa diferencia. Una diferencia de 0.001 en MAE puede ser estadísticamente significativa con suficientes escenarios, pero clínicamente irrelevante. Para complementar la significancia se reportan dos medidas de tamaño del efecto: la correlación biserial por rangos $r = 1 - 2U/(n_1 n_2)$ para comparaciones no pareadas, y la mejora relativa mediana $\Delta = \text{mediana}((B-A)/|A|)$ para comparaciones pareadas. Adicionalmente, todos los estimadores puntuales se acompañan de intervalos de confianza al 95\% calculados mediante remuestreo bootstrap jerárquico con 1000 remuestreos que respetan la estructura anidada de los datos (escenarios $\supset$ réplicas). Este método no asume ninguna distribución paramétrica y produce intervalos asimétricos que reflejan fielmente la incertidumbre de los estimadores.
 
 \section{Control de Calidad}
