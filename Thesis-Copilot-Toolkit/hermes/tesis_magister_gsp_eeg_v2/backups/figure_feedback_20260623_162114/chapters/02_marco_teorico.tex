@@ -12,8 +12,8 @@ La señal de voltaje EEG registrada en el cuero cabelludo resulta de la activida
 La señal de voltaje generada en la corteza atraviesa desde su origen hasta los electrodos de superficie múltiples capas de conductividad variable: líquido cefalorraquídeo, meninges, cráneo (aproximadamente ochenta veces menos conductor que el cuero cabelludo) y cuero cabelludo \cite{nunez2006electric}. Esta conducción volumétrica actúa como un filtro espacial paso-bajo que suaviza la distribución de potencial y limita la resolución espacial efectiva del EEG a unos dos o tres centímetros. La Figura~\ref{fig:origen_eeg}(a) ilustra este proceso de propagación desde la corteza hasta el cuero cabelludo, y la Figura~\ref{fig:origen_eeg}(b) muestra la configuración del campo eléctrico generado por un dipolo cortical.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.94\textwidth]{capitulo2_origen_eeg}
-\caption[Generación de la señal EEG y manifestaciones relevantes]{Generación de la señal EEG y manifestaciones relevantes para la interpolación de canales. (a) Propagación desde fuentes corticales hasta electrodos de superficie a través de capas con conductividad distinta, representadas sobre una referencia de cabeza. (b) Campo idealizado de un dipolo cortical y sus líneas de potencial. (c) Ejemplo esquemático de ERP con componentes N100, P200 y P300, cuya morfología debe preservarse al interpolar. (d) Topografía de electrodos con canales observados y canales fallados sobre una cabeza con orientación anatómica. Esquema de elaboración propia basado en la descripción neurofísica de \cite{nunez2006electric} y en la nomenclatura ERP de \cite{luck2014introduction}.}
+\includegraphics[width=0.88\textwidth]{capitulo2_origen_eeg}
+\caption[Generación de la señal EEG y manifestaciones relevantes]{Generación de la señal EEG y manifestaciones relevantes para la interpolación de canales. (a) Propagación desde fuentes corticales hasta electrodos de superficie a través de capas con conductividad distinta. (b) Campo idealizado de un dipolo cortical. (c) Ejemplo esquemático de ERP con componentes N100, P200 y P300, cuya morfología debe preservarse al interpolar. (d) Topografía de electrodos con canales observados y canales fallados. Esquema de elaboración propia basado en la descripción neurofísica de \cite{nunez2006electric} y en la nomenclatura ERP de \cite{luck2014introduction}.}
 \label{fig:origen_eeg}
 \end{figure}
 \subsection{Bandas de Frecuencia y Potenciales Relacionados a Eventos}
@@ -48,11 +48,11 @@ La Transformada de Fourier en Grafos (GFT) se define como $\hat{\mathbf{x}} = \m
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{ch2_gsp_concepts_clean}
-\caption[Conceptos fundamentales de GSP]{Conceptos fundamentales de GSP aplicados a EEG. (a) Los electrodos forman un grafo ponderado sobre una topografía de cabeza; las aristas codifican cercanía espacial. (b) El espectro del Laplaciano ordena los modos desde variación suave hasta variación rápida. La curva azul muestra autovalores, mientras que la curva naranja ilustra que la energía de una señal suave tiende a concentrarse en modos bajos. (c) La reconstrucción regularizada estima los canales faltantes combinando fidelidad a los canales observados y suavidad inducida por el grafo.}
+\caption[Conceptos fundamentales de GSP]{Conceptos fundamentales de GSP aplicados a EEG. (a) Los electrodos forman un grafo ponderado. (b) El espectro del Laplaciano ordena los modos desde variación suave hasta variación rápida; el eje vertical muestra autovalores, no energía de la señal. (c) La reconstrucción regularizada combina fidelidad a los canales observados con penalización de variación sobre el grafo para estimar los canales faltantes.}
 \label{fig:gsp_conceptos}
 \end{figure}
 
-La Figura~\ref{fig:gsp_conceptos}(a) muestra el grafo de electrodos, la Figura~\ref{fig:gsp_conceptos}(b) separa explícitamente los autovalores del Laplaciano de la energía modal ilustrativa, y la Figura~\ref{fig:gsp_conceptos}(c) resume la reconstrucción regularizada como compromiso entre datos observados y suavidad espacial.
+La Figura~\ref{fig:gsp_conceptos}(a) muestra el grafo de electrodos, la Figura~\ref{fig:gsp_conceptos}(b) presenta el orden espectral inducido por el Laplaciano y la Figura~\ref{fig:gsp_conceptos}(c) resume la reconstrucción regularizada como compromiso entre datos observados y suavidad espacial.
 
 \subsection{Construcción de Grafos para EEG}
 \label{sec:graph_construction}
@@ -109,7 +109,7 @@ donde $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ es la matriz de diferencias
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.94\textwidth]{ch2_trss_operator}
-\caption[Descomposición del operador TRSS]{Descomposición del operador TRSS. La reconstrucción combina fidelidad a los canales observados, suavidad espacial inducida por el Laplaciano del grafo y suavidad temporal inducida por diferencias finitas. El término temporal no agrega información externa: restringe el espacio de soluciones admisibles mediante $D_t$.}
+\caption[Descomposición del operador TRSS]{Descomposición del operador TRSS. La reconstrucción combina fidelidad a los canales observados, suavidad espacial inducida por el Laplaciano del grafo y suavidad temporal inducida por diferencias finitas. La figura enfatiza que el término temporal no agrega información externa: restringe el espacio de soluciones admisibles.}
 \label{fig:trss_operator}
 \end{figure}
 

@@ -6,7 +6,7 @@ Este capítulo integra el diseño metodológico completo: conjuntos de datos, pr
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{ch3_methodology_flow}
-\caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación con control pareado. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas; luego se calculan métricas de reconstrucción y costo antes de comparar los métodos por escenario pareado.}
+\caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas, y se evalúa con un portafolio de métricas antes de comparar los métodos por escenario pareado.}
 \label{fig:methodology_flow}
 \end{figure}
 % ======================================================================
@@ -176,12 +176,12 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta & NSG
 % ======================================================================
 \label{sec:architecture}
 
-El sistema se organiza en cinco módulos con interfaces explícitas que operan en cadena (Figura~\ref{fig:architecture_blocks}). El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} genera máscaras binarias con semilla trazable. El módulo de \textbf{métodos} combina la construcción de grafos —diez estrategias que producen $\mathbf{W}$ y $\mathbf{L}$— con las dieciocho implementaciones de interpolación bajo una interfaz unificada. El módulo de \textbf{evaluación} calcula las métricas primarias y complementarias, y el módulo de \textbf{artefactos/optimización} orquesta Optuna en la fase exploratoria y registra resultados trazables para la fase comparativa.
+El sistema se organiza en cinco módulos con interfaces explícitas que operan en cadena (Figura~\ref{fig:architecture_blocks}). El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} genera máscaras binarias con semilla trazable. El módulo de \textbf{construcción de grafo} implementa las diez estrategias y produce $\mathbf{W}$ y $\mathbf{L}$. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada. El módulo de \textbf{evaluación} calcula las métricas primarias y complementarias, y el de \textbf{optimización} orquesta Optuna con registro estructurado y detección de convergencia.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.98\textwidth]{ch3_architecture_blocks}
-\caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena. La figura distingue fase exploratoria y fase comparativa, indicando que los resultados comparativos no reabren la búsqueda de hiperparámetros.}
+\includegraphics[width=0.94\textwidth]{ch3_architecture_blocks}
+\caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena. La separación estricta entre fases previene contaminación circular: resultados de una fase experimental nunca se utilizan para ajustar parámetros de otra fase.}
 \label{fig:architecture_blocks}
 \end{figure}
 \subsection{Trazabilidad y Gestión de Artefactos}
@@ -192,8 +192,8 @@ Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.96\textwidth]{ch4_traceability_pipeline}
-\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa se vincula con la tabla o figura correspondiente, el archivo de datos asociado y el script que generó el resultado.}
+\includegraphics[width=0.94\textwidth]{ch4_traceability_pipeline}
+\caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo JSON/CSV correspondiente y finalmente al script que generó el resultado.}
 \label{fig:traceability_pipeline}
 \end{figure}
 \begin{table}[htbp]

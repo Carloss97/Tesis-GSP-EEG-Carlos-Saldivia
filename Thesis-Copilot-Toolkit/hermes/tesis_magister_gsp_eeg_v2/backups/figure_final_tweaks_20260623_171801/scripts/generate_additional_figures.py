@@ -108,9 +108,9 @@ def add_head_outline(ax: plt.Axes, cx: float, cy: float, r: float,
 # Figure 2.2: GSP concepts.
 # ---------------------------------------------------------------------------
 def fig_gsp_concepts() -> None:
-    fig = plt.figure(figsize=(7.55, 4.35))
-    gs = fig.add_gridspec(2, 2, height_ratios=[1.00, 0.90], width_ratios=[1.02, 1.0],
-                          hspace=0.30, wspace=0.35)
+    fig = plt.figure(figsize=(7.55, 4.55))
+    gs = fig.add_gridspec(2, 2, height_ratios=[1.05, 0.95], width_ratios=[1.02, 1.0],
+                          hspace=0.35, wspace=0.30)
 
     # (a) EEG graph on a recognizable head.
     ax = fig.add_subplot(gs[0, 0])
@@ -135,8 +135,9 @@ def fig_gsp_concepts() -> None:
     signal = np.sin(2 * np.pi * (pos[:, 0] - 0.18)) + 0.55 * np.cos(2 * np.pi * pos[:, 1])
     ax.scatter(pos[:, 0], pos[:, 1], c=signal, cmap="RdBu_r", s=66,
                edgecolors="black", linewidth=0.45, zorder=4)
-    ax.text(0.50, 0.055, "electrodos conectados por cercanía espacial",
-            ha="center", va="center", fontsize=8.3, color="#111111")
+    # Separate legend labels outside the graph: no overlap with aristas.
+    box(ax, (0.06, 0.035), (0.39, 0.095), "nodos = electrodos", C["blue"], fontsize=8.6, fc_alpha=0.10)
+    box(ax, (0.55, 0.035), (0.39, 0.095), "aristas = cercanía espacial", C["midgray"], fontsize=8.6, fc_alpha=0.08)
 
     # (b) Laplacian eigenvalues vs illustrative energy.
     ax = fig.add_subplot(gs[0, 1])
@@ -158,13 +159,15 @@ def fig_gsp_concepts() -> None:
     ax2.set_ylim(0, 1.08)
     ax2.set_ylabel("energía normalizada", color=C["orange"])
     ax2.tick_params(axis="y", labelcolor=C["orange"])
-    lines = [
-        Line2D([0], [0], color=C["blue"], marker="o", lw=1.8, label="$\\lambda_k$"),
-        Line2D([0], [0], color=C["orange"], marker="o", lw=1.5, label="energía modal"),
-    ]
-    ax.legend(handles=lines, loc="upper left", frameon=False, borderaxespad=0.2, handlelength=1.6)
-    ax.text(0.04, 0.92, "modos bajos", transform=ax.transAxes, fontsize=8.0, color="#333333")
-    ax.text(0.67, 0.08, "modos altos", transform=ax.transAxes, fontsize=8.0, color="#333333")
+    ax.annotate("modos\nsuaves", xy=(2, 0.14), xytext=(3.0, 0.78),
+                fontsize=8.4, ha="center",
+                arrowprops=dict(arrowstyle="->", lw=0.75, color="#444444"))
+    ax.annotate("modos\nrápidos", xy=(9, 2.12), xytext=(7.4, 2.55),
+                fontsize=8.4, ha="center",
+                arrowprops=dict(arrowstyle="->", lw=0.75, color="#444444"))
+    ax.text(0.02, 0.03, "Nota: $\\lambda_k$ no es energía", transform=ax.transAxes,
+            fontsize=8.0, color="#222222",
+            bbox=dict(boxstyle="round,pad=0.20", fc="white", ec="#BBBBBB", lw=0.6))
 
     # (c) Regularized reconstruction, no bottom gray subtitle.
     ax = fig.add_subplot(gs[1, :])
@@ -179,7 +182,9 @@ def fig_gsp_concepts() -> None:
     arrow(ax, (0.25, 0.31), (0.39, 0.49))
     arrow(ax, (0.52, 0.25), (0.52, 0.39))
     arrow(ax, (0.65, 0.515), (0.77, 0.515))
-    fig.subplots_adjust(left=0.060, right=0.93, top=0.95, bottom=0.08)
+    ax.text(0.50, 0.015, "Lectura: se estiman canales ocultos usando valores observados y suavidad del grafo.",
+            ha="center", va="bottom", fontsize=8.6, color="#111111")
+    fig.subplots_adjust(left=0.055, right=0.94, top=0.95, bottom=0.07)
     save(fig, "ch2_gsp_concepts_clean.pdf")
 
 
@@ -217,14 +222,14 @@ def fig_trss_operator() -> None:
 # Figure 3.1: methodology flow.
 # ---------------------------------------------------------------------------
 def fig_methodology_flow() -> None:
-    fig, ax = plt.subplots(figsize=(7.45, 1.55))
+    fig, ax = plt.subplots(figsize=(7.45, 2.05))
     clean_ax(ax)
     nodes = [
-        (0.025, 0.43, 0.17, 0.40, "Datos EEG\nPhysioNet\nBCI IV 2a\nMNE Sample", C["cyan"]),
-        (0.225, 0.43, 0.17, 0.40, "Máscaras\npérdida aleatoria\ny contigua\nsemilla", C["green"]),
-        (0.425, 0.43, 0.17, 0.40, "Métodos\n18 impl.\ninterfaz común\nTRSS/MNE", C["blue"]),
-        (0.625, 0.43, 0.17, 0.40, "Métricas\nMAE/RMSE/SNR\nDTW/LSD/coh.\ntiempo", C["orange"]),
-        (0.825, 0.43, 0.15, 0.40, "Comparación\npareada\nmedianas\nwin-rate", C["purple"]),
+        (0.03, 0.48, 0.16, 0.32, "Datos EEG\nPhysioNet\nBCI IV 2a\nMNE Sample", C["cyan"]),
+        (0.23, 0.48, 0.17, 0.32, "Máscaras\nde pérdida\naleatoria / contigua\nsemilla", C["green"]),
+        (0.44, 0.48, 0.17, 0.32, "Métodos\n18 impl.\ninterfaz común\nTRSS/MNE", C["blue"]),
+        (0.65, 0.48, 0.17, 0.32, "Métricas\nerror: MAE/RMSE/SNR\nforma/espectro\ncosto: tiempo", C["orange"]),
+        (0.86, 0.48, 0.11, 0.32, "Comparación\npareada\nmedianas\nwin-rate", C["purple"]),
     ]
     for x, y, w, h, text, color in nodes:
         box(ax, (x, y), (w, h), text, color, fontsize=8.5, weight="bold")
@@ -232,9 +237,11 @@ def fig_methodology_flow() -> None:
         x, y, w, h, *_ = nodes[i]
         x2, y2, *_ = nodes[i + 1]
         arrow(ax, (x + w + 0.006, y + h / 2), (x2 - 0.006, y2 + h / 2), lw=1.15)
-    ax.text(0.50, 0.17, "Control pareado: misma señal, máscara y semilla para todos los métodos",
-            ha="center", va="center", fontsize=8.8, color="#111111")
-    fig.subplots_adjust(left=0.025, right=0.99, top=0.96, bottom=0.14)
+    # Control condition as a clear dashed bracket, not a gray block.
+    ax.plot([0.035, 0.968], [0.25, 0.25], color=C["midgray"], lw=1.0, ls="--")
+    ax.text(0.50, 0.16, "Control pareado transversal: misma señal, misma máscara y misma semilla para todos los métodos",
+            ha="center", va="center", fontsize=8.7, color="#111111")
+    fig.subplots_adjust(left=0.025, right=0.99, top=0.94, bottom=0.12)
     save(fig, "ch3_methodology_flow.pdf")
 
 
@@ -242,21 +249,21 @@ def fig_methodology_flow() -> None:
 # Figure 3.2: architecture blocks.
 # ---------------------------------------------------------------------------
 def fig_architecture_blocks() -> None:
-    fig, ax = plt.subplots(figsize=(7.55, 2.30))
+    fig, ax = plt.subplots(figsize=(7.55, 2.75))
     clean_ax(ax)
 
-    # Phase regions aligned exactly with the blocks, without a floating note.
-    ax.add_patch(Rectangle((0.020, 0.78), 0.585, 0.18, facecolor="#F1F8FC", edgecolor="#9CCBE3", lw=0.8))
-    ax.add_patch(Rectangle((0.630, 0.78), 0.345, 0.18, facecolor="#FFF8E6", edgecolor="#D7B548", lw=0.8))
-    ax.text(0.312, 0.87, "Fase exploratoria: selección y ajuste", ha="center", va="center", fontsize=8.6, weight="bold")
-    ax.text(0.802, 0.87, "Fase comparativa: parámetros congelados", ha="center", va="center", fontsize=8.2, weight="bold")
+    # Explicit phase labels as bands, replacing the ambiguous gray bar.
+    ax.add_patch(Rectangle((0.02, 0.86), 0.59, 0.10, facecolor="#EAF4FB", edgecolor="#9CCBE3", lw=0.8))
+    ax.add_patch(Rectangle((0.62, 0.86), 0.36, 0.10, facecolor="#FDF4D8", edgecolor="#D7B548", lw=0.8))
+    ax.text(0.315, 0.91, "Fase exploratoria: selección y ajuste", ha="center", va="center", fontsize=8.8, weight="bold")
+    ax.text(0.800, 0.91, "Fase comparativa: parámetros congelados", ha="center", va="center", fontsize=8.8, weight="bold")
 
     nodes = [
-        (0.035, 0.38, 0.16, 0.31, "Datos EEG\nPhysioNet 64\nBCI IV 2a 22\nMNE Sample 60", C["cyan"]),
-        (0.225, 0.38, 0.16, 0.31, "Simulación\nde pérdida\naleatoria\ncontigua", C["green"]),
-        (0.415, 0.38, 0.18, 0.31, "Grafo +\ninterpolación\n10 grafos\n18 métodos", C["blue"]),
-        (0.660, 0.38, 0.15, 0.31, "Evaluación\nerror\nforma/espectro\ntiempo", C["orange"]),
-        (0.845, 0.38, 0.13, 0.31, "Artefactos\nJSON/CSV\nNPZ\nPDF/TeX", C["purple"]),
+        (0.035, 0.48, 0.16, 0.27, "Datos EEG\nPhysioNet 64\nBCI IV 2a 22\nMNE Sample 60", C["cyan"]),
+        (0.230, 0.48, 0.16, 0.27, "Simulación\nde pérdida\naleatoria\ncontigua", C["green"]),
+        (0.425, 0.48, 0.18, 0.27, "Grafo +\ninterpolación\n10 grafos\n18 métodos", C["blue"]),
+        (0.640, 0.48, 0.15, 0.27, "Evaluación\nerror\nforma/espectro\ntiempo", C["orange"]),
+        (0.825, 0.48, 0.14, 0.27, "Artefactos\nJSON/CSV\nNPZ\nPDF/TeX", C["purple"]),
     ]
     for x, y, w, h, text, color in nodes:
         box(ax, (x, y), (w, h), text, color, fontsize=8.5, weight="bold")
@@ -265,10 +272,12 @@ def fig_architecture_blocks() -> None:
         x2, y2, *_ = nodes[i + 1]
         arrow(ax, (x + w + 0.006, y + h / 2), (x2 - 0.006, y2 + h / 2), lw=1.10)
 
-    ax.plot([0.625, 0.625], [0.30, 0.98], color="#666666", lw=0.9, ls=":")
-    ax.text(0.50, 0.18, "Los resultados comparativos no reabren la búsqueda de hiperparámetros",
-            ha="center", va="center", fontsize=8.4, color="#111111")
-    fig.subplots_adjust(left=0.02, right=0.99, top=0.96, bottom=0.12)
+    # No feedback arrow from comparative results to optimization.
+    ax.text(0.50, 0.25, "Restricción metodológica: los resultados comparativos no reabren la búsqueda de hiperparámetros",
+            ha="center", va="center", fontsize=8.7, color="#111111",
+            bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="#AAAAAA", lw=0.8))
+    ax.plot([0.610, 0.610], [0.38, 0.98], color="#666666", lw=1.0, ls=":")
+    fig.subplots_adjust(left=0.02, right=0.99, top=0.96, bottom=0.10)
     save(fig, "ch3_architecture_blocks.pdf")
 
 
