@@ -1,0 +1,166 @@
+\chapter{Resultados} %Esta sección está difícil de entender. Sigo pensando que usar un análisis estadístico no es correcto. Más aun, dificulta seguir tus
+%resultados.
+%Falta mostrar resultados representativos de señales interpoladas con las distintas estrategias. Solo muestras dos casos en la figura
+%4.8 y 4.9, y 4.9 no es informativa.
+\label{ch:resultados}
+
+Este capítulo presenta la evidencia experimental que sostiene la parte práctica de la tesis. La exposición separa cuatro niveles de análisis: primero, la relación entre la fase exploratoria amplia y la fase confirmatoria; segundo, el resumen global de la evaluación contra MNE-Python; tercero, la estratificación por conjunto de datos y tipo de pérdida; cuarto, el costo computacional y el estudio de descomposición del componente temporal que permiten interpretar cuándo la regularización temporal aporta valor. Esta organización evita una lectura de superioridad universal y permite formular una decisión práctica: TRSS es útil en regímenes difíciles de reconstrucción, mientras que MNE-Python sigue siendo una referencia fuerte en escenarios favorables y en tiempo de cómputo.
+
+\section{Relación entre Fases Experimentales}
+
+La tesis contiene dos niveles de evidencia que conviene no mezclar. La fase exploratoria implementó el universo amplio de métodos descrito en la metodología y permitió seleccionar familias competitivas. La fase confirmatoria, en cambio, restringió la inferencia principal a una comparación pareada TRSS--MNE, porque esa es la prueba más exigente para la contribución práctica: comparar la regularización espacio--temporal contra la implementación comunitaria de referencia que un usuario real usaría en un flujo M/EEG. La Tabla~\ref{tab:ch6_phase_map} resume la relación entre fases experimentales.
+
+\input{tables/ch6_phase_map}
+%Que es ablación? 
+Los datos sintéticos de la fase confirmatoria no reemplazan a los conjuntos reales; cumplen un rol de control. El régimen sintético suave funciona como control negativo para TRSS: si una señal satisface fuertemente la suavidad espacial, MNE debería ser difícil de superar. El régimen sintético rugoso actúa como control positivo para escenarios donde la información espacial aislada es insuficiente. Esta separación permite explicar por qué el presente capítulo reporta 100 estratos confirmatorios y 300 casos pareados, mientras que los capítulos metodológicos documentan el barrido exploratorio de 120 escenarios sobre tres bases reales.
+
+\section{Inventario de Evidencia Experimental}
+
+La evaluación confirmatoria se realizó sobre 300 casos pareados y 3300 evaluaciones crudas. Cada par compara una variante de TRSS y MNE-Python sobre la misma señal, la misma máscara de canales ocultos y la misma semilla. Del total de evaluaciones, 2700 corresponden a variantes de TRSS usadas para sensibilidad, calibración u oráculo de grilla; las conclusiones desplegables se basan en TRSS fijo, TRSS calibrado y MNE. Las métricas se calcularon únicamente sobre los canales artificialmente ocultos, de modo que los valores reportados miden reconstrucción de información faltante y no ajuste sobre canales observados.
+
+La Tabla~\ref{tab:ch6_global_summary} resume el resultado global, y la Figura~\ref{fig:ch6_runtime_mae_tradeoff} muestra el compromiso entre precisión y tiempo de cómputo. El método MNE spline tiene el menor tiempo mediano por caso y el menor valor medio de LSD. TRSS fijo reduce la mediana de MAE de $1.13\times10^{-5}$ a $8.46\times10^{-6}$, mejora NRMSE medio de 0.804 a 0.604, aumenta la correlación media de 0.808 a 0.860 y eleva $R^2$ medio de 0.010 a 0.508. La variante calibrada mejora levemente MAE y NRMSE, pero empeora LSD respecto de TRSS fijo. El oráculo, que selecciona hiperparámetros usando la verdad de terreno, solo entrega una ganancia marginal adicional; por tanto, se utiliza como cota superior no desplegable y no como método comparable en condiciones reales.
+
+\input{tables/ch6_global_summary}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.78\textwidth]{ch6_runtime_mae_tradeoff}
+  \caption{Compromiso entre precisión y tiempo de cómputo en la evaluación confirmatoria. TRSS desplaza el MAE hacia valores menores, pero se ubica a la derecha de MNE en la escala logarítmica de tiempo, lo que evidencia el costo computacional de la regularización temporal.}
+  \label{fig:ch6_runtime_mae_tradeoff}
+\end{figure}
+
+\FloatBarrier
+
+\section{Comparación Pareada TRSS--MNE}
+%Sigo pensando que en tu setup no aplica el uso de test de hipótesis.
+La Tabla~\ref{tab:ch6_robust_main} reporta la comparación pareada con prueba de Wilcoxon, intervalos de confianza bootstrap jerárquicos y tamaño del efecto. En TRSS fijo, la mejora mediana de MAE frente a MNE es 12.4\% con intervalo al 95\% entre 7.8\% y 17.4\%, tasa de victoria de 72.0\% y $q_{BH}=1.0\times10^{-22}$. NRMSE muestra un patrón similar: mejora mediana de 13.9\%, tasa de victoria de 70.3\% y efecto pareado positivo. La correlación mejora de manera más pequeña en magnitud porcentual, pero de forma consistente en los pares evaluados.
+
+El resultado espectral es distinto. En LSD, donde menor es mejor, TRSS fijo presenta una mejora mediana negativa de -2.3\% y una tasa de victoria de 40.7\%. La variante calibrada acentúa este deterioro, con -9.6\% de mejora mediana y 26.0\% de tasa de victoria. Este hallazgo es central para la interpretación de la tesis: TRSS no domina todas las métricas. Su ventaja se concentra en error de amplitud, NRMSE, correlación y ajuste temporal, mientras que MNE conserva fortaleza en una métrica espectral global.
+
+\input{tables/ch6_robust_main}
+
+La Tabla~\ref{tab:ch6_metric_portfolio} amplía la lectura a todas las métricas confirmatorias disponibles para TRSS fijo, y la Figura~\ref{fig:ch6_metric_portfolio_improvement} presenta el portafolio visual correspondiente. La Figura~\ref{fig:ch6_nrmse_boxplot} complementa con la distribución de NRMSE, y la Figura~\ref{fig:ch6_robust_improvement_ci} muestra las mejoras medianas con intervalos bootstrap. El patrón es coherente: TRSS mejora MAE, RMSE, NRMSE, DTW, SNR, coherencia, correlación y $R^2$ después de ajustar la dirección de cada métrica. La excepción relevante es LSD, que favorece a MNE, y el tiempo de cómputo, donde MNE domina claramente. Esta tabla evita seleccionar solo métricas favorables y muestra de forma transparente el perfil completo de ventajas y pérdidas.
+
+\input{tables/ch6_metric_portfolio}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{ch6_metric_portfolio_improvement}
+  \caption[Portafolio visual de métricas TRSS--MNE]{Portafolio visual de métricas para TRSS fijo frente a MNE. El panel izquierdo muestra métricas de calidad con valores positivos favorables a TRSS y negativos favorables a MNE; el panel derecho separa el costo temporal para que la diferencia de escala no comprima las métricas de precisión.}
+  \label{fig:ch6_metric_portfolio_improvement}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.86\textwidth]{ch6_boxplot_nrmse_balanced}
+  \caption{Distribución de NRMSE en la evaluación confirmatoria balanceada. La figura complementa la comparación mediana de la Tabla~\ref{tab:ch6_metric_portfolio}: TRSS desplaza la distribución hacia menor error relativo, pero la superposición entre cajas muestra que la mejora no es uniforme en todos los estratos.}
+  \label{fig:ch6_nrmse_boxplot}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{ch6_robust_improvement_ci}
+  \caption{Mejoras medianas de TRSS frente a MNE con intervalos bootstrap al 95\%. Las barras positivas favorecen a TRSS; las barras negativas favorecen a MNE o indican mayor tiempo de ejecución de TRSS. El gráfico muestra simultáneamente la ganancia en MAE/NRMSE y las dos advertencias principales: LSD y costo temporal.}
+  \label{fig:ch6_robust_improvement_ci}
+\end{figure}
+
+La comparación de tiempo confirma que la mejora de reconstrucción no es gratuita. TRSS fijo presenta una mejora mediana de tiempo de -1004.1\%, con tasa de victoria de solo 0.3\%. Interpretado operacionalmente, MNE es la opción rápida y determinística para preprocesamiento rutinario, mientras que TRSS debe reservarse para escenarios donde la fidelidad de reconstrucción compensa el costo adicional.
+
+\FloatBarrier
+
+\section{Estratificación por Conjunto de Datos}
+
+El promedio global oculta una heterogeneidad importante. La Tabla~\ref{tab:ch6_by_dataset_mae} muestra que TRSS fijo mejora MAE en MNE Sample, PhysioNet S1, PhysioNet S2 y el régimen sintético rugoso, como se visualiza en la Figura~\ref{fig:ch6_dataset_mae_improvement}. La mejora mediana alcanza 22.6\% en MNE Sample, 21.5\% en el régimen sintético rugoso y 9.5--12.2\% en PhysioNet. En contraste, el régimen sintético suave favorece a MNE: TRSS gana solo en 20.0\% de los casos y la mejora mediana es -12.7\%.
+
+\input{tables/ch6_by_dataset_mae}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.84\textwidth]{ch6_dataset_mae_improvement}
+  \caption{Mejora mediana de MAE de TRSS fijo frente a MNE por conjunto de datos. La señal sintética suave actúa como control negativo: cuando se cumple fuertemente el supuesto de suavidad espacial, MNE puede ser superior.}
+  \label{fig:ch6_dataset_mae_improvement}
+\end{figure}
+%Etiqueta = tasa de victoria (?)
+Este control negativo es útil. Si TRSS hubiera superado también al caso sintético suave, el resultado podría interpretarse como una ventaja numérica artificial del protocolo. La pérdida frente a MNE en ese régimen muestra que el diseño experimental conserva sensibilidad para detectar escenarios donde el modelo espacial clásico es suficiente o preferible.
+\FloatBarrier
+
+\section{Efecto del Patrón y Severidad de Pérdida}
+
+La estratificación por patrón de canales ocultos confirma la interpretación condicional. La Tabla~\ref{tab:ch6_selected_scenarios_mae} y la Figura~\ref{fig:ch6_scenario_heatmap_mae} muestran que la mayor ventaja de TRSS aparece en pérdidas cercanas o agrupadas de alta severidad. En pérdida cercana al 30\%, la mejora mediana de MAE es 41.2\%; al 40\%, la mejora es 40.8\% y la tasa de victoria alcanza 86.7\%. En pérdida periférica al 40\%, la mejora mediana es 31.6\%. En cambio, con solo dos canales cercanos ocultos, el resultado se aproxima a empate práctico.
+
+\input{tables/ch6_selected_scenarios_mae}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.90\textwidth]{ch6_scenario_heatmap_mae}
+  \caption{Mapa de calor de mejora mediana de MAE para TRSS fijo frente a MNE. Cada celda muestra la mejora mediana y, debajo, la tasa de victoria. La ventaja crece cuando la pérdida elimina información espacial local, especialmente en patrones cercanos o periféricos de alta severidad.}
+  \label{fig:ch6_scenario_heatmap_mae}
+\end{figure}
+%Cada celda: primera linea ... ... (?)
+El patrón observado coincide con la intuición del modelo. MNE usa una información previa espacial global; cuando los canales buenos circundantes son abundantes, esa información previa es suficiente. TRSS agrega una restricción temporal que se vuelve más valiosa cuando el vecindario espacial del canal faltante deja de contener información suficiente.
+
+\FloatBarrier
+
+\section{Estudio de Descomposición del Componente Temporal}
+
+La descomposición del componente temporal compara TRSS completo contra una variante sin término temporal. La Figura~\ref{fig:ch6_ablation_temporal_component} muestra que el término temporal produce mejoras modestas pero consistentes: aproximadamente 0.7\% en MAE/RMSE, 1.5\% en DTW y 6.4\% en LSD frente a TRSS sin temporalidad, con tasa de victoria de 100\% en las métricas de error incluidas en el análisis. La interpretación correcta no es que el término temporal convierta por sí solo a TRSS en dominante frente a cualquier método espacial, sino que estabiliza la solución espacio--temporal y reduce degradaciones específicas dentro de la propia familia TRSS.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.90\textwidth]{ch6_ablation_temporal_component}
+  \caption{Ablación del componente temporal: mejora mediana de TRSS completo frente a TRSS sin término temporal. La contribución temporal es consistente dentro de la familia TRSS, aunque su magnitud es menor que las diferencias entre familias de métodos.}
+  \label{fig:ch6_ablation_temporal_component}
+\end{figure}
+
+Este resultado matiza la hipótesis principal. La ventaja práctica de TRSS no proviene de un único componente que domine todas las métricas, sino de la combinación entre una representación espacial suficientemente informativa, una restricción temporal que estabiliza la trayectoria y una selección de hiperparámetros que evita sobre-suavizar la señal. Por esa razón, la comparación contra MNE debe leerse junto con el estudio de descomposición: TRSS es más fuerte en reconstrucción de amplitud y correlación, pero MNE conserva ventajas espectrales y computacionales.
+
+\FloatBarrier
+
+\section{Preservación Morfológica y Espectral}
+
+Además de las métricas agregadas, las visualizaciones de series temporales y espectros permiten revisar si la reconstrucción conserva estructuras fisiológicas interpretables. La Figura~\ref{fig:ch6_erp_severo} muestra un caso representativo de pérdida cercana severa en MNE Sample. En este régimen, la reconstrucción puramente espacial tiende a suavizar o desplazar transitorios, mientras que TRSS conserva mejor la morfología temporal de los segmentos evaluados. Esta observación no reemplaza las pruebas estadísticas, pero ayuda a interpretar por qué MAE, NRMSE y correlación mejoran en escenarios difíciles.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.86\textwidth]{res_opt_final__erp_comparison_static_mne_trss_filtered}
+  \caption{Ejemplo cualitativo de reconstrucción temporal bajo pérdida cercana severa. La figura ilustra la diferencia morfológica que las métricas agregadas capturan de forma resumida.}
+  \label{fig:ch6_erp_severo}
+\end{figure}
+%El resultado acá de TRSS es muy malo. ¿Siempre es así?
+La Figura~\ref{fig:ch6_psd_comparison} resume el comportamiento espectral en una comparación multi-método. La lectura conjunta con la Tabla~\ref{tab:ch6_robust_main} es importante: TRSS puede preservar mejor la forma temporal local y, simultáneamente, no dominar LSD global frente a MNE. Esta aparente tensión refleja que las métricas responden a propiedades distintas de la señal reconstruida.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.94\textwidth]{res_opt_final__best_psd_comparison_clean}
+  \caption{Comparación espectral multi-método. La preservación de potencia por banda no siempre coincide con la mejora de MAE, por lo que LSD se reporta como dimensión independiente y no como consecuencia automática del error de amplitud.}
+  \label{fig:ch6_psd_comparison}
+\end{figure}
+%Por qué es tan poco suave este espectro?
+%No entiendo lo que muestras acá. Esperaría ver el espectro de la señal original versus el espectro de
+%la señal interpolada.
+\FloatBarrier
+
+\section{Tiempo de Cómputo y Complejidad}
+
+La Tabla~\ref{tab:ch6_runtime_complexity} resume la diferencia de implementación, y la Figura~\ref{fig:ch6_runtime_boxplot} muestra la distribución de tiempos por caso. MNE resuelve un sistema espacial regularizado y lo aplica a las muestras temporales; su costo de preparación depende cúbicamente del número de canales, pero el número de canales en EEG es moderado y la operación resultante es muy eficiente. TRSS opera sobre un grafo espacio--temporal y requiere iteraciones del resolvedor, de modo que el costo escala con el número de aristas, muestras temporales e iteraciones.
+
+\input{tables/ch6_runtime_complexity}
+%Y H? Como llegas a estas expresiones de complejidad?
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.82\textwidth]{ch6_boxplot_runtime_balanced}
+  \caption{Distribución de tiempos por caso en la evaluación confirmatoria. La diferencia de costo es consistente: TRSS mejora varias métricas de reconstrucción, pero MNE conserva una ventaja clara en velocidad.}
+  \label{fig:ch6_runtime_boxplot}
+\end{figure}
+
+La implicancia práctica es directa. Si el flujo de procesamiento exige latencia mínima, repetición masiva o uso interactivo, MNE es la opción de referencia. Si el análisis se realiza fuera de línea y la pérdida de canales amenaza la validez de las métricas fisiológicas posteriores, TRSS puede justificarse por su ganancia en reconstrucción.
+
+\FloatBarrier
+
+\section{Síntesis de Resultados}
+
+Los resultados sostienen una conclusión condicional. TRSS fijo mejora de manera estadísticamente robusta MAE, NRMSE y correlación frente a MNE-Python en el benchmark confirmatorio balanceado, con tasas de victoria cercanas al 70--72\%. La ventaja es mayor cuando la pérdida es agrupada, periférica o severa, y desaparece o se invierte cuando la señal cumple fuertemente el supuesto de suavidad espacial. MNE conserva dos ventajas decisivas: menor LSD en el promedio global y menor tiempo de cómputo.
+
+Por tanto, las hipótesis se respaldan con matices. H1 queda respaldada para las métricas primarias de reconstrucción de canales ocultos y para los regímenes difíciles de pérdida, pero no autoriza afirmar dominancia universal de TRSS. H2 queda respaldada como ventaja práctica o empate operativo de MNE, especialmente en señales suaves, baja pérdida espacial y restricciones de tiempo. La contribución práctica de la tesis es precisamente identificar esta frontera de decisión con evidencia pareada, no reemplazar una regla de uso por otra igual de rígida.
+
+%El capítulo 4 tienes que replantearlo. Como está no se entiende. Me da la impresión que estás dependiendo en exceso de la IA. 

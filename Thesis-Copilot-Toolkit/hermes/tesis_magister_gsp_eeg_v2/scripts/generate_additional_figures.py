@@ -34,7 +34,7 @@ mpl.rcParams.update({
 C = {
     "blue": "#0072B2", "orange": "#E69F00", "green": "#009E73",
     "red": "#D55E00", "purple": "#CC79A7", "cyan": "#56B4E9",
-    "yellow": "#F0E442", "gray": "#666666", "light": "#F7F7F7",
+    "yellow": "#F0E442", "gray": "#444444", "light": "#F7F7F7",
     "line": "#333333",
 }
 
@@ -127,7 +127,7 @@ def fig_gsp_concepts():
     ax.add_patch(Circle((0.5,0.5),0.56, fill=False, lw=1.15, color=C["line"]))
     ax.scatter(xy[:,0], xy[:,1], c=val, cmap="RdBu_r", s=82, edgecolors="black", linewidths=0.5, zorder=2)
     ax.text(0.5, -0.035, "nodos = electrodos; aristas = cercanía espacial",
-            ha="center", va="top", fontsize=8.5, clip_on=False)
+            ha="center", va="top", fontsize=9.0, color="#111111", clip_on=False)
 
     # (b) Laplacian spectrum. All labels live away from axes/ticks.
     ax = fig.add_subplot(gs[0, 1])
@@ -163,7 +163,7 @@ def fig_gsp_concepts():
     # combine lanes into final output with arrows routed between boxes.
     arrow(ax, (.83,.58), (.83,.40), lw=1.1)
     ax.text(.50, .015, "La solución conserva datos observados y penaliza variaciones no suaves en el grafo.",
-            ha="center", va="bottom", fontsize=8.8, color=C["gray"])
+            ha="center", va="bottom", fontsize=9.2, color="#111111")
     fig.subplots_adjust(left=0.055, right=0.985, top=0.93, bottom=0.07)
     save(fig, "ch2_gsp_concepts_clean.pdf")
 
@@ -189,7 +189,7 @@ def fig_trss_operator():
     for x,y,_,_,_ in terms:
         arrow(ax, (x+.265, y+.09), (.72, .49), lw=1.2)
     ax.text(0.50, 0.96, "Los tres términos se optimizan conjuntamente; el término temporal restringe soluciones admisibles.",
-            ha="center", va="center", fontsize=9.2, color=C["gray"])
+            ha="center", va="center", fontsize=9.4, color="#111111")
     save(fig, "ch2_trss_operator.pdf")
 
 
@@ -198,14 +198,14 @@ def fig_trss_operator():
 # ---------------------------------------------------------------------------
 def fig_methodology_flow():
     """Chapter 3 flow figure redesigned with separated boxes and clear arrows."""
-    fig, ax = plt.subplots(figsize=(7.6, 3.25)); clean_ax(ax)
+    fig, ax = plt.subplots(figsize=(7.4, 2.9)); clean_ax(ax)
     ax.set_title("Flujo metodológico de la evaluación", pad=8)
     nodes = [
-        (.06, .63, .19, .20, "datos\nEEG", C["cyan"]),
-        (.31, .63, .19, .20, "máscaras\nde pérdida", C["orange"]),
-        (.56, .63, .19, .20, "métodos\ncomparados", C["blue"]),
-        (.20, .24, .19, .20, "métricas", C["green"]),
-        (.61, .24, .25, .20, "inferencia\npareada", C["purple"]),
+        (.06, .62, .19, .22, "datos\nEEG", C["cyan"]),
+        (.31, .62, .19, .22, "máscaras\nde pérdida", C["orange"]),
+        (.56, .62, .22, .22, "métodos\ncomparados", C["blue"]),
+        (.18, .27, .22, .20, "métricas\npor caso", C["green"]),
+        (.58, .27, .28, .20, "comparación\npareada", C["purple"]),
     ]
     for x,y,w,h,t,c in nodes:
         box(ax, (x,y), (w,h), t, c, fontsize=10.2, weight="bold")
@@ -213,11 +213,11 @@ def fig_methodology_flow():
     arrow(ax, (.255,.73), (.305,.73), lw=1.2)
     arrow(ax, (.505,.73), (.555,.73), lw=1.2)
     # Downstream arrows routed with arcs outside text boxes.
-    arrow(ax, (.655,.615), (.305,.455), rad=0.16, lw=1.15)
-    arrow(ax, (.400,.34), (.600,.34), lw=1.15)
-    box(ax, (.09,.045), (.82,.13), "control pareado: misma señal, misma máscara y misma semilla", C["gray"], fontsize=9.6, fc_alpha=.10)
-    arrow(ax, (.735,.235), (.735,.188), lw=1.0)
-    fig.subplots_adjust(left=0.04, right=0.98, top=0.87, bottom=0.10)
+    arrow(ax, (.670,.615), (.310,.470), rad=0.13, lw=1.15)
+    arrow(ax, (.405,.37), (.575,.37), lw=1.15)
+    box(ax, (.08,.055), (.84,.13), "control pareado transversal: misma señal, misma máscara y misma semilla", C["gray"], fontsize=10, fc_alpha=.06)
+    arrow(ax, (.720,.265), (.720,.190), lw=1.0)
+    fig.subplots_adjust(left=0.04, right=0.98, top=0.86, bottom=0.11)
     save(fig, "ch3_methodology_flow.pdf")
 
 
@@ -236,7 +236,7 @@ def fig_traceability():
         arrow(ax, (.61,.50), (x-.01,y+.08), lw=1.15)
         box(ax, (x,y), (.18,.16), t, C["orange"], fontsize=10)
     ax.text(0.50,.08,"Trazabilidad exigida: texto → tabla/figura → CSV → script/configuración",
-            ha="center", fontsize=9.5, color=C["gray"])
+            ha="center", fontsize=9.7, color="#111111")
     save(fig, "ch4_traceability_pipeline.pdf")
 
 
@@ -307,10 +307,8 @@ def fig_decision_map():
 
 
 if __name__ == "__main__":
-    fig_roadmap()
     fig_gsp_concepts()
     fig_trss_operator()
     fig_methodology_flow()
     fig_traceability()
-    fig_experimental_design()
     fig_decision_map()

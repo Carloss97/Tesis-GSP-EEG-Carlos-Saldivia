@@ -12,10 +12,10 @@ FIG.mkdir(exist_ok=True)
 
 mpl.rcParams.update({
     "font.family": "DejaVu Sans",
-    "font.size": 9.5,
-    "axes.titlesize": 10.5,
-    "axes.labelsize": 9.5,
-    "legend.fontsize": 8.5,
+    "font.size": 10.2,
+    "axes.titlesize": 11.0,
+    "axes.labelsize": 10.0,
+    "legend.fontsize": 8.8,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
 })
@@ -60,25 +60,28 @@ for r in [0.17,0.28,0.40,0.52]:
     ax_b.plot(0.50 + r*np.cos(t), 0.48 + 0.95*r*np.sin(t), color="#555555", lw=0.7, alpha=0.55)
     ax_b.plot(0.50 + r*np.cos(t), 0.52 - 0.75*r*np.sin(t), color="#555555", lw=0.55, alpha=0.30)
 
-# (c) signal
-ax_c.set_title("(c) Señal EEG: ritmo α + ERPs", loc="left", fontweight="bold", pad=5)
+# (c) ERP waveform. Keep the panel focused on the evoked morphology; alpha
+# rhythm is discussed in the text but not mixed into this schematic.
+ax_c.set_title("(c) ERP esquemático", loc="left", fontweight="bold", pad=5)
 fs=500
 t=np.linspace(0,1.2,int(1.2*fs))
-alpha=2.8*np.sin(2*np.pi*10*t)
 n100=-4.5*np.exp(-((t-0.20)**2)/(2*0.018**2))
-p300=6.5*np.exp(-((t-0.70)**2)/(2*0.045**2))
-noise=0.55*np.random.randn(len(t))
-sig=alpha+n100+p300+noise
-ax_c.plot(t, sig, color="#0072B2", lw=0.8, alpha=0.65, label="Señal EEG")
-ax_c.plot(t, n100, color="#009E73", lw=1.4, label="N100")
-ax_c.plot(t, p300, color="#D55E00", lw=1.4, label="P300")
-ax_c.plot(t, alpha, color="#E69F00", lw=1.0, alpha=0.8, label="Ritmo α")
+p200=3.4*np.exp(-((t-0.34)**2)/(2*0.030**2))
+p300=6.2*np.exp(-((t-0.70)**2)/(2*0.055**2))
+noise=0.18*np.random.randn(len(t))
+sig=n100+p200+p300+noise
+ax_c.plot(t, sig, color="#0072B2", lw=1.3, label="ERP promedio")
+for x, y, label, color in [(0.20, -4.5, "N100", "#009E73"), (0.34, 3.4, "P200", "#CC79A7"), (0.70, 6.2, "P300", "#D55E00")]:
+    ax_c.axvline(x, color=color, lw=0.8, ls="--", alpha=0.75)
+    ax_c.annotate(label, xy=(x, y), xytext=(x+0.04, y + (1.0 if y < 0 else 0.7)),
+                  fontsize=8.6, color=color,
+                  arrowprops=dict(arrowstyle="->", color=color, lw=0.8))
 ax_c.axhline(0, color="#777777", lw=0.6)
 ax_c.set_xlim(0,1.2)
 ax_c.set_xlabel("Tiempo [s]")
 ax_c.set_ylabel("Amplitud [µV]")
 ax_c.grid(True, color="#E5E5E5", lw=0.5)
-ax_c.legend(loc="upper right", frameon=True, framealpha=0.88, borderpad=0.4)
+ax_c.legend(loc="upper right", frameon=True, framealpha=0.92, borderpad=0.4)
 
 # (d) topography
 ax_d.set_title("(d) Topografía y canal fallado", loc="left", fontweight="bold", pad=5)

@@ -1,11 +1,10 @@
 FIGURES
-figures/ch1_thesis_roadmap.pdf
 figures/capitulo2_origen_eeg.pdf
 figures/ch2_gsp_concepts_clean.pdf
 figures/ch2_trss_operator.pdf
 figures/ch3_methodology_flow.pdf
+figures/ch3_architecture_blocks.pdf
 figures/ch4_traceability_pipeline.pdf
-figures/ch5_experimental_design_matrix.pdf
 figures/ch6_runtime_mae_tradeoff.pdf
 figures/ch6_metric_portfolio_improvement.pdf
 figures/ch6_boxplot_nrmse_balanced.pdf
@@ -13,8 +12,8 @@ figures/ch6_robust_improvement_ci.pdf
 figures/ch6_dataset_mae_improvement.pdf
 figures/ch6_scenario_heatmap_mae.pdf
 figures/ch6_ablation_temporal_component.pdf
-figures/res_opt_final__erp_comparison_static_mne_trss_filtered.png
-figures/res_opt_final__best_psd_comparison_clean.png
+figures/res_opt_final__erp_comparison_static_mne_trss_filtered.pdf
+figures/res_opt_final__best_psd_comparison_clean.pdf
 figures/ch6_boxplot_runtime_balanced.pdf
 figures/ch7_decision_map.pdf
 

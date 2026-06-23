@@ -1,15 +1,14 @@
 \chapter{Metodología}
 \label{ch:metodologia}
 
-Este capítulo integra el diseño metodológico completo: conjuntos de datos, protocolos de simulación de canales faltantes, construcción de grafos, algoritmos de interpolación, métricas de evaluación, motor de optimización bayesiana, arquitectura del sistema experimental, trazabilidad de artefactos, diseño experimental y protocolo de validación confirmatoria. La Figura~\ref{fig:methodology_flow} resume el flujo metodológico completo.
+Este capítulo integra el diseño metodológico completo: conjuntos de datos, protocolos de simulación de canales faltantes, construcción de grafos, algoritmos de interpolación, métricas de evaluación, motor de optimización bayesiana, arquitectura del sistema experimental, trazabilidad de artefactos, diseño experimental y protocolo de validación comparativa. La Figura~\ref{fig:methodology_flow} resume el flujo metodológico completo.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.96\textwidth]{ch3_methodology_flow}
-\caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas, y se evalúa con un portafolio de métricas antes del análisis estadístico pareado.}
+\caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas, y se evalúa con un portafolio de métricas antes de comparar los métodos por escenario pareado.}
 \label{fig:methodology_flow}
 \end{figure}
-%Revisar: Espacio blanco, letras pequeñas, texto en gris pequeño de subtitulo?? Revisar  todo de nuevo.
 % ======================================================================
 \section{Conjuntos de Datos}
 % ======================================================================
@@ -32,10 +31,9 @@ MNE Sample & 60 & 10--20 ext. & 600 & 1 & Auditivo \\
 \end{tabular}
 \end{table}
 
-\textbf{PhysioNet} \cite{goldberger2000physiobank,schalk2004bci2000} contiene 64 canales (10--10) a 160~Hz de 109 sujetos. Se usaron segmentos de reposo con ojos abiertos (60~s por sujeto). \textbf{BCI Competition IV 2a} \cite{brunner2008bci} aporta 22 canales (10--20) a 250~Hz de 9 sujetos en tareas de imaginación motora de cuatro clases. Se extrajeron 2592 ensayos de 2~s. \textbf{MNE Sample} \cite{gramfort2013meg} contiene 60 canales (10--20 ext.) a 600~Hz con 72 ensayos de 0.7~s alrededor de estímulos auditivos.
+\textbf{PhysioNet} \cite{goldberger2000physiobank,schalk2004bci2000} contiene 64 canales (10--10) a 160~Hz de 109 sujetos. Se usaron segmentos de reposo con ojos abiertos (60~s por sujeto). \textbf{BCI Competition IV 2a} \cite{brunner2008bci} aporta 22 canales (10--20) a 250~Hz de 9 sujetos en tareas de imaginación motora de cuatro clases. Se extrajeron 2592 ensayos de 2~s. \textbf{MNE Sample} \cite{gramfort2013meg} corresponde a un registro de un sujeto; de ese registro se seleccionaron 60 canales EEG a 600~Hz y 72 ensayos de 0.7~s alrededor de estímulos auditivos.
 
 Estos tres conjuntos cubren el espacio de variabilidad real: desde 22 canales (clínica ambulatoria) hasta 64 (investigación), con frecuencias de 160 a 600~Hz y paradigmas de reposo, imaginación motora y potenciales evocados.
-%MNE sample es de 1 canal (?)
 % ======================================================================
 \section{Protocolos de Simulación de Canales Faltantes}
 % ======================================================================
@@ -57,7 +55,7 @@ Se implementaron diez estrategias de construcción de grafos, organizadas según
 
 \begin{table}[htbp]
 \centering
-\caption{Estrategias de construcción de grafos. La columna «Fase» indica si el grafo se usó en la fase exploratoria (E), confirmatoria (C) o ambas (E+C).}
+\caption{Estrategias de construcción de grafos. La columna «Fase» indica si el grafo se usó en la fase exploratoria (E), comparativa (C) o ambas (E+C).}
 \label{tab:graph_methods}
 \small
 \begin{tabular}{@{}llp{4.8cm}l@{}}
@@ -78,8 +76,7 @@ aew & Data-driven & \textit{Adaptive Edge Weighting} & E \\
 \end{tabular}
 \end{table}
 
-Los grafos geométricos operan exclusivamente sobre las posiciones físicas de los electrodos, lo que los hace inmunes a canales faltantes y deterministas. Los grafos de correlación funcional se usaron únicamente en la fase de exploración inicial (\textit{screening}), donde era necesario evaluar un gran número de combinaciones método$\times$grafo; se descartaron para la fase confirmatoria porque la correlación se estima sobre las mismas señales que luego se reconstruyen, introduciendo circularidad metodológica. Los grafos data-driven se evaluaron en la fase exploratoria pero no pasaron a la confirmatoria por su mayor costo computacional y menor reproducibilidad determinista. Los grafos knng y gaussian fueron los únicos que avanzaron a la fase confirmatoria, por su balance entre expresividad y reproducibilidad.
-%Falta describir como obtienes las posiciones fisicas de los electrodos.
+Los grafos geométricos operan exclusivamente sobre las posiciones físicas de los electrodos, lo que los hace inmunes a canales faltantes y deterministas. Las posiciones se obtuvieron desde los montajes disponibles en MNE-Python: PhysioNet se estandarizó con el montaje \code{standard\_1005}; BCI IV 2a se mapeó a los 22 nombres de canal del montaje 10--20 extendido; y MNE Sample usó las coordenadas incluidas en el archivo \code{sample\_audvis\_raw.fif}. Cuando un canal no tenía coordenada explícita, el sistema lo marcó como caso a revisar y evitó usarlo para conclusiones fuertes. Los grafos de correlación funcional se usaron únicamente en la fase de exploración inicial (\textit{screening}), donde era necesario evaluar un gran número de combinaciones método$\times$grafo; se descartaron para la fase comparativa porque la correlación se estima sobre las mismas señales que luego se reconstruyen, introduciendo circularidad metodológica. Los grafos data-driven se evaluaron en la fase exploratoria pero no pasaron a la fase comparativa por su mayor costo computacional y menor reproducibilidad determinista. Los grafos knng y gaussian fueron los únicos que avanzaron a la fase comparativa, por su balance entre expresividad y reproducibilidad.
 % ======================================================================
 \section{Métodos de Interpolación}
 % ======================================================================
@@ -105,7 +102,7 @@ Referencia & MNE-Python (defecto), MNE-Python (Optuna) & E+C \\
 \end{tabular}
 \end{table}
 
-Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}. Los métodos GSP (Tikhonov, BGSRP, TV, GTT) y TRSS se evaluaron sobre múltiples grafos de la Sección~\ref{sec:graph_construction_methods}, generando variantes por método según el grafo subyacente. Los métodos geométricos y estadísticos se evaluaron en la fase exploratoria; solo TRSS y MNE-Python (en sus variantes por defecto y optimizada) avanzaron a la fase confirmatoria.
+Es metodológicamente crucial distinguir entre la implementación propia de \textit{spherical splines} y la de MNE-Python, que incorpora mejoras de ingeniería documentadas en el Capítulo~\ref{ch:marco_teorico}. Los métodos GSP (Tikhonov, BGSRP, TV, GTT) y TRSS se evaluaron sobre múltiples grafos de la Sección~\ref{sec:graph_construction_methods}, generando variantes por método según el grafo subyacente. Los métodos geométricos y estadísticos se evaluaron en la fase exploratoria; solo TRSS y MNE-Python (en sus variantes por defecto y optimizada) avanzaron a la fase comparativa.
 
 % ======================================================================
 \section{Métricas de Evaluación}
@@ -118,8 +115,8 @@ Se emplearon seis métricas primarias organizadas en tres categorías, más el t
 \centering
 \caption{Métricas de evaluación. La notación $\mathcal{F}$ denota el conjunto de canales faltantes, $x_i$ la señal real y $\hat{x}_i$ la reconstrucción.}
 \label{tab:metrics}
-\small
-\begin{tabular}{@{}llcl@{}}
+\footnotesize
+\begin{tabular}{@{}p{2.0cm}p{6.7cm}cc@{}}
 \toprule
 Categoría & Métrica & Símbolo & Dirección \\
 \midrule
@@ -179,7 +176,7 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta & NSG
 % ======================================================================
 \label{sec:architecture}
 
-El sistema se organiza en cinco módulos con interfaces explícitas que operan en cadena (Figura~\ref{fig:architecture_blocks}). El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} genera máscaras binarias con semilla trazable. El módulo de \textbf{construcción de grafo} implementa las diez estrategias y produce $\mathbf{W}$ y $\mathbf{L}$. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada. El módulo de \textbf{evaluación} calcula las diez métricas, y el de \textbf{optimización} orquesta Optuna con registro estructurado y detección de convergencia.
+El sistema se organiza en cinco módulos con interfaces explícitas que operan en cadena (Figura~\ref{fig:architecture_blocks}). El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} genera máscaras binarias con semilla trazable. El módulo de \textbf{construcción de grafo} implementa las diez estrategias y produce $\mathbf{W}$ y $\mathbf{L}$. El módulo de \textbf{interpolación} contiene las dieciocho implementaciones bajo una clase base abstracta con interfaz unificada. El módulo de \textbf{evaluación} calcula las métricas primarias y complementarias, y el de \textbf{optimización} orquesta Optuna con registro estructurado y detección de convergencia.
 
 \begin{figure}[htbp]
 \centering
@@ -187,10 +184,9 @@ El sistema se organiza en cinco módulos con interfaces explícitas que operan e
 \caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena. La separación estricta entre fases previene contaminación circular: resultados de una fase experimental nunca se utilizan para ajustar parámetros de otra fase.}
 \label{fig:architecture_blocks}
 \end{figure}
-%Lo mismo que la anterior. Sacar espacio,  tamaño letras, texto/caja gris abajo, revisar todo de nuevo.
 \subsection{Trazabilidad y Gestión de Artefactos}
 
-En experimentos computacionales a gran escala (18 métodos, 120 escenarios, más de 15\,000 configuraciones), la gestión sistemática de artefactos resuelve tres problemas concretos. Primero, \textbf{auditoría}: cada número reportado debe poder rastrearse hasta el archivo que lo origina; sin trazabilidad es imposible distinguir un hallazgo real de un error de transcripción. Segundo, \textbf{control de contaminación}: las fases exploratoria y confirmatoria deben mantenerse físicamente separadas para que resultados exploratorios no influyan inadvertidamente en decisiones confirmatorias. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio (\url{https://github.com/csaldivia/Tesis-GSP-EEG}) puede re-ejecutar cualquier subconjunto del experimento.
+En experimentos computacionales a gran escala (18 métodos, 120 escenarios, más de 15\,000 configuraciones), la gestión sistemática de artefactos resuelve tres problemas concretos. Primero, \textbf{auditoría}: cada número reportado debe poder rastrearse hasta el archivo que lo origina; sin trazabilidad es imposible distinguir un hallazgo real de un error de transcripción. Segundo, \textbf{control de contaminación}: las fases exploratoria y comparativa deben mantenerse físicamente separadas para que resultados exploratorios no influyan inadvertidamente en decisiones posteriores. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio (\url{https://github.com/csaldivia/Tesis-GSP-EEG}) puede re-ejecutar cualquier subconjunto del experimento.
 
 Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de parámetros) y preserva: configuración inmutable (YAML), métricas agregadas (JSON), señales reconstruidas en formato NPZ (NumPy comprimido), máscara de daño, y tiempos de ejecución (Tabla~\ref{tab:artifact_types}). El código está versionado con Git y cada conjunto de resultados está asociado a un \textit{commit hash} específico. La Figura~\ref{fig:traceability_pipeline} ilustra la cadena de trazabilidad desde el texto hasta el script generador.
 
@@ -200,7 +196,6 @@ Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de 
 \caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo JSON/CSV correspondiente y finalmente al script que generó el resultado.}
 \label{fig:traceability_pipeline}
 \end{figure}
-%mismos comentarios que las figuras anteriores. Caja gris abajo (?)
 \begin{table}[htbp]
 \centering
 \caption{Artefactos generados por el sistema experimental.}
@@ -211,7 +206,7 @@ Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de 
 Artefacto & Formato & Función \\
 \midrule
 Configuración & YAML & Registro inmutable de parámetros \\
-Métricas & JSON & Resultados de las diez métricas \\
+Métricas & JSON & Resultados de las métricas requeridas \\
 Señal reconstruida & NPZ (NumPy) & Salida verificable bit a bit \\
 Máscara de daño & NPZ (NumPy) & Trazabilidad de canales faltantes \\
 Tiempos & JSON & Perfil de eficiencia computacional \\
@@ -223,52 +218,43 @@ Tiempos & JSON & Perfil de eficiencia computacional \\
 \section{Diseño Experimental}
 % ======================================================================
 
-El diseño experimental se resume en la Tabla~\ref{tab:hypothesis_experiments}, que vincula cada hipótesis con el experimento diseñado para evaluarla y la evidencia esperada. La matriz completa de condiciones se ilustra en la Figura~\ref{fig:experimental_design_matrix}.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.95\textwidth]{ch5_experimental_design_matrix}
-\caption[Matriz conceptual del diseño experimental]{Matriz conceptual del diseño experimental. La estratificación por patrón y severidad de pérdida se combina con inferencia pareada: MNE y TRSS se comparan sobre el mismo caso, evitando que diferencias de señal o máscara contaminen la comparación.}
-\label{fig:experimental_design_matrix}
-\end{figure}
-%Insistes en haceer test de hipotesis?
+El diseño experimental se resume en la Tabla~\ref{tab:research_questions_experiments}, que vincula cada pregunta de investigación con el experimento diseñado para responderla y la evidencia esperada. La lógica central es pareada: dos métodos se comparan sobre la misma señal, la misma máscara de canales ocultos y la misma semilla, evitando que diferencias del caso experimental contaminen la comparación.
 \begin{table}[htbp]
 \centering
-\caption{Relación entre hipótesis, experimentos y evidencia esperada.}
-\label{tab:hypothesis_experiments}
+\caption{Relación entre preguntas de investigación, experimentos y evidencia esperada.}
+\label{tab:research_questions_experiments}
 \small
 \begin{tabular}{@{}p{3.2cm} p{3.0cm} p{5.5cm}@{}}
 \toprule
-Hipótesis y pregunta & Experimento & Evidencia esperada \\
+Pregunta & Experimento & Evidencia esperada \\
 \midrule
-H1: ¿Mejora TRSS a las referencias? & Comparación global de familias & TRSS mejora métricas de amplitud y ajuste temporal en pérdida contigua >20\% \\
-H1: ¿Es la mejora sinérgica? & Descomposición $\alpha$/$\beta$ & Contribución medible del término temporal \\
-H1: ¿Preserva morfología temporal? & Series temporales y DTW & Menor distorsión temporal en escenarios severos \\
-H2: ¿Existe régimen favorable a MNE? & Validación confirmatoria TRSS vs.\ MNE & MNE gana o empata en pérdida baja, señales suaves o restricciones de tiempo \\
-H2: ¿Punto de cruce? & Curvas de degradación por severidad & Frontera de uso dependiente de severidad y patrón \\
+P1: ¿Cuándo mejora TRSS? & Comparación global de familias & Reducción de error y ajuste temporal en pérdida agrupada o severa \\
+P1: ¿Aporta el término temporal? & Descomposición $\alpha$/$\beta$ & Diferencia observable entre TRSS completo y TRSS sin temporalidad \\
+P1: ¿Preserva morfología temporal? & Series temporales y DTW & Menor distorsión temporal en escenarios representativos \\
+P2: ¿Cuándo conviene MNE? & Comparación TRSS vs.\ MNE & MNE gana o empata en pérdida baja, señales suaves o restricciones de tiempo \\
+P2: ¿Dónde está el punto de cruce? & Curvas por patrón y severidad & Frontera de uso dependiente de severidad, patrón y métrica \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Las \textbf{variables independientes} son: método de interpolación, conjunto de datos, modo de pérdida, severidad y semilla (5 réplicas). Las \textbf{variables dependientes} son las diez métricas de la Sección~\ref{sec:metricas}. Las \textbf{variables controladas} incluyen: versiones exactas de todas las bibliotecas, semillas globales, preprocesamiento idéntico (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación uniforme), y hardware de ejecución (CPU Intel Core i7-13700H, 32 GB RAM, sin aceleración GPU).
+Las \textbf{variables independientes} son: método de interpolación, conjunto de datos, modo de pérdida, severidad y semilla (5 réplicas). Las \textbf{variables dependientes} son las métricas de la Sección~\ref{sec:metricas}. Las \textbf{variables controladas} incluyen: versiones exactas de todas las bibliotecas, semillas globales, preprocesamiento idéntico (filtro Butterworth 0.5--45~Hz, referencia promedio común, segmentación uniforme), y hardware de ejecución (CPU Intel Core i7-13700H, 32 GB RAM, sin aceleración GPU).
 
 % ======================================================================
-\section{Protocolo de Validación Confirmatoria}
-% ======================================================================
+\section{Protocolo de Validación Comparativa}
 \label{sec:confirmatory}
 
-La validación confirmatoria es una fase independiente que responde a una necesidad metodológica concreta: los resultados de la fase exploratoria (barridos de 15\,000 configuraciones) no pueden usarse para confirmar las hipótesis porque el riesgo de sobreajuste es alto. Un método que obtuvo buenos resultados porque sus hiperparámetros se ajustaron extensivamente sobre los datos de prueba no demuestra superioridad real; demuestra capacidad de ajuste. La fase confirmatoria elimina este riesgo al congelar los hiperparámetros de TRSS tras la optimización exploratoria y evaluarlo sobre una partición independiente, contra MNE-Python con parámetros por defecto.
+La validación comparativa es una fase independiente que responde a una necesidad metodológica concreta: los resultados de la fase exploratoria (barridos de 15\,000 configuraciones) no deben usarse como evidencia principal porque el riesgo de sobreajuste es alto. Un método que obtuvo buenos resultados porque sus hiperparámetros se ajustaron extensivamente sobre los datos de prueba no demuestra superioridad general; demuestra capacidad de ajuste al protocolo exploratorio. La fase comparativa reduce este riesgo al congelar los hiperparámetros de TRSS tras la optimización exploratoria y evaluarlo sobre una partición independiente, contra MNE-Python con parámetros por defecto.
 
-La fase se diseñó con 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato (300 casos pareados). Los regímenes incluyen señales reales y controles sintéticos suave/rugoso. El diseño es de medidas repetidas: cada caso comparte la misma señal y máscara, por lo que las diferencias son atribuibles exclusivamente a los métodos. La significancia se evalúa mediante Wilcoxon signed-rank con corrección de Benjamini-Hochberg ($\alpha=0.05$, FDR al 5\%), reportando tasa de victoria estratificada e intervalos de confianza al 95\% vía bootstrap jerárquico (1000 remuestreos).
+La fase se diseñó con 100 estratos definidos por régimen de señal, patrón de pérdida y severidad, con tres semillas por estrato (300 casos pareados). Los regímenes incluyen señales reales y controles sintéticos suave/rugoso. El diseño es de medidas repetidas: cada caso comparte la misma señal y máscara, por lo que las diferencias se atribuyen al método bajo las condiciones del protocolo. El análisis reporta diferencias pareadas, medianas por estrato, tasas de victoria e intervalos de incertidumbre vía bootstrap jerárquico (1000 remuestreos), sin convertir la decisión metodológica en una prueba de hipótesis nula.
 
 % ======================================================================
 \section{Control de Calidad}
 % ======================================================================
 
-Antes de cualquier análisis se ejecutaron verificaciones automáticas: todas las ejecuciones contienen las diez métricas, ningún identificador duplicado con resultados diferentes, las máscaras coinciden con la semilla, y se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada.
+Antes de cualquier análisis se ejecutaron verificaciones automáticas: todas las ejecuciones contienen las métricas requeridas, ningún identificador duplicado con resultados diferentes, las máscaras coinciden con la semilla, y se excluyen ejecuciones con valores no numéricos, tiempo excesivo ($>$10~min) o reconstrucción idéntica a la entrada.
 
 % ======================================================================
 \section{Síntesis del Diseño}
 % ======================================================================
 
-El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos fueron optimizados con el mismo motor bayesiano; se incorporó una validación confirmatoria independiente contra MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante. La arquitectura modular, la separación estricta de fases y la trazabilidad completa de artefactos garantizan que las conclusiones sean auditables y reproducibles.
+El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos fueron optimizados con el mismo motor bayesiano; se incorporó una comparación independiente contra MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante. La arquitectura modular, la separación estricta de fases y la trazabilidad completa de artefactos garantizan que las conclusiones sean auditables y reproducibles.

@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,12 +9,6 @@
 Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta, and Masanori Koyama.
 \newblock Optuna: A next-generation hyperparameter optimization framework.
 \newblock In \emph{Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining}, pages 2623--2631, 2019.
-
-\bibitem[Banville et~al.(2021)Banville, Chehab, Hyv{\"a}rinen, Engemann, and Gramfort]{banville2021uncovering}
-Hubert Banville, Omar Chehab, Aapo Hyv{\"a}rinen, Denis-Alexander Engemann, and Alexandre Gramfort.
-\newblock Uncovering the structure of clinical {EEG} signals with self-supervised learning.
-\newblock \emph{Journal of Neural Engineering}, 18\penalty0 (4):\penalty0 046020, 2021.
-\newblock \doi{10.1088/1741-2552/abca18}.
 
 \bibitem[Brunner et~al.(2008)Brunner, Leeb, M{\"u}ller-Putz, Schl{\"o}gl, and Pfurtscheller]{brunner2008bci}
 Clemens Brunner, Robert Leeb, Gernot~R. M{\"u}ller-Putz, Alois Schl{\"o}gl, and Gert Pfurtscheller.
@@ -27,11 +21,6 @@ Gy{\"o}rgy Buzs{\'a}ki.
 \newblock Rhythms of the brain.
 \newblock 2006.
 \newblock \doi{10.1093/acprof:oso/9780195301069.001.0001}.
-
-\bibitem[Defferrard et~al.(2016)Defferrard, Bresson, and Vandergheynst]{defferrard2016}
-Micha{\"e}l Defferrard, Xavier Bresson, and Pierre Vandergheynst.
-\newblock Convolutional neural networks on graphs with fast localized spectral filtering.
-\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~29, pages 3844--3852, 2016.
 
 \bibitem[Delorme and Makeig(2004)]{delorme2004eeglab}
 Arnaud Delorme and Scott Makeig.
@@ -63,17 +52,22 @@ Alexandre Gramfort, Martin Luessi, Eric Larson, Denis~A. Engemann, Daniel Strohm
 \newblock \emph{NeuroImage}, 86:\penalty0 446--460, 2014.
 \newblock \doi{10.1016/j.neuroimage.2013.10.027}.
 
-\bibitem[Jolliffe(2002)]{jolliffe2002principal}
-Ian~T. Jolliffe.
-\newblock \emph{Principal Component Analysis}.
-\newblock Springer, 2nd edition, 2002.
-\newblock \doi{10.1007/b98835}.
+\bibitem[J{\"a}ger et~al.(2016)J{\"a}ger, Klein, Buhmann, and Skrandies]{jager2016rbf}
+Janin J{\"a}ger, Alexander Klein, Martin Buhmann, and Wolfgang Skrandies.
+\newblock Reconstruction of electroencephalographic data using radial basis functions.
+\newblock \emph{Clinical Neurophysiology}, 127\penalty0 (4):\penalty0 1978--1983, 2016.
+\newblock \doi{10.1016/j.clinph.2016.01.003}.
 
 \bibitem[Jung et~al.(2001)Jung, Makeig, McKeown, Bell, Lee, and Sejnowski]{jung2001imaging}
 Tzyy-Ping Jung, Scott Makeig, Martin~J. McKeown, Anthony~J. Bell, Te-Won Lee, and Terrence~J. Sejnowski.
 \newblock Imaging brain dynamics using independent component analysis.
 \newblock \emph{Proceedings of the IEEE}, 89\penalty0 (7):\penalty0 1107--1122, 2001.
 \newblock \doi{10.1109/5.939827}.
+
+\bibitem[Kalofolias(2016)]{kalofolias_how_2016}
+Vassilis Kalofolias.
+\newblock How to learn a graph from smooth signals, 2016.
+\newblock URL \url{http://arxiv.org/abs/1601.02513}.
 
 \bibitem[Lai et~al.(2005)Lai, Chen, and Liao]{lai2005controlled}
 Chun-Hung Lai, Yi-Ming Chen, and Wen-Chieh Liao.
@@ -127,21 +121,16 @@ Gerwin Schalk, Dennis~J. McFarland, Thilo Hinterberger, Niels Birbaumer, and Jon
 \newblock \emph{IEEE Transactions on Biomedical Engineering}, 51\penalty0 (6):\penalty0 1034--1043, 2004.
 \newblock \doi{10.1109/TBME.2004.827072}.
 
+\bibitem[Shekkizhar and Ortega(2020)]{shekkizhar2020}
+S.~Shekkizhar and A.~Ortega.
+\newblock Graph construction from data by non-negative kernel regression.
+\newblock In \emph{2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, pages 3892--3896, 2020.
+\newblock \doi{10.1109/ICASSP40776.2020.9054425}.
+
 \bibitem[Shuman et~al.(2013)Shuman, Narang, Frossard, Ortega, and Vandergheynst]{shuman2013}
 D.~I. Shuman, S.~K. Narang, P.~Frossard, A.~Ortega, and P.~Vandergheynst.
 \newblock The emerging field of signal processing on graphs.
 \newblock \emph{IEEE Signal Processing Magazine}, 30\penalty0 (3):\penalty0 83--98, 2013.
 \newblock \doi{10.1109/MSP.2012.2235192}.
-
-\bibitem[Sporns et~al.(2005)Sporns, Tononi, and K{\"o}tter]{sporns2005human}
-Olaf Sporns, Giulio Tononi, and Rolf K{\"o}tter.
-\newblock The human connectome: A structural description of the human brain.
-\newblock \emph{PLoS Computational Biology}, 1\penalty0 (4):\penalty0 e42, 2005.
-\newblock \doi{10.1371/journal.pcbi.0010042}.
-
-\bibitem[Yoon et~al.(2019)Yoon, Jarrett, and van~der Schaar]{yoon2019time}
-Jinsung Yoon, Daniel Jarrett, and Mihaela van~der Schaar.
-\newblock Time-series generative adversarial networks.
-\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~32, 2019.
 
 \end{thebibliography}

@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tesis_caps_1_5.aux
+A level-1 auxiliary file: frontmatter/cover_page.aux
+A level-1 auxiliary file: frontmatter/abstract_es.aux
+A level-1 auxiliary file: frontmatter/abstract_en.aux
+A level-1 auxiliary file: chapters/01_introduccion.aux
+A level-1 auxiliary file: chapters/02_marco_teorico.aux
+A level-1 auxiliary file: chapters/03_metodologia.aux
+A level-1 auxiliary file: chapters/04_resultados.aux
+A level-1 auxiliary file: chapters/05_discusion.aux
+The style file: plainnat.bst
+Database file #1: bibliography/references.bib
+Warning--empty journal in buzsaki2006rhythms
+You've used 22 entries,
+            2773 wiz_defined-function locations,
+            754 strings with 10312 characters,
+and the built_in function-call counts, 12760 in all, are:
+= -- 1120
+> -- 933
+< -- 10
++ -- 313
+- -- 291
+* -- 1142
+:= -- 1990
+add.period$ -- 84
+call.type$ -- 22
+change.case$ -- 163
+chr.to.int$ -- 22
+cite$ -- 45
+duplicate$ -- 485
+empty$ -- 887
+format.name$ -- 321
+if$ -- 2628
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 22
+newline$ -- 136
+num.names$ -- 88
+pop$ -- 306
+preamble$ -- 1
+purify$ -- 141
+quote$ -- 0
+skip$ -- 417
+stack$ -- 0
+substring$ -- 475
+swap$ -- 57
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 232
+warning$ -- 1
+while$ -- 99
+width$ -- 0
+write$ -- 324
+(There was 1 warning)
