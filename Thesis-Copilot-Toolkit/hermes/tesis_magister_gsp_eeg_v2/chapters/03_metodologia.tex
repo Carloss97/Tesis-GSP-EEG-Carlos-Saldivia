@@ -9,7 +9,7 @@ Este capítulo integra el diseño metodológico completo: conjuntos de datos, pr
 \caption[Flujo metodológico de evaluación]{Flujo metodológico de evaluación. Cada método se aplica sobre los mismos conjuntos de datos, máscaras de pérdida y semillas, y se evalúa con un portafolio de métricas antes del análisis estadístico pareado.}
 \label{fig:methodology_flow}
 \end{figure}
-
+%Revisar: Espacio blanco, letras pequeñas, texto en gris pequeño de subtitulo?? Revisar  todo de nuevo.
 % ======================================================================
 \section{Conjuntos de Datos}
 % ======================================================================
@@ -23,7 +23,7 @@ La evaluación se realizó sobre tres bases de datos EEG públicas que cubren un
 \small
 \begin{tabular}{@{}lccccc@{}}
 \toprule
-Dataset & Canales & Sistema & Free. (Hz) & Sujetos & Paradigma \\
+Dataset & Canales & Sistema & Frec. (Hz) & Sujetos & Paradigma \\
 \midrule
 PhysioNet & 64 & 10--10 & 160 & 109 & Reposo \\
 BCI IV 2a & 22 & 10--20 & 250 & 9 & Imag. motora \\
@@ -35,7 +35,7 @@ MNE Sample & 60 & 10--20 ext. & 600 & 1 & Auditivo \\
 \textbf{PhysioNet} \cite{goldberger2000physiobank,schalk2004bci2000} contiene 64 canales (10--10) a 160~Hz de 109 sujetos. Se usaron segmentos de reposo con ojos abiertos (60~s por sujeto). \textbf{BCI Competition IV 2a} \cite{brunner2008bci} aporta 22 canales (10--20) a 250~Hz de 9 sujetos en tareas de imaginación motora de cuatro clases. Se extrajeron 2592 ensayos de 2~s. \textbf{MNE Sample} \cite{gramfort2013meg} contiene 60 canales (10--20 ext.) a 600~Hz con 72 ensayos de 0.7~s alrededor de estímulos auditivos.
 
 Estos tres conjuntos cubren el espacio de variabilidad real: desde 22 canales (clínica ambulatoria) hasta 64 (investigación), con frecuencias de 160 a 600~Hz y paradigmas de reposo, imaginación motora y potenciales evocados.
-
+%MNE sample es de 1 canal (?)
 % ======================================================================
 \section{Protocolos de Simulación de Canales Faltantes}
 % ======================================================================
@@ -79,7 +79,7 @@ aew & Data-driven & \textit{Adaptive Edge Weighting} & E \\
 \end{table}
 
 Los grafos geométricos operan exclusivamente sobre las posiciones físicas de los electrodos, lo que los hace inmunes a canales faltantes y deterministas. Los grafos de correlación funcional se usaron únicamente en la fase de exploración inicial (\textit{screening}), donde era necesario evaluar un gran número de combinaciones método$\times$grafo; se descartaron para la fase confirmatoria porque la correlación se estima sobre las mismas señales que luego se reconstruyen, introduciendo circularidad metodológica. Los grafos data-driven se evaluaron en la fase exploratoria pero no pasaron a la confirmatoria por su mayor costo computacional y menor reproducibilidad determinista. Los grafos knng y gaussian fueron los únicos que avanzaron a la fase confirmatoria, por su balance entre expresividad y reproducibilidad.
-
+%Falta describir como obtienes las posiciones fisicas de los electrodos.
 % ======================================================================
 \section{Métodos de Interpolación}
 % ======================================================================
@@ -187,7 +187,7 @@ El sistema se organiza en cinco módulos con interfaces explícitas que operan e
 \caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena. La separación estricta entre fases previene contaminación circular: resultados de una fase experimental nunca se utilizan para ajustar parámetros de otra fase.}
 \label{fig:architecture_blocks}
 \end{figure}
-
+%Lo mismo que la anterior. Sacar espacio,  tamaño letras, texto/caja gris abajo, revisar todo de nuevo.
 \subsection{Trazabilidad y Gestión de Artefactos}
 
 En experimentos computacionales a gran escala (18 métodos, 120 escenarios, más de 15\,000 configuraciones), la gestión sistemática de artefactos resuelve tres problemas concretos. Primero, \textbf{auditoría}: cada número reportado debe poder rastrearse hasta el archivo que lo origina; sin trazabilidad es imposible distinguir un hallazgo real de un error de transcripción. Segundo, \textbf{control de contaminación}: las fases exploratoria y confirmatoria deben mantenerse físicamente separadas para que resultados exploratorios no influyan inadvertidamente en decisiones confirmatorias. Tercero, \textbf{reproducibilidad}: un tercero con acceso al repositorio (\url{https://github.com/csaldivia/Tesis-GSP-EEG}) puede re-ejecutar cualquier subconjunto del experimento.
@@ -200,7 +200,7 @@ Cada ejecución recibe un identificador único (SHA-256 de la tupla completa de 
 \caption[Cadena de trazabilidad experimental]{Cadena de trazabilidad experimental. Cada afirmación cuantitativa puede rastrearse desde el texto hasta una tabla o figura, desde allí al archivo JSON/CSV correspondiente y finalmente al script que generó el resultado.}
 \label{fig:traceability_pipeline}
 \end{figure}
-
+%mismos comentarios que las figuras anteriores. Caja gris abajo (?)
 \begin{table}[htbp]
 \centering
 \caption{Artefactos generados por el sistema experimental.}
@@ -231,7 +231,7 @@ El diseño experimental se resume en la Tabla~\ref{tab:hypothesis_experiments}, 
 \caption[Matriz conceptual del diseño experimental]{Matriz conceptual del diseño experimental. La estratificación por patrón y severidad de pérdida se combina con inferencia pareada: MNE y TRSS se comparan sobre el mismo caso, evitando que diferencias de señal o máscara contaminen la comparación.}
 \label{fig:experimental_design_matrix}
 \end{figure}
-
+%Insistes en haceer test de hipotesis?
 \begin{table}[htbp]
 \centering
 \caption{Relación entre hipótesis, experimentos y evidencia esperada.}

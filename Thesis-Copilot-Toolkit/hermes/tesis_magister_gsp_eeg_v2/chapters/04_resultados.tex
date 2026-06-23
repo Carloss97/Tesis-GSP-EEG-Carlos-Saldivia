@@ -1,4 +1,7 @@
-\chapter{Resultados}
+\chapter{Resultados} %Esta sección está difícil de entender. Sigo pensando que usar un análisis estadístico no es correcto. Más aun, dificulta seguir tus
+%resultados.
+%Falta mostrar resultados representativos de señales interpoladas con las distintas estrategias. Solo muestras dos casos en la figura
+%4.8 y 4.9, y 4.9 no es informativa.
 \label{ch:resultados}
 
 Este capítulo presenta la evidencia experimental que sostiene la parte práctica de la tesis. La exposición separa cuatro niveles de análisis: primero, la relación entre la fase exploratoria amplia y la fase confirmatoria; segundo, el resumen global de la evaluación contra MNE-Python; tercero, la estratificación por conjunto de datos y tipo de pérdida; cuarto, el costo computacional y el estudio de descomposición del componente temporal que permiten interpretar cuándo la regularización temporal aporta valor. Esta organización evita una lectura de superioridad universal y permite formular una decisión práctica: TRSS es útil en regímenes difíciles de reconstrucción, mientras que MNE-Python sigue siendo una referencia fuerte en escenarios favorables y en tiempo de cómputo.
@@ -8,7 +11,7 @@ Este capítulo presenta la evidencia experimental que sostiene la parte práctic
 La tesis contiene dos niveles de evidencia que conviene no mezclar. La fase exploratoria implementó el universo amplio de métodos descrito en la metodología y permitió seleccionar familias competitivas. La fase confirmatoria, en cambio, restringió la inferencia principal a una comparación pareada TRSS--MNE, porque esa es la prueba más exigente para la contribución práctica: comparar la regularización espacio--temporal contra la implementación comunitaria de referencia que un usuario real usaría en un flujo M/EEG. La Tabla~\ref{tab:ch6_phase_map} resume la relación entre fases experimentales.
 
 \input{tables/ch6_phase_map}
-
+%Que es ablación? 
 Los datos sintéticos de la fase confirmatoria no reemplazan a los conjuntos reales; cumplen un rol de control. El régimen sintético suave funciona como control negativo para TRSS: si una señal satisface fuertemente la suavidad espacial, MNE debería ser difícil de superar. El régimen sintético rugoso actúa como control positivo para escenarios donde la información espacial aislada es insuficiente. Esta separación permite explicar por qué el presente capítulo reporta 100 estratos confirmatorios y 300 casos pareados, mientras que los capítulos metodológicos documentan el barrido exploratorio de 120 escenarios sobre tres bases reales.
 
 \section{Inventario de Evidencia Experimental}
@@ -29,7 +32,7 @@ La Tabla~\ref{tab:ch6_global_summary} resume el resultado global, y la Figura~\r
 \FloatBarrier
 
 \section{Comparación Pareada TRSS--MNE}
-
+%Sigo pensando que en tu setup no aplica el uso de test de hipótesis.
 La Tabla~\ref{tab:ch6_robust_main} reporta la comparación pareada con prueba de Wilcoxon, intervalos de confianza bootstrap jerárquicos y tamaño del efecto. En TRSS fijo, la mejora mediana de MAE frente a MNE es 12.4\% con intervalo al 95\% entre 7.8\% y 17.4\%, tasa de victoria de 72.0\% y $q_{BH}=1.0\times10^{-22}$. NRMSE muestra un patrón similar: mejora mediana de 13.9\%, tasa de victoria de 70.3\% y efecto pareado positivo. La correlación mejora de manera más pequeña en magnitud porcentual, pero de forma consistente en los pares evaluados.
 
 El resultado espectral es distinto. En LSD, donde menor es mejor, TRSS fijo presenta una mejora mediana negativa de -2.3\% y una tasa de victoria de 40.7\%. La variante calibrada acentúa este deterioro, con -9.6\% de mejora mediana y 26.0\% de tasa de victoria. Este hallazgo es central para la interpretación de la tesis: TRSS no domina todas las métricas. Su ventaja se concentra en error de amplitud, NRMSE, correlación y ajuste temporal, mientras que MNE conserva fortaleza en una métrica espectral global.
@@ -77,9 +80,8 @@ El promedio global oculta una heterogeneidad importante. La Tabla~\ref{tab:ch6_b
   \caption{Mejora mediana de MAE de TRSS fijo frente a MNE por conjunto de datos. La señal sintética suave actúa como control negativo: cuando se cumple fuertemente el supuesto de suavidad espacial, MNE puede ser superior.}
   \label{fig:ch6_dataset_mae_improvement}
 \end{figure}
-
+%Etiqueta = tasa de victoria (?)
 Este control negativo es útil. Si TRSS hubiera superado también al caso sintético suave, el resultado podría interpretarse como una ventaja numérica artificial del protocolo. La pérdida frente a MNE en ese régimen muestra que el diseño experimental conserva sensibilidad para detectar escenarios donde el modelo espacial clásico es suficiente o preferible.
-
 \FloatBarrier
 
 \section{Efecto del Patrón y Severidad de Pérdida}
@@ -94,7 +96,7 @@ La estratificación por patrón de canales ocultos confirma la interpretación c
   \caption{Mapa de calor de mejora mediana de MAE para TRSS fijo frente a MNE. Cada celda muestra la mejora mediana y, debajo, la tasa de victoria. La ventaja crece cuando la pérdida elimina información espacial local, especialmente en patrones cercanos o periféricos de alta severidad.}
   \label{fig:ch6_scenario_heatmap_mae}
 \end{figure}
-
+%Cada celda: primera linea ... ... (?)
 El patrón observado coincide con la intuición del modelo. MNE usa una información previa espacial global; cuando los canales buenos circundantes son abundantes, esa información previa es suficiente. TRSS agrega una restricción temporal que se vuelve más valiosa cuando el vecindario espacial del canal faltante deja de contener información suficiente.
 
 \FloatBarrier
@@ -124,7 +126,7 @@ Además de las métricas agregadas, las visualizaciones de series temporales y e
   \caption{Ejemplo cualitativo de reconstrucción temporal bajo pérdida cercana severa. La figura ilustra la diferencia morfológica que las métricas agregadas capturan de forma resumida.}
   \label{fig:ch6_erp_severo}
 \end{figure}
-
+%El resultado acá de TRSS es muy malo. ¿Siempre es así?
 La Figura~\ref{fig:ch6_psd_comparison} resume el comportamiento espectral en una comparación multi-método. La lectura conjunta con la Tabla~\ref{tab:ch6_robust_main} es importante: TRSS puede preservar mejor la forma temporal local y, simultáneamente, no dominar LSD global frente a MNE. Esta aparente tensión refleja que las métricas responden a propiedades distintas de la señal reconstruida.
 
 \begin{figure}[htbp]
@@ -133,7 +135,9 @@ La Figura~\ref{fig:ch6_psd_comparison} resume el comportamiento espectral en una
   \caption{Comparación espectral multi-método. La preservación de potencia por banda no siempre coincide con la mejora de MAE, por lo que LSD se reporta como dimensión independiente y no como consecuencia automática del error de amplitud.}
   \label{fig:ch6_psd_comparison}
 \end{figure}
-
+%Por qué es tan poco suave este espectro?
+%No entiendo lo que muestras acá. Esperaría ver el espectro de la señal original versus el espectro de
+%la señal interpolada.
 \FloatBarrier
 
 \section{Tiempo de Cómputo y Complejidad}
@@ -141,7 +145,7 @@ La Figura~\ref{fig:ch6_psd_comparison} resume el comportamiento espectral en una
 La Tabla~\ref{tab:ch6_runtime_complexity} resume la diferencia de implementación, y la Figura~\ref{fig:ch6_runtime_boxplot} muestra la distribución de tiempos por caso. MNE resuelve un sistema espacial regularizado y lo aplica a las muestras temporales; su costo de preparación depende cúbicamente del número de canales, pero el número de canales en EEG es moderado y la operación resultante es muy eficiente. TRSS opera sobre un grafo espacio--temporal y requiere iteraciones del resolvedor, de modo que el costo escala con el número de aristas, muestras temporales e iteraciones.
 
 \input{tables/ch6_runtime_complexity}
-
+%Y H? Como llegas a estas expresiones de complejidad?
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.82\textwidth]{ch6_boxplot_runtime_balanced}
@@ -158,3 +162,5 @@ La implicancia práctica es directa. Si el flujo de procesamiento exige latencia
 Los resultados sostienen una conclusión condicional. TRSS fijo mejora de manera estadísticamente robusta MAE, NRMSE y correlación frente a MNE-Python en el benchmark confirmatorio balanceado, con tasas de victoria cercanas al 70--72\%. La ventaja es mayor cuando la pérdida es agrupada, periférica o severa, y desaparece o se invierte cuando la señal cumple fuertemente el supuesto de suavidad espacial. MNE conserva dos ventajas decisivas: menor LSD en el promedio global y menor tiempo de cómputo.
 
 Por tanto, las hipótesis se respaldan con matices. H1 queda respaldada para las métricas primarias de reconstrucción de canales ocultos y para los regímenes difíciles de pérdida, pero no autoriza afirmar dominancia universal de TRSS. H2 queda respaldada como ventaja práctica o empate operativo de MNE, especialmente en señales suaves, baja pérdida espacial y restricciones de tiempo. La contribución práctica de la tesis es precisamente identificar esta frontera de decisión con evidencia pareada, no reemplazar una regla de uso por otra igual de rígida.
+
+%El capítulo 4 tienes que replantearlo. Como está no se entiende. Me da la impresión que estás dependiendo en exceso de la IA. 

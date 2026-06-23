@@ -23,7 +23,7 @@ Bajo este paradigma, el voltaje medido en un instante se interpreta como una se�
 Una extensión aún más avanzada es la regularización espacio-temporal. Trabajos recientes han introducido enfoques como la Regularización Temporal de Suavidad de Sobolev (TRSS, por sus siglas en inglés) \cite{giraldo2022}, que optimiza conjuntamente la topología espacial y la derivada temporal de la señal. Al penalizar saltos bruscos en el tiempo de forma simultánea a los saltos en el espacio, TRSS impone restricciones fisiológicas reales: las neuronas no cambian su potencial de membrana instantáneamente, sino que obedecen dinámicas de integración continua. Esta restricción dual —espacial y temporal— es lo que la teoría predice como el factor diferencial frente a los métodos puramente espaciales.
 
 Existe además un cuerpo creciente de literatura que aborda la interpolación de señales EEG mediante redes neuronales profundas, incluyendo arquitecturas como autoencoders convolucionales \cite{banville2021uncovering}, redes generativas antagónicas para imputación de series temporales \cite{yoon2019time}, y más recientemente Redes Neuronales de Grafos que operan directamente sobre la topología de electrodos \cite{defferrard2016}. Estos enfoques han mostrado resultados prometedores en escenarios controlados, beneficiándose de la capacidad de las redes profundas para aprender representaciones latentes complejas a partir de grandes volúmenes de datos.
-
+% No veo que estas referencias sean sobre interpolación de  EEG.
 No obstante, estos métodos presentan limitaciones que motivan su exclusión deliberada del alcance de esta tesis. En primer lugar, son inherentemente dependientes de los datos de entrenamiento, lo que introduce riesgos de falta de generalización al transferir modelos entre poblaciones, equipos o paradigmas experimentales distintos. En segundo lugar, carecen de garantías formales de convergencia y de interpretabilidad sobre el mecanismo de interpolación, una propiedad crítica en contextos clínicos donde cada decisión debe ser trazable y justificable. En tercer lugar, su costo computacional de entrenamiento es órdenes de magnitud superior al de los métodos algorítmicos aquí considerados. Por estas razones, la presente investigación se circunscribe exclusivamente a métodos algorítmicos con fundamento matemático explícito —geométricos, estadísticos y basados en GSP— cuya operación no requiere entrenamiento y cuyas propiedades de convergencia y regularización son analíticamente caracterizables.
 
 \section{La Brecha en la Literatura y la Motivación del Trabajo}
@@ -33,14 +33,14 @@ A pesar del potencial teórico de los algoritmos GSP y TRSS, su validación emp�
 El primer problema es que los estudios que proponen nuevos algoritmos GSP suelen compararse contra \textit{spherical splines} usando las configuraciones por defecto de los paquetes de software, sin realizar una búsqueda rigurosa de hiperparámetros para los métodos de referencia. Esto puede inflar artificialmente las ventajas del método propuesto y distorsionar la percepción del verdadero estado del arte \cite{saldivia2026benchmark}. El segundo problema es que la mayoría de los trabajos restringe su evaluación a métricas de error de amplitud global —como el RMSE o el MAE— y aplica escenarios de desconexión simples, tales como la remoción de canales aleatorios aislados en bases de datos pequeñas. Rara vez se investiga el impacto morfológico de la reconstrucción mediante métricas temporales como el \textit{Dynamic Time Warping} o espectrales como la Distancia Espectral Logarítmica. El tercer problema es la escasez de comparaciones contra implementaciones comunitarias maduras. En particular, la interpolación de MNE-Python incorpora más de una década de refinamientos de ingeniería —normalización de coordenadas, regularización diagonal adaptativa, aumentación del sistema con restricciones lineales, pseudoinversa con tolerancia adaptativa y un mecanismo de reintento automático— que la hacen sustancialmente más robusta que una implementación ingenua de \textit{spherical splines}. Ignorar esta implementación equivale a comparar contra un método de referencia debilitado artificialmente.
 
 La motivación concreta de este trabajo nace directamente de estas brechas. El objetivo no es diseñar desde cero un nuevo marco teórico matemático, sino someter a la frontera del conocimiento actual ---métodos geométricos, GSP y regularización temporal--- a la evaluación empírica más rigurosa, exhaustiva y justa posible. Al utilizar el sistema moderno de optimización bayesiana Optuna \cite{akiba2019optuna} para llevar todos los algoritmos a su máximo límite empírico bajo protocolos evaluados en múltiples conjuntos de datos, esta tesis busca revelar el verdadero punto de cruce entre el paradigma clásico y el paradigma de grafos. La Figura~\ref{fig:ch1_thesis_roadmap} presenta el mapa lógico de la tesis.
-
+%(lectura: la tesis... ... ??? Quitar)
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{ch1_thesis_roadmap}
 \caption[Mapa lógico de la tesis]{Mapa lógico de la tesis. La contribución se organiza como una cadena de ingeniería: caracterizar el problema de canales faltantes, comparar métodos espaciales y espacio--temporales bajo un protocolo común, y transformar los resultados en una frontera práctica de decisión entre MNE-Python y TRSS.}
 \label{fig:ch1_thesis_roadmap}
 \end{figure}
-
+% No entiendo el proposito de esta figura.
 \subsection{La pregunta central: ¿por qué funciona tan bien la interpolación de MNE-Python?}
 \label{sec:why_mne_works}
 
@@ -48,7 +48,7 @@ Una pregunta recurrente que emerge del análisis preliminar —y que motiva una 
 
 Estas mejoras —normalización de coordenadas a esfera unitaria, uso global de canales, regularización diagonal adaptativa, aumentación con restricciones lineales, pseudoinversa con tolerancia adaptativa y reintento automático— no aparecen descritas en la literatura académica, pero están presentes en el código fuente de MNE. Son las responsables de que un método formulado en 1989 siga siendo hoy una referencia competitiva. Esta tesis dedica una sección completa del marco teórico (Capítulo~2) a documentar estos mecanismos, y una validación confirmatoria independiente (Capítulo~4) a cuantificar la brecha real entre TRSS y MNE.
 
-\section{Cronología del Proyecto}
+\section{Cronología del Proyecto} %Sacar
 \label{sec:cronologia}
 
 La investigación que sustenta esta tesis no siguió un camino lineal, sino un proceso iterativo de descubrimiento guiado por los resultados experimentales que se iban obteniendo. Documentar esta trayectoria es esencial para comprender las decisiones metodológicas que dieron forma al protocolo final, y se presenta a continuación de manera cronológica.
@@ -104,8 +104,8 @@ Comparar el rendimiento espacial, temporal y espectral de los métodos de recons
 
 \begin{quote}
 \textbf{H2 — Hipótesis de ventaja práctica de MNE.} En regímenes favorables —montajes densos ($\geq 60$ canales), pérdida aleatoria baja o señales espacialmente suaves—, MNE-Python iguala o supera a TRSS en preservación espectral y tiempo de cómputo, con diferencias de reconstrucción operacionalmente pequeñas.
-\end{quote}
-
+\end{quote} 
+%(MNE-Python iguala o supera: Raro que la hipotesis sea desfavorable al método que tu propones.)
 \section{Alcance y Aportes de la Investigación}
 
 El alcance de este trabajo abarca la ejecución computacional a gran escala del sistema de evaluación sobre tres conjuntos de datos, ciento veinte escenarios de falla y dieciocho métodos de interpolación. A diferencia de las evaluaciones acotadas que predominan en la literatura, aquí se consolidan miles de ensayos EEG bajo más de quince mil configuraciones paramétricas exploradas mediante Optuna.
@@ -120,7 +120,7 @@ Para desarrollar el análisis propuesto, el resto del documento se organiza de l
 
 Los apéndices complementan el documento con derivaciones matemáticas completas (Apéndice~A), tablas extensas de resultados (Apéndice~B), el protocolo de reproducibilidad (Apéndice~C), el inventario de artefactos computacionales (Apéndice~D) y una adaptación de las tablas del documento original de tesis para referencia histórica (Apéndice~E).
 
-\section{Tesis, Contribución y Criterio de Lectura}
+\section{Tesis, Contribución y Criterio de Lectura} %En  1.8 describes la  contribución, por qué lo vuelves a repetir?
 
 La tesis que organiza este documento sostiene que la reconstrucción de canales EEG faltantes debe evaluarse como un problema simultáneamente espacial, temporal y espectral. En consecuencia, una evaluación basada únicamente en métricas de error de amplitud como el MAE o el RMSE no es suficiente para decidir si una interpolación es útil en aplicaciones neurofisiológicas reales, porque estas métricas son insensibles a las distorsiones de fase y a la preservación de la estructura fina del espectro de frecuencias.
 
