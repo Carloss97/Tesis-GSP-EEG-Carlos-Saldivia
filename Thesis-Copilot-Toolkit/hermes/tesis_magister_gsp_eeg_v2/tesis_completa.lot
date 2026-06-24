@@ -8,20 +8,20 @@
 \contentsline {table}{\numberline {3.3}{\ignorespaces Métodos de interpolación implementados y evaluados.}}{22}{table.caption.13}%
 \contentsline {table}{\numberline {3.4}{\ignorespaces Métricas de evaluación. La notación $\mathcal {F}$ denota el conjunto de canales faltantes, $x_i$ la señal real y $\hat {x}_i$ la reconstrucción.}}{23}{table.caption.14}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces Espacios de búsqueda de hiperparámetros.}}{24}{table.caption.15}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Artefactos generados por el sistema experimental.}}{25}{table.caption.18}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces Relación entre preguntas de investigación, experimentos y evidencia esperada.}}{26}{table.caption.19}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Artefactos generados por el sistema experimental.}}{27}{table.caption.18}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Relación entre preguntas de investigación, experimentos y evidencia esperada.}}{27}{table.caption.19}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Relación entre fases experimentales y evidencia usada en los capítulos prácticos.}}{29}{table.caption.20}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen global del benchmark confirmatorio balanceado contra MNE-Python. Las métricas de error se calculan solo sobre canales artificialmente ocultos. El oráculo usa verdad de terreno para seleccionar hiperparámetros y se reporta únicamente como cota superior no desplegable.}}{30}{table.caption.21}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Comparación robusta TRSS--MNE}}{31}{table.caption.23}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Portafolio completo de métricas confirmatorias para TRSS fijo frente a MNE. La mejora mediana positiva favorece a TRSS después de ajustar la dirección de cada métrica; valores negativos favorecen a MNE.}}{32}{table.caption.24}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Estratificación por conjunto de datos para TRSS fijo frente a MNE en MAE. La ventaja no es homogénea: TRSS mejora en datos reales y en el régimen sintético rugoso, pero pierde cuando la señal sintética satisface fuertemente el supuesto de suavidad espacial.}}{34}{table.caption.28}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Escenarios representativos para TRSS fijo frente a MNE en MAE. La mejora aumenta en pérdidas agrupadas o periféricas de alta severidad, mientras que escenarios de pocos canales cercanos pueden producir empate práctico.}}{35}{table.caption.30}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Complejidad computacional e implementación observada. $N$ es el número de canales, $T$ el número de muestras temporales, $E$ el número de aristas del grafo y $K$ el número de iteraciones del resolvedor.}}{40}{table.caption.35}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Relación entre fases experimentales y evidencia usada en los capítulos prácticos.}}{30}{table.caption.20}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Resumen global del benchmark confirmatorio balanceado contra MNE-Python. Las métricas de error se calculan solo sobre canales artificialmente ocultos. El oráculo usa verdad de terreno para seleccionar hiperparámetros y se reporta únicamente como cota superior no desplegable.}}{31}{table.caption.21}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Comparación robusta TRSS--MNE}}{32}{table.caption.23}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Portafolio completo de métricas confirmatorias para TRSS fijo frente a MNE. La mejora mediana positiva favorece a TRSS después de ajustar la dirección de cada métrica; valores negativos favorecen a MNE.}}{33}{table.caption.24}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Estratificación por conjunto de datos para TRSS fijo frente a MNE en MAE. La ventaja no es homogénea: TRSS mejora en datos reales y en el régimen sintético rugoso, pero pierde cuando la señal sintética satisface fuertemente el supuesto de suavidad espacial.}}{35}{table.caption.28}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Escenarios representativos para TRSS fijo frente a MNE en MAE. La mejora aumenta en pérdidas agrupadas o periféricas de alta severidad, mientras que escenarios de pocos canales cercanos pueden producir empate práctico.}}{36}{table.caption.30}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Complejidad computacional e implementación observada. $N$ es el número de canales, $T$ el número de muestras temporales, $E$ el número de aristas del grafo y $K$ el número de iteraciones del resolvedor.}}{41}{table.caption.35}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Guía práctica de selección entre MNE y TRSS a partir de los resultados experimentales.}}{45}{table.caption.37}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Guía práctica de selección entre MNE y TRSS a partir de los resultados experimentales.}}{46}{table.caption.37}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Matriz de cumplimiento de objetivos e hipótesis.}}{50}{table.caption.39}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Matriz de cumplimiento de objetivos e hipótesis.}}{51}{table.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

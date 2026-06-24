@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Generate a compact, thesis-ready Chapter 2 EEG neurophysiology figure.
+"""Generate a compact Chapter 2 EEG neurophysiology figure.
 
-The figure is an original schematic (not copied from cited papers). It follows
-advisor feedback by avoiding crowded labels, making the cortex/dipoles readable,
-and replacing the confusing head-contained dipole field with a classical dipole
-potential schematic.
+Design principle for this revision: no explanatory text is placed on top of the
+scientific drawing. Labels are moved to separate legend areas or captions.
 """
 from __future__ import annotations
 
@@ -14,7 +12,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.lines import Line2D
-from matplotlib.patches import Circle, Ellipse, FancyArrowPatch, Polygon
+from matplotlib.patches import Circle, Ellipse, FancyArrowPatch, Polygon, Rectangle
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "figures"
@@ -27,7 +25,7 @@ mpl.rcParams.update({
     "axes.labelsize": 9.5,
     "xtick.labelsize": 8.5,
     "ytick.labelsize": 8.5,
-    "legend.fontsize": 8.3,
+    "legend.fontsize": 8.2,
     "pdf.fonttype": 42,
     "ps.fonttype": 42,
 })
@@ -52,18 +50,41 @@ def clean_panel(ax: plt.Axes) -> None:
         spine.set_visible(False)
 
 
-def add_head_outline(ax: plt.Axes, cx: float = 0.5, cy: float = 0.5, r: float = 0.38,
-                     lw: float = 1.3, fill: bool = False, facecolor: str = "white") -> None:
+def add_head_outline(ax: plt.Axes, cx: float, cy: float, r: float,
+                     lw: float = 1.2, fill: bool = False, facecolor: str = "white") -> None:
     ax.add_patch(Circle((cx, cy), r, fill=fill, facecolor=facecolor,
                         edgecolor=C["gray"], lw=lw, zorder=1))
     ax.add_patch(Polygon([[cx - 0.035, cy + r * 0.96], [cx, cy + r * 1.13],
-                          [cx + 0.035, cy + r * 0.96]],
-                         closed=True, facecolor=facecolor if fill else "white",
-                         edgecolor=C["gray"], lw=lw, zorder=2))
+                          [cx + 0.035, cy + r * 0.96]], closed=True,
+                         facecolor=facecolor if fill else "white", edgecolor=C["gray"], lw=lw, zorder=2))
     ax.add_patch(Ellipse((cx - r * 1.03, cy), r * 0.16, r * 0.34, fill=False,
                          edgecolor=C["gray"], lw=lw, zorder=2))
     ax.add_patch(Ellipse((cx + r * 1.03, cy), r * 0.16, r * 0.34, fill=False,
                          edgecolor=C["gray"], lw=lw, zorder=2))
+
+
+def legend_row(ax: plt.Axes, y: float, color: str, text: str, x: float = 0.04) -> None:
+    ax.add_patch(Rectangle((x, y - 0.020), 0.040, 0.040, facecolor=color,
+                           edgecolor="#555555", lw=0.5, transform=ax.transAxes, clip_on=False))
+    ax.text(x + 0.055, y, text, transform=ax.transAxes, ha="left", va="center",
+            fontsize=8.6, color="#111111")
+
+
+def legend_item(ax: plt.Axes, x: float, y: float, color: str, text: str,
+                marker: str = "square") -> None:
+    """Compact legend item in axes coordinates, kept away from drawings."""
+    if marker == "line":
+        ax.plot([x, x + 0.035], [y, y], transform=ax.transAxes, color=color,
+                lw=1.7, clip_on=False)
+    elif marker == "eeg":
+        ax.scatter([x + 0.018], [y], transform=ax.transAxes, marker="s", s=24,
+                   color=color, clip_on=False)
+    else:
+        ax.add_patch(Rectangle((x, y - 0.015), 0.030, 0.030,
+                               facecolor=color, edgecolor="#555555", lw=0.45,
+                               transform=ax.transAxes, clip_on=False))
+    ax.text(x + 0.045, y, text, transform=ax.transAxes, ha="left", va="center",
+            fontsize=7.7, color="#111111")
 
 
 def panel_origin(ax: plt.Axes) -> None:
@@ -73,90 +94,76 @@ def panel_origin(ax: plt.Axes) -> None:
     ax.set_ylim(0, 1)
     ax.set_aspect("equal")
 
-    cx, cy = 0.56, 0.51
-    add_head_outline(ax, cx, cy, 0.36, lw=1.2, fill=True, facecolor=C["scalp"])
-    ax.add_patch(Circle((cx, cy), 0.285, facecolor=C["skull"], edgecolor="#6E6E6E", lw=0.75, alpha=0.96))
-    ax.add_patch(Circle((cx, cy), 0.220, facecolor=C["csf"], edgecolor="#6E6E6E", lw=0.75, alpha=0.95))
-    ax.add_patch(Circle((cx, cy), 0.150, facecolor=C["cortex"], edgecolor="#5B3B25", lw=0.85, alpha=0.94))
+    # Head cross-section at left; interpretation appears in a separate legend
+    # at right, avoiding labels on top of the drawing.
+    cx, cy, r = 0.34, 0.54, 0.27
+    add_head_outline(ax, cx, cy, r, fill=True, facecolor=C["scalp"])
+    ax.add_patch(Circle((cx, cy), 0.212, facecolor=C["skull"], edgecolor="#6E6E6E", lw=0.75, zorder=2))
+    ax.add_patch(Circle((cx, cy), 0.162, facecolor=C["csf"], edgecolor="#6E6E6E", lw=0.75, zorder=3))
+    ax.add_patch(Circle((cx, cy), 0.106, facecolor=C["cortex"], edgecolor="#5B3B25", lw=0.85, zorder=4))
 
-    label_specs = [
-        ("cuero cabelludo", (0.055, 0.82), (cx - 0.22, cy + 0.29), "#6B3A1E"),
-        ("cráneo", (0.055, 0.68), (cx - 0.19, cy + 0.18), "#4C473B"),
-        ("LCR", (0.055, 0.54), (cx - 0.12, cy + 0.10), "#1E5E73"),
-        ("corteza", (0.055, 0.40), (cx - 0.02, cy + 0.02), "#5B2B12"),
-    ]
-    for label, xytext, xy, color in label_specs:
-        ax.annotate(label, xy=xy, xytext=xytext, ha="left", va="center",
-                    fontsize=9.0, color=color,
-                    arrowprops=dict(arrowstyle="-", color="#555555", lw=0.65,
-                                    shrinkA=1, shrinkB=2))
+    theta = np.linspace(48, 132, 6) * np.pi / 180
+    ex = cx + (r + 0.018) * np.cos(theta)
+    ey = cy + (r + 0.018) * np.sin(theta)
+    ax.scatter(ex, ey, marker="s", s=28, color=C["blue"], edgecolor="white", linewidth=0.5, zorder=6)
 
-    # EEG electrodes on scalp; label is away from title and electrodes.
-    theta = np.linspace(45, 135, 6) * np.pi / 180
-    ex = cx + 0.377 * np.cos(theta)
-    ey = cy + 0.377 * np.sin(theta)
-    ax.scatter(ex, ey, marker="s", s=28, color=C["blue"], edgecolor="white", linewidth=0.5, zorder=5)
-    ax.annotate("electrodos EEG", xy=(ex[2], ey[2]), xytext=(0.80, 0.91),
-                ha="center", va="center", fontsize=8.9, color=C["blue"],
-                arrowprops=dict(arrowstyle="->", color=C["blue"], lw=0.8))
-
-    # Cortical dipoles inside a now-legible cortex region.
-    dipoles = [(0.50, 0.47, 70), (0.57, 0.42, 105), (0.63, 0.52, 55)]
+    dipoles = [(cx - 0.04, cy - 0.02, 70), (cx + 0.03, cy - 0.05, 105), (cx + 0.06, cy + 0.04, 55)]
     for x, y, ang in dipoles:
-        dx = 0.040 * np.cos(np.deg2rad(ang))
-        dy = 0.040 * np.sin(np.deg2rad(ang))
+        dx = 0.036 * np.cos(np.deg2rad(ang))
+        dy = 0.036 * np.sin(np.deg2rad(ang))
         ax.add_patch(FancyArrowPatch((x - dx, y - dy), (x + dx, y + dy),
                                      arrowstyle="-|>", mutation_scale=10,
-                                     lw=1.15, color=C["orange"], zorder=6))
+                                     lw=1.15, color=C["orange"], zorder=7))
         ax.add_patch(FancyArrowPatch((x + dx * 0.35, y + dy * 0.35), (x - dx * 0.35, y - dy * 0.35),
                                      arrowstyle="-|>", mutation_scale=8,
-                                     lw=0.95, color=C["blue"], alpha=0.9, zorder=6))
+                                     lw=0.95, color=C["blue"], alpha=0.9, zorder=7))
 
-    ax.annotate("dipolos\ncorticales", xy=(0.56, 0.45), xytext=(0.25, 0.19),
-                ha="center", va="center", fontsize=9.0, color="#5B2B12",
-                arrowprops=dict(arrowstyle="->", color="#7A2F00", lw=1.0,
-                                connectionstyle="arc3,rad=-0.12"))
-    # Volume conduction cue.
-    for x0 in [0.50, 0.57, 0.64]:
-        ax.annotate("", xy=(x0, 0.81), xytext=(x0, 0.60),
-                    arrowprops=dict(arrowstyle="->", color="#666666", lw=0.75, ls="--", alpha=0.72))
+    # Propagation arrows are graphical only; explanations live in caption/legend.
+    for x0 in [cx - 0.05, cx, cx + 0.06]:
+        ax.annotate("", xy=(x0, cy + r * 0.85), xytext=(x0, cy + 0.10),
+                    arrowprops=dict(arrowstyle="->", color="#666666", lw=0.75, ls="--", alpha=0.70))
+
+    # Separate legend/explanation: explicit but not superimposed.
+    ax.text(0.72, 0.82, "Capas", transform=ax.transAxes,
+            ha="left", va="center", fontsize=7.7, fontweight="bold", color="#111111")
+    legend_item(ax, 0.72, 0.75, C["scalp"], "cuero cabelludo")
+    legend_item(ax, 0.72, 0.67, C["skull"], "cráneo")
+    legend_item(ax, 0.72, 0.59, C["csf"], "LCR")
+    legend_item(ax, 0.72, 0.51, C["cortex"], "corteza")
+    ax.text(0.72, 0.40, "Símbolos", transform=ax.transAxes,
+            ha="left", va="center", fontsize=7.7, fontweight="bold", color="#111111")
+    legend_item(ax, 0.72, 0.33, C["blue"], "electrodos", marker="eeg")
+    legend_item(ax, 0.72, 0.25, C["orange"], "dipolos", marker="line")
+    legend_item(ax, 0.72, 0.17, "#666666", "conducción", marker="line")
 
 
 def panel_dipole(ax: plt.Axes) -> None:
     clean_panel(ax)
     ax.set_title("(b) Campo del dipolo", loc="left", fontweight="bold", pad=3)
     ax.set_xlim(-1.05, 1.05)
-    ax.set_ylim(-0.78, 0.78)
+    ax.set_ylim(-0.80, 0.80)
     ax.set_aspect("equal")
 
-    # Classical potential-field schematic: positive/negative equipotential contours.
-    x = np.linspace(-1.0, 1.0, 220)
-    y = np.linspace(-0.75, 0.75, 180)
+    x = np.linspace(-1.0, 1.0, 240)
+    y = np.linspace(-0.76, 0.76, 200)
     X, Y = np.meshgrid(x, y)
     eps = 0.055
     V = 1.0 / np.sqrt((X + 0.26) ** 2 + Y ** 2 + eps) - 1.0 / np.sqrt((X - 0.26) ** 2 + Y ** 2 + eps)
-    neg = [-2.0, -1.2, -0.7, -0.35]
-    pos = [0.35, 0.7, 1.2, 2.0]
-    ax.contour(X, Y, V, levels=neg, colors=[C["blue"]], linewidths=0.90, alpha=0.72)
-    ax.contour(X, Y, V, levels=pos, colors=[C["orange"]], linewidths=0.90, alpha=0.72)
+    ax.contour(X, Y, V, levels=[-2.0, -1.2, -0.7, -0.35], colors=[C["blue"]], linewidths=0.90, alpha=0.72)
+    ax.contour(X, Y, V, levels=[0.35, 0.7, 1.2, 2.0], colors=[C["orange"]], linewidths=0.90, alpha=0.72)
     ax.contour(X, Y, V, levels=[0], colors=["#777777"], linewidths=0.80, alpha=0.60)
 
     ax.scatter([-0.26, 0.26], [0, 0], s=230, c=[C["orange"], C["blue"]],
                edgecolors="white", linewidth=0.8, zorder=4)
     ax.text(-0.26, 0, "+", ha="center", va="center", color="white", fontsize=15, fontweight="bold", zorder=5)
     ax.text(0.26, 0, "−", ha="center", va="center", color="white", fontsize=17, fontweight="bold", zorder=5)
-    ax.annotate("momento\ndipolar", xy=(-0.03, 0.0), xytext=(0.00, 0.58),
-                ha="center", va="center", fontsize=8.8, color="#333333",
-                arrowprops=dict(arrowstyle="->", color="#333333", lw=0.9))
-    ax.annotate("contornos\nequipotenciales", xy=(0.55, 0.33), xytext=(0.78, 0.64),
-                fontsize=8.6, ha="center", va="center", color="#333333",
-                arrowprops=dict(arrowstyle="->", color="#333333", lw=0.9))
+
     legend = [
         Line2D([0], [0], color=C["orange"], lw=1.2, label="potencial +"),
         Line2D([0], [0], color=C["blue"], lw=1.2, label="potencial −"),
         Line2D([0], [0], color="#777777", lw=1.0, label="cero"),
     ]
-    ax.legend(handles=legend, loc="lower center", bbox_to_anchor=(0.5, -0.02),
+    ax.legend(handles=legend, loc="lower center", bbox_to_anchor=(0.5, -0.11),
               ncol=3, frameon=False, handlelength=1.3, columnspacing=0.8)
 
 
@@ -200,24 +207,20 @@ def panel_topography(ax: plt.Axes) -> None:
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.set_aspect("equal")
-    add_head_outline(ax, 0.50, 0.52, 0.34, lw=1.35)
+    add_head_outline(ax, 0.50, 0.55, 0.34, lw=1.35)
 
     pos = np.array([
-        [0.42, 0.78], [0.58, 0.78],
-        [0.25, 0.67], [0.40, 0.67], [0.50, 0.69], [0.60, 0.67], [0.75, 0.67],
-        [0.20, 0.52], [0.36, 0.52], [0.50, 0.52], [0.64, 0.52], [0.80, 0.52],
-        [0.27, 0.37], [0.42, 0.36], [0.50, 0.35], [0.58, 0.36], [0.73, 0.37],
-        [0.42, 0.23], [0.58, 0.23],
+        [0.42, 0.80], [0.58, 0.80],
+        [0.25, 0.69], [0.40, 0.69], [0.50, 0.71], [0.60, 0.69], [0.75, 0.69],
+        [0.20, 0.54], [0.36, 0.54], [0.50, 0.54], [0.64, 0.54], [0.80, 0.54],
+        [0.27, 0.39], [0.42, 0.38], [0.50, 0.37], [0.58, 0.38], [0.73, 0.39],
+        [0.42, 0.25], [0.58, 0.25],
     ])
     bad = np.array([3, 10, 16])
     good = np.array([i for i in range(len(pos)) if i not in set(bad)])
     ax.scatter(pos[good, 0], pos[good, 1], s=48, color=C["blue"], edgecolors="white", linewidth=0.7, zorder=4)
     ax.scatter(pos[bad, 0], pos[bad, 1], s=88, marker="X", color=C["orange"], edgecolors="white", linewidth=0.9, zorder=5)
-    ax.text(0.50, 0.91, "nasion", ha="center", va="center", fontsize=8.0, color="#444444")
-    ax.annotate("canales fallados\n(a interpolar)", xy=(0.64, 0.52), xytext=(0.86, 0.26),
-                fontsize=8.6, ha="center", va="center", color="#7A2F00",
-                arrowprops=dict(arrowstyle="->", color="#7A2F00", lw=0.9,
-                                connectionstyle="arc3,rad=-0.18"))
+
     legend = [
         Line2D([0], [0], marker="o", color="none", label="canal observado",
                markerfacecolor=C["blue"], markeredgecolor="white", markersize=7),
@@ -229,12 +232,12 @@ def panel_topography(ax: plt.Axes) -> None:
 
 
 def main() -> None:
-    fig, axes = plt.subplots(2, 2, figsize=(7.55, 5.35), constrained_layout=True)
+    fig, axes = plt.subplots(2, 2, figsize=(7.55, 5.25), constrained_layout=True)
     panel_origin(axes[0, 0])
     panel_dipole(axes[0, 1])
     panel_erp(axes[1, 0])
     panel_topography(axes[1, 1])
-    fig.set_constrained_layout_pads(w_pad=0.030, h_pad=0.030, wspace=0.10, hspace=0.10)
+    fig.set_constrained_layout_pads(w_pad=0.035, h_pad=0.035, wspace=0.12, hspace=0.10)
     out = FIG / "capitulo2_origen_eeg.pdf"
     fig.savefig(out, format="pdf", bbox_inches="tight", pad_inches=0.020)
     plt.close(fig)
