@@ -92,7 +92,7 @@ def phase_overview() -> None:
 \toprule
 Fase & Propósito & Artefactos y decisión \\
 \midrule
-Exploración preliminar & Explorar combinaciones método--grafo sobre datos sintéticos y EEG proxy/real, sin usarlas como conclusión final. & Ranking exploratorio de combinaciones; identifica familias temporales y grafos candidatos. \\
+Cribado amplio & Explorar combinaciones método--grafo sobre datos sintéticos y EEG proxy/real, sin usarlas como conclusión final. & Ranking exploratorio de combinaciones; identifica familias temporales y grafos candidatos. \\
 Reducción de candidatos & Descartar métodos inestables, demasiado costosos o dependientes de información circular. & Microbenchmarks y bitácora de selección; mantener métodos trazables y comparables. \\
 Optimización intermedia & Ajustar hiperparámetros y evaluar sensibilidad entre óptimos por escenario y configuraciones globales. & Resultados Optuna y evaluación global; congelar variantes TRSS para la comparación. \\
 Comparación final & Comparar TRSS fijo/calibrado contra MNE sobre casos pareados independientes. & Resultados balanceados y resumen pareado; tablas y figuras V3 del capítulo. \\
@@ -140,7 +140,7 @@ def screening_top_candidates() -> None:
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\caption{Mejor combinación método--grafo por conjunto durante la selección exploratoria. El ranking corresponde al puntaje compuesto de los resultados preliminares; no constituye la comparación final contra MNE.}
+\caption{Mejor combinación método--grafo por conjunto durante el cribado exploratorio. El ranking corresponde al puntaje compuesto de los resultados preliminares; no constituye la comparación final contra MNE.}
 \label{tab:ch4_preliminary_screening_top_candidates}
 \begin{tabular}{@{}p{2.2cm}p{1.85cm}p{2.4cm}p{1.85cm}rr@{}}
 \toprule
@@ -204,7 +204,7 @@ Grupo & Evidencia experimental & Decisión para la fase final \\
 Geométricos propios & Rápidos y útiles como contexto, pero menos robustos que MNE-Python. & Mantener como antecedentes; usar MNE como referencia principal. \\
 Grafos de correlación & Informativos, pero dependen de la misma señal evaluada. & Excluir de conclusiones finales por circularidad potencial. \\
 Grafos data-driven & Competitivos en algunos conjuntos, con mayor costo y menor determinismo. & Reservar para trabajo futuro. \\
-Temporales no TRSS & Competitivos en la selección preliminar, pero con costo o interpretación menos favorable. & Mantener como evidencia intermedia. \\
+Temporales no TRSS & Competitivos en cribado, pero con costo o interpretación menos favorable. & Mantener como evidencia intermedia. \\
 TRSS y MNE & TRSS resume la regularización espacio--temporal; MNE es referencia madura y rápida. & Comparación final pareada. \\
 \bottomrule
 \end{tabular}

@@ -13,7 +13,7 @@ Sin embargo, la revisión detallada muestra una brecha narrativa: el capítulo t
 
 Reestructurar el capítulo 4 para que documente la fase experimental completa:
 
-1. selección preliminar de métodos y grafos;
+1. cribado preliminar de métodos y grafos;
 2. reducción de candidatos por desempeño, costo, reproducibilidad y circularidad;
 3. optimización intermedia y congelamiento de variantes;
 4. benchmark final TRSS--MNE;
@@ -24,7 +24,7 @@ La comparación final se mantiene sin análisis estadístico como eje narrativo.
 
 ## 3. Artefactos reales identificados
 
-### Exploración preliminar
+### Cribado amplio
 
 - `results/tablas_resumen/top5_combinaciones_recomendadas_gsp.csv`
 - `results/tablas_resumen/resumen_familias_stats.csv`
@@ -67,7 +67,7 @@ Estas tablas deben insertarse al inicio del capítulo 4 para explicar cómo se l
 
 1. **Experimentos y resultados** — apertura con alcance completo.
 2. **Mapa de fases experimentales** — tabla de fases y artefactos.
-3. **Selección preliminar de métodos y grafos** — mejores combinaciones método--grafo por dataset.
+3. **Cribado preliminar de métodos y grafos** — mejores combinaciones método--grafo por dataset.
 4. **Reducción de candidatos para la fase comparativa** — costo, circularidad, reproducibilidad y decisión metodológica.
 5. **Optimización intermedia y congelamiento de variantes** — Optuna/grillas y separación entre exploración y evidencia final.
 6. **Inventario de escenarios, métodos y métricas de la comparación final**.

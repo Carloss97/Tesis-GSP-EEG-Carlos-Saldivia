@@ -5,15 +5,15 @@ Este capítulo documenta la trayectoria experimental completa de la tesis. No se
 
 \section{Mapa de fases experimentales}
 
-La Tabla~\ref{tab:ch4_experimental_phase_overview} resume la secuencia experimental. La fase de exploración preliminar permitió observar qué familias método--grafo eran competitivas en distintos conjuntos. La reducción de candidatos incorporó criterios de desempeño, costo, reproducibilidad y riesgo de circularidad. La optimización intermedia ajustó hiperparámetros y definió variantes congeladas. Solo después de esas etapas se ejecutó la comparación final pareada contra MNE-Python.
+La Tabla~\ref{tab:ch4_experimental_phase_overview} resume la secuencia experimental. La fase de cribado amplio permitió observar qué familias método--grafo eran competitivas en distintos conjuntos. La reducción de candidatos incorporó criterios de desempeño, costo, reproducibilidad y riesgo de circularidad. La optimización intermedia ajustó hiperparámetros y definió variantes congeladas. Solo después de esas etapas se ejecutó la comparación final pareada contra MNE-Python.
 
 \input{tables/ch4_experimental_phase_overview}
 
 Esta separación es metodológicamente importante. Los resultados preliminares no se interpretan como evidencia final porque fueron usados para decidir qué métodos seguir explorando. Su función en este capítulo es explicar por qué el benchmark final se concentra en TRSS y MNE, y por qué algunas estrategias teóricamente atractivas no pasaron a la etapa comparativa.
 
-\section{Selección preliminar de métodos y grafos}
+\section{Cribado preliminar de métodos y grafos}
 
-La selección preliminar evaluó combinaciones de familias de interpolación y construcción de grafos sobre datos sintéticos, proxies EEG y registros reales. La Tabla~\ref{tab:ch4_preliminary_screening_top_candidates} muestra la mejor combinación método--grafo por conjunto dentro del ranking exploratorio. El patrón general es que las variantes con información temporal aparecen repetidamente en las primeras posiciones, aunque no de manera universal: algunos conjuntos favorecen métodos instantáneos o geométricos simples.
+El cribado preliminar evaluó combinaciones de familias de interpolación y construcción de grafos sobre datos sintéticos, proxies EEG y registros reales. La Tabla~\ref{tab:ch4_preliminary_screening_top_candidates} muestra la mejor combinación método--grafo por conjunto dentro del ranking exploratorio. El patrón general es que las variantes con información temporal aparecen repetidamente en las primeras posiciones, aunque no de manera universal: algunos conjuntos favorecen métodos instantáneos o geométricos simples.
 
 \input{tables/ch4_preliminary_screening_top_candidates}
 

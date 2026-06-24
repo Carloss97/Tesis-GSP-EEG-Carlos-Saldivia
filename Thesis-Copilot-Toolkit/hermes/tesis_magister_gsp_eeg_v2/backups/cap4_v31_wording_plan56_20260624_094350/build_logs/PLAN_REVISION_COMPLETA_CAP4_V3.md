@@ -7,7 +7,7 @@ Alcance extendido: ajustar después `chapters/05_discusion.tex` y `chapters/06_c
 
 ## Actualización V3.1: Capítulo 4 como “Experimentos y Resultados”
 
-La revisión posterior a V3 identificó que el capítulo corregido resolvía el encuadre sin pruebas de hipótesis, pero todavía se leía principalmente como capítulo de resultados finales. La versión V3.1 agrega explícitamente la trayectoria experimental completa: selección preliminar de métodos y grafos, reducción de candidatos, optimización intermedia, comparación final TRSS--MNE e inspección cualitativa. El plan detallado queda registrado en `build_logs/PLAN_REVISION_CAP4_V31_EXPERIMENTOS_RESULTADOS.md`.
+La revisión posterior a V3 identificó que el capítulo corregido resolvía el encuadre sin pruebas de hipótesis, pero todavía se leía principalmente como capítulo de resultados finales. La versión V3.1 agrega explícitamente la trayectoria experimental completa: cribado preliminar de métodos y grafos, reducción de candidatos, optimización intermedia, comparación final TRSS--MNE e inspección cualitativa. El plan detallado queda registrado en `build_logs/PLAN_REVISION_CAP4_V31_EXPERIMENTOS_RESULTADOS.md`.
 
 ## 1. Estado inicial verificado
 

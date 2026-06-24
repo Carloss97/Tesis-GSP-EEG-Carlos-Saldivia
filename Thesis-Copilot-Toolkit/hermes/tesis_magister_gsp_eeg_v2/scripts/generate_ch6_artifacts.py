@@ -188,7 +188,7 @@ tex_table(
 \toprule
 Fase & Alcance verificable & Uso principal \\
 \midrule
-Implementación y cribado & 18 métodos; {len(micro)} con microbenchmark & Cobertura metodológica y descarte inicial. \\
+Implementación y selección preliminar & 18 métodos; {len(micro)} con microbenchmark & Cobertura metodológica y descarte inicial. \\
 Optimización final & {phase_opt_methods} finalistas, {phase_opt_datasets} bases reales, {phase_opt_rows} filas & Selección de familias competitivas. \\
 Confirmatoria TRSS--MNE & {phase_strata} estratos, {phase_cases} pares, {phase_methods} variantes, {phase_rows} evaluaciones & Inferencia principal de capítulos 6--8. \\
 Ablación temporal & {phase_abl_variants} variantes, {phase_abl_datasets} bases, {len(abl)} evaluaciones & Aporte del término temporal. \\
