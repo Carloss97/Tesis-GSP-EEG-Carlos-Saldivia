@@ -1,0 +1,50 @@
+\chapter{Conclusiones y Trabajo Futuro}
+\label{ch:conclusiones}
+
+\section{Conclusiones}
+
+Esta tesis evaluó métodos de reconstrucción de canales EEG faltantes con énfasis en Procesamiento de Señales en Grafos y regularización temporal. El trabajo no se limita a proponer una familia de métodos; construye una evaluación comparativa trazable, multi-métrica y pareada contra una referencia comunitaria fuerte. A partir de los resultados, se formulan cinco conclusiones principales.
+
+\textbf{Primera conclusión: TRSS mejora la reconstrucción de canales ocultos, pero no domina universalmente.} En la evaluación confirmatoria balanceada, TRSS fijo mejora MAE en 12.4\% de mediana frente a MNE y gana en 72.0\% de los pares. NRMSE mejora 13.9\% y la correlación también aumenta. Estos resultados respaldan el valor de la regularización espacio--temporal para reconstrucción de amplitud y ajuste temporal. Sin embargo, LSD favorece a MNE en el agregado y el tiempo de cómputo también favorece a MNE. La conclusión correcta es condicional, no absoluta.
+
+\textbf{Segunda conclusión: MNE-Python es una referencia fuerte y debe usarse como comparación obligatoria.} La implementación estándar de interpolación por splines esféricas en MNE-Python combina un prior físico adecuado, uso global de canales buenos y decisiones de ingeniería numérica robustas. En señales espacialmente suaves, baja pérdida y restricciones de velocidad, MNE puede igualar o superar a TRSS. Cualquier nuevo método de interpolación EEG que no se compare contra esta referencia corre el riesgo de sobreestimar su contribución.
+
+\textbf{Tercera conclusión: la regularización temporal aporta más valor en regímenes de pérdida difíciles.} La ventaja de TRSS aumenta cuando la pérdida es agrupada, periférica o severa. En pérdida cercana al 30--40\%, la mejora mediana de MAE ronda el 41\%, y en pérdida periférica al 40\% alcanza 31.6\%. Estos escenarios eliminan información espacial local; por ello, la continuidad temporal se vuelve una fuente complementaria de información. En cambio, cuando el problema ya está bien condicionado espacialmente, el beneficio disminuye o se invierte.
+
+\textbf{Cuarta conclusión: la evaluación justa exige separar métricas, escenarios y costo.} MAE, NRMSE, correlación, LSD y tiempo de ejecución describen propiedades distintas. La tesis muestra que una mejora en error de amplitud no implica automáticamente mejor preservación espectral, y que un método más preciso puede ser menos conveniente si su costo es mayor. La toma de decisión debe considerar la aplicación: reconstrucción fuera de línea, análisis espectral, monitoreo rápido o preparación de datos para tareas posteriores.
+
+\textbf{Quinta conclusión: la trazabilidad experimental es una contribución metodológica.} Cada número usado en los capítulos prácticos se vincula con archivos de resultados, tablas generadas y figuras reproducibles. Esta trazabilidad permite auditar el flujo completo desde los resultados crudos hasta la conclusión. En investigación aplicada a señales biomédicas, donde diferencias pequeñas pueden inducir decisiones clínicas o experimentales, esta disciplina es tan importante como el método propuesto.
+
+\section{Aportes de la Tesis}
+
+El primer aporte es un marco experimental autocontenido para interpolación de canales EEG faltantes. El marco integra múltiples conjuntos de datos, modos de pérdida, severidades, métricas y métodos, y permite comparar resultados mediante pares controlados por señal y máscara de canales faltantes.
+
+El segundo aporte es una caracterización práctica de TRSS frente a MNE-Python. La tesis identifica los regímenes donde TRSS se justifica, los escenarios donde MNE debe mantenerse como referencia preferible y las métricas donde cada método muestra fortalezas. Esta caracterización es más útil que una tabla de posiciones única, porque orienta decisiones de uso reales.
+
+El tercer aporte es el análisis de costo y complejidad. La regularización temporal mejora reconstrucción en escenarios difíciles, pero añade costo computacional. La tesis explicita este compromiso y evita presentar la precisión como única dimensión de calidad.
+
+El cuarto aporte es la integración de una bitácora de artefactos, tablas y figuras que conecta afirmaciones, resultados y archivos. Esta estructura facilita reproducibilidad, revisión por terceros y extensión futura del trabajo. La Tabla~\ref{tab:ch8_objective_evidence} resume la matriz de cumplimiento de objetivos e hipótesis.
+
+\input{tables/ch8_objective_evidence_matrix}
+
+\section{Contribución Original de Ingeniería}
+
+La contribución original de esta tesis se entiende mejor como una contribución de ingeniería experimental que como la invención aislada de un algoritmo. El primer componente original es la construcción de un protocolo pareado y reproducible para reconstrucción de canales EEG, donde cada diferencia entre métodos se calcula sobre la misma señal, la misma máscara de pérdida y la misma semilla. El segundo componente es la caracterización empírica de la frontera de uso entre TRSS y MNE-Python: la tesis muestra no solo cuándo TRSS mejora, sino también cuándo no debe reemplazar a la referencia estándar. El tercer componente es la auditoría técnica de MNE-Python como línea base madura; esta auditoría evita comparaciones contra referencias debilitadas y eleva el estándar metodológico para trabajos posteriores. El cuarto componente es el paquete de artefactos reproducibles —scripts, tablas, figuras y bitácoras— que permite extender la evaluación a nuevos métodos, montajes o bases de datos.
+
+\section{Trabajo Futuro}
+
+\textbf{Aceleración de TRSS.} La prioridad técnica más inmediata es reducir el costo computacional. Las direcciones naturales son el uso explícito de matrices dispersas, factorizaciones reutilizables del Laplaciano, solvers iterativos con parada temprana, procesamiento por lotes de ventanas temporales y paralelización por sujeto o por bloque de canales. Una versión acelerada permitiría evaluar TRSS en flujos casi en tiempo real.
+
+\textbf{Selección automática de hiperparámetros.} El oráculo muestra que existe margen de mejora, pero no es desplegable. Se requiere una regla de selección que use solo información observable: densidad de canales buenos, estructura del grafo, estimadores de ruido, severidad de pérdida, autocorrelación temporal y calidad espectral de canales vecinos. Esta regla debería evitar búsquedas costosas y reducir el riesgo de sobreajuste.
+
+\textbf{Evaluación en canales realmente dañados.} El ocultamiento artificial permite calcular error contra verdad de terreno, pero no reemplaza registros con artefactos reales. Un siguiente estudio debería etiquetar canales dañados por expertos, reconstruirlos con MNE y TRSS, y evaluar la calidad mediante inspección ciega o métricas indirectas de consistencia fisiológica.
+
+\textbf{Impacto en tareas posteriores.} La tesis evaluó calidad de señal reconstruida. Falta determinar si la mejora en MAE/NRMSE se traduce en mejores decisiones posteriores: clasificación de imaginación motora, detección de potenciales evocados, estimación de conectividad, análisis de bandas o localización de fuentes. Este paso es esencial para convertir una mejora de reconstrucción en una mejora funcional para neurociencia o clínica.
+
+\textbf{Grafos adaptativos y modelos temporales más ricos.} El grafo usado en TRSS puede hacerse dependiente del tiempo o de la banda de frecuencia. Asimismo, el término temporal puede extenderse más allá de primera diferencia: modelos autoregresivos, regularización por estados latentes, penalizaciones selectivas por banda o formulaciones basadas en operadores de Koopman podrían capturar mejor la dinámica oscilatoria del EEG.
+
+\textbf{Extensión a otras modalidades.} El enfoque espacio--temporal es aplicable a señales muestreadas en dominios irregulares con dinámica temporal, como MEG, ECoG, arreglos de microelectrodos y sensores fisiológicos distribuidos. La extensión no debería asumirse automática: cada modalidad tiene geometría, ruido y escalas temporales propias, por lo que requiere validación específica.
+
+\section{Cierre}
+
+La tesis muestra que la regularización temporal en grafos es una herramienta valiosa para reconstruir canales EEG faltantes cuando el problema espacial se vuelve difícil. También muestra que una referencia clásica bien implementada puede ser superior en escenarios favorables, en fidelidad espectral global o en velocidad. La contribución final es, por tanto, una regla de decisión respaldada por evidencia: usar MNE como opción robusta y rápida en condiciones estándar; usar TRSS cuando la pérdida de canales amenaza la fidelidad de reconstrucción y el análisis permite asumir el costo computacional adicional.

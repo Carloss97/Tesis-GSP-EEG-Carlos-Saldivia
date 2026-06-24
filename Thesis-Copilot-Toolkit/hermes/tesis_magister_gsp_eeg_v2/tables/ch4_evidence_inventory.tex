@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Inventario de evidencia usada en el Capítulo~\ref{ch:resultados}.}
+\label{tab:ch4_evidence_inventory}
+\begin{tabular}{@{}p{2.9cm}p{5.4cm}p{4.0cm}@{}}
+\toprule
+Elemento & Alcance en esta versión & Fuente trazable \\
+\midrule
+Datos & MNE Sample, PhysioNet, BCI IV 2a y controles sintéticos usados para evaluar pérdida de canales. & Capítulo~\ref{ch:metodologia}; CSV crudo y CSV derivado. \\
+Métodos & MNE como referencia comunitaria; TRSS fijo como método propuesto; TRSS calibrado y oráculo solo como análisis auxiliar. & Resumen global y resumen pareado robusto. \\
+Escenarios & Máscaras aleatorias, cercanas, periféricas y de alta varianza, con severidades bajas y altas. & Resúmenes por escenario y por tasa de victoria. \\
+Métricas & Error de amplitud, forma temporal, preservación espectral y tiempo de cómputo. & Tablas descriptivas generadas desde CSV. \\
+Casos cualitativos & Casos favorable a TRSS, favorable a MNE, empate práctico y pérdida cercana severa. & Tabla de casos representativos y script generador V3. \\
+\bottomrule
+\end{tabular}
+\end{table}

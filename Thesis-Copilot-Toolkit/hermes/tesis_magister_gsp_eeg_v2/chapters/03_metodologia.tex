@@ -178,7 +178,7 @@ MNE (Optuna) & $m \in \{2,3,4\}$, $\lambda \in [10^{-8}, 10^{-2}]$ & Mixta & NSG
 
 El sistema se organiza en cinco módulos con interfaces explícitas que operan en cadena (Figura~\ref{fig:architecture_blocks}). El módulo de \textbf{datos} expone una interfaz común para los tres conjuntos. El módulo de \textbf{simulación de daños} genera máscaras binarias con semilla trazable. El módulo de \textbf{métodos} combina la construcción de grafos —diez estrategias que producen $\mathbf{W}$ y $\mathbf{L}$— con las dieciocho implementaciones de interpolación bajo una interfaz unificada. El módulo de \textbf{evaluación} calcula las métricas primarias y complementarias, y el módulo de \textbf{artefactos/optimización} orquesta Optuna en la fase exploratoria y registra resultados trazables para la fase comparativa.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.98\textwidth]{ch3_architecture_blocks}
 \caption[Diagrama de bloques de la arquitectura]{Diagrama de bloques de la arquitectura del sistema experimental. Cinco módulos con interfaces explícitas operan en cadena. La figura distingue fase exploratoria y fase comparativa, indicando que los resultados comparativos no reabren la búsqueda de hiperparámetros.}
@@ -219,6 +219,8 @@ Tiempos & JSON & Perfil de eficiencia computacional \\
 % ======================================================================
 
 El diseño experimental se resume en la Tabla~\ref{tab:research_questions_experiments}, que vincula cada pregunta de investigación con el experimento diseñado para responderla y la evidencia esperada. La lógica central es pareada: dos métodos se comparan sobre la misma señal, la misma máscara de canales ocultos y la misma semilla, evitando que diferencias del caso experimental contaminen la comparación.
+
+La ejecución no consistió en un único benchmark final. Primero se realizó un cribado amplio de combinaciones método--grafo para observar qué familias eran competitivas en datos sintéticos, proxies EEG y registros reales. Luego se redujo el conjunto de candidatos considerando desempeño, costo de ejecución, reproducibilidad y riesgo de circularidad en la construcción del grafo. En una tercera fase se optimizaron hiperparámetros mediante Optuna o grillas controladas y se congelaron las variantes que pasarían a la comparación final. El Capítulo~\ref{ch:resultados} reporta esta trayectoria experimental antes de presentar los resultados finales TRSS--MNE.
 \begin{table}[htbp]
 \centering
 \caption{Relación entre preguntas de investigación, experimentos y evidencia esperada.}
@@ -258,3 +260,7 @@ Antes de cualquier análisis se ejecutaron verificaciones automáticas: todas la
 % ======================================================================
 
 El diseño experimental de esta tesis se distingue de la literatura previa en cuatro aspectos: todos los métodos fueron optimizados con el mismo motor bayesiano; se incorporó una comparación independiente contra MNE-Python; la evaluación abarca métricas de amplitud, morfología y espectro; y los escenarios incluyen pérdida aleatoria y contigua en un rango de severidades clínicamente relevante. La arquitectura modular, la separación estricta de fases y la trazabilidad completa de artefactos garantizan que las conclusiones sean auditables y reproducibles.
+
+La consecuencia práctica de este diseño es que el Capítulo~\ref{ch:resultados} debe leerse en dos niveles. El primer nivel es experimental: muestra cómo el repositorio pasó de un espacio amplio de grafos y métodos a un subconjunto final defendible. El segundo nivel es comparativo: evalúa ese subconjunto bajo casos pareados y métricas comunes. Esta distinción evita confundir resultados exploratorios con evidencia final y permite justificar por qué la tesis se concentra en TRSS y MNE-Python.
+
+Además, la separación de fases hace explícitas las decisiones negativas del estudio. No todos los métodos implementados avanzaron a la comparación final; algunos fueron descartados por costo, otros por circularidad potencial en la construcción del grafo, y otros por no mejorar respecto de referencias más simples. Documentar esas reducciones es parte del resultado experimental, porque muestra que la comparación final no fue seleccionada arbitrariamente sino derivada de evidencia intermedia trazable.

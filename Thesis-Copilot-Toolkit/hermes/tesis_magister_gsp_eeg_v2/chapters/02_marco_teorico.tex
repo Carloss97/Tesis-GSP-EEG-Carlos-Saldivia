@@ -78,7 +78,7 @@ La elección del grafo subyacente es una decisión metodológica de primer orden
 \item \textbf{NNK (nnk).} Regresión de kernel no-negativa que selecciona automáticamente los vecinos relevantes para cada nodo resolviendo un problema NNLS (\textit{Non-Negative Least Squares}) local, sin necesidad de especificar $k$ \cite{shekkizhar2020}.
 \item \textbf{AEW (Adaptive Edge Weighting).} Optimización conjunta de pesos y topología mediante el algoritmo AEW \cite{shekkizhar2020}, que alterna entre actualización de pesos vía descenso de gradiente y proyección sobre restricciones de grado.
 \end{itemize}
-Los grafos data-driven se evaluaron en la fase exploratoria pero no se incluyeron en la fase comparativa por dos razones: su mayor costo computacional ($O(N^3)$ en el caso de Kalofolias) y la dificultad de garantizar reproducibilidad determinista entre ejecuciones. Su impacto sobre TRSS se propone como trabajo futuro.
+Los grafos data-driven se evaluaron en la fase exploratoria pero no se incluyeron en la fase comparativa por dos razones: su mayor costo computacional ($O(N^3)$ en el caso de Kalofolias) y la dificultad de garantizar reproducibilidad determinista entre ejecuciones. Esta decisión no es puramente teórica: el Capítulo~\ref{ch:resultados} documenta el cribado preliminar de combinaciones método--grafo y la reducción experimental que llevó a concentrar la comparación final en grafos geométricos reproducibles y en la referencia MNE-Python. Su impacto sobre TRSS se propone como trabajo futuro.
 
 \section{Estado del Arte en Interpolación de Señales Biomédicas}
 
