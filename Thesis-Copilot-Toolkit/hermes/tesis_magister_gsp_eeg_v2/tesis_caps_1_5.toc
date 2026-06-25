@@ -53,11 +53,12 @@
 \contentsline {section}{\numberline {4.11}Costo computacional y complejidad}{41}{section.4.11}%
 \contentsline {section}{\numberline {4.12}Síntesis: frontera práctica entre TRSS y MNE}{42}{section.4.12}%
 \contentsline {chapter}{\numberline {5}Discusión}{44}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Lectura condicional de los resultados}{44}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Por qué MNE-Python sigue siendo una referencia fuerte}{45}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Aporte y límites del término temporal}{45}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Interpretación temporal y espectral}{46}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Costo computacional y decisión de uso}{46}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Implicancias para la práctica EEG}{47}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Limitaciones del estudio}{47}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Lecciones metodológicas}{48}{section.5.8}%
+\contentsline {section}{\numberline {5.1}Lectura integrada de la trayectoria experimental}{44}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Aporte de la selección preliminar de métodos y grafos}{45}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Por qué MNE-Python sigue siendo una referencia fuerte}{45}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Interpretación condicional de TRSS}{46}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Tensión entre precisión temporal, espectro y costo}{46}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Costo computacional y escalabilidad}{47}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Deficiencias y carencias del estudio}{47}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Aspectos fuera del alcance}{48}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Lecciones metodológicas}{48}{section.5.9}%

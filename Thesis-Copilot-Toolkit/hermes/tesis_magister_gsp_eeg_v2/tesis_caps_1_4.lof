@@ -1,0 +1,17 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Generación de la señal EEG y manifestaciones relevantes}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Conceptos fundamentales de GSP}}{12}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Descomposición del operador TRSS}}{16}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Flujo metodológico de evaluación}}{19}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama de bloques de la arquitectura}}{25}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cadena de trazabilidad experimental}}{26}{figure.caption.17}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Resumen exploratorio por método en la campaña de iteraciones preliminares. Las barras muestran MAE mediano por método en el resumen consolidado; menor es mejor. Sobolev se muestra como panel separado por su escala mayor. Visibility NNK se excluye por error de implementación y no se usa para sostener conclusiones.}}{32}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Perfil descriptivo de calidad para TRSS fijo frente a MNE. Las barras positivas favorecen a TRSS después de respetar la dirección de cada métrica; las barras negativas favorecen a MNE. El costo temporal se reporta por separado porque su escala es muy distinta a la de las métricas de reconstrucción.}}{36}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Resumen por patrón y severidad de pérdida. Cada celda muestra mejora mediana de MAE, tasa de victoria (WR) y número de pares. La ventaja de TRSS crece en pérdidas cercanas o periféricas severas, donde la información espacial local disponible para MNE disminuye.}}{37}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Reconstrucciones temporales representativas en MNE Sample. Cada fila muestra señal original, reconstrucción MNE y reconstrucción TRSS para un canal oculto seleccionado de forma reproducible. Los casos incluyen un escenario favorable a TRSS, uno favorable a MNE, un empate práctico y una pérdida cercana severa.}}{39}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces PSD original versus PSD interpolado para los casos representativos. La figura compara directamente la densidad espectral de potencia de la señal original con las reconstrucciones MNE y TRSS. Esta lectura permite explicar por qué TRSS puede mejorar error de amplitud sin dominar necesariamente la métrica LSD.}}{40}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Aporte descriptivo del término temporal dentro de TRSS. Las barras muestran la mejora de TRSS completo frente a TRSS sin término temporal.}}{41}{figure.caption.31}%

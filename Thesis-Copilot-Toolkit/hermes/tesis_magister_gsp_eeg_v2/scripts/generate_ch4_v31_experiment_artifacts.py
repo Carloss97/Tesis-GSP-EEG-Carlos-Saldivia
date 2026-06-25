@@ -135,13 +135,13 @@ def screening_top_candidates() -> None:
             f"{tex_escape(ds)} & {tex_escape(r['Familia'])} & {tex_escape(short_graph(r['Grafo']))} & "
             f"{tex_escape(r['Metodo'])} & {fmt_float(r['MAE'])} & {fmt_float(r['SNR'])} \\\\"
         )
-    write(TABLES / "ch4_preliminary_screening_top_candidates.tex", r"""
+    write(TABLES / "ch4_preliminary_selection_top_candidates.tex", r"""
 \begin{table}[htbp]
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
 \caption{Mejor combinación método--grafo por conjunto durante la selección exploratoria. El ranking corresponde al puntaje compuesto de los resultados preliminares; no constituye la comparación final contra MNE.}
-\label{tab:ch4_preliminary_screening_top_candidates}
+\label{tab:ch4_preliminary_selection_top_candidates}
 \begin{tabular}{@{}p{2.2cm}p{1.85cm}p{2.4cm}p{1.85cm}rr@{}}
 \toprule
 Conjunto & Familia & Grafo & Método & MAE & SNR \\
@@ -156,7 +156,7 @@ Conjunto & Familia & Grafo & Método & MAE & SNR \\
 def runtime_screening() -> None:
     path = TOOLKIT / "results" / "tablas_resumen" / "phase2_microbench_latency.csv"
     rows = read_csv(path)
-    keep = ["mean", "linear", "rbfi_tps", "trss", "temporal_laplacian", "spherical_spline", "tv", "visibility_nnk"]
+    keep = ["mean", "linear", "rbfi_tps", "trss", "temporal_laplacian", "spherical_spline", "tv"]
     by_method = {r["method"]: r for r in rows}
     names = {
         "mean": "Media",
@@ -166,18 +166,18 @@ def runtime_screening() -> None:
         "temporal_laplacian": "Laplaciano temporal",
         "spherical_spline": "Spline esférica propia",
         "tv": "TV temporal",
-        "visibility_nnk": "Visibility NNK",
+
     }
     tex_rows = []
     for m in keep:
         if m in by_method:
             tex_rows.append(f"{tex_escape(names[m])} & {tex_escape(names[m])} & {fmt_ms(by_method[m]['median_ms'])} \\\\")
-    write(TABLES / "ch4_runtime_screening_summary.tex", r"""
+    write(TABLES / "ch4_runtime_selection_summary.tex", r"""
 \begin{table}[htbp]
 \centering
 \small
 \caption{Microbenchmark de latencia usado como criterio de reducción de candidatos.}
-\label{tab:ch4_runtime_screening_summary}
+\label{tab:ch4_runtime_selection_summary}
 \begin{tabular}{@{}p{4.0cm}p{3.3cm}r@{}}
 \toprule
 Método & Identificador & Mediana \\
@@ -221,8 +221,8 @@ def main() -> None:
     reduction_decisions()
     manifest = "\n".join([
         "ch4_experimental_phase_overview.tex",
-        "ch4_preliminary_screening_top_candidates.tex",
-        "ch4_runtime_screening_summary.tex",
+        "ch4_preliminary_selection_top_candidates.tex",
+        "ch4_runtime_selection_summary.tex",
         "ch4_candidate_reduction_decisions.tex",
     ])
     write(LOGS / "cap4_v31_experiment_artifacts_manifest.txt", manifest)

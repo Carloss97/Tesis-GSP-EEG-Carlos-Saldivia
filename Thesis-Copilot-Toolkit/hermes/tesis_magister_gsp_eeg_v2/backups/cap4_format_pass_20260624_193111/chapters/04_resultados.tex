@@ -1,0 +1,156 @@
+\chapter{Experimentos y Resultados}
+\label{ch:resultados}
+
+Este capítulo documenta la trayectoria experimental completa de la tesis. No se limita a reportar la comparación final TRSS--MNE: primero describe cómo se exploró el espacio de métodos y grafos, cómo se redujo el conjunto de candidatos, cómo se congelaron variantes para evitar contaminación entre fases, y luego presenta los resultados comparativos finales mediante evidencia descriptiva, temporal, espectral y práctica. Esta organización permite distinguir entre resultados preliminares —útiles para diseñar el experimento— y resultados finales —usados para responder las preguntas de investigación.
+
+\section{Mapa de fases experimentales}
+
+La Tabla~\ref{tab:ch4_experimental_phase_overview} resume la secuencia experimental. La fase de exploración preliminar permitió observar qué familias método--grafo eran competitivas en distintos conjuntos. La reducción de candidatos incorporó criterios de desempeño, costo, reproducibilidad y riesgo de circularidad. La optimización intermedia ajustó hiperparámetros y definió variantes congeladas. Solo después de esas etapas se ejecutó la comparación final pareada contra MNE-Python.
+
+\input{tables/ch4_experimental_phase_overview}
+
+Esta separación es metodológicamente importante. Los resultados preliminares no se interpretan como evidencia final porque fueron usados para decidir qué métodos seguir explorando. Su función en este capítulo es explicar por qué la comparación final se concentra en TRSS y MNE, y por qué algunas estrategias teóricamente atractivas no pasaron a la etapa comparativa.
+
+\section{Selección preliminar de métodos y grafos}
+
+La selección preliminar evaluó combinaciones de familias de interpolación y construcción de grafos sobre datos sintéticos, proxies EEG y registros reales. La Tabla~\ref{tab:ch4_preliminary_screening_top_candidates} muestra la mejor combinación método--grafo por conjunto dentro del ranking exploratorio. El patrón general es que las variantes con información temporal aparecen repetidamente en las primeras posiciones, aunque no de manera universal: algunos conjuntos favorecen métodos instantáneos o geométricos simples.
+
+\input{tables/ch4_preliminary_screening_top_candidates}
+
+La lectura de esta tabla no es “el mejor método final es siempre el de la primera fila de cada conjunto”. Su función es más limitada: mostrar que el espacio de búsqueda inicial era amplio y heterogéneo. En PhysioNet y varios conjuntos BCI, TRSS aparece como candidato fuerte; en MNE Sample proxy, una variante temporal distinta queda primera; y en algunos casos reales BCI aparece una referencia instantánea. Por eso la tesis no salta directamente a una afirmación de superioridad de TRSS: primero reduce el espacio experimental y luego compara contra una referencia comunitaria fuerte.
+
+\section{Reducción de candidatos para la fase comparativa}
+
+La reducción de candidatos combinó tres criterios. Primero, se descartaron estrategias que dependían de información potencialmente circular, como grafos construidos desde correlaciones de la misma señal evaluada. Segundo, se relegaron métodos data-driven cuya reproducibilidad o costo dificultaba una comparación final controlada. Tercero, se consideró el tiempo de ejecución, porque un método que mejora una métrica pero no es operativo puede ser poco útil en flujos EEG reales.
+
+La Tabla~\ref{tab:ch4_runtime_screening_summary} resume un microbenchmark usado como señal de costo. Métodos simples como media o lineal son muy rápidos pero menos expresivos; TRSS queda en una zona intermedia; y métodos como TV temporal o Visibility NNK resultan costosos para una evaluación extensiva. Esta evidencia apoyó concentrar la fase final en una comparación interpretable: TRSS como representante espacio--temporal y MNE-Python como referencia madura.
+
+\input{tables/ch4_runtime_screening_summary}
+
+La Tabla~\ref{tab:ch4_candidate_reduction_decisions} sintetiza las decisiones de reducción. Los métodos descartados no desaparecen del documento: quedan como evidencia intermedia, contexto metodológico o trabajo futuro. La comparación final se restringe para evitar un capítulo de resultados saturado con decenas de variantes no equivalentes.
+
+\input{tables/ch4_candidate_reduction_decisions}
+
+\section{Optimización intermedia y congelamiento de variantes}
+
+La fase intermedia usó Optuna y barridos controlados para explorar hiperparámetros de familias candidatas. En esta etapa se evaluaron configuraciones por conjunto, patrón de pérdida y severidad; también se compararon configuraciones globales contra óptimos locales. El propósito fue estimar si el rendimiento dependía de una calibración específica por escenario o si una variante fija podía sostener la comparación final. La Tabla~\ref{tab:ch4_intermediate_optimization_summary} resume el papel de esta etapa dentro del diseño experimental.
+
+\input{tables/ch4_intermediate_optimization_summary}
+
+Esta fase explica por qué la comparación final distingue entre TRSS fijo, TRSS calibrado y oráculo. El oráculo representa una cota superior no desplegable; TRSS calibrado aproxima una regla de selección más realista; TRSS fijo permite evaluar una variante reproducible sin reajustar sobre cada caso. En la narrativa principal se privilegia TRSS fijo frente a MNE, porque es la lectura más transparente y menos dependiente de sobreajuste.
+
+\section{Inventario de escenarios, métodos y métricas de la comparación final}
+
+La Tabla~\ref{tab:ch4_evidence_inventory} resume los artefactos que sostienen la comparación final. Los resultados cuantitativos provienen de los archivos balanceados de la evaluación TRSS--MNE, mientras que las figuras temporales y espectrales se regeneran a partir de casos representativos seleccionados de forma reproducible. Esta separación evita mezclar dos niveles de evidencia: las tablas describen tendencias agregadas, y las figuras cualitativas muestran cómo se ven esas tendencias en señales concretas.
+
+\input{tables/ch4_evidence_inventory}
+
+Las métricas se calculan sobre los canales ocultos, no sobre los canales observados. MAE, RMSE y NRMSE describen error de amplitud; DTW y correlación capturan aspectos de forma temporal; LSD y coherencia resumen propiedades espectrales; y el tiempo de cómputo cuantifica el costo práctico. Ninguna métrica individual decide por sí sola qué método es mejor. Por esa razón, el capítulo separa explícitamente precisión, forma, espectro y costo.
+
+\section{Resumen descriptivo de TRSS frente a MNE}
+
+La Tabla~\ref{tab:ch4_descriptive_trss_mne} resume la comparación pareada descriptiva entre TRSS fijo y MNE. En las métricas de amplitud, TRSS reduce el error mediano respecto de MNE: la mejora mediana es 12.4\% en MAE, 13.9\% en RMSE y 13.9\% en NRMSE. Las tasas de victoria cercanas al 70\% indican que la mejora no se concentra en un único caso extremo, sino que aparece en una proporción amplia de pares. También se observan mejoras en DTW, correlación y $R^2$, lo que sugiere una mejor conservación de la forma temporal en parte importante del protocolo.
+
+\input{tables/ch4_descriptive_trss_mne}
+
+La lectura cambia al considerar espectro y costo. En LSD, donde valores menores son preferibles, TRSS presenta una mejora mediana negativa y una tasa de victoria inferior al 50\%. Esto indica que TRSS puede mejorar el error de amplitud y aun así no preservar mejor la distancia espectral global. En tiempo de cómputo, MNE domina claramente: TRSS requiere más tiempo por caso, lo que impide recomendarlo como reemplazo universal. La Figura~\ref{fig:ch4_metric_profile_descriptive} resume las métricas de calidad; el costo se analiza por separado en la Sección~\ref{sec:cap4_costo} para que la gran diferencia temporal no comprima las demás métricas.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{ch4_metric_profile_descriptive}
+  \caption{Perfil descriptivo de calidad para TRSS fijo frente a MNE. Las barras positivas favorecen a TRSS después de respetar la dirección de cada métrica; las barras negativas favorecen a MNE. El costo temporal se reporta por separado porque su escala es muy distinta a la de las métricas de reconstrucción.}
+  \label{fig:ch4_metric_profile_descriptive}
+\end{figure}
+
+\FloatBarrier
+
+\section{Dependencia respecto del escenario de pérdida}
+
+El comportamiento global se entiende mejor al separar patrón y severidad de pérdida. La Tabla~\ref{tab:ch4_scenario_summary_descriptive} muestra que la ventaja de TRSS aumenta cuando la pérdida elimina información espacial local: los patrones cercanos y periféricos de alta severidad son los casos donde la regularización temporal se vuelve más útil. En cambio, con pérdida baja o pocos canales ocultos, la diferencia puede acercarse a un empate práctico, porque MNE ya cuenta con suficientes canales vecinos para reconstruir la señal mediante suavidad espacial.
+
+\input{tables/ch4_scenario_summary_descriptive}
+
+La Figura~\ref{fig:ch4_scenario_summary_descriptive} ofrece la misma lectura en formato gráfico. Cada celda contiene tres elementos: la primera línea es la mejora mediana de MAE de TRSS frente a MNE; la segunda línea es la tasa de victoria; la tercera línea es el número de pares. Esta codificación evita interpretar el color como evidencia suficiente y permite distinguir entre una mejora grande, una mejora consistente y el tamaño del conjunto evaluado.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{ch4_scenario_summary_descriptive}
+  \caption{Resumen por patrón y severidad de pérdida. Cada celda muestra mejora mediana de MAE, tasa de victoria (WR) y número de pares. La ventaja de TRSS crece en pérdidas cercanas o periféricas severas, donde la información espacial local disponible para MNE disminuye.}
+  \label{fig:ch4_scenario_summary_descriptive}
+\end{figure}
+
+\FloatBarrier
+
+\section{Reconstrucciones temporales representativas}
+
+Las métricas agregadas no bastan para evaluar si una reconstrucción es fisiológicamente plausible. Por ello se seleccionaron casos representativos de manera reproducible desde los resultados balanceados: un caso favorable a TRSS, un caso favorable a MNE, un empate práctico y un caso de pérdida cercana severa. La Tabla~\ref{tab:ch4_representative_cases} documenta la regla de selección de cada caso, el patrón de pérdida, la semilla y el canal visualizado.
+
+\input{tables/ch4_representative_cases}
+
+La selección no busca mostrar únicamente casos favorables. El primer caso ilustra el régimen donde TRSS reduce marcadamente el error; el segundo conserva un ejemplo donde MNE es preferible; el tercero fuerza un empate práctico; y el cuarto representa una pérdida cercana severa típica de la discusión metodológica. Esta combinación hace visible la heterogeneidad del problema y evita que las señales temporales funcionen como ejemplos aislados o escogidos solo por conveniencia.
+
+La Figura~\ref{fig:ch4_representative_timeseries} compara la señal original con las reconstrucciones de MNE y TRSS. La lectura importante es que TRSS no se comporta de forma uniforme. En el caso favorable, conserva mejor la morfología de la señal oculta; en el caso favorable a MNE, la regularización temporal no compensa el sesgo introducido y MNE se acerca más a la señal original; en el empate práctico, ambas reconstrucciones son similares; y en la pérdida cercana severa se observa el régimen donde la continuidad temporal puede aportar estabilidad. Esta figura responde directamente a si un mal caso de TRSS es universal: no lo es, pero sí existe y debe considerarse al decidir el método.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.96\textwidth]{ch4_representative_timeseries}
+  \caption{Reconstrucciones temporales representativas en MNE Sample. Cada fila muestra señal original, reconstrucción MNE y reconstrucción TRSS para un canal oculto seleccionado de forma reproducible. Los casos incluyen un escenario favorable a TRSS, uno favorable a MNE, un empate práctico y una pérdida cercana severa.}
+  \label{fig:ch4_representative_timeseries}
+\end{figure}
+
+\FloatBarrier
+
+\section{Preservación espectral de las señales reconstruidas}
+
+La preservación temporal y la preservación espectral no son equivalentes. Un método puede reducir MAE y NRMSE, pero alterar la distribución de potencia por frecuencia. Por esta razón, la Figura~\ref{fig:ch4_psd_original_vs_interpolated} reemplaza la comparación espectral multi-método previa por una lectura directa: para los mismos casos representativos, se grafica el espectro de la señal original junto con los espectros de MNE y TRSS. Las curvas se estiman con Welch sobre el canal oculto visualizado, usando la frecuencia de muestreo del registro MNE Sample.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.96\textwidth]{ch4_psd_original_vs_interpolated}
+  \caption{PSD original versus PSD interpolado para los casos representativos. La figura compara directamente la densidad espectral de potencia de la señal original con las reconstrucciones MNE y TRSS. Esta lectura permite explicar por qué TRSS puede mejorar error de amplitud sin dominar necesariamente la métrica LSD.}
+  \label{fig:ch4_psd_original_vs_interpolated}
+\end{figure}
+
+La rugosidad de un espectro estimado depende de la duración de la ventana, la frecuencia de muestreo, el canal observado y el método de estimación. En esta versión, el uso de Welch reduce la variabilidad visual y permite comparar la forma global de las curvas. Si TRSS y MNE se separan en bandas concretas, esa diferencia debe interpretarse junto con LSD y no solo con MAE.
+
+\FloatBarrier
+
+\section{Contribución del término temporal de TRSS}
+
+En este contexto, el análisis de contribución consiste en repetir la evaluación retirando un componente del modelo para estimar su aporte específico. La comparación de esta sección contrasta TRSS completo contra una variante sin término temporal. Por tanto, no evalúa si TRSS completo supera a MNE, sino cuánto cambia TRSS cuando se elimina la restricción temporal. La Tabla~\ref{tab:ch4_temporal_component_summary} resume la magnitud descriptiva de ese aporte.
+
+\input{tables/ch4_temporal_component_summary}
+
+La Figura~\ref{fig:ch4_temporal_component_contribution} muestra que el término temporal aporta mejoras descriptivas dentro de la familia TRSS, aunque la magnitud no explica por sí sola toda la diferencia frente a MNE. La interpretación más prudente es que la temporalidad estabiliza la reconstrucción cuando la información espacial es insuficiente, pero no convierte automáticamente a TRSS en dominante para toda métrica ni para todo escenario.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.72\textwidth]{ch4_temporal_component_contribution}
+  \caption{Aporte descriptivo del término temporal dentro de TRSS. Las barras muestran la mejora de TRSS completo frente a TRSS sin término temporal.}
+  \label{fig:ch4_temporal_component_contribution}
+\end{figure}
+
+\FloatBarrier
+
+\section{Costo computacional y complejidad}
+\label{sec:cap4_costo}
+
+El costo computacional es parte de la conclusión, no un detalle de implementación. Antes de leer la complejidad, la Tabla~\ref{tab:ch4_complexity_symbols} define los símbolos usados. La variable $H$ se reserva para el número de configuraciones evaluadas durante calibración de hiperparámetros; no describe el costo de aplicar TRSS con parámetros ya fijados.
+
+\input{tables/ch4_complexity_symbols}
+
+La Tabla~\ref{tab:ch4_runtime_complexity} conecta esa notación con el tiempo observado por caso. MNE resuelve una interpolación espacial de tamaño moderado y luego aplica la solución a las muestras temporales. TRSS, en cambio, itera sobre un operador que combina estructura espacial y temporal.
+
+\input{tables/ch4_runtime_complexity}
+
+Esta diferencia explica la ventaja de MNE en tiempo de cómputo. En términos prácticos, MNE es preferible para procesamiento masivo, interactivo o con restricción fuerte de latencia; TRSS se justifica cuando la pérdida espacial es difícil y el análisis puede ejecutarse fuera de línea.
+
+\FloatBarrier
+
+\section{Síntesis: frontera práctica entre TRSS y MNE}
+
+Los resultados no muestran una dominancia universal de TRSS. Muestran una frontera de uso. TRSS es preferible cuando la pérdida de canales es cercana, periférica o severa, porque la información espacial local deja de ser suficiente y la continuidad temporal restringe soluciones implausibles. MNE es preferible cuando la pérdida es baja, la señal es espacialmente suave, el análisis es principalmente espectral o el costo computacional domina la decisión. La Tabla~\ref{tab:ch4_decision_boundary_trss_mne} resume esta frontera práctica.
+
+\input{tables/ch4_decision_boundary_trss_mne}
+
+La contribución práctica del capítulo es esta regla condicional: usar MNE como referencia robusta y rápida en condiciones estándar; considerar TRSS cuando la pérdida de canales amenaza la fidelidad de reconstrucción y el análisis permite asumir el costo adicional. Esta lectura es más útil que una afirmación absoluta de superioridad, porque reconoce simultáneamente las ganancias de TRSS y las fortalezas persistentes de MNE.

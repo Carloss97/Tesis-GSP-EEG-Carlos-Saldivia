@@ -181,8 +181,8 @@ def generate_descriptive_tables(data: dict[str, pd.DataFrame]) -> None:
     scenario_wr = data["scenario_wr"]
     ablation = data["ablation"]
 
-    # Main descriptive comparison table: no p/q columns.
-    metrics = ["mae", "rmse", "nrmse", "dtw", "snr", "lsd", "coherence_mean", "corr_mean", "r2", "runtime_s"]
+    # Main descriptive comparison table: no p/q columns; runtime is handled in the cost section.
+    metrics = ["mae", "rmse", "nrmse", "dtw", "snr", "lsd", "coherence_mean", "corr_mean", "r2"]
     main = robust.query("method_a == 'trss_default' and method_b == 'mne_interpolate_bads_spline' and metric in @metrics").copy()
     main["_order"] = main["metric"].map({m: i for i, m in enumerate(metrics)})
     main = main.sort_values("_order")

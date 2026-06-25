@@ -1,0 +1,14 @@
+source=/mnt/c/Users/sarlo/OneDrive/Escritorio/Proyectos/Tesis-GSP-EEG-Carlos-Saldivia/Thesis-Copilot-Toolkit/results/tablas_resumen/phase2_iteration_metrics_pivot.csv
+iterations_with_any_metric=736
+excluded=visibility_nnk (implementation error; not used for conclusions)
+trss,median_mae=0.0747907428961485,n=388
+linear,median_mae=0.0756382507533622,n=348
+temporal_laplacian,median_mae=0.08038548165248466,n=388
+idw,median_mae=0.0809145303128313,n=348
+rbfi_tps,median_mae=0.0809145303128313,n=348
+spherical_spline,median_mae=0.0809145303128313,n=348
+tv,median_mae=0.08092178868570496,n=388
+bgsrp,median_mae=0.0935436336795552,n=348
+tikhonov,median_mae=0.1682792277712275,n=348
+ica,median_mae=0.1829242317429455,n=348
+sobolev,median_mae=0.5440165093437599,n=348
