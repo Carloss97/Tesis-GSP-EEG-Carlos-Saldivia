@@ -1,4 +1,46 @@
-\chapter{Tablas Extensas de Resultados}
+\chapter{Síntesis Extendida de Resultados}
 \label{ap:tablas_extensas}
 
-Este apéndice presenta las tablas completas de resultados que, por limitaciones de espacio, no pudieron incluirse en el cuerpo principal del documento. Las tablas originales completas con los resultados de todos los métodos, escenarios y métricas están disponibles en los archivos de datos del repositorio de artefactos computacionales (directorio \\texttt{tables/}). Las tablas en formato LaTeX correspondientes se encuentran en el mismo directorio.
+Este apéndice conserva la síntesis numérica que complementa el Capítulo~\ref{ch:resultados}, pero evita repetir tablas anchas difíciles de leer. Los archivos CSV y las tablas completas quedan como artefactos reproducibles; aquí se resume la evidencia necesaria para interpretar la frontera práctica TRSS--MNE.
+
+\section{Resumen global por variante}
+
+La Tabla~\ref{tab:appendix_compact_global_summary} resume las diferencias principales entre MNE-Python, TRSS fijo, TRSS calibrado y TRSS oráculo. El oráculo se conserva solo como cota superior no desplegable: usa información que no estaría disponible en un flujo real.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Resumen compacto de variantes principales. Los valores corresponden a medianas agregadas; menor MAE/NRMSE/LSD y menor tiempo son preferibles, mientras que mayor correlación es preferible.}
+\label{tab:appendix_compact_global_summary}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Variante & MAE med. & NRMSE & Corr. & Tiempo med. \\
+\midrule
+MNE-Python & $1{,}13\times10^{-5}$ & 0{,}804 & 0{,}808 & 0{,}0090 s \\
+TRSS fijo & $8{,}46\times10^{-6}$ & 0{,}604 & 0{,}860 & 0{,}1214 s \\
+TRSS calibrado & $8{,}31\times10^{-6}$ & 0{,}589 & 0{,}860 & 0{,}0845 s \\
+TRSS oráculo & $8{,}11\times10^{-6}$ & 0{,}570 & 0{,}865 & 0{,}0808 s \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La lectura principal no cambia: TRSS mejora métricas de amplitud y forma temporal, pero paga un costo de tiempo muy superior a MNE. La variante calibrada reduce parcialmente el costo respecto de TRSS fijo en estos resultados agregados, pero sigue sin convertir TRSS en opción de baja latencia. El oráculo delimita potencial, no una estrategia aplicable.
+
+\section{Portafolio descriptivo de métricas}
+
+Para TRSS fijo frente a MNE, el portafolio se resume así:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=3pt]
+\item \textbf{Amplitud:} MAE mejora +12{,}4\%, RMSE +13{,}9\% y NRMSE +13{,}9\%; las tasas de victoria se sitúan alrededor del 70\%.
+\item \textbf{Forma temporal:} DTW mejora +9{,}8\%, correlación +0{,}8\% y $R^2$ +16{,}9\%, lo que respalda la utilidad de la regularización temporal en varios casos.
+\item \textbf{Espectro:} LSD favorece a MNE con -2{,}3\%, mientras que coherencia muestra una diferencia pequeña a favor de TRSS (+0{,}2\%).
+\item \textbf{Costo:} el tiempo favorece claramente a MNE; TRSS no debe plantearse como reemplazo universal en flujos de baja latencia.
+\end{itemize}
+
+Esta síntesis evita ocultar la tensión central del documento: un método puede mejorar amplitud y forma temporal sin dominar la preservación espectral ni el costo computacional.
+
+\section{Comparación de variantes TRSS}
+
+La comparación entre TRSS fijo y TRSS calibrado muestra que la calibración no elimina la lectura condicional. En MAE y NRMSE, ambas variantes mantienen mejoras cercanas al 12--14\% frente a MNE. En LSD, sin embargo, la calibración puede empeorar la distancia espectral global, por lo que no basta ajustar hiperparámetros para resolver todas las dimensiones de calidad. En tiempo, ambas variantes siguen siendo más costosas que MNE.
+
+Por ello, el criterio práctico no debe ser “TRSS calibrado siempre es mejor”, sino “TRSS puede ser útil cuando la pérdida espacial es difícil y la métrica relevante favorece forma/amplitud más que costo o espectro global”. Esta lectura es la que se retoma en las conclusiones.

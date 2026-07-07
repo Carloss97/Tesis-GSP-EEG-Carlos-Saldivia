@@ -1,0 +1,36 @@
+\chapter{Inventario de Artefactos Computacionales}
+\label{ap:inventario}
+
+Este apéndice cataloga los principales artefactos computacionales que respaldan el documento. La finalidad del inventario es que cada afirmación cuantitativa pueda vincularse con una tabla, figura, script o archivo de resultados derivado. No se listan rutas locales absolutas; los nombres se expresan como identificadores relativos del paquete de tesis.
+
+\section{Artefactos de datos y resultados}
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Inventario resumido de artefactos de resultados usados en el documento final.}
+\label{tab:artifact_inventory_summary}
+\begin{tabular}{@{}p{3.2cm}p{4.3cm}p{4.0cm}@{}}
+\toprule
+Artefacto & Contenido & Uso en la tesis \\
+\midrule
+CSV crudos de comparación final & Casos pareados TRSS--MNE por señal, máscara, semilla y métrica & Tablas descriptivas del Capítulo~\ref{ch:resultados}. \\
+CSV derivados balanceados & Resúmenes por métrica, escenario y tasa de victoria & Tabla~\ref{tab:ch4_descriptive_trss_mne} y síntesis por escenario. \\
+Resumen de iteraciones preliminares & Campaña exploratoria consolidada por método & Figura~\ref{fig:ch4_preliminary_iteration_summary}. \\
+Casos representativos & Identificadores reproducibles de señales favorables a TRSS, MNE y empates prácticos & Figuras temporales y tabla de casos. \\
+Manifiestos de construcción & Registro de scripts, fuentes y exclusiones & Trazabilidad del cierre final. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Scripts generadores}
+
+Las figuras y tablas principales se generan mediante scripts versionados. Los más relevantes para el documento final son: generadores de figuras neurofisiológicas y GSP de Capítulo~2, generadores de diagramas metodológicos de Capítulo~3, generadores de artefactos descriptivos de Capítulo~4 y generadores de la figura de iteraciones preliminares. Cuando una figura se modifica por observación de formato o legibilidad, el cambio se realiza en el script y luego se recompila el documento, evitando ediciones manuales no reproducibles del PDF.
+
+\section{Trazabilidad de exclusiones}
+
+El inventario también registra exclusiones. La más relevante para el cierre final es Visibility NNK: al detectarse un error de implementación, sus resultados se retiraron de figuras, tablas de decisión y conclusiones. Este criterio evita que un artefacto inválido influya indirectamente en la narrativa final.
+
+\section{Relación entre artefactos y capítulos}
+
+Los capítulos 1--3 usan artefactos principalmente explicativos: figuras de conceptos, metodología y arquitectura. El Capítulo~\ref{ch:resultados} concentra los artefactos cuantitativos y visuales de evidencia. El Capítulo~\ref{ch:discusion} interpreta esa evidencia y el Capítulo~\ref{ch:conclusiones} resume objetivos, preguntas y trabajo futuro. Los anexos conservan derivaciones, protocolo reproducible, inventario y síntesis extendida, de modo que el cuerpo principal pueda mantenerse legible sin perder trazabilidad.

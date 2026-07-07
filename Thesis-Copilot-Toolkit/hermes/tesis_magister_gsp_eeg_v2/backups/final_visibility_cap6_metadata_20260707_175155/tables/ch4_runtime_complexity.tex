@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Complejidad computacional e implementación observada. $N$ es el número de canales, $T$ el número de muestras temporales, $E$ el número de aristas del grafo y $K$ el número de iteraciones del resolvedor.}
+\label{tab:ch4_runtime_complexity}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{3.2cm}r@{}}
+\toprule
+Método & Operación dominante & Complejidad orientativa & Mediana (s/caso) \\
+\midrule
+MNE spline & Sistema global regularizado y aplicación a muestras & $O(N^3) + O(NT)$ & 0.0090 \\
+TRSS fijo & Iteraciones sobre grafo espacio--temporal disperso & $O(K(ET + NT))$ & 0.1214 \\
+TRSS calibrado & TRSS fijo más selección de hiperparámetros & $O(HK(ET + NT))$ & 0.0845 \\
+\bottomrule
+\end{tabular}
+\end{table}

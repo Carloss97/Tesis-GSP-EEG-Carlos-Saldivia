@@ -187,7 +187,7 @@ def fig_gsp_concepts() -> None:
 
 
 def fig_trss_operator() -> None:
-    fig, ax = plt.subplots(figsize=(7.45, 2.35))
+    fig, ax = plt.subplots(figsize=(7.45, 2.55))
     clean_ax(ax)
     ax.set_title("Descomposición del objetivo TRSS", pad=4, fontweight="bold")
 
@@ -201,12 +201,13 @@ def fig_trss_operator() -> None:
         box(ax, (x, y), (0.30, 0.18), text, color, fontsize=9.7, weight="bold")
         arrow(ax, (0.215, 0.51), (x - 0.010, y + 0.09), lw=1.05)
     box(ax, (0.77, 0.38), (0.19, 0.25), "señal\nreconstruida\n$\\hat{X}$", C["purple"], fontsize=10.3, weight="bold")
-    for x, y, _, _ in terms:
-        arrow(ax, (x + 0.305, y + 0.09), (0.77, 0.505), lw=1.05)
+    target_y = [0.595, 0.505, 0.415]
+    for (x, y, _, _), ty in zip(terms, target_y):
+        arrow(ax, (x + 0.305, y + 0.09), (0.77, ty), lw=1.05)
     ax.text(0.50, 0.035, "$P_\\Omega$: máscara de canales observados; $L$: Laplaciano espacial; $D_t$: diferencias temporales",
             ha="center", va="bottom", fontsize=8.4, color="#222222")
-    fig.subplots_adjust(left=0.035, right=0.985, top=0.86, bottom=0.18)
-    save(fig, "ch2_trss_operator.pdf")
+    fig.subplots_adjust(left=0.035, right=0.985, top=0.84, bottom=0.24)
+    save(fig, "ch2_trss_operator.pdf", pad=0.045)
 
 
 def fig_methodology_flow() -> None:
@@ -237,7 +238,7 @@ def fig_architecture_blocks() -> None:
     exploratory = [
         ("Datos EEG", "PhysioNet 64 · BCI IV 2a 22 · MNE Sample 60", C["cyan"]),
         ("Simulación de pérdida", "aleatoria · contigua", C["green"]),
-        ("Grafo + interpolación", "10 grafos · 18 métodos · Optuna", C["blue"]),
+        ("Grafo + interpolación", "9 grafos · 18 métodos · Optuna", C["blue"]),
     ]
     ys = [0.79, 0.66, 0.53]
     for idx, ((title, detail, color), y) in enumerate(zip(exploratory, ys)):

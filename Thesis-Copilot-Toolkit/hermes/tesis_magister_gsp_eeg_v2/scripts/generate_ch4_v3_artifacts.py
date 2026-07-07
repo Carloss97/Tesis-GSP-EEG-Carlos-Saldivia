@@ -601,14 +601,19 @@ def generate_representative_signal_figures(cases: pd.DataFrame) -> None:
         ax.plot(times, rec["trss"]*scale, color=OKABE["blue"], lw=1.4, ls="-.", label="TRSS")
         ax.axvline(0, color="#777777", lw=0.7, ls=":")
         ax.axhline(0, color="#BBBBBB", lw=0.5)
-        sev = f"{int(float(case['missing_value'])*100)}%" if float(case["missing_value"]) < 1 else f"{int(float(case['missing_value']))} canal(es)"
+        if float(case["missing_value"]) < 1:
+            sev = f"{int(float(case['missing_value'])*100)}%"
+        else:
+            n_chan = int(float(case["missing_value"]))
+            sev = f"{n_chan} canal" if n_chan == 1 else f"{n_chan} canales"
         title = f"{case['role']}: {MODE_LABEL.get(case['missing_mode'], case['missing_mode'])} {sev}, canal {rec['target_name']}, ΔMAE {pct(case['mae_improvement'], signed=True)}%"
         ax.set_title(title, loc="left", fontsize=7.7)
         ax.set_ylabel("µV")
         ax.grid(True, color="#E5E5E5", lw=0.45)
     axes[-1].set_xlabel("Tiempo respecto del estímulo (ms)")
-    axes[0].legend(loc="upper right", ncol=3, frameon=False)
-    fig.savefig(FIGURES / "ch4_representative_timeseries.pdf", bbox_inches="tight", pad_inches=0.04)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 1.08), ncol=3, frameon=False)
+    fig.savefig(FIGURES / "ch4_representative_timeseries.pdf", bbox_inches="tight", pad_inches=0.06)
     plt.close(fig)
 
     fig, axes = plt.subplots(len(reconstructions), 1, figsize=(7.3, 1.35*len(reconstructions)), sharex=True, constrained_layout=True)
@@ -625,13 +630,18 @@ def generate_representative_signal_figures(cases: pd.DataFrame) -> None:
             f, pxx = welch(np.asarray(rec[key], dtype=float), fs=fs, nperseg=nperseg, noverlap=nperseg//2)
             mask = f <= 45
             ax.semilogy(f[mask], pxx[mask], color=color, ls=style, lw=1.4, label=label)
-        sev = f"{int(float(case['missing_value'])*100)}%" if float(case["missing_value"]) < 1 else f"{int(float(case['missing_value']))} canal(es)"
+        if float(case["missing_value"]) < 1:
+            sev = f"{int(float(case['missing_value'])*100)}%"
+        else:
+            n_chan = int(float(case["missing_value"]))
+            sev = f"{n_chan} canal" if n_chan == 1 else f"{n_chan} canales"
         ax.set_title(f"{case['role']}: {MODE_LABEL.get(case['missing_mode'], case['missing_mode'])} {sev}", loc="left", fontsize=7.7)
         ax.set_ylabel("PSD")
         ax.grid(True, which="both", color="#E5E5E5", lw=0.45)
     axes[-1].set_xlabel("Frecuencia (Hz)")
-    axes[0].legend(loc="upper right", ncol=3, frameon=False)
-    fig.savefig(FIGURES / "ch4_psd_original_vs_interpolated.pdf", bbox_inches="tight", pad_inches=0.04)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="upper center", bbox_to_anchor=(0.5, 1.08), ncol=3, frameon=False)
+    fig.savefig(FIGURES / "ch4_psd_original_vs_interpolated.pdf", bbox_inches="tight", pad_inches=0.06)
     plt.close(fig)
 
 

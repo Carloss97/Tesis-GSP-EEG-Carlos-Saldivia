@@ -1,0 +1,66 @@
+\chapter{Conclusiones y Trabajo Futuro}
+\label{ch:conclusiones}
+
+Este capítulo cierra la tesis integrando la trayectoria experimental completa: implementación de métodos, selección preliminar de combinaciones método--grafo, reducción de candidatos, optimización intermedia, comparación final TRSS--MNE e interpretación práctica. Las conclusiones se formulan como respuestas a las preguntas de investigación y no como una declaración de superioridad universal de un método.
+
+\section{Conclusiones por pregunta de investigación}
+
+\subsection*{P1: ¿En qué condiciones TRSS mejora la reconstrucción de canales EEG faltantes?}
+
+La evidencia muestra que TRSS puede mejorar métricas de reconstrucción en escenarios difíciles, especialmente cuando la pérdida de canales degrada la información espacial local. Las mejoras descriptivas en MAE, RMSE, NRMSE, DTW, correlación y $R^2$ indican que la regularización espacio--temporal puede aportar valor cuando MNE dispone de pocos vecinos informativos o cuando la pérdida es cercana, periférica o severa. Las señales representativas del Capítulo~\ref{ch:resultados} apoyan esta lectura cualitativa: existen casos donde TRSS conserva mejor la morfología temporal de la señal oculta.
+
+La respuesta, sin embargo, es condicional. TRSS no reemplaza universalmente a MNE-Python. En baja pérdida, señales espacialmente suaves o escenarios donde el costo computacional pesa más que la reducción de error, MNE puede ser igual o preferible. Por tanto, la conclusión de P1 es que TRSS mejora la reconstrucción bajo regímenes de pérdida espacial difícil, no que sea la opción dominante para todo preprocesamiento EEG.
+
+\subsection*{P2: ¿Qué compromiso existe entre precisión, preservación espectral y costo computacional?}
+
+El compromiso principal es que TRSS puede mejorar error de amplitud y forma temporal, pero no domina todas las dimensiones de calidad. La métrica LSD y el análisis PSD muestran que una reconstrucción con menor error punto a punto no necesariamente preserva mejor la distribución espectral global. Además, MNE conserva una ventaja clara de velocidad y estabilidad operativa.
+
+La respuesta de P2 es, por tanto, una frontera práctica de uso. Si el objetivo es una reconstrucción fuera de línea en escenarios de pérdida difícil, TRSS es una alternativa justificable. Si el objetivo es procesamiento rápido, análisis espectral global o integración en flujos estándar, MNE-Python debe mantenerse como referencia preferente. La contribución de la tesis es hacer explícita esta frontera y respaldarla con métricas, casos representativos y trazabilidad experimental.
+
+\section{Conclusiones sobre la fase experimental completa}
+
+La fase experimental completa aporta una conclusión adicional: el camino hacia la comparación final es tan importante como el resultado final. La selección preliminar mostró que el espacio método--grafo es heterogéneo y que distintas familias pueden ser competitivas bajo condiciones distintas. La reducción de candidatos fue necesaria para evitar una comparación saturada, costosa y difícil de interpretar. La optimización intermedia mostró que los hiperparámetros influyen en el desempeño y que el oráculo no representa una estrategia desplegable.
+
+Esta trayectoria justifica que la comparación final se concentre en TRSS y MNE. TRSS resume la hipótesis metodológica de la tesis —usar regularización espacio--temporal sobre grafos—, mientras que MNE representa una referencia comunitaria madura, rápida y robusta. La tesis no afirma haber agotado todas las alternativas posibles; afirma haber construido una ruta experimental reproducible para reducir el espacio de opciones y comparar una alternativa espacio--temporal contra una referencia fuerte.
+
+\section{Aportes de la tesis}
+
+El primer aporte es un marco experimental reproducible para evaluar reconstrucción de canales EEG faltantes. El marco integra conjuntos de datos, máscaras de pérdida, construcción de grafos, métodos de interpolación, métricas, artefactos y validadores bajo una lógica pareada por señal, máscara y semilla.
+
+El segundo aporte es una evaluación multi-fase de métodos y grafos. La tesis no reporta solo un resultado final: documenta selección preliminar, reducción de candidatos y optimización intermedia. Esto permite entender por qué algunas familias quedan como antecedentes o trabajo futuro y por qué otras pasan a la comparación final.
+
+El tercer aporte es una comparación práctica contra MNE-Python. Al usar una referencia comunitaria fuerte, la tesis evita conclusiones artificialmente favorables al método propuesto. La ventaja de TRSS, cuando aparece, debe interpretarse como una mejora frente a una herramienta madura.
+
+El cuarto aporte es la caracterización condicional de TRSS. La tesis identifica escenarios donde la regularización temporal es útil, escenarios donde MNE sigue siendo preferible y métricas donde la decisión cambia. Esta caracterización es más informativa que una tabla única de ranking.
+
+El quinto aporte es la trazabilidad de artefactos. Tablas, figuras, CSV, scripts y planes quedan conectados de forma explícita, permitiendo auditar el paso desde resultados crudos hasta afirmaciones escritas. La Tabla~\ref{tab:ch8_objective_evidence} resume el cumplimiento de objetivos y preguntas de investigación.
+
+\input{tables/ch8_objective_evidence_matrix}
+
+\section{Deficiencias reconocidas}
+
+El estudio tiene límites claros. Primero, la verdad de terreno proviene de ocultamiento artificial de canales presentes. Esto permite medir error, pero no reproduce completamente canales dañados reales con saturación, ruido muscular, contactos inestables o artefactos intermitentes. Segundo, no se realizó evaluación ciega por expertos EEG. Tercero, no se midió impacto en tareas posteriores como clasificación BCI, detección de potenciales evocados, análisis de conectividad, PSD por bandas o localización de fuentes.
+
+Además, el espacio experimental fue reducido deliberadamente. Grafos aprendidos, grafos adaptativos, métodos temporales alternativos y modelos entrenables no fueron agotados en la comparación final. Esta decisión permitió mantener una evaluación interpretable y reproducible, pero deja abiertas preguntas metodológicas. Por último, TRSS aún requiere mejoras de eficiencia y reglas automáticas de hiperparámetros antes de recomendarlo como herramienta rutinaria.
+
+\section{Trabajo futuro priorizado}
+
+\subsection*{Prioridad técnica inmediata}
+
+La primera línea futura es acelerar TRSS. Las direcciones más directas son usar matrices dispersas, reutilizar factorizaciones del Laplaciano, incorporar solvers iterativos con parada temprana, procesar ventanas temporales por lote y paralelizar por sujeto o bloque de canales. Junto con ello, se requiere una regla automática de hiperparámetros que use solo información observable, como severidad de pérdida, densidad de canales buenos, estructura del grafo, autocorrelación temporal y estimadores de ruido.
+
+\subsection*{Prioridad experimental}
+
+La segunda línea es validar el protocolo con datos más cercanos al uso real. Esto incluye canales efectivamente dañados, anotación por expertos, evaluación ciega y datasets externos con distintos montajes, referencias, equipos y poblaciones. También debe evaluarse si la mejora de reconstrucción se traduce en mejoras funcionales en tareas posteriores: clasificación BCI, ERP, análisis espectral por bandas, conectividad y localización de fuentes.
+
+\subsection*{Prioridad metodológica}
+
+La tercera línea es extender la construcción de grafos sin introducir circularidad. Grafos adaptativos o aprendidos podrían mejorar TRSS, pero deben construirse con separación clara entre información usada para definir el grafo e información usada para evaluar la reconstrucción. También sería útil estimar incertidumbre por caso y desarrollar reglas automáticas que decidan cuándo usar MNE, TRSS u otro método según propiedades observables del registro.
+
+\subsection*{Prioridad de extensión}
+
+La cuarta línea es transferir el enfoque a otros dominios irregulares con dinámica temporal: MEG, ECoG, arreglos de microelectrodos o sensores fisiológicos distribuidos. Esta extensión no debe asumirse directa, porque cada modalidad tiene geometría, ruido y escalas temporales propias. También queda abierta la comparación con modelos entrenables, siempre que exista un diseño de entrenamiento, validación externa y control de fuga de información.
+
+\section{Cierre}
+
+La tesis muestra que la regularización temporal en grafos es una herramienta valiosa para reconstruir canales EEG faltantes cuando la pérdida espacial vuelve insuficiente el prior puramente espacial. También muestra que una referencia clásica bien implementada puede ser superior en escenarios favorables, en fidelidad espectral global o en velocidad. La conclusión final es deliberadamente condicional: MNE-Python debe mantenerse como referencia robusta y rápida; TRSS es una alternativa justificable cuando la pérdida espacial amenaza la fidelidad de reconstrucción y el análisis permite asumir costo computacional adicional.

@@ -14,41 +14,41 @@
 \contentsline {chapter}{\numberline {2}Marco Teórico y Estado del Arte}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Fundamentos Neurofisiológicos de la Señal EEG}{8}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Generación y Propagación}{8}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Bandas de Frecuencia y Potenciales Relacionados a Eventos}{10}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Bandas de Frecuencia y Potenciales Relacionados a Eventos}{9}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Procesamiento de Señales en Grafos}{10}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Definiciones Fundamentales}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Laplaciano, Suavidad y Transformada de Fourier en Grafos}{10}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Construcción de Grafos para EEG}{11}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{14}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{14}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Métodos Basados en GSP}{15}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Regularización Espacio-Temporal: TRSS}{15}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Mecanismo Interno de la Interpolación en MNE-Python}{16}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{16}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Los Tres Pilares de la Robustez}{17}{subsection.2.4.2}%
-\contentsline {chapter}{\numberline {3}Metodología}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Conjuntos de Datos}{20}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{20}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Construcción de Grafos}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Métodos de Interpolación}{22}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Métricas de Evaluación}{23}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Optimización Bayesiana con Optuna}{23}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Arquitectura del Sistema Experimental}{24}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Trazabilidad y Gestión de Artefactos}{25}{subsection.3.7.1}%
-\contentsline {section}{\numberline {3.8}Diseño Experimental}{27}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Protocolo de Validación Comparativa}{28}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Control de Calidad}{28}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Síntesis del Diseño}{29}{section.3.11}%
-\contentsline {chapter}{\numberline {4}Experimentos y Resultados}{30}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Mapa de fases experimentales}{30}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Selección preliminar de métodos y grafos}{31}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Reducción de candidatos}{32}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Optimización intermedia}{33}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Inventario de la comparación final}{34}{section.4.5}%
+\contentsline {section}{\numberline {2.3}Estado del Arte en Interpolación de Señales Biomédicas}{13}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Métodos Geométricos y Estadísticos}{13}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Métodos Basados en GSP}{14}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Regularización Espacio-Temporal: TRSS}{14}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Mecanismo Interno de la Interpolación en MNE-Python}{15}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Formulación Original y sus Seis Mejoras}{15}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Los Tres Pilares de la Robustez}{16}{subsection.2.4.2}%
+\contentsline {chapter}{\numberline {3}Metodología}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Conjuntos de Datos}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Protocolos de Simulación de Canales Faltantes}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Construcción de Grafos}{20}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Métodos de Interpolación}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Métricas de Evaluación}{22}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Optimización Bayesiana con Optuna}{22}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Arquitectura del Sistema Experimental}{23}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Trazabilidad y Gestión de Artefactos}{24}{subsection.3.7.1}%
+\contentsline {section}{\numberline {3.8}Diseño Experimental}{26}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Protocolo de Validación Comparativa}{27}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Control de Calidad}{27}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Síntesis del Diseño}{28}{section.3.11}%
+\contentsline {chapter}{\numberline {4}Experimentos y Resultados}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Mapa de fases experimentales}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Selección preliminar de métodos y grafos}{30}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Reducción de candidatos}{31}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Optimización intermedia}{32}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Inventario de la comparación final}{33}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Resumen descriptivo de TRSS frente a MNE}{34}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Efecto del escenario de pérdida}{36}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Señales temporales representativas}{37}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Preservación espectral}{39}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Contribución temporal de TRSS}{40}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Costo computacional}{41}{section.4.11}%
-\contentsline {section}{\numberline {4.12}Frontera práctica TRSS--MNE}{42}{section.4.12}%
+\contentsline {section}{\numberline {4.7}Efecto del escenario de pérdida}{35}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Señales temporales representativas}{36}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Preservación espectral}{38}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Contribución temporal de TRSS}{39}{section.4.10}%
+\contentsline {section}{\numberline {4.11}Costo computacional}{40}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Frontera práctica TRSS--MNE}{41}{section.4.12}%

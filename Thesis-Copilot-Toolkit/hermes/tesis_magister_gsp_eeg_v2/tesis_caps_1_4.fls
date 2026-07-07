@@ -422,9 +422,8 @@ INPUT ./frontmatter/abstract_es.tex
 INPUT frontmatter/abstract_es.tex
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmcsc10.tfm
 INPUT ./frontmatter/abstract_en.tex
 INPUT ./frontmatter/abstract_en.tex
 OUTPUT frontmatter/abstract_en.aux
@@ -454,6 +453,7 @@ INPUT ./chapters/01_introduccion.tex
 INPUT chapters/01_introduccion.tex
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
@@ -473,11 +473,11 @@ INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/lmbsy10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
-INPUT ./figures/ch2_gsp_concepts_clean.pdf
-INPUT ./figures/ch2_gsp_concepts_clean.pdf
-INPUT ./figures/ch2_gsp_concepts_clean.pdf
-INPUT ./figures/ch2_gsp_concepts_clean.pdf
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
+INPUT ./figures/ch2_gsp_concepts_clean.pdf
+INPUT ./figures/ch2_gsp_concepts_clean.pdf
+INPUT ./figures/ch2_gsp_concepts_clean.pdf
+INPUT ./figures/ch2_gsp_concepts_clean.pdf
 INPUT ./figures/ch2_trss_operator.pdf
 INPUT ./figures/ch2_trss_operator.pdf
 INPUT ./figures/ch2_trss_operator.pdf
@@ -500,10 +500,6 @@ INPUT ./figures/ch3_methodology_flow.pdf
 INPUT ./figures/ch3_methodology_flow.pdf
 INPUT ./figures/ch3_methodology_flow.pdf
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
 INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/rm-lmr7.tfm
@@ -528,6 +524,10 @@ INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
 INPUT ./figures/ch3_architecture_blocks.pdf
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+INPUT /home/sarlo/.TinyTeX/texmf-dist/fonts/tfm/public/lm/ec-lmtt12.tfm
 INPUT ./figures/ch4_traceability_pipeline.pdf
 INPUT ./figures/ch4_traceability_pipeline.pdf
 INPUT ./figures/ch4_traceability_pipeline.pdf

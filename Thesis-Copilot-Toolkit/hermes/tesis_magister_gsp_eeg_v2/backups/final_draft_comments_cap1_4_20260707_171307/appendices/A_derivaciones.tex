@@ -1,0 +1,20 @@
+\chapter{Derivaciones Matemáticas}
+\label{ap:derivaciones}
+
+Este apéndice presenta las derivaciones detalladas de las soluciones de forma cerrada para los problemas de optimización utilizados en los métodos GSP.
+
+\section{Solución de Tikhonov en Grafos}
+
+El problema de optimización $\hat{\mathbf{x}} = \arg\min_{\mathbf{x}} \|\mathbf{M} \odot (\mathbf{x} - \mathbf{y})\|_2^2 + \alpha \cdot \mathbf{x}^\top \mathbf{L} \mathbf{x}$ puede resolverse tomando el gradiente respecto a $\mathbf{x}$ e igualando a cero: $2\mathbf{M}(\mathbf{x} - \mathbf{y}) + 2\alpha \mathbf{L} \mathbf{x} = 0$, de donde se obtiene la solución de forma cerrada $\hat{\mathbf{x}} = (\mathbf{M} + \alpha \mathbf{L})^{-1} \mathbf{M}\mathbf{y}$. La matriz $\mathbf{M} + \alpha \mathbf{L}$ es simétrica y definida positiva para $\alpha > 0$, lo que garantiza la existencia y unicidad de la solución.
+
+\section{Solución de TRSS en Forma Matricial}
+
+El problema de optimización TRSS puede vectorizarse aplicando identidades de álgebra matricial. Definiendo $\tilde{\mathbf{x}} = \operatorname{vec}(\mathbf{X}) \in \mathbb{R}^{NT}$, el problema se reduce a $\hat{\tilde{\mathbf{x}}} = (\tilde{\mathbf{M}} + \alpha(\mathbf{I}_T \otimes \mathbf{L}) + \beta(\mathbf{D}_t \mathbf{D}_t^\top \otimes \mathbf{I}_N))^{-1} \tilde{\mathbf{M}} \tilde{\mathbf{y}}$, donde $\tilde{\mathbf{M}}$ es la versión vectorizada de la máscara, $\mathbf{I}_T$ es la identidad de tamaño $T$, y $\otimes$ denota el producto de Kronecker.
+
+\section{Propiedades del Operador de Diferencias Temporales}
+
+El operador de diferencias finitas hacia adelante $\mathbf{D}_t \in \mathbb{R}^{T \times (T-1)}$ tiene una estructura bidiagonal, y su producto $\mathbf{D}_t \mathbf{D}_t^\top \in \mathbb{R}^{T \times T}$ es una matriz tridiagonal con valores $1$ en la primera y última posición de la diagonal, $2$ en las posiciones intermedias, y $-1$ en las subdiagonales y superdiagonales. Esta estructura dispersa hace que el sistema completo sea eficiente de manipular computacionalmente.
+
+\section{Propiedades Espectrales del Laplaciano del Grafo}
+
+Para un grafo k-NN con $N$ nodos, el Laplaciano $\mathbf{L}$ es semi-definido positivo, con $\lambda_1 = 0$ y autovector constante $\mathbf{u}_1 = \frac{1}{\sqrt{N}} \mathbf{1}$. La conectividad algebraica $\lambda_2 > 0$ si y solo si el grafo es conexo. El número de condición de $\mathbf{M} + \alpha\mathbf{L}$ está acotado por $\kappa \leq 1/(\alpha\lambda_2) + \lambda_{\max}/\lambda_2$, lo que muestra que $\alpha$ actúa como parámetro de regularización que mejora el condicionamiento del sistema.

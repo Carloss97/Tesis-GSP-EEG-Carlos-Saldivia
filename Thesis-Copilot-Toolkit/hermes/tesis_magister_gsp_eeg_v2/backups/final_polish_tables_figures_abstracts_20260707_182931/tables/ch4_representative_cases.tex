@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Casos representativos seleccionados de forma reproducible en MNE Sample para inspección temporal y espectral. La mejora se calcula en MAE para TRSS fijo frente a MNE; valores negativos indican que MNE fue mejor en ese caso.}
+\label{tab:ch4_representative_cases}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.55cm}>{\raggedright\arraybackslash}p{1.65cm}cccr>{\raggedright\arraybackslash}p{2.65cm}@{}}
+\toprule
+Rol & Patrón & Sev. & Sem. & Canal & Mej. MAE (\%) & Regla \\
+\midrule
+TRSS favorable & Cercano & 40\% & 0 & 15 & +71.0 & Mayor mejora MAE. \\
+MNE favorable & Periférico & 1 canal & 2 & 39 & -38.7 & Peor caso MAE para TRSS. \\
+Empate práctico & Aleatorio & 30\% & 1 & 1 & +0.1 & Mejora absoluta mínima. \\
+Pérdida cercana severa & Cercano & 40\% & 2 & 14 & +34.0 & Escenario cercano severo. \\
+\bottomrule
+\end{tabular}
+\end{table}

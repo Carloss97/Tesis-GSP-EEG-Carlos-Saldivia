@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\caption{Resumen de optimización intermedia y rol de cada variante.}
+\label{tab:ch4_intermediate_optimization_summary}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{8.1cm}@{}}
+\toprule
+Variante o etapa & Resultado experimental y uso posterior \\
+\midrule
+Búsqueda por familia & Identifica rangos plausibles de hiperparámetros para métodos candidatos sin fijar conclusiones definitivas. Se usa como evidencia intermedia para reducir el espacio de búsqueda. \\
+Configuración global & Evalúa si una parametrización única mantiene desempeño razonable entre escenarios. Favorece reproducibilidad y evita reajuste por caso. \\
+TRSS fijo & Variante estable con parámetros congelados antes de la comparación pareada. Es la lectura principal frente a MNE. \\
+TRSS calibrado & Aproxima una selección más adaptativa, pero aún depende de reglas de calibración. Se usa como análisis auxiliar de sensibilidad. \\
+Oráculo & Cota superior no desplegable al escoger la mejor variante observada. Sirve como contexto metodológico, no como método aplicable. \\
+\bottomrule
+\end{tabular}
+\end{table}

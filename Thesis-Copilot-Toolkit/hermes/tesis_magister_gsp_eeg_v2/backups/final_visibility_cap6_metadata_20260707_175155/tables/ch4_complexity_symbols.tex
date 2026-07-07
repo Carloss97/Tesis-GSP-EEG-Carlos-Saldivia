@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\caption{Símbolos usados para interpretar la complejidad computacional.}
+\label{tab:ch4_complexity_symbols}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{4.1cm}>{\raggedright\arraybackslash}p{5.7cm}@{}}
+\toprule
+Símbolo & Significado & Uso en el análisis \\
+\midrule
+$N$ & Número de canales EEG & Define el tamaño del sistema espacial. \\
+$T$ & Número de muestras temporales & Define cuántos instantes se reconstruyen. \\
+$E$ & Número de aristas del grafo & Controla el costo de operaciones dispersas sobre la topología espacial. \\
+$K$ & Iteraciones del resolvedor & Afecta el costo de TRSS fijo para una configuración dada. \\
+$H$ & Configuraciones evaluadas & Aplica a búsqueda/calibración de hiperparámetros, no al costo de una reconstrucción ya fijada. \\
+\bottomrule
+\end{tabular}
+\end{table}
