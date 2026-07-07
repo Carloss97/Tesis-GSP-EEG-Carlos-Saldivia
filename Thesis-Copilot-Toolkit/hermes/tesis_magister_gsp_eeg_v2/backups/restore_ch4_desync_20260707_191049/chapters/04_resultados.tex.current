@@ -11,18 +11,18 @@ Esta separación es metodológicamente importante. Los resultados preliminares n
 
 \section{Selección preliminar de métodos y grafos}
 
-La selección preliminar evaluó combinaciones de familias de interpolación y construcción de grafos sobre datos sintéticos, proxies EEG y registros reales. La exploración incluyó métodos geométricos, estadísticos como ICA, regularizadores GSP como Tikhonov y variantes temporales como TRSS. La Tabla~\ref{tab:ch4_preliminary_selection_top_candidates} muestra la mejor combinación método--grafo por conjunto dentro del ranking exploratorio. La columna de método usa nombres legibles vinculados con las familias de la Tabla~\ref{tab:methods}: TRSS corresponde a la regularización espacio--temporal, TV temporal a variantes de variación total en el tiempo y vecino más cercano a la familia geométrica. El patrón general es que las variantes con información temporal aparecen repetidamente en las primeras posiciones, aunque no de manera universal: algunos conjuntos favorecen métodos instantáneos o geométricos simples.
+La selección preliminar evaluó combinaciones de familias de interpolación y construcción de grafos sobre datos sintéticos, proxies EEG y registros reales. La exploración incluyó métodos geométricos, estadísticos como ICA, regularizadores GSP como Tikhonov y variantes temporales como TRSS. La Tabla~\ref{tab:ch4_preliminary_selection_top_candidates} muestra la mejor combinación método--grafo por conjunto dentro del ranking exploratorio. La columna de método usa nombres legibles vinculados con las familias de la Tabla~\ref{tab:methods}: TRSS corresponde a la regularización espacio--temporal, TV dirigida a variantes de variación total temporal y vecino más cercano a la familia geométrica. El patrón general es que las variantes con información temporal aparecen repetidamente en las primeras posiciones, aunque no de manera universal: algunos conjuntos favorecen métodos instantáneos o geométricos simples.
 
 \input{tables/ch4_preliminary_selection_top_candidates}
 
 La lectura de esta tabla no es “el mejor método final es siempre el de la primera fila de cada conjunto”. Su función es más limitada: mostrar que el espacio de búsqueda inicial es amplio y heterogéneo. En PhysioNet y varios conjuntos BCI, TRSS aparece como candidato fuerte; en MNE Sample proxy, una variante temporal distinta queda primera; y en algunos casos reales BCI aparece una referencia instantánea. Por eso la tesis no salta directamente a una afirmación de superioridad de TRSS: primero reduce el espacio experimental y luego compara contra una referencia comunitaria fuerte.
 
-La Figura~\ref{fig:ch4_preliminary_iteration_summary} resume la misma fase desde el punto de vista de las iteraciones consolidadas. La campaña exploratoria alcanzó archivos hasta la iteración 800; el resumen usado para la figura contiene 736 iteraciones con al menos una métrica válida. La figura muestra únicamente métodos conservados como evidencia exploratoria válida para orientar la reducción de candidatos.
-
+La Figura~\ref{fig:ch4_preliminary_iteration_summary} resume la misma fase desde el punto de vista de las iteraciones consolidadas. La campaña exploratoria alcanzó archivos hasta la iteración 800; el resumen usado para la figura contiene 736 iteraciones con al menos una métrica válida. Los valores de Visibility NNK se excluyen de esta figura y de las conclusiones porque se detectó un error de implementación en esa variante.
+%Quitar cualquier mencion o referencia Visibility NNK si no se utiliza. No tiene sentido hablar de eso ahora si nunca se describió anteriormente. ELIMINAR cualqujier mencion de este metodo y recordar esto para futuras referencias.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.86\textwidth]{ch4_preliminary_iteration_summary}
-  \caption{Resumen exploratorio por método en la campaña de iteraciones preliminares. Las barras muestran MAE mediano por método en el resumen consolidado; menor es mejor. Sobolev se muestra como panel separado por su escala mayor.}
+  \caption{Resumen exploratorio por método en la campaña de iteraciones preliminares. Las barras muestran MAE mediano por método en el resumen consolidado; menor es mejor. Sobolev se muestra como panel separado por su escala mayor. Visibility NNK se excluye por error de implementación y no se usa para sostener conclusiones.}
   \label{fig:ch4_preliminary_iteration_summary}
 \end{figure}
 
@@ -30,7 +30,7 @@ La Figura~\ref{fig:ch4_preliminary_iteration_summary} resume la misma fase desde
 
 La reducción de candidatos combinó tres criterios. Primero, se descartaron estrategias que dependían de información potencialmente circular, como grafos construidos desde correlaciones de la misma señal evaluada. Segundo, se relegaron métodos data-driven cuya reproducibilidad o costo dificultaba una comparación final controlada. Tercero, se consideró el tiempo de ejecución, porque un método que mejora una métrica pero no es operativo puede ser poco útil en flujos EEG reales.
 
-La Tabla~\ref{tab:ch4_runtime_selection_summary} resume un microbenchmark usado como señal de costo. Métodos simples como media o lineal son muy rápidos pero menos expresivos; TRSS queda en una zona intermedia; y métodos como TV temporal resultan costosos para una evaluación extensiva. Esta evidencia apoyó concentrar la fase final en una comparación interpretable: TRSS como representante espacio--temporal y MNE-Python como referencia madura.
+La Tabla~\ref{tab:ch4_runtime_selection_summary} resume un microbenchmark usado como señal de costo. Métodos simples como media o lineal son muy rápidos pero menos expresivos; TRSS queda en una zona intermedia; y métodos como TV temporal resultan costosos para una evaluación extensiva. Visibility NNK no se considera en esta reducción porque se detectó un error de implementación que invalida sus resultados exploratorios. Esta evidencia apoyó concentrar la fase final en una comparación interpretable: TRSS como representante espacio--temporal y MNE-Python como referencia madura.
 
 \input{tables/ch4_runtime_selection_summary}
 
