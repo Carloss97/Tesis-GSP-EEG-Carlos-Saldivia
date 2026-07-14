@@ -1,0 +1,34 @@
+# Ignore generated results and figures
+Thesis-Copilot-Toolkit/results/
+Thesis-Copilot-Toolkit/results_*
+Thesis-Copilot-Toolkit/results_pilot_minimal/
+Thesis-Copilot-Toolkit/thesis/usm/figures/
+
+# Ignore heavy dataset directories and large binary files
+Thesis-Copilot-Toolkit/datasets/
+Thesis-Copilot-Toolkit/datasets_*
+Thesis-Copilot-Toolkit/datasets/**/
+Thesis-Copilot-Toolkit/datasets/**/MNE-sample-data/
+Thesis-Copilot-Toolkit/datasets/**/MEG/
+Thesis-Copilot-Toolkit/datasets/**/subjects/
+datasets/
+*.fif
+*.fif.gz
+*.mat
+*.dat
+*.mexw64
+*.bin
+*.raw
+
+# Temporary env / caches
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS files
+.DS_Store
+Thumbs.db
