@@ -70,11 +70,13 @@ La elección del grafo subyacente es una decisión metodológica de primer orden
 \end{itemize}
 
 \textbf{Grafos basados en correlación funcional.} Utilizan la serie temporal observada para cuantificar similitud entre electrodos. La construcción es $W_{ij} = |\rho_{ij}|$, donde $\rho_{ij}$ es el coeficiente de correlación de Pearson entre los electrodos $i$ y $j$, calculado solo con canales disponibles. Este criterio es informativo para exploración, pero introduce circularidad si se usa para confirmar desempeño: el grafo queda parcialmente determinado por las mismas señales sobre las que luego se evalúa la reconstrucción. Por esta razón, los grafos de correlación se usaron solo en la fase de selección preliminar y no sostienen las conclusiones comparativas principales.
-\textbf{Grafos data-driven (aprendidos desde los datos).} No requieren especificar un núcleo ni sus parámetros; la estructura del grafo emerge de las señales mismas. En este grupo se consideraron dos alternativas: %falta salto de linea
+
+\textbf{Grafos data-driven (aprendidos desde los datos).} No requieren especificar un núcleo ni sus parámetros; la estructura del grafo emerge de las señales mismas. En este grupo se consideraron dos alternativas:
 \begin{itemize}[leftmargin=*,itemsep=1pt,topsep=2pt]
 \item \textbf{Kalofolias (kalofolias).} Formula el aprendizaje del grafo como optimización convexa que minimiza la variación de la señal observada con restricciones de grado positivo \cite{kalofolias_how_2016}. Se implementó una versión propia con descenso de gradiente proyectado sobre la función objetivo de log-grados más regularización de Frobenius.
 \item \textbf{AEW (Adaptive Edge Weighting).} Optimización conjunta de pesos y topología mediante el algoritmo AEW \cite{shekkizhar2020}, que alterna entre actualización de pesos vía descenso de gradiente y proyección sobre restricciones de grado.
 \end{itemize}
+
 Los grafos data-driven se evaluaron en la fase exploratoria pero no se incluyeron en la fase comparativa por dos razones: su mayor costo computacional ($O(N^3)$ en el caso de Kalofolias) y la dificultad de garantizar reproducibilidad determinista entre ejecuciones. Esta decisión no es puramente teórica: el Capítulo~\ref{ch:resultados} documenta la selección preliminar de combinaciones método--grafo y la reducción experimental que llevó a concentrar la comparación final en grafos geométricos reproducibles y en la referencia MNE-Python. Su impacto sobre TRSS se propone como trabajo futuro.
 
 \section{Estado del Arte en Interpolación de Señales Biomédicas}

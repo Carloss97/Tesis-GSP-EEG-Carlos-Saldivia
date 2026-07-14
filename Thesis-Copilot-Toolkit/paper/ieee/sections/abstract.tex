@@ -1,7 +1,0 @@
-\begin{abstract}
-Missing EEG channels represent a significant challenge in clinical neurophysiology and Brain-Computer Interface pipelines because interpolation errors can distort morphology, latency, and spectral content of downstream biomarkers. This paper presents a rigorous and reproducible benchmarking framework for EEG channel reconstruction under missing-channel conditions. Using a unified optimization-and-validation pipeline across three datasets (PhysioNet, BCI Competition IV 2a, and MNE Sample), we compare graph-based methods with temporal regularization (TRSS, Tikhonov) against exhaustively optimized geometric baselines (Spherical Spline, RBF). Rather than proposing a fundamentally novel algorithm, our primary contribution is methodological: we demonstrate that rigorous hyperparameter optimization via Optuna substantially closes performance gaps between classical and modern approaches. Under this fair evaluation, temporal regularization methods maintain competitive and statistically significant margins. TRSS demonstrates particular strength in preserving physiological dynamics (Event-Related Potentials, Power Spectral Density) under severe contiguous channel loss, establishing a reference point for realistic EEG interpolation performance across method classes.
-\end{abstract}
-
-\begin{IEEEkeywords}
-EEG reconstruction, graph signal processing, interpolation, Optuna, Event-Related Potentials, temporal regularization
-\end{IEEEkeywords}

@@ -1,34 +1,154 @@
-# Ignore generated results and figures
-Thesis-Copilot-Toolkit/results/
-Thesis-Copilot-Toolkit/results_*
-Thesis-Copilot-Toolkit/results_pilot_minimal/
-Thesis-Copilot-Toolkit/thesis/usm/figures/
+# Public repository hygiene for the GSP/EEG thesis
+# Keep source code, thesis source, final thesis PDFs, and documentation.
+# Keep raw datasets, generated results, caches, local notes, and build byproducts out of Git.
 
-# Ignore heavy dataset directories and large binary files
-Thesis-Copilot-Toolkit/datasets/
-Thesis-Copilot-Toolkit/datasets_*
-Thesis-Copilot-Toolkit/datasets/**/
-Thesis-Copilot-Toolkit/datasets/**/MNE-sample-data/
-Thesis-Copilot-Toolkit/datasets/**/MEG/
-Thesis-Copilot-Toolkit/datasets/**/subjects/
+# --- Local/personal working areas not part of the public research artifact ---
+.agent_work/
+.copilot-tracking/
+.github/
+.tools/
+Code1201/
+Escritos-gamma4/
+informes/
+Papers/
+Referencias/
+Tesis/
+"Tesis 3/
+"Referencias/
+tools/
+scripts/
+results/
 datasets/
+
+# --- Heavy or generated thesis toolkit artifacts ---
+Thesis-Copilot-Toolkit/datasets/
+Thesis-Copilot-Toolkit/results/
+Thesis-Copilot-Toolkit/results_*/
+Thesis-Copilot-Toolkit/standardized_results/
+Thesis-Copilot-Toolkit/paper/
+Thesis-Copilot-Toolkit/thesis/
+Thesis-Copilot-Toolkit/shared/
+Thesis-Copilot-Toolkit/standardize_iterations/
+Thesis-Copilot-Toolkit/archives/
+Thesis-Copilot-Toolkit/logs/
+Thesis-Copilot-Toolkit/.agent_work/
+Thesis-Copilot-Toolkit/.venv/
+Thesis-Copilot-Toolkit/tools/
+Thesis-Copilot-Toolkit/tickets/
+Thesis-Copilot-Toolkit/*.zip
+Thesis-Copilot-Toolkit/*.log
+Thesis-Copilot-Toolkit/main.*
+Thesis-Copilot-Toolkit/scratch_*.py
+Thesis-Copilot-Toolkit/tmp_*.py
+Thesis-Copilot-Toolkit/test_*.py
+Thesis-Copilot-Toolkit/*.md
+!Thesis-Copilot-Toolkit/README.md
+!Thesis-Copilot-Toolkit/requirements.md
+
+# Keep only public experiment scripts/schedules; ignore local analysis notes and run artifacts.
+Thesis-Copilot-Toolkit/experiments/**
+!Thesis-Copilot-Toolkit/experiments/
+!Thesis-Copilot-Toolkit/experiments/*.py
+!Thesis-Copilot-Toolkit/experiments/canonical_registry.json
+!Thesis-Copilot-Toolkit/experiments/schedules/
+!Thesis-Copilot-Toolkit/experiments/schedules/**/
+!Thesis-Copilot-Toolkit/experiments/schedules/**/*.json
+Thesis-Copilot-Toolkit/experiments/**/*.bak
+Thesis-Copilot-Toolkit/experiments/**/*.log
+Thesis-Copilot-Toolkit/experiments/**/*.csv
+Thesis-Copilot-Toolkit/experiments/**/*.txt
+Thesis-Copilot-Toolkit/experiments/**/*.md
+Thesis-Copilot-Toolkit/experiments/**/*.ps1
+
+# Older generated thesis package retained locally but not part of the public repository.
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_hermes/
+
+# --- Thesis final-draft local QA/backup byproducts ---
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/backups/
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/build_logs/
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/tables/_archive/
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/_archive/
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.aux
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.log
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.fls
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.fdb_latexmk
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.synctex.gz
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.blg
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.bbl
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.toc
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.lof
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.lot
+Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.out
+
+# Keep final deliverable PDFs and vector figure PDFs in the thesis package.
+!Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/tesis_completa.pdf
+!Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/tesis_caps_1_4.pdf
+!Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/figures/*.pdf
+
+# --- Data and generated result formats ---
 *.fif
 *.fif.gz
+*.edf
+*.gdf
 *.mat
 *.dat
 *.mexw64
 *.bin
 *.raw
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.sqlite
+*.db
 
-# Temporary env / caches
+# Generated plots/reports outside the curated thesis figures.
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.html
+*.xlsx
+*.xls
+*.csv
+*.jsonl
+
+# Allow source/config metadata where intentionally added.
+!Thesis-Copilot-Toolkit/experiments/canonical_registry.json
+!Thesis-Copilot-Toolkit/experiments/schedules/**/*.json
+!Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.json
+
+# --- Python / environments / caches ---
+.venv/
 venv/
 env/
-.venv/
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# OS files
+# --- OS/editor files ---
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+~$*
+
+# --- Root LaTeX byproducts ---
+main.aux
+main.fdb_latexmk
+main.fls
+main.log
+repro_*.py
+rerun_*.py
+tmp_*.py
+tree.json
+tesis_caps_*.pdf
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz

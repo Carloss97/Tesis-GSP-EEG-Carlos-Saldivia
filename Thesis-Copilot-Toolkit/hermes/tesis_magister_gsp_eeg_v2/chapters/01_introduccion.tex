@@ -21,8 +21,8 @@ Para superar estas limitaciones, en los últimos años ha emergido con fuerza el
 Bajo este paradigma, el voltaje medido en un instante se interpreta como una señal de grafo, y conceptos clásicos como la Transformada de Fourier, el filtrado paso-bajo y el muestreo se trasladan al dominio del grafo mediante el operador Laplaciano $\mathbf{L}$. La intuición es simple: las señales en nodos fuertemente conectados tienden a ser similares. Al minimizar una función de costo que penaliza las variaciones abruptas sobre la topología del grafo, los datos faltantes se reconstruyen con mayor fidelidad que usando solo la distancia euclidiana \cite{narang2013}.
 
 Una extensión aún más avanzada es la regularización espacio-temporal. Trabajos recientes han introducido enfoques como la Regularización Temporal de Suavidad de Sobolev (TRSS, por sus siglas en inglés) \cite{giraldo2022}, que optimiza conjuntamente la topología espacial y la derivada temporal de la señal. Al penalizar saltos bruscos en el tiempo de forma simultánea a los saltos en el espacio, TRSS impone restricciones fisiológicas reales: las neuronas no cambian su potencial de membrana instantáneamente, sino que obedecen dinámicas de integración continua. Esta restricción dual, espacial y temporal, es lo que la teoría predice como el factor diferencial frente a los métodos puramente espaciales.
-%añadir citas a los enfoques de aprendizaje profundo.
-Aunque existen enfoques de aprendizaje profundo para imputación de series temporales y representación de señales, como autoencoders convolucionales, redes recurrentes o TCN para reconstrucción temporal, transformadores para imputación multicanal y modelos generativos recientes, esta tesis no los incorpora como línea experimental. La razón es metodológica: el objetivo es comparar métodos algorítmicos sin entrenamiento, geométricos, estadísticos, GSP y regularización espacio--temporal, bajo un protocolo controlado y trazable. Incluir modelos entrenables requeriría particiones de entrenamiento, validación externa, control de fuga de información y análisis de generalización entre sujetos y montajes, lo que excede el alcance de este trabajo.
+
+Aunque existen enfoques de aprendizaje profundo para imputación de series temporales y representación de señales, como modelos auto-supervisados para EEG clínico, redes convolucionales sobre grafos y modelos generativos para series temporales \cite{banville2021uncovering,defferrard2016,yoon2019time}, esta tesis no los incorpora como línea experimental. La razón es metodológica: el objetivo es comparar métodos algorítmicos sin entrenamiento, geométricos, estadísticos, GSP y regularización espacio--temporal, bajo un protocolo controlado y trazable. Incluir modelos entrenables requeriría particiones de entrenamiento, validación externa, control de fuga de información y análisis de generalización entre sujetos y montajes, lo que excede el alcance de este trabajo.
 \section{La Brecha en la Literatura y la Motivación del Trabajo}
 
 A pesar del potencial teórico de los algoritmos GSP y TRSS, su validación empírica en la literatura de señales biomédicas presenta limitaciones metodológicas relevantes. Se identifican tres brechas que motivan el diseño experimental de esta tesis.
@@ -58,7 +58,7 @@ En lugar de organizar la evaluación alrededor de contrastes inferenciales, esta
 
 \begin{quote}
 \textbf{P1.} ¿En qué condiciones la regularización espacio--temporal mejora la reconstrucción de canales EEG faltantes frente a métodos espaciales de referencia, como splines esféricos, distancia inversa, RBF, vecino más cercano, interpolación lineal y MNE-Python?
-\end{quote} %Reformular la pregunta para que sea más clara y directa, manteniendo la claridad a que se refiere con referencias geometricas.
+\end{quote}
 
 \begin{quote}
 \textbf{P2.} ¿Qué compromiso práctico existe entre precisión de reconstrucción, fidelidad espectral y tiempo de cómputo al elegir entre TRSS y MNE-Python?

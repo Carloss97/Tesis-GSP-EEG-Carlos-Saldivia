@@ -1,6 +1,0 @@
-test_id,metric,group_a,group_b,statistic,p_value,decision
-mae_trss_vs_tikhonov,mae,trss,tikhonov,136.0,0.0017848483939171347,reject_H0
-rmse_trss_vs_tikhonov,rmse,trss,tikhonov,249.0,0.42727890617197617,fail_to_reject_H0
-mae_tv_family_vs_instant,mae,tv_time,instant,25640.0,0.09369531181959587,fail_to_reject_H0
-dtw_tv_family_vs_instant,dtw,tv_time,instant,,,insufficient_data
-rmse_tv_family_vs_instant,rmse,tv_time,instant,19445.0,1.229093673066458e-08,reject_H0
