@@ -1,0 +1,26 @@
+slide,titulo,duracion_s,acumulado_s,bloque
+1,Portada y apertura,30,30,Apertura
+2,Problema real,70,100,Apertura
+3,No trivialidad,65,165,Apertura
+4,Brecha,60,225,Apertura
+5,Preguntas y objetivo,65,290,Apertura
+6,EEG como grafo,75,365,Marco
+7,MNE frente a TRSS,85,450,Marco
+8,Decisiones de alcance,60,510,Marco
+9,Estrategia experimental,85,595,Método
+10,Datos,65,660,Método
+11,Pérdida simulada,65,725,Método
+12,Métricas,65,790,Método
+13,Arquitectura y trazabilidad,60,850,Método
+14,Reducción experimental,70,920,Método
+15,Protocolo final,85,1005,Método
+16,Resultado MAE,90,1095,Resultados
+17,Portafolio de métricas,90,1185,Resultados
+18,Heterogeneidad,90,1275,Resultados
+19,Forma de señal,70,1345,Resultados
+20,Tensión espectral,70,1415,Resultados
+21,Costo computacional,65,1480,Resultados
+22,Frontera de decisión,65,1545,Discusión
+23,Aportes,60,1605,Discusión
+24,Limitaciones,75,1680,Discusión
+25,Conclusión,60,1740,Cierre

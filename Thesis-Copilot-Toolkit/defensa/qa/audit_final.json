@@ -1,0 +1,87 @@
+{
+  "passed": 16,
+  "total": 16,
+  "all_passed": true,
+  "gates": [
+    {
+      "gate": "artefactos_requeridos",
+      "ok": true,
+      "detail": "faltantes=[]"
+    },
+    {
+      "gate": "paginas_presentacion",
+      "ok": true,
+      "detail": "páginas=39; esperado=39"
+    },
+    {
+      "gate": "paginas_narrativa",
+      "ok": true,
+      "detail": "páginas=16; esperado>=15"
+    },
+    {
+      "gate": "estructura_slides",
+      "ok": true,
+      "detail": "principales=25; respaldos=14"
+    },
+    {
+      "gate": "banco_jurado",
+      "ok": true,
+      "detail": "preguntas=38"
+    },
+    {
+      "gate": "guion_por_slide",
+      "ok": true,
+      "detail": "entradas=25"
+    },
+    {
+      "gate": "tiempo_principal",
+      "ok": true,
+      "detail": "total=29:00; acumulado=1740s"
+    },
+    {
+      "gate": "rutas_abreviadas",
+      "ok": true,
+      "detail": "rutas declaradas=25:00 y 20:00"
+    },
+    {
+      "gate": "terminos_prohibidos",
+      "ok": true,
+      "detail": "fuentes=0; pdf=0"
+    },
+    {
+      "gate": "departamento_portada",
+      "ok": true,
+      "detail": "texto extraído de la portada"
+    },
+    {
+      "gate": "cifras_clave",
+      "ok": true,
+      "detail": "ausentes=[]"
+    },
+    {
+      "gate": "contenido_cientifico_minimo",
+      "ok": true,
+      "detail": "{'exploración': True, 'congelado': True, 'pareado': True, 'limitaciones': True, 'P1': True, 'P2': True}"
+    },
+    {
+      "gate": "logs_latex",
+      "ok": true,
+      "detail": "{'presentacion_defensa': 0, 'narrativa_defensa': 0}"
+    },
+    {
+      "gate": "checksums_figuras",
+      "ok": true,
+      "detail": "entradas=12; fallas=[]"
+    },
+    {
+      "gate": "render_presentacion",
+      "ok": true,
+      "detail": "renderizadas=39; sospechosas=[]"
+    },
+    {
+      "gate": "render_narrativa",
+      "ok": true,
+      "detail": "renderizadas=16; sospechosas=[]"
+    }
+  ]
+}

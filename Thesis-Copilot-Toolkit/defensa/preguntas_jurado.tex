@@ -1,0 +1,200 @@
+\section*{Banco de preguntas del jurado}
+\addcontentsline{toc}{section}{Banco de preguntas del jurado}
+
+\subsection*{A. Estadística y diseño experimental}
+
+\QA{1. ¿Por qué no realizó pruebas de hipótesis tradicionales?}
+{Porque la estructura repetida no equivale a una muestra aleatoria de sujetos independientes. Reporto diferencias pareadas, medianas, tasas de victoria e intervalos descriptivos.}
+{Los 300 casos provienen de 100 estratos y tres semillas por estrato. Tratar cada máscara como una observación poblacional independiente inflaría la evidencia. El bootstrap jerárquico conserva el agrupamiento y cuantifica estabilidad dentro del protocolo, pero no transforma el benchmark en una muestra poblacional. Por eso las conclusiones son descriptivas y condicionales.}
+{Metodología, Protocolo de Validación Comparativa.}
+
+\QA{2. ¿Cuál es exactamente la unidad estadística?}
+{El caso pareado TRSS--MNE dentro de un estrato; no la semilla como sujeto independiente.}
+{Cada par comparte señal, máscara, semilla y preprocesamiento. La diferencia se calcula dentro del caso y los casos están agrupados en estratos de régimen, patrón y severidad. Las semillas generan repeticiones controladas, no nuevos participantes. Esa estructura se respeta en el resumen jerárquico.}
+{Metodología, unidad pareada y bootstrap jerárquico.}
+
+\QA{3. ¿Por qué usar la mediana?}
+{Porque las mejoras porcentuales y los tiempos son asimétricos y sensibles a casos extremos.}
+{La mediana ofrece un resumen robusto del comportamiento típico sin quedar dominada por denominadores pequeños o escenarios de error extremo. No se usa sola: se acompaña de intervalo descriptivo, tasa de victoria y análisis por estrato para mostrar dispersión y heterogeneidad.}
+{Tablas robustas de Resultados.}
+
+\QA{4. ¿Qué significa el intervalo de 7,8 a 17,4 por ciento en MAE?}
+{Describe la estabilidad de la mejora mediana bajo el remuestreo jerárquico del protocolo.}
+{No es un intervalo poblacional ni una prueba de significancia. Resume cómo varía la mediana al remuestrear estratos y casos respetando su estructura. Su utilidad es mostrar que la dirección positiva en MAE no depende de una única partición de los 300 pares.}
+{Tabla principal robusta.}
+
+\QA{5. ¿Por qué mil remuestreos?}
+{Es un compromiso reproducible entre estabilidad descriptiva y costo computacional.}
+{Mil réplicas permiten estimar cuantiles con resolución suficiente para esta lectura descriptiva. Aumentar el número puede refinar ligeramente los extremos, pero no corrige sesgos de diseño ni amplía la validez externa. La prioridad fue respetar la jerarquía y documentar la semilla.}
+{Metodología, bootstrap jerárquico.}
+
+\QA{6. ¿Cómo evitó comparar métodos con máscaras distintas?}
+{La máscara y la semilla se generan una vez por caso y se reutilizan para todos los métodos.}
+{La configuración persistida identifica dataset, segmento, patrón, severidad y semilla. Los validadores comprueban canales observados y faltantes, dimensionalidad y correspondencia de la máscara. Así, la diferencia TRSS--MNE se atribuye al método y no a una realización distinta de la pérdida.}
+{Arquitectura y controles de calidad.}
+
+\QA{7. ¿Los 300 pares son 300 sujetos?}
+{No. Son casos experimentales repetidos y agrupados; no deben interpretarse como 300 sujetos.}
+{Los casos cruzan regímenes, patrones, severidades y semillas. Algunas bases aportan múltiples sujetos y otras, como MNE Sample, un solo sujeto. Por eso la tesis evita lenguaje de inferencia poblacional y reporta estabilidad del benchmark, no prevalencia clínica.}
+{Metodología y Limitaciones.}
+
+\QA{8. ¿Cómo trató comparaciones múltiples?}
+{No se basó la conclusión en una batería de p-valores; se separaron dimensiones y se declaró una lectura descriptiva.}
+{Cada métrica responde una pregunta distinta y no se colapsa en un ranking universal. La tesis presenta direcciones, intervalos descriptivos y tasas de victoria, y reconoce tensiones como LSD y tiempo. Si se diseñara un estudio confirmatorio con hipótesis múltiples, habría que preespecificar una métrica primaria y controlar multiplicidad.}
+{Portafolio de métricas y Discusión.}
+
+\subsection*{B. MNE-Python, TRSS y grafos}
+
+\QA{9. ¿Por qué MNE-Python es la línea base principal?}
+{Porque representa una implementación comunitaria madura y evita una comparación contra un spline debilitado.}
+{MNE incorpora normalización, restricciones, pseudoinversa y manejo robusto de casos numéricos. Un spline propio es útil para aislar componentes, pero no equivale a esa ingeniería. Usar MNE hace más exigente y más útil la comparación principal.}
+{Marco Teórico, mecanismo de MNE.}
+
+\QA{10. ¿Por qué no comparar solo con su spline propio?}
+{Porque habría reducido la fuerza externa del benchmark.}
+{Una implementación propia puede diferir por detalles numéricos y de preprocesamiento. La tesis conserva esas variantes en exploración, pero las cifras centrales responden frente a MNE-Python. Así se evita atribuir a TRSS una ventaja causada por una referencia incompleta.}
+{Introducción y decisiones de reducción.}
+
+\QA{11. ¿Cuál es el papel de alfa y beta en TRSS?}
+{Alfa controla suavidad espacial; beta controla continuidad temporal.}
+{El objetivo combina fidelidad en canales observados, energía espacial sobre el Laplaciano y diferencias temporales finitas. Con beta igual a cero se obtiene una reconstrucción espacial independiente por instante; con alfa igual a cero se pierde la guía del grafo. La variante final fija ambos antes de evaluar.}
+{Marco Teórico, ecuación TRSS.}
+
+\QA{12. ¿TRSS puede sobre-suavizar la señal?}
+{Sí; esa es una de sus contrapartidas y ayuda a explicar la tensión espectral.}
+{La penalización temporal restringe cambios muestra a muestra. Si beta es demasiado alto o la señal contiene transitorios relevantes, puede disminuir error agregado y alterar detalles. Por eso se evalúan DTW, correlación, PSD y LSD, y no solo MAE.}
+{Marco Teórico y Resultados espectrales.}
+
+\QA{13. ¿Por qué grafos geométricos y no funcionales?}
+{Por determinismo, reproducibilidad y para evitar usar la señal evaluada al construir el comparador.}
+{Los grafos aprendidos pueden capturar relaciones funcionales, pero requieren un protocolo separado: datos de entrenamiento, validación externa y control de circularidad. En esta tesis se exploraron, pero la fase final privilegió grafos construidos desde coordenadas conocidas.}
+{Metodología, construcción y selección de grafos.}
+
+\QA{14. ¿Cómo eligió el grafo final?}
+{Mediante exploración y optimización separadas de la evaluación final, seguida de congelamiento.}
+{Se compararon nueve familias y se redujeron por precisión, estabilidad, costo y reproducibilidad. La configuración final no se reelige por cada caso de evaluación. Esa regla es importante para que la mejora no sea un oráculo posterior.}
+{Fases experimentales y decisiones de reducción.}
+
+\QA{15. ¿Qué ocurre si beta es cero?}
+{TRSS se reduce a una regularización espacial tipo Tikhonov aplicada por instante.}
+{Ese caso permite interpretar el aporte marginal de temporalidad. La tesis usa la descomposición para entender el método, pero la cifra principal corresponde a la configuración fija completa, no a seleccionar beta después de observar cada resultado.}
+{Marco Teórico y estudio de descomposición.}
+
+\QA{16. ¿Por qué no usar un grafo dinámico?}
+{Porque habría agregado aprendizaje y costo sin un protocolo externo suficiente para evaluarlo limpiamente.}
+{Un grafo dinámico podría adaptarse a estados temporales, pero también puede usar información del mismo segmento que luego se evalúa. Para sostenerlo harían falta particiones estrictas, estabilidad temporal y análisis de costo. Se propone como trabajo futuro, no como ausencia de valor.}
+{Discusión y trabajo futuro.}
+
+\QA{17. ¿La ventaja se debe solo a más hiperparámetros?}
+{No se puede reducir a ese hecho; la lectura principal usa una configuración fija y la ventaja aparece por régimen.}
+{TRSS tiene alfa y beta, pero no se seleccionan por caso en el protocolo central. Además, la ventaja crece cuando faltan vecinos y se reduce en casos leves, un patrón coherente con el uso de información temporal. Aun así, un estudio de ablación más amplio podría aislar mejor cada término.}
+{Resultados por escenario y Limitaciones.}
+
+\subsection*{C. Métricas y resultados}
+
+\QA{18. ¿Por qué MAE es la métrica principal?}
+{Porque es interpretable en amplitud y robusta, pero no se usa como único criterio.}
+{MAE mide desviación absoluta en los canales ocultos sin elevar errores extremos al cuadrado. La tesis la usa como eje central y la acompaña con NRMSE, DTW, SNR, correlación, LSD, coherencia y tiempo. La conclusión se formula como portafolio, no como monopolio de MAE.}
+{Metodología y tabla robusta.}
+
+\QA{19. ¿Qué significa una mejora de 12,4 por ciento?}
+{Que la reducción relativa mediana del MAE de TRSS respecto de MNE es 12,4 por ciento en el protocolo final.}
+{La mejora se calcula por caso con una orientación común donde valores positivos favorecen a TRSS y luego se resume de forma robusta. No significa que todos los casos mejoren: TRSS gana en 72 por ciento, por lo que existe heterogeneidad relevante.}
+{Tabla principal robusta.}
+
+\QA{20. ¿Por qué MNE gana en LSD?}
+{Porque menor error temporal no garantiza preservar mejor la distribución espectral global.}
+{La regularización temporal puede suavizar o redistribuir energía. MNE, basado en interpolación espacial por instante, muestra una mediana favorable en LSD y mayor tasa de victoria. El resultado exige elegir según el objetivo posterior y justifica no afirmar superioridad universal de TRSS.}
+{Portafolio de métricas y PSD.}
+
+\QA{21. ¿Puede un método ganar en MAE y perder en SNR?}
+{Sí, porque las métricas normalizan y ponderan el error de manera distinta.}
+{MAE resume magnitud absoluta, mientras SNR relaciona energía de señal y error. En este estudio ambos favorecen agregadamente a TRSS, pero no deben suponerse equivalentes caso a caso. Esa diferencia motiva reportar el portafolio completo.}
+{Definición de métricas.}
+
+\QA{22. ¿Por qué incluir DTW?}
+{Para evaluar similitud de forma temporal permitiendo pequeñas desalineaciones.}
+{DTW complementa MAE porque una señal puede conservar una trayectoria parecida aun con desplazamientos locales. Tampoco es suficiente por sí sola: puede tolerar deformaciones temporales, por lo que se interpreta junto a correlación, error y espectro.}
+{Metodología, métricas temporales.}
+
+\QA{23. ¿Los casos visuales prueban la ventaja?}
+{No. Son ejemplos interpretables; la conclusión descansa en los 300 pares.}
+{Las series y PSD permiten detectar forma, suavizado y distribución espectral. Fueron elegidas para ilustrar comportamientos favorables, desfavorables y de empate. No reemplazan la estadística agregada ni una evaluación ciega.}
+{Resultados y Limitaciones.}
+
+\QA{24. ¿Cuál es el escenario más favorable a TRSS?}
+{Las pérdidas cercanas o agrupadas severas, especialmente 30 y 40 por ciento.}
+{En los escenarios seleccionados, la mejora mediana en MAE supera 40 por ciento y la tasa de victoria llega a 80 u 86,7 por ciento. La explicación propuesta es la falta de vecinos espaciales informativos, donde la continuidad temporal aporta una restricción adicional.}
+{Tabla de escenarios seleccionados.}
+
+\QA{25. ¿Dónde no aporta TRSS?}
+{En pérdidas leves con suficiente información espacial puede empatar o perder.}
+{Con dos canales cercanos faltantes, la tabla seleccionada muestra mejora mediana cercana a cero y una tasa de victoria inferior a la mitad. Además, MNE domina en tiempo y LSD agregado. Por tanto, TRSS no es una elección automática.}
+{Escenarios seleccionados y portafolio.}
+
+\QA{26. ¿Por qué no combinar todas las métricas en un puntaje?}
+{Porque requeriría pesos de utilidad que el experimento no justifica.}
+{Un puntaje único ocultaría que amplitud, espectro y costo responden preguntas diferentes. En una aplicación concreta se podrían definir pesos a priori, pero para una tesis comparativa es más transparente mostrar la frontera y dejar explícita la prioridad.}
+{Discusión multi-métrica.}
+
+\subsection*{D. Validez, alcance y reproducibilidad}
+
+\QA{27. ¿Qué tan reproducible es el estudio?}
+{Cada caso conserva configuración, semilla, máscara, métricas, tiempos, reconstrucción e identificador.}
+{La arquitectura permite rastrear una figura o tabla hasta resultados derivados y configuraciones. La reproducibilidad todavía depende de versiones de software y hardware, por lo que estos también deben registrarse. La defensa conserva una matriz claim--evidence y checksums de fuentes.}
+{Metodología, trazabilidad; artefactos de defensa.}
+
+\QA{28. ¿Cómo controló fuga de información?}
+{La verdad del canal oculto se usa para evaluar, no para construir la máscara ni ajustar por caso el método final.}
+{Los grafos finales son geométricos y la configuración principal está congelada. Las mismas observaciones disponibles alimentan a ambos métodos. Un oráculo de parámetros se reporta solo como cota auxiliar y no como resultado desplegable.}
+{Metodología y decisiones de alcance.}
+
+\QA{29. ¿Puede afirmar utilidad clínica?}
+{No. El estudio evalúa reconstrucción controlada, no desenlaces ni decisiones clínicas.}
+{Faltan canales realmente dañados, evaluación ciega por especialistas, impacto en tareas posteriores, diversidad de equipos y un protocolo prospectivo. La tesis ofrece evidencia metodológica que puede motivar esos estudios, pero no valida uso clínico rutinario.}
+{Discusión, limitaciones.}
+
+\QA{30. ¿Por qué tres datasets son suficientes?}
+{Son suficientes para el alcance controlado de esta tesis, no para generalización universal.}
+{Aportan diversidad de montajes, tasas y paradigmas, pero sus tamaños y estructuras son heterogéneos. La conclusión se limita al benchmark. Un estudio externo debería añadir más bases, equipos, poblaciones y protocolos de daño real.}
+{Metodología y Validez externa.}
+
+\QA{31. ¿Cuál es la principal amenaza a la validez externa?}
+{Que la pérdida artificial y los datasets públicos no representan toda falla real ni toda población.}
+{Un electrodo real puede presentar ruido, saturación, deriva o contacto intermitente. Además, la composición de las bases no permite una muestra poblacional equilibrada. La siguiente validación debe incluir daño observado y tareas funcionales.}
+{Discusión y Conclusiones.}
+
+\QA{32. ¿Qué haría primero como trabajo futuro?}
+{Validaría daño real y tareas posteriores, en paralelo con acelerar TRSS.}
+{La prioridad científica es comprobar si la mejora de reconstrucción se traduce en mejor clasificación, conectividad o lectura experta bajo canales realmente dañados. La prioridad de ingeniería es reducir latencia y memoria. Solo después tendría sentido automatizar la regla de decisión.}
+{Conclusiones, trabajo futuro.}
+
+\QA{33. ¿Por qué no incluyó redes neuronales?}
+{Porque requerían un protocolo de entrenamiento y generalización externo que excedía el diseño congelado.}
+{Compararlas justamente exige separar sujetos o bases para entrenamiento, validación y prueba, controlar arquitectura y presupuesto, y evitar que vean patrones del conjunto final. La tesis no afirma que sean inferiores; delimita una comparación entre métodos no entrenables y reproducibles.}
+{Metodología y Limitaciones.}
+
+\QA{34. ¿Los tiempos pueden generalizarse a otro computador?}
+{No como valores absolutos; sí como evidencia relativa de esta implementación reportada.}
+{Los tiempos dependen de CPU, memoria, solver, tamaño de segmento y versiones. La diferencia observada, 0,0090 frente a 0,1214 segundos por caso, establece una contrapartida práctica en el entorno probado. Otro sistema debe volver a medirla.}
+{Tabla de tiempo y complejidad.}
+
+\QA{35. ¿Cuál es la contribución novedosa si TRSS y MNE ya existían?}
+{La contribución es la caracterización experimental condicional, no reclamar un algoritmo completamente nuevo.}
+{El trabajo integra un benchmark fuerte, pérdida estructurada, evaluación pareada multi-métrica, separación entre exploración y congelamiento, y trazabilidad. Su resultado novedoso es una frontera defendible de decisión: cuándo la temporalidad agrega valor y qué costo o degradación acompaña esa ventaja.}
+{Conclusiones, Aportes.}
+
+\QA{36. ¿Por qué la exploración tiene 120 escenarios y el protocolo final 100 estratos?}
+{Porque pertenecen a fases distintas y no comparten denominador: los 120 escenarios sirven para explorar; los 100 estratos definen la evaluación final congelada.}
+{La fase amplia cruza tres datasets, dos modos, cuatro severidades y cinco semillas. Esa amplitud orienta selección y congelamiento, pero no sostiene la cifra central. La comparación final usa un inventario independiente de 100 estratos y tres realizaciones por estrato, que generan 300 diferencias pareadas. Mezclar ambos conteos convertiría decisiones exploratorias en evidencia final.}
+{Metodología; fases experimentales; Protocolo de Validación Comparativa.}
+
+\QA{37. ¿El tiempo reportado incluye la búsqueda de hiperparámetros?}
+{No. Los tiempos centrales corresponden a la ejecución por caso de las variantes ya fijadas; la calibración es un costo adicional y se mantiene fuera de la comparación principal.}
+{MNE registra una mediana de 0,0090 segundos por caso y TRSS fijo de 0,1214 segundos en el entorno evaluado. Esas cifras comparan inferencia con configuraciones congeladas. Una variante calibrada debe sumar el costo de búsqueda, por lo que no puede presentarse como igual de desplegable ni usarse para rebajar artificialmente el costo de TRSS fijo.}
+{Resultados, tabla de tiempo y complejidad; decisiones de alcance.}
+
+\QA{38. ¿El mapa de decisión ya puede automatizar la elección del método?}
+{No. Es una síntesis descriptiva de los regímenes evaluados, no una regla predictiva validada externamente.}
+{El mapa traduce el benchmark a criterios transparentes: dificultad espacial, prioridad espectral, costo y procesamiento fuera de línea. Para automatizarlo habría que predefinir umbrales, evaluarlos en datos externos con daño real y medir el efecto en la tarea posterior. Hasta entonces orienta una decisión humana, pero no reemplaza validación específica.}
+{Discusión, mapa de decisión y Limitaciones.}

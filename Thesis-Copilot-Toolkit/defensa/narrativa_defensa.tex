@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\definecolor{USMBlue}{HTML}{004B76}
+\definecolor{USMLight}{HTML}{EAF3F8}
+\definecolor{Muted}{HTML}{5C6B73}
+\hypersetup{colorlinks=true,linkcolor=USMBlue,urlcolor=USMBlue,pdftitle={Narrativa de defensa de tesis},pdfauthor={Carlos Saldivia Heinz}}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Narrativa de defensa · Carlos Saldivia Heinz}
+\rhead{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\hyphenpenalty=7000
+\exhyphenpenalty=7000
+\emergencystretch=2em
+\newcommand{\Stage}[1]{\par\noindent\colorbox{USMLight}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\small\textbf{Dirección escénica:} #1}}}
+\newcommand{\NarrativeEntry}[7]{%
+  \begin{minipage}{\linewidth}
+  \raggedright
+  \subsection*{Slide #1 · #2 \hfill \textcolor{USMBlue}{#3 · acumulado #4}}
+  \addcontentsline{toc}{subsection}{Slide #1: #2 (#3)}
+  #5
+  \Stage{#6}
+  {\small\color{Muted}\textbf{Respaldo:} #7\par}\medskip\hrule\medskip
+  \end{minipage}\par
+}
+\newcommand{\QA}[4]{%
+  \begin{minipage}{\linewidth}
+  \raggedright
+  \subsubsection*{#1}
+  \noindent\textbf{Respuesta breve.} #2\par
+  \noindent\textbf{Respuesta desarrollada.} #3\par
+  {\small\color{Muted}\textbf{Respaldo:} #4\par}\medskip
+  \end{minipage}\par
+}
+\title{\textbf{Narrativa para la defensa de título}\\[0.5em]\large Reconstrucción de Canales EEG Faltantes Mediante Procesamiento de Señales en Grafos con Regularización Temporal}
+\author{Carlos Saldivia Heinz\\Universidad Técnica Federico Santa María\\Departamento de Electrónica}
+\date{23 de julio de 2026}
+\begin{document}
+\maketitle
+\begin{center}
+\colorbox{USMLight}{\parbox{0.90\linewidth}{\textbf{Uso del documento.} El guion principal está calibrado a 29:00 minutos e incluye transiciones y pausas. Las respuestas del banco se ofrecen en versión breve y desarrollada; deben responderse primero en una frase y ampliarse solo si el jurado lo solicita.}}
+\end{center}
+\tableofcontents
+\clearpage
+\input{narrativa_principal}
+\clearpage
+\input{preguntas_jurado}
+\end{document}

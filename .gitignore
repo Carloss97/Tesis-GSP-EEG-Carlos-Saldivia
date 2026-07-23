@@ -80,6 +80,16 @@ Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.lof
 Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.lot
 Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.out
 
+# --- Thesis defense local QA/build byproducts ---
+Thesis-Copilot-Toolkit/defensa/backups/
+Thesis-Copilot-Toolkit/defensa/previews/
+Thesis-Copilot-Toolkit/defensa/*.nav
+Thesis-Copilot-Toolkit/defensa/*.snm
+Thesis-Copilot-Toolkit/defensa/*.toc
+Thesis-Copilot-Toolkit/defensa/*.out
+!Thesis-Copilot-Toolkit/defensa/scripts/
+!Thesis-Copilot-Toolkit/defensa/scripts/*.py
+
 # Keep final deliverable PDFs and vector figure PDFs in the thesis package.
 !Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/tesis_completa.pdf
 !Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/tesis_caps_1_4.pdf
@@ -119,6 +129,7 @@ Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.out
 !Thesis-Copilot-Toolkit/experiments/canonical_registry.json
 !Thesis-Copilot-Toolkit/experiments/schedules/**/*.json
 !Thesis-Copilot-Toolkit/hermes/tesis_magister_gsp_eeg_v2/**/*.json
+!Thesis-Copilot-Toolkit/defensa/qa/storyboard_timing.csv
 
 # --- Python / environments / caches ---
 .venv/

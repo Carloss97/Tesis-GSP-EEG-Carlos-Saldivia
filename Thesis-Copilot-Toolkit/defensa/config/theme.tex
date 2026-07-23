@@ -1,0 +1,39 @@
+\definecolor{USMBlue}{HTML}{004B76}
+\definecolor{USMLight}{HTML}{EAF3F8}
+\definecolor{USMGold}{HTML}{D9A441}
+\definecolor{Ink}{HTML}{17242D}
+\definecolor{Muted}{HTML}{5C6B73}
+\definecolor{Good}{HTML}{1F7A5A}
+\definecolor{Caution}{HTML}{A66518}
+\definecolor{Bad}{HTML}{A63D40}
+
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=USMBlue}
+\setbeamercolor{frametitle}{fg=white,bg=USMBlue}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=USMLight}
+\setbeamercolor{author}{fg=white}
+\setbeamercolor{institute}{fg=USMLight}
+\setbeamercolor{date}{fg=USMLight}
+\setbeamercolor{block title}{fg=white,bg=USMBlue}
+\setbeamercolor{block body}{fg=Ink,bg=USMLight}
+\setbeamercolor{alerted text}{fg=Bad}
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{normal text}{size=\normalsize}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\color{USMGold}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{USMBlue}$\bullet$}
+\setbeamertemplate{frametitle}{\nointerlineskip\begin{beamercolorbox}[wd=\paperwidth,ht=0.82cm,dp=0.22cm,leftskip=0.46cm]{frametitle}\insertframetitle\end{beamercolorbox}}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+  \begin{beamercolorbox}[wd=.80\paperwidth,ht=2.8ex,dp=1.1ex,leftskip=.45cm]{author in head/foot}\color{Muted}\scriptsize Carlos Saldivia Heinz · Defensa de título\end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.20\paperwidth,ht=2.8ex,dp=1.1ex,rightskip=.45cm plus1fil]{date in head/foot}\color{USMBlue}\bfseries\scriptsize\insertframenumber\end{beamercolorbox}}}
+
+% Keep source labels as normal UTF-8 text. Filename underscores are escaped at
+% each call site so pdfLaTeX preserves both visual accents and searchable text.
+\newcommand{\Source}[1]{\par\vspace{0.15em}{\color{Muted}\fontsize{6.2}{7.0}\selectfont Fuente: #1\par}}
+\newcommand{\Takeaway}[1]{\begin{beamercolorbox}[rounded=true,sep=0.45em,wd=\linewidth]{block body}\centering\bfseries #1\end{beamercolorbox}}
+\newcommand{\Metric}[3]{\begin{minipage}[t]{0.30\linewidth}\centering{\color{USMBlue}\fontsize{22}{24}\selectfont\bfseries #1}\par{\small #2}\par{\color{Muted}\scriptsize #3}\end{minipage}}
+\newcommand{\SmallTag}[1]{\colorbox{USMLight}{\strut\scriptsize\bfseries\color{USMBlue}#1}}
