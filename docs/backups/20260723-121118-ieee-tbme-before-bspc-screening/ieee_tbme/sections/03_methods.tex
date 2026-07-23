@@ -1,0 +1,33 @@
+\section{Materials and Methods}
+\subsection{Problem Formulation}
+Let $\bm{X}\in\mathbb{R}^{N\times T}$ denote an EEG segment with $N$ channels and $T$ samples. The binary mask $\bm{M}\in\{0,1\}^{N\times T}$ is one for observed entries and zero for artificially hidden channels. Given the incomplete matrix $\bm{Y}=\bm{M}\odot\bm{X}$, the task is to estimate $\widehat{\bm{X}}$ while retaining observed values exactly.
+
+Electrodes define the vertices of an undirected weighted graph $\mathcal{G}=(\mathcal{V},\mathcal{E},\bm{W})$. For sensor coordinates $\bm{r}_i$, each vertex is connected to its $k$ nearest neighbors, and geometry-derived weights decay with distance. With degree matrix $\bm{D}$, the combinatorial Laplacian is $\bm{L}=\bm{D}-\bm{W}$. This graph is fixed from sensor geometry and is not learned from hidden targets.
+
+\subsection{Temporal-Regularized Sobolev Smoothing}
+TRSS estimates the complete segment through
+\begin{equation}
+\begin{split}
+\widehat{\bm{X}}=\arg\min_{\bm{Z}}\;&
+\frac{1}{2}\lVert\bm{M}\odot(\bm{Z}-\bm{Y})\rVert_F^2 \\
+&+\alpha\,\mathrm{tr}(\bm{Z}^{\mathsf T}\bm{L}\bm{Z})
++\beta\lVert\bm{Z}\bm{D}_t\rVert_F^2,
+\end{split}
+\label{eq:trss}
+\end{equation}
+where $\bm{D}_t$ is the first-order temporal difference operator. The first term enforces agreement with observed samples; the second penalizes graph variation; and the third discourages abrupt temporal changes. After optimization, observed entries are restored from $\bm{Y}$, making the observed-channel error identically zero by construction.
+
+The confirmatory configuration was fixed at $k=4$, graph scale $\sigma=1.0$, $\alpha=0.8$, $\beta=0.15$, 120 iterations, and learning rate 0.05. These values were frozen before the final paired summary. Oracle-selected variants were analyzed in the thesis but are excluded from the principal claim because case-wise parameter selection is not a deployable comparator.
+
+\subsection{Comparator}
+The baseline was MNE-Python's EEG bad-channel interpolation with the spherical-spline option \cite{gramfort2013meg,gramfort2014mne}. This implementation reconstructs scalp potentials from sensor geometry following the spherical-spline principle \cite{perrin1989}. Both methods received the same signal, hidden-channel set, and sensor coordinates for each paired case.
+
+\subsection{Evaluation Material and Missingness Design}
+The frozen balanced benchmark contains five strata: a graph-smooth synthetic regime, a rougher synthetic regime, two records from the PhysioNet EEG Motor Movement/Imagery resource \cite{goldberger2000physiobank,schalk2004bci2000}, and the MNE Sample dataset. The synthetic strata provide controlled limiting cases; the real-data strata test transfer to recorded signals. This benchmark does not constitute clinical validation.
+
+Four channel-removal patterns were applied: random channels, spatially neighboring channels, peripheral graph channels, and high-variance channels. Missingness levels comprised one channel, two channels, and 10\%, 30\%, or 40\% of available channels. Three random seeds were used. The Cartesian design produced 100 scenario clusters and 300 exactly paired cases. Scores were computed only on hidden channels.
+
+\subsection{Outcome Measures and Uncertainty}
+Amplitude fidelity was summarized with mean absolute error (MAE), root-mean-square error (RMSE), and normalized RMSE. Temporal shape was assessed with dynamic time warping (DTW) and mean correlation; explained variation with $R^2$; spectral behavior with signal-to-noise ratio (SNR), log-spectral distance (LSD), and mean coherence. Runtime per case represented computational cost.
+
+For an error metric $e$ in which lower is better, relative improvement was $(e_{\mathrm{MNE}}-e_{\mathrm{TRSS}})/e_{\mathrm{MNE}}$; signs were reversed for higher-is-better metrics. We report paired win rates, median relative improvements, and cluster bootstrap 95\% intervals over the 100 scenario clusters. The interpretation emphasizes effect magnitude, heterogeneity, and practical tradeoffs rather than a binary significance decision.

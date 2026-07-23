@@ -1,0 +1,10 @@
+\section{Related Work}
+\subsection{EEG Channel Interpolation}
+Spherical splines remain a standard geometry-based approach for reconstructing scalp potentials \cite{perrin1989}. The method exploits the smoothness of the electrical field on a spherical head model and is available through established EEG software. Other spatial alternatives include radial basis functions \cite{jager2016rbf}. Such methods are attractive because they are interpretable, fast, and require no learned population model. Their main limitation for the present problem is that temporal dependence is not part of the reconstruction objective.
+
+Data-driven EEG representations can exploit larger training collections, but they introduce model-training, distribution-shift, and data-governance considerations. The present work instead studies a deterministic, training-free regularizer. This distinction matters: the target is recovery of hidden channels in short multichannel segments, not generation of unconstrained EEG or replacement of artifact rejection.
+
+\subsection{Graph-Based Reconstruction}
+GSP generalizes classical signal concepts to irregular domains \cite{shuman2013,ortega2018}. Given a weighted graph, the combinatorial Laplacian quantifies variation across connected vertices. Low graph variation provides a prior for interpolation \cite{narang2013}. Graph construction is itself consequential; geometry-based graphs preserve an explicit, non-circular relationship to sensor layout, whereas data-derived graphs may encode statistical dependencies and can require separate training or leakage controls \cite{kalofolias_how_2016,shekkizhar2020}.
+
+Time-varying graph-signal reconstruction extends this idea by coupling graph smoothness to evolution across samples. Sobolev-type formulations have been used for dynamic graph signals \cite{giraldo2022}. TRSS follows that general principle but uses a geometry-based EEG sensor graph and a simple first-difference temporal term, enabling direct comparison with a geometry-based spline baseline.

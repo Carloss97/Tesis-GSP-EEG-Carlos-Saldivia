@@ -1,0 +1,72 @@
+\section{Results}
+\subsection{Primary Paired Comparison}
+Table~\ref{tab:primary} reports the fixed TRSS comparison against MNE spherical splines. Across 300 paired cases, TRSS reduced median MAE by 12.4\% (95\% bootstrap interval: 7.8--17.4\%) and won 72.0\% of cases (95\% interval: 63.7--79.3\%). Similar directional gains occurred for RMSE, NRMSE, DTW, correlation, and $R^2$.
+
+\begin{table*}[t]
+\caption{Fixed TRSS Versus MNE Spherical Splines in 300 Paired Cases}
+\label{tab:primary}
+\centering
+\small
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Metric & MNE median & TRSS median & Median improvement & 95\% bootstrap interval & TRSS win rate & Win-rate interval \\
+\midrule
+MAE & $1.133\!\times\!10^{-5}$ & $8.462\!\times\!10^{-6}$ & 12.4\% & [7.8, 17.4]\% & 72.0\% & [63.7, 79.3]\% \\
+RMSE & $1.474\!\times\!10^{-5}$ & $1.055\!\times\!10^{-5}$ & 13.9\% & [6.4, 19.3]\% & 70.3\% & [62.3, 78.0]\% \\
+NRMSE & 0.725 & 0.634 & 13.9\% & [6.4, 19.3]\% & 70.3\% & [62.3, 78.0]\% \\
+DTW & $6.732\!\times\!10^{-4}$ & $5.599\!\times\!10^{-4}$ & 9.8\% & [5.5, 12.7]\% & 71.0\% & [63.3, 78.7]\% \\
+SNR & 9.466 & 10.029 & 3.7\% & [0.9, 9.6]\% & 61.0\% & [53.3, 68.3]\% \\
+LSD & 0.751 & 0.767 & $-2.3$\% & [$-4.0$, $-0.2$]\% & 40.7\% & [32.3, 49.0]\% \\
+Coherence & 0.887 & 0.888 & 0.2\% & [0.0, 0.5]\% & 58.3\% & [50.3, 66.0]\% \\
+Correlation & 0.927 & 0.942 & 0.8\% & [0.3, 2.0]\% & 68.7\% & [60.7, 76.0]\% \\
+$R^2$ & 0.475 & 0.598 & 16.9\% & [3.4, 52.8]\% & 70.3\% & [62.7, 78.3]\% \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Fig.~\ref{fig:portfolio} makes the metric dependence explicit. The largest median relative gains occurred in $R^2$, RMSE/NRMSE, and MAE. In contrast, LSD favored spherical splines. Coherence improved only slightly, and its interval approached zero. Therefore, amplitude and temporal-shape improvement should not be interpreted as uniform spectral superiority.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.94\textwidth]{metric_portfolio.pdf}
+\caption{Metric portfolio for fixed TRSS relative to MNE spherical splines. Positive values favor TRSS; negative values favor MNE. Values are median paired relative improvements from the frozen thesis benchmark.}
+\label{fig:portfolio}
+\end{figure*}
+
+\subsection{Heterogeneity Across Data Strata}
+The aggregate result concealed a meaningful regime dependence (Fig.~\ref{fig:datasets}). TRSS won all rough-synthetic cases and achieved a 21.5\% median MAE improvement. It also improved median MAE for both PhysioNet records and the MNE Sample segment, with win rates from 73.3\% to 85.0\%. In the smooth synthetic regime, however, TRSS had a $-12.7$\% median MAE improvement and won only 20.0\% of cases. Spherical splines are well matched to that deliberately smooth spatial field, whereas the extra temporal prior can overconstrain the solution.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.94\textwidth]{dataset_summary.pdf}
+\caption{Heterogeneity of fixed-TRSS MAE performance across benchmark strata. (a) Median paired MAE improvement relative to MNE; positive values favor TRSS. (b) Fraction of paired cases won by TRSS; the dashed line denotes 50\%. Each stratum contains 60 cases.}
+\label{fig:datasets}
+\end{figure*}
+
+\begin{table}[t]
+\caption{MAE Results by Benchmark Stratum}
+\label{tab:dataset}
+\centering
+\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Stratum & $n$ & Median improvement & Win rate \\
+\midrule
+Smooth synthetic & 60 & $-12.7$\% & 20.0\% \\
+Rough synthetic & 60 & 21.5\% & 100.0\% \\
+PhysioNet S1 & 60 & 9.5\% & 85.0\% \\
+PhysioNet S2 & 60 & 12.2\% & 73.3\% \\
+MNE Sample & 60 & 22.6\% & 81.7\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Computational Tradeoff}
+Median runtime was 0.121~s per case for fixed TRSS and 0.009~s for MNE, corresponding to an approximately 13.5-fold ratio. Fig.~\ref{fig:runtime} summarizes the accuracy--cost tradeoff. TRSS occupies the lower-error but higher-cost region. The absolute time remained below one second in this offline benchmark, but the difference is relevant for long recordings, repeated parameter search, and real-time systems.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{runtime_tradeoff.pdf}
+\caption{Median MAE--runtime tradeoff. Runtime is shown on a logarithmic scale. TRSS reduced median MAE at substantially greater computational cost.}
+\label{fig:runtime}
+\end{figure}

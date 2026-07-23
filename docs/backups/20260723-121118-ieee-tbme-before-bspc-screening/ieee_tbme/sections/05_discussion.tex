@@ -1,0 +1,18 @@
+\section{Discussion}
+The paired benchmark supports three main observations. First, a geometry-based graph model with explicit temporal regularization can improve recovery of hidden EEG channels on several amplitude and shape measures. Fixed TRSS improved median MAE, RMSE, NRMSE, DTW, correlation, and $R^2$, and its MAE advantage appeared in each evaluated real-data stratum. Because signals, masks, and seeds were shared between methods, these differences are not attributable to unequal missingness draws.
+
+Second, the benefit is conditional. The smooth synthetic regime strongly favored spherical splines, and LSD favored MNE in the pooled comparison. These findings are coherent with the model assumptions. Spherical splines impose a spatially smooth scalp field and are difficult to improve upon when that assumption closely matches the generating process. TRSS trades additional temporal consistency against potential oversmoothing or spectral attenuation. Accordingly, method choice should depend on the intended downstream feature: lower pointwise error does not guarantee better preservation of every spectral property.
+
+Third, robustness carries a computational cost. The fixed iterative solver was approximately 13.5 times slower at the median than the optimized MNE routine. The absolute runtime may be acceptable for offline repair of short segments, but MNE remains advantageous when latency, throughput, or simplicity dominates. Closed-form solvers, sparse factorization reuse, adaptive stopping, and warm starts are plausible engineering improvements, but they were not evaluated here.
+
+\subsection{Practical Interpretation}
+The results suggest a conservative decision rule. Spherical splines remain a strong default for smooth fields and time-critical processing. TRSS is most defensible when missingness is difficult, amplitude/shape fidelity is central, and a short segment provides sufficient temporal context. Reporting should include both an amplitude-domain measure and a spectral measure, since either alone can hide a relevant failure mode.
+
+The method reconstructs channels; it does not identify whether a channel is bad. A separate quality-control procedure must define the channels to hide. Moreover, reconstruction should be logged and retained as a preprocessing transformation. It must not be represented as measured data, particularly in clinical or regulatory settings.
+
+\subsection{Limitations}
+The real-data component is limited to two PhysioNet records and one MNE Sample segment. Although the design spans 300 paired masks and several missingness modes, masks are not independent participants; uncertainty was therefore clustered by scenario rather than interpreted as population-level clinical uncertainty. The evaluation does not establish generalization across laboratories, montages, pathologies, amplifiers, or recording durations.
+
+The sensor graph was derived from geometry and used fixed hyperparameters. This improves auditability but may be suboptimal for individual recordings. Conversely, per-case oracle selection would overstate deployable performance and was not used for the main result. The benchmark also compared against one established spline implementation rather than every interpolation or learning-based alternative.
+
+Finally, artificial channel hiding provides known ground truth but is not identical to naturally corrupted electrodes. Natural failures can co-occur with bridging, reference changes, saturation, or spatially diffuse artifacts. Prospective evaluation on independently adjudicated failures and assessment of downstream biomarkers or classifiers are needed before clinical claims can be made.

@@ -1,0 +1,15 @@
+\section{Introduction}
+\IEEEPARstart{E}{lectroencephalography} (EEG) records noninvasive electrical activity at multiple scalp locations. Its temporal resolution supports research and clinical workflows, yet the measurements remain vulnerable to electrode detachment, high impedance, motion, amplifier saturation, and localized artifacts. Removing an entire recording because a subset of channels is unusable wastes otherwise informative samples. Conversely, reconstructing a damaged channel without preserving spatial and temporal structure can distort downstream analyses.
+
+The standard practical response is spatial interpolation. Spherical splines model scalp potentials as a smooth field over sensor locations \cite{perrin1989}, and their implementation in MNE-Python is widely available \cite{gramfort2013meg,gramfort2014mne}. This approach is computationally efficient and effective when the scalp field is sufficiently smooth. It does not, however, explicitly regularize temporal continuity while estimating each missing channel.
+
+Graph signal processing (GSP) provides a natural representation in which electrodes are graph vertices, edge weights encode sensor proximity, and the voltage at each instant is a graph signal \cite{shuman2013,ortega2018}. Missing-channel interpolation can then be posed as graph-signal recovery \cite{narang2013}. For an EEG segment, the unknown is not a single graph signal but a matrix evolving over time. This motivates joint spatial and temporal regularization.
+
+This paper evaluates temporal-regularized Sobolev smoothing (TRSS), a graph reconstruction model developed and audited in the accompanying thesis. The article is a new synthesis of the frozen thesis evidence; no additional reconstruction experiment is introduced. Its contributions are:
+\begin{enumerate}
+    \item a reproducible formulation that combines observed-channel fidelity, graph-Laplacian smoothness, and first-order temporal continuity;
+    \item an exactly paired comparison against MNE spherical-spline interpolation over 300 cases and multiple missing-channel patterns;
+    \item a multidomain assessment showing both the practical benefits and the failure modes of temporal graph regularization, including spectral-quality and runtime tradeoffs.
+\end{enumerate}
+
+The central claim is deliberately bounded. TRSS is not presented as a universal replacement for spherical splines, nor as clinically validated. The evidence supports it as a complementary method whose value depends on the signal regime, metric, and computational budget.

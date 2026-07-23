@@ -1,0 +1,41 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+\sisetup{detect-all,table-number-alignment=center}
+
+\title{Missing EEG Channel Reconstruction Using Graph Signal Processing With Temporal Regularization}
+
+\author{Carlos~Saldivia~Heinz%
+\thanks{C. Saldivia Heinz is with the Department of Electronics, Universidad T\'ecnica Federico Santa Mar\'ia, Valpara\'iso, Chile.}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Missing or corrupted electroencephalographic (EEG) channels can compromise spatial analyses and reduce usable recording time. Conventional spherical-spline interpolation uses sensor geometry but treats samples independently. This work formulates missing-channel recovery as reconstruction of a time-varying graph signal and combines a spatial graph-Laplacian prior with first-order temporal regularization. A fixed temporal-regularized Sobolev smoothing (TRSS) configuration was evaluated against the spherical-spline implementation in MNE-Python using exactly paired signals, masks, and random seeds. The frozen benchmark comprises 300 paired cases across two synthetic regimes, two PhysioNet EEG records, and the MNE Sample dataset, with random, neighboring, peripheral, and high-variance channel-removal patterns. Metrics were computed only on artificially hidden channels. Relative to spherical splines, TRSS achieved a 12.4\% median improvement in mean absolute error (95\% bootstrap interval: 7.8--17.4\%) and won 72.0\% of paired cases. Improvements were also observed for root-mean-square error, normalized RMSE, dynamic time warping, correlation, and $R^2$. However, spherical splines retained an advantage in log-spectral distance and were approximately 13.5 times faster at the median. Performance was heterogeneous: TRSS improved amplitude reconstruction in rough synthetic and real-data strata but underperformed on the smooth synthetic regime. These results support temporal graph regularization as a complementary reconstruction option rather than a universal replacement for spherical splines.
+\end{abstract}
+
+\begin{IEEEkeywords}
+electroencephalography, missing channels, graph signal processing, temporal regularization, spherical splines, signal reconstruction.
+\end{IEEEkeywords}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_methods}
+\input{sections/04_results}
+\input{sections/05_discussion}
+\input{sections/06_conclusion}
+
+\IEEEtriggeratref{6}
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography/references}
+\end{document}

@@ -1,0 +1,75 @@
+{
+  "protocol_id": "paper_core_v1",
+  "created_at": "2026-07-23",
+  "datasets": {
+    "physionet_eegbci": {
+      "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "runs": [4],
+      "source_type": "real_eeg"
+    },
+    "bci_competition_iv_2a": {
+      "subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "session": "T",
+      "eeg_channels": 22,
+      "source_type": "real_eeg"
+    },
+    "mne_sample": {
+      "recordings": ["sample_audvis_raw"],
+      "source_type": "real_eeg"
+    }
+  },
+  "preprocessing": {
+    "crop_start_s": 0.0,
+    "crop_duration_s": 20.0,
+    "average_reference": true,
+    "bandpass_hz": [0.5, 45.0],
+    "target_sfreq_hz": 160.0,
+    "analysis_window_s": [8.0, 12.0],
+    "expected_samples": 640,
+    "minimum_valid_channels": 16
+  },
+  "masking": {
+    "modes": ["random", "nearby"],
+    "severities": [0.1, 0.2, 0.3, 0.4],
+    "seeds": [0, 1, 2, 3, 4]
+  },
+  "methods": {
+    "mne_spline": {
+      "method": "spline",
+      "origin": "auto"
+    },
+    "trss_fixed": {
+      "graph": "knng",
+      "k": 4,
+      "sigma": 1.0,
+      "alpha": 0.8,
+      "beta": 0.15,
+      "n_iter": 120,
+      "lr": 0.05
+    }
+  },
+  "metrics": [
+    "mae",
+    "rmse",
+    "nrmse",
+    "snr",
+    "dtw",
+    "lsd",
+    "coherence_mean",
+    "corr_mean",
+    "r2",
+    "runtime_s"
+  ],
+  "bootstrap": {
+    "type": "hierarchical_descriptive",
+    "resamples": 2000,
+    "seed": 20260723,
+    "dataset_key": "dataset",
+    "recording_key": "recording_id"
+  },
+  "expected_counts": {
+    "recording_units": 19,
+    "paired_cases": 760,
+    "method_evaluations": 1520
+  }
+}
